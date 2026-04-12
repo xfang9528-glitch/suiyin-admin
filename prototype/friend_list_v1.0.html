@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>好友列表</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 14px; color: #1a1a1a; background: #f5f7fa;
+  padding: 20px 24px; min-height: 100vh;
+}
+:root { --wx-green: #07c160; --wx-green-dark: #06ad56; --wx-green-light: #e8f6ee; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: #d0d7de; border-radius: 3px; }
+
+/* ===== 分类 Tab（下拉按钮样式）===== */
+.view-tabs {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 14px;
+}
+.view-tab-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  height: 32px; padding: 0 14px; border-radius: 4px; font-size: 13px;
+  cursor: pointer; transition: all 0.15s; font-family: inherit; font-weight: 500;
+  border: 1px solid #d0d7de; background: #fff; color: #4a5564;
+}
+.view-tab-btn:hover { border-color: var(--wx-green); color: var(--wx-green); }
+.view-tab-btn.active { background: var(--wx-green); color: #fff; border-color: var(--wx-green); }
+.view-tab-btn .count { font-weight: 400; }
+.view-tab-btn .arrow {
+  font-size: 10px; opacity: 0.7; margin-left: 2px;
+}
+
+/* 下拉容器 */
+.tab-dropdown-wrap { position: relative; display: inline-block; }
+.tab-dropdown {
+  display: none; position: absolute; top: 38px; left: 0; z-index: 100;
+  background: #fff; border-radius: 8px; box-shadow: 0 6px 28px rgba(0,0,0,0.14);
+  padding: 20px 24px 16px; min-width: 480px;
+  animation: dropIn 0.15s ease;
+}
+@keyframes dropIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.tab-dropdown.show { display: block; }
+.tab-dropdown .close-btn {
+  position: absolute; top: 10px; right: 12px; width: 22px; height: 22px;
+  background: none; border: none; font-size: 16px; color: #8a96a3; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; border-radius: 50%;
+}
+.tab-dropdown .close-btn:hover { background: #f0f2f5; color: #1a1a1a; }
+
+/* 顶部「全部好友」大数字 */
+.dd-total {
+  display: inline-flex; flex-direction: column; align-items: center;
+  padding: 14px 28px; border: 2px solid var(--wx-green); border-radius: 8px;
+  margin-bottom: 16px; position: relative; color: var(--wx-green); cursor: pointer;
+}
+.dd-total.selected { background: var(--wx-green-light); }
+.dd-total .dd-label { font-size: 13px; font-weight: 500; }
+.dd-total .dd-num { font-size: 22px; font-weight: 700; margin-top: 2px; }
+.dd-total .dd-check {
+  position: absolute; bottom: -1px; right: -1px; width: 18px; height: 18px;
+  background: var(--wx-green); color: #fff; font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 0 0 6px 0; clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+/* 分类区段 */
+.dd-section { margin-bottom: 14px; }
+.dd-section-title { font-size: 12px; color: #8a96a3; margin-bottom: 8px; }
+.dd-cards { display: flex; gap: 10px; flex-wrap: wrap; }
+.dd-card {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 10px 18px; border: 1px solid #e5e8ec; border-radius: 6px;
+  cursor: pointer; transition: all 0.15s; min-width: 80px;
+}
+.dd-card:hover { border-color: var(--wx-green); color: var(--wx-green); }
+.dd-card.selected { border-color: var(--wx-green); background: var(--wx-green-light); color: var(--wx-green); }
+.dd-card .dd-label { font-size: 12px; color: #4a5564; white-space: nowrap; }
+.dd-card .dd-num { font-size: 16px; font-weight: 600; margin-top: 2px; color: #1a1a1a; }
+.dd-card:hover .dd-label, .dd-card.selected .dd-label { color: var(--wx-green); }
+.dd-card:hover .dd-num, .dd-card.selected .dd-num { color: var(--wx-green); }
+
+/* ===== 筛选区 ===== */
+.filter-bar {
+  background: #fff; border-radius: 8px; padding: 14px 20px 12px;
+  margin-bottom: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.filter-row {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.filter-field { display: flex; align-items: center; gap: 6px; }
+.filter-field label { color: #6b7684; font-size: 13px; white-space: nowrap; }
+.filter-input, .filter-select {
+  height: 32px; border: 1px solid #e5e8ec; border-radius: 4px;
+  padding: 0 10px; font-size: 13px; outline: none;
+  background: #fff; color: #1a1a1a; transition: all 0.15s; font-family: inherit;
+}
+.filter-input { min-width: 160px; }
+.filter-select {
+  min-width: 110px; padding-right: 26px; cursor: pointer; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 8px center; background-color: #fff;
+}
+.filter-input:focus, .filter-select:focus {
+  border-color: var(--wx-green); box-shadow: 0 0 0 2px rgba(7,193,96,0.12);
+}
+.btn {
+  height: 32px; padding: 0 16px; border-radius: 4px; font-size: 13px;
+  cursor: pointer; border: 1px solid transparent; transition: all 0.15s; font-family: inherit;
+}
+.btn-primary { background: var(--wx-green); color: #fff; font-weight: 500; }
+.btn-primary:hover { background: var(--wx-green-dark); }
+.btn-default { background: #fff; color: #4a5564; border-color: #d0d7de; }
+.btn-default:hover { border-color: var(--wx-green); color: var(--wx-green); }
+.btn-sm { height: 28px; padding: 0 12px; font-size: 12px; }
+.filter-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+/* ===== 卡片 ===== */
+.card { background: #fff; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); overflow: hidden; }
+.card-header {
+  padding: 12px 20px; display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid #f0f2f5;
+}
+.card-title { font-size: 14px; font-weight: 600; }
+.card-title span { font-size: 13px; font-weight: 400; color: #8a96a3; margin-left: 6px; }
+.card-actions { display: flex; gap: 8px; }
+
+/* ===== 表格 ===== */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 1200px; }
+thead th {
+  padding: 10px 12px; background: #f7f9fb; color: #6b7684; font-weight: 500;
+  text-align: left; white-space: nowrap; border-bottom: 1px solid #ebeef2;
+}
+thead th:first-child { padding-left: 20px; }
+thead th:last-child { padding-right: 20px; }
+tbody tr { border-bottom: 1px solid #f0f2f5; transition: background 0.12s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #fafbfc; }
+tbody td { padding: 11px 12px; vertical-align: top; color: #1a1a1a; }
+tbody td:first-child { padding-left: 20px; vertical-align: middle; }
+tbody td:last-child { padding-right: 20px; vertical-align: middle; }
+
+/* 复选框 */
+.cb { width: 15px; height: 15px; accent-color: var(--wx-green); cursor: pointer; }
+
+/* 微信昵称单元格 */
+.wechat-cell { display: flex; align-items: flex-start; gap: 10px; }
+.avatar {
+  width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0;
+  overflow: hidden; display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: 14px;
+  background: #e8f6ee; color: #07c160;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.wechat-info .nick { font-size: 13px; font-weight: 500; line-height: 1.4; }
+.wechat-info .phone { font-size: 12px; color: #8a96a3; margin-top: 1px; }
+
+/* 基本信息单元格 */
+.basic-info { font-size: 12px; color: #4a5564; line-height: 1.9; }
+.basic-info .lbl { color: #8a96a3; }
+
+/* 来源信息单元格 */
+.source-info { font-size: 12px; color: #4a5564; line-height: 1.9; }
+.source-info .lbl { color: #8a96a3; }
+
+/* 状态tag */
+.tag {
+  display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 10px;
+  font-size: 12px; font-weight: 500; white-space: nowrap;
+}
+.tag-green { background: var(--wx-green-light); color: var(--wx-green); }
+.tag-gray { background: #f0f2f5; color: #6b7684; }
+.tag-red { background: #fee2e2; color: #dc2626; }
+
+/* 账号 */
+.acc-tag {
+  display: inline-block; padding: 1px 8px; border-radius: 3px;
+  background: #f0f2f5; color: #4a5564; font-size: 12px;
+}
+
+/* 操作按钮 */
+.action-btns { display: flex; align-items: center; gap: 2px; white-space: nowrap; }
+.action-btn {
+  font-size: 12px; color: var(--wx-green); cursor: pointer;
+  padding: 3px 6px; transition: all 0.12s; background: none; border: none; font-family: inherit;
+  border-radius: 3px;
+}
+.action-btn:hover { background: var(--wx-green-light); }
+.action-btn.danger { color: #6b7684; }
+.action-btn.danger:hover { color: #dc2626; background: #fee2e2; }
+
+/* 分页 */
+.pagination {
+  display: flex; align-items: center; justify-content: flex-end;
+  padding: 14px 20px; border-top: 1px solid #f0f2f5; font-size: 13px; color: #6b7684;
+  gap: 8px;
+}
+.page-size-select {
+  height: 28px; border: 1px solid #e5e8ec; border-radius: 4px;
+  padding: 0 22px 0 8px; font-size: 12px; outline: none; color: #4a5564;
+  appearance: none; cursor: pointer; font-family: inherit;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E") no-repeat right 6px center;
+}
+.page-btns { display: flex; align-items: center; gap: 3px; }
+.page-btn {
+  min-width: 28px; height: 28px; border-radius: 4px; border: 1px solid #ebeef2; background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; cursor: pointer; color: #4a5564; padding: 0 6px;
+  transition: all 0.12s; font-family: inherit;
+}
+.page-btn:hover { border-color: var(--wx-green); color: var(--wx-green); }
+.page-btn.active { background: var(--wx-green); color: #fff; border-color: var(--wx-green); }
+.page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* 销售SPU蓝色链接 */
+.spu-links { font-size: 12px; color: #1677ff; line-height: 1.8; }
+.spu-links a { color: #1677ff; text-decoration: none; cursor: pointer; display: block; }
+.spu-links a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- 分类 Tab 下拉按钮 -->
+<div class="view-tabs">
+  <div class="tab-dropdown-wrap">
+    <button class="view-tab-btn active" onclick="toggleDropdown(event)">全部好友 <span class="count">(2033人)</span> <span class="arrow">▼</span></button>
+    <div class="tab-dropdown" id="friendDropdown">
+      <button class="close-btn" onclick="closeDropdown()">&times;</button>
+      <!-- 全部好友总数 -->
+      <div class="dd-total selected" onclick="selectFilter(this, '全部')">
+        <span class="dd-label">全部好友</span>
+        <span class="dd-num">2033 人</span>
+        <span class="dd-check">✓</span>
+      </div>
+      <!-- 待转化好友 -->
+      <div class="dd-section">
+        <div class="dd-section-title">待转化好友:</div>
+        <div class="dd-cards">
+          <div class="dd-card" onclick="selectFilter(this, '新好友')">
+            <span class="dd-label">新好友</span>
+            <span class="dd-num">422 人</span>
+          </div>
+          <div class="dd-card" onclick="selectFilter(this, '有信息好友')">
+            <span class="dd-label">有信息好友</span>
+            <span class="dd-num">370 人</span>
+          </div>
+          <div class="dd-card" onclick="selectFilter(this, '有销售好友')">
+            <span class="dd-label">有销售好友</span>
+            <span class="dd-num">174 人</span>
+          </div>
+        </div>
+      </div>
+      <!-- 重要好友 -->
+      <div class="dd-section">
+        <div class="dd-section-title">重要好友:</div>
+        <div class="dd-cards">
+          <div class="dd-card" onclick="selectFilter(this, '有购买好友')">
+            <span class="dd-label">有购买好友</span>
+            <span class="dd-num">1067 人</span>
+          </div>
+          <div class="dd-card" onclick="selectFilter(this, '复购好友')">
+            <span class="dd-label">复购好友</span>
+            <span class="dd-num">0 人</span>
+          </div>
+          <div class="dd-card" onclick="selectFilter(this, '升级购好友')">
+            <span class="dd-label">升级购好友</span>
+            <span class="dd-num">0 人</span>
+          </div>
+        </div>
+      </div>
+      <!-- 裂变好友 -->
+      <div class="dd-section">
+        <div class="dd-section-title">裂变好友:</div>
+        <div class="dd-cards">
+          <div class="dd-card" onclick="selectFilter(this, '裂变邀请好友')">
+            <span class="dd-label">裂变邀请好友</span>
+            <span class="dd-num">5 人</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="view-tab-btn">来源信息 <span class="arrow">▼</span></button>
+  <button class="view-tab-btn">好友信息 <span class="arrow">▼</span></button>
+  <button class="view-tab-btn">用户信息 <span class="arrow">▼</span></button>
+  <button class="view-tab-btn">购买信息 <span class="arrow">▼</span></button>
+</div>
+
+<!-- 筛选区 -->
+<div class="filter-bar">
+  <div class="filter-row">
+    <div class="filter-field">
+      <label>关键词</label>
+      <input class="filter-input" type="text" placeholder="好友名称/电话/手机号">
+    </div>
+    <div class="filter-field">
+      <label>重复好友</label>
+      <select class="filter-select">
+        <option value="">请选择</option>
+        <option>重复微信号</option>
+        <option>重复手机号</option>
+        <option>无重复</option>
+      </select>
+    </div>
+    <div class="filter-field">
+      <label>接待中销售</label>
+      <select class="filter-select">
+        <option value="">请选择</option>
+        <option>李晓琳</option>
+        <option>陈建国</option>
+        <option>王明</option>
+        <option>周静</option>
+        <option>赵盼盼</option>
+      </select>
+    </div>
+    <div class="filter-field">
+      <label>专属销售</label>
+      <select class="filter-select">
+        <option value="">请选择</option>
+        <option>李晓琳</option>
+        <option>陈建国</option>
+        <option>王明</option>
+        <option>周静</option>
+        <option>赵盼盼</option>
+      </select>
+    </div>
+    <button class="btn btn-primary">查询</button>
+    <button class="btn btn-default">重置</button>
+    <div class="filter-right">
+      <button class="btn btn-default">导出表格</button>
+      <button class="btn btn-default">保存为标签</button>
+      <button class="btn btn-primary">
+        <svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>创建虚拟好友
+      </button>
+      <button class="btn btn-default">全部记录</button>
+    </div>
+  </div>
+</div>
+
+<!-- 主表格 -->
+<div class="card">
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:36px"><input type="checkbox" class="cb" onclick="toggleAll(this)"></th>
+          <th>微信昵称</th>
+          <th>好友名称</th>
+          <th>基本信息</th>
+          <th>可接待销售</th>
+          <th>来源信息</th>
+          <th>好友状态</th>
+          <th>所在账号</th>
+          <th>销售SPU</th>
+          <th>购买SPU</th>
+          <th>免打扰</th>
+          <th>添加时间</th>
+          <th>更新时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1 -->
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>
+            <div class="wechat-cell">
+              <div class="avatar" style="background:#e8f6ee;color:#07c160">山</div>
+              <div class="wechat-info"><div class="nick">山石</div></div>
+            </div>
+          </td>
+          <td>山石</td>
+          <td class="basic-info"><span class="lbl">性别：</span>-<br><span class="lbl">生日：</span>-<br><span class="lbl">省市：</span>四川省 成都市<br><span class="lbl">区：</span>未知</td>
+          <td>全部</td>
+          <td class="source-info"><span class="lbl">来源：</span>微信<br><span class="lbl">兴趣点：</span>推荐</td>
+          <td><span class="tag tag-green">正常</span></td>
+          <td><span class="acc-tag">2号</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td><span style="font-size:12px;color:#6b7684">否</span></td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-09<br>17:44</td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-11<br>00:01</td>
+          <td><div class="action-btns">
+            <button class="action-btn">编辑</button>
+            <button class="action-btn danger">删除</button>
+            <button class="action-btn">记录</button>
+          </div></td>
+        </tr>
+        <!-- 2 -->
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>
+            <div class="wechat-cell">
+              <div class="avatar" style="background:#fef3c7;color:#d97706">黄</div>
+              <div class="wechat-info"><div class="nick">黄亦涵</div></div>
+            </div>
+          </td>
+          <td>黄亦涵</td>
+          <td class="basic-info"><span class="lbl">性别：</span>-<br><span class="lbl">生日：</span>-<br><span class="lbl">省市：</span>四川省 成都市<br><span class="lbl">区：</span>未知</td>
+          <td>全部</td>
+          <td class="source-info"><span class="lbl">来源：</span>线下分享会<br><span class="lbl">兴趣点：</span>私域运营和私域工具介绍<br><span class="lbl">活动：</span>1% lady分享会<br><span class="lbl">销售：</span>赵盼盼</td>
+          <td><span class="tag tag-green">正常</span></td>
+          <td><span class="acc-tag">2号</span></td>
+          <td class="spu-links">
+            <a>大瀑星斗:刘永行黄淑清 四大贵妃</a>
+            <a>正神院念第一生 声力 东方奔腾65期③号机</a>
+          </td>
+          <td>—</td>
+          <td><span style="font-size:12px;color:#6b7684">否</span></td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-06<br>15:52</td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-11<br>00:01</td>
+          <td><div class="action-btns">
+            <button class="action-btn">编辑</button>
+            <button class="action-btn danger">删除</button>
+            <button class="action-btn">记录</button>
+          </div></td>
+        </tr>
+        <!-- 3 -->
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>
+            <div class="wechat-cell">
+              <div class="avatar" style="background:#ede9fe;color:#7c3aed">T</div>
+              <div class="wechat-info">
+                <div class="nick">Trista</div>
+                <div class="phone">155****0907</div>
+              </div>
+            </div>
+          </td>
+          <td>Trista</td>
+          <td class="basic-info"><span class="lbl">性别：</span>-<br><span class="lbl">生日：</span>-<br><span class="lbl">省市：</span>-<br><span class="lbl">区：</span>-</td>
+          <td>全部</td>
+          <td class="source-info"><span class="lbl">来源：</span>微信<br><span class="lbl">兴趣点：</span>私域运营和私域工具介绍<br><span class="lbl">活动：</span>1% lady分享会<br><span class="lbl">销售：</span>赵盼盼</td>
+          <td><span class="tag tag-green">正常</span></td>
+          <td><span class="acc-tag">1号</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td><span style="font-size:12px;color:#6b7684">否</span></td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-05<br>20:17</td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-11<br>00:01</td>
+          <td><div class="action-btns">
+            <button class="action-btn">编辑</button>
+            <button class="action-btn danger">删除</button>
+            <button class="action-btn">记录</button>
+          </div></td>
+        </tr>
+        <!-- 4 -->
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>
+            <div class="wechat-cell">
+              <div class="avatar" style="background:#e0f2fe;color:#0369a1">白</div>
+              <div class="wechat-info"><div class="nick">白茶清欢</div></div>
+            </div>
+          </td>
+          <td>白茶清欢</td>
+          <td class="basic-info"><span class="lbl">性别：</span>-<br><span class="lbl">生日：</span>-<br><span class="lbl">省市：</span>浙江省 金华市<br><span class="lbl">区：</span>未知</td>
+          <td>全部</td>
+          <td class="source-info"><span class="lbl">来源：</span>微信<br><span class="lbl">兴趣点：</span>私域运营和私域工具介绍<br><span class="lbl">活动：</span>1% lady分享会<br><span class="lbl">销售：</span>赵盼盼</td>
+          <td><span class="tag tag-green">正常</span></td>
+          <td><span class="acc-tag">2号</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td><span style="font-size:12px;color:#6b7684">否</span></td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-04<br>22:47</td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-12<br>10:29</td>
+          <td><div class="action-btns">
+            <button class="action-btn">编辑</button>
+            <button class="action-btn danger">删除</button>
+            <button class="action-btn">记录</button>
+          </div></td>
+        </tr>
+        <!-- 5 -->
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>
+            <div class="wechat-cell">
+              <div class="avatar" style="background:#f0f2f5;color:#4a5564">一</div>
+              <div class="wechat-info"><div class="nick">一枚Alice</div></div>
+            </div>
+          </td>
+          <td>一枚Alice</td>
+          <td class="basic-info"><span class="lbl">性别：</span>-<br><span class="lbl">生日：</span>-<br><span class="lbl">省市：</span>北京市 未知<br><span class="lbl">区：</span>未知</td>
+          <td>全部</td>
+          <td class="source-info"><span class="lbl">来源：</span>微信<br><span class="lbl">兴趣点：</span>私域运营和私域工具介绍<br><span class="lbl">活动：</span>1% lady分享会<br><span class="lbl">销售：</span>赵盼盼</td>
+          <td><span class="tag tag-green">正常</span></td>
+          <td><span class="acc-tag">2号</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td><span style="font-size:12px;color:#6b7684">否</span></td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-03<br>17:05</td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-11<br>00:01</td>
+          <td><div class="action-btns">
+            <button class="action-btn">编辑</button>
+            <button class="action-btn danger">删除</button>
+            <button class="action-btn">记录</button>
+          </div></td>
+        </tr>
+        <!-- 6 -->
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>
+            <div class="wechat-cell">
+              <div class="avatar" style="background:#e8f6ee;color:#07c160">鹅</div>
+              <div class="wechat-info">
+                <div class="nick">鹅子Haley 🌿 李昕</div>
+              </div>
+            </div>
+          </td>
+          <td>鹅子Haley</td>
+          <td class="basic-info"><span class="lbl">性别：</span>-<br><span class="lbl">生日：</span>-<br><span class="lbl">省市：</span>北京市 未知<br><span class="lbl">区：</span>未知</td>
+          <td>全部</td>
+          <td class="source-info"><span class="lbl">来源：</span>微信<br><span class="lbl">兴趣点：</span>私域运营和私域工具介绍<br><span class="lbl">活动：</span>1% lady分享会<br><span class="lbl">销售：</span>赵盼盼</td>
+          <td><span class="tag tag-green">正常</span></td>
+          <td><span class="acc-tag">2号</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td><span style="font-size:12px;color:#6b7684">否</span></td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-03-31<br>22:06</td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-11<br>00:01</td>
+          <td><div class="action-btns">
+            <button class="action-btn">编辑</button>
+            <button class="action-btn danger">删除</button>
+            <button class="action-btn">记录</button>
+          </div></td>
+        </tr>
+        <!-- 7 -->
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>
+            <div class="wechat-cell">
+              <div class="avatar" style="background:#fef3c7;color:#d97706">罗</div>
+              <div class="wechat-info"><div class="nick">罗小圆Laura</div></div>
+            </div>
+          </td>
+          <td>罗小圆Laura</td>
+          <td class="basic-info"><span class="lbl">性别：</span>-<br><span class="lbl">生日：</span>-<br><span class="lbl">省市：</span>北京市 未知<br><span class="lbl">区：</span>未知</td>
+          <td>全部</td>
+          <td class="source-info"><span class="lbl">来源：</span>微信<br><span class="lbl">兴趣点：</span>私域运营和私域工具介绍<br><span class="lbl">活动：</span>1% lady分享会<br><span class="lbl">销售：</span>赵盼盼</td>
+          <td><span class="tag tag-green">正常</span></td>
+          <td><span class="acc-tag">2号</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td><span style="font-size:12px;color:#6b7684">否</span></td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-03-31<br>21:17</td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-11<br>00:01</td>
+          <td><div class="action-btns">
+            <button class="action-btn">编辑</button>
+            <button class="action-btn danger">删除</button>
+            <button class="action-btn">记录</button>
+          </div></td>
+        </tr>
+        <!-- 8 -->
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>
+            <div class="wechat-cell">
+              <div class="avatar" style="background:#fee2e2;color:#dc2626">思</div>
+              <div class="wechat-info"><div class="nick">思佳 🍀</div></div>
+            </div>
+          </td>
+          <td>思佳</td>
+          <td class="basic-info"><span class="lbl">性别：</span>-<br><span class="lbl">生日：</span>-<br><span class="lbl">省市：</span>北京市 未知<br><span class="lbl">区：</span>未知</td>
+          <td>全部</td>
+          <td class="source-info"><span class="lbl">来源：</span>微信<br><span class="lbl">兴趣点：</span>私域运营和私域工具介绍<br><span class="lbl">活动：</span>1% lady分享会<br><span class="lbl">销售：</span>赵盼盼</td>
+          <td><span class="tag tag-green">正常</span></td>
+          <td><span class="acc-tag">2号</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td><span style="font-size:12px;color:#6b7684">否</span></td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-03-31<br>21:14</td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-11<br>00:01</td>
+          <td><div class="action-btns">
+            <button class="action-btn">编辑</button>
+            <button class="action-btn danger">删除</button>
+            <button class="action-btn">记录</button>
+          </div></td>
+        </tr>
+        <!-- 9 -->
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>
+            <div class="wechat-cell">
+              <div class="avatar" style="background:#ede9fe;color:#7c3aed">明</div>
+              <div class="wechat-info"><div class="nick">明希含</div></div>
+            </div>
+          </td>
+          <td>明希含</td>
+          <td class="basic-info"><span class="lbl">性别：</span>-<br><span class="lbl">生日：</span>-<br><span class="lbl">省市：</span>-<br><span class="lbl">区：</span>-</td>
+          <td>全部</td>
+          <td class="source-info"><span class="lbl">来源：</span>微信<br><span class="lbl">兴趣点：</span>私域运营和私域工具介绍<br><span class="lbl">活动：</span>1% lady分享会<br><span class="lbl">销售：</span>赵盼盼</td>
+          <td><span class="tag tag-green">正常</span></td>
+          <td><span class="acc-tag">1号</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td><span style="font-size:12px;color:#6b7684">否</span></td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-03-31<br>20:44</td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-11<br>00:01</td>
+          <td><div class="action-btns">
+            <button class="action-btn">编辑</button>
+            <button class="action-btn danger">删除</button>
+            <button class="action-btn">记录</button>
+          </div></td>
+        </tr>
+        <!-- 10 -->
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>
+            <div class="wechat-cell">
+              <div class="avatar" style="background:#e0f2fe;color:#0369a1">刘</div>
+              <div class="wechat-info"><div class="nick">刘一诺</div></div>
+            </div>
+          </td>
+          <td>刘一诺</td>
+          <td class="basic-info"><span class="lbl">性别：</span>-<br><span class="lbl">生日：</span>-<br><span class="lbl">省市：</span>广东省 广州市<br><span class="lbl">区：</span>未知</td>
+          <td>全部</td>
+          <td class="source-info"><span class="lbl">来源：</span>微信<br><span class="lbl">兴趣点：</span>私域运营和私域工具介绍<br><span class="lbl">活动：</span>1% lady分享会<br><span class="lbl">销售：</span>赵盼盼</td>
+          <td><span class="tag tag-green">正常</span></td>
+          <td><span class="acc-tag">2号</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td><span style="font-size:12px;color:#6b7684">否</span></td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-03-30<br>12:33</td>
+          <td style="font-size:12px;color:#6b7684;white-space:nowrap">2026-04-11<br>00:01</td>
+          <td><div class="action-btns">
+            <button class="action-btn">编辑</button>
+            <button class="action-btn danger">删除</button>
+            <button class="action-btn">记录</button>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 分页 -->
+  <div class="pagination">
+    <select class="page-size-select">
+      <option>20条/页</option>
+      <option>50条/页</option>
+      <option>100条/页</option>
+    </select>
+    <span>共 489 条</span>
+    <div class="page-btns">
+      <button class="page-btn" disabled>«</button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">4</button>
+      <button class="page-btn">5</button>
+      <button class="page-btn">6</button>
+      <span style="padding:0 4px;color:#8a96a3">...</span>
+      <button class="page-btn">25</button>
+      <button class="page-btn">»</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Tab 高亮切换（非下拉的 tab）
+document.querySelectorAll('.view-tab-btn').forEach(btn => {
+  if (!btn.closest('.tab-dropdown-wrap')) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.view-tab-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  }
+});
+
+// 全部好友下拉
+function toggleDropdown(e) {
+  e.stopPropagation();
+  const dd = document.getElementById('friendDropdown');
+  dd.classList.toggle('show');
+}
+function closeDropdown() {
+  document.getElementById('friendDropdown').classList.remove('show');
+}
+// 点外部关闭
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.tab-dropdown-wrap')) closeDropdown();
+});
+
+// 选中筛选项
+function selectFilter(el, name) {
+  // 清除所有选中
+  document.querySelectorAll('.dd-total, .dd-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  // 更新按钮文字
+  const btn = document.querySelector('.tab-dropdown-wrap .view-tab-btn');
+  const count = el.querySelector('.dd-num').textContent.trim();
+  btn.innerHTML = name + ' <span class="count">(' + count.replace(' 人','人') + ')</span> <span class="arrow">▼</span>';
+}
+
+// 全选
+function toggleAll(el) {
+  document.querySelectorAll('tbody .cb').forEach(cb => cb.checked = el.checked);
+}
+</script>
+</body>
+</html>
