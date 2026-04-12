@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>碎银管理页原型 · 入口</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #f5f7fa;
+    color: #1a1a1a;
+    padding: 40px 24px;
+    min-height: 100vh;
+  }
+  .container { max-width: 980px; margin: 0 auto; }
+  .header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 8px;
+  }
+  .logo {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: linear-gradient(135deg, #07c160, #06ad56);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  h1 { font-size: 22px; font-weight: 700; }
+  .subtitle { color: #6b7684; font-size: 14px; margin-bottom: 28px; padding-left: 58px; }
+
+  .section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .section-title {
+    font-size: 14px; font-weight: 600;
+    color: #4a5564;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::before {
+    content: ''; width: 3px; height: 14px; background: #07c160; border-radius: 2px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .card {
+    border: 1px solid #ebeef2;
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: flex; align-items: flex-start; gap: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.15s;
+    background: #fff;
+  }
+  .card:hover {
+    border-color: #07c160;
+    box-shadow: 0 4px 12px rgba(7,193,96,0.1);
+    transform: translateY(-1px);
+  }
+  .card-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: #e8f6ee;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-body { flex: 1; min-width: 0; }
+  .card-title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .card-desc { font-size: 12px; color: #8a96a3; line-height: 1.5; }
+  .card-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 8px;
+    background: #e8f6ee; color: #07c160;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .card-tag.todo { background: #fff4e5; color: #f59e0b; }
+
+  .footer {
+    margin-top: 28px;
+    padding: 16px;
+    text-align: center;
+    font-size: 12px;
+    color: #9aa4b2;
+  }
+  .footer code {
+    background: #eef1f5; padding: 2px 6px; border-radius: 3px;
+    color: #4a5564;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="logo">☁</div>
+    <h1>碎银管理页原型</h1>
+  </div>
+  <div class="subtitle">佰智德三 · bzds.wecarepet.com/admin · 纯 HTML + 微信绿 #07C160</div>
+
+  <!-- 入口 -->
+  <div class="section">
+    <div class="section-title">原型入口</div>
+    <div class="grid">
+      <a class="card" href="prototype/login_v1.0.html">
+        <div class="card-icon">🔐</div>
+        <div class="card-body">
+          <div class="card-title">登录页<span class="card-tag">v1.0</span></div>
+          <div class="card-desc">左品牌 + 右表单，密码/短信双 tab</div>
+        </div>
+      </a>
+      <a class="card" href="prototype/_shell.html">
+        <div class="card-icon">🏠</div>
+        <div class="card-body">
+          <div class="card-title">管理后台骨架<span class="card-tag">v1.0</span></div>
+          <div class="card-desc">Header + 侧边栏 + Chrome Tab + iframe 容器</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 已有原型页 -->
+  <div class="section">
+    <div class="section-title">内容页原型</div>
+    <div class="grid">
+      <a class="card" href="prototype/sales_v1.0.html">
+        <div class="card-icon">👥</div>
+        <div class="card-body">
+          <div class="card-title">销售管理<span class="card-tag">v1.0</span></div>
+          <div class="card-desc">筛选 + 表格 + 分页，12 条 mock</div>
+        </div>
+      </a>
+      <a class="card" href="prototype/_placeholder.html">
+        <div class="card-icon">🚧</div>
+        <div class="card-body">
+          <div class="card-title">占位页<span class="card-tag todo">模板</span></div>
+          <div class="card-desc">未截图菜单的统一占位</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 计划中的模块 -->
+  <div class="section">
+    <div class="section-title">待开发清单（按优先级）</div>
+    <div class="grid">
+      <div class="card" style="cursor:default">
+        <div class="card-icon">👫</div>
+        <div class="card-body">
+          <div class="card-title">好友管理<span class="card-tag todo">下一个</span></div>
+          <div class="card-desc">好友列表 / 群列表 / 添加好友 / 删退审核 / 好友标签</div>
+        </div>
+      </div>
+      <div class="card" style="cursor:default">
+        <div class="card-icon">💬</div>
+        <div class="card-body">
+          <div class="card-title">话术管理<span class="card-tag todo">P2</span></div>
+          <div class="card-desc">树形分类 + 列表 + 隐藏开关</div>
+        </div>
+      </div>
+      <div class="card" style="cursor:default">
+        <div class="card-icon">💰</div>
+        <div class="card-body">
+          <div class="card-title">分佣管理<span class="card-tag todo">P3</span></div>
+          <div class="card-desc">收入确认 / 预付确认 / 明细 / 合计 / 充值 / 项目统计</div>
+        </div>
+      </div>
+      <div class="card" style="cursor:default">
+        <div class="card-icon">📦</div>
+        <div class="card-body">
+          <div class="card-title">商品管理<span class="card-tag todo">P4</span></div>
+          <div class="card-desc">普通 / 小程序 双版</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <code>suiyin-admin/</code> · preview 启动：<code>preview_start "suiyin-admin"</code> · 端口 <code>3500</code>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>佰智德三私域 · 管理后台</title>
+<style>
+  /* ========= 基础 ========= */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; overflow: hidden; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-size: 14px;
+    color: #1a1a1a;
+    background: #f5f7fa;
+  }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb { background: #d0d7de; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #a8b3bf; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+  :root {
+    --wx-green: #07c160;
+    --wx-green-dark: #06ad56;
+    --wx-green-light: #e8f6ee;
+    --header-h: 56px;
+    --tab-h: 40px;
+    --sidebar-w: 208px;
+  }
+
+  /* ========= 顶部 Header ========= */
+  .header {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: var(--header-h);
+    background: var(--wx-green);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .header-left {
+    display: flex; align-items: center; gap: 10px; color: #fff;
+  }
+  .header-logo {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: rgba(255,255,255,0.18);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .header-brand { font-size: 16px; font-weight: 600; letter-spacing: 0.5px; }
+  .header-env {
+    margin-left: 14px; padding: 2px 10px; border-radius: 10px;
+    background: rgba(255,255,255,0.18); color: #fff; font-size: 12px;
+  }
+  .header-right {
+    display: flex; align-items: center; gap: 18px; color: #fff;
+  }
+  .header-icon-btn {
+    width: 32px; height: 32px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; opacity: 0.9;
+    transition: all 0.15s;
+  }
+  .header-icon-btn:hover { background: rgba(255,255,255,0.18); opacity: 1; }
+  .header-user {
+    display: flex; align-items: center; gap: 8px;
+    padding: 4px 10px 4px 4px; border-radius: 20px;
+    transition: background 0.15s;
+  }
+  .header-user:hover { background: rgba(255,255,255,0.15); }
+  .header-avatar {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: #fff; color: var(--wx-green);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 13px;
+  }
+  .header-username { font-size: 14px; color: #fff; }
+
+  /* ========= 左侧菜单 ========= */
+  .sidebar {
+    position: fixed; top: var(--header-h); left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: #fff;
+    border-right: 1px solid #ebeef2;
+    overflow-y: auto;
+    padding: 8px 0 80px;
+    z-index: 90;
+  }
+  .menu-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 20px;
+    color: #4a5564;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    transition: all 0.15s;
+  }
+  .menu-item:hover { background: #f5f7fa; color: #1a1a1a; }
+  .menu-item-icon {
+    width: 18px; height: 18px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: #8a96a3;
+    font-size: 16px;
+  }
+  .menu-item.has-sub::after {
+    content: '';
+    position: absolute; right: 20px; top: 50%;
+    width: 6px; height: 6px;
+    border-right: 1.5px solid #c0c8d1;
+    border-bottom: 1.5px solid #c0c8d1;
+    transform: translateY(-70%) rotate(-45deg);
+    transition: transform 0.2s;
+  }
+  .menu-item.expanded::after {
+    transform: translateY(-40%) rotate(45deg);
+  }
+  .menu-item.active {
+    color: var(--wx-green);
+    background: var(--wx-green-light);
+    font-weight: 500;
+  }
+  .menu-item.active::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--wx-green);
+  }
+  .menu-item.active .menu-item-icon { color: var(--wx-green); }
+
+  .submenu { overflow: hidden; max-height: 0; transition: max-height 0.25s ease; }
+  .submenu.expanded { max-height: 500px; }
+  .submenu-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 20px 9px 60px;
+    color: #6b7684; font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+  }
+  .submenu-item:hover { background: #f5f7fa; color: #1a1a1a; }
+  .submenu-item.active {
+    color: var(--wx-green);
+    background: var(--wx-green-light);
+    font-weight: 500;
+  }
+  .submenu-item.active::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--wx-green);
+  }
+  .submenu-item .todo-badge {
+    margin-left: auto; margin-right: 8px;
+    font-size: 10px; color: #f59e0b;
+  }
+  .menu-item .todo-badge {
+    margin-left: auto; margin-right: 20px;
+    font-size: 10px; color: #f59e0b;
+  }
+
+  /* ========= Chrome 式 Tab 栏 ========= */
+  .tabbar {
+    position: fixed;
+    top: var(--header-h); left: var(--sidebar-w); right: 0;
+    height: var(--tab-h);
+    background: #eef1f5;
+    border-bottom: 1px solid #ebeef2;
+    display: flex; align-items: flex-end;
+    padding: 0 0 0 8px;
+    z-index: 80;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabbar::-webkit-scrollbar { display: none; }
+  .tab {
+    position: relative;
+    display: flex; align-items: center; gap: 8px;
+    height: calc(var(--tab-h) - 4px);
+    padding: 0 12px 0 16px;
+    margin-right: -1px;
+    font-size: 13px;
+    color: #6b7684;
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    cursor: pointer;
+    max-width: 200px;
+    min-width: 100px;
+    flex-shrink: 0;
+    user-select: none;
+    transition: all 0.15s;
+  }
+  .tab:hover { background: rgba(255,255,255,0.55); color: #4a5564; }
+  .tab.active {
+    background: #f5f7fa;
+    color: #1a1a1a;
+    border-color: #ebeef2;
+    font-weight: 500;
+    z-index: 1;
+  }
+  .tab-title {
+    flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .tab-close {
+    width: 16px; height: 16px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; line-height: 1;
+    color: #8a96a3;
+    opacity: 0;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .tab:hover .tab-close, .tab.active .tab-close { opacity: 1; }
+  .tab-close:hover { background: #d0d7de; color: #1a1a1a; }
+  .tab.pinned .tab-close { display: none; }
+
+  /* ========= 主内容区 ========= */
+  .main {
+    position: fixed;
+    top: calc(var(--header-h) + var(--tab-h));
+    left: var(--sidebar-w);
+    right: 0; bottom: 0;
+    background: #f5f7fa;
+    overflow: hidden;
+  }
+  .iframe-container {
+    width: 100%; height: 100%;
+    position: relative;
+  }
+  .page-iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    border: 0;
+    display: none;
+    background: #f5f7fa;
+  }
+  .page-iframe.active { display: block; }
+</style>
+</head>
+<body>
+
+<!-- 顶部 Header -->
+<header class="header">
+  <div class="header-left">
+    <div class="header-logo">☁</div>
+    <div class="header-brand">佰智德三私域</div>
+    <div class="header-env">管理后台</div>
+  </div>
+  <div class="header-right">
+    <button class="header-icon-btn" title="消息">🔔</button>
+    <button class="header-icon-btn" title="帮助">?</button>
+    <div class="header-user" id="userBtn" onclick="toggleUserMenu(event)">
+      <div class="header-avatar">房</div>
+      <div class="header-username">房昕</div>
+      <span style="font-size:11px;opacity:.7;margin-left:2px;">▾</span>
+    </div>
+    <!-- 用户气泡菜单 -->
+    <div id="userMenu" style="
+      display:none;
+      position:fixed;
+      top:52px; right:16px;
+      background:#fff;
+      border-radius:10px;
+      box-shadow:0 6px 24px rgba(0,0,0,0.14);
+      min-width:140px;
+      overflow:hidden;
+      z-index:200;
+    ">
+      <div style="padding:12px 16px 10px; border-bottom:1px solid #f0f0f0;">
+        <div style="font-weight:600;color:#1a1a1a;font-size:14px;">房昕</div>
+        <div style="font-size:12px;color:#8a96a3;margin-top:2px;">超级管理员</div>
+      </div>
+      <div onclick="doLogout()" style="
+        display:flex; align-items:center; gap:8px;
+        padding:11px 16px;
+        font-size:14px; color:#f56c6c;
+        cursor:pointer;
+        transition:background .15s;
+      " onmouseenter="this.style.background='#fff5f5'" onmouseleave="this.style.background=''">
+        <span>⎋</span> 退出登录
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 左侧菜单 -->
+<nav class="sidebar" id="sidebar"></nav>
+
+<!-- Chrome Tab 栏 -->
+<div class="tabbar" id="tabbar"></div>
+
+<!-- 主内容区 -->
+<main class="main">
+  <div class="iframe-container" id="iframeContainer"></div>
+</main>
+
+<script>
+/* ========= 菜单数据 ========= */
+const MENU = [
+  { id: 'sales',      icon: '👥', title: '销售管理', page: 'sales_v1.0.html' },
+  { id: 'expert',     icon: '🎓', title: '专家管理', children: [
+      { id: 'expert-info',  title: '专家信息', page: 'expert_info_v1.0.html' },
+  ]},
+  { id: 'friend',     icon: '👫', title: '好友管理', children: [
+      { id: 'friend-list',  title: '好友列表',   page: 'friend_list_v1.0.html' },
+      { id: 'group-list',   title: '群列表',     page: 'group_list_v1.0.html' },
+      { id: 'friend-add',   title: '添加好友',   page: 'friend_add_v1.0.html' },
+      { id: 'friend-review',title: '删退审核',   page: 'friend_review_v1.0.html' },
+      { id: 'friend-tag',   title: '好友标签',   page: 'friend_tag_v1.0.html' },
+  ]},
+  { id: 'script',     icon: '💬', title: '话术管理', page: 'script_v1.0.html' },
+  { id: 'product',    icon: '📦', title: '商品管理', page: 'product_v1.0.html' },
+  { id: 'product-mini',icon: '🛒', title: '商品管理(小程序)', page: 'product_mini_v1.0.html' },
+  { id: 'massmsg',    icon: '📣', title: '群发管理', page: 'massmsg_v1.0.html' },
+  { id: 'pyq',        icon: '🌐', title: 'PYQ管理', page: 'pyq_v1.0.html' },
+  { id: 'reward',     icon: '💰', title: '分佣管理', children: [
+      { id: 'reward-income',   title: '收入确认',     page: 'reward_income_v1.0.html' },
+      { id: 'reward-prepay',   title: '预付确认',     page: 'reward_prepay_v1.0.html' },
+      { id: 'reward-detail',   title: '分佣明细',     page: 'reward_detail_v1.0.html' },
+      { id: 'reward-total',    title: '分佣合计',     page: 'reward_total_v1.0.html' },
+      { id: 'reward-topup',    title: '充值确认',     page: 'reward_topup_v1.0.html' },
+      { id: 'reward-itemstat', title: '分佣项目统计', page: 'reward_itemstat_v1.0.html' },
+  ]},
+  { id: 'stats',      icon: '📊', title: '数据展示', children: [
+      { id: 'stats-referral', title: '拉新记录',   page: 'stats_referral_v1.0.html' },
+      { id: 'stats-sales',    title: '销售统计',   todo: true },
+      { id: 'stats-feedback', title: '反馈分析',   todo: true },
+      { id: 'stats-rank',     title: '销售排名',   todo: true },
+      { id: 'stats-revisit',  title: '回访统计',   todo: true },
+      { id: 'stats-shift',    title: '上班记录',   todo: true },
+      { id: 'stats-prepay',   title: '预付统计',   todo: true },
+  ]},
+  { id: 'chat',       icon: '💭', title: '聊天管理', todo: true },
+  { id: 'wechat',     icon: '🟢', title: '微信管理', todo: true },
+  { id: 'ai',         icon: '🤖', title: 'AI管理',   todo: true },
+  { id: 'system',     icon: '⚙️', title: '系统管理', todo: true },
+  { id: 'platform',   icon: '🏢', title: '平台管理', todo: true },
+];
+
+/* ========= 渲染侧边栏 ========= */
+const sidebar = document.getElementById('sidebar');
+MENU.forEach(m => {
+  const hasSub = m.children && m.children.length;
+  const item = document.createElement('div');
+  item.className = 'menu-item' + (hasSub ? ' has-sub' : '');
+  item.dataset.id = m.id;
+  item.innerHTML = `
+    <span class="menu-item-icon">${m.icon}</span>
+    <span>${m.title}</span>
+    ${m.todo ? '<span class="todo-badge">🚧</span>' : ''}
+  `;
+  sidebar.appendChild(item);
+
+  if (hasSub) {
+    const sub = document.createElement('div');
+    sub.className = 'submenu';
+    sub.dataset.parent = m.id;
+    m.children.forEach(c => {
+      const ci = document.createElement('div');
+      ci.className = 'submenu-item';
+      ci.dataset.id = c.id;
+      ci.dataset.page = c.page || '_placeholder.html';
+      ci.dataset.title = c.title;
+      ci.dataset.parent = m.id;
+      ci.innerHTML = `<span>${c.title}</span>${c.todo ? '<span class="todo-badge">🚧</span>' : ''}`;
+      sub.appendChild(ci);
+    });
+    sidebar.appendChild(sub);
+    item.addEventListener('click', () => {
+      const expanded = sub.classList.toggle('expanded');
+      item.classList.toggle('expanded', expanded);
+    });
+  } else {
+    item.dataset.page = m.page || '_placeholder.html';
+    item.dataset.title = m.title;
+    item.addEventListener('click', () => openTab(m));
+  }
+});
+sidebar.querySelectorAll('.submenu-item').forEach(el => {
+  el.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openTab({ id: el.dataset.id, title: el.dataset.title, page: el.dataset.page, parent: el.dataset.parent });
+  });
+});
+
+/* ========= Tab 系统（真做：状态保留） ========= */
+const tabbar = document.getElementById('tabbar');
+const iframeContainer = document.getElementById('iframeContainer');
+const tabs = new Map(); // id -> {el, iframe, title, page, pinned}
+let activeTabId = null;
+
+function openTab({ id, title, page, pinned = false, parent = null }) {
+  if (!tabs.has(id)) {
+    // 创建 tab
+    const tabEl = document.createElement('div');
+    tabEl.className = 'tab' + (pinned ? ' pinned' : '');
+    tabEl.innerHTML = `
+      <span class="tab-title">${title}</span>
+      <span class="tab-close">×</span>
+    `;
+    tabEl.querySelector('.tab-title').addEventListener('click', () => activateTab(id));
+    tabEl.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('tab-close')) activateTab(id);
+    });
+    tabEl.querySelector('.tab-close').addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeTab(id);
+    });
+    tabbar.appendChild(tabEl);
+
+    // 创建 iframe（懒加载，只在第一次打开时设 src）
+    const iframe = document.createElement('iframe');
+    iframe.className = 'page-iframe';
+    iframe.src = page;
+    iframe.dataset.id = id;
+    iframeContainer.appendChild(iframe);
+
+    tabs.set(id, { el: tabEl, iframe, title, page, pinned, parent });
+  }
+  activateTab(id);
+}
+
+function activateTab(id) {
+  if (activeTabId === id) return;
+  tabs.forEach((t, tid) => {
+    t.el.classList.toggle('active', tid === id);
+    t.iframe.classList.toggle('active', tid === id);
+  });
+  activeTabId = id;
+  // 同步侧边栏高亮
+  document.querySelectorAll('.menu-item, .submenu-item').forEach(el => el.classList.remove('active'));
+  const tab = tabs.get(id);
+  if (tab) {
+    const target = document.querySelector(`.menu-item[data-id="${id}"], .submenu-item[data-id="${id}"]`);
+    if (target) {
+      target.classList.add('active');
+      // 如果是子菜单，展开父
+      if (target.classList.contains('submenu-item') && tab.parent) {
+        const parentEl = document.querySelector(`.menu-item[data-id="${tab.parent}"]`);
+        const subEl = document.querySelector(`.submenu[data-parent="${tab.parent}"]`);
+        if (parentEl && subEl && !subEl.classList.contains('expanded')) {
+          subEl.classList.add('expanded');
+          parentEl.classList.add('expanded');
+        }
+      }
+    }
+  }
+}
+
+function closeTab(id) {
+  const t = tabs.get(id);
+  if (!t || t.pinned) return;
+  // 若关闭的是当前 tab，激活相邻
+  if (activeTabId === id) {
+    const ids = Array.from(tabs.keys());
+    const idx = ids.indexOf(id);
+    const nextId = ids[idx + 1] || ids[idx - 1];
+    activeTabId = null;
+    if (nextId) activateTab(nextId);
+  }
+  t.el.remove();
+  t.iframe.remove();
+  tabs.delete(id);
+}
+
+/* ========= 默认打开首页 ========= */
+openTab({ id: 'sales', title: '销售管理', page: 'sales_v1.0.html', pinned: true });
+
+/* ========= 用户菜单 ========= */
+function toggleUserMenu(e) {
+  e.stopPropagation();
+  const menu = document.getElementById('userMenu');
+  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+}
+document.addEventListener('click', () => {
+  document.getElementById('userMenu').style.display = 'none';
+});
+function doLogout() {
+  window.location.href = 'login_v1.0.html';
+}
+</script>
+</body>
+</html>
