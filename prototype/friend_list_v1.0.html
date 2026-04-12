@@ -681,15 +681,23 @@ document.addEventListener('click', function(e) {
   if (!e.target.closest('.tab-dropdown-wrap')) closeDropdown();
 });
 
-// 选中筛选项
+// 选中筛选项（互斥单选）
 function selectFilter(el, name) {
   // 清除所有选中
   document.querySelectorAll('.dd-total, .dd-card').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
+  // 全部好友的勾只在选中时显示
+  const checkEl = document.querySelector('.dd-total .dd-check');
+  if (checkEl) checkEl.style.display = el.classList.contains('dd-total') ? 'flex' : 'none';
   // 更新按钮文字
   const btn = document.querySelector('.tab-dropdown-wrap .view-tab-btn');
   const count = el.querySelector('.dd-num').textContent.trim();
-  btn.innerHTML = name + ' <span class="count">(' + count.replace(' 人','人') + ')</span> <span class="arrow">▼</span>';
+  if (name === '全部') {
+    btn.innerHTML = '全部好友 <span class="count">(' + count.replace(' 人','人') + ')</span> <span class="arrow">▼</span>';
+  } else {
+    btn.innerHTML = name + ' <span class="count">(' + count.replace(' 人','人') + ')</span> <span class="arrow">▼</span>';
+  }
+  // 选了子分类按钮保持active（因为它是当前模块的入口）
 }
 
 // 全选
