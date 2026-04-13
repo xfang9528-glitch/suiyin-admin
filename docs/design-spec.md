@@ -62,3 +62,5 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 - 支持行选择 checkbox
 - 操作列固定右侧
 - 底部分页器 + 批量操作栏
+- **分页器定位**：`position:sticky; bottom:0`，白底，始终固定在内容区底部右侧
+- **横向滚动**：外层 `.table-wrap` 设 `overflow-x:auto`，表格设 `min-width`（好友列表 `1200px`、销售管理 `960px`），列不压缩不换行
