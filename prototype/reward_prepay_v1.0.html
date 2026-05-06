@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>预付确认</title><link rel="stylesheet" href="_admin_list.css">
+<script src="_edit_modal.js" defer></script></head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group">
+    <input class="f-input date" id="d1" type="date" placeholder="开始日期">
+    <span class="f-sep">至</span>
+    <input class="f-input date" id="d2" type="date" placeholder="结束日期">
+  </div>
+  <button class="btn primary" onclick="render()">🔍 查询</button>
+  <button class="btn" onclick="onReset()">重置</button>
+  <button class="btn" onclick="toast('导出')">📤 导出表格</button>
+  <div class="f-spacer"></div>
+  <button class="btn primary" onclick="onAdd()">＋ 添加预付</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card scroll" style="min-width:1900px;">
+    <table>
+      <thead><tr>
+        <th>客户名称</th><th>SPU</th><th>是否充值</th><th>金额</th>
+        <th>预付数量</th><th>剩余数量</th><th>单位</th><th>有效期截止日</th>
+        <th>销售</th><th>预付日期</th><th>创建日期</th>
+        <th>操作人</th><th>备注</th>
+        <th class="col-actions">操作</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select><option>20条/页</option></select>
+  <button class="pager-btn">‹</button><button class="pager-btn cur">1</button><button class="pager-btn">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+const ROWS = [
+  { cus:'雯雯-客户B', spu:'韩式双眼皮(无痕)',     topup:true,  amount:9800,  qty:1, left:1, unit:'次', expire:'2026-12-31', sale:'杨瑶 yiyi', payDate:'2026-05-06', createdAt:'2026-05-06 14:08:21', op:'刘小红', note:'-' },
+  { cus:'敏敏-客户C', spu:'蝉翼双拱架鼻综合',     topup:true,  amount:39800, qty:1, left:1, unit:'台', expire:'2026-08-31', sale:'陈巧',      payDate:'2026-05-04', createdAt:'2026-05-04 10:22:11', op:'刘小红', note:'大客户' },
+  { cus:'微微-客户A', spu:'玻尿酸丰唇 1ml',       topup:false, amount:1600,  qty:2, left:1, unit:'ml',expire:'2026-11-30', sale:'杜佳',     payDate:'2026-05-06', createdAt:'2026-05-06 14:08:21', op:'刘小红', note:'-' },
+  { cus:'琪琪-客户D', spu:'热玛吉 5 代 全脸',     topup:true,  amount:18800, qty:1, left:1, unit:'次', expire:'2026-12-31', sale:'聂敏',      payDate:'2026-05-05', createdAt:'2026-05-05 11:30:00', op:'刘小红', note:'-' },
+  { cus:'琴-客户E',   spu:'肉毒素瘦脸针(进口)',   topup:false, amount:2800,  qty:1, left:0, unit:'瓶', expire:'2026-06-30', sale:'Lucy 💗',  payDate:'2026-04-28', createdAt:'2026-04-28 16:00:00', op:'刘小红', note:'已使用' },
+  { cus:'李-客户F',   spu:'光子嫩肤 体验卡 3 次', topup:false, amount:1980,  qty:3, left:2, unit:'次', expire:'2026-09-30', sale:'罗玲 金金', payDate:'2026-05-03', createdAt:'2026-05-03 18:00:00', op:'刘小红', note:'-' },
+];
+function render() {
+  document.getElementById('tbody').innerHTML = ROWS.map(r => `
+    <tr>
+      <td>${r.cus}</td>
+      <td>${r.spu}</td>
+      <td>${r.topup ? '<span class="badge">是</span>' : '<span class="badge gray">否</span>'}</td>
+      <td class="col-num">¥${r.amount.toLocaleString('zh-CN')}</td>
+      <td class="col-num">${r.qty}</td>
+      <td class="col-num ${r.left === 0 ? 'fail' : (r.left < r.qty ? '' : 'success')}">${r.left}</td>
+      <td>${r.unit}</td>
+      <td class="col-time">${r.expire}</td>
+      <td>${r.sale}</td>
+      <td class="col-time">${r.payDate}</td>
+      <td class="col-time">${r.createdAt}</td>
+      <td>${r.op}</td>
+      <td><span style="color:var(--text-3)">${r.note}</span></td>
+      <td class="col-actions">
+        <button class="row-action" onclick="toast('编辑')">编辑</button>
+        ${r.left > 0 ? `<button class="row-action" onclick="toast('核销')">核销</button>` : ''}
+        <button class="row-action danger" onclick="toast('作废')">作废</button>
+      </td>
+    </tr>
+  `).join('');
+  document.getElementById('pagerInfo').textContent = `共 ${ROWS.length} 条`;
+}
+function onReset() { ['d1','d2'].forEach(id=>document.getElementById(id).value=''); render(); }
+let aModal;
+function onAdd() {
+  if (!aModal) aModal = createEditModal({
+    title: '添加预付',
+    fields: [
+      { label:'客户',         key:'cus',   type:'select', options:['雯雯-客户B','敏敏-客户C','琪琪-客户D','微微-客户A','琴-客户E','李-客户F'], required:true },
+      { label:'SPU',          key:'spu',   type:'select', options:['玻尿酸丰唇 1ml','韩式双眼皮(无痕)','蝉翼双拱架鼻综合','热玛吉 5 代 全脸','半永久眉毛(雾眉)','肉毒素瘦脸针(进口)','光子嫩肤 体验卡 3 次','吸脂手术(大腿环吸)','童颜针 1 支'], required:true },
+      { label:'是否充值预付', key:'topup', type:'switch' },
+      { label:'金额',         key:'amount',type:'number', placeholder:'元', suffix:'元', required:true },
+      { label:'预付数量',     key:'qty',   type:'number', placeholder:'1' },
+      { label:'单位',         key:'unit',  type:'select', options:['次','ml','支','瓶','片','盒','疗程','台'] },
+      { label:'有效期截止日', key:'expire',type:'text',   placeholder:'YYYY-MM-DD' },
+      { label:'销售',         key:'sale',  type:'select', options:['杜佳','杨瑶 yiyi','陈巧','聂敏','刘瑜02','Lucy 💗','罗玲 金金'] },
+      { label:'预付日期',     key:'payDate',type:'text',  placeholder:'YYYY-MM-DD（默认今天）' },
+      { label:'备注',         key:'note',  type:'textarea' },
+    ],
+    onSubmit: d => { ROWS.unshift({ cus:d.cus, spu:d.spu, topup:d.topup, amount:+d.amount||0, qty:+d.qty||1, left:+d.qty||1, unit:d.unit||'次', expire:d.expire||'2026-12-31', sale:d.sale, payDate:d.payDate||new Date().toISOString().slice(0,10), createdAt:new Date().toISOString().replace('T',' ').slice(0,19), op:'刘小红', note:d.note||'-' }); render(); toast('已添加'); }
+  });
+  aModal.open({});
+}
+let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+render();
+</script></body></html>

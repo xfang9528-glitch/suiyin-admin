@@ -1,1039 +1,132 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<title>销售管理</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    font-size: 14px;
-    color: #1a1a1a;
-    background: #f5f7fa;
-    padding: 20px 24px;
-    min-height: 100vh;
-  }
-  :root {
-    --wx-green: #07c160;
-    --wx-green-dark: #06ad56;
-    --wx-green-light: #e8f6ee;
-  }
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-thumb { background: #d0d7de; border-radius: 3px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-
-  .page-title { font-size: 16px; font-weight: 600; margin-bottom: 14px; color: #1a1a1a; }
-
-  /* ===== 筛选区 ===== */
-  .filter-bar {
-    background: #fff;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 14px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 14px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-  }
-  .filter-field { display: flex; align-items: center; gap: 8px; }
-  .filter-field label { color: #6b7684; font-size: 13px; white-space: nowrap; }
-  .filter-input, .filter-select {
-    height: 32px;
-    border: 1px solid #e5e8ec;
-    border-radius: 16px;
-    padding: 0 12px;
-    font-size: 13px;
-    outline: none;
-    background: #f7f8fa;
-    color: #1a1a1a;
-    transition: all 0.15s;
-    font-family: inherit;
-  }
-  .filter-input { min-width: 160px; }
-  .filter-select {
-    min-width: 110px;
-    padding-right: 28px;
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2307c160'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-color: #f7f8fa;
-  }
-  .filter-input:focus, .filter-select:focus {
-    border-color: var(--wx-green);
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(7,193,96,0.1);
-  }
-
-  .btn {
-    height: 32px;
-    padding: 0 16px;
-    border-radius: 4px;
-    font-size: 13px;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: all 0.15s;
-    font-family: inherit;
-  }
-  .btn-primary { background: var(--wx-green); color: #fff; font-weight: 500; }
-  .btn-primary:hover { background: var(--wx-green-dark); }
-  .btn-default { background: #fff; color: #4a5564; border-color: #e5e8ec; }
-  .btn-default:hover { border-color: var(--wx-green); color: var(--wx-green); }
-
-  .filter-right { margin-left: auto; display: flex; align-items: center; gap: 20px; }
-  .setting-field {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 13px; color: #4a5564;
-  }
-  .setting-field label { white-space: nowrap; color: #6b7684; }
-  /* toggle switch */
-  .toggle {
-    position: relative; width: 36px; height: 20px; flex-shrink: 0;
-  }
-  .toggle input { display: none; }
-  .toggle-track {
-    position: absolute; inset: 0; border-radius: 10px;
-    background: #d0d7de; cursor: pointer; transition: background 0.2s;
-  }
-  .toggle input:checked + .toggle-track { background: var(--wx-green); }
-  .toggle-thumb {
-    position: absolute; top: 2px; left: 2px;
-    width: 16px; height: 16px; border-radius: 50%;
-    background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    transition: left 0.2s; pointer-events: none;
-  }
-  .toggle input:checked ~ .toggle-thumb { left: 18px; }
-
-  /* ===== 卡片 ===== */
-  .card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-    overflow: hidden;
-  }
-  .card-header {
-    padding: 14px 20px;
-    display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 1px solid #f0f2f5;
-  }
-  .card-title { font-size: 14px; font-weight: 600; }
-  .card-title span { font-size: 13px; font-weight: 400; color: #8a96a3; margin-left: 6px; }
-  .card-actions { display: flex; gap: 10px; }
-
-  /* ===== 表格 ===== */
-  .table-wrap { overflow-x: auto; }
-  table {
-    width: 100%; border-collapse: collapse; font-size: 13px;
-    min-width: 960px;
-  }
-  thead th {
-    padding: 11px 14px;
-    background: #f7f9fb;
-    color: #6b7684;
-    font-weight: 500;
-    text-align: left;
-    white-space: nowrap;
-    border-bottom: 1px solid #ebeef2;
-    font-size: 13px;
-  }
-  thead th:first-child { padding-left: 20px; }
-  thead th:last-child { padding-right: 20px; }
-  tbody tr {
-    border-bottom: 1px solid #f0f2f5;
-    transition: background 0.12s;
-  }
-  tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: #fafbfc; }
-  tbody td {
-    padding: 13px 14px;
-    color: #1a1a1a;
-    vertical-align: middle;
-  }
-  tbody td:first-child { padding-left: 20px; }
-  tbody td:last-child { padding-right: 20px; }
-
-  /* 单元格内容 */
-  .user-cell { display: flex; align-items: center; gap: 10px; }
-  .avatar {
-    width: 32px; height: 32px; border-radius: 50%;
-    background: var(--wx-green-light);
-    color: var(--wx-green);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 600; font-size: 13px; flex-shrink: 0;
-  }
-  .avatar.admin { background: #fef3c7; color: #d97706; }
-  .avatar.superadmin { background: #fee2e2; color: #dc2626; }
-  .name { font-weight: 500; font-size: 13px; }
-  .phone { color: #6b7684; font-size: 12px; margin-top: 1px; }
-
-  .role-tag {
-    display: inline-flex; align-items: center;
-    padding: 2px 8px; border-radius: 10px;
-    font-size: 12px; font-weight: 500; white-space: nowrap;
-  }
-  .role-superadmin { background: #fee2e2; color: #dc2626; }
-  .role-admin { background: #fef3c7; color: #d97706; }
-  .role-sales { background: var(--wx-green-light); color: var(--wx-green); }
-
-  .limit-cell { font-size: 13px; color: #4a5564; }
-  .limit-cell span { color: #1a1a1a; font-weight: 500; }
-  .limit-slash { color: #d0d7de; margin: 0 1px; }
-
-  .accounts-cell { display: flex; flex-wrap: wrap; gap: 4px; max-width: 200px; }
-  .acc-tag {
-    display: inline-block; padding: 1px 7px; border-radius: 3px;
-    background: #f0f2f5; color: #4a5564; font-size: 12px;
-    white-space: nowrap;
-  }
-  .acc-tag.more { background: transparent; color: #8a96a3; cursor: pointer; }
-  .acc-tag.more:hover { color: var(--wx-green); }
-
-  .status-dot {
-    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
-    margin-right: 5px; vertical-align: middle; position: relative; top: -1px;
-  }
-  .status-dot.on { background: var(--wx-green); }
-  .status-dot.off { background: #d0d7de; }
-  .status-dot.busy { background: #f59e0b; }
-
-  .action-btns { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
-  .action-btn {
-    font-size: 13px; color: var(--wx-green); cursor: pointer;
-    padding: 3px 0; transition: color 0.12s; background: none; border: none;
-    font-family: inherit;
-  }
-  .action-btn:hover { color: var(--wx-green-dark); text-decoration: underline; }
-  .action-btn.danger { color: #6b7684; }
-  .action-btn.danger:hover { color: #dc2626; }
-  .action-divider { color: #e5e8ec; font-size: 12px; user-select: none; }
-
-  /* 分页 */
-  .pagination {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 20px;
-    border-top: 1px solid #f0f2f5;
-    font-size: 13px; color: #6b7684;
-    position: sticky; bottom: 0; background: #fff; z-index: 2;
-  }
-  .page-btns { display: flex; align-items: center; gap: 4px; }
-  .page-btn {
-    min-width: 28px; height: 28px; border-radius: 4px;
-    border: 1px solid #ebeef2; background: #fff;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; cursor: pointer; color: #4a5564; padding: 0 6px;
-    transition: all 0.12s; font-family: inherit;
-  }
-  .page-btn:hover { border-color: var(--wx-green); color: var(--wx-green); }
-  .page-btn.active { background: var(--wx-green); color: #fff; border-color: var(--wx-green); }
-  .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-  .page-size-select {
-    height: 28px; border: 1px solid #e5e8ec; border-radius: 14px;
-    padding: 0 22px 0 10px; font-size: 13px; outline: none; color: #4a5564;
-    appearance: none; cursor: pointer; font-family: inherit;
-    background: #f7f8fa url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2307c160'/%3E%3C/svg%3E") no-repeat right 8px center;
-    transition: all 0.15s;
-  }
-  .page-size-select:focus {
-    border-color: var(--wx-green);
-    background-color: #fff;
-    box-shadow: 0 0 0 3px rgba(7,193,96,0.1);
-    outline: none;
-  }
-
-  /* 创建/编辑 弹窗 */
-  .modal-mask {
-    display: none; position: fixed; inset: 0;
-    background: rgba(0,0,0,0.35); z-index: 200;
-    align-items: center; justify-content: center;
-  }
-  .modal-mask.show { display: flex; }
-  .modal {
-    background: #fff; border-radius: 12px;
-    width: 640px; max-width: 96vw;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
-    overflow: visible;
-    animation: modalIn 0.18s ease;
-  }
-  @keyframes modalIn {
-    from { opacity: 0; transform: scale(0.97) translateY(-8px); }
-    to   { opacity: 1; transform: none; }
-  }
-  .modal-header {
-    padding: 20px 24px 16px;
-    display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 1px solid #f0f2f5;
-  }
-  .modal-title { font-size: 16px; font-weight: 600; }
-  .modal-close {
-    width: 28px; height: 28px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; color: #8a96a3; cursor: pointer; line-height: 1;
-    transition: all 0.12s; background: none; border: none; font-family: inherit;
-  }
-  .modal-close:hover { background: #f0f2f5; color: #1a1a1a; }
-  .modal-body { padding: 20px 24px 4px; }
-  .form-row { display: flex; gap: 20px; margin-bottom: 18px; }
-  .form-field { flex: 1; min-width: 0; }
-  .form-label {
-    display: flex; align-items: center; gap: 3px;
-    font-size: 13px; color: #4a5564;
-    font-weight: 500; margin-bottom: 7px;
-  }
-  .form-label .req { color: #dc2626; }
-  .form-input {
-    width: 100%; height: 38px;
-    border: 1px solid #e5e8ec; border-radius: 8px;
-    padding: 0 12px; font-size: 13px; outline: none;
-    color: #1a1a1a; background: #f7f8fa; font-family: inherit;
-    transition: all 0.15s;
-  }
-  .form-input:focus {
-    border-color: var(--wx-green);
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(7,193,96,0.1);
-  }
-  .field-error { font-size: 12px; color: #dc2626; margin-top: 4px; display: none; }
-  .form-field.has-error .form-input,
-  .form-field.has-error .wx-select-trigger { border-color: #dc2626 !important; }
-  .form-field.has-error .field-error { display: block; }
-
-  /* 步进器 */
-  .stepper {
-    display: flex; align-items: center;
-    height: 38px; border: 1px solid #e5e8ec; border-radius: 8px;
-    background: #f7f8fa; overflow: hidden;
-    transition: all 0.15s;
-  }
-  .stepper:focus-within { border-color: var(--wx-green); background: #fff; box-shadow: 0 0 0 3px rgba(7,193,96,0.1); }
-  .stepper-btn {
-    width: 36px; height: 100%; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; font-weight: 300; color: #6b7684;
-    cursor: pointer; background: none; border: none;
-    transition: all 0.12s; user-select: none;
-  }
-  .stepper-btn:hover { color: var(--wx-green); background: rgba(7,193,96,0.06); }
-  .stepper-input {
-    flex: 1; border: none; outline: none; background: transparent;
-    text-align: center; font-size: 14px; color: #1a1a1a; font-family: inherit;
-    min-width: 0;
-  }
-  /* hide native number arrows */
-  .stepper-input::-webkit-outer-spin-button,
-  .stepper-input::-webkit-inner-spin-button { -webkit-appearance: none; }
-
-  /* 自定义下拉 */
-  .wx-select { position: relative; }
-  .wx-select-trigger {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 38px; padding: 0 12px;
-    border: 1px solid #e5e8ec; border-radius: 8px;
-    background: #f7f8fa; cursor: pointer;
-    font-size: 13px; color: #1a1a1a;
-    transition: all 0.15s; user-select: none;
-  }
-  .wx-select-trigger:hover { border-color: #c8cdd6; }
-  .wx-select.open .wx-select-trigger {
-    border-color: var(--wx-green);
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(7,193,96,0.1);
-  }
-  .wx-select-placeholder { color: #bbb; }
-  .wx-select-arrow {
-    font-size: 10px; color: #07c160; flex-shrink: 0; margin-left: 6px;
-    transition: transform 0.2s;
-  }
-  .wx-select.open .wx-select-arrow { transform: rotate(180deg); }
-  .wx-select-dropdown {
-    display: none;
-    position: fixed;
-    background: #fff; border-radius: 10px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
-    z-index: 9999;
-    overflow-y: auto; max-height: 240px;
-    border: 1px solid #ebeef2;
-    min-width: 120px;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
-  }
-  .wx-select-dropdown:hover { scrollbar-color: #d0d7de transparent; }
-  .wx-select-dropdown::-webkit-scrollbar { width: 4px; }
-  .wx-select-dropdown::-webkit-scrollbar-thumb { background: transparent; border-radius: 2px; }
-  .wx-select-dropdown:hover::-webkit-scrollbar-thumb { background: #d0d7de; }
-  .wx-select.open .wx-select-dropdown { display: block; }
-  .wx-select-option {
-    padding: 11px 16px;
-    font-size: 13px; color: #1a1a1a;
-    cursor: pointer; transition: background 0.12s;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .wx-select-option:hover { background: #f5f7fa; }
-  .wx-select-option.selected { color: var(--wx-green); font-weight: 500; }
-  .wx-select-option.selected::after { content: '✓'; font-size: 13px; }
-
-  /* 账号标签多选 */
-  .tag-select-box {
-    min-height: 38px; padding: 4px 8px;
-    border: 1px solid #e5e8ec; border-radius: 8px;
-    background: #f7f8fa; cursor: pointer;
-    display: flex; flex-wrap: wrap; gap: 4px; align-items: center;
-    transition: all 0.15s; position: relative;
-  }
-  .tag-select-box:hover { border-color: #c8cdd6; }
-  .tag-select-box.open { border-color: var(--wx-green); background: #fff; box-shadow: 0 0 0 3px rgba(7,193,96,0.1); }
-  .tag-item {
-    display: inline-flex; align-items: center; gap: 3px;
-    padding: 1px 6px 1px 8px; border-radius: 4px;
-    background: var(--wx-green-light); color: var(--wx-green);
-    font-size: 12px; white-space: nowrap;
-  }
-  .tag-remove {
-    cursor: pointer; opacity: 0.6; font-size: 13px; line-height: 1;
-    padding: 0 1px;
-  }
-  .tag-remove:hover { opacity: 1; }
-  .tag-placeholder { font-size: 13px; color: #bbb; padding: 2px 4px; }
-  .tag-arrow { margin-left: auto; font-size: 10px; color: #07c160; flex-shrink: 0; }
-  .tag-dropdown {
-    display: none;
-    position: fixed;
-    background: #fff; border-radius: 10px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
-    z-index: 9999;
-    overflow-y: auto; max-height: 240px;
-    border: 1px solid #ebeef2;
-    min-width: 120px;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
-  }
-  .tag-dropdown:hover { scrollbar-color: #d0d7de transparent; }
-  .tag-dropdown::-webkit-scrollbar { width: 4px; }
-  .tag-dropdown::-webkit-scrollbar-thumb { background: transparent; border-radius: 2px; }
-  .tag-dropdown:hover::-webkit-scrollbar-thumb { background: #d0d7de; }
-  .tag-select-wrap { position: relative; }
-  .tag-select-wrap.open .tag-dropdown { display: block; }
-  .tag-option {
-    padding: 10px 16px;
-    font-size: 13px; color: #1a1a1a;
-    cursor: pointer; transition: background 0.12s;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .tag-option:hover { background: #f5f7fa; }
-  .tag-check {
-    width: 16px; height: 16px; border-radius: 4px;
-    border: 1px solid #d0d7de; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.12s; font-size: 11px; color: #fff;
-  }
-  .tag-option.checked .tag-check { background: var(--wx-green); border-color: var(--wx-green); }
-  .tag-option.checked .tag-check::after { content: '✓'; }
-
-  .modal-footer {
-    padding: 16px 24px;
-    display: flex; align-items: center; justify-content: flex-end; gap: 10px;
-    border-top: 1px solid #f0f2f5;
-  }
-  .btn-lg { height: 36px; padding: 0 28px; font-size: 14px; border-radius: 6px; }
-</style>
-</head>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>销售管理</title><link rel="stylesheet" href="_admin_list.css">
+<script src="_edit_modal.js" defer></script></head>
 <body>
 
-<div class="page-title">销售管理</div>
-
-<!-- 筛选区 -->
 <div class="filter-bar">
-  <div class="filter-field">
-    <label>销售姓名</label>
-    <input class="filter-input" placeholder="输入姓名查询">
+  <div class="f-group"><input class="f-input wide" id="kw" placeholder="销售姓名"></div>
+  <button class="btn primary" onclick="render()">🔍 查询</button>
+  <div class="f-group"><span class="f-label">全体销售每日自动下班时间</span>
+    <input class="f-input" type="time" value="04:00" style="width:100px;">
   </div>
-  <div class="filter-field" style="align-items:center;">
-    <label>权限角色</label>
-    <div class="wx-select" id="sel_filter_role" style="min-width:110px;">
-      <div class="wx-select-trigger" onclick="toggleSelect('sel_filter_role')" style="height:32px; border-radius:16px; background:#f7f8fa; font-size:13px;">
-        <span id="sel_filter_role_text">全部角色</span>
-        <span class="wx-select-arrow">▼</span>
-      </div>
-      <div class="wx-select-dropdown">
-        <div class="wx-select-option" data-value="" onclick="selectFilterRole('','全部角色')">全部角色</div>
-        <div class="wx-select-option" data-value="bookclub" onclick="selectFilterRole('bookclub','读书会管理员')">读书会管理员</div>
-        <div class="wx-select-option" data-value="superadmin" onclick="selectFilterRole('superadmin','超级管理员')">超级管理员</div>
-        <div class="wx-select-option" data-value="engineer" onclick="selectFilterRole('engineer','工程师')">工程师</div>
-        <div class="wx-select-option" data-value="referral" onclick="selectFilterRole('referral','拉新人')">拉新人</div>
-        <div class="wx-select-option" data-value="sales" onclick="selectFilterRole('sales','销售')">销售</div>
-        <div class="wx-select-option" data-value="admin" onclick="selectFilterRole('admin','管理员')">管理员</div>
-      </div>
-    </div>
-    <input type="hidden" id="filter_role_val">
+  <div class="f-group"><span class="f-label">是否允许转接给离开的销售</span>
+    <label class="switch"><input type="checkbox" checked><span class="switch-slider"></span></label>
   </div>
-  <button class="btn btn-primary" onclick="filterTable()">查询</button>
-  <button class="btn btn-default" onclick="resetFilter()">重置</button>
-
-  <div class="filter-right">
-    <div class="setting-field">
-      <label>全体每日自动下班时间</label>
-      <div class="wx-select" id="sel_offwork" style="min-width:80px;">
-        <div class="wx-select-trigger" onclick="toggleSelect('sel_offwork')" style="height:32px; border-radius:16px; background:#f7f8fa; font-size:13px;">
-          <span id="sel_offwork_text">04:00</span>
-          <span class="wx-select-arrow">▼</span>
-        </div>
-        <div class="wx-select-dropdown">
-          <div class="wx-select-option selected" data-value="04:00" onclick="selectSimple('sel_offwork','04:00')">04:00</div>
-          <div class="wx-select-option" data-value="03:00" onclick="selectSimple('sel_offwork','03:00')">03:00</div>
-          <div class="wx-select-option" data-value="02:00" onclick="selectSimple('sel_offwork','02:00')">02:00</div>
-          <div class="wx-select-option" data-value="01:00" onclick="selectSimple('sel_offwork','01:00')">01:00</div>
-          <div class="wx-select-option" data-value="00:00" onclick="selectSimple('sel_offwork','00:00')">00:00</div>
-        </div>
-      </div>
-    </div>
-    <div class="setting-field">
-      <label>允许转接给离开的销售</label>
-      <label class="toggle">
-        <input type="checkbox" id="transferToggle" checked>
-        <div class="toggle-track"></div>
-        <div class="toggle-thumb"></div>
-      </label>
-    </div>
-  </div>
+  <div class="f-spacer"></div>
+  <button class="btn primary" onclick="toast('创建销售')">＋ 创建</button>
+  <button class="btn" onclick="toast('全部记录')">📋 全部记录</button>
 </div>
 
-<!-- 表格卡片 -->
-<div class="card">
-  <div class="card-header">
-    <div class="card-title">
-      销售列表
-      <span id="totalCount">共 12 人</span>
-    </div>
-    <div class="card-actions">
-      <button class="btn btn-default">导出表格</button>
-      <button class="btn btn-primary" onclick="openModal('create')">+ 创建销售</button>
-    </div>
-  </div>
-
-  <div class="table-wrap">
-    <table id="salesTable">
-      <thead>
-        <tr>
-          <th>销售信息</th>
-          <th>权限角色</th>
-          <th>单聊上限 / 群聊上限</th>
-          <th>师父</th>
-          <th>可聊天账号</th>
-          <th>状态</th>
-          <th>创建时间</th>
-          <th>操作</th>
-        </tr>
-      </thead>
-      <tbody id="salesBody"></tbody>
+<div class="table-wrap">
+  <div class="table-card scroll" style="min-width:1900px;">
+    <table>
+      <thead><tr>
+        <th>销售姓名 ↕</th><th>手机号</th><th>权限角色</th>
+        <th>单聊/群聊上限</th><th>师父</th>
+        <th>可聊天账号</th><th>销售微信昵称</th>
+        <th>核销员编号</th><th>管理员编号</th>
+        <th>创建时间</th><th>最新迭代时间</th>
+        <th class="col-actions">操作</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
     </table>
   </div>
-
-  <div class="pagination">
-    <div style="display:flex; align-items:center; gap:6px;">
-      共 <strong>12</strong> 条，每页
-      <div class="wx-select" id="sel_pagesize" style="min-width:60px;">
-        <div class="wx-select-trigger" onclick="toggleSelect('sel_pagesize')" style="height:28px; border-radius:14px; background:#f7f8fa; font-size:13px; padding:0 8px;">
-          <span id="sel_pagesize_text">10</span>
-          <span class="wx-select-arrow">▼</span>
-        </div>
-        <div class="wx-select-dropdown">
-          <div class="wx-select-option selected" data-value="10" onclick="selectSimple('sel_pagesize','10')">10</div>
-          <div class="wx-select-option" data-value="20" onclick="selectSimple('sel_pagesize','20')">20</div>
-          <div class="wx-select-option" data-value="50" onclick="selectSimple('sel_pagesize','50')">50</div>
-        </div>
-      </div>
-      条
-    </div>
-    <div class="page-btns">
-      <button class="page-btn" disabled>&#8249;</button>
-      <button class="page-btn active">1</button>
-      <button class="page-btn">2</button>
-      <button class="page-btn">&#8250;</button>
-    </div>
-  </div>
 </div>
 
-<!-- 新增/编辑 弹窗 -->
-<div class="modal-mask" id="modalMask" onclick="closeModalOutside(event)">
-  <div class="modal" id="modal">
-    <div class="modal-header">
-      <div class="modal-title" id="modalTitle">新增销售</div>
-      <button class="modal-close" onclick="closeModal()">×</button>
-    </div>
-    <div class="modal-body">
-
-      <!-- 行1：姓名 / 手机号 -->
-      <div class="form-row">
-        <div class="form-field" id="ff_name">
-          <div class="form-label"><span class="req">*</span> 销售名称</div>
-          <input class="form-input" id="f_name" placeholder="请输入销售名称">
-          <div class="field-error">销售名称不能为空</div>
-        </div>
-        <div class="form-field" id="ff_phone">
-          <div class="form-label"><span class="req">*</span> 销售手机号</div>
-          <input class="form-input" id="f_phone" placeholder="请输入销售手机号" maxlength="11">
-          <div class="field-error">手机号不能为空</div>
-        </div>
-      </div>
-
-      <!-- 行2：单聊步进 / 群聊步进 -->
-      <div class="form-row">
-        <div class="form-field">
-          <div class="form-label"><span class="req">*</span> 单聊数上限</div>
-          <div class="stepper">
-            <button class="stepper-btn" onclick="stepperChange('f_single',-1)">−</button>
-            <input class="stepper-input" id="f_single" type="number" value="15" min="0" max="9999">
-            <button class="stepper-btn" onclick="stepperChange('f_single',1)">+</button>
-          </div>
-        </div>
-        <div class="form-field">
-          <div class="form-label"><span class="req">*</span> 群聊数上限</div>
-          <div class="stepper">
-            <button class="stepper-btn" onclick="stepperChange('f_group',-1)">−</button>
-            <input class="stepper-input" id="f_group" type="number" value="15" min="0" max="9999">
-            <button class="stepper-btn" onclick="stepperChange('f_group',1)">+</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 行3：权限角色 / 可聊天账号 -->
-      <div class="form-row">
-        <div class="form-field" id="ff_role">
-          <div class="form-label"><span class="req">*</span> 权限角色</div>
-          <div class="wx-select" id="sel_role">
-            <div class="wx-select-trigger" onclick="toggleSelect('sel_role')">
-              <span class="wx-select-placeholder" id="sel_role_text">请选择角色</span>
-              <span class="wx-select-arrow">▼</span>
-            </div>
-            <div class="wx-select-dropdown">
-              <div class="wx-select-option" data-value="bookclub" onclick="selectOption('sel_role','bookclub','读书会管理员')">读书会管理员</div>
-              <div class="wx-select-option" data-value="superadmin" onclick="selectOption('sel_role','superadmin','超级管理员')">超级管理员</div>
-              <div class="wx-select-option" data-value="engineer" onclick="selectOption('sel_role','engineer','工程师')">工程师</div>
-              <div class="wx-select-option" data-value="referral" onclick="selectOption('sel_role','referral','拉新人')">拉新人</div>
-              <div class="wx-select-option" data-value="sales" onclick="selectOption('sel_role','sales','销售')">销售</div>
-              <div class="wx-select-option" data-value="admin" onclick="selectOption('sel_role','admin','管理员')">管理员</div>
-            </div>
-          </div>
-          <input type="hidden" id="f_role">
-          <div class="field-error">权限角色不能为空</div>
-        </div>
-        <div class="form-field">
-          <div class="form-label">可聊天账号</div>
-          <div class="tag-select-wrap" id="tsw_accounts">
-            <div class="tag-select-box" id="tag_box_accounts" onclick="toggleTagSelect('tsw_accounts')">
-              <span class="tag-placeholder" id="tag_ph_accounts">请选择账号</span>
-              <span class="tag-arrow">▼</span>
-            </div>
-            <div class="tag-dropdown" id="tag_dd_accounts">
-              <div class="tag-option" data-value="1号" onclick="toggleTag('accounts','1号',this)"><div class="tag-check"></div>1号</div>
-              <div class="tag-option" data-value="2号" onclick="toggleTag('accounts','2号',this)"><div class="tag-check"></div>2号</div>
-              <div class="tag-option" data-value="3号" onclick="toggleTag('accounts','3号',this)"><div class="tag-check"></div>3号</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 行4：销售微信昵称 / 师父 -->
-      <div class="form-row">
-        <div class="form-field">
-          <div class="form-label">销售微信昵称</div>
-          <div class="wx-select" id="sel_wechat">
-            <div class="wx-select-trigger" onclick="toggleSelect('sel_wechat')">
-              <span class="wx-select-placeholder" id="sel_wechat_text">请选择销售微信昵称</span>
-              <span class="wx-select-arrow">▼</span>
-            </div>
-            <div class="wx-select-dropdown">
-              <div class="wx-select-option" data-value="wx1" onclick="selectOption('sel_wechat','wx1','周海燕-微信')">周海燕-微信</div>
-              <div class="wx-select-option" data-value="wx2" onclick="selectOption('sel_wechat','wx2','刘建国-微信')">刘建国-微信</div>
-              <div class="wx-select-option" data-value="wx3" onclick="selectOption('sel_wechat','wx3','赵思远-微信')">赵思远-微信</div>
-            </div>
-          </div>
-          <input type="hidden" id="f_wechat">
-        </div>
-        <div class="form-field">
-          <div class="form-label">师父</div>
-          <div class="wx-select" id="sel_mentor">
-            <div class="wx-select-trigger" onclick="toggleSelect('sel_mentor')">
-              <span class="wx-select-placeholder" id="sel_mentor_text">请选择师父</span>
-              <span class="wx-select-arrow">▼</span>
-            </div>
-            <div class="wx-select-dropdown">
-              <div class="wx-select-option" data-value="" onclick="selectOption('sel_mentor','','无')">无</div>
-              <div class="wx-select-option" data-value="王晓琳" onclick="selectOption('sel_mentor','王晓琳','王晓琳')">王晓琳</div>
-              <div class="wx-select-option" data-value="陈文博" onclick="selectOption('sel_mentor','陈文博','陈文博')">陈文博</div>
-              <div class="wx-select-option" data-value="周海燕" onclick="selectOption('sel_mentor','周海燕','周海燕')">周海燕</div>
-              <div class="wx-select-option" data-value="刘建国" onclick="selectOption('sel_mentor','刘建国','刘建国')">刘建国</div>
-            </div>
-          </div>
-          <input type="hidden" id="f_mentor">
-        </div>
-      </div>
-
-      <!-- 行5：核销员编号 / 管理员编号 -->
-      <div class="form-row">
-        <div class="form-field">
-          <div class="form-label">核销员编号</div>
-          <input class="form-input" id="f_verifier" type="number" value="0" min="0">
-        </div>
-        <div class="form-field">
-          <div class="form-label">管理员编号</div>
-          <input class="form-input" id="f_admin_no" type="number" value="0" min="0">
-        </div>
-      </div>
-
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-primary btn-lg" onclick="saveModal()">确 定</button>
-      <button class="btn btn-default btn-lg" onclick="closeModal()">取 消</button>
-    </div>
-  </div>
+<div class="pager">
+  <span class="pager-info">共 121 条</span>
+  <select><option>20条/页</option></select>
+  <button class="pager-btn">‹</button>
+  <button class="pager-btn cur">1</button><button class="pager-btn">2</button><button class="pager-btn">3</button>
+  <button class="pager-btn">4</button><button class="pager-btn">5</button><button class="pager-btn">6</button>
+  <button class="pager-btn">7</button>
+  <button class="pager-btn">›</button>
 </div>
 
-<script src="mock-data.js"></script>
+<div class="toast" id="toast"></div>
 <script>
-let filtered = [...SALES_DATA];
-let editingId = null;
-
-function renderTable() {
-  const tbody = document.getElementById('salesBody');
-  tbody.innerHTML = filtered.map(r => {
-    const role = ROLE_MAP[r.role];
-    const status = STATUS_MAP[r.status];
-    const avatarColor = role.avatarCls;
-    const accs = r.accounts;
-    const showAccs = accs.slice(0, 3);
-    const moreCount = accs.length - showAccs.length;
-    const accTags = showAccs.map(a => `<span class="acc-tag">${a}</span>`).join('')
-      + (moreCount > 0 ? `<span class="acc-tag more">+${moreCount}</span>` : '');
-
-    return `<tr>
-      <td>
-        <div class="user-cell">
-          <div class="avatar ${avatarColor}">${r.name[0]}</div>
-          <div>
-            <div class="name">${r.name}</div>
-            <div class="phone">${r.phone}</div>
-          </div>
-        </div>
+// 真实数据脱敏：手机号脱敏，姓名保留
+const ROWS = [
+  { name:'杨亚平', phone:'15219509710', role:'-', limit:'2000 / 50',  master:'-', accs:'-',                              coreNo:0, adminNo:0, createdAt:'2026-04-30 18:28:49', updatedAt:'2026-04-30 18:29:14' },
+  { name:'康小蓉', phone:'15983976671', role:'-', limit:'2000 / 50',  master:'-', accs:'-',                              coreNo:0, adminNo:0, createdAt:'2026-04-30 18:28:07', updatedAt:'2026-04-30 18:29:07' },
+  { name:'于子尚', phone:'15008205219', role:'-', limit:'2000 / 50',  master:'-', accs:'-',                              coreNo:0, adminNo:0, createdAt:'2026-04-30 18:26:35', updatedAt:'2026-04-30 18:27:21' },
+  { name:'李天雯', phone:'13550190740', role:'-', limit:'2000 / 800', master:'-', accs:'小红书 (20/1): 艺星专家助理妍妍',  coreNo:0, adminNo:0, createdAt:'2026-04-28 13:08:50', updatedAt:'2026-04-28 14:33:01' },
+  { name:'唐怡情', phone:'18228008847', role:'-', limit:'1 / 1',      master:'-', accs:'-',                              coreNo:0, adminNo:0, createdAt:'2026-04-27 16:04:46', updatedAt:'2026-04-27 16:05:02' },
+  { name:'沈欢瑜', phone:'15109537570', role:'-', limit:'1 / 1',      master:'-', accs:'-',                              coreNo:0, adminNo:0, createdAt:'2026-04-27 16:04:09', updatedAt:'2026-04-27 16:05:05' },
+  { name:'刘扩昕', phone:'17775515471', role:'-', limit:'1 / 1',      master:'-', accs:'-',                              coreNo:0, adminNo:0, createdAt:'2026-04-27 16:03:28', updatedAt:'2026-04-27 16:05:08' },
+  { name:'灵岛兰', phone:'19115274954', role:'-', limit:'1 / 1',      master:'-', accs:'-',                              coreNo:0, adminNo:0, createdAt:'2026-04-27 16:02:44', updatedAt:'2026-04-27 16:05:11' },
+  { name:'裴霞',   phone:'17708010376', role:'-', limit:'15 / 15',    master:'-', accs:'电商 (21/1): 胡瑞 02',             coreNo:0, adminNo:0, createdAt:'2026-04-22 13:24:51', updatedAt:'2026-04-22 13:32:05' },
+  { name:'毛佳利', phone:'18782077225', role:'-', limit:'2000 / 800', master:'-', accs:'-',                              coreNo:0, adminNo:0, createdAt:'2026-04-22 10:00:51', updatedAt:'2026-04-28 13:49:34' },
+  { name:'马驰',   phone:'15940290535', role:'-', limit:'2000 / 800', master:'-', accs:'抖音 (26/1): 马驰 圆圆',            coreNo:0, adminNo:0, createdAt:'2026-04-22 10:00:29', updatedAt:'2026-04-28 13:48:58' },
+  { name:'罗玲',   phone:'18780048622', role:'-', limit:'2000 / 800', master:'-', accs:'抖音 (26/2): 罗玲 金金、YeStar 成都艺星专家助理 铃铃', coreNo:0, adminNo:0, createdAt:'2026-04-22 09:59:59', updatedAt:'2026-04-28 14:11:47' },
+  { name:'樊燕玲', phone:'15070419346', role:'-', limit:'15 / 15',    master:'-', accs:'-',                              coreNo:0, adminNo:0, createdAt:'2026-04-22 09:59:31', updatedAt:'2026-04-22 09:59:35' },
+  { name:'杨珂',   phone:'18585393257', role:'-', limit:'2000 / 15',  master:'-', accs:'小红书 (20/1): 杨珂 yiyi',         coreNo:0, adminNo:0, createdAt:'2026-04-22 09:59:08', updatedAt:'2026-05-05 09:35:08' },
+];
+function render() {
+  const kw = document.getElementById('kw').value.trim();
+  const list = ROWS.filter(r => !kw || r.name.includes(kw));
+  document.getElementById('tbody').innerHTML = list.map((r, i) => `
+    <tr>
+      <td>${r.name}</td>
+      <td>${r.phone.slice(0,3)}****${r.phone.slice(-4)}</td>
+      <td>${r.role === '-' ? '<span style="color:var(--text-3)">-</span>' : `<span class="tag blue">${r.role}</span>`}</td>
+      <td><span class="col-num">${r.limit}</span></td>
+      <td>${r.master === '-' ? '<span style="color:var(--text-3)">-</span>' : r.master}</td>
+      <td>${r.accs === '-' ? '<span style="color:var(--text-3)">-</span>' : `<span style="font-size:12.5px;color:var(--text-2);">${r.accs}</span>`}</td>
+      <td><span style="color:var(--text-3)">-</span></td>
+      <td class="col-num muted">${r.coreNo}</td>
+      <td class="col-num muted">${r.adminNo}</td>
+      <td class="col-time">${r.createdAt}</td>
+      <td class="col-time">${r.updatedAt}</td>
+      <td class="col-actions">
+        <button class="row-action" onclick="onEdit(${i})">编辑</button>
+        <button class="row-action muted" onclick="onResetPwd(${i})">重置密码</button>
+        <button class="row-action danger" onclick="onDel(${i})">删除</button>
       </td>
-      <td><span class="role-tag ${role.cls}">${role.label}</span></td>
-      <td class="limit-cell"><span>${r.single === 9999 ? '不限' : r.single}</span><span class="limit-slash"> / </span><span>${r.group === 9999 ? '不限' : r.group}</span></td>
-      <td>${r.mentor}</td>
-      <td><div class="accounts-cell">${accTags}</div></td>
-      <td><span class="status-dot ${status.dot}"></span>${status.text}</td>
-      <td>${r.created}</td>
-      <td>
-        <div class="action-btns">
-          <button class="action-btn" onclick="openModal('edit', ${r.id})">编辑</button>
-          <span class="action-divider">|</span>
-          <button class="action-btn" onclick="toggleStatus(${r.id})">${r.status === 'off' ? '启用' : '禁用'}</button>
-          <span class="action-divider">|</span>
-          <button class="action-btn danger" onclick="confirmDelete(${r.id})">删除</button>
-        </div>
-      </td>
-    </tr>`;
-  }).join('');
-  document.getElementById('totalCount').textContent = `共 ${filtered.length} 人`;
+    </tr>
+  `).join('');
 }
 
-function selectSimple(selId, value) {
-  const el = document.getElementById(selId);
-  document.getElementById(selId + '_text').textContent = value;
-  el.querySelectorAll('.wx-select-option').forEach(o => {
-    o.classList.toggle('selected', o.dataset.value === value);
-  });
-  el.classList.remove('open');
-}
-
-function selectFilterRole(value, label) {
-  document.getElementById('filter_role_val').value = value;
-  const textEl = document.getElementById('sel_filter_role_text');
-  textEl.textContent = label;
-  document.getElementById('sel_filter_role').querySelectorAll('.wx-select-option').forEach(o => {
-    o.classList.toggle('selected', o.dataset.value === value);
-  });
-  document.getElementById('sel_filter_role').classList.remove('open');
-}
-
-function filterTable() {
-  const name = document.querySelector('.filter-input').value.trim();
-  const role = document.getElementById('filter_role_val').value;
-  filtered = SALES_DATA.filter(r => {
-    if (name && !r.name.includes(name)) return false;
-    if (role && r.role !== role) return false;
-    return true;
-  });
-  renderTable();
-}
-
-function resetFilter() {
-  document.querySelector('.filter-input').value = '';
-  selectFilterRole('', '全部角色');
-  filtered = [...SALES_DATA];
-  renderTable();
-}
-
-/* ===== 自定义下拉 ===== */
-function positionDropdown(trigger, dropdown) {
-  const rect = trigger.getBoundingClientRect();
-  // 先让 dropdown 自适应内容宽度
-  dropdown.style.width = 'auto';
-  dropdown.style.minWidth = rect.width + 'px';
-  dropdown.style.whiteSpace = 'nowrap';
-  // 临时显示获取实际宽度
-  dropdown.style.visibility = 'hidden';
-  dropdown.style.display = 'block';
-  const ddWidth = Math.max(dropdown.offsetWidth, rect.width);
-  dropdown.style.display = '';
-  dropdown.style.visibility = '';
-  dropdown.style.width = ddWidth + 'px';
-  // 右对齐
-  dropdown.style.left = (rect.right - ddWidth) + 'px';
-  const spaceBelow = window.innerHeight - rect.bottom - 8;
-  if (spaceBelow >= 160 || spaceBelow > rect.top) {
-    dropdown.style.top = (rect.bottom + 4) + 'px';
-    dropdown.style.bottom = '';
-  } else {
-    dropdown.style.bottom = (window.innerHeight - rect.top + 4) + 'px';
-    dropdown.style.top = '';
-  }
-}
-function toggleSelect(id) {
-  const el = document.getElementById(id);
-  const isOpen = el.classList.contains('open');
-  closeAllSelects();
-  if (!isOpen) {
-    el.classList.add('open');
-    positionDropdown(el.querySelector('.wx-select-trigger'), el.querySelector('.wx-select-dropdown'));
-  }
-}
-function selectOption(selId, value, label) {
-  const el = document.getElementById(selId);
-  document.getElementById(selId + '_text').textContent = label;
-  document.getElementById(selId + '_text').classList.remove('wx-select-placeholder');
-  // 同步 hidden input（把 sel_ 前缀转成 f_ 字段名）
-  const hiddenId = 'f_' + selId.replace('sel_', '');
-  const hidden = document.getElementById(hiddenId);
-  if (hidden) hidden.value = value;
-  // 更新选中样式
-  el.querySelectorAll('.wx-select-option').forEach(o => {
-    o.classList.toggle('selected', o.dataset.value === value);
-  });
-  el.classList.remove('open');
-  // 清除错误
-  const ff = document.getElementById('ff_' + selId.replace('sel_', ''));
-  if (ff) ff.classList.remove('has-error');
-}
-function closeAllSelects() {
-  document.querySelectorAll('.wx-select.open').forEach(el => el.classList.remove('open'));
-  document.querySelectorAll('.tag-select-wrap.open').forEach(el => el.classList.remove('open'));
-}
-document.addEventListener('click', e => {
-  if (!e.target.closest('.wx-select') && !e.target.closest('.tag-select-wrap')) closeAllSelects();
-});
-
-/* ===== 标签多选 ===== */
-const tagSelected = { accounts: [] };
-function toggleTagSelect(wrapId) {
-  const wrap = document.getElementById(wrapId);
-  const isOpen = wrap.classList.contains('open');
-  closeAllSelects();
-  if (!isOpen) {
-    wrap.classList.add('open');
-    positionDropdown(wrap.querySelector('.tag-select-box'), wrap.querySelector('.tag-dropdown'));
-  }
-}
-function toggleTag(key, value, optEl) {
-  const arr = tagSelected[key];
-  const idx = arr.indexOf(value);
-  if (idx >= 0) arr.splice(idx, 1);
-  else arr.push(value);
-  optEl.classList.toggle('checked', arr.includes(value));
-  renderTagBox(key);
-}
-function renderTagBox(key) {
-  const arr = tagSelected[key];
-  const box = document.getElementById('tag_box_' + key);
-  const ph = document.getElementById('tag_ph_' + key);
-  // remove old tags
-  box.querySelectorAll('.tag-item').forEach(t => t.remove());
-  if (arr.length === 0) {
-    ph.style.display = '';
-  } else {
-    ph.style.display = 'none';
-    arr.forEach(v => {
-      const tag = document.createElement('span');
-      tag.className = 'tag-item';
-      tag.innerHTML = `${v}<span class="tag-remove" onclick="removeTag(event,'${key}','${v}')">×</span>`;
-      box.insertBefore(tag, box.querySelector('.tag-arrow'));
+let editModal;
+function onEdit(idx) {
+  const r = ROWS[idx];
+  if (!editModal) {
+    editModal = createEditModal({
+      title: '修改销售',
+      width: 600,
+      fields: [
+        { label:'销售名称',     key:'name',    type:'text',   placeholder:'请输入销售名称', required:true },
+        { label:'销售手机号',   key:'phone',   type:'text',   placeholder:'请输入销售手机号', required:true },
+        { label:'单聊数上限',   key:'soloMax', type:'number', placeholder:'例：2000' },
+        { label:'群聊数上限',   key:'groupMax',type:'number', placeholder:'例：50' },
+        { label:'权限角色',     key:'role',    type:'select', options:['超级管理员','企业管理员','销售经理','销售','院长助理','财务'] },
+        { label:'可聊天账号',   key:'accs',    type:'text',   placeholder:'多个账号用 / 分隔；例：小红书 (20/1): 杨珂 yiyi' },
+        { label:'销售微信昵称', key:'wxNick',  type:'text',   placeholder:'选填' },
+        { label:'师父',         key:'master',  type:'select', options:['杜佳','杨瑶 yiyi','陈巧','聂敏','刘瑜02'] },
+        { label:'核销员编号',   key:'coreNo',  type:'number' },
+        { label:'管理员编号',   key:'adminNo', type:'number' },
+      ],
+      onSubmit: (data) => {
+        Object.assign(ROWS[onEdit._curIdx], data, { updatedAt: new Date().toISOString().replace('T', ' ').slice(0, 19) });
+        render();
+        toast('已保存');
+      }
     });
   }
-}
-function removeTag(e, key, value) {
-  e.stopPropagation();
-  const arr = tagSelected[key];
-  const idx = arr.indexOf(value);
-  if (idx >= 0) arr.splice(idx, 1);
-  const opt = document.querySelector(`#tag_dd_${key} .tag-option[data-value="${value}"]`);
-  if (opt) opt.classList.remove('checked');
-  renderTagBox(key);
-}
-
-/* ===== 步进器 ===== */
-function stepperChange(id, delta) {
-  const input = document.getElementById(id);
-  const val = parseInt(input.value) || 0;
-  const min = parseInt(input.min) || 0;
-  const max = parseInt(input.max) || 9999;
-  input.value = Math.min(max, Math.max(min, val + delta));
-}
-
-/* ===== modal 控制 ===== */
-function resetModalForm() {
-  // inputs
-  ['f_name','f_phone','f_verifier','f_admin_no'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = id.includes('no') || id.includes('verifier') ? '0' : '';
+  onEdit._curIdx = idx;
+  editModal.open({
+    name: r.name, phone: r.phone, soloMax: parseInt(r.limit.split('/')[0]) || 0,
+    groupMax: parseInt(r.limit.split('/')[1]) || 0, role: r.role === '-' ? '' : r.role,
+    accs: r.accs === '-' ? '' : r.accs, wxNick: '', master: r.master === '-' ? '' : r.master,
+    coreNo: r.coreNo, adminNo: r.adminNo
   });
-  document.getElementById('f_single').value = 15;
-  document.getElementById('f_group').value = 15;
-  // custom selects
-  ['sel_role','sel_mentor','sel_wechat'].forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.querySelectorAll('.wx-select-option').forEach(o => o.classList.remove('selected'));
-    const textEl = document.getElementById(id + '_text');
-    const placeholders = { sel_role:'请选择角色', sel_mentor:'请选择师父', sel_wechat:'请选择销售微信昵称' };
-    textEl.textContent = placeholders[id];
-    textEl.classList.add('wx-select-placeholder');
-    const hiddenId = 'f_' + id.replace('sel_','');
-    const hidden = document.getElementById(hiddenId);
-    if (hidden) hidden.value = '';
-  });
-  // tags
-  tagSelected.accounts = [];
-  document.querySelectorAll('#tag_dd_accounts .tag-option').forEach(o => o.classList.remove('checked'));
-  renderTagBox('accounts');
-  // errors
-  document.querySelectorAll('.form-field.has-error').forEach(f => f.classList.remove('has-error'));
 }
-
-function openModal(mode, id) {
-  editingId = mode === 'edit' ? id : null;
-  document.getElementById('modalTitle').textContent = mode === 'edit' ? '编辑销售' : '新增销售';
-  resetModalForm();
-  if (mode === 'edit' && id) {
-    const r = SALES_DATA.find(x => x.id === id);
-    document.getElementById('f_name').value = r.name;
-    document.getElementById('f_phone').value = r.phone.replace('****', '12345');
-    document.getElementById('f_single').value = r.single === 9999 ? 9999 : r.single;
-    document.getElementById('f_group').value = r.group === 9999 ? 9999 : r.group;
-    // role
-    selectOption('sel_role', r.role, { superadmin:'超级管理员', admin:'管理员', sales:'销售' }[r.role]);
-    // mentor
-    const m = r.mentor === '—' ? '' : r.mentor;
-    selectOption('sel_mentor', m, m || '无');
-    // accounts
-    tagSelected.accounts = [...r.accounts];
-    document.querySelectorAll('#tag_dd_accounts .tag-option').forEach(o => {
-      o.classList.toggle('checked', r.accounts.includes(o.dataset.value));
-    });
-    renderTagBox('accounts');
-  }
-  document.getElementById('modalMask').classList.add('show');
+function onResetPwd(idx) {
+  if (confirm(`重置「${ROWS[idx].name}」的登录密码？新密码会通过短信发送到 ${ROWS[idx].phone.slice(0,3)}****${ROWS[idx].phone.slice(-4)}`)) toast('已重置');
 }
-
-function closeModal() {
-  closeAllSelects();
-  document.getElementById('modalMask').classList.remove('show');
+function onDel(idx) {
+  if (confirm(`确认删除销售「${ROWS[idx].name}」？该操作无法撤销，且会解除其名下客户的归属`)) { ROWS.splice(idx, 1); render(); toast('已删除'); }
 }
-
-function closeModalOutside(e) {
-  if (e.target === document.getElementById('modalMask')) closeModal();
-}
-
-function saveModal() {
-  let valid = true;
-  const name = document.getElementById('f_name').value.trim();
-  const phone = document.getElementById('f_phone').value.trim();
-  const role = document.getElementById('f_role').value;
-  if (!name) { document.getElementById('ff_name').classList.add('has-error'); valid = false; }
-  else { document.getElementById('ff_name').classList.remove('has-error'); }
-  if (!role) { document.getElementById('ff_role').classList.add('has-error'); valid = false; }
-  else { document.getElementById('ff_role').classList.remove('has-error'); }
-  if (!valid) return;
-
-  if (editingId) {
-    // 编辑现有
-    const r = SALES_DATA.find(x => x.id === editingId);
-    if (r) {
-      r.name = name;
-      if (phone) r.phone = phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
-      r.role = role;
-      r.single = parseInt(document.getElementById('f_single').value) || 15;
-      r.group = parseInt(document.getElementById('f_group').value) || 15;
-      const mentorVal = document.getElementById('f_mentor').value;
-      r.mentor = mentorVal || '—';
-      r.accounts = [...tagSelected.accounts];
-    }
-  } else {
-    // 真创建
-    const newId = Math.max(...SALES_DATA.map(x => x.id)) + 1;
-    const displayPhone = phone ? phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2') : '—';
-    SALES_DATA.push({
-      id: newId,
-      name: name,
-      phone: displayPhone,
-      role: role,
-      single: parseInt(document.getElementById('f_single').value) || 15,
-      group: parseInt(document.getElementById('f_group').value) || 15,
-      mentor: document.getElementById('f_mentor').value || '—',
-      accounts: [...tagSelected.accounts],
-      status: 'on',
-      created: new Date().toISOString().split('T')[0],
-    });
-  }
-  filtered = [...SALES_DATA];
-  renderTable();
-  closeModal();
-  showToast(editingId ? '保存成功' : '创建成功');
-}
-
-function toggleStatus(id) {
-  const r = SALES_DATA.find(x => x.id === id);
-  const action = r.status === 'off' ? '启用' : '禁用';
-  if (!confirm(`确定要${action}「${r.name}」吗？`)) return;
-  r.status = r.status === 'off' ? 'on' : 'off';
-  filtered = filtered.map(x => x.id === id ? r : x);
-  renderTable();
-  showToast(`已${action}「${r.name}」`);
-}
-
-function confirmDelete(id) {
-  const r = SALES_DATA.find(x => x.id === id);
-  if (!confirm(`确定要删除「${r.name}」吗？此操作不可恢复。`)) return;
-  const idx = SALES_DATA.findIndex(x => x.id === id);
-  SALES_DATA.splice(idx, 1);
-  filtered = filtered.filter(x => x.id !== id);
-  renderTable();
-  showToast(`已删除「${r.name}」`);
-}
-
-function showToast(msg) {
-  const t = document.createElement('div');
-  t.textContent = msg;
-  Object.assign(t.style, {
-    position:'fixed', bottom:'32px', left:'50%', transform:'translateX(-50%)',
-    background:'rgba(0,0,0,0.75)', color:'#fff', padding:'9px 20px',
-    borderRadius:'20px', fontSize:'13px', zIndex:'9999',
-    pointerEvents:'none', transition:'opacity 0.3s',
-  });
-  document.body.appendChild(t);
-  setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 1800);
-}
-
-renderTable();
-</script>
-</body>
-</html>
+let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+render();
+</script></body></html>

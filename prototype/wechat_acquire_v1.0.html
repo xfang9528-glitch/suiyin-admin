@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>拉新文案</title><link rel="stylesheet" href="_admin_list.css">
+<style>
+.page { padding: 20px; max-width: 880px; margin: 0 auto; }
+.card { background: #fff; border-radius: 6px; border: 1px solid var(--border); padding: 24px; margin-bottom: 16px; }
+.card h3 { font-size: 14px; font-weight: 600; margin-bottom: 14px; border-left: 3px solid var(--wx-green); padding-left: 8px; }
+.form-row textarea { min-height: 100px; }
+.qr-preview { display: flex; gap: 12px; align-items: flex-start; padding: 12px; background: #fafbfc; border-radius: 6px; }
+.qr-img { width: 140px; height: 140px; background: linear-gradient(135deg, #e0e0e0 25%, transparent 25%, transparent 50%, #e0e0e0 50%, #e0e0e0 75%, transparent 75%, transparent), white; background-size: 8px 8px; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--text-3); font-size: 11px; }
+.qr-meta { flex: 1; font-size: 13px; color: var(--text-2); line-height: 1.7; }
+.toolbar-bar { padding: 16px; }
+</style></head>
+<body>
+
+<div class="page" style="overflow-y:auto;height:100vh;">
+  <div class="card">
+    <h3>拉新文案配置</h3>
+    <div class="form-row">
+      <label>欢迎语（首次添加客户后自动发送）</label>
+      <textarea>您好~ 我是艺星医美专家助理，欢迎来到艺星医美 ✨
+
+我可以为您提供：
+• 个性化美学方案咨询
+• 院长真实案例图集
+• 限时活动 / 新品体验
+• 院内面诊预约
+
+随时回复关键词「面诊」即可预约 💖</textarea>
+    </div>
+    <div class="form-row">
+      <label>关键词触发回复</label>
+      <textarea>面诊 → 已为您留意，您方便的时间是？我会同步预约老师
+价格 → 不同项目价格差异较大，方便先告知您具体感兴趣的项目吗？
+案例 → 立即发送 [案例图集 TOP 10]
+活动 → 5月医美节满 8000 减 1500，限本月 ⏰</textarea>
+    </div>
+    <div class="form-row">
+      <label>跟单提示音延迟（首次响应慢则自动二次推送）</label>
+      <input type="text" value="60 分钟未回复 → 自动推送「在的~您还有什么疑问？」">
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>拉新二维码</h3>
+    <div class="qr-preview">
+      <div class="qr-img">[二维码占位]</div>
+      <div class="qr-meta">
+        <div><strong>渠道：</strong>抖音</div>
+        <div><strong>活动名：</strong>5月医美节</div>
+        <div><strong>利益点：</strong>限时 9 折</div>
+        <div><strong>合作方：</strong>抖音直播间</div>
+        <div><strong>关联销售：</strong>杨瑶 yiyi</div>
+        <div style="margin-top:8px;"><button class="btn">下载二维码</button> <button class="btn">复制链接</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>已生成的二维码列表</h3>
+    <table>
+      <thead><tr><th>渠道</th><th>活动名</th><th>利益点</th><th>合作方</th><th>引流人数</th><th>创建时间</th><th>操作</th></tr></thead>
+      <tbody>
+        <tr><td>抖音</td><td>5月医美节</td><td>限时 9 折</td><td>抖音直播间</td><td class="col-num success">128</td><td class="col-time">2026-05-01 09:00</td><td><button class="row-action">下载</button> <button class="row-action danger">作废</button></td></tr>
+        <tr><td>小红书</td><td>春日护肤季</td><td>立减 200</td><td>小红书博主</td><td class="col-num success">82</td><td class="col-time">2026-04-15 10:30</td><td><button class="row-action">下载</button> <button class="row-action danger">作废</button></td></tr>
+        <tr><td>美团</td><td>美团点评</td><td>团购价</td><td>美团医美</td><td class="col-num success">68</td><td class="col-time">2026-04-22 14:00</td><td><button class="row-action">下载</button> <button class="row-action danger">作废</button></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="text-align:right;">
+    <button class="btn">取消</button>
+    <button class="btn primary" onclick="alert('已保存（原型占位）')">确 定</button>
+  </div>
+</div>
+
+</body></html>

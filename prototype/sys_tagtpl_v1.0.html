@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>标签模板管理</title><link rel="stylesheet" href="_admin_list.css">
+<script src="_edit_modal.js" defer></script>
+<style>
+.tree-row { padding-left: var(--lvl, 0); }
+.tree-toggle { display: inline-block; width: 14px; text-align: center; color: var(--text-3); }
+</style>
+</head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group"><input class="f-input wide" id="kw" placeholder="模版名称"></div>
+  <button class="btn primary" onclick="render()">🔍 查询</button>
+  <div class="f-spacer"></div>
+  <button class="btn primary" onclick="onCreate()">＋ 创建</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card">
+    <table>
+      <thead><tr><th>模版名称</th><th class="col-actions">操作</th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+const TREE = [
+  { name:'医美需求分类', children:[
+    { name:'整形外科', children:[ { name:'鼻部' }, { name:'眼部' }, { name:'胸部' }, { name:'吸脂' } ]},
+    { name:'微整注射', children:[ { name:'玻尿酸' }, { name:'肉毒素' }, { name:'童颜针' }, { name:'胶原蛋白' } ]},
+    { name:'激光皮肤', children:[ { name:'热玛吉' }, { name:'光子嫩肤' }, { name:'M22' }, { name:'皮秒' } ]},
+    { name:'抗衰提升', children:[ { name:'热提升' }, { name:'拉皮' }, { name:'埋线' } ]},
+  ]},
+  { name:'客户来源', children:[
+    { name:'抖音' }, { name:'小红书' }, { name:'美团' }, { name:'院内回头' }, { name:'老客转介绍' }, { name:'广点通' }
+  ]},
+  { name:'客户阶段', children:[
+    { name:'新粉' }, { name:'高意向' }, { name:'到院未成交' }, { name:'已成交' }, { name:'流失' }, { name:'失联' }
+  ]},
+  { name:'客户特征', children:[
+    { name:'敏感客户' }, { name:'VIP' }, { name:'注重价格' }, { name:'要求医生' }, { name:'要求案例' }
+  ]},
+];
+function flat(arr, lvl, out) {
+  arr.forEach(n => { out.push({ ...n, lvl }); if (n.children) flat(n.children, lvl + 1, out); });
+}
+function render() {
+  const kw = document.getElementById('kw').value.trim();
+  const out = []; flat(TREE, 0, out);
+  const list = out.filter(r => !kw || r.name.includes(kw));
+  document.getElementById('tbody').innerHTML = list.map(r => `
+    <tr>
+      <td><div class="tree-row" style="padding-left:${r.lvl * 18}px"><span class="tree-toggle">${r.children ? '▶' : '·'}</span> ${r.name}</div></td>
+      <td class="col-actions">
+        <button class="row-action" onclick="onEdit('${r.name.replace(/'/g, "\\'")}')">编辑</button>
+        <button class="row-action" onclick="onAddChild('${r.name.replace(/'/g, "\\'")}')">＋ 子级</button>
+        <button class="row-action danger" onclick="if(confirm('确认删除「${r.name}」及其所有子级？'))toast('已删除')">删除</button>
+      </td>
+    </tr>
+  `).join('');
+}
+let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+function buildTplModal(title, onSubmit, parentName) {
+  return createEditModal({
+    title,
+    fields: [
+      { label:'模版名称',  key:'name',   type:'text',   placeholder:'例：客户阶段', required:true },
+      { label:'父级模版',  key:'parent', type:'select', options:['(无 / 顶级)','医美需求分类','客户来源','客户阶段','客户特征'] },
+      { label:'描述',      key:'desc',   type:'textarea',placeholder:'说明用途、规则' },
+    ],
+    onSubmit
+  });
+}
+function onCreate() { const m = buildTplModal('创建标签模版', () => { toast('已创建（原型占位）'); }); m.open({}); }
+function onEdit(name) { const m = buildTplModal('编辑标签模版', () => { toast('已保存'); }); m.open({ name }); }
+function onAddChild(parentName) { const m = buildTplModal('添加子级 - ' + parentName, () => { toast('已添加子级'); }); m.open({ parent: parentName }); }
+render();
+</script></body></html>

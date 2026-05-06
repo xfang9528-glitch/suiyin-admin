@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>朋友圈统计</title><link rel="stylesheet" href="_admin_list.css"></head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group">
+    <input class="f-input date" type="date" placeholder="开始日期">
+    <span class="f-sep">至</span>
+    <input class="f-input date" type="date" placeholder="结束日期">
+  </div>
+  <button class="btn primary" onclick="render()">🔍 查询</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card scroll" style="min-width:1280px;">
+    <table>
+      <thead><tr>
+        <th>朋友圈内容</th><th>发布时间</th><th>发布人设</th>
+        <th>点赞数</th><th>评论数</th><th>评论人数</th><th>人设详情</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info">共 18,563 条</span>
+  <select><option>20条/页</option></select>
+  <button class="pager-btn">‹</button>
+  <button class="pager-btn cur">1</button><button class="pager-btn">2</button><button class="pager-btn">3</button>
+  <span class="pager-ellipsis">…</span><button class="pager-btn">929</button>
+  <button class="pager-btn">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+const ROWS = [
+  { copy:'今天又是被夸奖到长专业皮肤医生的一天 ☺️ 从看视频到面对面学，从合作设计到列利用量 💪 ...',
+    pubAt:'2026-05-06 11:35:10', personas:43, likes:128, comments:42, commenters:38 },
+  { copy:'高顺波院长一台 6 小时鼻修复手术全过程，复杂二次修复也能让客户重新爱上自己 ✨',
+    pubAt:'2026-05-05 18:00:11', personas:11, likes:88,  comments:24, commenters:22 },
+  { copy:'热玛吉 5 代体验心得｜45 岁姐姐做完直接素颜出门 🔥',
+    pubAt:'2026-05-05 11:00:08', personas:5,  likes:156, comments:48, commenters:42 },
+  { copy:'谢斐院长玻尿酸丰唇案例图集，自然在线 💋',
+    pubAt:'2026-05-04 15:30:00', personas:8,  likes:96,  comments:18, commenters:18 },
+  { copy:'5 月特惠 ▎玻尿酸/肉毒素 套餐 满 8000 直减 1500',
+    pubAt:'2026-05-03 12:00:05', personas:3,  likes:42,  comments:12, commenters:11 },
+];
+function render() {
+  document.getElementById('tbody').innerHTML = ROWS.map(r => `
+    <tr>
+      <td><span style="display:inline-block;max-width:300px;font-size:12.5px;line-height:1.5;color:var(--text-2);">${r.copy}</span></td>
+      <td class="col-time">${r.pubAt}</td>
+      <td><span class="badge info">${r.personas} 个人设</span></td>
+      <td class="col-num"><span style="color:#f56c6c">👍 ${r.likes}</span></td>
+      <td class="col-num"><span style="color:#3370ff">💬 ${r.comments}</span></td>
+      <td class="col-num">${r.commenters}</td>
+      <td><button class="row-action" onclick="toast('查看人设详情')">查看详情</button></td>
+    </tr>
+  `).join('');
+}
+let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+render();
+</script></body></html>

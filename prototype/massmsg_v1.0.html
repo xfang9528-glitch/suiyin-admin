@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>群发管理</title>
+<link rel="stylesheet" href="_admin_list.css">
+<script src="_edit_modal.js" defer></script>
+<style>
+.progress { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-3); }
+.progress-bar { width: 100px; height: 6px; background: #f0f2f5; border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--wx-green); transition: width 0.3s; }
+.progress-fill.running { background: #3370ff; }
+.progress-fill.full { background: var(--wx-green); }
+</style>
+</head>
+<body>
+
+<div class="filter-bar">
+  <button class="btn primary" onclick="onCreate()">＋ 创建群发</button>
+  <div class="f-group">
+    <select class="f-select" id="src">
+      <option value="">来源</option>
+      <option value="manual">手动创建</option>
+      <option value="batch">留存群发</option>
+      <option value="auto">自动</option>
+    </select>
+  </div>
+  <button class="btn" onclick="toast('查看全部记录')">📋 全部记录</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card scroll">
+    <table>
+      <thead><tr>
+        <th>标题</th><th>来源</th><th>群发内容</th>
+        <th>设定发布时间</th><th>实际发布时间</th><th>排除已聊天用户</th>
+        <th>状态</th><th>进度</th><th>统计</th>
+        <th class="col-actions">操作</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info">共 1,287 条</span>
+  <select><option>10条/页</option><option>20条/页</option></select>
+  <button class="pager-btn">‹</button>
+  <button class="pager-btn cur">1</button>
+  <button class="pager-btn">2</button>
+  <button class="pager-btn">3</button>
+  <button class="pager-btn">4</button>
+  <button class="pager-btn">5</button>
+  <button class="pager-btn">6</button>
+  <span class="pager-ellipsis">…</span>
+  <button class="pager-btn">129</button>
+  <button class="pager-btn">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// 真实数据脱敏 mock（标题来自艺星后台 2026-05-06 抓取）
+const ROWS = [
+  { title:'吴雨贵 109',  src:'',         setAt:'2026-05-06 10:43:55', actAt:'2026-05-06 10:44:21', excl:'48小时', status:'running',  pct:13,  total:10423, sent:1330 },
+  { title:'尹巧珠 038',  src:'',         setAt:'2026-05-06 10:35:14', actAt:'2026-05-06 10:35:18', excl:'48小时', status:'running',  pct:37,  total:10447, sent:3827 },
+  { title:'姚通 172',    src:'',         setAt:'2026-05-06 10:33:39', actAt:'2026-05-06 10:33:48', excl:'48小时', status:'running',  pct:44,  total:8195, sent:3526 },
+  { title:'黎容',         src:'',         setAt:'2026-05-06 10:31:32', actAt:'2026-05-06 10:31:47', excl:'48小时', status:'running',  pct:36,  total:11951, sent:4213 },
+  { title:'黎客 161',    src:'',         setAt:'2026-05-06 10:29:27', actAt:'2026-05-06 10:29:17', excl:'24小时', status:'running',  pct:65,  total:7762, sent:4992 },
+  { title:'留存群发：自媒体杨博文 04…', src:'留存群发', setAt:'2026-05-03 16:03:23', actAt:'2026-05-03 16:03:34', excl:'24小时', status:'done', pct:97, total:84,  sent:81 },
+  { title:'留存群发：自媒体林一 10…',   src:'留存群发', setAt:'2026-05-03 16:03:18', actAt:'2026-05-03 16:03:34', excl:'24小时', status:'done', pct:99, total:89,  sent:88 },
+  { title:'留存群发：自媒体杨博文 01…', src:'留存群发', setAt:'2026-05-03 16:08:14', actAt:'2026-05-03 16:08:34', excl:'24小时', status:'paused', pct:63, total:143, sent:90 },
+  { title:'尹巧珠 002',  src:'',         setAt:'2026-04-26 15:03:22', actAt:'2026-04-26 15:03:45', excl:'不限制', status:'running',  pct:88,  total:7686, sent:6754 },
+  { title:'杨珠 156',    src:'',         setAt:'2026-04-26 13:36:13', actAt:'2026-04-26 13:36:20', excl:'不限制', status:'running',  pct:86,  total:6694, sent:5701 },
+  { title:'蒋丽 139',    src:'',         setAt:'2026-04-26 13:30:00', actAt:'2026-04-26 13:30:19', excl:'不限制', status:'running',  pct:99,  total:8193, sent:8231 },
+  { title:'吴雨贵 058',  src:'',         setAt:'2026-05-05 17:59:09', actAt:'2026-05-05 17:59:21', excl:'48小时', status:'done',     pct:100, total:6915, sent:6915 },
+  { title:'留存群发：自媒体林一 069', src:'留存群发', setAt:'2026-05-05 16:27:55', actAt:'2026-05-05 16:28:20', excl:'24小时', status:'done', pct:100, total:7,  sent:7 },
+  { title:'留存群发：自媒体林一 142', src:'留存群发', setAt:'2026-05-05 16:27:46', actAt:'2026-05-05 16:27:50', excl:'24小时', status:'done', pct:100, total:17, sent:17 },
+  { title:'留存群发：自媒体林一 077', src:'留存群发', setAt:'2026-05-05 16:27:41', actAt:'2026-05-05 16:27:50', excl:'24小时', status:'done', pct:100, total:17, sent:17 },
+  { title:'留存群发：自媒体林一 151', src:'留存群发', setAt:'2026-05-05 16:27:36', actAt:'2026-05-05 16:27:50', excl:'24小时', status:'done', pct:100, total:18, sent:18 },
+  { title:'留存群发：自媒体林一 154', src:'留存群发', setAt:'2026-05-05 16:27:28', actAt:'2026-05-05 16:27:50', excl:'24小时', status:'done', pct:100, total:23, sent:23 },
+  { title:'留存群发：自媒体林一 113', src:'留存群发', setAt:'2026-05-05 16:27:23', actAt:'2026-05-05 16:27:50', excl:'24小时', status:'done', pct:100, total:32, sent:32 },
+  { title:'留存群发：自媒体林一 162', src:'留存群发', setAt:'2026-05-05 16:27:19', actAt:'2026-05-05 16:27:19', excl:'24小时', status:'done', pct:100, total:39, sent:39 },
+  { title:'留存群发：自媒体林一 035', src:'留存群发', setAt:'2026-05-05 16:27:14', actAt:'2026-05-05 16:27:19', excl:'24小时', status:'done', pct:100, total:134, sent:134 },
+  { title:'留存群发：自媒体杨博文 07…', src:'留存群发', setAt:'2026-05-05 16:26:49', actAt:'2026-05-05 16:26:49', excl:'24小时', status:'done', pct:100, total:15, sent:15 },
+];
+function statusBadge(s) {
+  return s === 'running' ? '<span class="badge info">执行中</span>'
+    : s === 'paused' ? '<span class="badge warn">已暂停</span>'
+    : s === 'done' ? '<span class="badge">已完成</span>'
+    : s === 'canceled' ? '<span class="badge gray">已取消</span>'
+    : '<span class="badge gray">-</span>';
+}
+function progressCell(r) {
+  const fill = r.pct >= 100 ? 'full' : (r.status === 'running' ? 'running' : '');
+  return `<div class="progress">
+    <div class="progress-bar"><div class="progress-fill ${fill}" style="width:${Math.min(100, r.pct)}%"></div></div>
+    <span style="color:var(--text-2)">${r.pct}%</span>
+    <span style="color:var(--text-3)">(${r.sent.toLocaleString('zh-CN')}/${r.total.toLocaleString('zh-CN')})</span>
+  </div>`;
+}
+function render() {
+  const src = document.getElementById('src').value;
+  const list = ROWS.filter(r => !src || (src === 'batch' && r.src === '留存群发') || (src === 'manual' && !r.src));
+  document.getElementById('tbody').innerHTML = list.map(r => `
+    <tr>
+      <td>${r.title}</td>
+      <td>${r.src ? `<span class="tag blue">${r.src}</span>` : '<span style="color:var(--text-3)">-</span>'}</td>
+      <td><a class="row-action" onclick="toast('内容预览')">内容预览</a></td>
+      <td class="col-time">${r.setAt}</td>
+      <td class="col-time">${r.actAt}</td>
+      <td>${r.excl}</td>
+      <td>${statusBadge(r.status)}</td>
+      <td>${progressCell(r)}</td>
+      <td><a class="row-action" onclick="toast('查看统计详情')">查看</a></td>
+      <td class="col-actions">
+        ${r.status === 'done' || r.status === 'canceled'
+          ? `<button class="row-action danger" onclick="toast('删除')">🗑 删除</button>`
+          : `<button class="row-action" onclick="toast('编辑')">编辑</button>
+             <button class="row-action muted" onclick="toast('${r.status === 'paused' ? '继续' : '暂停'}')">${r.status === 'paused' ? '继续' : '暂停'}</button>
+             <button class="row-action danger" onclick="toast('取消')">取消</button>
+             <button class="row-action danger" onclick="toast('删除')">删除</button>`}
+        <button class="row-action muted" onclick="toast('查看记录')">📋 记录</button>
+      </td>
+    </tr>
+  `).join('');
+}
+let tt;
+function toast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 1800); }
+let cModal;
+function onCreate() {
+  if (!cModal) cModal = createEditModal({
+    title: '创建群发任务',
+    width: 720,
+    fields: [
+      { label:'任务名称',     key:'title',   type:'text',     placeholder:'例：5月医美节·全员发送', required:true },
+      { label:'目标客户范围', key:'scope',   type:'tags',     options:['全部好友','已成交客户','到院未成交','高意向','流失客户','失联客户','按标签筛选','按渠道筛选'] },
+      { label:'发送账号',     key:'accs',    type:'tags',     options:['艺星专家助理妍妍','成都艺星医生助理 chloe','A 成都艺星院长助理好好','YeStar 助理-铃铃','微整助理-Lucy 💗'] },
+      { label:'群发内容',     key:'content', type:'rich',     placeholder:'文字 + 图片 + 视频 + 链接，可使用 {昵称} 占位符', required:true },
+      { label:'设定发布时间', key:'setAt',   type:'text',     placeholder:'YYYY-MM-DD HH:mm（留空则立即发送）' },
+      { label:'排除已聊天用户', key:'excl', type:'select',    options:['不限制','24 小时','48 小时','7 天','30 天'] },
+      { label:'发送间隔(秒/条)', key:'gap', type:'number',    placeholder:'例：180（防风控）' },
+    ],
+    onSubmit: d => { ROWS.unshift({ title:d.title, src:'手动', setAt:d.setAt||new Date().toISOString().replace('T',' ').slice(0,19), actAt:'-', excl:d.excl||'24小时', status:'pending', pct:0, total:0, sent:0 }); render(); toast('已创建群发任务'); }
+  });
+  cModal.open({});
+}
+render();
+</script>
+</body>
+</html>

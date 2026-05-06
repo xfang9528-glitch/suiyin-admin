@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>群列表</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 14px; color: #1a1a1a; background: #f5f7fa;
+}
+:root {
+  --wx-green: #07c160;
+  --wx-green-dark: #06ad56;
+  --wx-green-light: #e8f6ee;
+  --border: #ebeef2;
+  --text-1: #1a1a1a;
+  --text-2: #4a5564;
+  --text-3: #8a96a3;
+  --hover: #f5f7fa;
+  --filter-h: 56px;
+  --pager-h: 48px;
+}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: #d0d7de; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a8b3bf; }
+::-webkit-scrollbar-track { background: transparent; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* ========= 顶部筛选栏 ========= */
+.filter-bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--filter-h);
+  background: #fff; border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex; align-items: center; gap: 16px;
+  flex-wrap: nowrap; overflow-x: auto;
+  z-index: 10;
+}
+.filter-bar::-webkit-scrollbar { display: none; }
+.f-group {
+  display: flex; align-items: center; gap: 6px;
+  flex-shrink: 0;
+}
+.f-label { font-size: 13px; color: var(--text-2); white-space: nowrap; }
+.f-input {
+  height: 32px; padding: 0 10px;
+  border: 1px solid #d0d7de; border-radius: 4px;
+  font-size: 13px; outline: none; background: #fff;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+.f-input:focus { border-color: var(--wx-green); }
+.f-input.wide { width: 180px; }
+.f-input.date { width: 120px; }
+.f-input.date::-webkit-calendar-picker-indicator { opacity: 0.5; cursor: pointer; }
+.f-sep { color: var(--text-3); font-size: 13px; padding: 0 2px; }
+.btn {
+  height: 32px; padding: 0 14px; border-radius: 4px;
+  font-size: 13px; display: inline-flex; align-items: center; gap: 5px;
+  border: 1px solid #d0d7de; background: #fff; color: var(--text-2);
+  transition: all 0.15s; flex-shrink: 0;
+}
+.btn:hover { border-color: var(--wx-green); color: var(--wx-green); }
+.btn.primary {
+  background: var(--wx-green); color: #fff; border-color: var(--wx-green);
+}
+.btn.primary:hover { background: var(--wx-green-dark); border-color: var(--wx-green-dark); }
+
+/* ========= 表格区 ========= */
+.table-wrap {
+  position: fixed;
+  top: var(--filter-h);
+  left: 0; right: 0;
+  bottom: var(--pager-h);
+  overflow: auto;
+  padding: 12px 16px 0;
+}
+.table-card {
+  background: #fff; border-radius: 6px; border: 1px solid var(--border);
+  overflow: hidden;
+  min-width: 1480px; /* 横向滚动而不是压缩 */
+}
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th {
+  background: #fafbfc; color: var(--text-2); font-weight: 500;
+  text-align: left; padding: 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  white-space: nowrap;
+  position: sticky; top: 0; z-index: 1;
+}
+tbody td {
+  padding: 12px; border-bottom: 1px solid #f0f2f5;
+  color: var(--text-1); vertical-align: middle;
+}
+tbody tr:hover { background: #fafbfc; }
+tbody tr:last-child td { border-bottom: none; }
+
+/* 群昵称单元格 */
+.group-cell {
+  display: flex; align-items: center; gap: 10px;
+  min-width: 240px;
+}
+.group-avatar {
+  width: 40px; height: 40px; flex-shrink: 0;
+  border-radius: 6px; overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px;
+  background: #f5f7fa;
+  font-size: 0;
+}
+.group-avatar .a-cell {
+  background: linear-gradient(135deg, var(--c1, #b3d9ff), var(--c2, #80b3ff));
+}
+.group-avatar.solo {
+  background: var(--solo-bg, #e57373);
+  display: block;
+}
+.group-name {
+  font-size: 13.5px; color: var(--text-1);
+  line-height: 1.4;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+.col-num {
+  font-variant-numeric: tabular-nums; font-weight: 500; color: var(--text-1);
+}
+.col-time { color: var(--text-2); font-size: 12.5px; white-space: nowrap; }
+.col-time.empty { color: #c0c8d1; }
+
+/* 状态徽章 */
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 10px;
+  font-size: 12px; line-height: 1.4;
+  background: var(--wx-green-light); color: var(--wx-green);
+}
+.badge.gray { background: #f0f2f5; color: var(--text-3); }
+.badge.warn { background: #fff5e8; color: #f59e0b; }
+.badge.danger { background: #ffeded; color: #f56c6c; }
+
+/* 操作列 */
+.col-actions { white-space: nowrap; }
+.row-action {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 4px 8px; margin-right: 2px; border-radius: 3px;
+  font-size: 12.5px; color: #3370ff;
+  transition: background 0.12s;
+}
+.row-action:hover { background: #ecf3ff; }
+.row-action.muted { color: var(--text-2); }
+.row-action.muted:hover { background: var(--hover); }
+
+/* 分页 */
+.pager {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: var(--pager-h);
+  padding: 0 16px;
+  background: #fff; border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: flex-end;
+  gap: 12px; z-index: 5;
+}
+.pager-info { color: var(--text-3); font-size: 13px; margin-right: 4px; }
+.pager select {
+  height: 28px; padding: 0 8px;
+  border: 1px solid #d0d7de; border-radius: 3px;
+  background: #fff; font-size: 13px; color: var(--text-2);
+  cursor: pointer; outline: none;
+}
+.pager-btn {
+  min-width: 28px; height: 28px; padding: 0 8px; border-radius: 3px;
+  border: 1px solid #d0d7de; background: #fff;
+  color: var(--text-2); font-size: 13px;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all 0.12s;
+}
+.pager-btn:hover:not(:disabled) { border-color: var(--wx-green); color: var(--wx-green); }
+.pager-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pager-btn.cur {
+  background: var(--wx-green); color: #fff; border-color: var(--wx-green);
+}
+.pager-ellipsis { color: var(--text-3); padding: 0 4px; }
+
+/* Toast */
+.toast {
+  position: fixed; top: 16px; left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  padding: 8px 16px; background: rgba(0,0,0,0.78);
+  color: #fff; border-radius: 4px; font-size: 13px;
+  opacity: 0; transition: all 0.25s;
+  z-index: 2000; pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- 顶部筛选栏 -->
+<div class="filter-bar">
+  <div class="f-group">
+    <span class="f-label">关键词</span>
+    <input id="kw" class="f-input wide" type="text" placeholder="群昵称关键词" />
+  </div>
+  <div class="f-group">
+    <span class="f-label">添加时间</span>
+    <input id="dateStart" class="f-input date" type="date" placeholder="开始日期" />
+    <span class="f-sep">至</span>
+    <input id="dateEnd" class="f-input date" type="date" placeholder="结束日期" />
+  </div>
+  <button class="btn primary" onclick="onQuery()">🔍 查询</button>
+  <button class="btn" onclick="onReset()">↺ 重置</button>
+  <button class="btn" onclick="onExport()">⬇ 导出表格</button>
+</div>
+
+<!-- 表格区 -->
+<div class="table-wrap">
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th style="min-width:300px;">群昵称</th>
+          <th>群人数</th>
+          <th>可接待销售</th>
+          <th>所在账号</th>
+          <th>群状态</th>
+          <th>免打扰</th>
+          <th>添加时间</th>
+          <th>更新时间</th>
+          <th class="col-actions">操作</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 分页 -->
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select id="pageSize" onchange="onPageSize(this.value)">
+    <option value="20">20条/页</option>
+    <option value="50">50条/页</option>
+    <option value="100">100条/页</option>
+  </select>
+  <button class="pager-btn" onclick="prev()" id="prevBtn">‹</button>
+  <span id="pages"></span>
+  <button class="pager-btn" onclick="next()" id="nextBtn">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ========= Mock 数据 ========= */
+const PALETTE = [
+  ['#fbcfe8','#f9a8d4'], ['#bbf7d0','#86efac'], ['#bfdbfe','#93c5fd'],
+  ['#fde68a','#fcd34d'], ['#ddd6fe','#c4b5fd'], ['#fecaca','#fca5a5'],
+  ['#a5f3fc','#67e8f9'], ['#fed7aa','#fdba74'],
+];
+function makeAvatarColors(seed, n = 9) {
+  const arr = [];
+  for (let i = 0; i < n; i++) {
+    arr.push(PALETTE[(seed + i) % PALETTE.length]);
+  }
+  return arr;
+}
+
+const ROWS = [];
+function pad(n) { return String(n).padStart(2, '0'); }
+function fakeTime(daysAgo, h, m) {
+  const d = new Date(2026, 4, 6); // 2026-05-06
+  d.setDate(d.getDate() - daysAgo);
+  d.setHours(h, m, Math.floor(Math.random() * 60), 0);
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(h)}:${pad(m)}`;
+}
+
+// 大量微整案例群（艺星主营场景）
+const MICRO_GROUP_NAMES = [
+  '成都艺星 💜 微整案例群5', '成都艺星 💜 微整案例群6', '成都艺星 💜 微整案例群7',
+  '成都艺星 💜 微整案例群8', '成都艺星 💜 微整案例群9', '成都艺星 💜 微整案例群10',
+  '成都艺星 💜 微整案例群11', '成都艺星 💜 微整案例群12', '成都艺星 💜 微整案例群13',
+];
+const MICRO_OWNERS = [
+  'A成都艺星专家助理 KK17775575920', '成都艺星医生助理 chloe', '艺星专家助理妍妍',
+  '成都艺星专家助理鑫鑫', '刘瑜02', '赵紫颖03', '成都艺星专家助理 Lucy 💗',
+  'YeStar成都艺星专家助理-铃铃', 'A成都艺星院长助理好好 17713619739',
+  '曹琳', '罗玲 金金', '刘依王01',
+];
+MICRO_GROUP_NAMES.forEach((name, i) => {
+  if (i >= MICRO_OWNERS.length) return;
+  ROWS.push({
+    id: 'g-micro-' + i, name, members: 99, salesScope: '全部',
+    owner: MICRO_OWNERS[i], status: '正常', muted: true,
+    addedAt: i % 3 === 0 ? '2026-04-22 09:30' : '',
+    updatedAt: fakeTime(0, 10, 58),
+    avatarSeed: i + 2, type: 'group'
+  });
+});
+
+// 朋友圈/IP 群
+ROWS.unshift(
+  { id: 'g-pyq-1', name: '范向李 ip 组朋友圈 每日更新 💗', members: 9, salesScope: '全部', owner: '杜佳', status: '正常', muted: false, addedAt: '', updatedAt: '2026-05-06 10:41', avatarSeed: 0, type: 'group' },
+  { id: 'g-pyq-2', name: '范向李 ip 组朋友圈 每日更新 💗', members: 9, salesScope: '全部', owner: '杨瑶 yiyi', status: '正常', muted: false, addedAt: '', updatedAt: '2026-05-06 10:41', avatarSeed: 1, type: 'group' }
+);
+
+// 0 人异常群（解散后剩占位）
+ROWS.push(
+  { id: 'g-empty-1', members: 0, salesScope: '全部', owner: '牛海兰03', status: '正常', muted: false, addedAt: '', updatedAt: '2026-05-05 00:43', solo: '#e57373' },
+  { id: 'g-empty-2', members: 0, salesScope: '全部', owner: '牛海兰03', status: '正常', muted: false, addedAt: '', updatedAt: '2026-05-05 00:43', solo: '#e57373' },
+  { id: 'g-empty-3', members: 0, salesScope: '全部', owner: '牛海兰03', status: '正常', muted: false, addedAt: '', updatedAt: '2026-05-05 00:43', solo: '#f0a05c' }
+);
+
+// 自媒体 / 小群
+ROWS.push(
+  { id: 'g-media-1', members: 14, salesScope: '全部', owner: '自媒体林一 133', status: '正常', muted: false, addedAt: '', updatedAt: '2026-05-04 09:13', solo: '#9ccc65' },
+  { id: 'g-xhyjd', name: '小河游击队', members: 29, salesScope: '全部', owner: '成都艺星专家助理 Lucy 💗', status: '正常', muted: false, addedAt: '2026-04-30 11:20', updatedAt: '2026-05-06 10:11', avatarSeed: 4, type: 'group' },
+  { id: 'g-hsq', members: 6, salesScope: '全部', owner: '黄诗琴', status: '正常', muted: false, addedAt: '', updatedAt: '2026-05-06 10:33', avatarSeed: 5, type: 'group' }
+);
+
+// 状态多样化样本：解散群、异常群
+ROWS.push(
+  { id: 'g-dismiss-1', name: '艺星老带新内测群（已解散）', members: 0, salesScope: '全部', owner: '王梅 mei001', status: '已解散', muted: false, addedAt: '2026-03-12 14:00', updatedAt: '2026-04-28 18:22', avatarSeed: 6, type: 'group' },
+  { id: 'g-abnormal-1', name: '老客回访池 · A 组', members: 87, salesScope: '部分销售', owner: '李珊珊 sasa', status: '异常', muted: true, addedAt: '2026-02-20 09:15', updatedAt: '2026-05-03 21:10', avatarSeed: 7, type: 'group' }
+);
+
+// 总数模拟（实际数据库 4316 条，列表 mock 这些就够展示）
+const TOTAL_FAKE = 4316;
+
+/* ========= 状态 ========= */
+let curPage = 1;
+let pageSize = 20;
+let kwFilter = '';
+let dateStartFilter = '';
+let dateEndFilter = '';
+
+/* ========= 渲染 ========= */
+function avatarHtml(row) {
+  if (row.solo) {
+    return `<div class="group-avatar solo" style="--solo-bg:${row.solo}"></div>`;
+  }
+  const colors = makeAvatarColors(row.avatarSeed || 0);
+  const cells = colors.map(([c1, c2]) => `<span class="a-cell" style="--c1:${c1};--c2:${c2}"></span>`).join('');
+  return `<div class="group-avatar">${cells}</div>`;
+}
+function statusBadge(s) {
+  const cls = s === '正常' ? '' : (s === '异常' ? ' warn' : (s === '已解散' ? ' danger' : ' gray'));
+  return `<span class="badge${cls}">${s}</span>`;
+}
+function muteBadge(m) {
+  return m
+    ? `<span class="badge">是</span>`
+    : `<span class="badge gray">否</span>`;
+}
+
+function getFiltered() {
+  let list = ROWS.slice();
+  if (kwFilter) {
+    const k = kwFilter.toLowerCase();
+    list = list.filter(r => (r.name || '').toLowerCase().includes(k) || (r.owner || '').toLowerCase().includes(k));
+  }
+  if (dateStartFilter || dateEndFilter) {
+    list = list.filter(r => {
+      if (!r.addedAt) return false;
+      const d = r.addedAt.slice(0, 10);
+      if (dateStartFilter && d < dateStartFilter) return false;
+      if (dateEndFilter && d > dateEndFilter) return false;
+      return true;
+    });
+  }
+  return list;
+}
+
+function render() {
+  const list = getFiltered();
+  const usingFilter = kwFilter || dateStartFilter || dateEndFilter;
+  const total = usingFilter ? list.length : TOTAL_FAKE;
+  const start = (curPage - 1) * pageSize;
+  const page = list.slice(start, start + pageSize);
+
+  const tbody = document.getElementById('tbody');
+  if (page.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9" style="padding:60px 20px;text-align:center;color:var(--text-3);font-size:13px;">暂无群</td></tr>`;
+  } else {
+    tbody.innerHTML = page.map(r => `
+      <tr>
+        <td>
+          <div class="group-cell">
+            ${avatarHtml(r)}
+            <div class="group-name">${r.name || '<span style="color:var(--text-3)">（未命名群）</span>'}</div>
+          </div>
+        </td>
+        <td class="col-num">${r.members}</td>
+        <td>${r.salesScope}</td>
+        <td>${r.owner}</td>
+        <td>${statusBadge(r.status)}</td>
+        <td>${muteBadge(r.muted)}</td>
+        <td class="col-time ${r.addedAt ? '' : 'empty'}">${r.addedAt || '—'}</td>
+        <td class="col-time">${r.updatedAt}</td>
+        <td class="col-actions">
+          <button class="row-action" onclick="onEdit('${r.id}')">✏️ 编辑</button>
+          <button class="row-action muted" onclick="onHistory('${r.id}')">📋 记录</button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  document.getElementById('pagerInfo').textContent = `共 ${total.toLocaleString('zh-CN')} 条`;
+  renderPager(total);
+}
+
+function renderPager(total) {
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const pagesEl = document.getElementById('pages');
+  // 显示策略：前 6 + 末尾，超过则用 …
+  const buttons = [];
+  const cur = curPage;
+  const window = 5;
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) buttons.push(i);
+  } else {
+    if (cur <= 4) {
+      for (let i = 1; i <= 6; i++) buttons.push(i);
+      buttons.push('...');
+      buttons.push(totalPages);
+    } else if (cur >= totalPages - 3) {
+      buttons.push(1);
+      buttons.push('...');
+      for (let i = totalPages - 5; i <= totalPages; i++) buttons.push(i);
+    } else {
+      buttons.push(1);
+      buttons.push('...');
+      for (let i = cur - 2; i <= cur + 2; i++) buttons.push(i);
+      buttons.push('...');
+      buttons.push(totalPages);
+    }
+  }
+  pagesEl.innerHTML = buttons.map(b => {
+    if (b === '...') return `<span class="pager-ellipsis">…</span>`;
+    return `<button class="pager-btn${b === cur ? ' cur' : ''}" onclick="goPage(${b})">${b}</button>`;
+  }).join('');
+  document.getElementById('prevBtn').disabled = cur <= 1;
+  document.getElementById('nextBtn').disabled = cur >= totalPages;
+}
+
+/* ========= 交互 ========= */
+function onQuery() {
+  kwFilter = document.getElementById('kw').value.trim();
+  dateStartFilter = document.getElementById('dateStart').value;
+  dateEndFilter = document.getElementById('dateEnd').value;
+  curPage = 1;
+  render();
+}
+function onReset() {
+  document.getElementById('kw').value = '';
+  document.getElementById('dateStart').value = '';
+  document.getElementById('dateEnd').value = '';
+  kwFilter = ''; dateStartFilter = ''; dateEndFilter = '';
+  curPage = 1; render();
+}
+function onExport() { toast('已开始导出（原型占位）'); }
+function onEdit(id) { toast('编辑群：' + id); }
+function onHistory(id) { toast('查看记录：' + id); }
+function onPageSize(v) { pageSize = parseInt(v, 10); curPage = 1; render(); }
+function prev() { if (curPage > 1) { curPage--; render(); } }
+function next() {
+  const total = (kwFilter || dateStartFilter || dateEndFilter) ? getFiltered().length : TOTAL_FAKE;
+  if (curPage < Math.ceil(total / pageSize)) { curPage++; render(); }
+}
+function goPage(n) { curPage = n; render(); }
+
+document.getElementById('kw').addEventListener('keydown', e => { if (e.key === 'Enter') onQuery(); });
+
+let tt;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(tt);
+  tt = setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+render();
+</script>
+</body>
+</html>

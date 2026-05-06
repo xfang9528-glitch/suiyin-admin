@@ -30,52 +30,65 @@
     --sidebar-w: 208px;
   }
 
-  /* ========= 顶部 Header ========= */
+  /* ========= 顶部 Header（公众号风格 · 白底） ========= */
   .header {
     position: fixed; top: 0; left: 0; right: 0;
     height: var(--header-h);
-    background: var(--wx-green);
+    background: #fff;
+    border-bottom: 1px solid #ebeef2;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 24px; z-index: 100;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   }
   .header-left {
-    display: flex; align-items: center; gap: 10px; color: #fff;
+    display: flex; align-items: center; gap: 10px; color: #1a1a1a;
   }
   .header-logo {
-    width: 32px; height: 32px; border-radius: 8px;
-    background: rgba(255,255,255,0.18);
+    width: 30px; height: 30px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
+    color: var(--wx-green); font-size: 26px; line-height: 1;
   }
-  .header-brand { font-size: 16px; font-weight: 600; letter-spacing: 0.5px; }
+  .header-brand { font-size: 15px; font-weight: 600; color: #1a1a1a; letter-spacing: 0.3px; }
   .header-env {
-    margin-left: 14px; padding: 2px 10px; border-radius: 10px;
-    background: rgba(255,255,255,0.18); color: #fff; font-size: 12px;
+    margin-left: 10px; padding: 1px 8px; border-radius: 4px;
+    background: var(--wx-green-light); color: var(--wx-green); font-size: 11.5px;
   }
   .header-right {
-    display: flex; align-items: center; gap: 18px; color: #fff;
+    display: flex; align-items: center; gap: 8px; color: #4a5564;
   }
   .header-icon-btn {
     width: 32px; height: 32px; border-radius: 6px;
     display: flex; align-items: center; justify-content: center;
-    color: #fff; opacity: 0.9;
+    color: #6b7684; font-size: 16px;
     transition: all 0.15s;
   }
-  .header-icon-btn:hover { background: rgba(255,255,255,0.18); opacity: 1; }
+  .header-icon-btn:hover { background: #f5f7fa; color: #1a1a1a; }
+  .header-icon-btn.icon-with-dot { position: relative; }
+  .header-icon-btn.icon-with-dot::after {
+    content: attr(data-count);
+    position: absolute; top: 4px; right: 4px;
+    min-width: 14px; height: 14px; padding: 0 4px;
+    border-radius: 7px;
+    background: #fa5151; color: #fff;
+    font-size: 10px; line-height: 14px;
+    font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    border: 1.5px solid #fff;
+    box-sizing: content-box;
+  }
   .header-user {
     display: flex; align-items: center; gap: 8px;
-    padding: 4px 10px 4px 4px; border-radius: 20px;
+    padding: 4px 10px 4px 6px; border-radius: 20px;
     transition: background 0.15s;
+    color: #1a1a1a;
   }
-  .header-user:hover { background: rgba(255,255,255,0.15); }
+  .header-user:hover { background: #f5f7fa; }
   .header-avatar {
-    width: 30px; height: 30px; border-radius: 50%;
-    background: #fff; color: var(--wx-green);
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--wx-green); color: #fff;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 600; font-size: 13px;
+    font-weight: 600; font-size: 12.5px;
   }
-  .header-username { font-size: 14px; color: #fff; }
+  .header-username { font-size: 13.5px; color: #1a1a1a; }
 
   /* ========= 左侧菜单 ========= */
   .sidebar {
@@ -118,7 +131,7 @@
   }
   .menu-item.active {
     color: var(--wx-green);
-    background: var(--wx-green-light);
+    background: #f5fbf7;
     font-weight: 500;
   }
   .menu-item.active::before {
@@ -140,7 +153,7 @@
   .submenu-item:hover { background: #f5f7fa; color: #1a1a1a; }
   .submenu-item.active {
     color: var(--wx-green);
-    background: var(--wx-green-light);
+    background: #f5fbf7;
     font-weight: 500;
   }
   .submenu-item.active::before {
@@ -161,7 +174,7 @@
     position: fixed;
     top: var(--header-h); left: var(--sidebar-w); right: 0;
     height: var(--tab-h);
-    background: #eef1f5;
+    background: #fafbfc;
     border-bottom: 1px solid #ebeef2;
     display: flex; align-items: flex-end;
     padding: 0 0 0 8px;
@@ -181,8 +194,8 @@
     background: transparent;
     border: 1px solid transparent;
     border-bottom: none;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
     cursor: pointer;
     max-width: 200px;
     min-width: 100px;
@@ -190,13 +203,18 @@
     user-select: none;
     transition: all 0.15s;
   }
-  .tab:hover { background: rgba(255,255,255,0.55); color: #4a5564; }
+  .tab:hover { background: #fff; color: #4a5564; }
   .tab.active {
-    background: #f5f7fa;
-    color: #1a1a1a;
+    background: #fff;
+    color: var(--wx-green);
     border-color: #ebeef2;
     font-weight: 500;
     z-index: 1;
+  }
+  .tab.active::before {
+    content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+    background: var(--wx-green);
+    border-top-left-radius: 6px; border-top-right-radius: 6px;
   }
   .tab-title {
     flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
@@ -236,6 +254,12 @@
     background: #f5f7fa;
   }
   .page-iframe.active { display: block; }
+
+  /* sidebar 顶部留白 */
+  .sidebar { padding-top: 12px; }
+  .menu-item { padding: 10px 20px; }
+  .menu-item-icon { font-size: 15px; opacity: 0.85; }
+  .menu-item.active .menu-item-icon { opacity: 1; }
 </style>
 </head>
 <body>
@@ -243,12 +267,12 @@
 <!-- 顶部 Header -->
 <header class="header">
   <div class="header-left">
-    <div class="header-logo">☁</div>
+    <div class="header-logo">◉</div>
     <div class="header-brand">佰智德三私域</div>
     <div class="header-env">管理后台</div>
   </div>
   <div class="header-right">
-    <button class="header-icon-btn" title="消息">🔔</button>
+    <button class="header-icon-btn icon-with-dot" title="消息" data-count="3">🔔</button>
     <button class="header-icon-btn" title="帮助">?</button>
     <div class="header-user" id="userBtn" onclick="toggleUserMenu(event)">
       <div class="header-avatar">房</div>
@@ -296,7 +320,7 @@
 </main>
 
 <script>
-/* ========= 菜单数据 ========= */
+/* ========= 菜单数据（与艺星后台对齐 2026-05-06） ========= */
 const MENU = [
   { id: 'sales',      icon: '👥', title: '销售管理', page: 'sales_v1.0.html' },
   { id: 'expert',     icon: '🎓', title: '专家管理', children: [
@@ -311,31 +335,49 @@ const MENU = [
   ]},
   { id: 'script',     icon: '💬', title: '话术管理', page: 'script_v1.0.html' },
   { id: 'product',    icon: '📦', title: '商品管理', page: 'product_v1.0.html' },
-  { id: 'product-mini',icon: '🛒', title: '商品管理(小程序)', page: 'product_mini_v1.0.html' },
   { id: 'massmsg',    icon: '📣', title: '群发管理', page: 'massmsg_v1.0.html' },
-  { id: 'pyq',        icon: '🌐', title: 'PYQ管理', page: 'pyq_v1.0.html' },
+  { id: 'pyq',        icon: '🌐', title: 'PYQ管理',  page: 'pyq_v1.0.html' },
   { id: 'reward',     icon: '💰', title: '分佣管理', children: [
-      { id: 'reward-income',   title: '收入确认',     page: 'reward_income_v1.0.html' },
-      { id: 'reward-prepay',   title: '预付确认',     page: 'reward_prepay_v1.0.html' },
-      { id: 'reward-detail',   title: '分佣明细',     page: 'reward_detail_v1.0.html' },
-      { id: 'reward-total',    title: '分佣合计',     page: 'reward_total_v1.0.html' },
-      { id: 'reward-topup',    title: '充值确认',     page: 'reward_topup_v1.0.html' },
-      { id: 'reward-itemstat', title: '分佣项目统计', page: 'reward_itemstat_v1.0.html' },
+      { id: 'reward-detail',   title: '分佣明细',  page: 'reward_detail_v1.0.html' },
+      { id: 'reward-total',    title: '分佣合计',  page: 'reward_total_v1.0.html' },
+      { id: 'reward-topup',    title: '充值确认',  page: 'reward_topup_v1.0.html' },
+      { id: 'reward-prepay',   title: '预付确认',  page: 'reward_prepay_v1.0.html' },
+      { id: 'reward-income',   title: '收入确认',  page: 'reward_income_v1.0.html' },
   ]},
   { id: 'stats',      icon: '📊', title: '数据展示', children: [
-      { id: 'stats-referral', title: '拉新记录',   page: 'stats_referral_v1.0.html' },
-      { id: 'stats-sales',    title: '销售统计',   todo: true },
-      { id: 'stats-feedback', title: '反馈分析',   todo: true },
-      { id: 'stats-rank',     title: '销售排名',   todo: true },
-      { id: 'stats-revisit',  title: '回访统计',   todo: true },
-      { id: 'stats-shift',    title: '上班记录',   todo: true },
-      { id: 'stats-prepay',   title: '预付统计',   todo: true },
+      { id: 'stats-referral',  title: '拉新记录',     page: 'stats_referral_v1.0.html' },
+      { id: 'stats-sales',     title: '销售统计',     page: 'stats_sales_v1.0.html' },
+      { id: 'stats-rank',      title: '销售排名',     page: 'stats_rank_v1.0.html' },
+      { id: 'stats-revisit',   title: '回访统计',     page: 'stats_revisit_v1.0.html' },
+      { id: 'stats-shift',     title: '上班记录',     page: 'stats_shift_v1.0.html' },
+      { id: 'stats-msgratio',  title: '消息占比统计', page: 'stats_msgratio_v1.0.html' },
+      { id: 'stats-viewlog',   title: '数据查看日志', page: 'stats_viewlog_v1.0.html' },
+      { id: 'stats-retention', title: '留存统计',     page: 'stats_retention_v1.0.html' },
+      { id: 'stats-mass',      title: '群发统计',     page: 'stats_mass_v1.0.html' },
+      { id: 'stats-pyq',       title: '朋友圈统计',   page: 'stats_pyq_v1.0.html' },
+      { id: 'stats-saleuse',   title: '销售使用统计', page: 'stats_saleuse_v1.0.html' },
   ]},
-  { id: 'chat',       icon: '💭', title: '聊天管理', todo: true },
-  { id: 'wechat',     icon: '🟢', title: '微信管理', todo: true },
-  { id: 'ai',         icon: '🤖', title: 'AI管理',   todo: true },
-  { id: 'system',     icon: '⚙️', title: '系统管理', todo: true },
-  { id: 'platform',   icon: '🏢', title: '平台管理', todo: true },
+  { id: 'chat',       icon: '💭', title: '聊天管理', children: [
+      { id: 'chat-all',     title: '全部聊天', page: 'chat_all_v1.0.html' },
+      { id: 'chat-assign',  title: '分配记录', page: 'chat_assign_v1.0.html' },
+      { id: 'chat-saleban', title: '销售词控', page: 'chat_saleban_v1.0.html' },
+      { id: 'chat-cusban',  title: '客户词控', page: 'chat_cusban_v1.0.html' },
+  ]},
+  { id: 'wechat',     icon: '🟢', title: '微信管理', children: [
+      { id: 'wechat-account', title: '帐号状态', page: 'wechat_account_v1.0.html' },
+      { id: 'wechat-acquire', title: '拉新文案', page: 'wechat_acquire_v1.0.html' },
+      { id: 'wechat-buddy',   title: '通友管理', page: 'wechat_buddy_v1.0.html' },
+  ]},
+  { id: 'ai',         icon: '🤖', title: 'AI 管理', children: [
+      { id: 'ai-prompt', title: 'AI-Prompt 模板', page: 'ai_prompt_v1.0.html' },
+      { id: 'ai-model',  title: 'AI-模型配置',     page: 'ai_model_v1.0.html' },
+  ]},
+  { id: 'system',     icon: '⚙️', title: '系统管理', children: [
+      { id: 'sys-role',   title: '角色管理',     page: 'sys_role_v1.0.html' },
+      { id: 'sys-menu',   title: '菜单管理',     page: 'sys_menu_v1.0.html' },
+      { id: 'sys-tagtpl', title: '标签模板管理', page: 'sys_tagtpl_v1.0.html' },
+      { id: 'sys-config', title: '系统设置',     page: 'sys_config_v1.0.html' },
+  ]},
 ];
 
 /* ========= 渲染侧边栏 ========= */

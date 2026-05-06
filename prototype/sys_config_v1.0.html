@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>系统设置</title><link rel="stylesheet" href="_admin_list.css">
+<style>
+.cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 16px; }
+.cfg-card { background: #fff; border-radius: 6px; border: 1px solid var(--border); padding: 18px 20px; }
+.cfg-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; border-left: 3px solid var(--wx-green); padding-left: 8px; }
+.cfg-card .desc { font-size: 12.5px; color: var(--text-3); margin-bottom: 12px; line-height: 1.6; }
+.cfg-card .preview { font-size: 12.5px; color: var(--text-2); padding: 8px 10px; background: #fafbfc; border-radius: 4px; line-height: 1.6; margin-bottom: 12px; }
+.table-wrap { padding: 0; overflow: auto; }
+</style></head>
+<body>
+
+<div class="filter-bar">
+  <div style="font-size:14px; font-weight:600;">系统设置</div>
+</div>
+
+<div class="table-wrap">
+  <div class="cards-grid">
+
+    <div class="cfg-card">
+      <h3>账号默认值</h3>
+      <div class="desc">销售/管理员新建账号时的默认初始值</div>
+      <div class="preview">单聊上限：2000 · 群聊上限：50 · 默认权限：销售 · 自动通友：关闭</div>
+      <button class="btn primary" onclick="toast('设置')">设置</button>
+    </div>
+
+    <div class="cfg-card">
+      <h3>消息推送 Webhook</h3>
+      <div class="desc">关键事件触发飞书/钉钉/企业微信通知</div>
+      <div class="preview">已配置：飞书群「艺星管理后台」<br>事件：账号异常 / 销售违规 / 大额订单 / 客户投诉</div>
+      <button class="btn primary" onclick="toast('设置')">设置</button>
+    </div>
+
+    <div class="cfg-card">
+      <h3>下班自动转接</h3>
+      <div class="desc">销售下班后客户消息的处理规则</div>
+      <div class="preview">每日 04:00 自动下班 · 转接给值班销售 · 客户提示语：「您好，销售已下班…」</div>
+      <button class="btn primary" onclick="toast('设置')">设置</button>
+    </div>
+
+    <div class="cfg-card">
+      <h3>自动回复（机器人）</h3>
+      <div class="desc">客户首次进入或非工作时间自动回复</div>
+      <div class="preview">默认欢迎语：您好~ 我是艺星医美专家助理 ✨<br>夜间(22:00-08:00)：销售下班，明日为您回复</div>
+      <button class="btn primary" onclick="toast('设置')">设置</button>
+    </div>
+
+    <div class="cfg-card">
+      <h3>客户分配规则</h3>
+      <div class="desc">新客进入后的自动分配策略</div>
+      <div class="preview">优先级：1.原销售 2.同渠道销售轮询 3.全员权重轮询<br>权重维度：在线状态 + 当前会话数 + 转化率</div>
+      <button class="btn primary" onclick="toast('设置')">设置</button>
+    </div>
+
+    <div class="cfg-card">
+      <h3>数据保留策略</h3>
+      <div class="desc">聊天记录、客户档案、PYQ 历史保留时长</div>
+      <div class="preview">聊天记录：永久 · 客户档案：永久 · PYQ：12 个月 · 账号操作日志：6 个月</div>
+      <button class="btn primary" onclick="toast('设置')">设置</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+</script></body></html>

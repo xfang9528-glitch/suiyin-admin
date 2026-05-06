@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>添加好友</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 14px; color: #1a1a1a; background: #f5f7fa;
+}
+:root {
+  --wx-green: #07c160;
+  --wx-green-dark: #06ad56;
+  --wx-green-light: #e8f6ee;
+  --border: #ebeef2;
+  --text-1: #1a1a1a;
+  --text-2: #4a5564;
+  --text-3: #8a96a3;
+  --hover: #f5f7fa;
+  --toolbar-h: 56px;
+  --pager-h: 48px;
+}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: #d0d7de; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a8b3bf; }
+::-webkit-scrollbar-track { background: transparent; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* ========= 顶部工具栏 ========= */
+.toolbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--toolbar-h); padding: 12px 16px;
+  background: #fff; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px; z-index: 10;
+}
+.btn {
+  height: 32px; padding: 0 14px; border-radius: 4px;
+  font-size: 13px; display: inline-flex; align-items: center; gap: 5px;
+  border: 1px solid #d0d7de; background: #fff; color: var(--text-2);
+  transition: all 0.15s;
+}
+.btn:hover { border-color: var(--wx-green); color: var(--wx-green); }
+.btn.primary {
+  background: var(--wx-green); color: #fff; border-color: var(--wx-green);
+}
+.btn.primary:hover { background: var(--wx-green-dark); border-color: var(--wx-green-dark); }
+.btn.link { border-color: transparent; color: #3370ff; padding: 0 8px; }
+.btn.link:hover { background: #ecf3ff; border-color: transparent; color: #3370ff; }
+.toolbar-tip {
+  margin-left: auto; font-size: 12px; color: var(--text-3);
+}
+
+/* ========= 表格区 ========= */
+.table-wrap {
+  position: fixed;
+  top: var(--toolbar-h); left: 0; right: 0; bottom: var(--pager-h);
+  overflow: auto;
+  padding: 12px 16px 0;
+}
+.table-card {
+  background: #fff; border-radius: 6px; border: 1px solid var(--border);
+  overflow: hidden; min-width: 1340px;
+}
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th {
+  background: #fafbfc; color: var(--text-2); font-weight: 500;
+  text-align: left; padding: 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  white-space: nowrap;
+  position: sticky; top: 0; z-index: 1;
+}
+tbody td {
+  padding: 12px; border-bottom: 1px solid #f0f2f5;
+  color: var(--text-1); vertical-align: middle;
+}
+tbody tr:hover { background: #fafbfc; }
+tbody tr:last-child td { border-bottom: none; }
+
+.col-num { font-variant-numeric: tabular-nums; font-weight: 500; }
+.col-num.success { color: var(--wx-green); }
+.col-num.fail { color: #f56c6c; }
+.col-num.exist { color: #8a96a3; }
+.col-time { color: var(--text-2); font-size: 12.5px; white-space: nowrap; }
+.col-time.empty { color: #c0c8d1; }
+
+/* 状态徽章 */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border-radius: 10px;
+  font-size: 12px; line-height: 1.4;
+  background: #f0f2f5; color: var(--text-2);
+}
+.badge.running { background: #e6f0ff; color: #3370ff; }
+.badge.running .dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #3370ff;
+  animation: pulse 1.2s infinite;
+}
+.badge.done { background: var(--wx-green-light); color: var(--wx-green); }
+.badge.partial { background: #fff5e8; color: #f59e0b; }
+.badge.failed { background: #ffeded; color: #f56c6c; }
+.badge.canceled { background: #f0f2f5; color: var(--text-3); }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* 进度条 */
+.progress {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--text-3);
+}
+.progress-bar {
+  width: 80px; height: 6px; background: #f0f2f5;
+  border-radius: 3px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; background: var(--wx-green); transition: width 0.3s;
+}
+.progress-fill.running { background: #3370ff; }
+
+/* 操作列 */
+.col-actions { white-space: nowrap; }
+.row-action {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 4px 8px; margin-right: 2px; border-radius: 3px;
+  font-size: 12.5px; color: #3370ff;
+  transition: background 0.12s;
+}
+.row-action:hover { background: #ecf3ff; }
+.row-action.danger { color: #f56c6c; }
+.row-action.danger:hover { background: #ffeded; }
+.row-action.muted { color: var(--text-2); }
+.row-action.muted:hover { background: var(--hover); }
+
+/* 空状态 */
+.empty-state {
+  padding: 80px 20px; text-align: center; color: var(--text-3);
+  font-size: 13px;
+}
+.empty-state .empty-icon {
+  font-size: 36px; margin-bottom: 8px; opacity: 0.5;
+}
+
+/* 分页 */
+.pager {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: var(--pager-h);
+  padding: 0 16px;
+  background: #fff; border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: flex-end;
+  gap: 12px; z-index: 5;
+}
+.pager-info { color: var(--text-3); font-size: 13px; margin-right: 4px; }
+.pager select {
+  height: 28px; padding: 0 8px;
+  border: 1px solid #d0d7de; border-radius: 3px;
+  background: #fff; font-size: 13px; color: var(--text-2);
+  cursor: pointer; outline: none;
+}
+.pager-btn {
+  min-width: 28px; height: 28px; padding: 0 8px; border-radius: 3px;
+  border: 1px solid #d0d7de; background: #fff;
+  color: var(--text-2); font-size: 13px;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all 0.12s;
+}
+.pager-btn:hover:not(:disabled) { border-color: var(--wx-green); color: var(--wx-green); }
+.pager-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pager-btn.cur { background: var(--wx-green); color: #fff; border-color: var(--wx-green); }
+
+/* ========= 弹窗 ========= */
+.modal-mask {
+  display: none;
+  position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+  z-index: 1000; align-items: center; justify-content: center;
+}
+.modal-mask.show { display: flex; }
+.modal {
+  background: #fff; border-radius: 8px;
+  width: 560px; max-width: 92vw;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+.modal.wide { width: 1080px; }
+
+/* 步骤指示器 */
+.stepper {
+  display: flex; align-items: center;
+  padding: 28px 60px 12px;
+  gap: 0;
+}
+.step {
+  display: flex; flex-direction: column; align-items: center;
+  flex-shrink: 0;
+  gap: 8px;
+}
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff; border: 1px solid #c0c8d1;
+  color: #c0c8d1; font-size: 13px; font-weight: 500;
+  transition: all 0.2s;
+}
+.step.active .step-num {
+  background: var(--wx-green); color: #fff; border-color: var(--wx-green);
+}
+.step.done .step-num {
+  background: var(--wx-green-light); color: var(--wx-green); border-color: var(--wx-green);
+}
+.step-label {
+  font-size: 13px; color: var(--text-3);
+  white-space: nowrap;
+}
+.step.active .step-label { color: var(--text-1); font-weight: 500; }
+.step.done .step-label { color: var(--text-2); }
+.step-line {
+  flex: 1; height: 1px; background: #e5e8ec; margin: 0 12px;
+  margin-bottom: 22px;
+}
+.step.done ~ .step-line, .step-line.active { background: var(--wx-green); }
+
+.step-pane { padding: 0 8px; }
+.step-tip {
+  font-size: 13px; color: var(--text-2);
+  padding: 10px 12px; background: #f8fafc; border-radius: 4px;
+  margin-bottom: 12px;
+  border-left: 3px solid #3370ff;
+}
+
+/* 解析表格 */
+.parse-table-wrap {
+  border: 1px solid var(--border); border-radius: 4px;
+  max-height: 340px; overflow: auto;
+}
+.parse-table {
+  width: 100%; border-collapse: collapse; font-size: 12.5px;
+}
+.parse-table thead th {
+  position: sticky; top: 0; z-index: 1;
+  background: #fafbfc; padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left; font-weight: 500; color: var(--text-2);
+  font-size: 12px; white-space: nowrap;
+}
+.parse-table tbody td { padding: 4px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; }
+.parse-table tbody tr:last-child td { border-bottom: none; }
+.parse-input, .parse-select {
+  width: 100%; height: 28px; padding: 0 8px;
+  border: 1px solid transparent; border-radius: 3px;
+  font-size: 12.5px; outline: none; background: transparent;
+  color: var(--text-1); font-family: inherit;
+}
+.parse-input:hover, .parse-select:hover { border-color: #e5e8ec; background: #fff; }
+.parse-input:focus, .parse-select:focus { border-color: var(--wx-green); background: #fff; }
+.modal-header {
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 15px; font-weight: 600;
+}
+.modal-close {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--text-3);
+}
+.modal-close:hover { background: var(--hover); color: var(--text-1); }
+.modal-body { padding: 20px; max-height: 60vh; overflow-y: auto; }
+.form-row { margin-bottom: 16px; }
+.form-row label {
+  display: block; margin-bottom: 6px;
+  font-size: 13px; color: var(--text-2);
+}
+.form-row label .req { color: #f56c6c; margin-right: 2px; }
+.form-row input, .form-row textarea, .form-row select {
+  width: 100%; padding: 8px 10px;
+  border: 1px solid #d0d7de; border-radius: 4px;
+  font-size: 13px; font-family: inherit;
+  outline: none; transition: border-color 0.15s;
+}
+.form-row input:focus, .form-row textarea:focus, .form-row select:focus { border-color: var(--wx-green); }
+.form-row textarea { resize: vertical; min-height: 70px; }
+.form-tip { font-size: 12px; color: var(--text-3); margin-top: 4px; }
+.modal-footer {
+  padding: 12px 20px; border-top: 1px solid var(--border);
+  display: flex; justify-content: flex-end; gap: 8px;
+  background: #fafbfc;
+}
+
+/* 文件拖拽区 */
+.drop-zone {
+  border: 1.5px dashed #d0d7de; border-radius: 6px;
+  padding: 24px; text-align: center;
+  background: #fafbfc;
+  cursor: pointer; transition: all 0.15s;
+}
+.drop-zone:hover { border-color: var(--wx-green); background: var(--wx-green-light); }
+.drop-zone.has-file { border-color: var(--wx-green); background: var(--wx-green-light); }
+.drop-zone .dz-icon { font-size: 28px; margin-bottom: 6px; opacity: 0.6; }
+.drop-zone .dz-text { font-size: 13px; color: var(--text-2); }
+.drop-zone .dz-tip { font-size: 11.5px; color: var(--text-3); margin-top: 4px; }
+.drop-zone.has-file .dz-icon { opacity: 1; color: var(--wx-green); }
+.drop-zone.has-file .dz-text { color: var(--wx-green); font-weight: 500; }
+
+/* Toast */
+.toast {
+  position: fixed; top: 16px; left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  padding: 8px 16px; background: rgba(0,0,0,0.78);
+  color: #fff; border-radius: 4px; font-size: 13px;
+  opacity: 0; transition: all 0.25s;
+  z-index: 2000; pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* 多选销售 chip */
+.sales-chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 6px; border: 1px solid #d0d7de; border-radius: 4px;
+  min-height: 38px; background: #fff;
+}
+.sales-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 6px 2px 8px; border-radius: 12px;
+  background: var(--wx-green-light); color: var(--wx-green);
+  font-size: 12px;
+}
+.sales-chip .x {
+  width: 14px; height: 14px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0.7;
+}
+.sales-chip .x:hover { opacity: 1; background: rgba(7,193,96,0.2); }
+.sales-chips input {
+  flex: 1; min-width: 100px; padding: 2px 4px;
+  border: none; outline: none; font-size: 13px;
+  font-family: inherit;
+}
+.sales-suggest {
+  position: relative;
+}
+.sales-suggest-list {
+  display: none; position: absolute; top: 4px; left: 0; right: 0;
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  max-height: 180px; overflow-y: auto;
+  z-index: 10;
+}
+.sales-suggest-list.show { display: block; }
+.sales-suggest-item {
+  padding: 8px 12px; font-size: 13px; color: var(--text-1);
+  cursor: pointer;
+}
+.sales-suggest-item:hover { background: var(--hover); }
+.sales-suggest-item.selected { color: var(--text-3); cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<!-- 顶部工具栏 -->
+<div class="toolbar">
+  <button class="btn primary" onclick="openCreateModal()">＋ 批量添加客户</button>
+  <button class="btn link" onclick="downloadTemplate()">⬇ 下载 csv 模板</button>
+  <span class="toolbar-tip">已记录 <span id="totalTip">0</span> 个批次任务</span>
+</div>
+
+<!-- 表格 -->
+<div class="table-wrap">
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>销售</th>
+          <th>总数</th>
+          <th>已发送申请数</th>
+          <th>成功添加数</th>
+          <th>已存在数</th>
+          <th>失败数</th>
+          <th>状态</th>
+          <th>开始时间</th>
+          <th>完成时间</th>
+          <th>创建时间</th>
+          <th class="col-actions">操作</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 分页 -->
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select id="pageSize" onchange="onPageSize(this.value)">
+    <option value="20">20条/页</option>
+    <option value="50">50条/页</option>
+  </select>
+  <button class="pager-btn" onclick="prev()" id="prevBtn">‹</button>
+  <span id="pages"></span>
+  <button class="pager-btn" onclick="next()" id="nextBtn">›</button>
+</div>
+
+<!-- 批量添加弹窗（3 步向导） -->
+<div class="modal-mask" id="createMask">
+  <div class="modal wide">
+    <div class="modal-header">
+      <span>批量添加客户</span>
+      <button class="modal-close" onclick="closeCreateModal()">✕</button>
+    </div>
+
+    <!-- 步骤指示器 -->
+    <div class="stepper">
+      <div class="step" data-step="1">
+        <div class="step-num">1</div>
+        <div class="step-label">上传表格</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" data-step="2">
+        <div class="step-num">2</div>
+        <div class="step-label">设置账号</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" data-step="3">
+        <div class="step-num">3</div>
+        <div class="step-label">操作完成</div>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <!-- Step 1: 上传 -->
+      <div class="step-pane" data-pane="1">
+        <input type="file" id="xlsxFile" accept=".xlsx" style="display:none" onchange="onFile(this.files)" />
+        <button class="btn primary" onclick="document.getElementById('xlsxFile').click()" style="margin-bottom:10px;">选择文件</button>
+        <div class="form-tip" id="fileTip">请上传 xlsx 文件，仅支持 .xlsx 格式</div>
+        <div id="parsedInfo" style="margin-top:14px; font-size:13px; color:var(--text-2); display:none;">
+          已解析 <span id="parsedCount" style="color:var(--wx-green);font-weight:500;">0</span> 条客户记录，点「下一步」核对销售归属
+        </div>
+      </div>
+
+      <!-- Step 2: 设置账号 -->
+      <div class="step-pane" data-pane="2" style="display:none;">
+        <div class="step-tip">逐行核对解析结果。"销售姓名"和"添加到微信号"可现场修改，提交后系统按销售拆批次发送。</div>
+        <div class="parse-table-wrap">
+          <table class="parse-table">
+            <thead>
+              <tr>
+                <th style="min-width:120px;">手机号</th>
+                <th style="min-width:90px;">销售姓名</th>
+                <th style="min-width:120px;">兴趣点</th>
+                <th style="min-width:90px;">合作方</th>
+                <th style="min-width:200px;">验证消息</th>
+                <th style="min-width:160px;">添加到微信号</th>
+              </tr>
+            </thead>
+            <tbody id="parseTbody"></tbody>
+          </table>
+        </div>
+        <div class="form-tip" style="margin-top:8px;">共 <span id="parseRowCount">0</span> 行 · 涉及 <span id="parseSalesCount">0</span> 个销售</div>
+      </div>
+
+      <!-- Step 3: 完成 -->
+      <div class="step-pane" data-pane="3" style="display:none;">
+        <div style="text-align:center; padding:20px 10px;">
+          <div style="font-size:48px; color:var(--wx-green); margin-bottom:12px;">✓</div>
+          <div style="font-size:16px; font-weight:600; margin-bottom:8px;">任务已创建</div>
+          <div style="font-size:13px; color:var(--text-2); line-height:1.7;">
+            已按销售拆出 <span id="doneTaskCount" style="color:var(--wx-green);font-weight:500;">0</span> 个批次任务<br/>
+            可在列表中查看每个批次的执行进度
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn" id="btnPrev" onclick="prevStep()" style="display:none;">上一步</button>
+      <button class="btn" onclick="closeCreateModal()" id="btnCancel">取消</button>
+      <button class="btn primary" id="btnNext" onclick="nextStep()">下一步</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ========= 销售名单（搜索用） ========= */
+const SALES_LIST = [
+  '杜佳', '杨瑶 yiyi', '陈巧', '聂敏', '牛海兰03', '刘瑜02', '赵紫颖03',
+  '曹琳', '罗玲 金金', '刘依王01', '黄诗琴', 'Lucy 💗', 'KK17775575920',
+  '艺星专家助理妍妍', '成都艺星专家助理鑫鑫', '自媒体林一133',
+];
+
+/* ========= Mock 任务数据 ========= */
+const TASKS = [
+  {
+    id: 'T-202605-001', sales: '杜佳',
+    total: 200, sent: 200, success: 153, existed: 22, failed: 25,
+    status: 'done',
+    startedAt: '2026-05-01 10:00:12',
+    finishedAt: '2026-05-01 11:32:48',
+    createdAt: '2026-05-01 09:55:03',
+  },
+  {
+    id: 'T-202605-002', sales: '杨瑶 yiyi',
+    total: 300, sent: 300, success: 298, existed: 2, failed: 0,
+    status: 'done',
+    startedAt: '2026-05-02 14:00:01',
+    finishedAt: '2026-05-02 17:45:22',
+    createdAt: '2026-05-02 13:50:11',
+  },
+  {
+    id: 'T-202605-003', sales: '陈巧',
+    total: 500, sent: 320, success: 245, existed: 38, failed: 37,
+    status: 'running',
+    startedAt: '2026-05-06 09:00:08',
+    finishedAt: null,
+    createdAt: '2026-05-06 08:55:00',
+  },
+  {
+    id: 'T-202605-004', sales: '牛海兰03',
+    total: 100, sent: 0, success: 0, existed: 0, failed: 0,
+    status: 'pending',
+    startedAt: null,
+    finishedAt: null,
+    createdAt: '2026-05-06 10:20:11',
+  },
+  {
+    id: 'T-202605-005', sales: 'Lucy 💗',
+    total: 120, sent: 120, success: 60, existed: 9, failed: 51,
+    status: 'partial',
+    startedAt: '2026-05-04 11:00:00',
+    finishedAt: '2026-05-04 14:55:30',
+    createdAt: '2026-05-04 10:55:42',
+  },
+  {
+    id: 'T-202605-006', sales: '刘依王01',
+    total: 80, sent: 80, success: 0, existed: 0, failed: 80,
+    status: 'failed',
+    startedAt: '2026-05-03 09:00:00',
+    finishedAt: '2026-05-03 09:08:11',
+    createdAt: '2026-05-03 08:55:00',
+  },
+  {
+    id: 'T-202605-007', sales: '聂敏',
+    total: 150, sent: 24, success: 18, existed: 3, failed: 3,
+    status: 'canceled',
+    startedAt: '2026-05-05 11:00:00',
+    finishedAt: '2026-05-05 11:30:00',
+    createdAt: '2026-05-05 10:55:00',
+  },
+  {
+    id: 'T-202605-008', sales: '成都艺星专家助理鑫鑫',
+    total: 250, sent: 250, success: 240, existed: 8, failed: 2,
+    status: 'done',
+    startedAt: '2026-04-28 09:00:00',
+    finishedAt: '2026-04-28 13:48:00',
+    createdAt: '2026-04-28 08:50:00',
+  },
+];
+
+/* ========= 状态 ========= */
+let curPage = 1;
+let pageSize = 20;
+
+/* ========= 工具 ========= */
+function statusBadge(s) {
+  const map = {
+    pending:  ['等待中', ''],
+    running:  ['<span class="dot"></span>执行中', 'running'],
+    done:     ['✓ 已完成', 'done'],
+    partial:  ['⚠ 部分失败', 'partial'],
+    failed:   ['✕ 失败', 'failed'],
+    canceled: ['已取消', 'canceled'],
+  };
+  const [text, cls] = map[s] || [s, ''];
+  return `<span class="badge ${cls}">${text}</span>`;
+}
+function progressCell(t) {
+  if (t.status === 'pending') return '<span style="color:var(--text-3);font-size:12px;">—</span>';
+  const pct = t.total > 0 ? Math.round(t.sent / t.total * 100) : 0;
+  const isRunning = t.status === 'running';
+  return `
+    <div class="progress">
+      <span class="col-num">${t.sent}</span>
+      <div class="progress-bar"><div class="progress-fill ${isRunning ? 'running' : ''}" style="width:${pct}%"></div></div>
+      <span>${pct}%</span>
+    </div>`;
+}
+
+/* ========= 渲染 ========= */
+function render() {
+  document.getElementById('totalTip').textContent = TASKS.length;
+  const total = TASKS.length;
+  const start = (curPage - 1) * pageSize;
+  const page = TASKS.slice(start, start + pageSize);
+  const tbody = document.getElementById('tbody');
+  if (page.length === 0) {
+    tbody.innerHTML = `
+      <tr><td colspan="11">
+        <div class="empty-state">
+          <div class="empty-icon">📋</div>
+          <div>暂无数据</div>
+          <div style="margin-top:8px;font-size:12px;">点击左上「批量添加客户」创建第一个任务</div>
+        </div>
+      </td></tr>`;
+  } else {
+    tbody.innerHTML = page.map(t => `
+      <tr>
+        <td>${t.sales}</td>
+        <td class="col-num">${t.total}</td>
+        <td>${progressCell(t)}</td>
+        <td class="col-num success">${t.success}</td>
+        <td class="col-num exist">${t.existed}</td>
+        <td class="col-num ${t.failed > 0 ? 'fail' : ''}">${t.failed}</td>
+        <td>${statusBadge(t.status)}</td>
+        <td class="col-time ${t.startedAt ? '' : 'empty'}">${t.startedAt || '—'}</td>
+        <td class="col-time ${t.finishedAt ? '' : 'empty'}">${t.finishedAt || '—'}</td>
+        <td class="col-time">${t.createdAt}</td>
+        <td class="col-actions">
+          <button class="row-action" onclick="onDetail('${t.id}')">详情</button>
+          ${t.status === 'running' || t.status === 'pending'
+            ? `<button class="row-action danger" onclick="onCancel('${t.id}')">取消</button>`
+            : `<button class="row-action muted" onclick="onExport('${t.id}')">导出结果</button>`}
+        </td>
+      </tr>
+    `).join('');
+  }
+  document.getElementById('pagerInfo').textContent = `共 ${total} 条`;
+  renderPager(total);
+}
+function renderPager(total) {
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const pagesEl = document.getElementById('pages');
+  pagesEl.innerHTML = '';
+  for (let i = 1; i <= totalPages; i++) {
+    const b = document.createElement('button');
+    b.className = 'pager-btn' + (i === curPage ? ' cur' : '');
+    b.textContent = i;
+    b.onclick = () => { curPage = i; render(); };
+    pagesEl.appendChild(b);
+  }
+  document.getElementById('prevBtn').disabled = curPage <= 1;
+  document.getElementById('nextBtn').disabled = curPage >= totalPages;
+}
+
+/* ========= 行操作 ========= */
+function onDetail(id) { toast('查看任务详情：' + id + '（原型占位）'); }
+function onCancel(id) {
+  if (!confirm('取消该任务？已发送的请求不会撤回，剩余的将停止发送。')) return;
+  const t = TASKS.find(x => x.id === id);
+  if (t) {
+    t.status = 'canceled';
+    t.finishedAt = new Date().toLocaleString('zh-CN', { hour12: false }).replace(/\//g, '-');
+    render();
+    toast('已取消任务');
+  }
+}
+function onExport(id) { toast('导出任务结果 csv：' + id); }
+function onPageSize(v) { pageSize = parseInt(v, 10); curPage = 1; render(); }
+function prev() { if (curPage > 1) { curPage--; render(); } }
+function next() {
+  if (curPage < Math.ceil(TASKS.length / pageSize)) { curPage++; render(); }
+}
+
+/* ========= 弹窗（3 步向导） ========= */
+let curStep = 1;
+let parsedRows = []; // xlsx 解析出的客户数据
+let fileSelected = false;
+
+// 兴趣点（艺星医美场景）
+const INTEREST_OPTIONS = [
+  '鼻部整形', '眼部整形', '脂肪填充', '面部轮廓', '皮肤管理',
+  '微整注射', '私密整形', '抗衰提升', '激光美肤', '咨询其他',
+];
+const PARTNER_OPTIONS = ['抖音', '小红书', '美团', '老客转介绍', '院内回头', '朋友圈广告', '其他'];
+
+function openCreateModal() {
+  curStep = 1;
+  fileSelected = false;
+  parsedRows = [];
+  document.getElementById('xlsxFile').value = '';
+  document.getElementById('parsedInfo').style.display = 'none';
+  document.getElementById('fileTip').textContent = '请上传 xlsx 文件，仅支持 .xlsx 格式';
+  updateStepUI();
+  document.getElementById('createMask').classList.add('show');
+}
+function closeCreateModal() {
+  document.getElementById('createMask').classList.remove('show');
+}
+function downloadTemplate() {
+  toast('已下载 customers_template.xlsx（原型占位）');
+}
+
+function updateStepUI() {
+  // 更新步骤指示器
+  document.querySelectorAll('.step').forEach(el => {
+    const n = parseInt(el.dataset.step, 10);
+    el.classList.toggle('active', n === curStep);
+    el.classList.toggle('done', n < curStep);
+  });
+  // 更新内容面板
+  document.querySelectorAll('.step-pane').forEach(el => {
+    el.style.display = parseInt(el.dataset.pane, 10) === curStep ? 'block' : 'none';
+  });
+  // 更新底部按钮
+  document.getElementById('btnPrev').style.display = curStep > 1 && curStep < 3 ? 'inline-flex' : 'none';
+  document.getElementById('btnCancel').style.display = curStep < 3 ? 'inline-flex' : 'none';
+  const nextBtn = document.getElementById('btnNext');
+  if (curStep === 1) nextBtn.textContent = '下一步';
+  else if (curStep === 2) nextBtn.textContent = '提交';
+  else nextBtn.textContent = '完成';
+}
+
+function onFile(files) {
+  if (!files || !files.length) return;
+  const f = files[0];
+  if (!f.name.toLowerCase().endsWith('.xlsx')) {
+    toast('仅支持 .xlsx 格式');
+    return;
+  }
+  fileSelected = true;
+  document.getElementById('fileTip').innerHTML = `已选择：<strong style="color:var(--wx-green)">${f.name}</strong>（${(f.size / 1024).toFixed(1)} KB）`;
+  // mock 解析：随机生成 8-15 行（不含真实数据）
+  const n = 8 + Math.floor(Math.random() * 8);
+  const salesPool = SALES_LIST.slice(0, 6);
+  parsedRows = [];
+  for (let i = 0; i < n; i++) {
+    parsedRows.push({
+      phone: '138****' + String(1000 + i * 137 % 9000).padStart(4, '0'),
+      sales: salesPool[i % salesPool.length],
+      interest: INTEREST_OPTIONS[i % INTEREST_OPTIONS.length],
+      partner: PARTNER_OPTIONS[i % PARTNER_OPTIONS.length],
+      message: '您好~ 我是艺星医美专家助理，您之前关注过项目，给您发些案例参考',
+      wechat: salesPool[i % salesPool.length] + ' (主号)',
+    });
+  }
+  document.getElementById('parsedCount').textContent = n;
+  document.getElementById('parsedInfo').style.display = 'block';
+}
+
+function nextStep() {
+  if (curStep === 1) {
+    if (!fileSelected) { toast('请先选择 xlsx 文件'); return; }
+    curStep = 2;
+    renderParseTable();
+    updateStepUI();
+  } else if (curStep === 2) {
+    // 收集编辑后的数据，按销售拆批次
+    const tbody = document.getElementById('parseTbody');
+    const inputs = tbody.querySelectorAll('tr');
+    const updated = [];
+    inputs.forEach((tr, idx) => {
+      const cells = tr.querySelectorAll('input, select');
+      updated.push({
+        phone: cells[0].value,
+        sales: cells[1].value,
+        interest: cells[2].value,
+        partner: cells[3].value,
+        message: cells[4].value,
+        wechat: cells[5].value,
+      });
+    });
+    // 按销售分组
+    const groups = {};
+    updated.forEach(r => {
+      if (!groups[r.sales]) groups[r.sales] = [];
+      groups[r.sales].push(r);
+    });
+    const now = new Date();
+    const fmt = n => String(n).padStart(2, '0');
+    const ts = `${now.getFullYear()}-${fmt(now.getMonth()+1)}-${fmt(now.getDate())} ${fmt(now.getHours())}:${fmt(now.getMinutes())}:${fmt(now.getSeconds())}`;
+    Object.entries(groups).forEach(([sales, list]) => {
+      TASKS.unshift({
+        id: 'T-' + Date.now() + '-' + Math.floor(Math.random() * 10000),
+        sales,
+        total: list.length, sent: 0, success: 0, existed: 0, failed: 0,
+        status: 'pending', startedAt: null, finishedAt: null,
+        createdAt: ts,
+      });
+    });
+    document.getElementById('doneTaskCount').textContent = Object.keys(groups).length;
+    curStep = 3;
+    updateStepUI();
+    curPage = 1;
+    render();
+  } else if (curStep === 3) {
+    closeCreateModal();
+  }
+}
+function prevStep() {
+  if (curStep > 1) { curStep--; updateStepUI(); }
+}
+
+function renderParseTable() {
+  const salesSet = new Set(parsedRows.map(r => r.sales));
+  document.getElementById('parseRowCount').textContent = parsedRows.length;
+  document.getElementById('parseSalesCount').textContent = salesSet.size;
+  document.getElementById('parseTbody').innerHTML = parsedRows.map((r, i) => `
+    <tr>
+      <td><input class="parse-input" value="${r.phone}" /></td>
+      <td>
+        <select class="parse-select">
+          ${SALES_LIST.map(s => `<option ${s === r.sales ? 'selected' : ''}>${s}</option>`).join('')}
+        </select>
+      </td>
+      <td>
+        <select class="parse-select">
+          ${INTEREST_OPTIONS.map(o => `<option ${o === r.interest ? 'selected' : ''}>${o}</option>`).join('')}
+        </select>
+      </td>
+      <td>
+        <select class="parse-select">
+          ${PARTNER_OPTIONS.map(o => `<option ${o === r.partner ? 'selected' : ''}>${o}</option>`).join('')}
+        </select>
+      </td>
+      <td><input class="parse-input" value="${r.message.replace(/"/g, '&quot;')}" /></td>
+      <td><input class="parse-input" value="${r.wechat}" /></td>
+    </tr>
+  `).join('');
+}
+
+/* ========= Toast ========= */
+let tt;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(tt);
+  tt = setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+render();
+</script>
+</body>
+</html>

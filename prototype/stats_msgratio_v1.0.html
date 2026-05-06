@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>消息占比统计</title><link rel="stylesheet" href="_admin_list.css">
+<style>
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 12px 16px 0; }
+.kpi { background: #fff; border-radius: 6px; border: 1px solid var(--border); padding: 14px 18px; }
+.kpi .label { font-size: 12.5px; color: var(--text-3); }
+.kpi .value { font-size: 24px; font-weight: 600; color: var(--text-1); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.kpi .delta { font-size: 12px; margin-top: 6px; }
+.kpi .delta.up { color: var(--wx-green); }
+.kpi .delta.down { color: #f56c6c; }
+.chart-row { display: grid; grid-template-columns: 1.4fr 1fr; gap: 12px; padding: 12px 16px; }
+.chart-card { background: #fff; border-radius: 6px; border: 1px solid var(--border); padding: 16px; }
+.chart-card .ttl { font-size: 13.5px; font-weight: 600; margin-bottom: 14px; border-left: 3px solid var(--wx-green); padding-left: 8px; }
+.bar-group { margin-bottom: 14px; }
+.bar-row { display: grid; grid-template-columns: 110px 1fr 80px; gap: 10px; align-items: center; margin-bottom: 8px; font-size: 12.5px; }
+.bar-track { height: 14px; background: #f0f2f5; border-radius: 7px; overflow: hidden; position: relative; }
+.bar-fill { height: 100%; border-radius: 7px; transition: width 0.4s; }
+.bar-fill.green { background: linear-gradient(90deg, #07c160, #06ad56); }
+.bar-fill.blue { background: linear-gradient(90deg, #3370ff, #2456c5); }
+.bar-fill.orange { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+.donut { width: 200px; height: 200px; margin: 20px auto; position: relative; border-radius: 50%; background: conic-gradient(var(--wx-green) 0 56%, #3370ff 56% 84%, #f59e0b 84% 100%); }
+.donut::after { content: ''; position: absolute; inset: 30px; border-radius: 50%; background: #fff; }
+.donut-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 22px; font-weight: 600; }
+.donut-legend { display: flex; flex-direction: column; gap: 8px; padding: 0 20px; font-size: 12.5px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; vertical-align: middle; }
+.table-wrap { padding: 0; }
+</style></head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group" style="gap:4px;">
+    <button class="btn sm">今天</button>
+    <button class="btn sm">昨天</button>
+    <button class="btn sm">本周</button>
+    <button class="btn sm">本月</button>
+    <button class="btn sm">上月</button>
+    <button class="btn sm">本年度</button>
+    <button class="btn sm">近七天</button>
+    <button class="btn sm">近一月</button>
+  </div>
+  <div class="f-group">
+    <input class="f-input date" type="date" placeholder="开始日期">
+    <span class="f-sep">至</span>
+    <input class="f-input date" type="date" placeholder="结束日期">
+  </div>
+  <button class="btn primary">🔍 搜索</button>
+  <button class="btn">重置</button>
+</div>
+
+<div class="table-wrap">
+  <div class="kpi-grid">
+    <div class="kpi"><div class="label">总消息数</div><div class="value">128,560</div><div class="delta up">↑ 12.4% vs 上月</div></div>
+    <div class="kpi"><div class="label">销售发出</div><div class="value">71,800</div><div class="delta up">↑ 8.6% (占 56%)</div></div>
+    <div class="kpi"><div class="label">客户回复</div><div class="value">35,920</div><div class="delta up">↑ 18.2% (占 28%)</div></div>
+    <div class="kpi"><div class="label">系统/自动</div><div class="value">20,840</div><div class="delta down">↓ 2.1% (占 16%)</div></div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-card">
+      <div class="ttl">销售发送 / 客户回复 占比 TOP 销售</div>
+      <div class="bar-group">
+        <div class="bar-row"><span>杨瑶 yiyi</span><div class="bar-track"><div class="bar-fill green" style="width:88%"></div></div><span>88% (3540 / 4020)</span></div>
+        <div class="bar-row"><span>杜佳</span><div class="bar-track"><div class="bar-fill green" style="width:82%"></div></div><span>82% (3120 / 3800)</span></div>
+        <div class="bar-row"><span>陈巧</span><div class="bar-track"><div class="bar-fill green" style="width:75%"></div></div><span>75% (2820 / 3760)</span></div>
+        <div class="bar-row"><span>聂敏</span><div class="bar-track"><div class="bar-fill blue" style="width:68%"></div></div><span>68% (2380 / 3500)</span></div>
+        <div class="bar-row"><span>Lucy 💗</span><div class="bar-track"><div class="bar-fill blue" style="width:55%"></div></div><span>55% (1820 / 3310)</span></div>
+        <div class="bar-row"><span>罗玲 金金</span><div class="bar-track"><div class="bar-fill orange" style="width:42%"></div></div><span>42% (1380 / 3286)</span></div>
+        <div class="bar-row"><span>刘瑜02</span><div class="bar-track"><div class="bar-fill orange" style="width:38%"></div></div><span>38% (1180 / 3105)</span></div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="ttl">消息来源占比</div>
+      <div style="display:flex; justify-content:center;">
+        <div class="donut">
+          <div class="donut-center">128.5K</div>
+        </div>
+      </div>
+      <div class="donut-legend" style="margin-top:14px;">
+        <div><span class="dot" style="background:var(--wx-green)"></span>销售发出 56% · 71,800</div>
+        <div><span class="dot" style="background:#3370ff"></span>客户回复 28% · 35,920</div>
+        <div><span class="dot" style="background:#f59e0b"></span>系统/自动 16% · 20,840</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body></html>

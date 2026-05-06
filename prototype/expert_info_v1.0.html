@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>专家信息</title>
+<link rel="stylesheet" href="_admin_list.css">
+<script src="_edit_modal.js" defer></script>
+</head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group"><span class="f-label">姓名</span><input class="f-input wide" id="kw" placeholder="请输入专家姓名"></div>
+  <div class="f-group"><span class="f-label">手机号</span><input class="f-input wide" id="phone" placeholder="请输入手机号"></div>
+  <div class="f-group"><span class="f-label">是否全部拉群</span>
+    <select class="f-select" id="groupAll">
+      <option value="">请选择</option>
+      <option value="1">是</option>
+      <option value="0">否</option>
+    </select>
+  </div>
+  <button class="btn primary" onclick="render()">🔍 查询</button>
+  <button class="btn" onclick="onReset()">重置</button>
+  <div class="f-spacer"></div>
+  <button class="btn primary" onclick="onCreate()">＋ 新增专家</button>
+  <button class="btn" onclick="toast('查看全部记录')">📋 全部记录</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card">
+    <table>
+      <thead><tr>
+        <th>姓名</th><th>职称</th><th>擅长领域</th><th>不擅长领域</th>
+        <th>微信昵称</th><th>专家角色</th><th>是否全部拉群</th><th>创建时间</th>
+        <th class="col-actions">操作</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select><option>20条/页</option></select>
+  <button class="pager-btn">‹</button>
+  <button class="pager-btn cur">1</button>
+  <button class="pager-btn">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const ROWS = [
+  { name: '谢斐', title: '主任医师 · 院长', good: '微整注射 (玻尿酸/肉毒素)', bad: '大型外科手术', wx: '谢斐院长yiyi', role: '微整专家', groupAll: true,  createdAt: '2026-04-15 10:30:21' },
+  { name: '范琛月', title: '副主任医师 · 院长', good: '微整塑形 / 玻尿酸', bad: '鼻整形 / 眼整形', wx: '范琛月院长', role: '微整专家', groupAll: true,  createdAt: '2026-04-15 10:42:08' },
+  { name: '高顺波', title: '主任医师 · 院长', good: '鼻部综合整形 / 鼻修复', bad: '注射类', role: '鼻部专家', wx: '高顺波院长', groupAll: false, createdAt: '2026-04-16 14:11:05' },
+  { name: '李竞',   title: '副主任医师 · 院长', good: '鼻部整形 (假体/肋骨)', bad: '激光皮肤管理', role: '鼻部专家', wx: '李竞院长', groupAll: false, createdAt: '2026-04-16 14:33:51' },
+  { name: '韩春',   title: '副主任医师 · 院长', good: '双眼皮 / 开内眼角 / 上睑下垂', bad: '吸脂 / 隆胸',  role: '眼部专家', wx: '韩春院长',   groupAll: true, createdAt: '2026-04-17 09:15:42' },
+  { name: '朱紫婷', title: '主治医师 · 院长',  good: '激光美肤 / 抗衰 / 嫩肤',  bad: '手术类',         role: '皮肤专家', wx: '朱紫婷院长', groupAll: true, createdAt: '2026-04-17 11:02:18' },
+  { name: '苑凯华', title: '教授 · 顾问',     good: '皮肤外科 / 疑难皮肤',    bad: '注射类',         role: '皮肤专家·顾问', wx: '苑凯华教授', groupAll: false, createdAt: '2026-04-18 08:50:11' },
+  { name: '蒋琳',   title: '主治医师',        good: '鼻翼鼻头精细缩小',       bad: '面部填充',       role: '鼻部专家', wx: '蒋琳医生',   groupAll: false, createdAt: '2026-04-19 15:30:00' },
+];
+function avatarChip(name) {
+  const colors = [['#fbcfe8','#f9a8d4'],['#bbf7d0','#86efac'],['#bfdbfe','#93c5fd'],['#fde68a','#fcd34d'],['#ddd6fe','#c4b5fd'],['#fecaca','#fca5a5']];
+  const seed = name.charCodeAt(0) % colors.length;
+  const [c1, c2] = colors[seed];
+  return `<span class="avatar" style="--c1:${c1};--c2:${c2}">${name[0]}</span>`;
+}
+function render() {
+  const kw = document.getElementById('kw').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const ga = document.getElementById('groupAll').value;
+  let list = ROWS.filter(r => {
+    if (kw && !r.name.includes(kw)) return false;
+    if (ga !== '' && Boolean(parseInt(ga, 10)) !== r.groupAll) return false;
+    return true;
+  });
+  document.getElementById('tbody').innerHTML = list.length ? list.map(r => `
+    <tr>
+      <td><div class="user-cell">${avatarChip(r.name)}<div><div class="user-name">${r.name}</div><div class="user-sub">${r.role}</div></div></div></td>
+      <td>${r.title}</td>
+      <td>${r.good}</td>
+      <td><span style="color:var(--text-3)">${r.bad}</span></td>
+      <td>${r.wx}</td>
+      <td><span class="badge purple">${r.role}</span></td>
+      <td>${r.groupAll ? '<span class="badge">是</span>' : '<span class="badge gray">否</span>'}</td>
+      <td class="col-time">${r.createdAt}</td>
+      <td class="col-actions">
+        <button class="row-action" onclick="onEdit('${r.name}')">✏️ 编辑</button>
+        <button class="row-action muted" onclick="toast('查看记录')">📋 记录</button>
+      </td>
+    </tr>
+  `).join('') : `<tr><td colspan="9"><div class="empty-state"><div class="empty-icon">🩺</div>暂无专家</div></td></tr>`;
+  document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
+}
+function onReset() { ['kw','phone','groupAll'].forEach(id => document.getElementById(id).value = ''); render(); }
+let eModal;
+function buildExpertModal(title, onSubmit) {
+  return createEditModal({
+    title,
+    fields: [
+      { label:'姓名',         key:'name',     type:'text',   placeholder:'请输入专家姓名', required:true },
+      { label:'手机号',       key:'phone',    type:'text',   placeholder:'请输入手机号' },
+      { label:'职称',         key:'title',    type:'text',   placeholder:'例：主任医师 · 院长' },
+      { label:'专家角色',     key:'role',     type:'select', options:['微整专家','鼻部专家','眼部专家','皮肤专家','形体专家','皮肤专家·顾问'] },
+      { label:'擅长领域',     key:'good',     type:'textarea',placeholder:'例：微整注射 (玻尿酸/肉毒素)' },
+      { label:'不擅长领域',   key:'bad',      type:'textarea',placeholder:'例：大型外科手术' },
+      { label:'微信昵称',     key:'wx',       type:'text' },
+      { label:'是否全部拉群', key:'groupAll', type:'switch' },
+    ],
+    onSubmit
+  });
+}
+function onCreate() {
+  const m = buildExpertModal('新增专家', d => { ROWS.unshift({ ...d, createdAt: new Date().toISOString().replace('T',' ').slice(0,19) }); render(); toast('已新增'); });
+  m.open({});
+}
+function onEdit(name) {
+  const r = ROWS.find(x => x.name === name);
+  if (!eModal) eModal = buildExpertModal('修改专家', d => { Object.assign(r, d); render(); toast('已保存'); });
+  eModal.open(r);
+}
+let tt;
+function toast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 1800); }
+render();
+</script>
+</body>
+</html>

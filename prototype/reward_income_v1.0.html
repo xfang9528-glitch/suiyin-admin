@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>收入确认</title><link rel="stylesheet" href="_admin_list.css">
+<script src="_edit_modal.js" defer></script></head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group">
+    <input class="f-input date" id="d1" type="date" placeholder="开始日期">
+    <span class="f-sep">至</span>
+    <input class="f-input date" id="d2" type="date" placeholder="结束日期">
+  </div>
+  <button class="btn primary" onclick="render()">🔍 查询</button>
+  <button class="btn" onclick="onReset()">重置</button>
+  <button class="btn" onclick="toast('导出')">📤 导出表格</button>
+  <div class="f-spacer"></div>
+  <button class="btn primary" onclick="onAdd()">＋ 添加收入</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card scroll" style="min-width:1500px;">
+    <table>
+      <thead><tr>
+        <th>头像/微信昵称/手机号</th><th>SPU</th>
+        <th>交付日期</th><th>交付量</th><th>交付金额（元）</th>
+        <th>销售</th><th>创建时间</th><th>最后更新时间</th>
+        <th class="col-actions">操作</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select><option>20条/页</option></select>
+  <button class="pager-btn">‹</button><button class="pager-btn cur">1</button><button class="pager-btn">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+const ROWS = [
+  { name:'雯雯-客户B', wx:'wenwen-cus',  phone:'138****0001', spu:'韩式双眼皮(无痕)',     deliverDate:'2026-05-05', qty:1, amount:9800,  sale:'杨瑶 yiyi', createdAt:'2026-05-05 17:00:00', updatedAt:'2026-05-06 09:30:18' },
+  { name:'敏敏-客户C', wx:'minmin-cus',  phone:'138****0002', spu:'蝉翼双拱架鼻综合',     deliverDate:'2026-05-04', qty:1, amount:39800, sale:'陈巧',      createdAt:'2026-05-04 16:30:00', updatedAt:'2026-05-04 18:00:00' },
+  { name:'琪琪-客户D', wx:'qiqi-cus',    phone:'138****0003', spu:'热玛吉 5 代',          deliverDate:'2026-05-04', qty:1, amount:18800, sale:'聂敏',      createdAt:'2026-05-04 11:00:00', updatedAt:'2026-05-04 14:50:11' },
+  { name:'微微-客户A', wx:'weiwei-cus',  phone:'138****0004', spu:'玻尿酸丰唇 1ml',       deliverDate:'2026-05-03', qty:1, amount:800,   sale:'杜佳',      createdAt:'2026-05-03 14:00:00', updatedAt:'2026-05-03 14:50:00' },
+  { name:'琴-客户E',   wx:'qin-cus',     phone:'138****0005', spu:'肉毒素瘦脸针(进口)',   deliverDate:'2026-05-02', qty:1, amount:2800,  sale:'Lucy 💗',  createdAt:'2026-05-02 11:00:00', updatedAt:'2026-05-02 11:50:00' },
+];
+function avatar(seed) { const colors=[['#fbcfe8','#f9a8d4'],['#bbf7d0','#86efac'],['#bfdbfe','#93c5fd'],['#fde68a','#fcd34d'],['#ddd6fe','#c4b5fd']]; const [c1,c2]=colors[seed%colors.length]; return `<span class="avatar" style="--c1:${c1};--c2:${c2}">${seed%10}</span>`; }
+function render() {
+  document.getElementById('tbody').innerHTML = ROWS.map((r,i) => `
+    <tr>
+      <td><div class="user-cell">${avatar(i)}<div><div class="user-name">${r.name}</div><div class="user-sub">${r.wx} · ${r.phone}</div></div></div></td>
+      <td>${r.spu}</td>
+      <td class="col-time">${r.deliverDate}</td>
+      <td class="col-num">${r.qty}</td>
+      <td class="col-num success">¥${r.amount.toLocaleString('zh-CN')}</td>
+      <td>${r.sale}</td>
+      <td class="col-time">${r.createdAt}</td>
+      <td class="col-time">${r.updatedAt}</td>
+      <td class="col-actions">
+        <button class="row-action" onclick="toast('编辑')">编辑</button>
+        <button class="row-action danger" onclick="toast('作废')">作废</button>
+      </td>
+    </tr>
+  `).join('');
+  document.getElementById('pagerInfo').textContent = `共 ${ROWS.length} 条`;
+}
+function onReset() { ['d1','d2'].forEach(id=>document.getElementById(id).value=''); render(); }
+let aModal;
+function onAdd() {
+  if (!aModal) aModal = createEditModal({
+    title: '添加收入',
+    fields: [
+      { label:'客户(微信昵称/手机号)', key:'name',   type:'text',   placeholder:'搜索客户昵称或手机号', required:true },
+      { label:'SPU',                  key:'spu',    type:'select', options:['玻尿酸丰唇 1ml','韩式双眼皮(无痕)','蝉翼双拱架鼻综合','热玛吉 5 代','半永久眉毛(雾眉)','肉毒素瘦脸针(进口)','光子嫩肤 体验卡 3 次'], required:true },
+      { label:'交付日期',             key:'deliverDate', type:'text', placeholder:'YYYY-MM-DD' },
+      { label:'交付量',               key:'qty',    type:'number', placeholder:'1' },
+      { label:'交付金额',             key:'amount',type:'number',  placeholder:'元', suffix:'元', required:true },
+      { label:'销售',                 key:'sale',   type:'select', options:['杜佳','杨瑶 yiyi','陈巧','聂敏','刘瑜02','Lucy 💗','罗玲 金金'] },
+    ],
+    onSubmit: d => { ROWS.unshift({ name:d.name, wx:'-', phone:'-', spu:d.spu, deliverDate:d.deliverDate||new Date().toISOString().slice(0,10), qty:+d.qty||1, amount:+d.amount||0, sale:d.sale, createdAt:new Date().toISOString().replace('T',' ').slice(0,19), updatedAt:new Date().toISOString().replace('T',' ').slice(0,19) }); render(); toast('已添加'); }
+  });
+  aModal.open({});
+}
+let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+render();
+</script></body></html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>PYQ 管理</title>
+<link rel="stylesheet" href="_admin_list.css">
+<script src="_edit_modal.js" defer></script>
+<style>
+.section-title { font-size: 14px; font-weight: 600; color: var(--text-1); padding: 0 0 8px; border-left: 3px solid var(--wx-green); padding-left: 8px; }
+.copy-cell { max-width: 240px; font-size: 12.5px; line-height: 1.5; color: var(--text-1); }
+.account-list {
+  max-height: 220px; overflow-y: auto;
+  font-size: 12px; color: var(--text-2);
+  line-height: 1.7;
+  width: 220px;
+}
+.account-list span { display: inline-block; padding-right: 4px; }
+.account-status-list {
+  max-height: 220px; overflow-y: auto;
+  font-size: 12px; line-height: 1.6;
+  width: 200px;
+}
+.acc-st { display: block; padding: 1px 0; }
+.acc-st .ok { color: var(--wx-green); }
+.acc-st .pending { color: #3370ff; }
+.acc-st .fail { color: #f56c6c; }
+.engagement {
+  display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-2);
+}
+</style>
+</head>
+<body>
+
+<div class="filter-bar">
+  <div class="section-title">朋友圈列表</div>
+  <div class="f-spacer"></div>
+  <button class="btn primary" onclick="onCreate()">＋ 创建</button>
+  <button class="btn" onclick="toast('查看全部记录')">📋 全部记录</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card scroll" style="min-width:1400px;">
+    <table>
+      <thead><tr>
+        <th style="min-width:240px;">文案内容</th>
+        <th>发布账号</th>
+        <th>发布人</th>
+        <th>设定发布时间 ↕</th>
+        <th>发布时间 ↕</th>
+        <th>创建时间 ↕</th>
+        <th>状态</th>
+        <th>账号状态</th>
+        <th>点赞数/评论数</th>
+        <th class="col-actions">操作</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info">共 18,563 条</span>
+  <select><option>10条/页</option></select>
+  <button class="pager-btn">‹</button>
+  <button class="pager-btn cur">1</button>
+  <button class="pager-btn">2</button>
+  <button class="pager-btn">3</button>
+  <button class="pager-btn">4</button>
+  <button class="pager-btn">5</button>
+  <button class="pager-btn">6</button>
+  <span class="pager-ellipsis">…</span>
+  <button class="pager-btn">1857</button>
+  <button class="pager-btn">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function genAccs(prefix, ids) {
+  return ids.map(id => `${prefix}${String(id).padStart(3,'0')}`);
+}
+const ROWS = [
+  {
+    copy:'今天又是被夸奖到长专业皮肤医生的一天 ☺️ 从看视频到面对面学，从合作设计到列利用量 💪 每一步都为你的效果和安全做足 不微准水线频频脱，只打造专属你的妈生级感',
+    accounts: genAccs('自媒体林一-', [4,10,12,13,14,20,22,23,24,27,31,30,35,44,47,53,56,58,62,63,65,69,72,77,80,88,99,103,113,116,120,133,134,141,142,144,149,151,154,161,162,167,179]),
+    publisher:'刘芳',
+    setAt:'2026-05-06 11:34:15',
+    pubAt:'2026-05-06 11:35:10',
+    createdAt:'2026-05-06 11:24:30',
+    status:'partial',
+    likes:0, comments:0,
+  },
+  {
+    copy:'高顺波院长一台 6 小时鼻修复手术全过程，复杂二次修复也能让客户重新爱上自己 ✨',
+    accounts: genAccs('自媒体杨博文-', [2,5,8,15,22,33,40,55,68,72,80]),
+    publisher:'李梦',
+    setAt:'2026-05-05 18:00:00',
+    pubAt:'2026-05-05 18:00:11',
+    createdAt:'2026-05-05 17:45:30',
+    status:'success',
+    likes:128, comments:42,
+  },
+  {
+    copy:'热玛吉 5 代体验心得｜45 岁姐姐做完直接素颜出门 🔥',
+    accounts: genAccs('自媒体林一-', [50,55,60,65,70]),
+    publisher:'刘芳',
+    setAt:'2026-05-05 11:00:00',
+    pubAt:'2026-05-05 11:00:08',
+    createdAt:'2026-05-05 10:50:00',
+    status:'success',
+    likes:88, comments:24,
+  },
+  {
+    copy:'谢斐院长玻尿酸丰唇案例图集，自然在线 💋',
+    accounts: genAccs('微整助理-', [1,2,3,4,5,6,7,8]),
+    publisher:'王悦',
+    setAt:'2026-05-04 09:30:00',
+    pubAt:'-',
+    createdAt:'2026-05-04 09:15:00',
+    status:'pending',
+    likes:0, comments:0,
+  },
+  {
+    copy:'5 月特惠 ▎玻尿酸/肉毒素 套餐 满 8000 直减 1500',
+    accounts: genAccs('自媒体林一-', [10,20,30]),
+    publisher:'营销部',
+    setAt:'2026-05-03 12:00:00',
+    pubAt:'2026-05-03 12:00:05',
+    createdAt:'2026-05-03 11:30:00',
+    status:'failed',
+    likes:0, comments:0,
+  },
+];
+function statusBadge(s) {
+  return s === 'success' ? '<span class="badge">全部成功</span>'
+    : s === 'partial' ? '<span class="badge warn">部分成功</span>'
+    : s === 'pending' ? '<span class="badge info">待发送</span>'
+    : s === 'failed' ? '<span class="badge danger">发送失败</span>'
+    : '<span class="badge gray">-</span>';
+}
+function accStatusList(accounts, status) {
+  // 模拟每个账号的发送结果
+  return accounts.slice(0, 8).map((acc, i) => {
+    const fate = status === 'pending' ? 'pending' : (status === 'failed' ? 'fail' : (i < accounts.length - 2 ? 'ok' : (status === 'partial' ? 'fail' : 'ok')));
+    const text = fate === 'ok' ? '发送成功' : (fate === 'fail' ? '发送失败' : '发送中');
+    return `<span class="acc-st ${fate}"><span class="${fate}">${acc}: ${text}</span></span>`;
+  }).join('') + (accounts.length > 8 ? `<span class="acc-st" style="color:var(--text-3)">+${accounts.length - 8} 个账号…</span>` : '');
+}
+function render() {
+  document.getElementById('tbody').innerHTML = ROWS.map(r => `
+    <tr>
+      <td><div class="copy-cell">${r.copy}</div></td>
+      <td><div class="account-list">${r.accounts.map(a => `<span>${a}</span>，`).join('').replace(/，$/, '')}</div></td>
+      <td>${r.publisher}</td>
+      <td class="col-time">${r.setAt}</td>
+      <td class="col-time ${r.pubAt === '-' ? 'empty' : ''}">${r.pubAt}</td>
+      <td class="col-time">${r.createdAt}</td>
+      <td>${statusBadge(r.status)}</td>
+      <td><div class="account-status-list">${accStatusList(r.accounts, r.status)}</div></td>
+      <td>
+        <div class="engagement">
+          <span>👍 ${r.likes}</span>
+          <span>💬 ${r.comments}</span>
+        </div>
+        <a class="row-action" onclick="toast('查看互动详情')" style="margin-top:4px;">查看详情</a>
+      </td>
+      <td class="col-actions">
+        ${r.status === 'success' || r.status === 'partial'
+          ? `<button class="row-action danger" onclick="toast('删除已发布')">🗑 删除已发布</button>`
+          : `<button class="row-action" onclick="toast('编辑')">编辑</button>
+             <button class="row-action danger" onclick="toast('取消发送')">取消</button>`}
+        <button class="row-action muted" onclick="toast('查看记录')">📋 记录</button>
+      </td>
+    </tr>
+  `).join('');
+}
+let tt;
+function toast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 1800); }
+let cModal;
+function onCreate() {
+  if (!cModal) cModal = createEditModal({
+    title: '创建朋友圈任务',
+    width: 720,
+    fields: [
+      { label:'文案内容',     key:'copy',   type:'rich',  placeholder:'图文 + emoji，可加图片/视频/链接', required:true },
+      { label:'发布人',       key:'pub',    type:'select',options:['刘芳','李梦','王悦','营销部','院长助理'] },
+      { label:'发布账号',     key:'accs',   type:'tags',  options:['自媒体林一','自媒体杨博文','微整助理','院长助理','专家助理'] },
+      { label:'发布时间',     key:'setAt',  type:'text',  placeholder:'YYYY-MM-DD HH:mm（留空立即发布）' },
+      { label:'是否定时',     key:'sched',  type:'switch' },
+      { label:'间隔(秒/账号)',key:'gap',    type:'number',placeholder:'例：60（防风控）' },
+    ],
+    onSubmit: d => { ROWS.unshift({ copy:(d.copy||'').slice(0,80), accounts:[], publisher:d.pub, setAt:d.setAt||new Date().toISOString().replace('T',' ').slice(0,19), pubAt:'-', createdAt:new Date().toISOString().replace('T',' ').slice(0,19), status:'pending', likes:0, comments:0 }); render(); toast('已创建朋友圈任务'); }
+  });
+  cModal.open({});
+}
+render();
+</script>
+</body>
+</html>

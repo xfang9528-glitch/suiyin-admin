@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>话术管理</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 14px; color: #1a1a1a; background: #f5f7fa;
+}
+:root {
+  --wx-green: #07c160;
+  --wx-green-dark: #06ad56;
+  --wx-green-light: #e8f6ee;
+  --border: #ebeef2;
+  --text-1: #1a1a1a;
+  --text-2: #4a5564;
+  --text-3: #8a96a3;
+  --hover: #f5f7fa;
+  --tree-w: 280px;
+  --toolbar-h: 52px;
+  --crumb-h: 44px;
+  --pager-h: 48px;
+}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: #d0d7de; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a8b3bf; }
+::-webkit-scrollbar-track { background: transparent; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* ========= 顶部工具栏 ========= */
+.toolbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--toolbar-h); padding: 10px 16px;
+  background: #fff; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 12px; z-index: 10;
+}
+.search-box {
+  display: flex; align-items: stretch; height: 32px; flex-shrink: 0;
+}
+.search-box input {
+  width: 200px; height: 32px; padding: 0 10px;
+  border: 1px solid #d0d7de; border-right: none;
+  border-radius: 4px 0 0 4px; font-size: 13px;
+  outline: none; background: #fff; color: var(--text-1);
+}
+.search-box input:focus { border-color: var(--wx-green); }
+.search-box .btn-search {
+  height: 32px; padding: 0 16px;
+  background: var(--wx-green); color: #fff;
+  border-radius: 0 4px 4px 0; font-size: 13px;
+  display: flex; align-items: center; gap: 4px;
+  transition: background 0.15s;
+}
+.search-box .btn-search:hover { background: var(--wx-green-dark); }
+.toolbar-spacer { flex: 1; }
+.toolbar-btn {
+  height: 32px; padding: 0 14px; border-radius: 4px;
+  font-size: 13px; display: inline-flex; align-items: center; gap: 5px;
+  border: 1px solid #d0d7de; background: #fff; color: var(--text-2);
+  transition: all 0.15s;
+}
+.toolbar-btn:hover { border-color: var(--wx-green); color: var(--wx-green); }
+.toolbar-btn.primary {
+  background: var(--wx-green); color: #fff; border-color: var(--wx-green);
+}
+.toolbar-btn.primary:hover { background: var(--wx-green-dark); border-color: var(--wx-green-dark); }
+.toolbar-btn.active { background: var(--wx-green-light); border-color: var(--wx-green); color: var(--wx-green); }
+
+/* ========= 主区域：左树 + 右表 ========= */
+.main {
+  position: fixed;
+  top: var(--toolbar-h); left: 0; right: 0; bottom: 0;
+  display: grid;
+  grid-template-columns: var(--tree-w) 1fr;
+}
+.main.flat-mode { grid-template-columns: 1fr; }
+.main.flat-mode .tree-pane { display: none; }
+
+/* ========= 左侧树 ========= */
+.tree-pane {
+  background: #fff; border-right: 1px solid var(--border);
+  overflow-y: auto; padding: 8px 0;
+}
+.tree-node {
+  position: relative; user-select: none;
+}
+.tree-row {
+  display: flex; align-items: center; gap: 4px;
+  height: 30px; padding: 0 8px 0 var(--indent, 8px);
+  font-size: 13px; color: var(--text-2);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.tree-row:hover { background: var(--hover); }
+.tree-row.active {
+  background: #e6f0ff; color: #3370ff; font-weight: 500;
+}
+.tree-row.active .tree-icon { color: #3370ff; }
+.tree-toggle {
+  width: 14px; height: 14px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: #c0c8d1;
+  transition: transform 0.15s;
+}
+.tree-toggle.expanded { transform: rotate(90deg); }
+.tree-toggle.empty { visibility: hidden; }
+.tree-icon {
+  width: 14px; flex-shrink: 0; color: var(--text-3); font-size: 12px;
+}
+.tree-label {
+  flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.tree-actions {
+  display: none; gap: 2px; flex-shrink: 0;
+}
+.tree-row:hover .tree-actions { display: flex; }
+.tree-row.active .tree-actions { display: flex; }
+.tree-act-btn {
+  width: 22px; height: 22px; border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--text-3);
+  transition: all 0.12s;
+}
+.tree-act-btn:hover { background: rgba(0,0,0,0.06); color: var(--text-1); }
+.tree-act-btn.danger:hover { background: #ffeded; color: #f56c6c; }
+.tree-act-btn.muted { color: #c0c8d1; }
+.tree-children { display: none; }
+.tree-children.expanded { display: block; }
+
+/* ========= 右栏：面包屑 + 表格 + 分页 ========= */
+.right-pane {
+  display: flex; flex-direction: column; min-width: 0;
+  background: #f5f7fa;
+}
+.crumb-bar {
+  height: var(--crumb-h);
+  padding: 0 16px;
+  background: #fff; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.crumb {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 13px; color: var(--text-2);
+  flex: 1; min-width: 0; overflow: hidden;
+}
+.crumb-item { white-space: nowrap; }
+.crumb-item.last { color: var(--text-1); font-weight: 500; }
+.crumb-sep { color: var(--text-3); margin: 0 2px; }
+.crumb-actions {
+  display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+}
+
+.table-wrap {
+  flex: 1; overflow: auto;
+  padding: 12px 16px 0;
+}
+.table-card {
+  background: #fff; border-radius: 6px; border: 1px solid var(--border);
+  overflow: hidden;
+}
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+thead th {
+  background: #fafbfc; color: var(--text-2); font-weight: 500;
+  text-align: left; padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  white-space: nowrap;
+}
+tbody td {
+  padding: 12px; border-bottom: 1px solid #f0f2f5;
+  color: var(--text-1); vertical-align: middle;
+}
+tbody tr:hover { background: #fafbfc; }
+tbody tr:last-child td { border-bottom: none; }
+
+.col-drag {
+  width: 36px; color: var(--text-3); cursor: grab;
+  user-select: none; text-align: center;
+}
+.col-time { color: var(--text-2); font-size: 12.5px; white-space: nowrap; }
+.col-actions { white-space: nowrap; }
+.row-action {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 4px 8px; margin-right: 2px; border-radius: 3px;
+  font-size: 12.5px; color: #3370ff;
+  transition: background 0.12s;
+}
+.row-action:hover { background: #ecf3ff; }
+.row-action.danger { color: #f56c6c; }
+.row-action.danger:hover { background: #ffeded; }
+.row-action.muted { color: var(--text-2); }
+.row-action.muted:hover { background: var(--hover); }
+
+/* 隐藏开关 */
+.switch {
+  position: relative; display: inline-block;
+  width: 36px; height: 18px;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.switch-slider {
+  position: absolute; cursor: pointer; inset: 0;
+  background: #d0d7de; border-radius: 18px;
+  transition: 0.2s;
+}
+.switch-slider::before {
+  content: ''; position: absolute; left: 2px; bottom: 2px;
+  width: 14px; height: 14px;
+  background: #fff; border-radius: 50%;
+  transition: 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+.switch input:checked + .switch-slider { background: var(--wx-green); }
+.switch input:checked + .switch-slider::before { transform: translateX(18px); }
+
+/* 分类路径标签 (平铺视图) */
+.path-tag {
+  display: inline-block; padding: 1px 6px; margin: 0 4px 2px 0;
+  background: #f0f2f5; color: var(--text-2);
+  border-radius: 3px; font-size: 11.5px;
+  white-space: nowrap;
+}
+
+/* 分页器 */
+.pager {
+  height: var(--pager-h);
+  padding: 0 16px;
+  background: #fff; border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.pager-info { color: var(--text-3); font-size: 13px; margin-right: 4px; }
+.pager select {
+  height: 28px; padding: 0 8px;
+  border: 1px solid #d0d7de; border-radius: 3px;
+  background: #fff; font-size: 13px; color: var(--text-2);
+  cursor: pointer; outline: none;
+}
+.pager-btn {
+  width: 28px; height: 28px; border-radius: 3px;
+  border: 1px solid #d0d7de; background: #fff;
+  color: var(--text-2); font-size: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all 0.12s;
+}
+.pager-btn:hover:not(:disabled) { border-color: var(--wx-green); color: var(--wx-green); }
+.pager-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pager-num {
+  min-width: 28px; height: 28px; padding: 0 8px;
+  border-radius: 3px; background: var(--wx-green); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+
+/* 空状态 */
+.empty {
+  padding: 80px 20px; text-align: center; color: var(--text-3);
+  font-size: 13px;
+}
+
+/* ========= 弹窗 ========= */
+.modal-mask {
+  display: none;
+  position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+  z-index: 1000; align-items: center; justify-content: center;
+}
+.modal-mask.show { display: flex; }
+.modal {
+  background: #fff; border-radius: 8px;
+  width: 480px; max-width: 92vw;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+.modal-header {
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 15px; font-weight: 600;
+}
+.modal-close {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--text-3);
+}
+.modal-close:hover { background: var(--hover); color: var(--text-1); }
+.modal-body {
+  padding: 20px; max-height: 60vh; overflow-y: auto;
+}
+.form-row { margin-bottom: 14px; }
+.form-row label {
+  display: block; margin-bottom: 6px;
+  font-size: 13px; color: var(--text-2);
+}
+.form-row label .req { color: #f56c6c; margin-right: 2px; }
+.form-row input, .form-row textarea {
+  width: 100%; padding: 8px 10px;
+  border: 1px solid #d0d7de; border-radius: 4px;
+  font-size: 13px; font-family: inherit;
+  outline: none; transition: border-color 0.15s;
+}
+.form-row input:focus, .form-row textarea:focus { border-color: var(--wx-green); }
+.form-row textarea { resize: vertical; min-height: 80px; }
+.form-tip { font-size: 12px; color: var(--text-3); margin-top: 4px; }
+.modal-footer {
+  padding: 12px 20px; border-top: 1px solid var(--border);
+  display: flex; justify-content: flex-end; gap: 8px;
+  background: #fafbfc;
+}
+
+/* Toast */
+.toast {
+  position: fixed; top: 16px; left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  padding: 8px 16px; background: rgba(0,0,0,0.78);
+  color: #fff; border-radius: 4px; font-size: 13px;
+  opacity: 0; transition: all 0.25s;
+  z-index: 2000; pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- 顶部工具栏 -->
+<div class="toolbar">
+  <div class="search-box">
+    <input id="searchInput" type="text" placeholder="请输入关键词" />
+    <button class="btn-search" onclick="onSearch()">🔍 搜索</button>
+  </div>
+  <div class="toolbar-spacer"></div>
+  <button class="toolbar-btn primary" onclick="openCreateModal()">＋ 创建</button>
+  <button class="toolbar-btn" id="flatBtn" onclick="toggleFlatView()">📋 全部记录</button>
+</div>
+
+<!-- 主区域 -->
+<div class="main" id="mainContainer">
+  <!-- 左树 -->
+  <div class="tree-pane" id="treePane"></div>
+
+  <!-- 右栏 -->
+  <div class="right-pane">
+    <div class="crumb-bar">
+      <div class="crumb" id="crumbBar">话术</div>
+      <div class="crumb-actions" id="crumbActions"></div>
+    </div>
+    <div class="table-wrap">
+      <div class="table-card">
+        <table id="dataTable">
+          <thead id="tableHead"></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="pager">
+      <span class="pager-info" id="pagerInfo">共 0 条</span>
+      <select onchange="changePageSize(this.value)">
+        <option value="20">20 条/页</option>
+        <option value="50">50 条/页</option>
+        <option value="100">100 条/页</option>
+      </select>
+      <button class="pager-btn" onclick="prevPage()" id="prevBtn">‹</button>
+      <span class="pager-num" id="curPage">1</span>
+      <button class="pager-btn" onclick="nextPage()" id="nextBtn">›</button>
+    </div>
+  </div>
+</div>
+
+<!-- 创建弹窗 -->
+<div class="modal-mask" id="createMask">
+  <div class="modal">
+    <div class="modal-header">
+      <span id="modalTitle">新建话术</span>
+      <button class="modal-close" onclick="closeCreateModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <label><span class="req">*</span>所属分类</label>
+        <input type="text" id="formCategory" disabled />
+        <div class="form-tip" id="formTip">在叶子分类下创建话术；如要新建分类，点左侧树节点的 ＋</div>
+      </div>
+      <div class="form-row">
+        <label><span class="req">*</span>话术标题</label>
+        <input type="text" id="formTitle" placeholder="例：手术室介绍视频" />
+      </div>
+      <div class="form-row">
+        <label>话术内容</label>
+        <textarea id="formContent" placeholder="文字 / 图片 / 视频 / 文件 任一均可，原型仅占位"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="toolbar-btn" onclick="closeCreateModal()">取消</button>
+      <button class="toolbar-btn primary" onclick="submitCreate()">确认创建</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ========= Mock 数据：5 层树 + 叶子挂话术条目 =========
+   层级：话术 (L1) → 大类 (L2) → 中类 (L3) → 小类 (L4) → 末类(叶子, L5) → 条目
+*/
+const TREE = {
+  id: 'root', name: '话术',
+  children: [
+    {
+      id: 'd-quanyuan', name: '全院医生 / 医生技术介绍',
+      children: [
+        { id: 'd-quanyuan-team', name: '全院医生团队介绍', leaf: true,
+          items: [
+            { id: 'i-team-1', title: '艺星全院团队总览视频', createdAt: '2026-04-18 09:12:33', updatedAt: '2026-04-25 10:01:12', hidden: false },
+            { id: 'i-team-2', title: '艺星品牌故事图文', createdAt: '2026-04-18 09:14:02', updatedAt: '2026-04-23 17:22:48', hidden: false },
+          ]
+        },
+        { id: 'd-mz', name: '微整科',
+          children: [
+            { id: 'd-mz-xiefei', name: '微整医生-谢斐院长', leaf: true,
+              items: [
+                { id: 'i-xf-1', title: '谢斐院长简介视频', createdAt: '2026-04-19 10:30:21', updatedAt: '2026-04-26 11:08:56', hidden: false },
+                { id: 'i-xf-2', title: '谢斐院长热门案例图集', createdAt: '2026-04-19 10:33:09', updatedAt: '2026-04-22 14:50:01', hidden: false },
+              ]
+            },
+            { id: 'd-mz-fanchen', name: '微整医生-范琛月院长', leaf: true,
+              items: [
+                { id: 'i-fc-1', title: '范琛月院长简介视频', createdAt: '2026-04-19 11:02:15', updatedAt: '2026-04-25 09:33:40', hidden: false },
+              ]
+            },
+            { id: 'd-mz-xugya', name: '微整医生-徐亚红院长', leaf: true, items: [
+              { id: 'i-xy-1', title: '徐亚红院长简介视频', createdAt: '2026-04-19 11:20:00', updatedAt: '2026-04-24 16:11:09', hidden: false },
+            ] },
+            { id: 'd-mz-yuanyuan', name: '微整医生-向朝院长', leaf: true, items: [
+              { id: 'i-yy-1', title: '向朝院长简介视频', createdAt: '2026-04-19 11:35:42', updatedAt: '2026-04-23 18:02:55', hidden: false },
+            ] },
+            { id: 'd-mz-zhangping', name: '微整医生-张萍院长', leaf: true, items: [
+              { id: 'i-zp-1', title: '张萍院长简介视频', createdAt: '2026-04-19 12:01:18', updatedAt: '2026-04-22 10:45:00', hidden: false },
+            ] },
+            { id: 'd-mz-youjun', name: '微整医生-尤军院长', leaf: true, items: [
+              { id: 'i-yj-1', title: '尤军院长简介视频', createdAt: '2026-04-19 12:30:00', updatedAt: '2026-04-22 09:15:33', hidden: false },
+            ] },
+          ]
+        },
+        { id: 'd-bb', name: '鼻部科',
+          children: [
+            { id: 'd-bb-gaoshunbo', name: '鼻部医生-高顺波院长', leaf: true, items: [
+              { id: 'i-gsb-1', title: '高顺波院长简介视频', createdAt: '2026-04-20 09:00:01', updatedAt: '2026-04-26 13:11:00', hidden: false },
+            ] },
+            { id: 'd-bb-lijing', name: '鼻部医生-李竞院长', leaf: true, items: [
+              { id: 'i-lj-1', title: '李竞院长简介视频', createdAt: '2026-04-20 09:30:12', updatedAt: '2026-04-25 18:09:22', hidden: false },
+            ] },
+            { id: 'd-bb-jianglin', name: '鼻部医生-蒋琳院长介绍', leaf: true, items: [] },
+            { id: 'd-bb-mingxing', name: '鼻部医生-明星汉主任', leaf: true, items: [] },
+          ]
+        },
+        { id: 'd-yan', name: '眼部科',
+          children: [
+            { id: 'd-yan-hanchun', name: '眼部医生-韩春院长', leaf: true, items: [] },
+            { id: 'd-yan-helin', name: '眼部医生-何林主任', leaf: true, items: [] },
+            { id: 'd-yan-deng', name: '眼部医生-邓朝蓉主任', leaf: true, items: [] },
+            { id: 'd-yan-yao', name: '眼部医生-姚远祯主任', leaf: true, items: [] },
+            { id: 'd-yan-yang', name: '眼部医生-杨涛主任', leaf: true, items: [] },
+          ]
+        },
+        { id: 'd-pf', name: '皮肤科',
+          children: [
+            { id: 'd-pf-zhuziting', name: '皮肤医生-朱紫婷院长', leaf: true, items: [] },
+            { id: 'd-pf-yanghaijiao', name: '皮肤医生-杨海皎院长', leaf: true, items: [] },
+            { id: 'd-pf-wangxiaoqin', name: '皮肤医生-王小琴院长', leaf: true, items: [] },
+            { id: 'd-pf-kangchunfang', name: '皮肤医生-康春芳院长', leaf: true, items: [] },
+            { id: 'd-pf-dujuan', name: '皮肤医生-杜娟主任', leaf: true, items: [] },
+            { id: 'd-pf-yangshengyan', name: '皮肤医生-杨胜燕医生', leaf: true, items: [] },
+            { id: 'd-pf-yuankaihua', name: '苑凯华教授', leaf: true, items: [] },
+            { id: 'd-pf-liulufeng', name: '皮肤医生-刘芦锋主任', leaf: true, items: [] },
+          ]
+        },
+        { id: 'd-gx', name: '高新院区',
+          children: [
+            { id: 'd-gx-zhouhong', name: '高新皮肤医生-周虹主任', leaf: true, items: [] },
+            { id: 'd-gx-zhengyue', name: '高新微创医生-郑月院长', leaf: true, items: [] },
+            { id: 'd-gx-mz', name: '微整科室介绍', leaf: true, items: [] },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'd-waike', name: '外科 - 科室介绍',
+      children: [
+        { id: 'd-waike-video', name: '外科科室介绍视频', leaf: true,
+          items: [
+            { id: 'i-wk-1', title: '手术室介绍视频', createdAt: '2026-04-20 19:23:49', updatedAt: '2026-04-22 00:14:46', hidden: false },
+            { id: 'i-wk-2', title: '住院环境介绍视频', createdAt: '2026-04-20 19:24:30', updatedAt: '2026-04-22 16:05:14', hidden: false },
+            { id: 'i-wk-3', title: '麻醉资质介绍', createdAt: '2026-04-20 19:25:26', updatedAt: '2026-04-25 13:42:51', hidden: false },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'd-mz-keshi', name: '微整 - 科室介绍',
+      children: [],
+      leaf: true,
+      items: [
+        { id: 'i-mzk-1', title: '微整科环境视频', createdAt: '2026-04-21 10:12:00', updatedAt: '2026-04-26 09:30:05', hidden: false },
+      ]
+    },
+    {
+      id: 'd-zxwk', name: '整形外科 - 鼻部案例工具',
+      children: [
+        { id: 'd-zxwk-bixiufu', name: '鼻修复',
+          children: [
+            { id: 'd-zxwk-bxf-anli', name: '案例', leaf: true, items: [
+              { id: 'i-bxf-1', title: '鼻修复-术前对比图集', createdAt: '2026-04-15 09:01:30', updatedAt: '2026-04-25 17:20:11', hidden: false },
+              { id: 'i-bxf-2', title: '鼻修复-术后恢复 90 天', createdAt: '2026-04-15 09:05:11', updatedAt: '2026-04-23 11:33:08', hidden: false },
+            ] },
+            { id: 'd-zxwk-bxf-chanyi', name: '鼻部技术·"蝉翼"双拱架技术', leaf: true, items: [
+              { id: 'i-cyji-1', title: '蝉翼双拱架技术介绍长视频', createdAt: '2026-04-16 09:01:01', updatedAt: '2026-04-26 10:00:00', hidden: false },
+              { id: 'i-cyji-2', title: '术式原理动画', createdAt: '2026-04-16 09:03:45', updatedAt: '2026-04-22 14:11:09', hidden: false },
+            ] },
+            { id: 'd-zxwk-bxf-jingxuan', name: '精选图文 + 话术激活', leaf: true, items: [] },
+          ]
+        },
+        { id: 'd-zxwk-zhouyuan', name: '周院',
+          children: [
+            { id: 'd-zxwk-zy-youzhi', name: '周院优质案例', leaf: true, items: [] },
+            { id: 'd-zxwk-zy-yueliang', name: '周院月亮脸案例', leaf: true, items: [] },
+            { id: 'd-zxwk-zy-binder', name: '周院 (binder 综合征) 案例', leaf: true, items: [] },
+          ]
+        },
+        { id: 'd-zxwk-liyuan', name: '李院',
+          children: [
+            { id: 'd-zxwk-ly-youzhi', name: '李院优质案例', leaf: true, items: [] },
+            { id: 'd-zxwk-ly-yueliang', name: '李院月亮脸案例', leaf: true, items: [] },
+          ]
+        },
+        { id: 'd-zxwk-jiangyuan', name: '蒋院',
+          children: [
+            { id: 'd-zxwk-jy-binao', name: '蒋院鼻翼鼻头缩小案例', leaf: true, items: [] },
+          ]
+        },
+        { id: 'd-zxwk-mingxing', name: '明星汉精品案例', leaf: true, items: [] },
+        { id: 'd-zxwk-libu', name: '鼻部-李院恢复期案例', leaf: true, items: [] },
+        { id: 'd-zxwk-haoping', name: '优质好评 + 故事情节', leaf: true, items: [] },
+        { id: 'd-zxwk-keshi', name: '医生科普视频', leaf: true, items: [] },
+        { id: 'd-zxwk-haoping-huizong', name: '医生好评·汇总', leaf: true, items: [] },
+        { id: 'd-zxwk-bibu-mianzhen', name: '鼻部-面诊视频', leaf: true, items: [] },
+        { id: 'd-zxwk-jicang', name: '机票 & 动车票', leaf: true, items: [] },
+        { id: 'd-zxwk-tongxing', name: '同行瓷器工具包', leaf: true, items: [] },
+        { id: 'd-zxwk-heliao', name: '黑料解释话术', leaf: true, items: [] },
+        { id: 'd-zxwk-jiangyuan-tools', name: '蒋院其他工具包', leaf: true, items: [] },
+      ]
+    },
+  ]
+};
+
+/* ========= 状态 ========= */
+let activeNodeId = 'd-waike-video'; // 默认展开外科科室介绍视频（与截图一致）
+let isFlatMode = false;
+let curPage = 1;
+let pageSize = 20;
+let searchKeyword = '';
+
+/* ========= 工具函数 ========= */
+function findNode(id, node = TREE) {
+  if (node.id === id) return node;
+  if (!node.children) return null;
+  for (const c of node.children) {
+    const found = findNode(id, c);
+    if (found) return found;
+  }
+  return null;
+}
+function findPath(id, node = TREE, path = []) {
+  const cur = [...path, node];
+  if (node.id === id) return cur;
+  if (!node.children) return null;
+  for (const c of node.children) {
+    const r = findPath(id, c, cur);
+    if (r) return r;
+  }
+  return null;
+}
+function getAllItems(node = TREE, pathNames = []) {
+  const result = [];
+  const nextPath = [...pathNames, node.name];
+  if (node.leaf && node.items) {
+    node.items.forEach(it => result.push({ ...it, _path: nextPath, _parentId: node.id }));
+  }
+  if (node.children) {
+    node.children.forEach(c => result.push(...getAllItems(c, nextPath)));
+  }
+  return result;
+}
+
+/* ========= 渲染左树 ========= */
+function renderTree() {
+  const pane = document.getElementById('treePane');
+  pane.innerHTML = renderNode(TREE, 0);
+  // 默认展开当前激活节点的祖先链
+  const path = findPath(activeNodeId);
+  if (path) {
+    path.forEach(n => {
+      const el = pane.querySelector(`[data-node="${n.id}"] > .tree-children`);
+      const togg = pane.querySelector(`[data-node="${n.id}"] > .tree-row > .tree-toggle`);
+      if (el) el.classList.add('expanded');
+      if (togg) togg.classList.add('expanded');
+    });
+  }
+}
+function renderNode(node, level) {
+  const hasChildren = node.children && node.children.length > 0;
+  const isLeaf = node.leaf || (!hasChildren && node.id !== 'root');
+  const isActive = node.id === activeNodeId;
+  const indent = 8 + level * 16;
+  const icon = node.id === 'root' ? '📚' : (hasChildren ? '📁' : '📄');
+  const childrenHtml = hasChildren
+    ? `<div class="tree-children">${node.children.map(c => renderNode(c, level + 1)).join('')}</div>`
+    : '';
+  return `
+    <div class="tree-node" data-node="${node.id}">
+      <div class="tree-row${isActive ? ' active' : ''}" style="--indent:${indent}px" onclick="onNodeClick('${node.id}', event)">
+        <span class="tree-toggle ${hasChildren ? '' : 'empty'}" onclick="onToggle('${node.id}', event)">▶</span>
+        <span class="tree-icon">${icon}</span>
+        <span class="tree-label">${node.name}</span>
+        <span class="tree-actions">
+          ${node.id !== 'root' ? `<button class="tree-act-btn muted" title="显示/隐藏分类" onclick="onTreeHide('${node.id}', event)">👁</button>` : ''}
+          ${!isLeaf ? `<button class="tree-act-btn" title="新增子分类" onclick="onTreeAdd('${node.id}', event)">＋</button>` : ''}
+          ${node.id !== 'root' ? `<button class="tree-act-btn" title="重命名" onclick="onTreeRename('${node.id}', event)">✏️</button>` : ''}
+          ${node.id !== 'root' ? `<button class="tree-act-btn danger" title="删除分类" onclick="onTreeDelete('${node.id}', event)">🗑</button>` : ''}
+        </span>
+      </div>
+      ${childrenHtml}
+    </div>
+  `;
+}
+
+/* ========= 树交互 ========= */
+function onToggle(id, e) {
+  e.stopPropagation();
+  const node = document.querySelector(`[data-node="${id}"]`);
+  const children = node.querySelector(':scope > .tree-children');
+  const togg = node.querySelector(':scope > .tree-row > .tree-toggle');
+  if (!children) return;
+  children.classList.toggle('expanded');
+  togg.classList.toggle('expanded');
+}
+function onNodeClick(id, e) {
+  if (e && e.target.closest('.tree-actions')) return;
+  if (id === 'root') return;
+  activeNodeId = id;
+  curPage = 1;
+  // 同步展开祖先
+  const path = findPath(id);
+  if (path) {
+    path.forEach(n => {
+      const node = document.querySelector(`[data-node="${n.id}"]`);
+      if (!node) return;
+      const ch = node.querySelector(':scope > .tree-children');
+      const togg = node.querySelector(':scope > .tree-row > .tree-toggle');
+      if (ch) ch.classList.add('expanded');
+      if (togg) togg.classList.add('expanded');
+    });
+  }
+  // 重绘高亮
+  document.querySelectorAll('.tree-row.active').forEach(el => el.classList.remove('active'));
+  const target = document.querySelector(`[data-node="${id}"] > .tree-row`);
+  if (target) target.classList.add('active');
+  renderRight();
+}
+function onTreeAdd(id, e) {
+  e.stopPropagation();
+  const name = prompt('新增子分类名称');
+  if (!name) return;
+  const node = findNode(id);
+  if (!node.children) node.children = [];
+  node.children.push({ id: 'd-new-' + Date.now(), name, leaf: true, items: [] });
+  renderTree();
+  toast('已新增子分类');
+}
+function onTreeRename(id, e) {
+  e.stopPropagation();
+  const node = findNode(id);
+  const name = prompt('重命名', node.name);
+  if (!name || name === node.name) return;
+  node.name = name;
+  renderTree();
+  renderRight();
+  toast('已重命名');
+}
+function onTreeDelete(id, e) {
+  e.stopPropagation();
+  if (!confirm('删除该分类及其所有子分类、话术？')) return;
+  const path = findPath(id);
+  if (!path || path.length < 2) return;
+  const parent = path[path.length - 2];
+  parent.children = parent.children.filter(c => c.id !== id);
+  if (activeNodeId === id) activeNodeId = parent.id === 'root' ? null : parent.id;
+  renderTree();
+  renderRight();
+  toast('已删除');
+}
+function onTreeHide(id, e) {
+  e.stopPropagation();
+  const node = findNode(id);
+  node.hidden = !node.hidden;
+  toast(node.hidden ? '已隐藏分类（好友端不可见）' : '已恢复显示');
+}
+
+/* ========= 渲染右栏（树视图 / 平铺视图） ========= */
+function renderRight() {
+  if (isFlatMode) {
+    renderFlat();
+  } else {
+    renderLeafTable();
+  }
+}
+function renderLeafTable() {
+  const node = activeNodeId ? findNode(activeNodeId) : null;
+  // 面包屑
+  const crumb = document.getElementById('crumbBar');
+  const crumbActions = document.getElementById('crumbActions');
+  crumbActions.innerHTML = '';
+  if (!node) {
+    crumb.innerHTML = '<span class="crumb-item last">话术</span>';
+    document.getElementById('tableHead').innerHTML = '';
+    document.getElementById('tableBody').innerHTML = '<tr><td class="empty" colspan="6">请在左侧选择分类</td></tr>';
+    document.getElementById('pagerInfo').textContent = '共 0 条';
+    document.getElementById('curPage').textContent = '1';
+    return;
+  }
+  const path = findPath(activeNodeId) || [];
+  crumb.innerHTML = path.map((n, i) => {
+    const last = i === path.length - 1;
+    return `<span class="crumb-item${last ? ' last' : ''}">${n.name}</span>${last ? '' : '<span class="crumb-sep">/</span>'}`;
+  }).join('');
+
+  const isLeaf = node.leaf;
+  // 非叶子：列出子分类作为概览
+  if (!isLeaf) {
+    document.getElementById('tableHead').innerHTML = `
+      <tr>
+        <th>子分类</th>
+        <th>话术条目数（含后代）</th>
+        <th>显示状态</th>
+        <th class="col-actions">操作</th>
+      </tr>`;
+    const rows = (node.children || []).map(c => {
+      const count = getAllItems(c).length;
+      return `
+        <tr>
+          <td>📁 ${c.name}</td>
+          <td>${count}</td>
+          <td>${c.hidden ? '🚫 已隐藏' : '✓ 显示'}</td>
+          <td class="col-actions">
+            <button class="row-action" onclick="onNodeClick('${c.id}')">进入</button>
+            <button class="row-action muted" onclick="onTreeRename('${c.id}', event)">重命名</button>
+            <button class="row-action danger" onclick="onTreeDelete('${c.id}', event)">删除</button>
+          </td>
+        </tr>`;
+    }).join('');
+    document.getElementById('tableBody').innerHTML = rows || '<tr><td class="empty" colspan="4">该分类暂无子分类，可在左树点 ＋ 添加</td></tr>';
+    document.getElementById('pagerInfo').textContent = `共 ${(node.children || []).length} 项子分类`;
+    document.getElementById('curPage').textContent = '1';
+    return;
+  }
+
+  // 叶子：列出话术条目
+  document.getElementById('tableHead').innerHTML = `
+    <tr>
+      <th class="col-drag">排序</th>
+      <th>标题</th>
+      <th>创建时间</th>
+      <th>最新迭代时间</th>
+      <th>隐藏</th>
+      <th class="col-actions">操作</th>
+    </tr>`;
+  let items = (node.items || []).slice();
+  if (searchKeyword) {
+    const k = searchKeyword.toLowerCase();
+    items = items.filter(it => it.title.toLowerCase().includes(k));
+  }
+  const total = items.length;
+  const start = (curPage - 1) * pageSize;
+  const pageItems = items.slice(start, start + pageSize);
+  if (pageItems.length === 0) {
+    document.getElementById('tableBody').innerHTML = '<tr><td class="empty" colspan="6">该分类下暂无话术</td></tr>';
+  } else {
+    document.getElementById('tableBody').innerHTML = pageItems.map(it => `
+      <tr>
+        <td class="col-drag">⋮⋮</td>
+        <td>${it.title}</td>
+        <td class="col-time">${it.createdAt}</td>
+        <td class="col-time">${it.updatedAt}</td>
+        <td>
+          <label class="switch">
+            <input type="checkbox" ${it.hidden ? 'checked' : ''} onchange="onToggleHide('${it.id}', this.checked)" />
+            <span class="switch-slider"></span>
+          </label>
+        </td>
+        <td class="col-actions">
+          <button class="row-action" onclick="onEditItem('${it.id}')">✏️ 编辑</button>
+          <button class="row-action danger" onclick="onDeleteItem('${it.id}')">🗑 删除</button>
+          <button class="row-action muted" onclick="onItemHistory('${it.id}')">📋 记录</button>
+        </td>
+      </tr>
+    `).join('');
+  }
+  document.getElementById('pagerInfo').textContent = `共 ${total} 条`;
+  document.getElementById('curPage').textContent = String(curPage);
+  document.getElementById('prevBtn').disabled = curPage <= 1;
+  document.getElementById('nextBtn').disabled = start + pageSize >= total;
+}
+
+function renderFlat() {
+  const crumb = document.getElementById('crumbBar');
+  crumb.innerHTML = `<span class="crumb-item last">📋 全部记录（跨所有分类平铺）</span>`;
+  document.getElementById('crumbActions').innerHTML = '';
+  document.getElementById('tableHead').innerHTML = `
+    <tr>
+      <th>标题</th>
+      <th>分类路径</th>
+      <th>创建时间</th>
+      <th>最新迭代时间</th>
+      <th>隐藏</th>
+      <th class="col-actions">操作</th>
+    </tr>`;
+  let all = getAllItems();
+  if (searchKeyword) {
+    const k = searchKeyword.toLowerCase();
+    all = all.filter(it => it.title.toLowerCase().includes(k) || it._path.join(' / ').toLowerCase().includes(k));
+  }
+  const total = all.length;
+  const start = (curPage - 1) * pageSize;
+  const page = all.slice(start, start + pageSize);
+  if (page.length === 0) {
+    document.getElementById('tableBody').innerHTML = '<tr><td class="empty" colspan="6">无匹配的话术</td></tr>';
+  } else {
+    document.getElementById('tableBody').innerHTML = page.map(it => `
+      <tr>
+        <td>${it.title}</td>
+        <td>${it._path.slice(1).map(p => `<span class="path-tag">${p}</span>`).join('') || '<span class="path-tag">话术</span>'}</td>
+        <td class="col-time">${it.createdAt}</td>
+        <td class="col-time">${it.updatedAt}</td>
+        <td>
+          <label class="switch">
+            <input type="checkbox" ${it.hidden ? 'checked' : ''} onchange="onToggleHide('${it.id}', this.checked)" />
+            <span class="switch-slider"></span>
+          </label>
+        </td>
+        <td class="col-actions">
+          <button class="row-action" onclick="onEditItem('${it.id}')">✏️ 编辑</button>
+          <button class="row-action danger" onclick="onDeleteItem('${it.id}')">🗑 删除</button>
+          <button class="row-action muted" onclick="onJumpToParent('${it._parentId}')">↗ 进入分类</button>
+        </td>
+      </tr>
+    `).join('');
+  }
+  document.getElementById('pagerInfo').textContent = `共 ${total} 条 · 跨 ${new Set(all.map(it => it._parentId)).size} 个分类`;
+  document.getElementById('curPage').textContent = String(curPage);
+  document.getElementById('prevBtn').disabled = curPage <= 1;
+  document.getElementById('nextBtn').disabled = start + pageSize >= total;
+}
+
+/* ========= 视图切换 ========= */
+function toggleFlatView() {
+  isFlatMode = !isFlatMode;
+  curPage = 1;
+  document.getElementById('mainContainer').classList.toggle('flat-mode', isFlatMode);
+  const btn = document.getElementById('flatBtn');
+  btn.classList.toggle('active', isFlatMode);
+  btn.innerHTML = isFlatMode ? '🌳 返回分类' : '📋 全部记录';
+  renderRight();
+}
+
+/* ========= 行交互 ========= */
+function onToggleHide(id, checked) {
+  // 找到该 item 所在叶子
+  function find(node) {
+    if (node.items) {
+      const it = node.items.find(i => i.id === id);
+      if (it) { it.hidden = checked; return true; }
+    }
+    if (node.children) for (const c of node.children) if (find(c)) return true;
+    return false;
+  }
+  find(TREE);
+  toast(checked ? '已隐藏（好友端不可见）' : '已恢复显示');
+}
+function onEditItem(id) { toast('编辑话术 · 原型占位'); }
+function onDeleteItem(id) {
+  if (!confirm('确认删除该话术？')) return;
+  function find(node) {
+    if (node.items) {
+      const idx = node.items.findIndex(i => i.id === id);
+      if (idx >= 0) { node.items.splice(idx, 1); return true; }
+    }
+    if (node.children) for (const c of node.children) if (find(c)) return true;
+    return false;
+  }
+  find(TREE);
+  renderRight();
+  toast('已删除');
+}
+function onItemHistory(id) { toast('查看迭代记录 · 原型占位'); }
+function onJumpToParent(parentId) {
+  isFlatMode = false;
+  document.getElementById('mainContainer').classList.remove('flat-mode');
+  const btn = document.getElementById('flatBtn');
+  btn.classList.remove('active');
+  btn.innerHTML = '📋 全部记录';
+  activeNodeId = parentId;
+  curPage = 1;
+  renderTree();
+  renderRight();
+}
+
+/* ========= 创建弹窗 ========= */
+function openCreateModal() {
+  const node = activeNodeId ? findNode(activeNodeId) : null;
+  if (!node || !node.leaf) {
+    toast('请先在左树选中一个末级分类（叶子节点），话术只能挂在叶子下');
+    return;
+  }
+  document.getElementById('formCategory').value = (findPath(activeNodeId) || []).map(n => n.name).join(' / ');
+  document.getElementById('formTitle').value = '';
+  document.getElementById('formContent').value = '';
+  document.getElementById('createMask').classList.add('show');
+  setTimeout(() => document.getElementById('formTitle').focus(), 50);
+}
+function closeCreateModal() { document.getElementById('createMask').classList.remove('show'); }
+function submitCreate() {
+  const title = document.getElementById('formTitle').value.trim();
+  if (!title) { toast('请填写标题'); return; }
+  const node = findNode(activeNodeId);
+  if (!node || !node.leaf) return;
+  const now = new Date();
+  const fmt = (n) => String(n).padStart(2, '0');
+  const ts = `${now.getFullYear()}-${fmt(now.getMonth()+1)}-${fmt(now.getDate())} ${fmt(now.getHours())}:${fmt(now.getMinutes())}:${fmt(now.getSeconds())}`;
+  if (!node.items) node.items = [];
+  node.items.unshift({ id: 'i-new-' + Date.now(), title, createdAt: ts, updatedAt: ts, hidden: false });
+  closeCreateModal();
+  renderRight();
+  toast('已新建话术');
+}
+
+/* ========= 搜索 / 分页 ========= */
+function onSearch() {
+  searchKeyword = document.getElementById('searchInput').value.trim();
+  curPage = 1;
+  renderRight();
+}
+document.getElementById('searchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') onSearch();
+});
+function changePageSize(v) { pageSize = parseInt(v, 10); curPage = 1; renderRight(); }
+function prevPage() { if (curPage > 1) { curPage--; renderRight(); } }
+function nextPage() { curPage++; renderRight(); }
+
+/* ========= Toast ========= */
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+/* ========= 初始化 ========= */
+renderTree();
+renderRight();
+</script>
+</body>
+</html>

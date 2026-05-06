@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>留存统计</title><link rel="stylesheet" href="_admin_list.css"></head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group">
+    <input class="f-input date" type="date" placeholder="开始日期">
+    <span class="f-sep">至</span>
+    <input class="f-input date" type="date" placeholder="结束日期">
+  </div>
+  <div class="f-group"><input class="f-input wide" id="kw" placeholder="人设名"></div>
+  <button class="btn primary" onclick="render()">🔍 搜索</button>
+  <button class="btn" onclick="onReset()">重置</button>
+  <div class="f-spacer"></div>
+  <button class="btn primary" onclick="toast('导出 Excel')">📤 导出 Excel</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card scroll" style="min-width:1500px;">
+    <table>
+      <thead><tr>
+        <th>人设</th>
+        <th>当天加粉量</th><th>当天留存粉丝</th><th>当天内删除粉丝</th><th>当天留存粉丝占比</th>
+        <th>当月新增总粉量</th><th>当月已删除粉丝</th><th>当月留存粉丝</th><th>当月留存粉丝占比</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select><option>20条/页</option></select>
+  <button class="pager-btn">‹</button><button class="pager-btn cur">1</button><button class="pager-btn">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+const ROWS = [
+  { name:'A 成都艺星专家助理 KK', dayAdd:32, dayKeep:30, dayDel:2,  dayRate:0.94, monAdd:850,  monDel:42,  monKeep:808,  monRate:0.95 },
+  { name:'成都艺星医生助理 chloe',dayAdd:28, dayKeep:26, dayDel:2,  dayRate:0.93, monAdd:780,  monDel:38,  monKeep:742,  monRate:0.95 },
+  { name:'艺星专家助理妍妍',     dayAdd:24, dayKeep:22, dayDel:2,  dayRate:0.92, monAdd:640,  monDel:50,  monKeep:590,  monRate:0.92 },
+  { name:'微整助理-Lucy 💗',     dayAdd:20, dayKeep:18, dayDel:2,  dayRate:0.90, monAdd:560,  monDel:30,  monKeep:530,  monRate:0.95 },
+  { name:'YeStar 助理-铃铃',     dayAdd:18, dayKeep:14, dayDel:4,  dayRate:0.78, monAdd:480,  monDel:80,  monKeep:400,  monRate:0.83 },
+  { name:'A 成都艺星院长助理好好',dayAdd:14, dayKeep:14, dayDel:0,  dayRate:1.00, monAdd:420,  monDel:18,  monKeep:402,  monRate:0.96 },
+];
+function rateColor(r) { return r >= 0.9 ? 'success' : (r >= 0.8 ? '' : 'fail'); }
+function render() {
+  const kw = document.getElementById('kw').value.trim();
+  const list = ROWS.filter(r => !kw || r.name.includes(kw));
+  document.getElementById('tbody').innerHTML = list.map(r => `
+    <tr>
+      <td>${r.name}</td>
+      <td class="col-num">${r.dayAdd}</td>
+      <td class="col-num success">${r.dayKeep}</td>
+      <td class="col-num fail">${r.dayDel}</td>
+      <td class="col-num ${rateColor(r.dayRate)}">${(r.dayRate*100).toFixed(0)}%</td>
+      <td class="col-num">${r.monAdd}</td>
+      <td class="col-num fail">${r.monDel}</td>
+      <td class="col-num success">${r.monKeep}</td>
+      <td class="col-num ${rateColor(r.monRate)}">${(r.monRate*100).toFixed(0)}%</td>
+    </tr>
+  `).join('');
+  document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
+}
+function onReset() { document.getElementById('kw').value=''; render(); }
+let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+render();
+</script></body></html>

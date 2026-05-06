@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>删退审核</title>
+<link rel="stylesheet" href="_admin_list.css">
+<script src="_edit_modal.js" defer></script>
+<style>
+.col-check { width: 36px; }
+.batch-bar {
+  position: fixed; bottom: var(--pager-h); left: 0; right: 0;
+  height: 44px; padding: 0 16px;
+  background: #fff; border-top: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px; z-index: 4;
+}
+.table-wrap { bottom: calc(var(--pager-h) + 44px); }
+</style>
+</head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group"><span class="f-label">审批类型</span>
+    <select class="f-select" id="type">
+      <option value="">审批类型</option>
+      <option value="del">好友删除申请</option>
+      <option value="quit">退群申请</option>
+      <option value="batch">批量删除好友</option>
+    </select>
+  </div>
+  <button class="btn primary" onclick="render()">🔍 查询</button>
+  <button class="btn" onclick="onReset()">重置</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card scroll">
+    <table>
+      <thead><tr>
+        <th class="col-check"><input type="checkbox" id="checkAll" onchange="toggleAll(this.checked)"></th>
+        <th>群/好友昵称</th><th>人设账号</th><th>申请类型</th><th>删除方式</th><th>状态</th>
+        <th>申请人</th><th>申请理由</th><th>审核人</th><th>审核意见</th>
+        <th>添加时间</th><th>更新时间</th>
+        <th class="col-actions">操作</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="batch-bar">
+  <button class="btn" onclick="batchAct('approve')" id="btnBatch" disabled>批量审核</button>
+  <span style="font-size:12.5px; color:var(--text-3);">已选 <span id="selCount">0</span> / <span id="visCount">0</span> 项</span>
+</div>
+
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select><option>10条/页</option><option>20条/页</option></select>
+  <button class="pager-btn">‹</button>
+  <button class="pager-btn cur">1</button>
+  <button class="pager-btn">2</button>
+  <button class="pager-btn">3</button>
+  <button class="pager-btn">4</button>
+  <button class="pager-btn">5</button>
+  <button class="pager-btn">6</button>
+  <span class="pager-ellipsis">…</span>
+  <button class="pager-btn">26</button>
+  <button class="pager-btn">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// 真实数据脱敏 mock（来源：艺星后台 2026-05-06 抓取，姓名保留，理由保留）
+const ROWS = [
+  { name:'时神爷最爱的富婆bb', persona:'艺星专家助理妍妍', type:'好友删除申请', delWay:'-', status:'pending', applicant:'李天雯', reason:'-',          reviewer:'-',  comment:'-', addedAt:'2026-04-30 10:20:37', updatedAt:'2026-04-30 10:20:37' },
+  { name:'长沙猪美&成都艺星对接群', persona:'-',         type:'退群申请',     delWay:'-', status:'pending', applicant:'何紫霞', reason:'-',          reviewer:'-',  comment:'-', addedAt:'2026-04-20 16:55:01', updatedAt:'2026-04-20 16:55:01' },
+  { name:'Li_in',         persona:'自媒体061',          type:'好友删除申请', delWay:'-', status:'pending', applicant:'陈聪（工程师）', reason:'333', reviewer:'-', comment:'-', addedAt:'2026-04-14 18:44:04', updatedAt:'2026-04-14 18:44:04' },
+  { name:'妩',            persona:'自媒体145',          type:'好友删除申请', delWay:'-', status:'pending', applicant:'陈聪（工程师）', reason:'22222', reviewer:'-', comment:'-', addedAt:'2026-04-14 18:34:48', updatedAt:'2026-04-14 18:34:48' },
+  { name:'曾艾 陈聪',     persona:'李倩',                type:'好友删除申请', delWay:'-', status:'pending', applicant:'陈聪（工程师）', reason:'急急急', reviewer:'-', comment:'-', addedAt:'2026-04-14 16:29:31', updatedAt:'2026-04-14 16:29:31' },
+  { name:'MaKabaka',      persona:'自媒体033',          type:'好友删除申请', delWay:'-', status:'approved', applicant:'郑敏', reason:'批量删除好友', reviewer:'郑敏', comment:'-', addedAt:'2026-03-10 18:14:06', updatedAt:'2026-03-10 18:14:20' },
+  { name:'五月的春a',     persona:'自媒体033',          type:'好友删除申请', delWay:'-', status:'approved', applicant:'郑敏', reason:'批量删除好友', reviewer:'郑敏', comment:'-', addedAt:'2026-03-10 18:14:06', updatedAt:'2026-03-10 18:14:20' },
+  { name:'Day day up',    persona:'自媒体033',          type:'好友删除申请', delWay:'-', status:'approved', applicant:'郑敏', reason:'批量删除好友', reviewer:'郑敏', comment:'-', addedAt:'2026-03-10 18:14:06', updatedAt:'2026-03-10 18:14:20' },
+  { name:'笨'濑',         persona:'自媒体033',          type:'好友删除申请', delWay:'-', status:'approved', applicant:'郑敏', reason:'批量删除好友', reviewer:'郑敏', comment:'-', addedAt:'2026-03-10 18:14:06', updatedAt:'2026-03-10 18:14:20' },
+  { name:'cs小鱼塘',      persona:'自媒体033',          type:'好友删除申请', delWay:'-', status:'approved', applicant:'郑敏', reason:'批量删除好友', reviewer:'郑敏', comment:'-', addedAt:'2026-03-10 18:14:06', updatedAt:'2026-03-10 18:14:20' },
+];
+const TOTAL_FAKE = 254;
+let selected = new Set();
+function statusBadge(s) {
+  if (s === 'pending') return '<span class="badge warn">待审核</span>';
+  if (s === 'approved') return '<span class="badge">已通过</span>';
+  if (s === 'rejected') return '<span class="badge danger">已驳回</span>';
+  return '<span class="badge gray">-</span>';
+}
+function render() {
+  const t = document.getElementById('type').value;
+  const list = ROWS.filter(r => !t || (t === 'del' && r.type === '好友删除申请') || (t === 'quit' && r.type === '退群申请') || (t === 'batch' && r.reason === '批量删除好友'));
+  document.getElementById('tbody').innerHTML = list.map(r => `
+    <tr>
+      <td><input type="checkbox" data-id="${r.name}" onchange="onSel(this)"></td>
+      <td>${r.name}</td>
+      <td>${r.persona}</td>
+      <td>${r.type}</td>
+      <td><span style="color:var(--text-3)">${r.delWay}</span></td>
+      <td>${statusBadge(r.status)}</td>
+      <td>${r.applicant}</td>
+      <td>${r.reason === '-' ? '<span style="color:var(--text-3)">-</span>' : r.reason}</td>
+      <td>${r.reviewer === '-' ? '<span style="color:var(--text-3)">-</span>' : r.reviewer}</td>
+      <td><span style="color:var(--text-3)">${r.comment}</span></td>
+      <td class="col-time">${r.addedAt}</td>
+      <td class="col-time">${r.updatedAt}</td>
+      <td class="col-actions">
+        ${r.status === 'pending'
+          ? `<button class="row-action" onclick="onApprove('${r.name.replace(/'/g, "\\'")}')">⚙ 审核</button>`
+          : `<button class="row-action muted" onclick="toast('已审核')">✓</button>`}
+        <button class="row-action muted" onclick="toast('查看记录')">📋 记录</button>
+      </td>
+    </tr>
+  `).join('');
+  document.getElementById('visCount').textContent = list.length;
+  document.getElementById('pagerInfo').textContent = `共 ${TOTAL_FAKE} 条`;
+}
+function onReset() { document.getElementById('type').value = ''; render(); }
+function toggleAll(c) {
+  document.querySelectorAll('#tbody input[type=checkbox]').forEach(cb => { cb.checked = c; if (c) selected.add(cb.dataset.id); else selected.delete(cb.dataset.id); });
+  syncBatch();
+}
+function onSel(cb) { if (cb.checked) selected.add(cb.dataset.id); else selected.delete(cb.dataset.id); syncBatch(); }
+function syncBatch() {
+  document.getElementById('selCount').textContent = selected.size;
+  document.getElementById('btnBatch').disabled = selected.size === 0;
+}
+function batchAct() { onApprove(null); }
+let apModal;
+function onApprove(name) {
+  if (!apModal) apModal = createEditModal({
+    title: name ? `审核：${name}` : `批量审核 ${selected.size} 项`,
+    fields: [
+      { label:'审核结果', key:'result',  type:'radio', options:['通过','驳回','延期处理'], required:true },
+      { label:'审核意见', key:'comment', type:'textarea',placeholder:'例：核实身份证后通过 / 客户已转介，需保留聊天关系，驳回' },
+    ],
+    onSubmit: d => {
+      const targets = name ? [name] : Array.from(selected);
+      targets.forEach(n => { const r = ROWS.find(x => x.name === n); if (r) { r.status = d.result === '通过' ? 'approved' : (d.result === '驳回' ? 'rejected' : 'pending'); r.reviewer = '房昕'; r.comment = d.comment; }});
+      selected.clear(); render(); syncBatch(); toast('已审核');
+    }
+  });
+  apModal.open({});
+}
+let tt;
+function toast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 1800); }
+render();
+</script>
+</body>
+</html>

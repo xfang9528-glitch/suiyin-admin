@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>全部聊天</title><link rel="stylesheet" href="_admin_list.css">
+<style>
+.layout { position: fixed; inset: var(--filter-h) 0 0 0; display: grid; grid-template-columns: 320px 1fr 280px; }
+.col { background: #fff; overflow-y: auto; }
+.col + .col { border-left: 1px solid var(--border); }
+.chat-row { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; cursor: pointer; transition: background 0.12s; }
+.chat-row:hover { background: var(--hover); }
+.chat-row.active { background: #ecf3ff; border-left: 3px solid #3370ff; padding-left: 11px; }
+.chat-row .top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.chat-row .name { font-size: 13.5px; font-weight: 500; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chat-row .time { font-size: 11.5px; color: var(--text-3); }
+.chat-row .preview { font-size: 12px; color: var(--text-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chat-header { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 14px; font-weight: 600; }
+.chat-body { padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.msg { max-width: 70%; }
+.msg.in { align-self: flex-start; }
+.msg.out { align-self: flex-end; }
+.msg .bubble { padding: 8px 12px; border-radius: 8px; font-size: 13px; line-height: 1.5; }
+.msg.in .bubble { background: #fff; border: 1px solid var(--border); }
+.msg.out .bubble { background: var(--wx-green-light); color: var(--text-1); }
+.msg .meta { font-size: 11px; color: var(--text-3); margin-top: 3px; }
+.info-section { padding: 14px; border-bottom: 1px solid var(--border); }
+.info-section h4 { font-size: 12.5px; color: var(--text-3); margin-bottom: 8px; font-weight: 500; }
+.info-section .kv { display: flex; justify-content: space-between; padding: 4px 0; font-size: 13px; }
+.info-section .k { color: var(--text-3); }
+</style></head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group"><input class="f-input wide" placeholder="搜索客户/销售"></div>
+  <div class="f-group">
+    <select class="f-select"><option>所有状态</option><option>未读</option><option>已读</option></select>
+  </div>
+  <button class="btn primary">🔍 查询</button>
+</div>
+
+<div class="layout">
+
+  <div class="col">
+    <div class="chat-row active">
+      <div class="top"><span class="name">雯雯-客户B</span><span class="time">14:08</span></div>
+      <div class="preview">杨瑶 yiyi · 好的我了解一下哈</div>
+    </div>
+    <div class="chat-row">
+      <div class="top"><span class="name">敏敏-客户C</span><span class="time">13:30</span></div>
+      <div class="preview">陈巧 · 这个鼻修复需要面诊一次哦</div>
+    </div>
+    <div class="chat-row">
+      <div class="top"><span class="name">琪琪-客户D</span><span class="time">11:50</span></div>
+      <div class="preview">聂敏 · 已发送案例图集 [图片]</div>
+    </div>
+    <div class="chat-row">
+      <div class="top"><span class="name">微微-客户A</span><span class="time">11:00</span></div>
+      <div class="preview">杜佳 · 玻尿酸丰唇当天就能看到效果~</div>
+    </div>
+    <div class="chat-row">
+      <div class="top"><span class="name">琴-客户E</span><span class="time">10:30</span></div>
+      <div class="preview">Lucy · 好的下周三 14 点见</div>
+    </div>
+    <div class="chat-row">
+      <div class="top"><span class="name">李-客户F</span><span class="time">昨天</span></div>
+      <div class="preview">罗玲 金金 · 已为您预约，记得提前 1 小时到</div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="chat-header">雯雯-客户B · 杨瑶 yiyi</div>
+    <div class="chat-body">
+      <div class="msg in"><div class="bubble">姐姐你好，我想咨询韩式双眼皮</div><div class="meta">14:00</div></div>
+      <div class="msg out"><div class="bubble">您好~ 我是艺星专家助理 yiyi，韩式双眼皮我们做的非常好，可以发您几个真实案例参考下</div><div class="meta">14:01</div></div>
+      <div class="msg out"><div class="bubble">[图片：双眼皮案例图] [图片：术后恢复对比]</div><div class="meta">14:02</div></div>
+      <div class="msg in"><div class="bubble">效果看起来不错，价格大概多少？</div><div class="meta">14:05</div></div>
+      <div class="msg out"><div class="bubble">韩式双眼皮（无痕）¥9800，包含术后修复护理。建议您来线下面诊，谢斐院长会根据您的眼型出具方案 💖</div><div class="meta">14:06</div></div>
+      <div class="msg in"><div class="bubble">好的我了解一下哈</div><div class="meta">14:08</div></div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="info-section">
+      <h4>客户信息</h4>
+      <div class="kv"><span class="k">姓名</span><span>雯雯</span></div>
+      <div class="kv"><span class="k">手机号</span><span>138****0001</span></div>
+      <div class="kv"><span class="k">微信</span><span>wenwen-cus</span></div>
+      <div class="kv"><span class="k">第一需求</span><span>眼部整形</span></div>
+      <div class="kv"><span class="k">渠道</span><span>抖音</span></div>
+      <div class="kv"><span class="k">所属销售</span><span>杨瑶 yiyi</span></div>
+      <div class="kv"><span class="k">分类标签</span><span><span class="tag green">高意向</span></span></div>
+    </div>
+    <div class="info-section">
+      <h4>关联订单</h4>
+      <div class="kv"><span class="k">韩式双眼皮(无痕)</span><span class="col-num">¥9800</span></div>
+      <div class="kv"><span class="k">交付日期</span><span>2026-05-05</span></div>
+    </div>
+    <div class="info-section">
+      <h4>聊天数据</h4>
+      <div class="kv"><span class="k">首次接触</span><span>2026-04-15</span></div>
+      <div class="kv"><span class="k">总消息数</span><span>148</span></div>
+      <div class="kv"><span class="k">最近活跃</span><span>14:08</span></div>
+    </div>
+  </div>
+
+</div>
+</body></html>

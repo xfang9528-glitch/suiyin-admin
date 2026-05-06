@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>上班记录</title><link rel="stylesheet" href="_admin_list.css"></head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group">
+    <input class="f-input date" type="date" placeholder="开始日期">
+    <span class="f-sep">至</span>
+    <input class="f-input date" type="date" placeholder="结束日期">
+  </div>
+  <div class="f-group"><input class="f-input wide" id="kw" placeholder="销售姓名"></div>
+  <button class="btn primary" onclick="render()">🔍 搜索</button>
+  <button class="btn" onclick="onReset()">重置</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card">
+    <table>
+      <thead><tr>
+        <th>时间</th><th>销售姓名</th><th>状态</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select><option>20条/页</option></select>
+  <button class="pager-btn">‹</button><button class="pager-btn cur">1</button><button class="pager-btn">›</button>
+</div>
+
+<script>
+const ROWS = [
+  { time:'2026-05-06 09:02:18', sale:'杜佳',         status:'on'  },
+  { time:'2026-05-06 09:00:45', sale:'杨瑶 yiyi',    status:'on'  },
+  { time:'2026-05-06 09:05:11', sale:'陈巧',         status:'on'  },
+  { time:'2026-05-06 09:30:00', sale:'聂敏',         status:'on'  },
+  { time:'2026-05-06 04:00:00', sale:'刘瑜02',       status:'auto-off' },
+  { time:'2026-05-06 04:00:00', sale:'Lucy 💗',      status:'auto-off' },
+  { time:'2026-05-05 18:30:11', sale:'罗玲 金金',     status:'off' },
+  { time:'2026-05-05 22:08:00', sale:'赵紫颖03',     status:'off' },
+];
+function statusBadge(s) {
+  return s === 'on' ? '<span class="badge">已上班</span>'
+    : s === 'off' ? '<span class="badge gray">已下班</span>'
+    : s === 'auto-off' ? '<span class="badge warn">自动下班</span>' : '-';
+}
+function render() {
+  const kw = document.getElementById('kw').value.trim();
+  const list = ROWS.filter(r => !kw || r.sale.includes(kw));
+  document.getElementById('tbody').innerHTML = list.map(r => `<tr><td class="col-time">${r.time}</td><td>${r.sale}</td><td>${statusBadge(r.status)}</td></tr>`).join('');
+  document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
+}
+function onReset() { document.getElementById('kw').value=''; render(); }
+render();
+</script></body></html>

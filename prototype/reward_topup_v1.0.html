@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>充值确认</title><link rel="stylesheet" href="_admin_list.css">
+<script src="_edit_modal.js" defer></script></head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group">
+    <input class="f-input date" id="d1" type="date" placeholder="开始日期">
+    <span class="f-sep">至</span>
+    <input class="f-input date" id="d2" type="date" placeholder="结束日期">
+  </div>
+  <div class="f-group"><input class="f-input wide" id="kw" placeholder="搜索客户"></div>
+  <button class="btn primary" onclick="render()">🔍 查询</button>
+  <button class="btn" onclick="onReset()">重置</button>
+  <button class="btn" onclick="toast('导出')">📤 导出表格</button>
+  <div class="f-spacer"></div>
+  <button class="btn primary" onclick="onAdd()">＋ 添加充值</button>
+  <button class="btn" onclick="toast('全部记录')">📋 全部记录</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card scroll" style="min-width:1700px;">
+    <table>
+      <thead><tr>
+        <th>客户名称</th><th>充值现金(元)</th><th>赠送金额(元)</th><th>到账金额(元)</th>
+        <th>赠送商品(元)</th><th>门店</th><th>销售</th><th>操作人</th>
+        <th>订单号</th><th>备注</th><th>创建日期</th>
+        <th class="col-actions">操作</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select><option>20条/页</option></select>
+  <button class="pager-btn">‹</button><button class="pager-btn cur">1</button><button class="pager-btn">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+const ROWS = [
+  { cus:'雯雯-客户B',  cash:10000, gift:2000, recv:12000, giftSpu:0,    store:'旗舰店', sale:'杨瑶 yiyi', op:'刘小红', orderNo:'TU-20260506-001', note:'5月活动',     createdAt:'2026-05-06 14:08:21' },
+  { cus:'琪琪-客户D',  cash:5000,  gift:500,  recv:5500,  giftSpu:1280, store:'高新店', sale:'聂敏',      op:'刘小红', orderNo:'TU-20260505-009', note:'-',           createdAt:'2026-05-05 11:30:00' },
+  { cus:'敏敏-客户C',  cash:50000, gift:10000,recv:60000, giftSpu:5800, store:'旗舰店', sale:'陈巧',      op:'刘小红', orderNo:'TU-20260504-003', note:'大客户',       createdAt:'2026-05-04 10:22:11' },
+  { cus:'微微-客户A',  cash:3000,  gift:0,    recv:3000,  giftSpu:0,    store:'全店',   sale:'杜佳',      op:'刘小红', orderNo:'TU-20260503-002', note:'-',           createdAt:'2026-05-03 16:48:00' },
+];
+function render() {
+  const kw = document.getElementById('kw').value.trim();
+  const list = ROWS.filter(r => !kw || r.cus.includes(kw));
+  document.getElementById('tbody').innerHTML = list.length ? list.map(r => `
+    <tr>
+      <td>${r.cus}</td>
+      <td class="col-num">¥${r.cash.toLocaleString('zh-CN')}</td>
+      <td class="col-num muted">¥${r.gift.toLocaleString('zh-CN')}</td>
+      <td class="col-num success">¥${r.recv.toLocaleString('zh-CN')}</td>
+      <td class="col-num muted">¥${r.giftSpu.toLocaleString('zh-CN')}</td>
+      <td>${r.store}</td>
+      <td>${r.sale}</td>
+      <td>${r.op}</td>
+      <td><code style="font-size:11.5px">${r.orderNo}</code></td>
+      <td><span style="color:var(--text-3)">${r.note}</span></td>
+      <td class="col-time">${r.createdAt}</td>
+      <td class="col-actions">
+        <button class="row-action" onclick="toast('编辑')">编辑</button>
+        <button class="row-action danger" onclick="toast('作废')">作废</button>
+      </td>
+    </tr>
+  `).join('') : `<tr><td colspan="12"><div class="empty-state"><div class="empty-icon">💳</div>暂无充值数据</div></td></tr>`;
+  document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
+}
+function onReset() { ['d1','d2','kw'].forEach(id => document.getElementById(id).value=''); render(); }
+let aModal;
+function onAdd() {
+  if (!aModal) aModal = createEditModal({
+    title: '添加充值',
+    fields: [
+      { label:'客户',      key:'cus',     type:'select', options:['雯雯-客户B','敏敏-客户C','琪琪-客户D','微微-客户A','琴-客户E','李-客户F'], required:true },
+      { label:'充值现金',  key:'cash',    type:'number', placeholder:'元', suffix:'元', required:true },
+      { label:'赠送金额',  key:'gift',    type:'number', placeholder:'元', suffix:'元' },
+      { label:'赠送商品',  key:'giftSpu', type:'select', options:['无','玻尿酸丰唇 1ml','光子嫩肤 1次','半永久眉毛','童颜针 1支'] },
+      { label:'门店',      key:'store',   type:'select', options:['全店通用','旗舰店','高新店'] },
+      { label:'销售',      key:'sale',    type:'select', options:['杜佳','杨瑶 yiyi','陈巧','聂敏','刘瑜02','Lucy 💗','罗玲 金金'] },
+      { label:'订单号',    key:'orderNo', type:'text',   placeholder:'选填，留空自动生成' },
+      { label:'备注',      key:'note',    type:'textarea',placeholder:'选填' },
+    ],
+    onSubmit: d => { ROWS.unshift({ cus:d.cus, cash:+d.cash||0, gift:+d.gift||0, recv:(+d.cash||0)+(+d.gift||0), giftSpu: d.giftSpu==='无'?0:1280, store:d.store, sale:d.sale, op:'刘小红', orderNo:d.orderNo||'TU-'+Date.now(), note:d.note||'-', createdAt:new Date().toISOString().replace('T',' ').slice(0,19) }); render(); toast('已添加'); }
+  });
+  aModal.open({});
+}
+let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+render();
+</script></body></html>

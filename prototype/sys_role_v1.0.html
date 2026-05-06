@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>角色管理</title><link rel="stylesheet" href="_admin_list.css">
+<script src="_edit_modal.js" defer></script>
+<style>
+.perm-tree { max-height: 360px; overflow-y: auto; border: 1px solid var(--border); border-radius: 4px; padding: 8px; font-size: 13px; }
+.perm-node { padding: 4px 0; display: flex; align-items: center; gap: 6px; }
+.perm-node.lvl1 { padding-left: 0; font-weight: 500; }
+.perm-node.lvl2 { padding-left: 24px; color: var(--text-2); }
+</style></head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group"><input class="f-input wide" id="kw" placeholder="角色名称"></div>
+  <button class="btn primary" onclick="render()">🔍 查询</button>
+  <div class="f-spacer"></div>
+  <button class="btn primary" onclick="onCreate()">＋ 创建</button>
+  <button class="btn" onclick="toast('全部记录')">📋 全部记录</button>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card">
+    <table>
+      <thead><tr>
+        <th>角色名称</th><th>系统角色</th><th>超级管理员</th><th>备注信息</th>
+        <th class="col-actions">操作</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info">共 6 条</span>
+  <select><option>20条/页</option></select>
+  <button class="pager-btn">‹</button><button class="pager-btn cur">1</button><button class="pager-btn">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+const ROWS = [
+  { name:'超级管理员',  isSys:true,  isSuper:true,  note:'拥有所有功能权限，仅平台运维可分配' },
+  { name:'企业管理员',  isSys:true,  isSuper:false, note:'本企业内全部功能管理' },
+  { name:'销售经理',    isSys:false, isSuper:false, note:'销售管理 + 数据展示 + 分佣管理 (只读)' },
+  { name:'销售',        isSys:true,  isSuper:false, note:'仅聊天 + 自己的客户/订单' },
+  { name:'院长助理',    isSys:false, isSuper:false, note:'专家管理 + 话术管理' },
+  { name:'财务',        isSys:false, isSuper:false, note:'分佣管理 + 充值确认 + 收入确认' },
+];
+function render() {
+  const kw = document.getElementById('kw').value.trim();
+  const list = ROWS.filter(r => !kw || r.name.includes(kw));
+  document.getElementById('tbody').innerHTML = list.map(r => `
+    <tr>
+      <td>${r.name}</td>
+      <td>${r.isSys ? '<span class="badge info">系统</span>' : '<span class="badge gray">自定义</span>'}</td>
+      <td>${r.isSuper ? '<span class="badge danger">是</span>' : '<span class="badge gray">否</span>'}</td>
+      <td><span style="color:var(--text-3)">${r.note}</span></td>
+      <td class="col-actions">
+        <button class="row-action" onclick="onEdit('${r.name.replace(/'/g, "\\'")}')">编辑</button>
+        <button class="row-action muted" onclick="toast('记录')">记录</button>
+        ${!r.isSys ? `<button class="row-action danger" onclick="toast('删除')">删除</button>` : ''}
+      </td>
+    </tr>
+  `).join('');
+}
+let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+
+const PERM_TREE = [
+  ['销售管理', ['查看','创建','编辑','重置密码','删除']],
+  ['专家管理', ['查看','新增','编辑']],
+  ['好友管理', ['查看好友','创建虚拟好友','编辑','删除','审核','标签管理']],
+  ['话术管理', ['查看','创建','编辑','删除']],
+  ['商品管理', ['查看','创建','编辑','上下架','删除']],
+  ['群发管理', ['查看','创建','编辑','暂停/取消','查看回复']],
+  ['PYQ 管理', ['查看','创建','删除']],
+  ['分佣管理', ['分佣明细','分佣合计','充值确认','预付确认','收入确认','作废']],
+  ['数据展示', ['拉新记录','销售统计','销售排名','回访统计','上班记录','留存统计','其他']],
+  ['聊天管理', ['全部聊天','分配记录','销售词控','客户词控']],
+  ['微信管理', ['帐号状态','拉新文案','通友管理']],
+  ['AI 管理',  ['Prompt 模板','模型配置']],
+  ['系统管理', ['角色管理','菜单管理','标签模板','系统设置']],
+];
+function permFieldHtml() {
+  let html = '<div class="perm-tree" data-key="perms">';
+  PERM_TREE.forEach((g, i) => {
+    html += `<div class="perm-node lvl1"><label><input type="checkbox" data-group="${i}" onchange="togglePermGroup(this)"> ${g[0]}</label></div>`;
+    g[1].forEach(p => {
+      html += `<div class="perm-node lvl2"><label><input type="checkbox" data-perm="${g[0]} / ${p}"> ${p}</label></div>`;
+    });
+  });
+  html += '</div>';
+  return html;
+}
+function togglePermGroup(cb) {
+  const idx = cb.dataset.group;
+  const wrap = cb.closest('.perm-tree');
+  const items = wrap.querySelectorAll('.perm-node.lvl2 input');
+  // 该组的子项
+  const start = PERM_TREE.slice(0, parseInt(idx)).reduce((s, x) => s + x[1].length, 0);
+  const len = PERM_TREE[idx][1].length;
+  for (let i = start; i < start + len; i++) items[i].checked = cb.checked;
+}
+function buildRoleModal(title, onSubmit) {
+  return createEditModal({
+    title,
+    width: 720,
+    fields: [
+      { label:'角色名称',     key:'name',     type:'text',     placeholder:'例：销售经理', required:true },
+      { label:'是否系统角色', key:'isSys',    type:'switch' },
+      { label:'超级管理员',   key:'isSuper',  type:'switch' },
+      { label:'备注',         key:'note',     type:'textarea', placeholder:'角色职责说明' },
+    ],
+    onSubmit
+  });
+}
+// hack: 给弹窗 body 追加权限树（_edit_modal 不支持自定义字段，临时塞进去）
+function attachPermTree(modal) {
+  setTimeout(() => {
+    const body = document.querySelector('.modal-mask.show .modal-body');
+    if (body && !body.querySelector('.perm-tree')) {
+      const wrap = document.createElement('div');
+      wrap.className = 'form-row';
+      wrap.innerHTML = '<label>权限分配</label>' + permFieldHtml();
+      body.appendChild(wrap);
+    }
+  }, 50);
+}
+function onCreate() {
+  const m = buildRoleModal('创建角色', d => { ROWS.unshift({ name:d.name, isSys:d.isSys, isSuper:d.isSuper, note:d.note }); render(); toast('已新建角色'); });
+  m.open({});
+  attachPermTree(m);
+}
+function onEdit(name) {
+  const r = ROWS.find(x => x.name === name);
+  const m = buildRoleModal('编辑角色', d => { Object.assign(r, d); render(); toast('已保存'); });
+  m.open(r);
+  attachPermTree(m);
+}
+render();
+</script></body></html>
