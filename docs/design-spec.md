@@ -126,6 +126,18 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 - 必填字段 label 前 `*` 红色
 - 字段类型：text / number / select / textarea / switch / radio / tags / image / rich-text
 
+### 维度切换段（.seg） · 统计页通用
+- 容器：`border:1px solid #e5e8ec; border-radius:3px; height:30px; overflow:hidden`
+- 内按钮间用 1px 分隔线区隔，激活态填充 **微信绿** 文字白色
+- 适用场景：表格视图维度切换（如「按销售账号 / 按部门」），同段内最多 4 个选项
+- 首例：话术统计 `stats_script_v1.0.html`
+
+### 使用率/比率条形（.ratio-cell）
+- 表格内嵌横条 + 数值，`max-width:90px` 横条 + 6px 高 + 微信绿填充
+- 数值后缀单位（如「2.00 条/人」），不显示百分号，避免与百分比混淆
+- 用于「派生指标」列，纯数字无需此格式
+- 首例：话术统计 `stats_script_v1.0.html`
+
 ### 总原则
 > "微信绿"是品牌色，但用法克制：只在主按钮、激活态、关键徽章、logo 出现。
 > 大面积留白 + 灰阶层次 + 公众号蓝 / 红做次要强调。

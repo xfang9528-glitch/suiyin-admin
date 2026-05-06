@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>话术统计</title><link rel="stylesheet" href="_admin_list.css">
+<style>
+  /* 维度切换段 */
+  .seg { display:inline-flex; border:1px solid #e5e8ec; border-radius:3px; overflow:hidden; height:30px; }
+  .seg button { padding:0 12px; height:30px; font-size:12.5px; color:var(--text-2); background:#fff; border-right:1px solid #e5e8ec; }
+  .seg button:last-child { border-right:none; }
+  .seg button.active { background:var(--wx-green); color:#fff; }
+  /* 口径说明 */
+  .scope-tip {
+    margin-left:auto; color:var(--text-3); font-size:12px; cursor:help; position:relative;
+  }
+  .scope-tip:hover .scope-pop { display:block; }
+  .scope-pop {
+    display:none; position:absolute; right:0; top:24px; width:380px;
+    background:#fff; border:1px solid var(--border); border-radius:6px;
+    padding:12px 14px; font-size:12.5px; color:var(--text-2); line-height:1.65;
+    box-shadow:0 6px 18px rgba(0,0,0,.08); z-index:50; white-space:normal;
+  }
+  .scope-pop b { color:var(--text-1); }
+  /* 表格中的"使用率"小条 */
+  .ratio-cell { display:flex; align-items:center; gap:8px; min-width:140px; }
+  .ratio-bar { flex:1; height:6px; background:#f0f2f5; border-radius:3px; overflow:hidden; max-width:90px; }
+  .ratio-bar i { display:block; height:100%; background:var(--wx-green); border-radius:3px; }
+  .ratio-num { font-variant-numeric:tabular-nums; font-size:12.5px; color:var(--text-2); white-space:nowrap; }
+  /* modal 内列表 */
+  .modal-meta { padding:0 20px 8px; color:var(--text-3); font-size:12.5px; display:flex; gap:14px; flex-wrap:wrap; }
+  .modal-meta b { color:var(--text-1); font-weight:500; }
+  .modal-list-wrap { max-height:56vh; overflow:auto; padding:4px 20px 16px; }
+  .modal-list-wrap table { font-size:12.5px; }
+  .modal-list-wrap thead th { background:#fafbfc; }
+  .script-text {
+    color:var(--text-2); font-size:12.5px;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+    max-width:380px;
+  }
+</style>
+</head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group" style="gap:4px;">
+    <button class="btn sm" onclick="setRange('today')">今天</button>
+    <button class="btn sm" onclick="setRange('yesterday')">昨天</button>
+    <button class="btn sm" onclick="setRange('week')">本周</button>
+    <button class="btn sm" onclick="setRange('month')">本月</button>
+  </div>
+  <div class="f-group">
+    <input class="f-input date" type="date" id="dateFrom">
+    <span class="f-sep">至</span>
+    <input class="f-input date" type="date" id="dateTo">
+  </div>
+  <div class="f-group">
+    <span class="f-label">维度</span>
+    <div class="seg" id="segDim">
+      <button data-dim="account" class="active" onclick="setDim('account')">按销售账号</button>
+      <button data-dim="dept" onclick="setDim('dept')">按部门</button>
+    </div>
+  </div>
+  <div class="f-group" id="grpDept">
+    <span class="f-label">部门</span>
+    <select class="f-select" id="fDept">
+      <option value="">全部部门</option>
+      <option>抖音IP</option>
+      <option>小红书</option>
+      <option>电商</option>
+      <option>代运营</option>
+      <option>自媒体</option>
+    </select>
+  </div>
+  <div class="f-group" id="grpKw">
+    <input class="f-input wide" id="kw" placeholder="销售账号 / 姓名">
+  </div>
+  <button class="btn primary" onclick="render()">🔍 搜索</button>
+  <button class="btn" onclick="onReset()">重置</button>
+
+  <span class="scope-tip">ⓘ 口径说明
+    <div class="scope-pop">
+      <div><b>话术使用量</b>：单聊场景，同一<b>销售账号</b>（或<b>部门</b>）给同一好友发的同一条话术，无论次数都只计 <b>1 次</b>。</div>
+      <div style="margin-top:6px;"><b>沟通好友数</b>：窗口内该销售账号（或部门）发过<b>任何消息</b>的好友数（不限话术）。</div>
+      <div style="margin-top:6px;"><b>使用率</b> = 话术使用量 ÷ 沟通好友数，反映"每个被沟通的好友平均收到几条不同话术"。</div>
+    </div>
+  </span>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card">
+    <table id="tbl">
+      <thead id="thead"></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select><option>20条/页</option></select>
+  <button class="pager-btn">‹</button><button class="pager-btn cur">1</button><button class="pager-btn">›</button>
+</div>
+
+<!-- 下钻 modal：话术使用明细 -->
+<div class="modal-mask" id="modalMask" onclick="if(event.target===this)closeModal()">
+  <div class="modal wide">
+    <div class="modal-header">
+      <span id="modalTitle">话术使用明细</span>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-meta" id="modalMeta"></div>
+    <div class="modal-list-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:42px;">#</th>
+            <th style="width:140px;">分类</th>
+            <th>话术内容</th>
+            <th style="width:140px;">使用次数<span style="color:var(--text-3);font-weight:400;"> · 同好友去重</span></th>
+            <th style="width:120px;">覆盖好友数</th>
+          </tr>
+        </thead>
+        <tbody id="modalTbody"></tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal()">关闭</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ========= mock 数据（参考线上 yestar.wecarepet.com/admin） ========= */
+// 销售账号（含部门归属）。账号名 = 销售真名，alias = 微信端昵称（朋友看到的）。
+// 字段说明：
+//   used   = 话术使用量（同账号-同好友-同话术 去重计 1）
+//   talked = 沟通好友数（发过任何消息的好友数）
+const ACCOUNTS = [
+  // 抖音IP（6）
+  { id:'a01', name:'杜佳',         alias:'艺星专家助理-佳宝',           dept:'抖音IP',   used:312, talked:158 },
+  { id:'a02', name:'杨瑶 yiyi',    alias:'成都艺星专家助理 yiyi',       dept:'抖音IP',   used:286, talked:142 },
+  { id:'a03', name:'罗玲 金金',    alias:'成都艺星专家助理-金金',        dept:'抖音IP',   used:248, talked:128 },
+  { id:'a04', name:'周恬 Lucy💕', alias:'成都艺星专家助理 Lucy💕',     dept:'抖音IP',   used:218, talked:108 },
+  { id:'a05', name:'唐可欣',       alias:'YeStar 成都艺星专家助理-源源', dept:'抖音IP',   used:184, talked:92  },
+  { id:'a06', name:'曹冰清',       alias:'艺星院长专家助理只只',         dept:'抖音IP',   used:156, talked:78  },
+  // 小红书（6）
+  { id:'b01', name:'成都艺星专家助理鑫鑫', alias:'成都艺星专家助理鑫鑫', dept:'小红书',   used:194, talked:96  },
+  { id:'b02', name:'艺星专家助理 Scarlett', alias:'艺星专家助理 Scarlett', dept:'小红书', used:168, talked:84  },
+  { id:'b03', name:'艺星专家助理妍妍',     alias:'艺星专家助理妍妍',     dept:'小红书',   used:142, talked:72  },
+  { id:'b04', name:'艺星专家助理 Mia',     alias:'艺星专家助理 Mia',     dept:'小红书',   used:128, talked:64  },
+  { id:'b05', name:'张经晶',               alias:'A 成都艺星专家助理-张张', dept:'小红书', used:104, talked:54  },
+  { id:'b06', name:'艺星专家助理 ViVi',    alias:'艺星专家助理 ViVi',    dept:'小红书',   used:88,  talked:46  },
+  // 电商（6）
+  { id:'c01', name:'聂敏',     alias:'成都艺星整形高级专家助理喵喵', dept:'电商',     used:268, talked:138 },
+  { id:'c02', name:'黄诗琴',   alias:'成都艺星 Yestar 柏林',         dept:'电商',     used:232, talked:118 },
+  { id:'c03', name:'何晓秀',   alias:'Yestar 鲜鲜',                  dept:'电商',     used:198, talked:102 },
+  { id:'c04', name:'牛海兰01', alias:'成都艺星专家助理尤米',         dept:'电商',     used:172, talked:88  },
+  { id:'c05', name:'王雅莉',   alias:'Yestar 艺星-羊羊',             dept:'电商',     used:148, talked:74  },
+  { id:'c06', name:'张欣',     alias:'金金_Yestar 成都艺星',         dept:'电商',     used:124, talked:62  },
+  // 代运营（5）
+  { id:'d01', name:'王清清',   alias:'成都艺星整形助理清清',         dept:'代运营',   used:142, talked:74  },
+  { id:'d02', name:'董宗梅01', alias:'成都艺星助理苗苗',             dept:'代运营',   used:118, talked:62  },
+  { id:'d03', name:'王珊',     alias:'A_Yestar 成都艺星玥玥',        dept:'代运营',   used:96,  talked:50  },
+  { id:'d04', name:'颜婷01',   alias:'成都艺星整形专家助理-小艺',     dept:'代运营',   used:78,  talked:42  },
+  { id:'d05', name:'何紫霞',   alias:'成都艺星整形专家助理西西',     dept:'代运营',   used:62,  talked:34  },
+  // 自媒体（8，铺号多，量级最大）
+  { id:'e01', name:'自媒体杨博文033', alias:'A 成都艺星杨博文 💥 主号 👈 找我', dept:'自媒体', used:386, talked:194 },
+  { id:'e02', name:'自媒体林一023',   alias:'成都艺星林一 🏆（咨询主号）',     dept:'自媒体', used:344, talked:172 },
+  { id:'e03', name:'自媒体杨博文061', alias:'A 会看脸的杨博文（主号）',         dept:'自媒体', used:296, talked:148 },
+  { id:'e04', name:'自媒体林一035',   alias:'A 林一 | 美学设计 | 艺星医美',     dept:'自媒体', used:262, talked:130 },
+  { id:'e05', name:'自媒体晓晓148',   alias:'A 成都艺星晓晓 💃🏻～预约福利',    dept:'自媒体', used:218, talked:108 },
+  { id:'e06', name:'自媒体杨博文041', alias:'A 成都艺星杨博文（主号）',         dept:'自媒体', used:186, talked:94  },
+  { id:'e07', name:'自媒体林一113',   alias:'成都艺星林一 👤',                  dept:'自媒体', used:152, talked:76  },
+  { id:'e08', name:'自媒体杨博文028', alias:'A 会看脸的杨博文 | 成都艺星医美', dept:'自媒体', used:128, talked:66  },
+];
+
+// 艺星医美话术库（按类别），ID 用于账号引用
+const SCRIPT_LIB = {
+  // 初次破冰
+  s01: { cat:'初次破冰', text:'您好，我是成都艺星专家助理，看到您扫码了我们小程序，方便简单聊一下您主要想改善的部位吗？' },
+  s02: { cat:'初次破冰', text:'您好，您之前在我们抖音号下方咨询过，方便加个微信细聊吗？我可以帮您匹配合适的医生。' },
+  s03: { cat:'初次破冰', text:'您好我是成都艺星院长助理，看您加我有几天了，有什么需要可以随时找我哦~' },
+  // 项目推荐
+  s04: { cat:'项目推荐', text:'热玛吉新一代刚到货，全院只有 3 台机器，老客户回馈期间体验价 8800，要不要给您留一个名额？' },
+  s05: { cat:'项目推荐', text:'嗨体熊猫针针对黑眼圈效果特别明显，您之前问过相关项目，我把客户案例发您看看？' },
+  s06: { cat:'项目推荐', text:'我们的超声炮做的客户都说效果惊艳，下周给您约一次免费面诊看看？' },
+  s07: { cat:'项目推荐', text:'最近水光针买二送一，下周就恢复原价了，要不要先帮您锁一个？' },
+  s08: { cat:'项目推荐', text:'光子嫩肤套餐适合您这种皮肤底子，做完通透感会非常明显，要看看案例对比图吗？' },
+  // 活动邀约
+  s09: { cat:'活动邀约', text:'下周六谢主任的免费面诊会，名额只剩 5 个，需要帮您留一个吗？' },
+  s10: { cat:'活动邀约', text:'本月有 5 折老客户回馈活动，仅限本周内下单，发您活动详情看看？' },
+  s11: { cat:'活动邀约', text:'5/20 我们有周年庆开业，杨博文院长会亲自坐诊，要不要给您约个时间？' },
+  // 面诊预约
+  s12: { cat:'面诊预约', text:'您之前问过的项目，明天上午有时间过来面诊吗？我帮您约谢主任。' },
+  s13: { cat:'面诊预约', text:'您预约的 14:00 时间快到了，我们的专属顾问已经在等您啦~' },
+  // 回访关怀
+  s14: { cat:'回访关怀', text:'您上次做的水光针今天满 7 天，恢复怎么样？方便发张照片我看一下吗？' },
+  s15: { cat:'回访关怀', text:'您术后第 3 天，有没有红肿或者不适？需要随时跟我说。' },
+  s16: { cat:'回访关怀', text:'您上次面诊医生说的方案还在考虑吗？有疑问随时问我。' },
+  // 付款引导 / 复购 / 异议处理
+  s17: { cat:'付款引导', text:'这是您预约项目的付款链接，到店出示订单号即可，付款后随时可以约时间。' },
+  s18: { cat:'复购引导', text:'您上次做的项目效果保持得怎么样？我们这边有续做的特价，发您看看？' },
+  s19: { cat:'复购引导', text:'您是我们的老客户，本月有专属回馈，要不要看看适合您的项目？' },
+  s20: { cat:'朋友圈互动', text:'刚看到您发的朋友圈，状态超好的！需要我帮您约下次的护理吗？' },
+  s21: { cat:'异议处理', text:'我理解您的顾虑，热玛吉确实价格不算低，但您可以分期，1 万左右每月 800 多。' },
+  s22: { cat:'异议处理', text:'如果您觉得价格高，我们最近有体验装套餐，您先体验看看效果再决定也可以。' },
+};
+
+// 部门偏好：每个部门挑 6-7 条常用话术 + 占总使用量的权重
+// 抖音IP 偏破冰+项目推荐；小红书重视视觉案例；电商重项目+复购；代运营贴回访；自媒体海量破冰+活动邀约
+const DEPT_PREF = {
+  '抖音IP':  [['s01',32],['s04',22],['s09',16],['s12',12],['s14',10],['s17',5],['s21',3]],
+  '小红书':  [['s01',30],['s05',24],['s06',16],['s12',12],['s16',10],['s20',5],['s22',3]],
+  '电商':    [['s03',28],['s07',22],['s10',16],['s17',12],['s18',10],['s19',8],['s14',4]],
+  '代运营':  [['s03',26],['s14',22],['s15',18],['s16',14],['s07',10],['s17',6],['s19',4]],
+  '自媒体':  [['s02',38],['s11',22],['s09',16],['s04',10],['s06',6],['s12',5],['s20',3]],
+};
+
+// 根据部门权重 + 账号 used 总量，生成账号下话术明细
+const SCRIPT_DETAILS = {};
+ACCOUNTS.forEach(a => {
+  const pref = DEPT_PREF[a.dept] || [];
+  const wsum = pref.reduce((s, [,w]) => s + w, 0);
+  const rows = pref.map(([sid, w]) => {
+    const uses = Math.max(1, Math.round(a.used * w / wsum));
+    return { cat:SCRIPT_LIB[sid].cat, text:SCRIPT_LIB[sid].text, uses, friends:uses };
+  });
+  // 因为按好友去重，所以"覆盖好友数 = 使用次数"
+  SCRIPT_DETAILS[a.id] = rows;
+});
+
+/* ========= 状态 ========= */
+let DIM = 'account'; // account | dept
+
+/* ========= 工具 ========= */
+function fmt(n) { return Number(n).toLocaleString('zh-CN'); }
+function ratio(used, talked) { return talked > 0 ? (used / talked) : 0; }
+function ratioCell(used, talked) {
+  const r = ratio(used, talked);
+  // 用 max 1.5 作为条形参考
+  const pct = Math.min(100, Math.round(r / 1.5 * 100));
+  return `<div class="ratio-cell">
+    <div class="ratio-bar"><i style="width:${pct}%"></i></div>
+    <span class="ratio-num">${r.toFixed(2)} 条/人</span>
+  </div>`;
+}
+
+/* ========= 维度切换 ========= */
+function setDim(d) {
+  DIM = d;
+  document.querySelectorAll('#segDim button').forEach(b => {
+    b.classList.toggle('active', b.dataset.dim === d);
+  });
+  document.getElementById('grpKw').style.display = d === 'account' ? '' : 'none';
+  render();
+}
+
+/* ========= 时间快捷 ========= */
+function setRange(k) {
+  const today = new Date();
+  const fmtD = d => d.toISOString().slice(0,10);
+  const fr = document.getElementById('dateFrom');
+  const to = document.getElementById('dateTo');
+  if (k === 'today') { fr.value = to.value = fmtD(today); }
+  else if (k === 'yesterday') {
+    const d = new Date(today); d.setDate(d.getDate()-1);
+    fr.value = to.value = fmtD(d);
+  } else if (k === 'week') {
+    const d = new Date(today); d.setDate(d.getDate()-((d.getDay()||7)-1));
+    fr.value = fmtD(d); to.value = fmtD(today);
+  } else if (k === 'month') {
+    const d = new Date(today.getFullYear(), today.getMonth(), 1);
+    fr.value = fmtD(d); to.value = fmtD(today);
+  }
+  render();
+}
+
+/* ========= 渲染 ========= */
+function render() {
+  const dept = document.getElementById('fDept').value;
+  const kw   = (document.getElementById('kw').value || '').trim();
+  const thead = document.getElementById('thead');
+  const tbody = document.getElementById('tbody');
+
+  if (DIM === 'account') {
+    thead.innerHTML = `<tr>
+      <th style="width:50px;">#</th>
+      <th style="width:160px;">销售账号</th>
+      <th style="width:120px;">所属部门</th>
+      <th style="width:140px;">话术使用量</th>
+      <th style="width:120px;">沟通好友数</th>
+      <th style="width:180px;">使用率</th>
+      <th style="width:80px;">操作</th>
+    </tr>`;
+    let list = ACCOUNTS.slice();
+    if (dept) list = list.filter(a => a.dept === dept);
+    if (kw)   list = list.filter(a => a.name.includes(kw) || (a.alias||'').includes(kw));
+    list.sort((a,b) => b.used - a.used);
+    tbody.innerHTML = list.map((a,i) => `
+      <tr>
+        <td class="col-num muted">${i+1}</td>
+        <td>
+          <div style="line-height:1.35;">
+            <div>${a.name}</div>
+            <div style="color:var(--text-3);font-size:11.5px;">${a.alias||''}</div>
+          </div>
+        </td>
+        <td><span class="tag">${a.dept}</span></td>
+        <td class="col-num success">${fmt(a.used)}</td>
+        <td class="col-num">${fmt(a.talked)}</td>
+        <td>${ratioCell(a.used, a.talked)}</td>
+        <td class="col-actions"><button class="row-action" onclick="openDetail('account','${a.id}')">明细</button></td>
+      </tr>`).join('') || `<tr><td colspan="7"><div class="empty-state"><div class="empty-icon">📭</div>暂无数据</div></td></tr>`;
+    document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
+  } else {
+    thead.innerHTML = `<tr>
+      <th style="width:50px;">#</th>
+      <th style="width:200px;">部门</th>
+      <th style="width:90px;">账号数</th>
+      <th style="width:140px;">话术使用量</th>
+      <th style="width:120px;">沟通好友数</th>
+      <th style="width:180px;">使用率</th>
+      <th style="width:80px;">操作</th>
+    </tr>`;
+    const map = {};
+    ACCOUNTS.forEach(a => {
+      if (!map[a.dept]) map[a.dept] = { dept:a.dept, count:0, used:0, talked:0 };
+      map[a.dept].count++;
+      map[a.dept].used   += a.used;
+      map[a.dept].talked += a.talked;
+    });
+    let list = Object.values(map);
+    if (dept) list = list.filter(d => d.dept === dept);
+    list.sort((a,b) => b.used - a.used);
+    tbody.innerHTML = list.map((d,i) => `
+      <tr>
+        <td class="col-num muted">${i+1}</td>
+        <td><span class="tag">${d.dept}</span></td>
+        <td class="col-num">${d.count}</td>
+        <td class="col-num success">${fmt(d.used)}</td>
+        <td class="col-num">${fmt(d.talked)}</td>
+        <td>${ratioCell(d.used, d.talked)}</td>
+        <td class="col-actions"><button class="row-action" onclick="openDetail('dept','${d.dept}')">明细</button></td>
+      </tr>`).join('') || `<tr><td colspan="7"><div class="empty-state"><div class="empty-icon">📭</div>暂无数据</div></td></tr>`;
+    document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
+  }
+}
+
+/* ========= 下钻 ========= */
+function openDetail(kind, key) {
+  const range = `${document.getElementById('dateFrom').value || '不限'} ~ ${document.getElementById('dateTo').value || '不限'}`;
+  let title, meta, rows;
+  if (kind === 'account') {
+    const acc = ACCOUNTS.find(a => a.id === key);
+    title = `${acc.name} 的话术使用明细`;
+    meta = [
+      `销售账号：<b>${acc.name}</b>${acc.alias ? `（${acc.alias}）` : ''}`,
+      `所属部门：<b>${acc.dept}</b>`,
+      `时间范围：<b>${range}</b>`,
+      `话术使用量：<b>${fmt(acc.used)}</b>`,
+      `沟通好友数：<b>${fmt(acc.talked)}</b>`,
+      `使用率：<b>${ratio(acc.used, acc.talked).toFixed(2)} 条/人</b>`,
+    ];
+    rows = SCRIPT_DETAILS[key] || [];
+  } else {
+    const accs = ACCOUNTS.filter(a => a.dept === key);
+    const used   = accs.reduce((s,a)=>s+a.used,0);
+    const talked = accs.reduce((s,a)=>s+a.talked,0);
+    title = `${key} 的话术使用明细`;
+    meta = [
+      `部门：<b>${key}</b>`,
+      `账号数：<b>${accs.length}</b>`,
+      `时间范围：<b>${range}</b>`,
+      `话术使用量：<b>${fmt(used)}</b>`,
+      `沟通好友数：<b>${fmt(talked)}</b>`,
+      `使用率：<b>${ratio(used, talked).toFixed(2)} 条/人</b>`,
+    ];
+    // 部门视角：把所有账号的明细按"分类+话术内容"合并
+    const merge = {};
+    accs.forEach(a => (SCRIPT_DETAILS[a.id]||[]).forEach(d => {
+      const k = d.cat + '|' + d.text;
+      if (!merge[k]) merge[k] = { cat:d.cat, text:d.text, uses:0, friends:0 };
+      merge[k].uses    += d.uses;
+      merge[k].friends += d.friends;
+    }));
+    rows = Object.values(merge).sort((a,b) => b.uses - a.uses);
+  }
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalMeta').innerHTML = meta.map(s => `<span>${s}</span>`).join('');
+  document.getElementById('modalTbody').innerHTML = rows.length
+    ? rows.map((r,i) => `<tr>
+        <td class="col-num muted">${i+1}</td>
+        <td><span class="tag blue">${r.cat}</span></td>
+        <td><div class="script-text">${r.text}</div></td>
+        <td class="col-num success">${fmt(r.uses)}</td>
+        <td class="col-num">${fmt(r.friends)}</td>
+      </tr>`).join('')
+    : `<tr><td colspan="5"><div class="empty-state"><div class="empty-icon">📭</div>暂无明细</div></td></tr>`;
+  document.getElementById('modalMask').classList.add('show');
+}
+function closeModal() { document.getElementById('modalMask').classList.remove('show'); }
+
+/* ========= 重置 ========= */
+function onReset() {
+  document.getElementById('dateFrom').value = '';
+  document.getElementById('dateTo').value = '';
+  document.getElementById('fDept').value = '';
+  document.getElementById('kw').value = '';
+  setDim('account');
+}
+
+/* ========= toast（占位） ========= */
+let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+
+/* 默认本月 */
+setRange('month');
+</script>
+</body></html>
