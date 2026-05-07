@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>群邀请提及率</title><link rel="stylesheet" href="_admin_list.css">
+<style>
+  /* 维度切换段 */
+  .seg { display:inline-flex; border:1px solid #e5e8ec; border-radius:3px; overflow:hidden; height:30px; }
+  .seg button { padding:0 12px; height:30px; font-size:12.5px; color:var(--text-2); background:#fff; border-right:1px solid #e5e8ec; }
+  .seg button:last-child { border-right:none; }
+  .seg button.active { background:var(--wx-green); color:#fff; }
+
+  /* 群多选 chips */
+  .chip-group { display:inline-flex; gap:6px; }
+  .chip {
+    height:30px; padding:0 12px; border-radius:15px;
+    border:1px solid #e5e8ec; background:#fff; color:var(--text-2);
+    font-size:12.5px; display:inline-flex; align-items:center; gap:6px;
+    transition:all .15s; user-select:none; cursor:pointer;
+  }
+  .chip:hover { border-color:#c8e6d2; color:var(--wx-green); }
+  .chip.on { background:var(--wx-green-light); border-color:var(--wx-green); color:var(--wx-green); font-weight:500; }
+  .chip .chip-check { display:none; font-size:13px; }
+  .chip.on .chip-check { display:inline; }
+
+  /* 口径说明 */
+  .scope-tip {
+    margin-left:auto; color:var(--text-3); font-size:12px; cursor:help; position:relative;
+  }
+  .scope-tip:hover .scope-pop { display:block; }
+  .scope-pop {
+    display:none; position:absolute; right:0; top:24px; width:420px;
+    background:#fff; border:1px solid var(--border); border-radius:6px;
+    padding:12px 14px; font-size:12.5px; color:var(--text-2); line-height:1.65;
+    box-shadow:0 6px 18px rgba(0,0,0,.08); z-index:50; white-space:normal;
+  }
+  .scope-pop b { color:var(--text-1); }
+  .scope-pop .sp-divider { border-top:1px dashed var(--border); margin:8px 0; }
+
+  /* ratio bar 通用 */
+  .ratio-bar { flex:1; height:6px; background:#f0f2f5; border-radius:3px; overflow:hidden; max-width:90px; }
+  .ratio-bar i { display:block; height:100%; background:var(--wx-green); border-radius:3px; transition:width .25s; }
+
+  /* 提及率—主指标（百分比，强调） */
+  .pct-strong { display:flex; align-items:center; gap:8px; min-width:160px; }
+  .pct-strong .ratio-bar { max-width:80px; }
+  .pct-strong .ratio-bar i { background:linear-gradient(90deg, #07c160, #2bbf6c); }
+  .pct-strong .pct-num { font-variant-numeric:tabular-nums; font-size:13.5px; color:var(--text-1); font-weight:600; min-width:46px; }
+  .pct-strong .pct-frac { font-size:11.5px; color:var(--text-3); white-space:nowrap; }
+  /* 单群提及率—中性灰条 */
+  .pct-soft { display:flex; align-items:center; gap:6px; min-width:88px; }
+  .pct-soft .ratio-bar { max-width:50px; height:4px; }
+  .pct-soft .ratio-bar i { background:#a4d8b7; }
+  .pct-soft .pct-num { font-variant-numeric:tabular-nums; font-size:12px; color:var(--text-2); }
+  .pct-soft.empty .pct-num { color:#c0c8d1; }
+  .pct-soft.empty .ratio-bar i { background:#e5e8ec; }
+
+  /* 未邀好友数：高亮可点击 */
+  .uninvited {
+    color:#fa5151; font-weight:600; font-variant-numeric:tabular-nums;
+    cursor:pointer; padding:2px 6px; border-radius:3px; transition:background .12s;
+  }
+  .uninvited:hover { background:#fef0f0; }
+  .uninvited.zero { color:#a4d8b7; cursor:default; font-weight:500; }
+  .uninvited.zero:hover { background:transparent; }
+
+  /* modal 内列表 */
+  .modal-meta { padding:0 20px 8px; color:var(--text-3); font-size:12.5px; display:flex; gap:14px; flex-wrap:wrap; }
+  .modal-meta b { color:var(--text-1); font-weight:500; }
+  .modal-list-wrap { max-height:56vh; overflow:auto; padding:4px 20px 16px; }
+  .modal-list-wrap table { font-size:12.5px; }
+  .modal-list-wrap thead th { background:#fafbfc; }
+  .script-text {
+    color:var(--text-2); font-size:12.5px;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+    max-width:380px;
+  }
+
+  /* 明细 modal 的 tab */
+  .detail-tabs {
+    display:flex; gap:0; padding:0 20px;
+    border-bottom:1px solid var(--border);
+  }
+  .detail-tab {
+    padding:10px 14px; font-size:13px; color:var(--text-2);
+    border-bottom:2px solid transparent; background:transparent;
+    font-weight:500; transition:all .15s;
+  }
+  .detail-tab.active { color:var(--wx-green); border-bottom-color:var(--wx-green); }
+  .detail-tab .tab-count { color:var(--text-3); font-weight:400; margin-left:4px; }
+  .detail-tab.active .tab-count { color:var(--wx-green); }
+  .detail-pane { display:none; }
+  .detail-pane.active { display:block; }
+
+  /* 群标识 chip（用于明细列表的"已邀群"列） */
+  .gtag {
+    display:inline-flex; align-items:center; gap:3px;
+    padding:1px 7px; border-radius:10px;
+    background:#f5fbf7; color:var(--wx-green);
+    font-size:11.5px; margin-right:4px; line-height:1.6;
+  }
+  .gtag.weizheng { background:#fff4f0; color:#e8814a; }
+  .gtag.yanbu    { background:#f0f4fa; color:#576b95; }
+  .gtag.fanyuan  { background:#f7f1fa; color:#8e6cb0; }
+
+  /* 头像（mock 配色） */
+  .av-mini {
+    width:28px; height:28px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, var(--c1, #80b3ff), var(--c2, #4a90e2));
+    color:#fff; font-size:11.5px; font-weight:600;
+    flex-shrink:0;
+  }
+  .friend-cell { display:flex; align-items:center; gap:8px; }
+  .friend-name { font-size:12.5px; color:var(--text-1); line-height:1.4; }
+  .friend-sub  { font-size:11px; color:var(--text-3); margin-top:1px; }
+
+  /* modal 内分页器 */
+  .modal-pager {
+    padding:8px 20px; border-top:1px solid var(--border);
+    background:#fff;
+    display:flex; align-items:center; justify-content:flex-end;
+    gap:12px;
+  }
+  .modal-pager .pager-info { color:var(--text-3); font-size:13px; margin-right:4px; }
+  .modal-pager .pager-size {
+    height:28px; padding:0 8px;
+    border:1px solid #d0d7de; border-radius:3px;
+    background:#fff; font-size:13px; color:var(--text-2); cursor:pointer; outline:none;
+  }
+  .modal-pager .pager-btns { display:inline-flex; gap:4px; }
+</style>
+</head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group" style="gap:4px;">
+    <button class="btn sm" onclick="setRange('today')">今天</button>
+    <button class="btn sm" onclick="setRange('yesterday')">昨天</button>
+    <button class="btn sm" onclick="setRange('week')">本周</button>
+    <button class="btn sm" onclick="setRange('month')">本月</button>
+  </div>
+  <div class="f-group">
+    <input class="f-input date" type="date" id="dateFrom">
+    <span class="f-sep">至</span>
+    <input class="f-input date" type="date" id="dateTo">
+  </div>
+  <div class="f-group">
+    <span class="f-label">维度</span>
+    <div class="seg" id="segDim">
+      <button data-dim="account" class="active" onclick="setDim('account')">按销售账号</button>
+      <button data-dim="dept" onclick="setDim('dept')">按部门</button>
+    </div>
+  </div>
+  <div class="f-group">
+    <span class="f-label">群</span>
+    <div class="chip-group" id="chipGroup">
+      <button class="chip on" data-gid="weizheng" onclick="toggleChip('weizheng')"><span class="chip-check">✓</span>微整填充群</button>
+      <button class="chip on" data-gid="yanbu"    onclick="toggleChip('yanbu')"><span class="chip-check">✓</span>眼部群</button>
+      <button class="chip on" data-gid="fanyuan"  onclick="toggleChip('fanyuan')"><span class="chip-check">✓</span>范院群</button>
+    </div>
+  </div>
+  <div class="f-group" id="grpDept">
+    <span class="f-label">部门</span>
+    <select class="f-select" id="fDept">
+      <option value="">全部部门</option>
+      <option>抖音IP</option>
+      <option>小红书</option>
+      <option>电商</option>
+      <option>代运营</option>
+      <option>自媒体</option>
+    </select>
+  </div>
+  <div class="f-group" id="grpKw">
+    <input class="f-input wide" id="kw" placeholder="销售账号 / 姓名">
+  </div>
+  <button class="btn primary" onclick="render()">🔍 搜索</button>
+  <button class="btn" onclick="onReset()">重置</button>
+
+  <span class="scope-tip">ⓘ 口径说明
+    <div class="scope-pop">
+      <div><b>分子（提及量）</b>：窗口内对每个新加好友，是否使用过对应群的<b>邀请话术</b>（按话术分类聚合，多变体均算命中）。同好友同群只计 <b>1 次</b>。</div>
+      <div class="sp-divider"></div>
+      <div><b>分母（新增好友数）</b>：窗口内该账号<b>新通过</b>的好友总数，<b>不剔除</b>未沟通好友——艺星要求快速响应，未邀本身就是问题。</div>
+      <div class="sp-divider"></div>
+      <div><b>提及率</b> = 提及量 ÷ 新增好友数；选多个群时分子算"<b>邀请进任一群</b>"，单群命中率单列展示。</div>
+    </div>
+  </span>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card">
+    <table id="tbl">
+      <thead id="thead"></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select><option>20条/页</option></select>
+  <button class="pager-btn">‹</button><button class="pager-btn cur">1</button><button class="pager-btn">›</button>
+</div>
+
+<!-- 下钻 modal：群邀请—好友明细（未邀 / 已邀 双 tab） -->
+<div class="modal-mask" id="modalInvite" onclick="if(event.target===this)closeModal()">
+  <div class="modal wide">
+    <div class="modal-header">
+      <span id="modalInviteTitle">群邀请提及—好友明细</span>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-meta" id="modalInviteMeta"></div>
+    <div class="detail-tabs">
+      <button class="detail-tab active" data-pane="uninvited" onclick="setDetailPane('uninvited')">
+        未邀好友<span class="tab-count" id="cntUn">(0)</span>
+      </button>
+      <button class="detail-tab" data-pane="invited" onclick="setDetailPane('invited')">
+        已邀好友<span class="tab-count" id="cntIn">(0)</span>
+      </button>
+    </div>
+    <div class="modal-list-wrap">
+      <div class="detail-pane active" id="paneUn">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:42px;">#</th>
+              <th style="width:240px;">好友</th>
+              <th style="width:160px;">加好友时间</th>
+              <th>最近沟通</th>
+            </tr>
+          </thead>
+          <tbody id="bodyUn"></tbody>
+        </table>
+      </div>
+      <div class="detail-pane" id="paneIn">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:42px;">#</th>
+              <th style="width:200px;">好友</th>
+              <th style="width:130px;">加好友时间</th>
+              <th style="width:200px;">已邀群</th>
+              <th>邀请时使用话术</th>
+              <th style="width:120px;">邀请时间</th>
+            </tr>
+          </thead>
+          <tbody id="bodyIn"></tbody>
+        </table>
+      </div>
+    </div>
+    <!-- modal 内分页器（随 active tab 切换数据源） -->
+    <div class="modal-pager" id="modalPager">
+      <span class="pager-info" id="modalPagerInfo">共 0 条</span>
+      <select class="pager-size" id="modalPageSize">
+        <option value="20">20条/页</option>
+        <option value="50">50条/页</option>
+        <option value="100">100条/页</option>
+      </select>
+      <div class="pager-btns" id="modalPagerBtns"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+ *  销售账号 mock（与 stats_script 共用一份口径，独立维护）
+ * ============================================================ */
+const ACCOUNTS = [
+  // 抖音IP（6）
+  { id:'a01', name:'杜佳',         alias:'艺星专家助理-佳宝',           dept:'抖音IP',   talked:158 },
+  { id:'a02', name:'杨瑶 yiyi',    alias:'成都艺星专家助理 yiyi',       dept:'抖音IP',   talked:142 },
+  { id:'a03', name:'罗玲 金金',    alias:'成都艺星专家助理-金金',        dept:'抖音IP',   talked:128 },
+  { id:'a04', name:'周恬 Lucy💕', alias:'成都艺星专家助理 Lucy💕',     dept:'抖音IP',   talked:108 },
+  { id:'a05', name:'唐可欣',       alias:'YeStar 成都艺星专家助理-源源', dept:'抖音IP',   talked:92  },
+  { id:'a06', name:'曹冰清',       alias:'艺星院长专家助理只只',         dept:'抖音IP',   talked:78  },
+  // 小红书（6）
+  { id:'b01', name:'成都艺星专家助理鑫鑫', alias:'成都艺星专家助理鑫鑫', dept:'小红书',   talked:96 },
+  { id:'b02', name:'艺星专家助理 Scarlett', alias:'艺星专家助理 Scarlett', dept:'小红书', talked:84 },
+  { id:'b03', name:'艺星专家助理妍妍',     alias:'艺星专家助理妍妍',     dept:'小红书',   talked:72 },
+  { id:'b04', name:'艺星专家助理 Mia',     alias:'艺星专家助理 Mia',     dept:'小红书',   talked:64 },
+  { id:'b05', name:'张经晶',               alias:'A 成都艺星专家助理-张张', dept:'小红书', talked:54 },
+  { id:'b06', name:'艺星专家助理 ViVi',    alias:'艺星专家助理 ViVi',    dept:'小红书',   talked:46 },
+  // 电商（6）
+  { id:'c01', name:'聂敏',     alias:'成都艺星整形高级专家助理喵喵', dept:'电商',     talked:138 },
+  { id:'c02', name:'黄诗琴',   alias:'成都艺星 Yestar 柏林',         dept:'电商',     talked:118 },
+  { id:'c03', name:'何晓秀',   alias:'Yestar 鲜鲜',                  dept:'电商',     talked:102 },
+  { id:'c04', name:'牛海兰01', alias:'成都艺星专家助理尤米',         dept:'电商',     talked:88  },
+  { id:'c05', name:'王雅莉',   alias:'Yestar 艺星-羊羊',             dept:'电商',     talked:74  },
+  { id:'c06', name:'张欣',     alias:'金金_Yestar 成都艺星',         dept:'电商',     talked:62  },
+  // 代运营（5）
+  { id:'d01', name:'王清清',   alias:'成都艺星整形助理清清',         dept:'代运营',   talked:74  },
+  { id:'d02', name:'董宗梅01', alias:'成都艺星助理苗苗',             dept:'代运营',   talked:62  },
+  { id:'d03', name:'王珊',     alias:'A_Yestar 成都艺星玥玥',        dept:'代运营',   talked:50  },
+  { id:'d04', name:'颜婷01',   alias:'成都艺星整形专家助理-小艺',     dept:'代运营',   talked:42  },
+  { id:'d05', name:'何紫霞',   alias:'成都艺星整形专家助理西西',     dept:'代运营',   talked:34  },
+  // 自媒体（8）
+  { id:'e01', name:'自媒体杨博文033', alias:'A 成都艺星杨博文 💥 主号 👈 找我', dept:'自媒体', talked:194 },
+  { id:'e02', name:'自媒体林一023',   alias:'成都艺星林一 🏆（咨询主号）',     dept:'自媒体', talked:172 },
+  { id:'e03', name:'自媒体杨博文061', alias:'A 会看脸的杨博文(主号)',         dept:'自媒体', talked:148 },
+  { id:'e04', name:'自媒体林一035',   alias:'A 林一 | 美学设计 | 艺星医美',     dept:'自媒体', talked:130 },
+  { id:'e05', name:'自媒体晓晓148',   alias:'A 成都艺星晓晓 💃🏻～预约福利',    dept:'自媒体', talked:108 },
+  { id:'e06', name:'自媒体杨博文041', alias:'A 成都艺星杨博文(主号)',         dept:'自媒体', talked:94  },
+  { id:'e07', name:'自媒体林一113',   alias:'成都艺星林一 👤',                  dept:'自媒体', talked:76  },
+  { id:'e08', name:'自媒体杨博文028', alias:'A 会看脸的杨博文 | 成都艺星医美', dept:'自媒体', talked:66  },
+];
+
+/* ============================================================
+ *  3 个邀请群定义（每群对应话术库内多条变体——后端按"分类"聚合命中）
+ * ============================================================ */
+const INVITE_GROUPS = {
+  weizheng: { id:'weizheng', name:'微整填充群', short:'微整',     desc:'¥1分钱购千元福利大礼包' },
+  yanbu:    { id:'yanbu',    name:'眼部群',     short:'眼部',     desc:'真实美眼案例+恢复全程跟踪' },
+  fanyuan:  { id:'fanyuan',  name:'范院群',     short:'范院',     desc:'范院长粉丝专属案例群' },
+};
+const INVITE_SCRIPTS = {
+  weizheng: [
+    '宝子~ 咱们的专属福利种草群还没进哦！群里有免费抽奖，唇釉、精华还有项目这些都能免费领，好多姐妹已经在蹲福利啦，要不要拉你进群呀？',
+    '宝子！进一下福利种草群哟~ 【群内无广告、纯专业交流】扫码进群都能享受哈，群内还有【千元福利大礼包】',
+    '微整社群专属千元福利大礼包（联系小竹登记使用）— 1 分钱购千元福利',
+  ],
+  yanbu: [
+    '亲亲，我们有个眼部群，里面全是做过或者想做眼睛的人。大家每天发自己的恢复过程，肿的时候、自然了以后都有。',
+    '宝子，我们有个眼部群，每天发真人案例和恢复过程。您进来看看效果自不自然，觉得靠谱再考虑。',
+    '亲爱的，我们专为想做美眼的姐妹建了个美眼案例群！群里能交流美眼美学、手术攻略，帮你避开各种坑。',
+  ],
+  fanyuan: [
+    '亲爱的，范范院长粉丝案例群限时开放中，进群可享 6 重专属权益，超多惊喜🎉 我和院长在群里等你。',
+    '宝，近期不少注射变美后姐妹正在群内真实分享，从手术过程到恢复细节全程透明。',
+    '亲爱的，我们专为想做范范院长粉丝建了个变美案例群！还有社群专属的 ¥500 项目减免券。',
+    '亲，您领取我们院长案例群专享礼包了吗？现在进群还能享受市区还能免费接车，还可免费领爆款医美项目。',
+  ],
+};
+// 部门偏好：base = 任一群命中率上限，p_x = 单群命中率系数
+const DEPT_INVITE_PREF = {
+  '抖音IP':  { base:0.74, weizheng:0.62, yanbu:0.40, fanyuan:0.18 },
+  '小红书':  { base:0.82, weizheng:0.50, yanbu:0.66, fanyuan:0.22 },
+  '电商':    { base:0.68, weizheng:0.46, yanbu:0.30, fanyuan:0.42 },
+  '代运营':  { base:0.86, weizheng:0.34, yanbu:0.28, fanyuan:0.78 },
+  '自媒体':  { base:0.46, weizheng:0.36, yanbu:0.18, fanyuan:0.10 },
+};
+
+// FNV-1a hash → 0..1，mock 稳定且分布均匀
+function h(s){
+  let x = 2166136261;
+  for (let i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 16777619); }
+  return ((x >>> 0) % 100000) / 100000;
+}
+
+// 每账号 newAdded ≈ talked * (0.30~0.55)；按部门 base+jitter 计算"任一群"提及数
+const INVITE_STATS = {};
+ACCOUNTS.forEach(a => {
+  const pref = DEPT_INVITE_PREF[a.dept];
+  const ratio = 0.30 + h('na'+a.id)*0.25;
+  const newAdded = Math.max(8, Math.round(a.talked * ratio));
+  const jitter = 0.85 + h('jt'+a.id)*0.30;
+  const anyHit = Math.min(0.96, pref.base * jitter);
+  const anyMentioned = Math.round(newAdded * anyHit);
+  const wzHit = Math.min(0.95, pref.weizheng * jitter);
+  const ybHit = Math.min(0.95, pref.yanbu    * jitter);
+  const fyHit = Math.min(0.95, pref.fanyuan  * jitter);
+  INVITE_STATS[a.id] = {
+    newAdded,
+    mentioned: anyMentioned,
+    perGroup: {
+      weizheng: Math.round(newAdded * wzHit),
+      yanbu:    Math.round(newAdded * ybHit),
+      fanyuan:  Math.round(newAdded * fyHit),
+    },
+  };
+});
+
+// 按需生成"逐个新好友"的明细
+const FRIEND_DETAILS_CACHE = {};
+const FRIEND_FIRST_NAMES = ['林','陈','王','李','张','刘','黄','周','吴','徐','孙','马','朱','胡','郭','何','高','罗','宋','谢','唐','韩','曹','许','邓','萧','冯','曾','程','蔡'];
+const FRIEND_LAST_NAMES  = ['雨涵','梓萱','欣怡','可馨','若汐','沐辰','一诺','语桐','苡彤','婧妍','梓琪','思颖','曼娜','晨曦','嘉宁','念安','念慈','千千','茗茗','静怡','若萱','妙可','念念','雅琪','倩倩','晓婷','韵涵','丹妮','姗姗','歆媛'];
+function pickFriendName(seed){
+  const a = FRIEND_FIRST_NAMES[(h('fn'+seed)*FRIEND_FIRST_NAMES.length)|0];
+  const b = FRIEND_LAST_NAMES [(h('ln'+seed)*FRIEND_LAST_NAMES.length)|0];
+  return a+b;
+}
+function pickRemark(seed, hasInvited){
+  const choices = hasInvited
+    ? ['热玛吉意向','双眼皮意向','水光针','咨询过价格','已面诊待定','预约面诊','双眼皮+开眼角','嗨体熊猫针','复购客户']
+    : ['仅扫码未沟通','加好友未回复','加好友 1 条试探','回复"了解一下"','只问价格未跟进','已读未回'];
+  return choices[(h('rk'+seed)*choices.length)|0];
+}
+function buildFriendList(accId){
+  if (FRIEND_DETAILS_CACHE[accId]) return FRIEND_DETAILS_CACHE[accId];
+  const stat = INVITE_STATS[accId];
+  const groupKeys = ['weizheng','yanbu','fanyuan'];
+  const targets = {
+    weizheng: stat.perGroup.weizheng,
+    yanbu:    stat.perGroup.yanbu,
+    fanyuan:  stat.perGroup.fanyuan,
+  };
+  const list = [];
+  for (let i = 0; i < stat.newAdded; i++) {
+    const seed = accId + '#' + i;
+    list.push({
+      id: seed,
+      name: pickFriendName(seed),
+      addedAt: mockAddedAt(seed),
+      invitedTo: [],
+      lastTalked: mockLastTalked(seed),
+      inviteScript: '',
+      inviteAt: '',
+    });
+  }
+  const sortedByHash = list.slice().sort((x,y) => h(x.id) - h(y.id));
+  const mentionedSet = new Set(sortedByHash.slice(0, stat.mentioned).map(f => f.id));
+  groupKeys.forEach(gid => {
+    const tgt = targets[gid];
+    if (tgt <= 0) return;
+    const sortedForG = sortedByHash
+      .filter(f => mentionedSet.has(f.id))
+      .sort((x,y) => h(gid+x.id) - h(gid+y.id))
+      .slice(0, tgt);
+    sortedForG.forEach(f => f.invitedTo.push(gid));
+  });
+  list.forEach(f => {
+    if (mentionedSet.has(f.id) && f.invitedTo.length === 0) {
+      const candidates = groupKeys.filter(g => targets[g] > 0).sort((x,y) => h(x+f.id) - h(y+f.id));
+      f.invitedTo.push(candidates[0] || 'weizheng');
+    }
+  });
+  list.forEach(f => {
+    if (f.invitedTo.length > 0) {
+      const gid = f.invitedTo[0];
+      const variants = INVITE_SCRIPTS[gid];
+      f.inviteScript = variants[(h('sc'+f.id)*variants.length)|0];
+      f.inviteAt = mockInviteAt(f.addedAt, f.id);
+    }
+  });
+  list.forEach(f => f.remark = pickRemark(f.id, f.invitedTo.length>0));
+  FRIEND_DETAILS_CACHE[accId] = list;
+  return list;
+}
+function mockAddedAt(seed){
+  const days = (h('dd'+seed)*14)|0;
+  const d = new Date(); d.setDate(d.getDate() - days);
+  d.setHours(8 + ((h('hh'+seed)*12)|0), ((h('mm'+seed)*60)|0));
+  return d.toISOString().slice(0,16).replace('T',' ');
+}
+function mockLastTalked(seed){
+  if (h('lt'+seed) < 0.18) return '';
+  const days = (h('lt'+seed)*7)|0;
+  const d = new Date(); d.setDate(d.getDate() - days);
+  d.setHours(9 + ((h('lh'+seed)*12)|0));
+  return d.toISOString().slice(0,16).replace('T',' ');
+}
+function mockInviteAt(addedAt, seed){
+  if (!addedAt) return '';
+  const base = new Date(addedAt.replace(' ','T'));
+  const min = 5 + ((h('iv'+seed)*180)|0);
+  base.setMinutes(base.getMinutes() + min);
+  return base.toISOString().slice(0,16).replace('T',' ');
+}
+
+/* ============================================================
+ *  状态
+ * ============================================================ */
+let DIM = 'account'; // account | dept
+const SELECTED_GROUPS = new Set(['weizheng','yanbu','fanyuan']);
+let CURRENT_DRILL = null;
+
+/* ============================================================
+ *  工具
+ * ============================================================ */
+function fmt(n){ return Number(n).toLocaleString('zh-CN'); }
+function pctStrong(num, den){
+  const p = den > 0 ? num/den : 0;
+  const pct = Math.round(p*100);
+  return `<div class="pct-strong">
+    <div class="ratio-bar"><i style="width:${Math.min(100,pct)}%"></i></div>
+    <span class="pct-num">${pct}%</span>
+    <span class="pct-frac">${fmt(num)}/${fmt(den)}</span>
+  </div>`;
+}
+function pctSoft(num, den){
+  const p = den > 0 ? num/den : 0;
+  const pct = Math.round(p*100);
+  const cls = num === 0 ? 'pct-soft empty' : 'pct-soft';
+  return `<div class="${cls}">
+    <div class="ratio-bar"><i style="width:${Math.min(100,pct)}%"></i></div>
+    <span class="pct-num">${pct}%</span>
+  </div>`;
+}
+function avatarColor(seed){
+  const palette = [
+    ['#ffb38a','#ff7a45'], ['#80b3ff','#4a90e2'], ['#a4d8b7','#52c41a'],
+    ['#f9c84d','#fa8c16'], ['#ce9eff','#8e6cb0'], ['#7ed3fc','#0284c7'],
+    ['#fda4af','#f43f5e'], ['#a7f3d0','#10b981'],
+  ];
+  const i = ((h('av'+seed)*palette.length)|0);
+  return palette[i];
+}
+function gtags(invitedTo){
+  if (!invitedTo || invitedTo.length === 0) return '<span style="color:var(--text-3);font-size:12px;">—</span>';
+  return invitedTo.map(g => {
+    const meta = INVITE_GROUPS[g];
+    return `<span class="gtag ${g}">${meta.short}</span>`;
+  }).join('');
+}
+
+/* ============================================================
+ *  控件交互
+ * ============================================================ */
+function setDim(d){
+  DIM = d;
+  document.querySelectorAll('#segDim button').forEach(b => b.classList.toggle('active', b.dataset.dim === d));
+  document.getElementById('grpKw').style.display = d === 'account' ? '' : 'none';
+  render();
+}
+function toggleChip(gid){
+  if (SELECTED_GROUPS.has(gid) && SELECTED_GROUPS.size === 1) {
+    toast('至少保留一个群');
+    return;
+  }
+  if (SELECTED_GROUPS.has(gid)) SELECTED_GROUPS.delete(gid);
+  else SELECTED_GROUPS.add(gid);
+  document.querySelectorAll('#chipGroup .chip').forEach(c => c.classList.toggle('on', SELECTED_GROUPS.has(c.dataset.gid)));
+  render();
+}
+function setRange(k){
+  const today = new Date();
+  const fmtD = d => d.toISOString().slice(0,10);
+  const fr = document.getElementById('dateFrom');
+  const to = document.getElementById('dateTo');
+  if (k === 'today')          { fr.value = to.value = fmtD(today); }
+  else if (k === 'yesterday') { const d=new Date(today); d.setDate(d.getDate()-1); fr.value = to.value = fmtD(d); }
+  else if (k === 'week')      { const d=new Date(today); d.setDate(d.getDate()-((d.getDay()||7)-1)); fr.value = fmtD(d); to.value = fmtD(today); }
+  else if (k === 'month')     { const d=new Date(today.getFullYear(), today.getMonth(), 1); fr.value = fmtD(d); to.value = fmtD(today); }
+  render();
+}
+
+/* ============================================================
+ *  汇总（OR 任一群命中估算）
+ * ============================================================ */
+function aggInvite(accIds){
+  let newAdded=0, mentionedAny=0, mentionedW=0, mentionedY=0, mentionedF=0;
+  accIds.forEach(id => {
+    const s = INVITE_STATS[id];
+    newAdded     += s.newAdded;
+    const sel = ['weizheng','yanbu','fanyuan'].filter(g => SELECTED_GROUPS.has(g));
+    const sumSel = sel.reduce((sum,g) => sum + s.perGroup[g], 0);
+    const maxSel = Math.max(0, ...sel.map(g => s.perGroup[g]));
+    const fullAny = s.mentioned;
+    const orEst   = Math.min(sumSel, Math.max(maxSel, Math.round(fullAny * (sumSel / Math.max(1, s.perGroup.weizheng + s.perGroup.yanbu + s.perGroup.fanyuan)))));
+    mentionedAny += orEst;
+    mentionedW   += s.perGroup.weizheng;
+    mentionedY   += s.perGroup.yanbu;
+    mentionedF   += s.perGroup.fanyuan;
+  });
+  return { newAdded, mentionedAny, mentionedW, mentionedY, mentionedF };
+}
+
+/* ============================================================
+ *  渲染
+ * ============================================================ */
+function render(){
+  const dept = document.getElementById('fDept').value;
+  const kw   = (document.getElementById('kw').value || '').trim();
+  const thead = document.getElementById('thead');
+  const tbody = document.getElementById('tbody');
+  const showW = SELECTED_GROUPS.has('weizheng');
+  const showY = SELECTED_GROUPS.has('yanbu');
+  const showF = SELECTED_GROUPS.has('fanyuan');
+
+  const colsBase = `
+    <th style="width:50px;">#</th>
+    ${DIM === 'account' ? '<th style="width:160px;">销售账号</th><th style="width:96px;">所属部门</th>' : '<th style="width:200px;">部门</th><th style="width:80px;">账号数</th>'}
+    <th style="width:108px;">新增好友</th>
+    <th style="width:108px;">已邀任一群</th>
+    <th style="width:170px;">提及率（任一）</th>
+    ${showW ? '<th style="width:96px;">微整命中率</th>' : ''}
+    ${showY ? '<th style="width:96px;">眼部命中率</th>' : ''}
+    ${showF ? '<th style="width:96px;">范院命中率</th>' : ''}
+    <th style="width:100px;">未邀好友</th>
+    <th style="width:80px;">操作</th>`;
+  thead.innerHTML = `<tr>${colsBase}</tr>`;
+
+  if (DIM === 'account') {
+    let list = ACCOUNTS.slice();
+    if (dept) list = list.filter(a => a.dept === dept);
+    if (kw)   list = list.filter(a => a.name.includes(kw) || (a.alias||'').includes(kw));
+    list = list.map(a => ({...a, agg: aggInvite([a.id])}))
+               .sort((x,y) => {
+                  const px = x.agg.mentionedAny / Math.max(1,x.agg.newAdded);
+                  const py = y.agg.mentionedAny / Math.max(1,y.agg.newAdded);
+                  if (px !== py) return px - py;
+                  return y.agg.newAdded - x.agg.newAdded;
+               });
+    tbody.innerHTML = list.map((a,i) => {
+      const s = a.agg;
+      const un = s.newAdded - s.mentionedAny;
+      return `<tr>
+        <td class="col-num muted">${i+1}</td>
+        <td><div style="line-height:1.35;"><div>${a.name}</div><div style="color:var(--text-3);font-size:11.5px;">${a.alias||''}</div></div></td>
+        <td><span class="tag">${a.dept}</span></td>
+        <td class="col-num">${fmt(s.newAdded)}</td>
+        <td class="col-num success">${fmt(s.mentionedAny)}</td>
+        <td>${pctStrong(s.mentionedAny, s.newAdded)}</td>
+        ${showW ? `<td>${pctSoft(s.mentionedW, s.newAdded)}</td>` : ''}
+        ${showY ? `<td>${pctSoft(s.mentionedY, s.newAdded)}</td>` : ''}
+        ${showF ? `<td>${pctSoft(s.mentionedF, s.newAdded)}</td>` : ''}
+        <td><span class="uninvited ${un===0?'zero':''}" ${un>0?`onclick="openDetail('account','${a.id}')"`:''}>${fmt(un)} 人</span></td>
+        <td class="col-actions"><button class="row-action" onclick="openDetail('account','${a.id}')">明细</button></td>
+      </tr>`;
+    }).join('') || `<tr><td colspan="20"><div class="empty-state"><div class="empty-icon">📭</div>暂无数据</div></td></tr>`;
+    document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
+  } else {
+    const map = {};
+    ACCOUNTS.forEach(a => {
+      if (!map[a.dept]) map[a.dept] = { dept:a.dept, count:0, ids:[] };
+      map[a.dept].count++;
+      map[a.dept].ids.push(a.id);
+    });
+    let list = Object.values(map);
+    if (dept) list = list.filter(d => d.dept === dept);
+    list = list.map(d => ({...d, agg: aggInvite(d.ids)}))
+               .sort((x,y) => {
+                  const px = x.agg.mentionedAny / Math.max(1,x.agg.newAdded);
+                  const py = y.agg.mentionedAny / Math.max(1,y.agg.newAdded);
+                  if (px !== py) return px - py;
+                  return y.agg.newAdded - x.agg.newAdded;
+               });
+    tbody.innerHTML = list.map((d,i) => {
+      const s = d.agg;
+      const un = s.newAdded - s.mentionedAny;
+      return `<tr>
+        <td class="col-num muted">${i+1}</td>
+        <td><span class="tag">${d.dept}</span></td>
+        <td class="col-num">${d.count}</td>
+        <td class="col-num">${fmt(s.newAdded)}</td>
+        <td class="col-num success">${fmt(s.mentionedAny)}</td>
+        <td>${pctStrong(s.mentionedAny, s.newAdded)}</td>
+        ${showW ? `<td>${pctSoft(s.mentionedW, s.newAdded)}</td>` : ''}
+        ${showY ? `<td>${pctSoft(s.mentionedY, s.newAdded)}</td>` : ''}
+        ${showF ? `<td>${pctSoft(s.mentionedF, s.newAdded)}</td>` : ''}
+        <td><span class="uninvited ${un===0?'zero':''}" ${un>0?`onclick="openDetail('dept','${d.dept}')"`:''}>${fmt(un)} 人</span></td>
+        <td class="col-actions"><button class="row-action" onclick="openDetail('dept','${d.dept}')">明细</button></td>
+      </tr>`;
+    }).join('') || `<tr><td colspan="20"><div class="empty-state"><div class="empty-icon">📭</div>暂无数据</div></td></tr>`;
+    document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
+  }
+}
+
+/* ============================================================
+ *  下钻 modal：未邀 / 已邀 双 tab
+ * ============================================================ */
+function openDetail(kind, key){
+  const range = `${document.getElementById('dateFrom').value || '不限'} ~ ${document.getElementById('dateTo').value || '不限'}`;
+  const sel = Array.from(SELECTED_GROUPS);
+  let title, ids, headerLine;
+  if (kind === 'account') {
+    const acc = ACCOUNTS.find(a => a.id === key);
+    title = `${acc.name} · 群邀请明细`;
+    ids = [acc.id];
+    headerLine = [
+      `销售账号：<b>${acc.name}</b>${acc.alias?`(${acc.alias})`:''}`,
+      `所属部门：<b>${acc.dept}</b>`,
+    ];
+  } else {
+    const accs = ACCOUNTS.filter(a => a.dept === key);
+    title = `${key} · 群邀请明细`;
+    ids = accs.map(a => a.id);
+    headerLine = [
+      `部门：<b>${key}</b>`,
+      `账号数：<b>${accs.length}</b>`,
+    ];
+  }
+  const all = ids.flatMap(id => buildFriendList(id).map(f => ({...f, accountId:id, account: ACCOUNTS.find(a=>a.id===id) })));
+  const invitedList   = all.filter(f => f.invitedTo.some(g => SELECTED_GROUPS.has(g)));
+  const uninvitedList = all.filter(f => !f.invitedTo.some(g => SELECTED_GROUPS.has(g)));
+  uninvitedList.sort((a,b) => (b.addedAt||'').localeCompare(a.addedAt||''));
+  invitedList.sort((a,b) => (b.inviteAt||'').localeCompare(a.inviteAt||''));
+
+  const meta = [
+    ...headerLine,
+    `时间范围：<b>${range}</b>`,
+    `选中群：<b>${sel.map(g => INVITE_GROUPS[g].short).join(' / ')}</b>`,
+    `新增好友：<b>${fmt(all.length)}</b>`,
+    `已邀：<b style="color:var(--wx-green)">${fmt(invitedList.length)}</b>`,
+    `未邀：<b style="color:#fa5151">${fmt(uninvitedList.length)}</b>`,
+    `提及率：<b>${(invitedList.length / Math.max(1,all.length) * 100).toFixed(1)}%</b>`,
+  ];
+  document.getElementById('modalInviteTitle').textContent = title;
+  document.getElementById('modalInviteMeta').innerHTML = meta.map(s => `<span>${s}</span>`).join('');
+  document.getElementById('cntUn').textContent = `(${uninvitedList.length})`;
+  document.getElementById('cntIn').textContent = `(${invitedList.length})`;
+
+  CURRENT_DRILL = { kind, key, uninvitedList, invitedList, pageUn:1, pageIn:1, pageSize:20, activePane:'uninvited' };
+  document.getElementById('modalPageSize').value = '20';
+  setDetailPane('uninvited');
+  document.getElementById('modalInvite').classList.add('show');
+}
+
+function renderUninvitedRows(){
+  if (!CURRENT_DRILL) return;
+  const { uninvitedList:list, pageUn:page, pageSize, kind } = CURRENT_DRILL;
+  const start = (page - 1) * pageSize;
+  const slice = list.slice(start, start + pageSize);
+  const body = document.getElementById('bodyUn');
+  body.innerHTML = list.length
+    ? slice.map((f,i) => {
+        const [c1,c2] = avatarColor(f.id);
+        const accNote = (kind === 'dept') ? `<div class="friend-sub">${f.account.name}</div>` : '';
+        return `<tr>
+          <td class="col-num muted">${start + i + 1}</td>
+          <td>
+            <div class="friend-cell">
+              <div class="av-mini" style="--c1:${c1};--c2:${c2}">${f.name.slice(0,1)}</div>
+              <div>
+                <div class="friend-name">${f.name}</div>
+                ${accNote}
+              </div>
+            </div>
+          </td>
+          <td class="col-time">${f.addedAt}</td>
+          <td class="col-time ${f.lastTalked?'':'empty'}">${f.lastTalked || '尚未沟通'}</td>
+        </tr>`;
+      }).join('')
+    : `<tr><td colspan="4"><div class="empty-state"><div class="empty-icon">🎉</div>所有新好友都被邀请到选中的群了</div></td></tr>`;
+}
+
+function renderInvitedRows(){
+  if (!CURRENT_DRILL) return;
+  const { invitedList:list, pageIn:page, pageSize, kind } = CURRENT_DRILL;
+  const start = (page - 1) * pageSize;
+  const slice = list.slice(start, start + pageSize);
+  const body = document.getElementById('bodyIn');
+  body.innerHTML = list.length
+    ? slice.map((f,i) => {
+        const [c1,c2] = avatarColor(f.id);
+        const accNote = (kind === 'dept') ? `<div class="friend-sub">${f.account.name}</div>` : '';
+        return `<tr>
+          <td class="col-num muted">${start + i + 1}</td>
+          <td>
+            <div class="friend-cell">
+              <div class="av-mini" style="--c1:${c1};--c2:${c2}">${f.name.slice(0,1)}</div>
+              <div>
+                <div class="friend-name">${f.name}</div>
+                ${accNote}
+              </div>
+            </div>
+          </td>
+          <td class="col-time">${f.addedAt}</td>
+          <td>${gtags(f.invitedTo)}</td>
+          <td><div class="script-text" style="max-width:none;">${f.inviteScript}</div></td>
+          <td class="col-time">${f.inviteAt}</td>
+        </tr>`;
+      }).join('')
+    : `<tr><td colspan="6"><div class="empty-state"><div class="empty-icon">📭</div>暂无已邀好友</div></td></tr>`;
+}
+
+function renderModalPager(){
+  if (!CURRENT_DRILL) return;
+  const { activePane, uninvitedList, invitedList, pageUn, pageIn, pageSize } = CURRENT_DRILL;
+  const list = activePane === 'uninvited' ? uninvitedList : invitedList;
+  const page = activePane === 'uninvited' ? pageUn : pageIn;
+  const total = list.length;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  document.getElementById('modalPagerInfo').textContent = `共 ${total} 条`;
+  const btns = [];
+  btns.push(`<button class="pager-btn" ${page===1?'disabled':''} onclick="goModalPage(${page-1})">‹</button>`);
+  const pages = new Set();
+  pages.add(1); pages.add(totalPages);
+  for (let p = page-2; p <= page+2; p++) if (p>=1 && p<=totalPages) pages.add(p);
+  const sorted = Array.from(pages).sort((a,b)=>a-b);
+  let last = 0;
+  sorted.forEach(p => {
+    if (p - last > 1) btns.push(`<span class="pager-ellipsis">…</span>`);
+    btns.push(`<button class="pager-btn ${p===page?'cur':''}" onclick="goModalPage(${p})">${p}</button>`);
+    last = p;
+  });
+  btns.push(`<button class="pager-btn" ${page===totalPages?'disabled':''} onclick="goModalPage(${page+1})">›</button>`);
+  document.getElementById('modalPagerBtns').innerHTML = btns.join('');
+}
+
+function goModalPage(p){
+  if (!CURRENT_DRILL) return;
+  const { activePane, uninvitedList, invitedList, pageSize } = CURRENT_DRILL;
+  const list = activePane === 'uninvited' ? uninvitedList : invitedList;
+  const totalPages = Math.max(1, Math.ceil(list.length / pageSize));
+  const np = Math.max(1, Math.min(totalPages, p));
+  if (activePane === 'uninvited') CURRENT_DRILL.pageUn = np;
+  else CURRENT_DRILL.pageIn = np;
+  if (activePane === 'uninvited') renderUninvitedRows(); else renderInvitedRows();
+  renderModalPager();
+}
+
+document.getElementById('modalPageSize').addEventListener('change', (e) => {
+  if (!CURRENT_DRILL) return;
+  CURRENT_DRILL.pageSize = parseInt(e.target.value, 10);
+  CURRENT_DRILL.pageUn = 1; CURRENT_DRILL.pageIn = 1;
+  renderUninvitedRows(); renderInvitedRows();
+  renderModalPager();
+});
+
+function setDetailPane(name){
+  document.querySelectorAll('.detail-tab').forEach(b => b.classList.toggle('active', b.dataset.pane === name));
+  document.getElementById('paneUn').classList.toggle('active', name === 'uninvited');
+  document.getElementById('paneIn').classList.toggle('active', name === 'invited');
+  if (CURRENT_DRILL) CURRENT_DRILL.activePane = name;
+  renderUninvitedRows();
+  renderInvitedRows();
+  renderModalPager();
+}
+function closeModal(){ document.getElementById('modalInvite').classList.remove('show'); }
+
+/* ============================================================
+ *  其他
+ * ============================================================ */
+function onReset(){
+  document.getElementById('dateFrom').value = '';
+  document.getElementById('dateTo').value = '';
+  document.getElementById('fDept').value = '';
+  document.getElementById('kw').value = '';
+  SELECTED_GROUPS.clear();
+  ['weizheng','yanbu','fanyuan'].forEach(g => SELECTED_GROUPS.add(g));
+  document.querySelectorAll('#chipGroup .chip').forEach(c => c.classList.add('on'));
+  setDim('account');
+}
+let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+
+/* 默认本月 */
+setRange('month');
+</script>
+</body></html>
