@@ -126,6 +126,26 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 - 必填字段 label 前 `*` 红色
 - 字段类型：text / number / select / textarea / switch / radio / tags / image / rich-text
 
+### 只读明细弹窗（房总 2026-05-07 拍）
+- **不带 footer**，关闭走右上 ✕ 或点遮罩；footer 上单独"关闭"按钮属冗余
+- 适用：纯展示型（话术统计明细、群邀请提及率明细等）
+- 不适用：表单提交型（保留取消+确认 footer）
+- 若需内嵌分页器，分页器条直接接在 body 后作为 modal 的视觉收尾
+
+### 多选筛选 chip（.chip）· 统计页通用
+- 容器：`height:30px; padding:0 12px; border-radius:15px`（圆角胶囊）
+- 默认态：白底灰边灰字，hover 变绿边
+- 激活态：浅绿背景 `#e8f6ee` + 微信绿边 + 微信绿字 + 加粗 + 前置 ✓
+- 至少保留 1 个激活；点击最后一个会被 toast 拦截
+- 首例：群邀请提及率 `stats_invite_v1.0.html`（3 个目标群多选）
+
+### Modal 内分页器（.modal-pager）
+- 与主页面分页器统一：`共 N 条 | [20/50/100] 条/页 | ‹ 1 2 3 ›`
+- 上边框 `1px solid var(--border)` 与表格区分隔
+- 双 tab 模式下，每个 tab 各自记忆当前页码（切 tab 不重置）
+- 页码按钮采用 1+5+1 模式（首页 + 当前 ±2 + 末页 + 省略号）
+- 首例：群邀请提及率明细 modal
+
 ### 维度切换段（.seg） · 统计页通用
 - 容器：`border:1px solid #e5e8ec; border-radius:3px; height:30px; overflow:hidden`
 - 内按钮间用 1px 分隔线区隔，激活态填充 **微信绿** 文字白色
