@@ -144,7 +144,23 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 - 上边框 `1px solid var(--border)` 与表格区分隔
 - 双 tab 模式下，每个 tab 各自记忆当前页码（切 tab 不重置）
 - 页码按钮采用 1+5+1 模式（首页 + 当前 ±2 + 末页 + 省略号）
-- 首例：群邀请提及率明细 modal
+- **避坑**：项目共享的 `.pager` 基类是 `position:fixed; bottom:0`，modal 里要在 `.modal-pager` 显式覆盖回 `position:static`，否则会跑到视窗底部
+- **弹窗布局**：`.modal` 改 `display:flex; flex-direction:column; max-height:88vh`，列表 wrap `flex:1 1 auto; min-height:0` 可伸缩，pager `flex:0 0 auto` 锁底
+- 仅页码翻页，**不放跳页输入**（外层表格分页器同此约定，1-N 页都直接点）
+- 首例：群邀请提及率明细 modal、话术统计明细 modal
+
+### 类目路径展示（.cat-path） · 统计明细通用
+- 形式：`二级：三级：四级`，全角冒号 `：` 作为分隔符（避免和大类名内部的 `/` 混淆）
+- 颜色层次：`l2` 主色 + 加粗、`l3` 次色、`l4` 辅助色；`：` 分隔符用辅助色
+- 缺级时省略对应段（无 `l3` 时只展示 `l2`，无 `l4` 时只展示 `l2：l3`）
+- 不展示一级（`l1` = 公共/私有/收藏/常用，是话术库 tab）；不展示具体内容（`l5` = 单条消息）
+- 首例：话术统计 `stats_script_v1.0.html`
+
+### 口径说明气泡（.scope-pop）· 浮窗避坑
+- 父容器 `.filter-bar` 是 `position:fixed; overflow-x:auto`，内部用 `position:absolute` 的浮窗会被裁掉
+- 解法：浮窗用 `position:fixed; right:16px; top:56px`（top 取 filter-bar 高度），脱离父级
+- `z-index` 至少 200，避免被表格内容覆盖
+- 首例：话术统计 `stats_script_v1.0.html`
 
 ### 维度切换段（.seg） · 统计页通用
 - 容器：`border:1px solid #e5e8ec; border-radius:3px; height:30px; overflow:hidden`
