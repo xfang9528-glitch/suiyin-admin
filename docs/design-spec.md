@@ -64,6 +64,7 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 - 底部分页器 + 批量操作栏
 - **分页器定位**：`position:sticky; bottom:0`，白底，始终固定在内容区底部右侧
 - **横向滚动**：外层 `.table-wrap` 设 `overflow-x:auto`，表格设 `min-width`（好友列表 `1200px`、销售管理 `960px`），列不压缩不换行
+- **列对齐**：数值列、比率列、操作列的表头与单元格统一**居中**（`.col-c { text-align:center }`，含 `.ratio-cell / .pct-strong / .pct-soft` 配合 `justify-content:center`）；文本列（账号/部门/标签）保持左对齐。stats_invite / stats_script 已落地
 
 ---
 

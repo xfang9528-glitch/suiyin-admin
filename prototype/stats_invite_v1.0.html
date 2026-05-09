@@ -577,7 +577,7 @@ function render(){
     ${showY ? '<th class="col-c" style="width:108px;">眼部提及率</th>' : ''}
     ${showF ? '<th class="col-c" style="width:108px;">范院提及率</th>' : ''}
     <th style="width:100px;">未邀好友</th>
-    <th style="width:80px;">操作</th>`;
+    <th class="col-c" style="width:80px;">操作</th>`;
   thead.innerHTML = `<tr>${colsBase}</tr>`;
 
   if (DIM === 'account') {
@@ -605,7 +605,7 @@ function render(){
         ${showY ? `<td class="col-c">${pctSoft(s.mentionedY, s.newAdded)}</td>` : ''}
         ${showF ? `<td class="col-c">${pctSoft(s.mentionedF, s.newAdded)}</td>` : ''}
         <td><span class="uninvited ${un===0?'zero':''}" ${un>0?`onclick="openDetail('account','${a.id}')"`:''}>${fmt(un)}</span></td>
-        <td class="col-actions"><button class="row-action" onclick="openDetail('account','${a.id}')">明细</button></td>
+        <td class="col-actions col-c"><button class="row-action" onclick="openDetail('account','${a.id}')">明细</button></td>
       </tr>`;
     }).join('') || `<tr><td colspan="20"><div class="empty-state"><div class="empty-icon">📭</div>暂无数据</div></td></tr>`;
     document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
@@ -639,7 +639,7 @@ function render(){
         ${showY ? `<td class="col-c">${pctSoft(s.mentionedY, s.newAdded)}</td>` : ''}
         ${showF ? `<td class="col-c">${pctSoft(s.mentionedF, s.newAdded)}</td>` : ''}
         <td><span class="uninvited ${un===0?'zero':''}" ${un>0?`onclick="openDetail('dept','${d.dept}')"`:''}>${fmt(un)}</span></td>
-        <td class="col-actions"><button class="row-action" onclick="openDetail('dept','${d.dept}')">明细</button></td>
+        <td class="col-actions col-c"><button class="row-action" onclick="openDetail('dept','${d.dept}')">明细</button></td>
       </tr>`;
     }).join('') || `<tr><td colspan="20"><div class="empty-state"><div class="empty-icon">📭</div>暂无数据</div></td></tr>`;
     document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;

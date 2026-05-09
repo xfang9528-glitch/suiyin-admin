@@ -23,6 +23,9 @@
   .ratio-bar { flex:1; height:6px; background:#f0f2f5; border-radius:3px; overflow:hidden; max-width:90px; }
   .ratio-bar i { display:block; height:100%; background:var(--wx-green); border-radius:3px; }
   .ratio-num { font-variant-numeric:tabular-nums; font-size:12.5px; color:var(--text-2); white-space:nowrap; }
+  /* 居中列：表头与单元格内容同步居中 */
+  .col-c { text-align: center; }
+  .col-c .ratio-cell { justify-content: center; }
   /* modal 内列表 */
   .modal-meta { padding:0 20px 8px; color:var(--text-3); font-size:12.5px; display:flex; gap:14px; flex-wrap:wrap; }
   .modal-meta b { color:var(--text-1); font-weight:500; }
@@ -466,10 +469,10 @@ function render() {
       <th style="width:50px;">#</th>
       <th style="width:160px;">销售账号</th>
       <th style="width:120px;">所属部门</th>
-      <th style="width:140px;">话术使用量</th>
-      <th style="width:120px;">沟通好友数</th>
-      <th style="width:180px;">使用率</th>
-      <th style="width:80px;">操作</th>
+      <th class="col-c" style="width:140px;">话术使用量</th>
+      <th class="col-c" style="width:120px;">沟通好友数</th>
+      <th class="col-c" style="width:180px;">使用率</th>
+      <th class="col-c" style="width:80px;">操作</th>
     </tr>`;
     let list = ACCOUNTS.slice();
     if (dept) list = list.filter(a => a.dept === dept);
@@ -482,10 +485,10 @@ function render() {
       <th style="width:50px;">#</th>
       <th style="width:200px;">部门</th>
       <th style="width:90px;">账号数</th>
-      <th style="width:140px;">话术使用量</th>
-      <th style="width:120px;">沟通好友数</th>
-      <th style="width:180px;">使用率</th>
-      <th style="width:80px;">操作</th>
+      <th class="col-c" style="width:140px;">话术使用量</th>
+      <th class="col-c" style="width:120px;">沟通好友数</th>
+      <th class="col-c" style="width:180px;">使用率</th>
+      <th class="col-c" style="width:80px;">操作</th>
     </tr>`;
     const map = {};
     ACCOUNTS.forEach(a => {
@@ -526,10 +529,10 @@ function renderTablePage() {
           </div>
         </td>
         <td><span class="tag">${a.dept}</span></td>
-        <td class="col-num success">${fmt(a.used)}</td>
-        <td class="col-num">${fmt(a.talked)}</td>
-        <td>${ratioCell(a.used, a.talked)}</td>
-        <td class="col-actions"><button class="row-action" onclick="openDetail('account','${a.id}')">明细</button></td>
+        <td class="col-num col-c success">${fmt(a.used)}</td>
+        <td class="col-num col-c">${fmt(a.talked)}</td>
+        <td class="col-c">${ratioCell(a.used, a.talked)}</td>
+        <td class="col-actions col-c"><button class="row-action" onclick="openDetail('account','${a.id}')">明细</button></td>
       </tr>`).join('');
   } else {
     tbody.innerHTML = pageRows.map((d,i) => `
@@ -537,10 +540,10 @@ function renderTablePage() {
         <td class="col-num muted">${start + i + 1}</td>
         <td><span class="tag">${d.dept}</span></td>
         <td class="col-num">${d.count}</td>
-        <td class="col-num success">${fmt(d.used)}</td>
-        <td class="col-num">${fmt(d.talked)}</td>
-        <td>${ratioCell(d.used, d.talked)}</td>
-        <td class="col-actions"><button class="row-action" onclick="openDetail('dept','${d.dept}')">明细</button></td>
+        <td class="col-num col-c success">${fmt(d.used)}</td>
+        <td class="col-num col-c">${fmt(d.talked)}</td>
+        <td class="col-c">${ratioCell(d.used, d.talked)}</td>
+        <td class="col-actions col-c"><button class="row-action" onclick="openDetail('dept','${d.dept}')">明细</button></td>
       </tr>`).join('');
   }
 
