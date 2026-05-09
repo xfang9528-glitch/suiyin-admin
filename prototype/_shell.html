@@ -511,6 +511,25 @@ function closeTab(id) {
 /* ========= 默认打开首页 ========= */
 openTab({ id: 'sales', title: '销售管理', page: 'sales_v1.0.html', pinned: true });
 
+/* ========= 支持 ?page=<id> 直接定位到指定子页 ========= */
+(function openFromQuery() {
+  const wanted = new URLSearchParams(location.search).get('page');
+  if (!wanted) return;
+  for (const m of MENU) {
+    if (m.id === wanted && m.page) {
+      openTab({ id: m.id, title: m.title, page: m.page });
+      return;
+    }
+    if (m.children) {
+      const c = m.children.find(x => x.id === wanted);
+      if (c) {
+        openTab({ id: c.id, title: c.title, page: c.page || '_placeholder.html', parent: m.id });
+        return;
+      }
+    }
+  }
+})();
+
 /* ========= 用户菜单 ========= */
 function toggleUserMenu(e) {
   e.stopPropagation();
