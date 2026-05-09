@@ -39,18 +39,19 @@
   .ratio-bar i { display:block; height:100%; background:var(--wx-green); border-radius:3px; transition:width .25s; }
 
   /* 提及率—主指标（百分比，强调） */
-  .pct-strong { display:flex; align-items:center; gap:8px; min-width:160px; }
-  .pct-strong .ratio-bar { max-width:80px; }
+  .pct-strong { display:flex; align-items:center; gap:2px; min-width:160px; }
+  .pct-strong .ratio-bar { max-width:80px; margin-right:6px; }
   .pct-strong .ratio-bar i { background:linear-gradient(90deg, #07c160, #2bbf6c); }
-  .pct-strong .pct-num { font-variant-numeric:tabular-nums; font-size:13.5px; color:var(--text-1); font-weight:600; min-width:46px; }
+  .pct-strong .pct-num { font-variant-numeric:tabular-nums; font-size:13.5px; color:var(--text-1); font-weight:600; }
   .pct-strong .pct-frac { font-size:11.5px; color:var(--text-3); white-space:nowrap; }
   /* 单群提及率—中性灰条 */
-  .pct-soft { display:flex; align-items:center; gap:6px; min-width:88px; }
-  .pct-soft .ratio-bar { max-width:50px; height:4px; }
-  .pct-soft .ratio-bar i { background:#a4d8b7; }
-  .pct-soft .pct-num { font-variant-numeric:tabular-nums; font-size:12px; color:var(--text-2); }
-  .pct-soft.empty .pct-num { color:#c0c8d1; }
-  .pct-soft.empty .ratio-bar i { background:#e5e8ec; }
+  .pct-soft { display:flex; align-items:baseline; gap:2px; min-width:90px; }
+  .pct-soft .pct-num { font-variant-numeric:tabular-nums; font-size:13.5px; color:var(--text-1); font-weight:600; }
+  .pct-soft .pct-frac { font-size:11.5px; color:var(--text-3); white-space:nowrap; }
+  .pct-soft.empty .pct-num { color:#c0c8d1; font-weight:500; }
+  /* 居中列：表头与单元格内容同步居中 */
+  .col-c { text-align: center; }
+  .col-c .pct-strong, .col-c .pct-soft { justify-content: center; }
 
   /* 未邀好友数：高亮可点击 */
   .uninvited {
@@ -180,7 +181,7 @@
       <div class="sp-divider"></div>
       <div><b>分母（新增好友数）</b>：窗口内该账号<b>新通过</b>的好友总数，<b>不剔除</b>未沟通好友——艺星要求快速响应，未邀本身就是问题。</div>
       <div class="sp-divider"></div>
-      <div><b>提及率</b> = 提及量 ÷ 新增好友数；选多个群时分子算"<b>邀请进任一群</b>"，单群命中率单列展示。</div>
+      <div><b>提及率</b> = 提及量 ÷ 新增好友数；选多个群时分子算"<b>邀请进任一群</b>"，单群提及率单列展示。</div>
     </div>
   </span>
 </div>
@@ -473,7 +474,7 @@ function pctStrong(num, den){
   return `<div class="pct-strong">
     <div class="ratio-bar"><i style="width:${Math.min(100,pct)}%"></i></div>
     <span class="pct-num">${pct}%</span>
-    <span class="pct-frac">${fmt(num)}/${fmt(den)}</span>
+    <span class="pct-frac">(${fmt(num)}/${fmt(den)})</span>
   </div>`;
 }
 function pctSoft(num, den){
@@ -481,8 +482,8 @@ function pctSoft(num, den){
   const pct = Math.round(p*100);
   const cls = num === 0 ? 'pct-soft empty' : 'pct-soft';
   return `<div class="${cls}">
-    <div class="ratio-bar"><i style="width:${Math.min(100,pct)}%"></i></div>
     <span class="pct-num">${pct}%</span>
+    <span class="pct-frac">(${fmt(num)}/${fmt(den)})</span>
   </div>`;
 }
 function avatarColor(seed){
@@ -569,12 +570,12 @@ function render(){
   const colsBase = `
     <th style="width:50px;">#</th>
     ${DIM === 'account' ? '<th style="width:160px;">销售账号</th><th style="width:96px;">所属部门</th>' : '<th style="width:200px;">部门</th><th style="width:80px;">账号数</th>'}
-    <th style="width:108px;">新增好友</th>
-    <th style="width:108px;">已邀任一群</th>
-    <th style="width:170px;">提及率（任一）</th>
-    ${showW ? '<th style="width:96px;">微整命中率</th>' : ''}
-    ${showY ? '<th style="width:96px;">眼部命中率</th>' : ''}
-    ${showF ? '<th style="width:96px;">范院命中率</th>' : ''}
+    <th class="col-c" style="width:108px;">新增好友</th>
+    <th class="col-c" style="width:108px;">已邀任一群</th>
+    <th class="col-c" style="width:170px;">提及率（任一）</th>
+    ${showW ? '<th class="col-c" style="width:108px;">微整提及率</th>' : ''}
+    ${showY ? '<th class="col-c" style="width:108px;">眼部提及率</th>' : ''}
+    ${showF ? '<th class="col-c" style="width:108px;">范院提及率</th>' : ''}
     <th style="width:100px;">未邀好友</th>
     <th style="width:80px;">操作</th>`;
   thead.innerHTML = `<tr>${colsBase}</tr>`;
@@ -597,13 +598,13 @@ function render(){
         <td class="col-num muted">${i+1}</td>
         <td><div style="line-height:1.35;"><div>${a.name}</div><div style="color:var(--text-3);font-size:11.5px;">${a.alias||''}</div></div></td>
         <td><span class="tag">${a.dept}</span></td>
-        <td class="col-num">${fmt(s.newAdded)}</td>
-        <td class="col-num success">${fmt(s.mentionedAny)}</td>
-        <td>${pctStrong(s.mentionedAny, s.newAdded)}</td>
-        ${showW ? `<td>${pctSoft(s.mentionedW, s.newAdded)}</td>` : ''}
-        ${showY ? `<td>${pctSoft(s.mentionedY, s.newAdded)}</td>` : ''}
-        ${showF ? `<td>${pctSoft(s.mentionedF, s.newAdded)}</td>` : ''}
-        <td><span class="uninvited ${un===0?'zero':''}" ${un>0?`onclick="openDetail('account','${a.id}')"`:''}>${fmt(un)} 人</span></td>
+        <td class="col-num col-c">${fmt(s.newAdded)}</td>
+        <td class="col-num col-c success">${fmt(s.mentionedAny)}</td>
+        <td class="col-c">${pctStrong(s.mentionedAny, s.newAdded)}</td>
+        ${showW ? `<td class="col-c">${pctSoft(s.mentionedW, s.newAdded)}</td>` : ''}
+        ${showY ? `<td class="col-c">${pctSoft(s.mentionedY, s.newAdded)}</td>` : ''}
+        ${showF ? `<td class="col-c">${pctSoft(s.mentionedF, s.newAdded)}</td>` : ''}
+        <td><span class="uninvited ${un===0?'zero':''}" ${un>0?`onclick="openDetail('account','${a.id}')"`:''}>${fmt(un)}</span></td>
         <td class="col-actions"><button class="row-action" onclick="openDetail('account','${a.id}')">明细</button></td>
       </tr>`;
     }).join('') || `<tr><td colspan="20"><div class="empty-state"><div class="empty-icon">📭</div>暂无数据</div></td></tr>`;
@@ -631,13 +632,13 @@ function render(){
         <td class="col-num muted">${i+1}</td>
         <td><span class="tag">${d.dept}</span></td>
         <td class="col-num">${d.count}</td>
-        <td class="col-num">${fmt(s.newAdded)}</td>
-        <td class="col-num success">${fmt(s.mentionedAny)}</td>
-        <td>${pctStrong(s.mentionedAny, s.newAdded)}</td>
-        ${showW ? `<td>${pctSoft(s.mentionedW, s.newAdded)}</td>` : ''}
-        ${showY ? `<td>${pctSoft(s.mentionedY, s.newAdded)}</td>` : ''}
-        ${showF ? `<td>${pctSoft(s.mentionedF, s.newAdded)}</td>` : ''}
-        <td><span class="uninvited ${un===0?'zero':''}" ${un>0?`onclick="openDetail('dept','${d.dept}')"`:''}>${fmt(un)} 人</span></td>
+        <td class="col-num col-c">${fmt(s.newAdded)}</td>
+        <td class="col-num col-c success">${fmt(s.mentionedAny)}</td>
+        <td class="col-c">${pctStrong(s.mentionedAny, s.newAdded)}</td>
+        ${showW ? `<td class="col-c">${pctSoft(s.mentionedW, s.newAdded)}</td>` : ''}
+        ${showY ? `<td class="col-c">${pctSoft(s.mentionedY, s.newAdded)}</td>` : ''}
+        ${showF ? `<td class="col-c">${pctSoft(s.mentionedF, s.newAdded)}</td>` : ''}
+        <td><span class="uninvited ${un===0?'zero':''}" ${un>0?`onclick="openDetail('dept','${d.dept}')"`:''}>${fmt(un)}</span></td>
         <td class="col-actions"><button class="row-action" onclick="openDetail('dept','${d.dept}')">明细</button></td>
       </tr>`;
     }).join('') || `<tr><td colspan="20"><div class="empty-state"><div class="empty-icon">📭</div>暂无数据</div></td></tr>`;
