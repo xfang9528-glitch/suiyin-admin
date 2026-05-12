@@ -153,50 +153,12 @@
 
 <div class="toast" id="toast"></div>
 
+<script src="mock-data.js"></script>
 <script>
-/* ========= mock 数据（参考线上 yestar.wecarepet.com/admin） ========= */
-// 销售账号（含部门归属）。账号名 = 销售真名，alias = 微信端昵称（朋友看到的）。
-// 字段说明：
+/* ========= mock 数据：销售账号引用 mock-data.js 的 SALES_ACCOUNTS（艺星线上 197 真号） ========= */
 //   used   = 话术使用量（同账号-同好友-同话术 去重计 1）
 //   talked = 沟通好友数（发过任何消息的好友数）
-const ACCOUNTS = [
-  // 抖音IP（6）
-  { id:'a01', name:'杜佳',         alias:'艺星专家助理-佳宝',           dept:'抖音IP',   used:312, talked:158 },
-  { id:'a02', name:'杨瑶 yiyi',    alias:'成都艺星专家助理 yiyi',       dept:'抖音IP',   used:286, talked:142 },
-  { id:'a03', name:'罗玲 金金',    alias:'成都艺星专家助理-金金',        dept:'抖音IP',   used:248, talked:128 },
-  { id:'a04', name:'周恬 Lucy💕', alias:'成都艺星专家助理 Lucy💕',     dept:'抖音IP',   used:218, talked:108 },
-  { id:'a05', name:'唐可欣',       alias:'YeStar 成都艺星专家助理-源源', dept:'抖音IP',   used:184, talked:92  },
-  { id:'a06', name:'曹冰清',       alias:'艺星院长专家助理只只',         dept:'抖音IP',   used:156, talked:78  },
-  // 小红书（6）
-  { id:'b01', name:'成都艺星专家助理鑫鑫', alias:'成都艺星专家助理鑫鑫', dept:'小红书',   used:194, talked:96  },
-  { id:'b02', name:'艺星专家助理 Scarlett', alias:'艺星专家助理 Scarlett', dept:'小红书', used:168, talked:84  },
-  { id:'b03', name:'艺星专家助理妍妍',     alias:'艺星专家助理妍妍',     dept:'小红书',   used:142, talked:72  },
-  { id:'b04', name:'艺星专家助理 Mia',     alias:'艺星专家助理 Mia',     dept:'小红书',   used:128, talked:64  },
-  { id:'b05', name:'张经晶',               alias:'A 成都艺星专家助理-张张', dept:'小红书', used:104, talked:54  },
-  { id:'b06', name:'艺星专家助理 ViVi',    alias:'艺星专家助理 ViVi',    dept:'小红书',   used:88,  talked:46  },
-  // 电商（6）
-  { id:'c01', name:'聂敏',     alias:'成都艺星整形高级专家助理喵喵', dept:'电商',     used:268, talked:138 },
-  { id:'c02', name:'黄诗琴',   alias:'成都艺星 Yestar 柏林',         dept:'电商',     used:232, talked:118 },
-  { id:'c03', name:'何晓秀',   alias:'Yestar 鲜鲜',                  dept:'电商',     used:198, talked:102 },
-  { id:'c04', name:'牛海兰01', alias:'成都艺星专家助理尤米',         dept:'电商',     used:172, talked:88  },
-  { id:'c05', name:'王雅莉',   alias:'Yestar 艺星-羊羊',             dept:'电商',     used:148, talked:74  },
-  { id:'c06', name:'张欣',     alias:'金金_Yestar 成都艺星',         dept:'电商',     used:124, talked:62  },
-  // 代运营（5）
-  { id:'d01', name:'王清清',   alias:'成都艺星整形助理清清',         dept:'代运营',   used:142, talked:74  },
-  { id:'d02', name:'董宗梅01', alias:'成都艺星助理苗苗',             dept:'代运营',   used:118, talked:62  },
-  { id:'d03', name:'王珊',     alias:'A_Yestar 成都艺星玥玥',        dept:'代运营',   used:96,  talked:50  },
-  { id:'d04', name:'颜婷01',   alias:'成都艺星整形专家助理-小艺',     dept:'代运营',   used:78,  talked:42  },
-  { id:'d05', name:'何紫霞',   alias:'成都艺星整形专家助理西西',     dept:'代运营',   used:62,  talked:34  },
-  // 自媒体（8，铺号多，量级最大）
-  { id:'e01', name:'自媒体杨博文033', alias:'A 成都艺星杨博文 💥 主号 👈 找我', dept:'自媒体', used:386, talked:194 },
-  { id:'e02', name:'自媒体林一023',   alias:'成都艺星林一 🏆（咨询主号）',     dept:'自媒体', used:344, talked:172 },
-  { id:'e03', name:'自媒体杨博文061', alias:'A 会看脸的杨博文(主号)',         dept:'自媒体', used:296, talked:148 },
-  { id:'e04', name:'自媒体林一035',   alias:'A 林一 | 美学设计 | 艺星医美',     dept:'自媒体', used:262, talked:130 },
-  { id:'e05', name:'自媒体晓晓148',   alias:'A 成都艺星晓晓 💃🏻～预约福利',    dept:'自媒体', used:218, talked:108 },
-  { id:'e06', name:'自媒体杨博文041', alias:'A 成都艺星杨博文(主号)',         dept:'自媒体', used:186, talked:94  },
-  { id:'e07', name:'自媒体林一113',   alias:'成都艺星林一 👤',                  dept:'自媒体', used:152, talked:76  },
-  { id:'e08', name:'自媒体杨博文028', alias:'A 会看脸的杨博文 | 成都艺星医美', dept:'自媒体', used:128, talked:66  },
-];
+const ACCOUNTS = SALES_ACCOUNTS;
 
 // 艺星医美话术库（按真实库结构，参见 yestar-pc-chat/prototype_v1.0.html `scriptData`）
 // 话术库一级 = 公共/私有/收藏/常用（这里不暴露）
@@ -522,12 +484,7 @@ function renderTablePage() {
     tbody.innerHTML = pageRows.map((a,i) => `
       <tr>
         <td class="col-num muted">${start + i + 1}</td>
-        <td>
-          <div style="line-height:1.35;">
-            <div>${a.name}</div>
-            <div style="color:var(--text-3);font-size:11.5px;">${a.alias||''}</div>
-          </div>
-        </td>
+        <td>${a.name}</td>
         <td><span class="tag">${a.dept}</span></td>
         <td class="col-num col-c success">${fmt(a.used)}</td>
         <td class="col-num col-c">${fmt(a.talked)}</td>

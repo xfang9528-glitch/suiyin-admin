@@ -197,8 +197,14 @@
 
 <div class="pager">
   <span class="pager-info" id="pagerInfo">共 0 条</span>
-  <select><option>20条/页</option></select>
-  <button class="pager-btn">‹</button><button class="pager-btn cur">1</button><button class="pager-btn">›</button>
+  <select id="tablePageSize" onchange="onTablePageSize()">
+    <option value="10">10条/页</option>
+    <option value="20" selected>20条/页</option>
+    <option value="50">50条/页</option>
+  </select>
+  <button class="pager-btn" onclick="goTablePage(-1)">‹</button>
+  <span id="pageBtns"></span>
+  <button class="pager-btn" onclick="goTablePage(1)">›</button>
 </div>
 
 <!-- 下钻 modal：群邀请—好友明细（未邀 / 已邀 双 tab） -->
@@ -262,48 +268,12 @@
 
 <div class="toast" id="toast"></div>
 
+<script src="mock-data.js"></script>
 <script>
 /* ============================================================
- *  销售账号 mock（与 stats_script 共用一份口径，独立维护）
+ *  销售账号 mock：引用 mock-data.js 的 SALES_ACCOUNTS（艺星线上 197 真号）
  * ============================================================ */
-const ACCOUNTS = [
-  // 抖音IP（6）
-  { id:'a01', name:'杜佳',         alias:'艺星专家助理-佳宝',           dept:'抖音IP',   talked:158 },
-  { id:'a02', name:'杨瑶 yiyi',    alias:'成都艺星专家助理 yiyi',       dept:'抖音IP',   talked:142 },
-  { id:'a03', name:'罗玲 金金',    alias:'成都艺星专家助理-金金',        dept:'抖音IP',   talked:128 },
-  { id:'a04', name:'周恬 Lucy💕', alias:'成都艺星专家助理 Lucy💕',     dept:'抖音IP',   talked:108 },
-  { id:'a05', name:'唐可欣',       alias:'YeStar 成都艺星专家助理-源源', dept:'抖音IP',   talked:92  },
-  { id:'a06', name:'曹冰清',       alias:'艺星院长专家助理只只',         dept:'抖音IP',   talked:78  },
-  // 小红书（6）
-  { id:'b01', name:'成都艺星专家助理鑫鑫', alias:'成都艺星专家助理鑫鑫', dept:'小红书',   talked:96 },
-  { id:'b02', name:'艺星专家助理 Scarlett', alias:'艺星专家助理 Scarlett', dept:'小红书', talked:84 },
-  { id:'b03', name:'艺星专家助理妍妍',     alias:'艺星专家助理妍妍',     dept:'小红书',   talked:72 },
-  { id:'b04', name:'艺星专家助理 Mia',     alias:'艺星专家助理 Mia',     dept:'小红书',   talked:64 },
-  { id:'b05', name:'张经晶',               alias:'A 成都艺星专家助理-张张', dept:'小红书', talked:54 },
-  { id:'b06', name:'艺星专家助理 ViVi',    alias:'艺星专家助理 ViVi',    dept:'小红书',   talked:46 },
-  // 电商（6）
-  { id:'c01', name:'聂敏',     alias:'成都艺星整形高级专家助理喵喵', dept:'电商',     talked:138 },
-  { id:'c02', name:'黄诗琴',   alias:'成都艺星 Yestar 柏林',         dept:'电商',     talked:118 },
-  { id:'c03', name:'何晓秀',   alias:'Yestar 鲜鲜',                  dept:'电商',     talked:102 },
-  { id:'c04', name:'牛海兰01', alias:'成都艺星专家助理尤米',         dept:'电商',     talked:88  },
-  { id:'c05', name:'王雅莉',   alias:'Yestar 艺星-羊羊',             dept:'电商',     talked:74  },
-  { id:'c06', name:'张欣',     alias:'金金_Yestar 成都艺星',         dept:'电商',     talked:62  },
-  // 代运营（5）
-  { id:'d01', name:'王清清',   alias:'成都艺星整形助理清清',         dept:'代运营',   talked:74  },
-  { id:'d02', name:'董宗梅01', alias:'成都艺星助理苗苗',             dept:'代运营',   talked:62  },
-  { id:'d03', name:'王珊',     alias:'A_Yestar 成都艺星玥玥',        dept:'代运营',   talked:50  },
-  { id:'d04', name:'颜婷01',   alias:'成都艺星整形专家助理-小艺',     dept:'代运营',   talked:42  },
-  { id:'d05', name:'何紫霞',   alias:'成都艺星整形专家助理西西',     dept:'代运营',   talked:34  },
-  // 自媒体（8）
-  { id:'e01', name:'自媒体杨博文033', alias:'A 成都艺星杨博文 💥 主号 👈 找我', dept:'自媒体', talked:194 },
-  { id:'e02', name:'自媒体林一023',   alias:'成都艺星林一 🏆（咨询主号）',     dept:'自媒体', talked:172 },
-  { id:'e03', name:'自媒体杨博文061', alias:'A 会看脸的杨博文(主号)',         dept:'自媒体', talked:148 },
-  { id:'e04', name:'自媒体林一035',   alias:'A 林一 | 美学设计 | 艺星医美',     dept:'自媒体', talked:130 },
-  { id:'e05', name:'自媒体晓晓148',   alias:'A 成都艺星晓晓 💃🏻～预约福利',    dept:'自媒体', talked:108 },
-  { id:'e06', name:'自媒体杨博文041', alias:'A 成都艺星杨博文(主号)',         dept:'自媒体', talked:94  },
-  { id:'e07', name:'自媒体林一113',   alias:'成都艺星林一 👤',                  dept:'自媒体', talked:76  },
-  { id:'e08', name:'自媒体杨博文028', alias:'A 会看脸的杨博文 | 成都艺星医美', dept:'自媒体', talked:66  },
-];
+const ACCOUNTS = SALES_ACCOUNTS;
 
 /* ============================================================
  *  3 个邀请群定义（每群对应话术库内多条变体——后端按"分类"聚合命中）
@@ -556,9 +526,17 @@ function aggInvite(accIds){
 }
 
 /* ============================================================
- *  渲染
+ *  渲染（含分页：每页 20，按筛选 + 当前维度切片）
  * ============================================================ */
+let tablePage = 1;
+let tablePageSize = 20;
+
 function render(){
+  tablePage = 1;
+  renderTablePage();
+}
+
+function renderTablePage(){
   const dept = document.getElementById('fDept').value;
   const kw   = (document.getElementById('kw').value || '').trim();
   const thead = document.getElementById('thead');
@@ -580,23 +558,50 @@ function render(){
     <th class="col-c" style="width:80px;">操作</th>`;
   thead.innerHTML = `<tr>${colsBase}</tr>`;
 
+  let fullList;
   if (DIM === 'account') {
     let list = ACCOUNTS.slice();
     if (dept) list = list.filter(a => a.dept === dept);
     if (kw)   list = list.filter(a => a.name.includes(kw) || (a.alias||'').includes(kw));
-    list = list.map(a => ({...a, agg: aggInvite([a.id])}))
-               .sort((x,y) => {
-                  const px = x.agg.mentionedAny / Math.max(1,x.agg.newAdded);
-                  const py = y.agg.mentionedAny / Math.max(1,y.agg.newAdded);
-                  if (px !== py) return px - py;
-                  return y.agg.newAdded - x.agg.newAdded;
-               });
-    tbody.innerHTML = list.map((a,i) => {
+    fullList = list.map(a => ({...a, agg: aggInvite([a.id])}))
+                   .sort((x,y) => {
+                      const px = x.agg.mentionedAny / Math.max(1,x.agg.newAdded);
+                      const py = y.agg.mentionedAny / Math.max(1,y.agg.newAdded);
+                      if (px !== py) return px - py;
+                      return y.agg.newAdded - x.agg.newAdded;
+                   });
+  } else {
+    const map = {};
+    ACCOUNTS.forEach(a => {
+      if (!map[a.dept]) map[a.dept] = { dept:a.dept, count:0, ids:[] };
+      map[a.dept].count++;
+      map[a.dept].ids.push(a.id);
+    });
+    let list = Object.values(map);
+    if (dept) list = list.filter(d => d.dept === dept);
+    fullList = list.map(d => ({...d, agg: aggInvite(d.ids)}))
+                   .sort((x,y) => {
+                      const px = x.agg.mentionedAny / Math.max(1,x.agg.newAdded);
+                      const py = y.agg.mentionedAny / Math.max(1,y.agg.newAdded);
+                      if (px !== py) return px - py;
+                      return y.agg.newAdded - x.agg.newAdded;
+                   });
+  }
+
+  const total = fullList.length;
+  const totalPages = Math.max(1, Math.ceil(total / tablePageSize));
+  if (tablePage > totalPages) tablePage = totalPages;
+  if (tablePage < 1) tablePage = 1;
+  const start = (tablePage - 1) * tablePageSize;
+  const pageRows = fullList.slice(start, start + tablePageSize);
+
+  if (DIM === 'account') {
+    tbody.innerHTML = pageRows.map((a,i) => {
       const s = a.agg;
       const un = s.newAdded - s.mentionedAny;
       return `<tr>
-        <td class="col-num muted">${i+1}</td>
-        <td><div style="line-height:1.35;"><div>${a.name}</div><div style="color:var(--text-3);font-size:11.5px;">${a.alias||''}</div></div></td>
+        <td class="col-num muted">${start + i + 1}</td>
+        <td>${a.name}</td>
         <td><span class="tag">${a.dept}</span></td>
         <td class="col-num col-c">${fmt(s.newAdded)}</td>
         <td class="col-num col-c success">${fmt(s.mentionedAny)}</td>
@@ -608,28 +613,12 @@ function render(){
         <td class="col-actions col-c"><button class="row-action" onclick="openDetail('account','${a.id}')">明细</button></td>
       </tr>`;
     }).join('') || `<tr><td colspan="20"><div class="empty-state"><div class="empty-icon">📭</div>暂无数据</div></td></tr>`;
-    document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
   } else {
-    const map = {};
-    ACCOUNTS.forEach(a => {
-      if (!map[a.dept]) map[a.dept] = { dept:a.dept, count:0, ids:[] };
-      map[a.dept].count++;
-      map[a.dept].ids.push(a.id);
-    });
-    let list = Object.values(map);
-    if (dept) list = list.filter(d => d.dept === dept);
-    list = list.map(d => ({...d, agg: aggInvite(d.ids)}))
-               .sort((x,y) => {
-                  const px = x.agg.mentionedAny / Math.max(1,x.agg.newAdded);
-                  const py = y.agg.mentionedAny / Math.max(1,y.agg.newAdded);
-                  if (px !== py) return px - py;
-                  return y.agg.newAdded - x.agg.newAdded;
-               });
-    tbody.innerHTML = list.map((d,i) => {
+    tbody.innerHTML = pageRows.map((d,i) => {
       const s = d.agg;
       const un = s.newAdded - s.mentionedAny;
       return `<tr>
-        <td class="col-num muted">${i+1}</td>
+        <td class="col-num muted">${start + i + 1}</td>
         <td><span class="tag">${d.dept}</span></td>
         <td class="col-num">${d.count}</td>
         <td class="col-num col-c">${fmt(s.newAdded)}</td>
@@ -642,8 +631,25 @@ function render(){
         <td class="col-actions col-c"><button class="row-action" onclick="openDetail('dept','${d.dept}')">明细</button></td>
       </tr>`;
     }).join('') || `<tr><td colspan="20"><div class="empty-state"><div class="empty-icon">📭</div>暂无数据</div></td></tr>`;
-    document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
   }
+
+  document.getElementById('pagerInfo').textContent = `共 ${total} 条`;
+  let btns = '';
+  for (let p = 1; p <= totalPages; p++) {
+    btns += `<button class="pager-btn ${p === tablePage ? 'cur' : ''}" onclick="goTablePage(0, ${p})">${p}</button>`;
+  }
+  document.getElementById('pageBtns').innerHTML = btns;
+}
+
+function goTablePage(delta, abs) {
+  if (abs != null) tablePage = abs;
+  else tablePage = tablePage + delta;
+  renderTablePage();
+}
+function onTablePageSize() {
+  tablePageSize = parseInt(document.getElementById('tablePageSize').value, 10) || 20;
+  tablePage = 1;
+  renderTablePage();
 }
 
 /* ============================================================
