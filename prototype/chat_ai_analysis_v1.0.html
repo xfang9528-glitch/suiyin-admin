@@ -6,20 +6,6 @@
 <link rel="stylesheet" href="_admin_list.css">
 <style>
   /* ========= 智能分析占位页 v1.0 ========= */
-  .placeholder-banner {
-    margin: 12px 16px 0;
-    padding: 10px 14px;
-    background: #fff8e6;
-    border: 1px dashed #f0c36d;
-    border-radius: 6px;
-    font-size: 12.5px;
-    color: #8a6d3b;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .placeholder-banner b { color: #6b4f1a; }
-
   .content-wrap {
     position: fixed;
     top: var(--filter-h);
@@ -119,7 +105,7 @@
     margin-right: 12px;
   }
   .demand-row .bar {
-    flex: 0 0 200px; height: 6px;
+    flex: 1 1 auto; min-width: 60px; height: 6px;
     background: #f0f2f5; border-radius: 3px; overflow: hidden;
     margin-right: 12px;
   }
@@ -133,15 +119,12 @@
     color: var(--text-3); font-size: 12px;
   }
 
-  /* 双栏 */
-  .two-col {
+  /* 多列网格 */
+  .three-col {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 18px;
-  }
-  @media (max-width: 1100px) {
-    .two-col { grid-template-columns: 1fr; }
   }
   .panel {
     background: #fff;
@@ -156,10 +139,92 @@
     color: var(--text-1);
     display: flex; align-items: center; justify-content: space-between;
   }
-  .panel-head .more {
-    font-size: 12px; color: #576b95; font-weight: 400; cursor: pointer;
-  }
   .panel-body { padding: 4px 0; }
+
+  /* 固定高度卡片 + 内部滚动 */
+  .scroll-body {
+    height: 440px;
+    overflow-y: auto;
+  }
+
+  /* 每行的「明细 ›」链接 */
+  .row-detail {
+    color: #576b95; font-size: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .row-detail:hover { text-decoration: underline; }
+
+  /* 明细 modal（只读，无 footer，遵循 2026-05-07 约定） */
+  .detail-mask {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 9000;
+    display: none;
+    align-items: center; justify-content: center;
+  }
+  .detail-mask.show { display: flex; }
+  .detail-modal {
+    width: 960px; max-width: 94vw;
+    max-height: 82vh;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .detail-modal .head {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 14px; font-weight: 600; color: var(--text-1);
+  }
+  .detail-modal .head .close {
+    width: 24px; height: 24px;
+    border: none; background: transparent;
+    color: var(--text-3); font-size: 18px;
+    cursor: pointer; line-height: 1;
+  }
+  .detail-modal .head .close:hover { color: var(--text-1); }
+  .detail-modal .body {
+    flex: 1; overflow: auto; padding: 0;
+  }
+
+  /* 客户明细表 */
+  .friend-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .friend-table thead th {
+    position: sticky; top: 0;
+    background: #fafbfc;
+    padding: 10px 12px;
+    font-weight: 500;
+    font-size: 12.5px;
+    color: var(--text-2);
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .friend-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f0f2f5;
+    color: var(--text-1);
+    white-space: nowrap;
+  }
+  .friend-table tbody tr:hover td { background: #f7fcf9; }
+  .friend-table tbody tr:last-child td { border-bottom: none; }
+  .friend-table .col-persona { color: var(--wx-green); font-weight: 500; }
+  .friend-table .col-friend { font-weight: 500; }
+
+  .detail-modal .empty-hint {
+    padding: 40px 18px; text-align: center;
+    color: var(--text-3); font-size: 13px;
+  }
 
   /* 客户等级条 */
   .level-row {
@@ -177,43 +242,14 @@
     color: var(--text-2); margin-right: 12px;
   }
   .level-row .bar {
-    flex: 0 0 160px; height: 6px;
+    flex: 1 1 auto; min-width: 60px; height: 6px;
     background: #f0f2f5; border-radius: 3px; overflow: hidden;
     margin-right: 12px;
   }
   .level-row .bar > i { display: block; height: 100%; border-radius: 3px; }
   .level-row .pct { width: 50px; text-align: right; color: var(--text-3); font-size: 12px; }
 
-  /* 抓取信息表 */
-  .extract-table { width: 100%; }
-  .extract-table th, .extract-table td {
-    padding: 10px 14px;
-    text-align: left;
-    font-size: 13px;
-    border-bottom: 1px solid #f0f2f5;
-  }
-  .extract-table th {
-    background: #fafbfc;
-    color: var(--text-2); font-weight: 500;
-    font-size: 12px;
-  }
-  .extract-table td.num {
-    font-variant-numeric: tabular-nums;
-    text-align: right;
-    color: var(--text-1);
-  }
-  .extract-table td.num.green { color: var(--wx-green); font-weight: 500; }
-  .extract-table .pct-cell {
-    text-align: right; color: var(--text-3); font-size: 12px;
-  }
 
-  /* 待补图标 */
-  .todo-tag {
-    display: inline-block; padding: 1px 6px;
-    background: #fff8e6; color: #d99a3d;
-    border-radius: 3px; font-size: 11px;
-    margin-left: 6px;
-  }
 </style>
 </head>
 <body>
@@ -267,37 +303,15 @@
 <!-- 主内容 -->
 <div class="content-wrap">
 
-  <!-- 占位提示 -->
-  <div class="placeholder-banner">
-    <span>🤖</span>
-    <span><b>快速思考占位</b> · 这是每日自动化 AI 分析聊天结果的呈现页（先把位置占上，具体指标房总回头补）。当前页面为 mock 静态数据。</span>
-  </div>
-
   <!-- 第一行：核心总量 -->
   <div class="section-title">
     📊 分析总量
-    <span class="hint">本时段 AI 处理的聊天与提取出的关键信息总数</span>
+    <span class="hint">选中日期范围内自动 AI 分析处理的聊天与提取出的关键信息总数</span>
   </div>
   <div class="stat-grid">
     <div class="stat-card accent">
       <div class="label">分析聊天总数</div>
-      <div class="value">12,847 <span class="unit">条</span></div>
-      <div class="sub">覆盖 287 名好友，环比 +12.3%</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">AI 分析覆盖率</div>
-      <div class="value">96.4 <span class="unit">%</span></div>
-      <div class="sub">未覆盖 463 条（语音/图片解析中）</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">参与销售人数</div>
-      <div class="value">23 <span class="unit">人</span></div>
-      <div class="sub">共 4 个部门</div>
-    </div>
-    <div class="stat-card info">
-      <div class="label">人均处理聊天</div>
-      <div class="value">558 <span class="unit">条/人</span></div>
-      <div class="sub">最高 1,204 / 最低 89</div>
+      <div class="value">287 <span class="unit">条</span></div>
     </div>
   </div>
 
@@ -306,102 +320,49 @@
     🎯 需求识别
     <span class="hint">AI 从聊天里提取出的客户意向</span>
   </div>
-  <div class="two-col">
+  <div class="three-col">
     <div class="panel">
-      <div class="panel-head">第一需求 Top 5 <span class="more">查看全部 ›</span></div>
-      <div class="panel-body">
-        <div class="demand-row top1"><span class="rank">1</span><span class="name">水光针</span><span class="count">142</span><span class="bar"><i style="width:88%"></i></span><span class="pct">34.2%</span></div>
-        <div class="demand-row top2"><span class="rank">2</span><span class="name">瘦脸针</span><span class="count">98</span><span class="bar"><i style="width:62%"></i></span><span class="pct">23.6%</span></div>
-        <div class="demand-row top3"><span class="rank">3</span><span class="name">玻尿酸填充</span><span class="count">76</span><span class="bar"><i style="width:48%"></i></span><span class="pct">18.3%</span></div>
-        <div class="demand-row"><span class="rank">4</span><span class="name">线雕</span><span class="count">53</span><span class="bar"><i style="width:33%"></i></span><span class="pct">12.8%</span></div>
-        <div class="demand-row"><span class="rank">5</span><span class="name">激光祛斑</span><span class="count">46</span><span class="bar"><i style="width:29%"></i></span><span class="pct">11.1%</span></div>
-      </div>
+      <div class="panel-head">第一需求分布</div>
+      <div class="panel-body scroll-body" id="bodyPrimary"></div>
     </div>
     <div class="panel">
-      <div class="panel-head">第二需求 Top 5 <span class="more">查看全部 ›</span></div>
-      <div class="panel-body">
-        <div class="demand-row top1"><span class="rank">1</span><span class="name">面部抗衰</span><span class="count">89</span><span class="bar"><i style="width:76%"></i></span><span class="pct">28.4%</span></div>
-        <div class="demand-row top2"><span class="rank">2</span><span class="name">皮肤管理</span><span class="count">67</span><span class="bar"><i style="width:57%"></i></span><span class="pct">21.4%</span></div>
-        <div class="demand-row top3"><span class="rank">3</span><span class="name">眼周年轻化</span><span class="count">54</span><span class="bar"><i style="width:46%"></i></span><span class="pct">17.3%</span></div>
-        <div class="demand-row"><span class="rank">4</span><span class="name">私密护理</span><span class="count">42</span><span class="bar"><i style="width:36%"></i></span><span class="pct">13.4%</span></div>
-        <div class="demand-row"><span class="rank">5</span><span class="name">脱毛</span><span class="count">37</span><span class="bar"><i style="width:32%"></i></span><span class="pct">11.8%</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="two-col">
-    <div class="panel">
-      <div class="panel-head">最近提及需求 Top 5 <span class="more">查看全部 ›</span></div>
-      <div class="panel-body">
-        <div class="demand-row top1"><span class="rank">1</span><span class="name">超声炮（近 3 天提及暴增）</span><span class="count">38</span><span class="bar"><i style="width:82%"></i></span><span class="pct">+128%</span></div>
-        <div class="demand-row top2"><span class="rank">2</span><span class="name">少女针</span><span class="count">29</span><span class="bar"><i style="width:65%"></i></span><span class="pct">+76%</span></div>
-        <div class="demand-row top3"><span class="rank">3</span><span class="name">热玛吉五代</span><span class="count">24</span><span class="bar"><i style="width:55%"></i></span><span class="pct">+52%</span></div>
-        <div class="demand-row"><span class="rank">4</span><span class="name">嗨体颈纹</span><span class="count">19</span><span class="bar"><i style="width:42%"></i></span><span class="pct">+38%</span></div>
-        <div class="demand-row"><span class="rank">5</span><span class="name">下颌缘埋线</span><span class="count">15</span><span class="bar"><i style="width:33%"></i></span><span class="pct">+22%</span></div>
-      </div>
+      <div class="panel-head">第二需求分布</div>
+      <div class="panel-body scroll-body" id="bodySecondary"></div>
     </div>
     <div class="panel">
-      <div class="panel-head">客户等级分布 <span class="more">详细 ›</span></div>
-      <div class="panel-body">
-        <div class="level-row"><span class="dot" style="background:#fa5151"></span><span class="name">A 级（高意向，30 天内可成交）</span><span class="num">28</span><span class="bar"><i style="background:#fa5151;width:18%"></i></span><span class="pct">9.8%</span></div>
-        <div class="level-row"><span class="dot" style="background:#d99a3d"></span><span class="name">B 级（中意向，需培育）</span><span class="num">76</span><span class="bar"><i style="background:#d99a3d;width:48%"></i></span><span class="pct">26.5%</span></div>
-        <div class="level-row"><span class="dot" style="background:#576b95"></span><span class="name">C 级（轻意向，长线维护）</span><span class="num">112</span><span class="bar"><i style="background:#576b95;width:71%"></i></span><span class="pct">39.0%</span></div>
-        <div class="level-row"><span class="dot" style="background:#8a96a3"></span><span class="name">D 级（弱意向）</span><span class="num">54</span><span class="bar"><i style="background:#8a96a3;width:34%"></i></span><span class="pct">18.8%</span></div>
-        <div class="level-row"><span class="dot" style="background:#c0c8d1"></span><span class="name">未评级</span><span class="num">17</span><span class="bar"><i style="background:#c0c8d1;width:11%"></i></span><span class="pct">5.9%</span></div>
-      </div>
+      <div class="panel-head">客户等级分布</div>
+      <div class="panel-body scroll-body" id="bodyLevel"></div>
     </div>
   </div>
 
   <!-- 第三行：信息抓取 -->
   <div class="section-title">
     🔍 信息抓取
-    <span class="hint">AI 从聊天中识别并补全到客户档案的字段（具体项房总回头补）</span>
+    <span class="hint">AI 从聊天里识别并补全到客户档案的字段分布</span>
   </div>
-  <div class="panel">
-    <div class="panel-body" style="padding:0">
-      <table class="extract-table">
-        <thead>
-          <tr>
-            <th style="width:32px"></th>
-            <th>抓取字段</th>
-            <th style="width:120px">本时段新增</th>
-            <th style="width:120px">累计已抓</th>
-            <th style="width:120px">覆盖率</th>
-            <th style="width:160px">最近一次抓取</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>🏥</td><td>医美史</td><td class="num green">+47</td><td class="num">312</td><td class="pct-cell">68.4%</td><td class="col-time">2026-05-11 14:32</td></tr>
-          <tr><td>📍</td><td>地址 / 所在城市</td><td class="num green">+38</td><td class="num">256</td><td class="pct-cell">56.1%</td><td class="col-time">2026-05-11 14:18</td></tr>
-          <tr><td>🎂</td><td>年龄 / 生日</td><td class="num green">+29</td><td class="num">198</td><td class="pct-cell">43.4%</td><td class="col-time">2026-05-11 13:55</td></tr>
-          <tr><td>💼</td><td>职业 / 行业</td><td class="num green">+21</td><td class="num">142</td><td class="pct-cell">31.1%</td><td class="col-time">2026-05-11 13:21</td></tr>
-          <tr><td>💰</td><td>预算区间</td><td class="num green">+18</td><td class="num">126</td><td class="pct-cell">27.6%</td><td class="col-time">2026-05-11 12:48</td></tr>
-          <tr><td>📅</td><td>到院意向时间</td><td class="num green">+15</td><td class="num">98</td><td class="pct-cell">21.5%</td><td class="col-time">2026-05-11 12:02</td></tr>
-          <tr><td>👨‍👩‍👧</td><td>家庭情况</td><td class="num green">+12</td><td class="num">84</td><td class="pct-cell">18.4%</td><td class="col-time">2026-05-11 11:30</td></tr>
-          <tr><td>📱</td><td>手机号</td><td class="num green">+9</td><td class="num">67</td><td class="pct-cell">14.7%</td><td class="col-time">2026-05-11 10:45</td></tr>
-          <tr><td>🎯</td><td>关注点 / 担心点</td><td class="num green">+34</td><td class="num">221</td><td class="pct-cell">48.5%</td><td class="col-time">2026-05-11 14:50</td></tr>
-          <tr><td>🆕</td><td><span style="color:var(--text-3)">… 更多字段待房总补充</span><span class="todo-tag">TODO</span></td><td class="num" style="color:var(--text-3)">—</td><td class="num" style="color:var(--text-3)">—</td><td class="pct-cell">—</td><td class="col-time empty">—</td></tr>
-        </tbody>
-      </table>
+  <div class="three-col">
+    <div class="panel">
+      <div class="panel-head">医美史分布</div>
+      <div class="panel-body scroll-body" id="bodyMedical"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head">地区分布</div>
+      <div class="panel-body scroll-body" id="bodyRegion"></div>
     </div>
   </div>
 
-  <!-- 末尾占位区 -->
-  <div class="section-title" style="margin-top:8px">
-    🚧 待补内容（房总回头告诉我）
-  </div>
-  <div class="panel">
-    <div class="panel-body" style="padding:14px 18px;color:var(--text-2);font-size:13px;line-height:2;">
-      ・成交转化漏斗（意向识别 → 邀约 → 到店 → 成交）<br>
-      ・负面情绪 / 投诉风险预警<br>
-      ・销售话术匹配度（AI 对销售回复的评分）<br>
-      ・按销售 / 按部门的对比排行<br>
-      ・按时段（小时级）的咨询热力图<br>
-      ・客户画像聚类（年龄段 × 项目偏好交叉）<br>
-      ・每日 AI 摘要日报（一键发飞书）
-    </div>
-  </div>
 
+</div>
+
+<!-- 明细 modal -->
+<div class="detail-mask" id="detailMask">
+  <div class="detail-modal">
+    <div class="head">
+      <span id="detailTitle">详细分布</span>
+      <button class="close" onclick="closeDetail()">×</button>
+    </div>
+    <div class="body" id="detailBody"></div>
+  </div>
 </div>
 
 <script>
@@ -458,6 +419,222 @@
     quickBtns[0].classList.add('cur');
     setRange('today');
   }
+
+  // ===== 分布面板数据 =====
+  const PANELS = {
+    primary: {
+      label: '第一需求', containerId: 'bodyPrimary', kind: 'demand',
+      items: [
+        { name:'水光针', count:70, pct:'24.4%', bar:88 },
+        { name:'瘦脸针', count:48, pct:'16.7%', bar:60 },
+        { name:'玻尿酸填充', count:38, pct:'13.2%', bar:48 },
+        { name:'线雕', count:26, pct:'9.1%', bar:33 },
+        { name:'激光祛斑', count:23, pct:'8.0%', bar:29 },
+        { name:'双眼皮', count:19, pct:'6.6%', bar:24 },
+        { name:'热玛吉', count:15, pct:'5.2%', bar:19 },
+        { name:'玻尿酸丰唇', count:13, pct:'4.5%', bar:16 },
+        { name:'隆鼻', count:12, pct:'4.2%', bar:15 },
+        { name:'超声炮', count:9, pct:'3.1%', bar:11 },
+        { name:'肉毒素', count:4, pct:'1.4%', bar:5 },
+        { name:'光子嫩肤', count:3, pct:'1.0%', bar:4 },
+        { name:'果酸焕肤', count:3, pct:'1.0%', bar:4 },
+        { name:'埋线提升', count:2, pct:'0.7%', bar:3 },
+        { name:'微针', count:2, pct:'0.7%', bar:3 },
+      ]
+    },
+    secondary: {
+      label: '第二需求', containerId: 'bodySecondary', kind: 'demand',
+      items: [
+        { name:'面部抗衰', count:55, pct:'19.2%', bar:88 },
+        { name:'皮肤管理', count:42, pct:'14.6%', bar:67 },
+        { name:'眼周年轻化', count:34, pct:'11.8%', bar:54 },
+        { name:'私密护理', count:27, pct:'9.4%', bar:43 },
+        { name:'脱毛', count:23, pct:'8.0%', bar:37 },
+        { name:'颈纹改善', count:19, pct:'6.6%', bar:30 },
+        { name:'痘痘治疗', count:17, pct:'5.9%', bar:27 },
+        { name:'减肥塑形', count:15, pct:'5.2%', bar:24 },
+        { name:'下颌缘紧致', count:13, pct:'4.5%', bar:21 },
+        { name:'美牙', count:11, pct:'3.8%', bar:18 },
+        { name:'毛孔粗大', count:11, pct:'3.8%', bar:18 },
+        { name:'妊娠纹修复', count:11, pct:'3.8%', bar:18 },
+        { name:'植发', count:9, pct:'3.1%', bar:14 },
+      ]
+    },
+    level: {
+      label: '客户等级', containerId: 'bodyLevel', kind: 'level',
+      items: [
+        { name:'A 级', count:28,  pct:'9.8%',  bar:18, color:'#fa5151' },
+        { name:'B 级', count:76,  pct:'26.5%', bar:48, color:'#d99a3d' },
+        { name:'C 级', count:112, pct:'39.0%', bar:71, color:'#576b95' },
+        { name:'D 级', count:54,  pct:'18.8%', bar:34, color:'#8a96a3' },
+        { name:'未评级', count:17, pct:'5.9%', bar:11, color:'#c0c8d1' },
+      ]
+    },
+    medical: {
+      label: '医美史', containerId: 'bodyMedical', kind: 'demand',
+      items: [
+        { name:'注射', count:128, pct:'44.6%', bar:88 },
+        { name:'皮肤', count:76,  pct:'26.5%', bar:52 },
+        { name:'抗衰', count:42,  pct:'14.6%', bar:29 },
+        { name:'手术', count:23,  pct:'8.0%',  bar:16 },
+        { name:'无',   count:18,  pct:'6.3%',  bar:12 },
+      ]
+    },
+    region: {
+      label: '地区', containerId: 'bodyRegion', kind: 'demand',
+      items: [
+        { name:'四川省成都市武侯区', count:67, pct:'23.3%', bar:88 },
+        { name:'四川省成都市锦江区', count:50, pct:'17.4%', bar:66 },
+        { name:'四川省成都市高新区', count:40, pct:'13.9%', bar:53 },
+        { name:'四川省成都市青羊区', count:30, pct:'10.5%', bar:39 },
+        { name:'四川省成都市金牛区', count:25, pct:'8.7%',  bar:33 },
+        { name:'四川省德阳市旌阳区', count:22, pct:'7.7%',  bar:29 },
+        { name:'四川省成都市双流区', count:18, pct:'6.3%',  bar:24 },
+        { name:'重庆市渝中区',       count:13, pct:'4.5%',  bar:17 },
+        { name:'四川省绵阳市涪城区', count:9,  pct:'3.1%',  bar:12 },
+        { name:'重庆市江北区',       count:5,  pct:'1.7%',  bar:7 },
+        { name:'四川省成都市温江区', count:4,  pct:'1.4%',  bar:5 },
+        { name:'四川省眉山市东坡区', count:2,  pct:'0.7%',  bar:3 },
+        { name:'四川省乐山市市中区', count:2,  pct:'0.7%',  bar:3 },
+      ]
+    }
+  };
+
+  // ===== 渲染面板 =====
+  const rankClass = i => i === 0 ? 'top1' : i === 1 ? 'top2' : i === 2 ? 'top3' : '';
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  function renderPanel(key) {
+    const p = PANELS[key];
+    const body = document.getElementById(p.containerId);
+    if (p.kind === 'level') {
+      body.innerHTML = p.items.map(it => `
+        <div class="level-row">
+          <span class="dot" style="background:${it.color}"></span>
+          <span class="name">${esc(it.name)}</span>
+          <span class="num">${it.count}</span>
+          <span class="bar"><i style="background:${it.color};width:${it.bar}%"></i></span>
+          <span class="pct">${it.pct}</span>
+          <span class="row-detail" data-panel="${key}" data-value="${esc(it.name)}">明细 ›</span>
+        </div>
+      `).join('');
+    } else {
+      body.innerHTML = p.items.map((it, i) => `
+        <div class="demand-row ${rankClass(i)}">
+          <span class="rank">${i+1}</span>
+          <span class="name">${esc(it.name)}</span>
+          <span class="count">${it.count}</span>
+          <span class="bar"><i style="width:${it.bar}%"></i></span>
+          <span class="pct">${it.pct}</span>
+          <span class="row-detail" data-panel="${key}" data-value="${esc(it.name)}">明细 ›</span>
+        </div>
+      `).join('');
+    }
+  }
+
+  Object.keys(PANELS).forEach(renderPanel);
+
+  // ===== 客户明细 modal =====
+  const PERSONA_POOL = [
+    'yiyi 杨瑶', '金金 罗玲', '聂敏', '陈巧',
+    'Lucy 💗', '铃铃', '刘瑜 02', '马驰 圆圆', '胡瑞 02', '杨珂 yiyi'
+  ];
+  const FRIEND_POOL = [
+    '林雅婷', '王静怡', '张美琳', '李晓雯', '刘慧敏', '陈佳怡', '杨思琪', '周若兰',
+    '吴梦琪', '黄若汐', '赵子涵', '徐一诺', '孙可欣', '马语桐', '朱沐宸', '胡雅婷',
+    '郭佳怡', '何美琳', '高晓雯', '林慧敏', '冯思琪', '宋若兰', '韩梦琪', '苏若汐',
+    '范子涵', '杜一诺', '丁可欣', '邓语桐', '沈沐宸', '田雅婷'
+  ];
+
+  // 用 (panel + value) hash 做确定性切片，保证每次打开同一项看到的列表一致
+  function hashCode(s) {
+    let h = 2166136261;
+    for (let i = 0; i < s.length; i++) {
+      h ^= s.charCodeAt(i);
+      h = (h * 16777619) >>> 0;
+    }
+    return h;
+  }
+
+  // 7 个潜在列；展示时把当前 panel 对应的列隐去（标题里已经体现）
+  const ALL_COLS = [
+    { key: 'friend',    label: '好友昵称', cls: 'col-friend' },
+    { key: 'persona',   label: '人设号',   cls: 'col-persona' },
+    { key: 'primary',   label: '第一需求' },
+    { key: 'secondary', label: '第二需求' },
+    { key: 'level',     label: '等级' },
+    { key: 'medical',   label: '医美史' },
+    { key: 'region',    label: '地区' },
+  ];
+
+  // 给定 (panel, value)，生成 count 条好友记录（每条带全部 5 维标签 + 人设号 + 昵称）
+  function genTaggedFriends(panel, value, count) {
+    const seed = hashCode(panel + ':' + value);
+    const list = [];
+    for (let i = 0; i < count; i++) {
+      const pick = (offset, arr) => arr[(seed + i * offset) >>> 0 % 0x7fffffff % arr.length];
+      const row = {
+        friend:    FRIEND_POOL[((seed + i * 11) >>> 0) % FRIEND_POOL.length],
+        persona:   PERSONA_POOL[((seed + i * 7) >>> 0) % PERSONA_POOL.length],
+        primary:   PANELS.primary.items[((seed + i * 13) >>> 0) % PANELS.primary.items.length].name,
+        secondary: PANELS.secondary.items[((seed + i * 17) >>> 0) % PANELS.secondary.items.length].name,
+        level:     PANELS.level.items[((seed + i * 19) >>> 0) % PANELS.level.items.length].name,
+        medical:   PANELS.medical.items[((seed + i * 23) >>> 0) % PANELS.medical.items.length].name,
+        region:    PANELS.region.items[((seed + i * 29) >>> 0) % PANELS.region.items.length].name,
+      };
+      // 锁定被点击的那个维度 = 当前值
+      row[panel] = value;
+      list.push(row);
+    }
+    return list;
+  }
+
+  function openFriendDetail(panel, value) {
+    const p = PANELS[panel];
+    const item = p.items.find(it => it.name === value);
+    if (!item) return;
+    const friends = genTaggedFriends(panel, value, item.count);
+    document.getElementById('detailTitle').textContent =
+      `${p.label} · ${value} · 客户明细（共 ${item.count} 人）`;
+    const cols = ALL_COLS.filter(c => c.key !== panel);
+    const body = document.getElementById('detailBody');
+    if (!friends.length) {
+      body.innerHTML = `<div class="empty-hint">暂无标记记录</div>`;
+    } else {
+      body.innerHTML = `
+        <table class="friend-table">
+          <thead><tr>${cols.map(c => `<th>${c.label}</th>`).join('')}</tr></thead>
+          <tbody>
+            ${friends.map(f => `<tr>${cols.map(c =>
+              `<td class="${c.cls || ''}">${esc(f[c.key])}</td>`
+            ).join('')}</tr>`).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+    document.getElementById('detailMask').classList.add('show');
+    document.getElementById('detailBody').scrollTop = 0;
+  }
+
+  function closeDetail() {
+    document.getElementById('detailMask').classList.remove('show');
+  }
+
+  // 事件委托：绑定所有 .row-detail 点击
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest('.row-detail');
+    if (t) openFriendDetail(t.dataset.panel, t.dataset.value);
+  });
+
+  // 点遮罩关闭
+  document.getElementById('detailMask').addEventListener('click', (e) => {
+    if (e.target.id === 'detailMask') closeDetail();
+  });
+
+  // Esc 关闭
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDetail();
+  });
 </script>
 </body>
 </html>
