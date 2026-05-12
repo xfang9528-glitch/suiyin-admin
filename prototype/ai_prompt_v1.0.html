@@ -46,14 +46,14 @@
 <body>
 
 <div class="filter-bar">
-  <div class="section-title">Prompt模板管理</div>
+  <div class="section-title">AI提示词库管理</div>
   <div class="f-spacer"></div>
   <div class="f-group">
     <select class="f-select" id="sceneFilter" onchange="render()">
       <option value="">全部场景</option>
-      <option value="客户聊天">客户聊天</option>
+      <option value="单聊">单聊</option>
       <option value="群聊">群聊</option>
-      <option value="标签分析">标签分析</option>
+      <option value="标签">标签</option>
     </select>
   </div>
   <button class="btn primary" onclick="onCreate()">＋ 创建</button>
@@ -63,7 +63,7 @@
   <div class="table-card">
     <table>
       <thead><tr>
-        <th>模板名称</th><th>场景</th><th>自动填写的标签</th><th>绑定模型</th><th class="col-actions">操作</th>
+        <th>提示词名称</th><th>场景</th><th>自动填写的标签</th><th>绑定模型</th><th class="col-actions">操作</th>
       </tr></thead>
       <tbody id="tbody"></tbody>
     </table>
@@ -78,7 +78,7 @@
 
 <div class="toast" id="toast"></div>
 <script>
-const SCENES = ['客户聊天', '群聊', '标签分析'];
+const SCENES = ['单聊', '群聊', '标签'];
 const MODELS = [
   { value:'qwen3-max',                    label:'qwen3-max',                    platform:true },
   { value:'tongyi-xiaomi-analysis-flash', label:'tongyi-xiaomi-analysis-flash', platform:true },
@@ -86,18 +86,18 @@ const MODELS = [
 const AI_TAG_OPTIONS = ['地区(AI)', '第一需求(AI)', '第二需求(AI)', '医美史(AI)', '用户等级(AI)'];
 
 const ROWS = [
-  { name:'通用模板',         scene:'客户聊天', model:'qwen3-max', content:'# 通用销售助手\n\n你是艺星医美的智能销售助手，请基于客户档案与聊天上下文，给出合适的回复或行动建议。\n\n## 输入\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n- 当前日期：{{今日日期}}\n' },
-  { name:'客户分级V2',       scene:'客户聊天', model:'qwen3-max', content:'# 客户分级分析（v2.0 · 医美版）\n\n你是艺星医美的销售分析助手，请基于客户信息和聊天记录，按三维评分体系输出ABC级判断、JSON结果和跟进建议。\n核心原则：成交意向必须从聊天内容语义分析，不能只看互动频次。\n\n## 输入\n- 客户名称：{{客户名称}}\n- 加微日期：{{加微日期}}（已加微 {{加微天数}} 天）\n- 聊天记录：{{最近90天对话记录}}\n- 当前日期：{{今日日期}}\n\n## 评分规则\n\n### 维度1：加微时间（权重30%）\n- ≤30天 → 10分（黄金期，信任建立期）\n- 31-60天 → 7分（关系维护期）\n- 61-180天 → 4分（沉默期，需激活）\n- >180天 → 2分（流失风险期）\n' },
-  { name:'客户分级',         scene:'客户聊天', model:'qwen3-max', content:'# 客户分级分析（v1）\n\n根据客户信息和最近 30 天聊天记录，输出 ABC 三级判断与简短理由。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近30天对话记录}}\n' },
-  { name:'需求匹配',         scene:'客户聊天', model:'qwen3-max', content:'# 需求匹配\n\n请从聊天记录里提取客户的核心诉求，并匹配艺星医美在售项目，输出 Top3 推荐项目与理由。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
-  { name:'咨询SOP达成分析',  scene:'客户聊天', model:'qwen3-max', content:'# 咨询SOP达成分析\n\n基于销售与客户的对话，判断 SOP 关键节点（问询、案例、报价、邀约、面诊预约）完成情况，输出节点矩阵。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
-  { name:'眼部',             scene:'客户聊天', model:'qwen3-max', content:'# 眼部项目专家\n\n你是艺星医美眼部整形专家，请基于客户对眼部相关诉求的描述，给出可行的项目组合及术后注意事项。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n' },
-  { name:'客户需求分析',     scene:'客户聊天', model:'',         content:'# 客户需求分析\n\n请基于聊天上下文输出客户的核心需求、潜在异议与下一步沟通建议。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n' },
-  { name:'客户标签批量分析', scene:'标签分析', model:'', aiTags:['地区(AI)','第一需求(AI)','医美史(AI)'], content:'# 客户标签批量分析\n\n根据聊天记录输出客户的地区、第一需求、医美史等标签值，JSON 格式返回。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'通用模板',         scene:'单聊', model:'qwen3-max', content:'# 通用销售助手\n\n你是艺星医美的智能销售助手，请基于客户档案与聊天上下文，给出合适的回复或行动建议。\n\n## 输入\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n- 当前日期：{{今日日期}}\n' },
+  { name:'客户分级V2',       scene:'单聊', model:'qwen3-max', content:'# 客户分级分析（v2.0 · 医美版）\n\n你是艺星医美的销售分析助手，请基于客户信息和聊天记录，按三维评分体系输出ABC级判断、JSON结果和跟进建议。\n核心原则：成交意向必须从聊天内容语义分析，不能只看互动频次。\n\n## 输入\n- 客户名称：{{客户名称}}\n- 加微日期：{{加微日期}}（已加微 {{加微天数}} 天）\n- 聊天记录：{{最近90天对话记录}}\n- 当前日期：{{今日日期}}\n\n## 评分规则\n\n### 维度1：加微时间（权重30%）\n- ≤30天 → 10分（黄金期，信任建立期）\n- 31-60天 → 7分（关系维护期）\n- 61-180天 → 4分（沉默期，需激活）\n- >180天 → 2分（流失风险期）\n' },
+  { name:'客户分级',         scene:'单聊', model:'qwen3-max', content:'# 客户分级分析（v1）\n\n根据客户信息和最近 30 天聊天记录，输出 ABC 三级判断与简短理由。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近30天对话记录}}\n' },
+  { name:'需求匹配',         scene:'单聊', model:'qwen3-max', content:'# 需求匹配\n\n请从聊天记录里提取客户的核心诉求，并匹配艺星医美在售项目，输出 Top3 推荐项目与理由。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'咨询SOP达成分析',  scene:'单聊', model:'qwen3-max', content:'# 咨询SOP达成分析\n\n基于销售与客户的对话，判断 SOP 关键节点（问询、案例、报价、邀约、面诊预约）完成情况，输出节点矩阵。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'眼部',             scene:'单聊', model:'qwen3-max', content:'# 眼部项目专家\n\n你是艺星医美眼部整形专家，请基于客户对眼部相关诉求的描述，给出可行的项目组合及术后注意事项。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'客户需求分析',     scene:'单聊', model:'',         content:'# 客户需求分析\n\n请基于聊天上下文输出客户的核心需求、潜在异议与下一步沟通建议。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'客户标签批量分析', scene:'标签', model:'', aiTags:['地区(AI)','第一需求(AI)','医美史(AI)'], content:'# 客户标签批量分析\n\n根据聊天记录输出客户的地区、第一需求、医美史等标签值，JSON 格式返回。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
 ];
 
 function aiTagsCell(row) {
-  if (row.scene !== '标签分析' || !Array.isArray(row.aiTags) || !row.aiTags.length) return '';
+  if (row.scene !== '标签' || !Array.isArray(row.aiTags) || !row.aiTags.length) return '';
   return `<div class="tag-list">${row.aiTags.map(t => `<span class="tag green">${t}</span>`).join('')}</div>`;
 }
 
@@ -155,8 +155,8 @@ function buildPromptModal(title, onSubmit) {
       { label:'场景',     key:'scene',   type:'select',   options: SCENES, required: true },
       { label:'自动填写的标签', key:'aiTags',  type:'tags',  options: AI_TAG_OPTIONS },
       { label:'绑定模型', key:'model',   type:'select',   options: modelOptions, placeholder:'不选则使用默认模型' },
-      { label:'模板名称', key:'name',    type:'text',     required: true, placeholder:'例：客户分级V2' },
-      { label:'模板内容', key:'content', type:'textarea', required: true, placeholder:'请输入 Prompt 内容，可使用 {{变量名}} 占位符' },
+      { label:'提示词名称', key:'name',    type:'text',     required: true, placeholder:'例：客户分级V2' },
+      { label:'提示词内容', key:'content', type:'textarea', required: true, placeholder:'请输入 Prompt 内容，可使用 {{变量名}} 占位符' },
     ],
     onSubmit
   });
@@ -168,7 +168,7 @@ function buildPromptModal(title, onSubmit) {
     transformTagsToDropdown(mask, 'aiTags', '请选择');
     const tagsRow = mask.querySelector('.form-row[data-key="aiTags"]');
     const sceneSel = mask.querySelector('select[data-key="scene"]');
-    const sync = () => { tagsRow.style.display = sceneSel.value === '标签分析' ? '' : 'none'; };
+    const sync = () => { tagsRow.style.display = sceneSel.value === '标签' ? '' : 'none'; };
     sceneSel.addEventListener('change', sync);
     sync();
   };
