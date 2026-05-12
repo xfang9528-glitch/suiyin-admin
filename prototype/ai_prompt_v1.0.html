@@ -1,12 +1,61 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>AI-Prompt 模板</title><link rel="stylesheet" href="_admin_list.css">
-<script src="_edit_modal.js" defer></script></head>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>AI-Prompt模板</title><link rel="stylesheet" href="_admin_list.css">
+<script src="_edit_modal.js" defer></script>
+<style>
+  .section-title {
+    display: flex; align-items: center;
+    font-size: 14px; font-weight: 500; color: var(--text-1);
+    padding-left: 8px; border-left: 3px solid var(--wx-green);
+    line-height: 1.4;
+  }
+  .tag.platform { background:#fff8f0; color:#d99a3d; margin-left:6px; }
+  td.muted-cell { color: var(--text-3); }
+  .modal-body textarea[data-key="content"] {
+    min-height: 320px;
+    font-family: ui-monospace, 'SF Mono', Consolas, 'Microsoft YaHei', monospace;
+    font-size: 12.5px; line-height: 1.55;
+  }
+  .modal-body .em-tags { position: relative; }
+  .msd-trigger {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 34px; padding: 0 10px;
+    border: 1px solid #d0d7de; border-radius: 4px;
+    cursor: pointer; font-size: 13px; background: #fff;
+    transition: border-color 0.15s;
+  }
+  .msd-trigger:hover, .msd-trigger.open { border-color: var(--wx-green); }
+  .msd-text { color: var(--text-1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; }
+  .msd-text.placeholder { color: var(--text-3); }
+  .msd-arrow { color: var(--text-3); font-size: 12px; margin-left: 8px; transition: transform 0.15s; }
+  .msd-trigger.open .msd-arrow { transform: rotate(180deg); }
+  .msd-panel {
+    position: absolute; top: 38px; left: 0; right: 0;
+    background: #fff; border: 1px solid #d0d7de; border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    z-index: 10; padding: 4px 0; max-height: 260px; overflow-y: auto;
+  }
+  .msd-opt {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 12px; cursor: pointer; font-size: 13px;
+    margin: 0;
+  }
+  .msd-opt:hover { background: #f5f7fa; }
+  .msd-opt input { width: auto; margin: 0; }
+</style>
+</head>
 <body>
 
 <div class="filter-bar">
-  <div class="f-group"><input class="f-input wide" id="kw" placeholder="模版名称"></div>
-  <button class="btn primary" onclick="render()">🔍 查询</button>
+  <div class="section-title">Prompt模板管理</div>
   <div class="f-spacer"></div>
+  <div class="f-group">
+    <select class="f-select" id="sceneFilter" onchange="render()">
+      <option value="">全部场景</option>
+      <option value="客户聊天">客户聊天</option>
+      <option value="群聊">群聊</option>
+      <option value="标签分析">标签分析</option>
+    </select>
+  </div>
   <button class="btn primary" onclick="onCreate()">＋ 创建</button>
 </div>
 
@@ -14,7 +63,7 @@
   <div class="table-card">
     <table>
       <thead><tr>
-        <th>模版名称</th><th>场景</th><th>绑定模型</th><th class="col-actions">操作</th>
+        <th>模板名称</th><th>场景</th><th>自动填写的标签</th><th>绑定模型</th><th class="col-actions">操作</th>
       </tr></thead>
       <tbody id="tbody"></tbody>
     </table>
@@ -22,61 +71,177 @@
 </div>
 
 <div class="pager">
-  <span class="pager-info">共 7 条</span>
+  <span class="pager-info">共 <span id="totalCount">8</span> 条</span>
   <select><option>20条/页</option></select>
-  <button class="pager-btn">‹</button><button class="pager-btn cur">1</button><button class="pager-btn">›</button>
+  <button class="pager-btn" disabled>‹</button><button class="pager-btn cur">1</button><button class="pager-btn" disabled>›</button>
 </div>
 
 <div class="toast" id="toast"></div>
 <script>
-const ROWS = [
-  { name:'话术润色',         scene:'销售话术优化',      model:'gpt-4o-mini' },
-  { name:'消息意图识别',     scene:'客户消息分类',      model:'gpt-4o-mini' },
-  { name:'流失风险预警',     scene:'客户流失评估',      model:'claude-3.5-sonnet' },
-  { name:'案例匹配推荐',     scene:'根据需求推荐案例',  model:'gpt-4o' },
-  { name:'回访提醒生成',     scene:'回访话术自动生成',  model:'gpt-4o-mini' },
-  { name:'敏感词监控分析',   scene:'词控告警上下文',    model:'claude-3.5-haiku' },
-  { name:'朋友圈文案生成',   scene:'PYQ 自动文案',     model:'gpt-4o' },
+const SCENES = ['客户聊天', '群聊', '标签分析'];
+const MODELS = [
+  { value:'qwen3-max',                    label:'qwen3-max',                    platform:true },
+  { value:'tongyi-xiaomi-analysis-flash', label:'tongyi-xiaomi-analysis-flash', platform:true },
 ];
+const AI_TAG_OPTIONS = ['地区(AI)', '第一需求(AI)', '第二需求(AI)', '医美史(AI)', '用户等级(AI)'];
+
+const ROWS = [
+  { name:'通用模板',         scene:'客户聊天', model:'qwen3-max', content:'# 通用销售助手\n\n你是艺星医美的智能销售助手，请基于客户档案与聊天上下文，给出合适的回复或行动建议。\n\n## 输入\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n- 当前日期：{{今日日期}}\n' },
+  { name:'客户分级V2',       scene:'客户聊天', model:'qwen3-max', content:'# 客户分级分析（v2.0 · 医美版）\n\n你是艺星医美的销售分析助手，请基于客户信息和聊天记录，按三维评分体系输出ABC级判断、JSON结果和跟进建议。\n核心原则：成交意向必须从聊天内容语义分析，不能只看互动频次。\n\n## 输入\n- 客户名称：{{客户名称}}\n- 加微日期：{{加微日期}}（已加微 {{加微天数}} 天）\n- 聊天记录：{{最近90天对话记录}}\n- 当前日期：{{今日日期}}\n\n## 评分规则\n\n### 维度1：加微时间（权重30%）\n- ≤30天 → 10分（黄金期，信任建立期）\n- 31-60天 → 7分（关系维护期）\n- 61-180天 → 4分（沉默期，需激活）\n- >180天 → 2分（流失风险期）\n' },
+  { name:'客户分级',         scene:'客户聊天', model:'qwen3-max', content:'# 客户分级分析（v1）\n\n根据客户信息和最近 30 天聊天记录，输出 ABC 三级判断与简短理由。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近30天对话记录}}\n' },
+  { name:'需求匹配',         scene:'客户聊天', model:'qwen3-max', content:'# 需求匹配\n\n请从聊天记录里提取客户的核心诉求，并匹配艺星医美在售项目，输出 Top3 推荐项目与理由。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'咨询SOP达成分析',  scene:'客户聊天', model:'qwen3-max', content:'# 咨询SOP达成分析\n\n基于销售与客户的对话，判断 SOP 关键节点（问询、案例、报价、邀约、面诊预约）完成情况，输出节点矩阵。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'眼部',             scene:'客户聊天', model:'qwen3-max', content:'# 眼部项目专家\n\n你是艺星医美眼部整形专家，请基于客户对眼部相关诉求的描述，给出可行的项目组合及术后注意事项。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'客户需求分析',     scene:'客户聊天', model:'',         content:'# 客户需求分析\n\n请基于聊天上下文输出客户的核心需求、潜在异议与下一步沟通建议。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'客户标签批量分析', scene:'标签分析', model:'', aiTags:['地区(AI)','第一需求(AI)','医美史(AI)'], content:'# 客户标签批量分析\n\n根据聊天记录输出客户的地区、第一需求、医美史等标签值，JSON 格式返回。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
+];
+
+function aiTagsCell(row) {
+  if (row.scene !== '标签分析' || !Array.isArray(row.aiTags) || !row.aiTags.length) return '';
+  return `<div class="tag-list">${row.aiTags.map(t => `<span class="tag green">${t}</span>`).join('')}</div>`;
+}
+
+function modelCell(model) {
+  if (!model) return `<span class="muted-cell">使用默认模型</span>`;
+  const m = MODELS.find(x => x.value === model);
+  const label = m ? m.label : model;
+  const isPlatform = !m || m.platform;
+  const plat = isPlatform ? `<span class="tag platform">平台</span>` : '';
+  return `<span>${label}</span>${plat}`;
+}
+
 function render() {
-  const kw = document.getElementById('kw').value.trim();
-  const list = ROWS.filter(r => !kw || r.name.includes(kw));
-  document.getElementById('tbody').innerHTML = list.map(r => `
+  const filter = document.getElementById('sceneFilter').value;
+  const list = ROWS.filter(r => !filter || r.scene === filter);
+  document.getElementById('totalCount').textContent = list.length;
+  const tbody = document.getElementById('tbody');
+  if (!list.length) {
+    tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state"><div class="empty-icon">📋</div>暂无数据</div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = list.map(r => `
     <tr>
       <td>${r.name}</td>
       <td>${r.scene}</td>
-      <td><span class="tag blue">${r.model}</span></td>
+      <td>${aiTagsCell(r)}</td>
+      <td>${modelCell(r.model)}</td>
       <td class="col-actions">
         <button class="row-action" onclick="onEdit('${r.name.replace(/'/g, "\\'")}')">编辑</button>
-        <button class="row-action danger" onclick="if(confirm('确认删除「${r.name}」？'))toast('已删除')">删除</button>
+        <button class="row-action danger" onclick="onDelete('${r.name.replace(/'/g, "\\'")}')">删除</button>
       </td>
     </tr>
   `).join('');
 }
-let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+
+function onDelete(name) {
+  if (!confirm(`确认删除「${name}」？`)) return;
+  const i = ROWS.findIndex(x => x.name === name);
+  if (i >= 0) ROWS.splice(i, 1);
+  render();
+  toast('已删除');
+}
+
+let tt;
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+
 function buildPromptModal(title, onSubmit) {
-  return createEditModal({
+  const modelOptions = MODELS.map(m => ({
+    value: m.value,
+    label: m.label + (m.platform ? '（平台）' : ''),
+  }));
+  const modal = createEditModal({
     title, width: 720,
     fields: [
-      { label:'模版名称',     key:'name',   type:'text',     placeholder:'例：话术润色', required:true },
-      { label:'场景',         key:'scene',  type:'select',   options:['销售话术优化','客户消息分类','客户流失评估','根据需求推荐案例','回访话术自动生成','词控告警上下文','PYQ 自动文案'] },
-      { label:'绑定模型',     key:'model',  type:'select',   options:['gpt-4o-mini','gpt-4o','claude-3.5-sonnet','claude-3.5-haiku','deepseek-chat'] },
-      { label:'System Prompt',key:'system', type:'textarea', placeholder:'你是艺星医美的专业销售助手，对话风格专业、亲和、注重客户感受...' },
-      { label:'温度 (temperature)', key:'temp', type:'number', placeholder:'0.0 - 1.0' },
-      { label:'最大 Token',   key:'maxTok', type:'number',   placeholder:'例：512' },
-      { label:'示例输入 / 输出', key:'example', type:'textarea', placeholder:'Few-shot 示例（选填）' },
+      { label:'场景',     key:'scene',   type:'select',   options: SCENES, required: true },
+      { label:'自动填写的标签', key:'aiTags',  type:'tags',  options: AI_TAG_OPTIONS },
+      { label:'绑定模型', key:'model',   type:'select',   options: modelOptions, placeholder:'不选则使用默认模型' },
+      { label:'模板名称', key:'name',    type:'text',     required: true, placeholder:'例：客户分级V2' },
+      { label:'模板内容', key:'content', type:'textarea', required: true, placeholder:'请输入 Prompt 内容，可使用 {{变量名}} 占位符' },
     ],
     onSubmit
   });
+  const _open = modal.open;
+  modal.open = (data) => {
+    _open(data);
+    const mask = document.querySelector('.modal-mask.show');
+    if (!mask) return;
+    transformTagsToDropdown(mask, 'aiTags', '请选择');
+    const tagsRow = mask.querySelector('.form-row[data-key="aiTags"]');
+    const sceneSel = mask.querySelector('select[data-key="scene"]');
+    const sync = () => { tagsRow.style.display = sceneSel.value === '标签分析' ? '' : 'none'; };
+    sceneSel.addEventListener('change', sync);
+    sync();
+  };
+  return modal;
 }
+
+function transformTagsToDropdown(mask, key, placeholder) {
+  const tagsBox = mask.querySelector(`.em-tags[data-key="${key}"]`);
+  if (!tagsBox || tagsBox.dataset.transformed) return;
+  tagsBox.dataset.transformed = '1';
+  const optLabels = Array.from(tagsBox.children);
+  tagsBox.innerHTML = '';
+  const trigger = document.createElement('div');
+  trigger.className = 'msd-trigger';
+  trigger.innerHTML = `<span class="msd-text placeholder">${placeholder}</span><span class="msd-arrow">▾</span>`;
+  const panel = document.createElement('div');
+  panel.className = 'msd-panel';
+  panel.style.display = 'none';
+  optLabels.forEach(lab => {
+    lab.removeAttribute('style');
+    lab.classList.add('msd-opt');
+    panel.appendChild(lab);
+  });
+  tagsBox.appendChild(trigger);
+  tagsBox.appendChild(panel);
+
+  const textEl = trigger.querySelector('.msd-text');
+  const update = () => {
+    const checked = Array.from(panel.querySelectorAll('input:checked'));
+    if (checked.length) {
+      textEl.textContent = checked.map(c => c.value).join('、');
+      textEl.classList.remove('placeholder');
+    } else {
+      textEl.textContent = placeholder;
+      textEl.classList.add('placeholder');
+    }
+  };
+  trigger.onclick = (e) => {
+    e.stopPropagation();
+    const isOpen = panel.style.display !== 'none';
+    panel.style.display = isOpen ? 'none' : 'block';
+    trigger.classList.toggle('open', !isOpen);
+  };
+  panel.addEventListener('change', update);
+  panel.addEventListener('click', (e) => e.stopPropagation());
+  document.addEventListener('click', () => {
+    panel.style.display = 'none';
+    trigger.classList.remove('open');
+  });
+  update();
+}
+
 function onCreate() {
-  const m = buildPromptModal('创建 Prompt 模板', d => { ROWS.unshift(d); render(); toast('已创建'); });
-  m.open({ temp: 0.7, maxTok: 512 });
+  const m = buildPromptModal('新增模板', d => {
+    if (!d.scene || !d.name.trim() || !d.content.trim()) { toast('请填写必填项'); return; }
+    ROWS.unshift(d);
+    render();
+    toast('已创建');
+  });
+  m.open({ scene: '客户聊天' });
 }
+
 function onEdit(name) {
   const r = ROWS.find(x => x.name === name);
-  const m = buildPromptModal('编辑 Prompt 模板', d => { Object.assign(r, d); render(); toast('已保存'); });
+  if (!r) return;
+  const m = buildPromptModal('修改模板', d => {
+    if (!d.scene || !d.name.trim() || !d.content.trim()) { toast('请填写必填项'); return; }
+    Object.assign(r, d);
+    render();
+    toast('已保存');
+  });
   m.open(r);
 }
+
 render();
 </script></body></html>

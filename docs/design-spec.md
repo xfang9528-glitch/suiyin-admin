@@ -133,6 +133,14 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 - 不适用：表单提交型（保留取消+确认 footer）
 - 若需内嵌分页器，分页器条直接接在 body 后作为 modal 的视觉收尾
 
+### 多选下拉框（.msd-trigger / .msd-panel）· 表单字段通用
+- 形态：单行输入框样式的触发器，点击展开下拉面板（绝对定位）；面板内为 checkbox 选项列表
+- trigger 高 34px，placeholder「请选择」灰字；已选时顿号「、」拼接选中项的文本展示
+- panel：`top:38px; left:0; right:0; max-height:260px; overflow-y:auto`，点击外部关闭
+- 箭头展开 / 收起带 transform: rotate(180deg) 过渡
+- 适用：表单弹窗里需要多选且选项 ≤ 10 的场景（区别于 chip 风格的「多选筛选 chip」用于顶部筛选栏）
+- 首例：`ai_prompt_v1.0.html` 的「自动填写的标签」字段（标签分析场景下显示，5 选项）
+
 ### 多选筛选 chip（.chip）· 统计页通用
 - 容器：`height:30px; padding:0 12px; border-radius:15px`（圆角胶囊）
 - 默认态：白底灰边灰字，hover 变绿边
