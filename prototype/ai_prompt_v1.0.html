@@ -10,6 +10,8 @@
   }
   .tag.platform { background:#fff8f0; color:#d99a3d; margin-left:6px; }
   td.muted-cell { color: var(--text-3); }
+  .flag-on { color: var(--wx-green); font-weight: 500; }
+  .flag-off { color: var(--text-3); }
   .modal-body textarea[data-key="content"] {
     min-height: 320px;
     font-family: ui-monospace, 'SF Mono', Consolas, 'Microsoft YaHei', monospace;
@@ -41,6 +43,9 @@
   }
   .msd-opt:hover { background: #f5f7fa; }
   .msd-opt input { width: auto; margin: 0; }
+  .em-fixed-row { display: flex; align-items: center; gap: 10px; }
+  .em-fixed-hint { font-size: 12px; color: var(--text-3); line-height: 1.45; }
+  .em-fixed-hint b { color: var(--text-2); font-weight: 500; }
 </style>
 </head>
 <body>
@@ -63,7 +68,7 @@
   <div class="table-card">
     <table>
       <thead><tr>
-        <th>提示词名称</th><th>场景</th><th>自动填写的标签</th><th>绑定模型</th><th class="col-actions">操作</th>
+        <th>提示词名称</th><th>场景</th><th>定时启动</th><th>发起规则</th><th>自动填写的标签</th><th>绑定模型</th><th class="col-actions">操作</th>
       </tr></thead>
       <tbody id="tbody"></tbody>
     </table>
@@ -86,15 +91,19 @@ const MODELS = [
 const AI_TAG_OPTIONS = ['地区(AI)', '第一需求(AI)', '第二需求(AI)', '医美史(AI)', '用户等级(AI)'];
 
 const ROWS = [
-  { name:'通用模板',         scene:'单聊', model:'qwen3-max', content:'# 通用销售助手\n\n你是艺星医美的智能销售助手，请基于客户档案与聊天上下文，给出合适的回复或行动建议。\n\n## 输入\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n- 当前日期：{{今日日期}}\n' },
-  { name:'客户分级V2',       scene:'单聊', model:'qwen3-max', content:'# 客户分级分析（v2.0 · 医美版）\n\n你是艺星医美的销售分析助手，请基于客户信息和聊天记录，按三维评分体系输出ABC级判断、JSON结果和跟进建议。\n核心原则：成交意向必须从聊天内容语义分析，不能只看互动频次。\n\n## 输入\n- 客户名称：{{客户名称}}\n- 加微日期：{{加微日期}}（已加微 {{加微天数}} 天）\n- 聊天记录：{{最近90天对话记录}}\n- 当前日期：{{今日日期}}\n\n## 评分规则\n\n### 维度1：加微时间（权重30%）\n- ≤30天 → 10分（黄金期，信任建立期）\n- 31-60天 → 7分（关系维护期）\n- 61-180天 → 4分（沉默期，需激活）\n- >180天 → 2分（流失风险期）\n' },
-  { name:'客户分级',         scene:'单聊', model:'qwen3-max', content:'# 客户分级分析（v1）\n\n根据客户信息和最近 30 天聊天记录，输出 ABC 三级判断与简短理由。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近30天对话记录}}\n' },
-  { name:'需求匹配',         scene:'单聊', model:'qwen3-max', content:'# 需求匹配\n\n请从聊天记录里提取客户的核心诉求，并匹配艺星医美在售项目，输出 Top3 推荐项目与理由。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
-  { name:'咨询SOP达成分析',  scene:'单聊', model:'qwen3-max', content:'# 咨询SOP达成分析\n\n基于销售与客户的对话，判断 SOP 关键节点（问询、案例、报价、邀约、面诊预约）完成情况，输出节点矩阵。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
-  { name:'眼部',             scene:'单聊', model:'qwen3-max', content:'# 眼部项目专家\n\n你是艺星医美眼部整形专家，请基于客户对眼部相关诉求的描述，给出可行的项目组合及术后注意事项。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n' },
-  { name:'客户需求分析',     scene:'单聊', model:'',         content:'# 客户需求分析\n\n请基于聊天上下文输出客户的核心需求、潜在异议与下一步沟通建议。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n' },
-  { name:'客户标签批量分析', scene:'标签', model:'', aiTags:['地区(AI)','第一需求(AI)','医美史(AI)'], content:'# 客户标签批量分析\n\n根据聊天记录输出客户的地区、第一需求、医美史等标签值，JSON 格式返回。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'通用模板',         scene:'单聊', autoRun:true,  autoRule:true,  model:'qwen3-max', content:'# 通用销售助手\n\n你是艺星医美的智能销售助手，请基于客户档案与聊天上下文，给出合适的回复或行动建议。\n\n## 输入\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n- 当前日期：{{今日日期}}\n' },
+  { name:'客户分级V2',       scene:'单聊', autoRun:true,  autoRule:true,  model:'qwen3-max', content:'# 客户分级分析（v2.0 · 医美版）\n\n你是艺星医美的销售分析助手，请基于客户信息和聊天记录，按三维评分体系输出ABC级判断、JSON结果和跟进建议。\n核心原则：成交意向必须从聊天内容语义分析，不能只看互动频次。\n\n## 输入\n- 客户名称：{{客户名称}}\n- 加微日期：{{加微日期}}（已加微 {{加微天数}} 天）\n- 聊天记录：{{最近90天对话记录}}\n- 当前日期：{{今日日期}}\n\n## 评分规则\n\n### 维度1：加微时间（权重30%）\n- ≤30天 → 10分（黄金期，信任建立期）\n- 31-60天 → 7分（关系维护期）\n- 61-180天 → 4分（沉默期，需激活）\n- >180天 → 2分（流失风险期）\n' },
+  { name:'客户分级',         scene:'单聊', autoRun:false, autoRule:false, model:'qwen3-max', content:'# 客户分级分析（v1）\n\n根据客户信息和最近 30 天聊天记录，输出 ABC 三级判断与简短理由。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近30天对话记录}}\n' },
+  { name:'需求匹配',         scene:'单聊', autoRun:false, autoRule:false, model:'qwen3-max', content:'# 需求匹配\n\n请从聊天记录里提取客户的核心诉求，并匹配艺星医美在售项目，输出 Top3 推荐项目与理由。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'咨询SOP达成分析',  scene:'单聊', autoRun:true,  autoRule:true,  model:'qwen3-max', content:'# 咨询SOP达成分析\n\n基于销售与客户的对话，判断 SOP 关键节点（问询、案例、报价、邀约、面诊预约）完成情况，输出节点矩阵。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'眼部',             scene:'单聊', autoRun:false, autoRule:false, model:'qwen3-max', content:'# 眼部项目专家\n\n你是艺星医美眼部整形专家，请基于客户对眼部相关诉求的描述，给出可行的项目组合及术后注意事项。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'客户需求分析',     scene:'单聊', autoRun:false, autoRule:false, model:'',         content:'# 客户需求分析\n\n请基于聊天上下文输出客户的核心需求、潜在异议与下一步沟通建议。\n\n- 客户名称：{{客户名称}}\n- 聊天记录：{{最近90天对话记录}}\n' },
+  { name:'客户标签批量分析', scene:'标签', autoRun:true,  autoRule:true,  model:'', aiTags:['地区(AI)','第一需求(AI)','医美史(AI)'], content:'# 客户标签批量分析\n\n根据聊天记录输出客户的地区、第一需求、医美史等标签值，JSON 格式返回。\n\n- 聊天记录：{{最近90天对话记录}}\n' },
 ];
+
+function flagCell(on) {
+  return on ? `<span class="flag-on">已开启</span>` : `<span class="flag-off">未开启</span>`;
+}
 
 function aiTagsCell(row) {
   if (row.scene !== '标签' || !Array.isArray(row.aiTags) || !row.aiTags.length) return '';
@@ -116,13 +125,15 @@ function render() {
   document.getElementById('totalCount').textContent = list.length;
   const tbody = document.getElementById('tbody');
   if (!list.length) {
-    tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state"><div class="empty-icon">📋</div>暂无数据</div></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state"><div class="empty-icon">📋</div>暂无数据</div></td></tr>`;
     return;
   }
   tbody.innerHTML = list.map(r => `
     <tr>
       <td>${r.name}</td>
       <td>${r.scene}</td>
+      <td>${flagCell(r.autoRun)}</td>
+      <td>${flagCell(r.autoRule)}</td>
       <td>${aiTagsCell(r)}</td>
       <td>${modelCell(r.model)}</td>
       <td class="col-actions">
@@ -153,6 +164,8 @@ function buildPromptModal(title, onSubmit) {
     title, width: 720,
     fields: [
       { label:'场景',     key:'scene',   type:'select',   options: SCENES, required: true },
+      { label:'定时启动', key:'autoRun',  type:'switch' },
+      { label:'发起规则', key:'autoRule', type:'switch' },
       { label:'自动填写的标签', key:'aiTags',  type:'tags',  options: AI_TAG_OPTIONS },
       { label:'绑定模型', key:'model',   type:'select',   options: modelOptions, placeholder:'不选则使用默认模型' },
       { label:'提示词名称', key:'name',    type:'text',     required: true, placeholder:'例：客户分级V2' },
@@ -166,6 +179,11 @@ function buildPromptModal(title, onSubmit) {
     const mask = document.querySelector('.modal-mask.show');
     if (!mask) return;
     transformTagsToDropdown(mask, 'aiTags', '请选择');
+    decorateFixedSwitch(mask, 'autoRun',
+      '后端固定每日 <b>02:00–03:00</b> 自动启动，本期不支持自选时段');
+    decorateFixedSwitch(mask, 'autoRule',
+      '过去 <b>2 天</b>内：好友发送 <b>≥ 5 条</b> 且 销售发送 <b>≥ 5 条</b>，规则本期固定');
+    linkSwitches(mask, 'autoRun', 'autoRule');
     const tagsRow = mask.querySelector('.form-row[data-key="aiTags"]');
     const sceneSel = mask.querySelector('select[data-key="scene"]');
     const sync = () => { tagsRow.style.display = sceneSel.value === '标签' ? '' : 'none'; };
@@ -173,6 +191,30 @@ function buildPromptModal(title, onSubmit) {
     sync();
   };
   return modal;
+}
+
+function linkSwitches(mask, keyA, keyB) {
+  const a = mask.querySelector(`input[data-key="${keyA}"]`);
+  const b = mask.querySelector(`input[data-key="${keyB}"]`);
+  if (!a || !b) return;
+  a.addEventListener('change', () => { b.checked = a.checked; });
+  b.addEventListener('change', () => { a.checked = b.checked; });
+}
+
+function decorateFixedSwitch(mask, key, hintHtml) {
+  const row = mask.querySelector(`.form-row[data-key="${key}"]`);
+  if (!row || row.dataset.decorated) return;
+  row.dataset.decorated = '1';
+  const switchLabel = row.querySelector('label.switch');
+  if (!switchLabel) return;
+  const wrap = document.createElement('div');
+  wrap.className = 'em-fixed-row';
+  switchLabel.parentNode.insertBefore(wrap, switchLabel);
+  wrap.appendChild(switchLabel);
+  const hint = document.createElement('span');
+  hint.className = 'em-fixed-hint';
+  hint.innerHTML = hintHtml;
+  wrap.appendChild(hint);
 }
 
 function transformTagsToDropdown(mask, key, placeholder) {
@@ -224,6 +266,7 @@ function transformTagsToDropdown(mask, key, placeholder) {
 function onCreate() {
   const m = buildPromptModal('新增模板', d => {
     if (!d.scene || !d.name.trim() || !d.content.trim()) { toast('请填写必填项'); return; }
+    d.autoRule = d.autoRun;
     ROWS.unshift(d);
     render();
     toast('已创建');
@@ -236,6 +279,7 @@ function onEdit(name) {
   if (!r) return;
   const m = buildPromptModal('修改模板', d => {
     if (!d.scene || !d.name.trim() || !d.content.trim()) { toast('请填写必填项'); return; }
+    d.autoRule = d.autoRun;
     Object.assign(r, d);
     render();
     toast('已保存');
