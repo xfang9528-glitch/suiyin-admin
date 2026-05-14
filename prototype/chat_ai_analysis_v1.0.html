@@ -275,23 +275,17 @@
     <span class="f-label">部门：</span>
     <select class="f-select" id="dept">
       <option value="">全部部门</option>
-      <option>销售一部</option>
-      <option>销售二部</option>
-      <option>销售三部</option>
-      <option>客服组</option>
+      <option>抖音IP</option>
+      <option>小红书</option>
+      <option>电商</option>
+      <option>代运营</option>
+      <option>自媒体</option>
     </select>
   </div>
   <div class="f-group">
-    <span class="f-label">销售：</span>
-    <select class="f-select" id="sales">
-      <option value="">全部销售</option>
-      <option>杨瑶 yiyi</option>
-      <option>陈巧</option>
-      <option>聂敏</option>
-      <option>Lucy 💗</option>
-      <option>罗玲 金金</option>
-      <option>刘瑜02</option>
-      <option>铃铃</option>
+    <span class="f-label">人设号：</span>
+    <select class="f-select" id="persona">
+      <option value="">全部人设号</option>
     </select>
   </div>
   <button class="btn primary" onclick="render()">🔍 查询</button>
@@ -365,7 +359,29 @@
   </div>
 </div>
 
+<script src="mock-data.js"></script>
 <script>
+  // 按部门分组填充人设号下拉（数据来自 mock-data.js 的 SALES_ACCOUNTS，艺星线上真号）
+  (function fillPersonaSelect() {
+    const sel = document.getElementById('persona');
+    const byDept = {};
+    SALES_ACCOUNTS.forEach(a => {
+      (byDept[a.dept] = byDept[a.dept] || []).push(a);
+    });
+    ['抖音IP', '小红书', '电商', '代运营', '自媒体'].forEach(dept => {
+      if (!byDept[dept]) return;
+      const og = document.createElement('optgroup');
+      og.label = dept;
+      byDept[dept].forEach(a => {
+        const op = document.createElement('option');
+        op.value = a.name;
+        op.textContent = a.name;
+        og.appendChild(op);
+      });
+      sel.appendChild(og);
+    });
+  })();
+
   // 日期快捷切换
   const quickBtns = document.querySelectorAll('#dateQuick button');
   const fromInput = document.getElementById('dateFrom');
@@ -409,12 +425,12 @@
     console.log('查询条件', {
       from: fromInput.value, to: toInput.value,
       dept: document.getElementById('dept').value,
-      sales: document.getElementById('sales').value,
+      persona: document.getElementById('persona').value,
     });
   }
   function onReset() {
     document.getElementById('dept').value = '';
-    document.getElementById('sales').value = '';
+    document.getElementById('persona').value = '';
     quickBtns.forEach(x => x.classList.remove('cur'));
     quickBtns[0].classList.add('cur');
     setRange('today');
