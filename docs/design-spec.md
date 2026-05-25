@@ -190,6 +190,26 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 - 用于「派生指标」列，纯数字无需此格式
 - 首例：话术统计 `stats_script_v1.0.html`
 
+### AI 等级胶囊（.ai-pill） · 跨页通用（2026-05-25）
+- 用途：展示 AI 自动判定的客户等级（DR-027 状态机：客户/A/B/C/D；销售不可手填）
+- 外观：`padding:2px 10px; border-radius:12px; font-size:12px; font-weight:600; color:#fff`
+- 颜色映射（对齐 PC 端 `_AI_GRADE_COLOR`）：
+  | 等级 | 背景色 | 含义 |
+  |---|---|---|
+  | 客户 | `#07c160` | 未聊够 5 句，AI 未判定 |
+  | A | `#e74c3c` | 高意向 |
+  | B | `#e67e22` | 中意向 |
+  | C | `#3498db` | 低意向 |
+  | D | `#95a5a6` | 沉睡 |
+- AI 小标：胶囊内右上半透明白底圆角小字 `AI`（`font-size:9px; background:rgba(255,255,255,0.28)`），表明非人工判定
+- 首例：群发统计 → 回复列表 `stats_mass_v1.0.html`
+
+### 第一需求胶囊（.need-pill） · AI 标注通用（2026-05-25）
+- 用途：展示 AI 识别的客户第一需求（取自 PC 端 17 项 `demandOptions`）
+- 外观：`padding:1px 8px; border-radius:10px; font-size:11.5px; background:#f0f4fa; color:#576b95`（公众号蓝）
+- AI 小标：右侧 `AI` 圆角小字，背景 `rgba(87,107,149,0.18)`，与等级胶囊视觉一致
+- 空态：AI 未识别出明确需求显 `—`（灰色 `var(--text-3)`）
+
 ### 总原则
 > "微信绿"是品牌色，但用法克制：只在主按钮、激活态、关键徽章、logo 出现。
 > 大面积留白 + 灰阶层次 + 公众号蓝 / 红做次要强调。

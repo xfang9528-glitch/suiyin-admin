@@ -1,73 +1,187 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>群发统计</title><link rel="stylesheet" href="_admin_list.css"></head>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>群发统计</title><link rel="stylesheet" href="_admin_list.css">
+<style>
+  .tag.orange { background:#fff8f0; color:#d99a3d; }
+  .tag.pink   { background:#fdf0f6; color:#d96aaa; }
+  .tag.purple { background:#f6f1fa; color:#8e6cb0; }
+  .tag.cyan   { background:#f5fbf7; color:#07c160; }
+
+  /* AI 胶囊（与 PC 端 _AI_GRADE_COLOR 对齐） */
+  .ai-pill { display:inline-block; color:#fff; padding:2px 10px; border-radius:12px; font-size:12px; font-weight:600; line-height:1.5; }
+  .ai-pill .aimark { font-size:9px; background:rgba(255,255,255,0.28); padding:0 4px; border-radius:5px; letter-spacing:0.5px; margin-left:3px; vertical-align:1px; display:inline-block; line-height:13px; }
+  .ai-pill.g-cust { background:#07c160; }
+  .ai-pill.g-A    { background:#e74c3c; }
+  .ai-pill.g-B    { background:#e67e22; }
+  .ai-pill.g-C    { background:#3498db; }
+  .ai-pill.g-D    { background:#95a5a6; }
+  .need-pill { display:inline-block; background:#f0f4fa; color:#576b95; padding:1px 8px; border-radius:10px; font-size:11.5px; line-height:1.6; }
+  .need-pill .aimark { font-size:9px; background:rgba(87,107,149,0.18); color:#576b95; padding:0 4px; border-radius:5px; letter-spacing:0.5px; margin-left:3px; vertical-align:1px; display:inline-block; line-height:13px; }
+  .need-empty { color:var(--text-3); font-size:12px; }
+
+  .reply-header { display:flex; align-items:center; gap:12px; padding:10px 16px 8px; }
+  .reply-header .btn-back { display:inline-flex; align-items:center; gap:4px; padding:4px 10px; border:1px solid #e5e7eb; border-radius:4px; font-size:12.5px; color:var(--text-2); background:#fff; cursor:pointer; }
+  .reply-header .btn-back:hover { background:#f7f8fa; }
+  .reply-header .reply-title { font-size:14px; font-weight:600; color:#1a1a1a; }
+  .avatar-sm { width:32px; height:32px; border-radius:50%; background:#e5e7eb; display:inline-flex; align-items:center; justify-content:center; color:#a8b3bf; font-size:14px; }
+</style>
+</head>
 <body>
 
-<div class="filter-bar">
-  <div class="f-group">
-    <input class="f-input date" type="date" placeholder="开始日期">
-    <span class="f-sep">至</span>
-    <input class="f-input date" type="date" placeholder="结束日期">
+<!-- ========= 视图 1：群发统计列表 ========= -->
+<div id="view-list">
+  <div class="filter-bar">
+    <div class="f-group">
+      <input class="f-input date" type="date" placeholder="开始日期">
+      <span class="f-sep">至</span>
+      <input class="f-input date" type="date" placeholder="结束日期">
+    </div>
+    <div class="f-group">
+      <select class="f-select" id="src">
+        <option value="">类型</option>
+        <option>营销</option>
+        <option>问候</option>
+        <option>情感</option>
+        <option>活动</option>
+        <option>关怀</option>
+      </select>
+    </div>
+    <div class="f-group">
+      <select class="f-select" id="task"><option value="">任务名称</option><option>5月医美节</option><option>留存群发</option></select>
+    </div>
+    <button class="btn primary" onclick="render()">🔍 查询</button>
+    <div class="f-spacer"></div>
+    <button class="btn" onclick="toast('导出')">📤 导出</button>
   </div>
-  <div class="f-group">
-    <select class="f-select" id="src"><option value="">来源</option><option>留存群发</option><option>手动创建</option></select>
+
+  <div class="table-wrap">
+    <div class="table-card scroll" style="min-width:1280px;">
+      <table>
+        <thead><tr>
+          <th>任务名称</th><th>类型</th><th>群发日期</th><th>群发内容</th>
+          <th>群发数量</th><th>回复人数</th><th>回复率</th><th class="col-actions">操作</th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
   </div>
-  <div class="f-group">
-    <select class="f-select" id="task"><option value="">任务名称</option><option>5月医美节</option><option>留存群发</option></select>
+
+  <div class="pager">
+    <span class="pager-info">共 1,287 条</span>
+    <select><option>20条/页</option></select>
+    <button class="pager-btn">‹</button>
+    <button class="pager-btn cur">1</button><button class="pager-btn">2</button><button class="pager-btn">3</button>
+    <span class="pager-ellipsis">…</span><button class="pager-btn">65</button>
+    <button class="pager-btn">›</button>
   </div>
-  <button class="btn primary" onclick="render()">🔍 查询</button>
-  <div class="f-spacer"></div>
-  <button class="btn" onclick="toast('导出')">📤 导出</button>
 </div>
 
-<div class="table-wrap">
-  <div class="table-card scroll" style="min-width:1280px;">
-    <table>
-      <thead><tr>
-        <th>任务名称</th><th>来源</th><th>群发日期</th><th>群发内容</th>
-        <th>群发数量</th><th>回复人数</th><th>回复率</th><th class="col-actions">操作</th>
-      </tr></thead>
-      <tbody id="tbody"></tbody>
-    </table>
+<!-- ========= 视图 2：回复列表 ========= -->
+<div id="view-reply" style="display:none;">
+  <div class="reply-header">
+    <button class="btn-back" onclick="closeReplyList()">‹ 返回</button>
+    <span class="reply-title" id="reply-title"></span>
+    <div class="f-spacer"></div>
+    <button class="btn" onclick="toast('导出')">📤 导出</button>
   </div>
-</div>
-
-<div class="pager">
-  <span class="pager-info">共 1,287 条</span>
-  <select><option>20条/页</option></select>
-  <button class="pager-btn">‹</button>
-  <button class="pager-btn cur">1</button><button class="pager-btn">2</button><button class="pager-btn">3</button>
-  <span class="pager-ellipsis">…</span><button class="pager-btn">65</button>
-  <button class="pager-btn">›</button>
+  <div class="table-wrap">
+    <div class="table-card scroll" style="min-width:1320px;">
+      <table>
+        <thead><tr>
+          <th style="width:60px;">头像</th>
+          <th>昵称</th>
+          <th>人设名称</th>
+          <th>回复类型</th>
+          <th>用户等级(AI)</th>
+          <th>第一需求(AI)</th>
+          <th>回复内容</th>
+          <th>回复时间</th>
+          <th>回复延迟</th>
+        </tr></thead>
+        <tbody id="reply-tbody"></tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
 <div class="toast" id="toast"></div>
 <script>
+const TYPE_COLOR = { '营销':'orange', '问候':'pink', '情感':'purple', '活动':'blue', '关怀':'cyan' };
 const ROWS = [
-  { name:'吴雨贵 109',  src:'手动',     date:'2026-05-06', preview:'5 月医美节 满 8000 减 1500 …', sent:10423, replied:1186, rate:0.114 },
-  { name:'尹巧珠 038',  src:'手动',     date:'2026-05-06', preview:'热玛吉 5 代体验 限时…',     sent:10447, replied:980,  rate:0.094 },
-  { name:'姚通 172',    src:'手动',     date:'2026-05-06', preview:'谢斐院长玻尿酸丰唇案例…',   sent:8195,  replied:780,  rate:0.095 },
-  { name:'黎容',         src:'手动',     date:'2026-05-06', preview:'高顺波院长鼻修复手术全过程…',sent:11951, replied:856,  rate:0.072 },
-  { name:'留存群发：自媒体杨博文 04', src:'留存群发', date:'2026-05-03', preview:'好久不见，最近有什么…', sent:84,    replied:18,   rate:0.214 },
-  { name:'留存群发：自媒体林一 10',  src:'留存群发', date:'2026-05-03', preview:'好久不见，最近有什么…', sent:89,    replied:22,   rate:0.247 },
-  { name:'留存群发：自媒体杨博文 01', src:'留存群发', date:'2026-05-03', preview:'好久不见，最近有什么…', sent:143,   replied:28,   rate:0.196 },
+  { name:'吴雨贵 109',  type:'营销', date:'2026-05-06', preview:'5 月医美节 满 8000 减 1500 …',  sent:10423, replied:1186, rate:0.114 },
+  { name:'尹巧珠 038',  type:'活动', date:'2026-05-06', preview:'热玛吉 5 代体验 限时…',           sent:10447, replied:980,  rate:0.094 },
+  { name:'姚通 172',    type:'营销', date:'2026-05-06', preview:'谢斐院长玻尿酸丰唇案例…',         sent:8195,  replied:780,  rate:0.095 },
+  { name:'黎容',         type:'营销', date:'2026-05-06', preview:'高顺波院长鼻修复手术全过程…',     sent:11951, replied:856,  rate:0.072 },
+  { name:'留存群发：自媒体杨博文 04', type:'问候', date:'2026-05-03', preview:'好久不见，最近有什么…', sent:84,    replied:18,   rate:0.214 },
+  { name:'留存群发：自媒体林一 10',  type:'关怀', date:'2026-05-03', preview:'好久不见，最近有什么…', sent:89,    replied:22,   rate:0.247 },
+  { name:'留存群发：自媒体杨博文 01', type:'情感', date:'2026-05-03', preview:'好久不见，最近有什么…', sent:143,   replied:28,   rate:0.196 },
 ];
+// AI 等级 与 第一需求 取值池（对齐 PC 端：_AI_GRADE_COLOR + demandOptions）
+// 默认 mock 回复列表（截图同款 12 条）
+const REPLY_ROWS = [
+  { name:'恃宠而骄',           persona:'自媒体杨博文002', kind:'文本', grade:'A',  need:'眼部整形', text:'割双眼皮多少',                                  time:'2026-05-25 10:46:33', delay:'21秒'   },
+  { name:'c',                  persona:'自媒体杨博文002', kind:'文本', grade:'A',  need:'脂肪填充', text:'全脸打要多少米',                                time:'2026-05-25 11:10:47', delay:'1分钟'  },
+  { name:'淋小雨',             persona:'自媒体杨博文002', kind:'文本', grade:'B',  need:'面部其他整形', text:'脖子短怎么办',                              time:'2026-05-25 11:11:17', delay:'20秒'   },
+  { name:'A-小玲-头皮抗衰-…',  persona:'自媒体杨博文002', kind:'文本', grade:'C',  need:null,       text:'一定要了解项目吗？了解你多一点不可以吗',         time:'2026-05-25 11:12:08', delay:'47秒'   },
+  { name:'vanilla',            persona:'自媒体杨博文002', kind:'文本', grade:'A',  need:'面部其他整形', text:'有 瘦脸针',                                  time:'2026-05-25 11:13:52', delay:'27秒'   },
+  { name:'懒洋洋洋洋.',         persona:'自媒体杨博文002', kind:'文本', grade:'C',  need:null,       text:'你觉得我该做什么',                              time:'2026-05-25 11:25:44', delay:'25秒'   },
+  { name:'宝宝',                persona:'自媒体杨博文002', kind:'文本', grade:'D',  need:null,       text:'我在上海噢',                                    time:'2026-05-25 11:27:34', delay:'4分钟'  },
+  { name:'splendid C',         persona:'自媒体杨博文002', kind:'文本', grade:'A',  need:'嫩肤保养', text:'水光怎么样',                                    time:'2026-05-25 11:45:04', delay:'1小时7分' },
+  { name:'🐱',                  persona:'自媒体杨博文002', kind:'文本', grade:'D',  need:null,       text:'目前在上学 有想了解的项目 但是想以后工作再说',     time:'2026-05-25 11:47:53', delay:'11分钟' },
+  { name:'Eihdbr.',            persona:'自媒体杨博文002', kind:'文本', grade:'C',  need:null,       text:'你觉得我应该做个啥',                            time:'2026-05-25 13:07:40', delay:'22秒'   },
+  { name:'Lu',                 persona:'自媒体杨博文002', kind:'文本', grade:'A',  need:'嫩肤保养', text:'黄金微针什么价格',                              time:'2026-05-25 14:03:51', delay:'1分钟'  },
+  { name:'四叶草180307402…',    persona:'自媒体杨博文002', kind:'文本', grade:'D',  need:null,       text:'没有呢',                                        time:'2026-05-25 14:09:05', delay:'6分钟'  },
+];
+
 function rateColor(r) { return r >= 0.2 ? 'success' : (r >= 0.1 ? '' : 'fail'); }
 function render() {
   const src = document.getElementById('src').value;
-  const list = ROWS.filter(r => !src || r.src === src);
+  const list = ROWS.filter(r => !src || r.type === src);
   document.getElementById('tbody').innerHTML = list.map(r => `
     <tr>
       <td>${r.name}</td>
-      <td>${r.src === '留存群发' ? '<span class="tag blue">留存群发</span>' : '<span class="tag">手动</span>'}</td>
+      <td><span class="tag ${TYPE_COLOR[r.type] || ''}">${r.type}</span></td>
       <td class="col-time">${r.date}</td>
       <td><span style="display:inline-block;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text-2);">${r.preview}</span></td>
       <td class="col-num">${r.sent.toLocaleString('zh-CN')}</td>
       <td class="col-num success">${r.replied}</td>
       <td class="col-num ${rateColor(r.rate)}">${(r.rate*100).toFixed(1)}%</td>
-      <td class="col-actions"><button class="row-action" onclick="toast('查看回复')">查看回复</button></td>
+      <td class="col-actions"><button class="row-action" onclick="openReplyList('${r.name.replace(/'/g,"\\'")}')">查看回复</button></td>
     </tr>
   `).join('');
 }
+
+function gradePill(g) {
+  if (!g) return `<span class="ai-pill g-cust">客户<span class="aimark">AI</span></span>`;
+  return `<span class="ai-pill g-${g}">${g}<span class="aimark">AI</span></span>`;
+}
+function needPill(n) {
+  if (!n) return `<span class="need-empty">—</span>`;
+  return `<span class="need-pill">${n}<span class="aimark">AI</span></span>`;
+}
+function openReplyList(taskName) {
+  document.getElementById('view-list').style.display = 'none';
+  document.getElementById('view-reply').style.display = 'block';
+  document.getElementById('reply-title').textContent = `${taskName} - 回复列表`;
+  document.getElementById('reply-tbody').innerHTML = REPLY_ROWS.map(r => `
+    <tr>
+      <td><span class="avatar-sm">👤</span></td>
+      <td>${r.name}</td>
+      <td>${r.persona}</td>
+      <td><span class="tag">${r.kind}</span></td>
+      <td>${gradePill(r.grade)}</td>
+      <td>${needPill(r.need)}</td>
+      <td>${r.text}</td>
+      <td class="col-time">${r.time}</td>
+      <td class="col-time">${r.delay}</td>
+    </tr>
+  `).join('');
+  window.scrollTo(0, 0);
+}
+function closeReplyList() {
+  document.getElementById('view-reply').style.display = 'none';
+  document.getElementById('view-list').style.display = 'block';
+}
+
 let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
 render();
 </script></body></html>
