@@ -21,7 +21,7 @@
 <div class="table-wrap">
   <div class="table-card">
     <table>
-      <thead><tr><th>#</th><th>销售</th><th>消息数</th></tr></thead>
+      <thead><tr><th>#</th><th>销售</th><th>消息数</th><th>聊天好友数</th></tr></thead>
       <tbody id="tbody"></tbody>
     </table>
   </div>
@@ -36,23 +36,23 @@
 <div class="toast" id="toast"></div>
 <script>
 const ROWS = [
-  { sale:'杨瑶 yiyi',     msgs:4020 },
-  { sale:'杜佳',          msgs:3800 },
-  { sale:'陈巧',          msgs:3760 },
-  { sale:'聂敏',          msgs:3500 },
-  { sale:'Lucy 💗',       msgs:3310 },
-  { sale:'罗玲 金金',      msgs:3286 },
-  { sale:'刘瑜02',        msgs:3105 },
-  { sale:'赵紫颖03',      msgs:2980 },
-  { sale:'曹琳',          msgs:2640 },
-  { sale:'刘依王01',      msgs:2380 },
-  { sale:'牛海兰03',      msgs:2110 },
-  { sale:'YeStar 助理-铃铃',msgs:1860 },
+  { sale:'杨瑶 yiyi',     friends:312, msgs:4020 },
+  { sale:'杜佳',          friends:286, msgs:3800 },
+  { sale:'陈巧',          friends:298, msgs:3760 },
+  { sale:'聂敏',          friends:264, msgs:3500 },
+  { sale:'Lucy 💗',       friends:251, msgs:3310 },
+  { sale:'罗玲 金金',      friends:273, msgs:3286 },
+  { sale:'刘瑜02',        friends:229, msgs:3105 },
+  { sale:'赵紫颖03',      friends:241, msgs:2980 },
+  { sale:'曹琳',          friends:198, msgs:2640 },
+  { sale:'刘依王01',      friends:187, msgs:2380 },
+  { sale:'牛海兰03',      friends:176, msgs:2110 },
+  { sale:'YeStar 助理-铃铃',friends:152, msgs:1860 },
 ];
 function render() {
   const kw = document.getElementById('kw').value.trim();
   const list = ROWS.filter(r => !kw || r.sale.includes(kw));
-  document.getElementById('tbody').innerHTML = list.map((r,i) => `<tr><td class="col-num muted">${i+1}</td><td>${r.sale}</td><td class="col-num success">${r.msgs.toLocaleString('zh-CN')}</td></tr>`).join('');
+  document.getElementById('tbody').innerHTML = list.map((r,i) => `<tr><td class="col-num muted">${i+1}</td><td>${r.sale}</td><td class="col-num success">${r.msgs.toLocaleString('zh-CN')}</td><td class="col-num">${r.friends.toLocaleString('zh-CN')}</td></tr>`).join('');
   document.getElementById('pagerInfo').textContent = `共 ${list.length} 条`;
 }
 function onReset() { document.getElementById('kw').value=''; render(); }
