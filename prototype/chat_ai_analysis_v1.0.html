@@ -300,12 +300,23 @@
   <!-- 第一行：核心总量 -->
   <div class="section-title">
     📊 分析总量
-    <span class="hint">选中日期范围内自动 AI 分析处理的聊天与提取出的关键信息总数</span>
+    <span class="hint">选中日期范围内 AI 自动完成的分析总量，拆分为标签分析与客户画像分析</span>
   </div>
   <div class="stat-grid">
     <div class="stat-card accent">
-      <div class="label">分析聊天总数</div>
-      <div class="value">287 <span class="unit">条</span></div>
+      <div class="label">AI 分析总量</div>
+      <div class="value">537 <span class="unit">次</span></div>
+      <div class="sub">标签分析 + 客户画像分析</div>
+    </div>
+    <div class="stat-card info">
+      <div class="label">标签分析数</div>
+      <div class="value">287 <span class="unit">次</span></div>
+      <div class="sub">需求 / 客户等级等标签识别</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="label">客户画像分析数</div>
+      <div class="value">250 <span class="unit">次</span></div>
+      <div class="sub">补全客户画像档案字段</div>
     </div>
   </div>
 
@@ -342,6 +353,10 @@
     <div class="panel">
       <div class="panel-head">地区分布</div>
       <div class="panel-body scroll-body" id="bodyRegion"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head">客户画像分析统计</div>
+      <div class="panel-body scroll-body" id="bodyPortrait"></div>
     </div>
   </div>
 
@@ -513,6 +528,16 @@
         { name:'四川省眉山市东坡区', count:2,  pct:'0.7%',  bar:3 },
         { name:'四川省乐山市市中区', count:2,  pct:'0.7%',  bar:3 },
       ]
+    },
+    portrait: {
+      label: '客户画像分析', containerId: 'bodyPortrait', kind: 'level',
+      items: [
+        { name:'A 级', count:27, pct:'10.8%', bar:19, color:'#fa5151' },
+        { name:'B 级', count:71, pct:'28.4%', bar:51, color:'#d99a3d' },
+        { name:'C 级', count:99, pct:'39.6%', bar:71, color:'#576b95' },
+        { name:'D 级', count:44, pct:'17.6%', bar:32, color:'#8a96a3' },
+        { name:'未评级', count:9, pct:'3.6%', bar:6, color:'#c0c8d1' },
+      ]
     }
   };
 
@@ -583,6 +608,9 @@
     { key: 'region',    label: '地区' },
   ];
 
+  // 画像分析统计是按等级桶聚合的，明细里锁定到「等级」列
+  const DETAIL_DIM = { portrait: 'level' };
+
   // 给定 (panel, value)，生成 count 条好友记录（每条带全部 5 维标签 + 人设号 + 昵称）
   function genTaggedFriends(panel, value, count) {
     const seed = hashCode(panel + ':' + value);
@@ -598,8 +626,8 @@
         medical:   PANELS.medical.items[((seed + i * 23) >>> 0) % PANELS.medical.items.length].name,
         region:    PANELS.region.items[((seed + i * 29) >>> 0) % PANELS.region.items.length].name,
       };
-      // 锁定被点击的那个维度 = 当前值
-      row[panel] = value;
+      // 锁定被点击的那个维度 = 当前值（画像分析锁到等级列）
+      row[DETAIL_DIM[panel] || panel] = value;
       list.push(row);
     }
     return list;
@@ -612,7 +640,7 @@
     const friends = genTaggedFriends(panel, value, item.count);
     document.getElementById('detailTitle').textContent =
       `${p.label} · ${value} · 客户明细（共 ${item.count} 人）`;
-    const cols = ALL_COLS.filter(c => c.key !== panel);
+    const cols = ALL_COLS.filter(c => c.key !== (DETAIL_DIM[panel] || panel));
     const body = document.getElementById('detailBody');
     if (!friends.length) {
       body.innerHTML = `<div class="empty-hint">暂无标记记录</div>`;
