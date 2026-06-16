@@ -1,5 +1,106 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>拉新记录</title><link rel="stylesheet" href="_admin_list.css"></head>
+<html lang="zh-CN"><head><meta charset="UTF-8"><title>拉新记录</title><link rel="stylesheet" href="_admin_list.css">
+<style>
+/* ===== 微信号 级联选择器 ===== */
+.wx-picker { position: relative; }
+.wx-trigger {
+  height: 30px; min-width: 180px; max-width: 240px;
+  padding: 0 28px 0 10px;
+  border: 1px solid #e5e8ec; border-radius: 3px;
+  font-size: 12.5px; background: #fff; color: var(--text-1);
+  display: flex; align-items: center; cursor: pointer;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  position: relative; transition: border-color .15s;
+}
+.wx-trigger:hover, .wx-picker.open .wx-trigger { border-color: var(--wx-green); }
+.wx-trigger.placeholder { color: var(--text-3); }
+.wx-trigger::after {
+  content: ''; position: absolute; right: 10px; top: 50%;
+  width: 6px; height: 6px; border-right: 1.5px solid var(--text-3);
+  border-bottom: 1.5px solid var(--text-3);
+  transform: translateY(-65%) rotate(45deg); transition: transform .15s;
+}
+.wx-picker.open .wx-trigger::after { transform: translateY(-35%) rotate(-135deg); }
+.wx-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 16px; height: 16px; padding: 0 4px; margin-left: 6px;
+  background: var(--wx-green); color: #fff; border-radius: 8px; font-size: 11px;
+}
+
+.wx-panel {
+  display: none; position: fixed; z-index: 1200;
+  width: 460px; background: #fff;
+  border: 1px solid var(--border); border-radius: 6px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.14);
+  overflow: hidden;
+}
+.wx-picker.open .wx-panel { display: block; }
+/* 指向锚点的三角（PC 原型规范） */
+.wx-panel::before {
+  content: ''; position: absolute; top: -6px; left: var(--arrow-left, 24px);
+  width: 11px; height: 11px; background: #fff;
+  border-left: 1px solid var(--border); border-top: 1px solid var(--border);
+  transform: rotate(45deg);
+}
+.wx-search {
+  padding: 8px 10px; border-bottom: 1px solid var(--border);
+}
+.wx-search input {
+  width: 100%; height: 28px; padding: 0 10px;
+  border: 1px solid #e5e8ec; border-radius: 3px;
+  font-size: 12.5px; outline: none; font-family: inherit;
+}
+.wx-search input:focus { border-color: var(--wx-green); }
+.wx-cols { display: flex; height: 248px; }
+.wx-col { overflow-y: auto; }
+.wx-col.groups { width: 168px; border-right: 1px solid var(--border); background: #fafbfc; }
+.wx-col.accounts { flex: 1; }
+.wx-item {
+  display: flex; align-items: center; gap: 7px;
+  padding: 0 12px; height: 34px; cursor: pointer;
+  font-size: 12.5px; color: var(--text-2);
+  white-space: nowrap; overflow: hidden;
+}
+.wx-item:hover { background: var(--wx-green-light); }
+.wx-col.groups .wx-item.active { background: #fff; color: var(--text-1); font-weight: 500; }
+.wx-item .nm { flex: 1; overflow: hidden; text-overflow: ellipsis; }
+.wx-item .arrow {
+  width: 5px; height: 5px; border-right: 1.5px solid #c0c8d1;
+  border-bottom: 1.5px solid #c0c8d1; transform: rotate(-45deg); flex-shrink: 0;
+}
+.wx-cb {
+  width: 14px; height: 14px; flex-shrink: 0;
+  border: 1.5px solid #c8cfd8; border-radius: 3px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #fff;
+}
+.wx-cb.on { background: var(--wx-green); border-color: var(--wx-green); }
+.wx-cb.partial { background: #fff; border-color: var(--wx-green); }
+.wx-cb.on::after {
+  content: ''; width: 3px; height: 7px;
+  border: solid #fff; border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg) translateY(-1px);
+}
+.wx-cb.partial::after {
+  content: ''; width: 7px; height: 0; border-top: 1.5px solid var(--wx-green);
+}
+.wx-empty { padding: 24px 12px; text-align: center; color: var(--text-3); font-size: 12px; }
+.wx-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 12px; border-top: 1px solid var(--border); background: #fafbfc;
+}
+.wx-foot .sel-info { font-size: 12px; color: var(--text-3); }
+.wx-foot .sel-info b { color: var(--wx-green); font-weight: 600; }
+.wx-foot .acts { display: flex; gap: 8px; }
+
+/* 其他已添加人设 列 */
+.persona-tags { display: flex; flex-wrap: wrap; gap: 4px; max-width: 320px; }
+.persona-tag {
+  display: inline-block; padding: 1px 7px;
+  background: #fff5f0; color: #e8613a;
+  border: 1px solid #f6d8cb; border-radius: 3px; font-size: 11.5px;
+}
+</style></head>
 <body>
 
 <div class="filter-bar">
@@ -8,18 +109,45 @@
     <span class="f-sep">至</span>
     <input class="f-input date" id="d2" type="date" placeholder="结束日期">
   </div>
-  <div class="f-group"><input class="f-input wide" id="sale" placeholder="请输入销售名称"></div>
-  <div class="f-group"><input class="f-input wide" id="ch" placeholder="请输入渠道名称"></div>
+  <div class="f-group">
+    <span class="f-label">微信号</span>
+    <div class="wx-picker" id="wxPicker">
+      <div class="wx-trigger placeholder" id="wxTrigger" onclick="toggleWxPanel(event)">请选择</div>
+      <div class="wx-panel" onclick="event.stopPropagation()">
+        <div class="wx-search"><input id="wxSearch" placeholder="搜索微信号" oninput="onWxSearch()"></div>
+        <div class="wx-cols">
+          <div class="wx-col groups" id="wxGroups"></div>
+          <div class="wx-col accounts" id="wxAccounts"></div>
+        </div>
+        <div class="wx-foot">
+          <span class="sel-info">已选 <b id="wxSelCount">0</b> 个微信号</span>
+          <div class="acts">
+            <button class="btn sm" onclick="clearWx()">清空</button>
+            <button class="btn primary sm" onclick="confirmWx()">确定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="f-group">
+    <span class="f-label">重复添加</span>
+    <select class="f-select" id="dup">
+      <option value="">全部</option>
+      <option value="1">仅重复添加</option>
+      <option value="0">仅未重复</option>
+    </select>
+  </div>
   <button class="btn primary" onclick="render()">🔍 查询</button>
   <button class="btn" onclick="onReset()">重置</button>
+  <button class="btn ghost" onclick="exportCsv()">⬇ 导出表格</button>
 </div>
 
 <div class="table-wrap">
-  <div class="table-card scroll" style="min-width:1480px;">
+  <div class="table-card scroll" style="min-width:760px;">
     <table>
       <thead><tr>
-        <th>头像昵称</th><th>所在微信号</th><th>销售</th><th>老客户</th>
-        <th>渠道</th><th>活动名</th><th>利益点</th><th>合作方</th><th>拉新时间</th>
+        <th>头像昵称</th><th>所在微信号</th>
+        <th>其他已添加人设</th><th>拉新时间</th>
       </tr></thead>
       <tbody id="tbody"></tbody>
     </table>
@@ -36,33 +164,176 @@
 </div>
 
 <div class="toast" id="toast"></div>
+<script src="mock-data.js"></script>
 <script>
+// ===== 拉新记录数据 =====
+// otherPersonas = 同一好友被其他人设号/微信号也添加过（重复好友，DR-038）
 const ROWS = [
-  { nick:'柚子',     wx:'A 成都艺星专家助理 KK', sale:'KK17775575920', oldCus:'-',          ch:'抖音',     act:'5月医美节', benefit:'限时 9 折', partner:'抖音直播间', at:'2026-05-06 10:42:18' },
-  { nick:'小苹果',   wx:'成都艺星医生助理 chloe',sale:'chloe',          oldCus:'琪琪-客户D', ch:'老客介绍', act:'-',         benefit:'-',         partner:'-',           at:'2026-05-06 09:33:02' },
-  { nick:'小红',     wx:'艺星专家助理妍妍',     sale:'妍妍',           oldCus:'-',          ch:'小红书',   act:'春日护肤季', benefit:'立减 200',  partner:'小红书博主', at:'2026-05-05 18:08:11' },
-  { nick:'敏敏',     wx:'刘瑜02',               sale:'刘瑜02',         oldCus:'-',          ch:'美团',     act:'美团点评',   benefit:'团购价',    partner:'美团医美',   at:'2026-05-05 15:22:09' },
-  { nick:'琴',       wx:'Lucy 💗',              sale:'Lucy',          oldCus:'敏敏-客户C', ch:'老客介绍', act:'-',         benefit:'-',         partner:'-',           at:'2026-05-05 11:08:55' },
-  { nick:'糖糖',     wx:'YeStar 助理-铃铃',      sale:'铃铃',           oldCus:'-',          ch:'抖音',     act:'5月医美节', benefit:'限时 9 折', partner:'抖音直播间', at:'2026-05-04 19:30:18' },
-  { nick:'豆豆',     wx:'A 成都艺星院长助理好好',sale:'好好',           oldCus:'-',          ch:'院内',     act:'-',         benefit:'-',         partner:'院内回头',   at:'2026-05-04 16:50:00' },
-  { nick:'果果',     wx:'曹琳',                 sale:'曹琳',           oldCus:'-',          ch:'朋友圈广告',act:'5月医美节', benefit:'限时 9 折', partner:'广点通',    at:'2026-05-04 11:00:00' },
+  { nick:'柚子',   wx:'A 成都艺星专家助理 KK', sale:'KK17775575920', ch:'抖音',     otherPersonas:['成都艺星专家助理鑫鑫','曹琳'], at:'2026-05-06 10:42:18' },
+  { nick:'小苹果', wx:'成都艺星医生助理 chloe',sale:'chloe',          ch:'老客介绍', otherPersonas:['艺星专家助理妍妍'],            at:'2026-05-06 09:33:02' },
+  { nick:'小红',   wx:'艺星专家助理妍妍',     sale:'妍妍',           ch:'小红书',   otherPersonas:[],                              at:'2026-05-05 18:08:11' },
+  { nick:'敏敏',   wx:'刘瑜02',               sale:'刘瑜02',         ch:'美团',     otherPersonas:['刘瑜01','刘依王02'],          at:'2026-05-05 15:22:09' },
+  { nick:'琴',     wx:'Lucy 💗',              sale:'Lucy',          ch:'老客介绍', otherPersonas:[],                              at:'2026-05-05 11:08:55' },
+  { nick:'糖糖',   wx:'YeStar 助理-铃铃',      sale:'铃铃',           ch:'抖音',     otherPersonas:['周恬 Lucy💕'],                at:'2026-05-04 19:30:18' },
+  { nick:'豆豆',   wx:'A 成都艺星院长助理好好',sale:'好好',           ch:'院内',     otherPersonas:[],                              at:'2026-05-04 16:50:00' },
+  { nick:'果果',   wx:'曹琳',                 sale:'曹琳',           ch:'朋友圈广告',otherPersonas:['曹琳02','杨婧01'],            at:'2026-05-04 11:00:00' },
 ];
+
+function getFilteredRows() {
+  const dup = document.getElementById('dup').value;
+  return ROWS.filter(r => {
+    if (dup === '1') return r.otherPersonas.length > 0;   // 仅重复添加
+    if (dup === '0') return r.otherPersonas.length === 0;  // 仅未重复
+    return true;
+  });
+}
+
 function render() {
-  document.getElementById('tbody').innerHTML = ROWS.map(r => `
+  const list = getFilteredRows();
+  const tbody = document.getElementById('tbody');
+  if (!list.length) {
+    tbody.innerHTML = '<tr><td colspan="4"><div class="empty-state"><div class="empty-icon">📭</div>暂无符合条件的记录</div></td></tr>';
+    return;
+  }
+  tbody.innerHTML = list.map(r => `
     <tr>
       <td>${r.nick}</td>
       <td>${r.wx}</td>
-      <td>${r.sale}</td>
-      <td>${r.oldCus === '-' ? '<span style="color:var(--text-3)">-</span>' : r.oldCus}</td>
-      <td><span class="tag blue">${r.ch}</span></td>
-      <td>${r.act === '-' ? '<span style="color:var(--text-3)">-</span>' : r.act}</td>
-      <td>${r.benefit === '-' ? '<span style="color:var(--text-3)">-</span>' : r.benefit}</td>
-      <td>${r.partner === '-' ? '<span style="color:var(--text-3)">-</span>' : r.partner}</td>
+      <td>${r.otherPersonas.length
+            ? `<div class="persona-tags">${r.otherPersonas.map(p=>`<span class="persona-tag">${p}</span>`).join('')}</div>`
+            : '<span style="color:var(--text-3)">-</span>'}</td>
       <td class="col-time">${r.at}</td>
     </tr>
   `).join('');
 }
-function onReset() { ['d1','d2','sale','ch'].forEach(id=>document.getElementById(id).value=''); render(); }
+
+// ===== 微信号 级联选择器 =====
+// 数据源：mock-data.js 的 SALES_ACCOUNTS（按 dept 分组，权威账号名）
+const WX_GROUPS = (() => {
+  const map = new Map();
+  const accounts = (typeof SALES_ACCOUNTS !== 'undefined') ? SALES_ACCOUNTS : [];
+  accounts.forEach(a => {
+    if (!map.has(a.dept)) map.set(a.dept, []);
+    map.get(a.dept).push(a.name);
+  });
+  return [...map.entries()].map(([dept, names]) => ({ dept, names }));
+})();
+
+let wxActiveGroup = WX_GROUPS.length ? WX_GROUPS[0].dept : '';
+let wxChecked = new Set();      // 已确定选中的账号名
+let wxDraft = new Set();        // 面板里临时勾选
+let wxKeyword = '';
+
+function curGroup() { return WX_GROUPS.find(g => g.dept === wxActiveGroup) || { dept:'', names:[] }; }
+function filteredNames(names) {
+  if (!wxKeyword) return names;
+  return names.filter(n => n.toLowerCase().includes(wxKeyword));
+}
+
+function renderWxGroups() {
+  document.getElementById('wxGroups').innerHTML = WX_GROUPS.map(g => {
+    const total = g.names.length;
+    const sel = g.names.filter(n => wxDraft.has(n)).length;
+    const cb = sel === 0 ? '' : (sel === total ? 'on' : 'partial');
+    return `<div class="wx-item ${g.dept===wxActiveGroup?'active':''}" onclick="pickGroup('${g.dept}')">
+      <span class="wx-cb ${cb}" onclick="toggleGroup(event,'${g.dept}')"></span>
+      <span class="nm">${g.dept}</span>
+      <span class="arrow"></span>
+    </div>`;
+  }).join('');
+}
+function renderWxAccounts() {
+  const names = filteredNames(curGroup().names);
+  const box = document.getElementById('wxAccounts');
+  if (!names.length) { box.innerHTML = '<div class="wx-empty">无匹配微信号</div>'; return; }
+  box.innerHTML = names.map(n => `
+    <div class="wx-item" onclick="toggleAccount('${n.replace(/'/g,"\\'")}')">
+      <span class="wx-cb ${wxDraft.has(n)?'on':''}"></span>
+      <span class="nm" title="${n}">${n}</span>
+    </div>`).join('');
+}
+function renderWxFoot() { document.getElementById('wxSelCount').textContent = wxDraft.size; }
+function renderWxAll() { renderWxGroups(); renderWxAccounts(); renderWxFoot(); }
+
+function pickGroup(dept) { wxActiveGroup = dept; renderWxAll(); }
+function toggleGroup(e, dept) {
+  e.stopPropagation();
+  const g = WX_GROUPS.find(x => x.dept === dept); if (!g) return;
+  const all = g.names.every(n => wxDraft.has(n));
+  g.names.forEach(n => all ? wxDraft.delete(n) : wxDraft.add(n));
+  if (wxActiveGroup !== dept) wxActiveGroup = dept;
+  renderWxAll();
+}
+function toggleAccount(n) { wxDraft.has(n) ? wxDraft.delete(n) : wxDraft.add(n); renderWxAll(); }
+function onWxSearch() { wxKeyword = document.getElementById('wxSearch').value.trim().toLowerCase(); renderWxAccounts(); }
+
+function positionWxPanel() {
+  const trigger = document.getElementById('wxTrigger');
+  const panel = document.querySelector('#wxPicker .wx-panel');
+  const r = trigger.getBoundingClientRect();
+  // 默认贴触发框左缘下方；右侧空间不够时左移，保证不超出视口
+  let left = r.left;
+  const maxLeft = window.innerWidth - panel.offsetWidth - 8;
+  if (left > maxLeft) left = Math.max(8, maxLeft);
+  panel.style.left = left + 'px';
+  panel.style.top  = (r.bottom + 6) + 'px';
+  // 三角对准触发框
+  panel.style.setProperty('--arrow-left', Math.max(12, r.left - left + 14) + 'px');
+}
+function toggleWxPanel(e) {
+  e.stopPropagation();
+  const picker = document.getElementById('wxPicker');
+  const opening = !picker.classList.contains('open');
+  picker.classList.toggle('open');
+  if (opening) {
+    wxDraft = new Set(wxChecked); wxKeyword=''; document.getElementById('wxSearch').value='';
+    renderWxAll(); positionWxPanel();
+  }
+}
+function closeWxPanel() { document.getElementById('wxPicker').classList.remove('open'); }
+function clearWx() { wxDraft = new Set(); renderWxAll(); }
+function confirmWx() {
+  wxChecked = new Set(wxDraft);
+  updateWxTrigger();
+  closeWxPanel();
+  toast(`已选 ${wxChecked.size} 个微信号`);
+}
+function updateWxTrigger() {
+  const t = document.getElementById('wxTrigger');
+  if (!wxChecked.size) { t.className = 'wx-trigger placeholder'; t.textContent = '请选择'; return; }
+  const arr = [...wxChecked];
+  t.className = 'wx-trigger';
+  t.innerHTML = `${arr[0]}${arr.length>1?`<span class="wx-count">+${arr.length-1}</span>`:''}`;
+}
+document.addEventListener('click', () => closeWxPanel());
+
+function onReset() {
+  ['d1','d2','dup'].forEach(id=>document.getElementById(id).value='');
+  wxChecked = new Set(); wxDraft = new Set(); updateWxTrigger();
+  render();
+}
+function exportCsv() {
+  const list = getFilteredRows();
+  if (!list.length) { toast('当前无可导出的记录'); return; }
+  const cell = v => `"${String(v).replace(/"/g,'""')}"`;
+  const head = ['头像昵称','所在微信号','其他已添加人设','拉新时间'];
+  const lines = [head.map(cell).join(',')];
+  list.forEach(r => lines.push([
+    cell(r.nick), cell(r.wx),
+    cell(r.otherPersonas.length ? r.otherPersonas.join('、') : '-'),
+    cell(r.at),
+  ].join(',')));
+  const blob = new Blob(['﻿' + lines.join('\r\n')], { type:'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '拉新记录.csv';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(a.href);
+  toast(`已导出 ${list.length} 条记录`);
+}
+
 let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
+
+renderWxGroups();
 render();
 </script></body></html>

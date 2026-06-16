@@ -148,6 +148,14 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 - 适用：表单弹窗里需要多选且选项 ≤ 10 的场景（区别于 chip 风格的「多选筛选 chip」用于顶部筛选栏）
 - 首例：`ai_prompt_v1.0.html` 的「自动填写的标签」字段（标签分析场景下显示，5 选项）
 
+### 微信号级联选择器（.wx-picker / .wx-panel）· 统计页筛选栏通用
+- 形态：筛选栏内 trigger（高 30px，placeholder「请选择」灰字）→ 点击展开两列级联面板；区别于 `.msd` 单列多选——这是**部门→账号两级**结构，适合选项很多（百级账号）的场景
+- 面板：`position: fixed`（**必须 fixed**，否则被 `.filter-bar` 的 `overflow:auto` 裁掉），按 trigger 的 getBoundingClientRect 定位，z-index 1200；带指向 trigger 的三角（`--arrow-left` 动态对齐），右缘防溢出钳制
+- 左列分组（部门），每组带 checkbox 支持全选 / 半选（partial）态；右列为当前组账号，逐个 checkbox 多选；顶部搜索框按账号名即时过滤右列
+- 底部 foot：「已选 N 个微信号 + 清空 + 确定」；草稿态（wxDraft）确定后才落到 wxChecked，触发框显示「首个账号 +N」绿色角标
+- 数据源：mock-data.js 的 `SALES_ACCOUNTS`，按 `dept` 分组（非 window 全局，用 `typeof` 取 const 全局）
+- 首例：拉新记录 `stats_referral_v1.0.html`（2026-06-16）
+
 ### 多选筛选 chip（.chip）· 统计页通用
 - 容器：`height:30px; padding:0 12px; border-radius:15px`（圆角胶囊）
 - 默认态：白底灰边灰字，hover 变绿边
