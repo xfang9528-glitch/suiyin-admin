@@ -170,6 +170,10 @@ html, body { overflow: auto; height: auto; }
 .fl-search-box svg { position:absolute; left:10px; top:50%; transform:translateY(-50%); width:15px; height:15px; color:#b0b0b0; }
 .fl-search-box input { width:100%; height:34px; padding:0 10px 0 32px; border:1px solid #d9d9d9; border-radius:4px; font-size:13px; outline:none; box-sizing:border-box; transition:border-color 0.15s; }
 .fl-search-box input:focus { border-color:var(--wx-green); }
+
+/* ===== 非艺星租户：简单关键词筛选（占位） ===== */
+.fl-simple-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:8px 0 4px; }
+.fl-simple-note { font-size:12px; color:var(--text-3); margin-left:6px; }
 </style></head>
 <body>
 
@@ -179,8 +183,11 @@ html, body { overflow: auto; height: auto; }
     <div class="f-spacer"></div>
     <button class="btn" onclick="toast('导出表格')">📤 导出表格</button>
     <button class="btn" onclick="toast('全部记录')">📋 全部记录</button>
+    <button class="btn primary" id="btnCreateVirtual" style="display:none;" onclick="toast('创建虚拟好友')">＋ 创建虚拟好友</button>
   </div>
 
+  <!-- ===== 艺星租户专属：PC 群发选好友第一步同款 CRM 筛选（仅 tenant=yestar 显示）===== -->
+  <div id="yestarFilter">
   <!-- CRM 筛选：与 PC 端群发选好友·第一步「筛选选中」完全一致 -->
   <div class="bc-fp-filters collapsed" id="bc-fp-filters">
     <!-- ===== 折叠区（前 8 项，两排四列；收起时仅显示这 8 个） ===== -->
@@ -248,6 +255,22 @@ html, body { overflow: auto; height: auto; }
       <input id="flSearchInput" placeholder="昵称 / 备注名 / 手机号 / 卡号" autocomplete="off" onkeydown="if(event.key==='Enter')flSearch()">
     </div>
     <button class="btn primary" onclick="flSearch()">搜索</button>
+  </div>
+  </div><!-- /yestarFilter -->
+
+  <!-- ===== 非艺星租户：简单关键词筛选（占位，字段/列表待该租户单独迭代）===== -->
+  <div id="simpleFilter" style="display:none;">
+    <div class="fl-simple-row">
+      <span class="f-label">关键词</span>
+      <input class="f-input wide" id="simpleKw" placeholder="昵称 / 备注名 / 手机号 / 卡号">
+      <span class="f-label">接待中销售</span>
+      <select class="f-select"><option>请选择</option></select>
+      <span class="f-label">专属销售</span>
+      <select class="f-select"><option>请选择</option></select>
+      <button class="bc-fp-btn-search" onclick="render();toast('查询')">查询</button>
+      <button class="bc-fp-btn-reset" onclick="var k=document.getElementById('simpleKw');if(k)k.value='';render();toast('已重置')">重置</button>
+      <span class="fl-simple-note">该租户好友列表为占位，筛选/字段待单独迭代</span>
+    </div>
   </div>
 </div>
 
@@ -349,6 +372,22 @@ function channelOf(name){ if(/点评/.test(name)) return '点评'; if(/抖音/.t
 // 等级(AI)/第一需求(AI)/所在分组 按行 mock（确定性，对齐 DR-027 AI 判定，不可手填）
 const _AI = [['C','水光针'],['B','玻尿酸填充'],['C','激光祛斑'],['A','胸部整形'],['客户',''],['B','注射填充'],['A','隆鼻'],['客户',''],['C','激光祛斑'],['B','眼部整形'],['C','脱毛'],['客户',''],['D','']];
 const _GRP = [[],['高意向客户'],[],['VIP 客户','高意向客户'],[],['需回访'],[],[],['到院未成交'],[],['到院未成交'],[],[]];
+// 所在账号：真实艺星账号（取自 mock-data.js SALES_ACCOUNTS / yestar.wecarepet.com/admin/wechatStatus）；数组=多重添加
+const _ACCT = [
+  ['罗玲 金金'],
+  ['杜佳'],
+  ['YeStar成都艺星专家助理-铃铃'],
+  ['艺星专家助理妍妍','何晓秀'],
+  ['A成都艺星院长助理好好17713619739'],
+  ['成都艺星专家助理鑫鑫'],
+  ['艺星专家助理Mia'],
+  ['艺星专家助理妍妍'],
+  ['成都艺星医生助理chloe'],
+  ['艺星高级专家助理-嘉嘉'],
+  ['聂敏','柳霜01'],
+  ['邓梦雨'],
+  ['牛海兰01'],
+];
 function render() {
   document.getElementById('tbody').innerHTML = ROWS.map((r,i) => {
     // DR-057：微信昵称列 = 有备注显示备注名，无备注显示原微信昵称
@@ -357,7 +396,7 @@ function render() {
     const ch = (display || '?')[0];
     const subNick = (remark && r.nick) ? `<div class="user-sub">昵称：${r.nick}</div>` : '';
     // 所在账号：多重添加展示所有账号
-    const accs = (r.accounts && r.accounts.length) ? r.accounts : (r.acc ? [r.acc] : []);
+    const accs = _ACCT[i] || ((r.accounts && r.accounts.length) ? r.accounts : (r.acc ? [r.acc] : []));
     const accHtml = accs.length ? accs.map(a => `<div class="acc-line">${a}</div>`).join('') : '<span style="color:var(--text-3)">-</span>';
     const ai = _AI[i] || ['客户',''];
     const grps = _GRP[i] || [];
@@ -397,7 +436,8 @@ function onEdit(idx) {
     onSubmit: (d) => { Object.assign(ROWS[onEdit._idx], { nick: d.nick, sex: d.sex, dnd: d.dnd }); render(); toast('已保存'); }
   });
   onEdit._idx = idx;
-  editModal.open({ nick: r.nick, persona: r.acc, wxid: '', sex: r.sex || '未知', dnd: r.dnd });
+  var persona = (_ACCT[idx] && _ACCT[idx][0]) || r.acc;
+  editModal.open({ nick: r.nick, persona: persona, wxid: '', sex: r.sex || '未知', dnd: r.dnd });
 }
 let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
 render();
@@ -784,6 +824,15 @@ function flSearch() {
 // --- 初始化 ---
 document.querySelectorAll('#bc-fp-filters .bc-fp-date-trigger').forEach(function(el) { el.dataset.ph = el.textContent; });
 bcFpInitCustomSelects();
+
+// 多租户门控：仅艺星租户显示这套 CRM 筛选；其他租户退化为简单关键词筛选（占位，待该租户单独迭代）
+// 租户由 _shell 通过 ?tenant= 传入；直接打开本页默认 yestar
+var TENANT = new URLSearchParams(location.search).get('tenant') || 'yestar';
+if (TENANT !== 'yestar') {
+  var yf = document.getElementById('yestarFilter'); if (yf) yf.style.display = 'none';
+  var sf = document.getElementById('simpleFilter'); if (sf) sf.style.display = 'block';
+  var cv = document.getElementById('btnCreateVirtual'); if (cv) cv.style.display = '';
+}
 
 /* ============================================================
    批量分组：分组名组合框（录入关键字匹配已有 / 无匹配即输即建）
