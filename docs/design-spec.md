@@ -229,8 +229,14 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 - 直接 1:1 复用 PC 端 suiyin-pc-chat 群发选好友·第一步的 `bc-fp-*` 组件（DOM/CSS/JS 整体搬运），保证三端同款
 - 4 列网格；`.collapsed` 时仅显前 8 项（`:nth-child(n+9)` 隐藏），展开看全部 21 维
 - 子控件：`.bc-fp-sel`（自定义单/多选，多选展示标签 + `+N`）、`.bc-fp-cascader-input`（地区省/市/区三列级联 + 所在账号渠道/人设号两列级联，含搜索/全选/Shift 区间）、`.bc-fp-date-trigger`（日期，admin 无 wxDatePicker → 退化原生 date input）
-- 收起/展开切换 + 重置 / 搜索按钮
+- 收起/展开切换 + 重置 / **执行筛选** 按钮（DR-058：原「搜索」改名，语义=对当前列表按条件过滤）
 - 因筛选高度可变，承载页改自然流式布局（非固定定位）
+
+### 独立搜索栏（.fl-search-box）· 列表页通用 · DR-058 · 2026-06-18
+- 与多维筛选 section 职责区分：筛选=按条件圈一批，搜索=按关键词找一个
+- 位置：筛选 section 下方、表格上方，`border-top` 分割线隔开
+- 形态：`搜索好友` 标签 + 放大镜输入框（max-width 440px，左内边距留图标位）+ 绿色「搜索」主按钮，回车触发
+- 首例：好友列表 `friend_list_v1.0.html`
 
 ### 即输即建组合框（.grp-combo）· 通用 · 2026-06-18
 - 逻辑沿用 PC 端 DR-028「话术名称组合框」：输入框 + 可筛选下拉，输入关键字过滤已有项；**无完全匹配时末尾出现绿色「＋ 创建「X」」**，点击即输即建
