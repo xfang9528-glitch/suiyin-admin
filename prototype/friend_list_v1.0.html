@@ -27,47 +27,192 @@
   font-size: 11.5px; color: var(--text-3); line-height: 1.5;
 }
 .cell-info strong { color: var(--text-2); font-weight: 500; }
+
+/* ===== 本页改为自然流式布局：CRM 筛选高度随展开/收起变化，不再用固定定位 ===== */
+html, body { overflow: auto; height: auto; }
+.filter-bar { position: static; height: auto; min-height: 0; display: block; padding: 14px 16px 0; overflow: visible; }
+.fl-toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.table-wrap { position: static; top: auto; bottom: auto; left: auto; right: auto; padding: 0 16px 12px; }
+.batch-bar { position: static; bottom: auto; }
+.pager { position: static; bottom: auto; }
+
+/* ===== CRM 筛选（搬自 PC 端群发选好友·第一步 bc-fp-filters，1:1 复用） ===== */
+.bc-fp-filters { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px 16px; margin-bottom:12px; }
+.bc-fp-filters.collapsed .bc-fp-filter-item:nth-child(n+9) { display:none; }
+.bc-fp-filter-item { display:flex; align-items:center; gap:4px; position:relative; min-width:0; }
+.bc-fp-filter-item label { font-size:13px; color:#999; white-space:nowrap; text-align:right; flex-shrink:0; }
+.bc-fp-sel { flex:1; min-width:0; position:relative; }
+.bc-fp-sel-trigger { padding:6px 10px; border:1px solid #d9d9d9; border-radius:4px; font-size:13px; color:#333; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:space-between; height:32px; box-sizing:border-box; user-select:none; }
+.bc-fp-sel-trigger:hover { border-color:#07c160; }
+.bc-fp-sel-trigger .bc-fp-sel-text { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1; }
+.bc-fp-sel-trigger .bc-fp-sel-text.placeholder { color:#999; }
+.bc-fp-sel-trigger .bc-fp-sel-arrow { width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid #999; flex-shrink:0; margin-left:6px; }
+.bc-fp-date-trigger { flex:1; padding:6px 8px; border:1px solid #d9d9d9; border-radius:4px; font-size:13px; color:#999; background:#fff; cursor:pointer; min-width:0; display:flex; align-items:center; gap:4px; height:32px; box-sizing:border-box; }
+.bc-fp-date-trigger:hover { border-color:#07c160; }
+.bc-fp-filter-date { display:flex; align-items:center; gap:3px; flex:1; min-width:0; }
+.bc-fp-filter-date span { color:#999; font-size:12px; flex-shrink:0; }
+.bc-fp-cascader-input { flex:1; padding:6px 8px; border:1px solid #d9d9d9; border-radius:4px; font-size:13px; color:#333; min-width:0; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:space-between; height:32px; box-sizing:border-box; user-select:none; }
+.bc-fp-cascader-input:hover { border-color:#07c160; }
+.bc-fp-cascader-input .bc-fp-ci-text { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1; }
+.bc-fp-cascader-input .bc-fp-ci-arrow { width:12px; height:12px; color:#ccc; flex-shrink:0; }
+.bc-fp-collapse { text-align:center; padding:8px 0; cursor:pointer; color:#999; font-size:13px; }
+.bc-fp-collapse:hover { color:#07c160; }
+.bc-fp-search-bar { display:flex; justify-content:flex-end; gap:10px; margin-bottom:16px; }
+.bc-fp-btn-reset { padding:6px 20px; background:#fff; color:#333; border:1px solid #d9d9d9; border-radius:4px; font-size:13px; cursor:pointer; }
+.bc-fp-btn-reset:hover { color:#07c160; border-color:#07c160; }
+.bc-fp-btn-search { padding:6px 20px; background:#07c160; color:#fff; border:none; border-radius:4px; font-size:13px; cursor:pointer; }
+.bc-fp-btn-search:hover { background:#06ae56; }
+.bc-fp-sel-trigger.open { border-color:#07c160; box-shadow:0 0 0 2px rgba(7,193,96,0.1); }
+.bc-fp-sel-trigger.open .bc-fp-sel-arrow { transform:rotate(180deg); }
+.bc-fp-sel-drop { position:absolute; top:100%; left:0; right:0; z-index:5800; background:#fff; border-radius:4px; box-shadow:0 4px 12px rgba(0,0,0,0.12); margin-top:4px; display:none; max-height:240px; overflow-y:auto; padding:4px 0; }
+.bc-fp-sel-drop.show { display:block; }
+.bc-fp-sel-opt { padding:8px 12px; font-size:13px; color:#333; cursor:pointer; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.bc-fp-sel-opt:hover { background:#f5f5f5; }
+.bc-fp-sel-opt.selected { color:#07c160; font-weight:500; background:#f0faf4; }
+.bc-fp-sel-opt .bc-fp-chk { display:inline-block; width:14px; height:14px; border:1px solid #d9d9d9; border-radius:3px; margin-right:6px; vertical-align:middle; position:relative; flex-shrink:0; }
+.bc-fp-sel-opt.selected .bc-fp-chk { background:#07c160; border-color:#07c160; }
+.bc-fp-sel-opt.selected .bc-fp-chk::after { content:''; position:absolute; left:3px; top:1px; width:5px; height:8px; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg); }
+.bc-fp-sel-tags { display:flex; flex-wrap:wrap; gap:3px; flex:1; min-width:0; overflow:hidden; max-height:24px; align-items:center; }
+.bc-fp-sel-tag { display:inline-flex; align-items:center; background:#f0faf4; color:#07c160; font-size:12px; padding:1px 6px; border-radius:3px; white-space:nowrap; max-width:60px; overflow:hidden; text-overflow:ellipsis; }
+.bc-fp-sel-tag-count { font-size:12px; color:#07c160; white-space:nowrap; margin-left:2px; }
+.bc-fp-cascader-input .bc-fp-ci-clear { width:16px; height:16px; color:#ccc; cursor:pointer; flex-shrink:0; display:none; }
+.bc-fp-cascader-input:hover .bc-fp-ci-clear { display:flex; align-items:center; justify-content:center; }
+.bc-fp-cascader-drop { position:absolute; top:100%; left:80px; z-index:5800; background:#fff; border-radius:4px; box-shadow:0 4px 16px rgba(0,0,0,0.15); display:none; margin-top:4px; }
+.bc-fp-region-drop { display:none; width:480px; }
+.bc-fp-region-cols { display:flex; max-height:280px; width:100%; }
+.bc-fp-region-col { flex:1; border-right:1px solid #f0f0f0; overflow-y:auto; min-width:0; }
+.bc-fp-region-col:last-child { border-right:none; }
+.bc-fp-region-item { padding:8px 12px; font-size:13px; color:#333; cursor:pointer; display:flex; align-items:center; justify-content:space-between; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.bc-fp-region-item:hover { background:#f5f5f5; }
+.bc-fp-region-item.selected { color:#07c160; font-weight:500; }
+.bc-fp-region-item .bc-fp-ri-arrow { color:#ccc; font-size:11px; flex-shrink:0; margin-left:4px; }
+.bc-fp-channel-drop { display:none; width:460px; }
+.bc-fp-channel-cols { display:flex; max-height:340px; width:100%; }
+.bc-fp-channel-col { border-right:1px solid #f0f0f0; min-width:0; }
+.bc-fp-channel-col:first-child { width:140px; flex-shrink:0; overflow-y:auto; }
+.bc-fp-channel-col:last-child { flex:1; border-right:none; display:flex; flex-direction:column; }
+.bc-fp-channel-item { padding:8px 12px; font-size:13px; color:#333; cursor:pointer; display:flex; align-items:center; gap:8px; white-space:nowrap; }
+.bc-fp-channel-item:hover { background:#f5f5f5; }
+.bc-fp-channel-item.selected { color:#07c160; font-weight:500; }
+.bc-fp-channel-item input[type=checkbox] { accent-color:#07c160; }
+.bc-fp-channel-item .bc-fp-ci-arrow { color:#ccc; font-size:11px; margin-left:auto; flex-shrink:0; }
+.bc-fp-channel-c2-bar { display:flex; align-items:center; gap:6px; padding:8px 10px 6px; border-bottom:1px solid #f5f5f5; flex-shrink:0; }
+.bc-fp-channel-c2-search { flex:1; height:26px; padding:0 8px; font-size:12px; border:1px solid #e0e0e0; border-radius:4px; outline:none; }
+.bc-fp-channel-c2-search:focus { border-color:#07c160; }
+.bc-fp-channel-c2-selectall { height:26px; padding:0 10px; font-size:12px; color:#07c160; background:#fff; border:1px solid #07c160; border-radius:4px; cursor:pointer; white-space:nowrap; }
+.bc-fp-channel-c2-selectall:hover { background:#f0fbf3; }
+.bc-fp-channel-c2-tip { padding:5px 12px; font-size:11px; color:#999; background:#fafafa; border-bottom:1px solid #f5f5f5; flex-shrink:0; }
+.bc-fp-channel-c2-tip kbd { display:inline-block; padding:0 5px; font-size:10px; font-family:inherit; color:#666; background:#fff; border:1px solid #ddd; border-radius:3px; margin:0 1px; }
+.bc-fp-channel-c2-list { flex:1; overflow-y:auto; min-height:0; }
+.bc-fp-channel-c2-empty { padding:24px 12px; font-size:12px; color:#bbb; text-align:center; }
+.bc-fp-date-trigger.has-value { color:#333; }
+#bc-fp-region-drop[style*="flex"] { display:flex !important; }
+#bc-fp-channel-drop[style*="flex"] { display:flex !important; }
+
+/* ===== 批量分组组合框（录入关键字匹配已有 / 无匹配即输即建，沿用 DR-028 逻辑） ===== */
+.grp-combo { position: relative; }
+.grp-combo input {
+  width: 100%; padding: 8px 10px;
+  border: 1px solid #d0d7de; border-radius: 4px;
+  font-size: 13px; font-family: inherit; outline: none;
+  transition: border-color 0.15s;
+}
+.grp-combo input:focus { border-color: var(--wx-green); }
+.grp-combo-drop {
+  position: absolute; top: 100%; left: 0; right: 0; margin-top: 4px;
+  background: #fff; border: 1px solid var(--border); border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  max-height: 220px; overflow-y: auto; z-index: 20;
+  display: none; padding: 4px 0;
+}
+.grp-combo-drop.open { display: block; }
+.grp-combo-opt {
+  padding: 8px 12px; font-size: 13px; color: var(--text-1);
+  cursor: pointer; display: flex; align-items: center; gap: 6px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.grp-combo-opt:hover { background: var(--hover); }
+.grp-combo-opt.grp-combo-create { color: var(--wx-green); font-weight: 500; }
+.grp-combo-empty { padding: 10px 12px; font-size: 12.5px; color: var(--text-3); }
 </style></head>
 <body>
 
 <div class="filter-bar">
-  <div class="dropdown-row" style="padding:0;background:transparent;border:none;">
+  <!-- 顶部工具条：好友总数 + 页面级操作（好友列表页特性，保留） -->
+  <div class="fl-toolbar">
     <span class="total-card">全部好友 <span class="num">993,226</span> 人 ▾</span>
-    <button class="dd-trigger">来源信息 <span class="arrow">▾</span></button>
-    <button class="dd-trigger">好友信息 <span class="arrow">▾</span></button>
-    <button class="dd-trigger">用户信息 <span class="arrow">▾</span></button>
-    <button class="dd-trigger">购买信息 <span class="arrow">▾</span></button>
+    <div class="f-spacer"></div>
+    <button class="btn" onclick="toast('导出表格')">📤 导出表格</button>
+    <button class="btn" onclick="toast('保存为标签')">💾 保存为标签</button>
+    <button class="btn" onclick="toast('全部记录')">📋 全部记录</button>
+    <button class="btn primary" onclick="toast('创建虚拟好友')">＋ 创建虚拟好友</button>
   </div>
-  <div class="f-group" style="margin-top:8px;">
-    <span class="f-label">关键词</span>
-    <input class="f-input wide" id="kw" placeholder="好友名/备注/手机号">
+
+  <!-- CRM 筛选：与 PC 端群发选好友·第一步「筛选选中」完全一致 -->
+  <div class="bc-fp-filters collapsed" id="bc-fp-filters">
+    <!-- ===== 折叠区（前 8 项，两排四列；收起时仅显示这 8 个） ===== -->
+    <div class="bc-fp-filter-item" id="bc-fp-channel-wrap">
+      <label>所在账号：</label>
+      <div class="bc-fp-cascader-input" onclick="event.stopPropagation();bcFpToggleChannel()">
+        <span class="bc-fp-ci-text" id="bc-fp-channel-text" style="color:#999;">请选择</span>
+        <span class="bc-fp-ci-clear" id="bc-fp-channel-clear" onclick="event.stopPropagation();bcFpClearChannel()">&times;</span>
+        <span class="bc-fp-ci-arrow">&#9662;</span>
+      </div>
+      <div class="bc-fp-cascader-drop bc-fp-channel-drop" id="bc-fp-channel-drop" onclick="event.stopPropagation()">
+        <div class="bc-fp-channel-cols">
+          <div class="bc-fp-channel-col" id="bc-fp-channel-c1"></div>
+          <div class="bc-fp-channel-col" id="bc-fp-channel-c2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bc-fp-filter-item"><label>等级：</label><div class="bc-fp-sel" data-options="A级,B级,C级,D级" data-multi="true"></div></div>
+    <div class="bc-fp-filter-item"><label>等级(AI)：</label><div class="bc-fp-sel" data-options="A级,B级,C级,D级" data-multi="true"></div></div>
+    <div class="bc-fp-filter-item"><label>第一需求(AI)：</label><div class="bc-fp-sel" data-options="眼部整形,鼻部整形,面部轮廓,紧肤提升,皮肤管理,注射填充,吸脂塑形"></div></div>
+    <div class="bc-fp-filter-item"><label>有电话：</label><div class="bc-fp-sel" data-options="是,否"></div></div>
+    <div class="bc-fp-filter-item"><label>状态：</label><div class="bc-fp-sel" data-options="正常,异常"></div></div>
+    <div class="bc-fp-filter-item"><label>末次咨询日期：</label><div class="bc-fp-filter-date"><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">开始日期</span><span>至</span><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">结束日期</span></div></div>
+    <div class="bc-fp-filter-item"><label>添加日期：</label><div class="bc-fp-filter-date"><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">开始日期</span><span>至</span><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">结束日期</span></div></div>
+    <div class="bc-fp-filter-item"><label>第二需求(AI)：</label><div class="bc-fp-sel" data-options="眼部整形,鼻部整形,面部轮廓,紧肤提升,皮肤管理"></div></div>
+    <!-- ===== 展开区（第 9 项起，收起时隐藏） ===== -->
+    <div class="bc-fp-filter-item" id="bc-fp-region-wrap">
+      <label>地区：</label>
+      <div class="bc-fp-cascader-input" onclick="event.stopPropagation();bcFpToggleRegion()">
+        <span class="bc-fp-ci-text" id="bc-fp-region-text" style="color:#999;">请选择</span>
+        <span class="bc-fp-ci-clear" id="bc-fp-region-clear" onclick="event.stopPropagation();bcFpClearRegion()">&times;</span>
+        <span class="bc-fp-ci-arrow">&#9662;</span>
+      </div>
+      <div class="bc-fp-cascader-drop bc-fp-region-drop" id="bc-fp-region-drop" onclick="event.stopPropagation()">
+        <div class="bc-fp-region-cols">
+          <div class="bc-fp-region-col" id="bc-fp-region-c1"></div>
+          <div class="bc-fp-region-col" id="bc-fp-region-c2"></div>
+          <div class="bc-fp-region-col" id="bc-fp-region-c3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bc-fp-filter-item"><label>建档日期：</label><div class="bc-fp-filter-date"><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">开始日期</span><span>至</span><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">结束日期</span></div></div>
+    <div class="bc-fp-filter-item"><label>开发人：</label><div class="bc-fp-sel" data-options="聂敏,柳霜,邓梦雨,牛海兰,何晓秀,尹巧缘,吴雨星"></div></div>
+    <div class="bc-fp-filter-item"><label>客服经理：</label><div class="bc-fp-sel" data-options="聂敏,柳霜,邓梦雨"></div></div>
+    <div class="bc-fp-filter-item"><label>会员等级：</label><div class="bc-fp-sel" data-options="普通,银卡,金卡,钻石"></div></div>
+    <div class="bc-fp-filter-item"><label>未次预约日期：</label><span class="bc-fp-date-trigger" style="flex:1;" onclick="bcFpPickDate(this)">请选择</span></div>
+    <div class="bc-fp-filter-item"><label>建议改善：</label><div class="bc-fp-sel" data-options="眼部,鼻部,面部,皮肤,身体"></div></div>
+    <div class="bc-fp-filter-item"><label>用户特征：</label><div class="bc-fp-sel" data-options="高意向,犹豫中,低意向"></div></div>
+    <div class="bc-fp-filter-item"><label>推荐设备/材料：</label><div class="bc-fp-sel" data-options="热玛吉,超声刀,玻尿酸,肉毒素"></div></div>
+    <div class="bc-fp-filter-item"><label>推荐医生：</label><div class="bc-fp-sel" data-options="张医生,王医生,李医生,赵医生"></div></div>
+    <div class="bc-fp-filter-item"><label>喜好风格：</label><div class="bc-fp-sel" data-options="自然,精致,欧美,韩系"></div></div>
+    <div class="bc-fp-filter-item"><label>末次回访日期：</label><span class="bc-fp-date-trigger" style="flex:1;" onclick="bcFpPickDate(this)">请选择</span></div>
   </div>
-  <div class="f-group" style="margin-top:8px;">
-    <span class="f-label">接待好友</span>
-    <select class="f-select"><option>请选择</option></select>
+  <div class="bc-fp-collapse" id="bc-fp-collapse" onclick="bcToggleFilterCollapse()">展开 ▼</div>
+  <div class="bc-fp-search-bar">
+    <button class="bc-fp-btn-reset" onclick="bcResetFpFilters()">重置</button>
+    <button class="bc-fp-btn-search" onclick="bcSearchFpFriends()">搜索</button>
   </div>
-  <div class="f-group" style="margin-top:8px;">
-    <span class="f-label">按待中销售</span>
-    <select class="f-select"><option>请选择</option></select>
-  </div>
-  <div class="f-group" style="margin-top:8px;">
-    <span class="f-label">专属销售</span>
-    <select class="f-select"><option>请选择</option></select>
-  </div>
-  <button class="btn primary" style="margin-top:8px;" onclick="render()">🔍 查询</button>
-  <button class="btn" style="margin-top:8px;" onclick="onReset()">重置</button>
-  <button class="btn" style="margin-top:8px;" onclick="toast('导出')">📤 导出表格</button>
-  <button class="btn" style="margin-top:8px;" onclick="toast('保存为标签')">💾 保存为标签</button>
-  <div class="f-spacer"></div>
-  <button class="btn primary" style="margin-top:8px;" onclick="toast('创建虚拟好友')">＋ 创建虚拟好友</button>
-  <button class="btn" style="margin-top:8px;" onclick="toast('全部记录')">📋 全部记录</button>
 </div>
 
 <div class="table-wrap" style="top:130px;">
   <div class="table-card scroll" style="min-width:1900px;">
     <table>
       <thead><tr>
-        <th class="col-check"><input type="checkbox"></th>
+        <th class="col-check"><input type="checkbox" id="checkAll" onchange="toggleAllRows(this)"></th>
         <th>微信昵称</th><th>好友名称</th><th>基本信息</th>
         <th>可接待销售</th><th>来源信息</th><th>好友状态</th>
         <th>所在账号</th><th>销售 SPU</th><th>购买 SPU</th>
@@ -82,6 +227,7 @@
 
 <div class="batch-bar">
   <button class="btn">批量删除</button>
+  <button class="btn" onclick="openGroupModal()">批量分组</button>
 </div>
 
 <div class="pager">
@@ -95,6 +241,30 @@
 </div>
 
 <div class="toast" id="toast"></div>
+
+<!-- 批量分组弹窗：分组名组合框（录入关键字匹配已有 / 无匹配即输即建） -->
+<div class="modal-mask" id="grpModal" onclick="if(event.target===this)closeGroupModal()">
+  <div class="modal" style="width:420px;">
+    <div class="modal-header">批量分组 <span class="modal-close" onclick="closeGroupModal()">×</span></div>
+    <div class="modal-body" style="overflow:visible;">
+      <div class="form-row">
+        <label><span class="req">*</span>分组名称</label>
+        <div class="grp-combo" id="grpCombo">
+          <input id="grpInput" placeholder="输入分组名，匹配已有或直接新建" autocomplete="off"
+                 oninput="grpComboFilter()" onfocus="grpComboFilter()" onblur="setTimeout(grpComboClose,150)">
+          <div class="grp-combo-drop" id="grpComboDrop"></div>
+        </div>
+        <div class="form-tip">输入关键字匹配已有分组；没有匹配项时可直接「创建」新分组。</div>
+      </div>
+      <div id="grpSelInfo" style="font-size:12.5px;color:var(--text-3);"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeGroupModal()">取消</button>
+      <button class="btn primary" onclick="confirmGroup()">确定</button>
+    </div>
+  </div>
+</div>
+
 <script>
 function avatarChip(seed, ch) {
   const colors = [['#fbcfe8','#f9a8d4'],['#bbf7d0','#86efac'],['#bfdbfe','#93c5fd'],['#fde68a','#fcd34d'],['#ddd6fe','#c4b5fd'],['#fecaca','#fca5a5'],['#a5f3fc','#67e8f9'],['#fed7aa','#fdba74']];
@@ -144,7 +314,6 @@ function render() {
     </tr>`;
   }).join('');
 }
-function onReset() { document.getElementById('kw').value=''; render(); }
 let editModal;
 function onEdit(idx) {
   const r = ROWS[idx];
@@ -164,4 +333,445 @@ function onEdit(idx) {
 }
 let tt; function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);}
 render();
+
+/* ============================================================
+   CRM 筛选（搬自 PC 端群发选好友·第一步 bc-fp-filters，1:1 复用）
+   来源：suiyin-pc-chat/prototype/prototype_v1.0.html
+   差异：日期选择器 PC 用 wxDatePicker，本页无该组件 → 退化为原生 <input type=date>
+   ============================================================ */
+var bcFpState = { filtersCollapsed: true };  // 初始与 DOM 的 collapsed/「展开▼」对齐
+
+function bcToggleFilterCollapse() {
+  bcFpState.filtersCollapsed = !bcFpState.filtersCollapsed;
+  var filters = document.getElementById('bc-fp-filters');
+  var btn = document.getElementById('bc-fp-collapse');
+  if (bcFpState.filtersCollapsed) { filters.classList.add('collapsed'); btn.textContent = '展开 ▼'; }
+  else { filters.classList.remove('collapsed'); btn.textContent = '收起 ▲'; }
+}
+
+// --- 地区级联数据 ---
+var bcFpRegionData = {
+  '安徽省': { '安庆市': ['安庆经济开发区','大观区','怀宁县','潜山市','宿松县','太湖县'], '蚌埠市': ['蚌山区','禹会区','淮上区','龙子湖区'], '亳州市': ['谯城区','利辛县','蒙城县','涡阳县'], '池州市': ['贵池区','东至县','青阳县','石台县'], '滁州市': ['琅琊区','南谯区','天长市','明光市'], '阜阳市': ['颍州区','颍东区','颍泉区','太和县'] },
+  '澳门特别行政区': { '澳门': ['花地玛堂区','圣安多尼堂区','望德堂区','风顺堂区'] },
+  '北京市': { '北京市': ['东城区','西城区','朝阳区','海淀区','丰台区','石景山区','通州区','顺义区','大兴区','昌平区'] },
+  '福建省': { '福州市': ['鼓楼区','台江区','仓山区','晋安区','马尾区'], '厦门市': ['思明区','湖里区','海沧区','集美区','同安区','翔安区'], '泉州市': ['丰泽区','鲤城区','洛江区','晋江市','石狮市'] },
+  '甘肃省': { '兰州市': ['城关区','七里河区','西固区','安宁区','红古区'], '天水市': ['秦州区','麦积区','甘谷县','武山县'] },
+  '广东省': { '广州市': ['天河区','越秀区','海珠区','白云区','番禺区','黄埔区','荔湾区','花都区','南沙区'], '深圳市': ['福田区','罗湖区','南山区','宝安区','龙岗区','龙华区','盐田区','坪山区','光明区'], '东莞市': ['莞城街道','南城街道','东城街道','万江街道'] },
+  '广西壮族自治区': { '南宁市': ['青秀区','兴宁区','西乡塘区','江南区'], '桂林市': ['秀峰区','叠彩区','象山区','七星区','雁山区'] },
+  '贵州省': { '贵阳市': ['南明区','云岩区','花溪区','乌当区','白云区','观山湖区'] },
+  '海南省': { '海口市': ['龙华区','美兰区','琼山区','秀英区'], '三亚市': ['吉阳区','天涯区','海棠区','崖州区'] },
+  '河北省': { '石家庄市': ['长安区','桥西区','新华区','裕华区','鹿泉区'], '唐山市': ['路北区','路南区','古冶区','开平区'] },
+  '河南省': { '郑州市': ['中原区','二七区','金水区','惠济区','管城区','上街区'], '洛阳市': ['西工区','老城区','涧西区','洛龙区'] },
+  '湖北省': { '武汉市': ['武昌区','江岸区','江汉区','汉阳区','洪山区','青山区','东西湖区'], '宜昌市': ['西陵区','伍家岗区','点军区','猇亭区'] },
+  '湖南省': { '长沙市': ['芙蓉区','天心区','岳麓区','开福区','雨花区','望城区'], '株洲市': ['天元区','荷塘区','芦淞区','石峰区'] },
+  '江苏省': { '南京市': ['玄武区','秦淮区','建邺区','鼓楼区','浦口区','栖霞区','雨花台区','江宁区'], '苏州市': ['姑苏区','虎丘区','吴中区','相城区','吴江区'] },
+  '江西省': { '南昌市': ['东湖区','西湖区','青山湖区','青云谱区','红谷滩区'] },
+  '辽宁省': { '沈阳市': ['和平区','沈河区','大东区','皇姑区','铁西区','苏家屯区'], '大连市': ['中山区','西岗区','沙河口区','甘井子区'] },
+  '山东省': { '济南市': ['历下区','市中区','槐荫区','天桥区','历城区','长清区'], '青岛市': ['市南区','市北区','黄岛区','崂山区','李沧区','城阳区'] },
+  '上海市': { '上海市': ['黄浦区','徐汇区','长宁区','静安区','普陀区','虹口区','杨浦区','浦东新区','闵行区','宝山区','嘉定区','松江区'] },
+  '四川省': { '成都市': ['锦江区','青羊区','金牛区','武侯区','成华区','龙泉驿区','新都区','温江区','双流区','郫都区','天府新区'], '绵阳市': ['涪城区','游仙区','安州区','江油市'] },
+  '天津市': { '天津市': ['和平区','河东区','河西区','南开区','河北区','红桥区','滨海新区'] },
+  '云南省': { '昆明市': ['五华区','盘龙区','官渡区','西山区','呈贡区'], '大理州': ['大理市','祥云县','宾川县','弥渡县'] },
+  '浙江省': { '杭州市': ['上城区','拱墅区','西湖区','滨江区','萧山区','余杭区','临平区','钱塘区','富阳区'], '宁波市': ['海曙区','江北区','北仑区','镇海区','鄞州区'] },
+  '重庆市': { '重庆市': ['渝中区','大渡口区','江北区','沙坪坝区','九龙坡区','南岸区','北碚区','渝北区','巴南区'] },
+};
+var bcFpRegionState = { province: '', city: '', district: '' };
+
+function bcFpToggleRegion() {
+  var drop = document.getElementById('bc-fp-region-drop');
+  var isOpen = drop.style.display === 'flex';
+  bcFpCloseAllDrops();
+  if (!isOpen) { drop.style.display = 'flex'; bcFpRenderRegionC1(); }
+}
+function bcFpRenderRegionC1() {
+  var c1 = document.getElementById('bc-fp-region-c1');
+  var provinces = Object.keys(bcFpRegionData);
+  c1.innerHTML = provinces.map(function(p) {
+    var sel = p === bcFpRegionState.province ? ' selected' : '';
+    return '<div class="bc-fp-region-item' + sel + '" onclick="bcFpSelectProvince(\'' + p.replace(/'/g, "\\'") + '\')">'
+      + '<span style="display:flex;align-items:center;gap:6px;"><input type="radio" name="bc-fp-prov" style="accent-color:#07c160;"' + (sel ? ' checked' : '') + '> ' + p + '</span>'
+      + '<span class="bc-fp-ri-arrow">&#8250;</span></div>';
+  }).join('');
+  document.getElementById('bc-fp-region-c2').innerHTML = '';
+  document.getElementById('bc-fp-region-c3').innerHTML = '';
+  if (bcFpRegionState.province) bcFpRenderRegionC2(bcFpRegionState.province);
+}
+function bcFpSelectProvince(p) {
+  bcFpRegionState.province = p; bcFpRegionState.city = ''; bcFpRegionState.district = '';
+  bcFpRenderRegionC1(); bcFpUpdateRegionText();
+}
+function bcFpRenderRegionC2(province) {
+  var c2 = document.getElementById('bc-fp-region-c2');
+  var cities = Object.keys(bcFpRegionData[province] || {});
+  c2.innerHTML = cities.map(function(c) {
+    var sel = c === bcFpRegionState.city ? ' selected' : '';
+    return '<div class="bc-fp-region-item' + sel + '" onclick="bcFpSelectCity(\'' + c.replace(/'/g, "\\'") + '\')">'
+      + '<span style="display:flex;align-items:center;gap:6px;"><input type="radio" name="bc-fp-city" style="accent-color:#07c160;"' + (sel ? ' checked' : '') + '> ' + c + '</span>'
+      + '<span class="bc-fp-ri-arrow">&#8250;</span></div>';
+  }).join('');
+  document.getElementById('bc-fp-region-c3').innerHTML = '';
+  if (bcFpRegionState.city) bcFpRenderRegionC3(province, bcFpRegionState.city);
+}
+function bcFpSelectCity(c) {
+  bcFpRegionState.city = c; bcFpRegionState.district = '';
+  bcFpRenderRegionC2(bcFpRegionState.province); bcFpUpdateRegionText();
+}
+function bcFpRenderRegionC3(province, city) {
+  var c3 = document.getElementById('bc-fp-region-c3');
+  var districts = (bcFpRegionData[province] && bcFpRegionData[province][city]) || [];
+  c3.innerHTML = districts.map(function(d) {
+    var sel = d === bcFpRegionState.district ? ' selected' : '';
+    return '<div class="bc-fp-region-item' + sel + '" onclick="bcFpSelectDistrict(\'' + d.replace(/'/g, "\\'") + '\')">'
+      + '<span style="display:flex;align-items:center;gap:6px;"><input type="radio" name="bc-fp-dist" style="accent-color:#07c160;"' + (sel ? ' checked' : '') + '> ' + d + '</span></div>';
+  }).join('');
+}
+function bcFpSelectDistrict(d) {
+  bcFpRegionState.district = d; bcFpUpdateRegionText();
+  document.getElementById('bc-fp-region-drop').style.display = 'none';
+}
+function bcFpUpdateRegionText() {
+  var text = [bcFpRegionState.province, bcFpRegionState.city, bcFpRegionState.district].filter(Boolean).join(' / ');
+  var el = document.getElementById('bc-fp-region-text');
+  if (text) { el.textContent = text; el.style.color = '#333'; }
+  else { el.textContent = '请选择'; el.style.color = '#999'; }
+}
+function bcFpClearRegion() {
+  bcFpRegionState = { province: '', city: '', district: '' };
+  bcFpUpdateRegionText();
+  document.getElementById('bc-fp-region-drop').style.display = 'none';
+}
+
+// --- 渠道（所在账号）级联数据 ---
+var bcFpChannelData = (function() {
+  function pad3(n) { return n < 10 ? '00' + n : (n < 100 ? '0' + n : '' + n); }
+  function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+  var ziMedia = [];
+  var ybwSkip = new Set([3,8,13,18,23,28,33,40,47,55]);
+  for (var i=1; i<=70 && ziMedia.length<60; i++) { if (!ybwSkip.has(i)) ziMedia.push('自媒体杨博文' + pad3(i)); }
+  var linyiNums = [4,10,12,13,14,20,22,23,24,27,30,31,35,38,42,46,50,55,60,68,72,75,80,85,90];
+  linyiNums.forEach(function(n) { ziMedia.push('自媒体林一' + pad3(n)); });
+  [148,162,174,188,196,205,212,220,234,255].forEach(function(n) { ziMedia.push('自媒体晓晓' + n); });
+  for (var i=1; i<=5; i++) { ziMedia.push('自媒体周婷' + pad3(i)); }
+  var doutin = [];
+  ['张腾','姚瑾','尹巧缘','吴雨星'].forEach(function(name, idx) {
+    var counts = [6,6,7,7]; for (var i=1; i<=counts[idx]; i++) doutin.push(name + pad3(i));
+  });
+  var xhs = [];
+  ['何紫霞','吉虹蝶','曹蕊','邓梦雨'].forEach(function(name) { for (var i=1; i<=5; i++) xhs.push(name + pad2(i)); });
+  var ec = [];
+  ['曹蕊','李倩','牛海兰','何晓秀'].forEach(function(name, idx) {
+    var counts = [6,5,5,5]; for (var i=1; i<=counts[idx]; i++) ec.push(name + pad2(i));
+  });
+  var dy = [];
+  ['何紫霞','吉虹蝶','曹蕊','李倩'].forEach(function(name, idx) {
+    var counts = [6,5,5,5]; for (var i=1; i<=counts[idx]; i++) dy.push(name + pad2(i));
+  });
+  return { '自媒体': ziMedia, '抖音IP': doutin, '小红书': xhs, '电商': ec, '代运营': dy };
+})();
+var bcFpChannelState = { checkedChannels: new Set(), checkedAccounts: new Set(), activeChannel: '', searchQuery: '', visibleAccounts: [], lastClickedAcc: '' };
+
+function bcFpToggleChannel() {
+  var drop = document.getElementById('bc-fp-channel-drop');
+  var isOpen = drop.style.display === 'flex';
+  bcFpCloseAllDrops();
+  if (!isOpen) { drop.style.display = 'flex'; bcFpRenderChannelC1(); }
+}
+function bcFpRenderChannelC1() {
+  var c1 = document.getElementById('bc-fp-channel-c1');
+  var channels = Object.keys(bcFpChannelData);
+  c1.innerHTML = channels.map(function(ch) {
+    var checked = bcFpChannelState.checkedChannels.has(ch) ? ' checked' : '';
+    var sel = ch === bcFpChannelState.activeChannel ? ' selected' : '';
+    return '<div class="bc-fp-channel-item' + sel + '" onclick="bcFpSelectChannel(\'' + ch + '\')">'
+      + '<input type="checkbox"' + checked + ' onclick="event.stopPropagation();bcFpToggleChannelCheck(\'' + ch + '\',this.checked)">'
+      + '<span>' + ch + '</span>'
+      + '<span class="bc-fp-ci-arrow">&#8250;</span></div>';
+  }).join('');
+  if (bcFpChannelState.activeChannel) bcFpRenderChannelC2(bcFpChannelState.activeChannel);
+  else document.getElementById('bc-fp-channel-c2').innerHTML = '';
+}
+function bcFpSelectChannel(ch) {
+  bcFpChannelState.activeChannel = ch;
+  bcFpRenderChannelC1(); bcFpRenderChannelC2(ch);
+}
+function bcFpToggleChannelCheck(ch, checked) {
+  if (checked) bcFpChannelState.checkedChannels.add(ch);
+  else bcFpChannelState.checkedChannels.delete(ch);
+  bcFpRenderChannelC1(); bcFpUpdateChannelText();
+}
+function bcFpRenderChannelC2(channel) {
+  var c2 = document.getElementById('bc-fp-channel-c2');
+  bcFpChannelState.searchQuery = ''; bcFpChannelState.lastClickedAcc = '';
+  c2.innerHTML =
+      '<div class="bc-fp-channel-c2-bar">'
+    +   '<input class="bc-fp-channel-c2-search" id="bc-fp-channel-c2-search" placeholder="搜索人设号" oninput="bcFpChannelSearchInput(this.value)">'
+    +   '<button class="bc-fp-channel-c2-selectall" id="bc-fp-channel-c2-selectall" onclick="bcFpChannelToggleAllVisible()">全选</button>'
+    + '</div>'
+    + '<div class="bc-fp-channel-c2-tip">提示：单击勾选；按住 <kbd>Shift</kbd> 点击可多选区间</div>'
+    + '<div class="bc-fp-channel-c2-list" id="bc-fp-channel-c2-list"></div>';
+  bcFpRenderChannelC2List();
+}
+function bcFpRenderChannelC2List() {
+  var list = document.getElementById('bc-fp-channel-c2-list');
+  if (!list) return;
+  var all = bcFpChannelData[bcFpChannelState.activeChannel] || [];
+  var q = (bcFpChannelState.searchQuery || '').trim().toLowerCase();
+  var visible = q ? all.filter(function(a) { return a.toLowerCase().indexOf(q) !== -1; }) : all.slice();
+  bcFpChannelState.visibleAccounts = visible;
+  if (!visible.length) {
+    list.innerHTML = '<div class="bc-fp-channel-c2-empty">无匹配结果</div>';
+  } else {
+    list.innerHTML = visible.map(function(acc) {
+      var checked = bcFpChannelState.checkedAccounts.has(acc) ? ' checked' : '';
+      var safe = acc.replace(/"/g, '&quot;');
+      return '<div class="bc-fp-channel-item">'
+        + '<input type="checkbox"' + checked + ' onclick="bcFpAccountClick(event,\'' + safe + '\')">'
+        + '<span>' + acc + '</span></div>';
+    }).join('');
+  }
+  bcFpUpdateSelectAllBtn();
+}
+function bcFpUpdateSelectAllBtn() {
+  var btn = document.getElementById('bc-fp-channel-c2-selectall');
+  if (!btn) return;
+  var visible = bcFpChannelState.visibleAccounts;
+  var n = visible.length;
+  if (n === 0) { btn.textContent = '全选'; btn.disabled = true; btn.style.opacity = 0.4; return; }
+  btn.disabled = false; btn.style.opacity = 1;
+  var allSelected = visible.every(function(a) { return bcFpChannelState.checkedAccounts.has(a); });
+  btn.textContent = allSelected ? ('取消全选(' + n + ')') : ('全选(' + n + ')');
+}
+function bcFpChannelSearchInput(v) {
+  bcFpChannelState.searchQuery = v; bcFpChannelState.lastClickedAcc = '';
+  bcFpRenderChannelC2List();
+}
+function bcFpChannelToggleAllVisible() {
+  var visible = bcFpChannelState.visibleAccounts;
+  if (!visible.length) return;
+  var allSelected = visible.every(function(a) { return bcFpChannelState.checkedAccounts.has(a); });
+  if (allSelected) visible.forEach(function(a) { bcFpChannelState.checkedAccounts.delete(a); });
+  else visible.forEach(function(a) { bcFpChannelState.checkedAccounts.add(a); });
+  bcFpRenderChannelC2List(); bcFpUpdateChannelText();
+}
+function bcFpAccountClick(e, acc) {
+  e.stopPropagation();
+  var checked = e.target.checked;
+  var visible = bcFpChannelState.visibleAccounts;
+  var lastIdx = bcFpChannelState.lastClickedAcc ? visible.indexOf(bcFpChannelState.lastClickedAcc) : -1;
+  var curIdx = visible.indexOf(acc);
+  if (e.shiftKey && lastIdx >= 0 && curIdx >= 0 && lastIdx !== curIdx) {
+    var lo = Math.min(lastIdx, curIdx), hi = Math.max(lastIdx, curIdx);
+    for (var i = lo; i <= hi; i++) {
+      if (checked) bcFpChannelState.checkedAccounts.add(visible[i]);
+      else bcFpChannelState.checkedAccounts.delete(visible[i]);
+    }
+    bcFpRenderChannelC2List();
+  } else {
+    if (checked) bcFpChannelState.checkedAccounts.add(acc);
+    else bcFpChannelState.checkedAccounts.delete(acc);
+    bcFpUpdateSelectAllBtn();
+  }
+  bcFpChannelState.lastClickedAcc = acc;
+  bcFpUpdateChannelText();
+}
+function bcFpUpdateChannelText() {
+  var parts = [];
+  if (bcFpChannelState.checkedChannels.size) parts.push(Array.from(bcFpChannelState.checkedChannels).join(', '));
+  if (bcFpChannelState.checkedAccounts.size) parts.push('人设号 ' + bcFpChannelState.checkedAccounts.size + ' 个');
+  var el = document.getElementById('bc-fp-channel-text');
+  if (parts.length) { el.textContent = parts.join('；'); el.style.color = '#333'; }
+  else { el.textContent = '请选择'; el.style.color = '#999'; }
+}
+function bcFpClearChannel() {
+  bcFpChannelState = { checkedChannels: new Set(), checkedAccounts: new Set(), activeChannel: '', searchQuery: '', visibleAccounts: [], lastClickedAcc: '' };
+  bcFpUpdateChannelText();
+  document.getElementById('bc-fp-channel-drop').style.display = 'none';
+}
+
+function bcFpCloseAllDrops() {
+  var r = document.getElementById('bc-fp-region-drop'); if (r) r.style.display = 'none';
+  var c = document.getElementById('bc-fp-channel-drop'); if (c) c.style.display = 'none';
+}
+// 点击其他区域关闭级联下拉和自定义 select
+function bcFpCloseAllSelDrops() {
+  bcFpCloseAllDrops();
+  document.querySelectorAll('.bc-fp-sel-drop.show').forEach(function(d) {
+    d.classList.remove('show');
+    var t = d.parentElement.querySelector('.bc-fp-sel-trigger');
+    if (t) t.classList.remove('open');
+  });
+}
+document.addEventListener('click', bcFpCloseAllSelDrops);
+
+// --- 自定义 select 初始化 ---
+function bcFpInitCustomSelects() {
+  document.querySelectorAll('.bc-fp-sel[data-options]').forEach(function(wrap) {
+    if (wrap.querySelector('.bc-fp-sel-trigger')) return;
+    var options = wrap.getAttribute('data-options').split(',');
+    var isMulti = wrap.getAttribute('data-multi') === 'true';
+    var trigger = document.createElement('div');
+    trigger.className = 'bc-fp-sel-trigger';
+    trigger.innerHTML = '<span class="bc-fp-sel-text placeholder">请选择</span><span class="bc-fp-sel-arrow"></span>';
+    var drop = document.createElement('div');
+    drop.className = 'bc-fp-sel-drop';
+    drop.innerHTML = options.map(function(o) {
+      return '<div class="bc-fp-sel-opt" data-val="' + o + '">' + (isMulti ? '<span class="bc-fp-chk"></span>' : '') + o + '</div>';
+    }).join('');
+    function updateMultiDisplay() {
+      var selected = [];
+      drop.querySelectorAll('.bc-fp-sel-opt.selected').forEach(function(o) { selected.push(o.getAttribute('data-val')); });
+      var textEl = trigger.querySelector('.bc-fp-sel-text');
+      var tagsEl = trigger.querySelector('.bc-fp-sel-tags');
+      if (tagsEl) tagsEl.remove();
+      if (selected.length === 0) {
+        textEl.textContent = '请选择'; textEl.classList.add('placeholder'); textEl.style.display = '';
+      } else {
+        textEl.style.display = 'none';
+        var tags = document.createElement('span');
+        tags.className = 'bc-fp-sel-tags';
+        var show = selected.slice(0, 3);
+        show.forEach(function(s) { tags.innerHTML += '<span class="bc-fp-sel-tag">' + s + '</span>'; });
+        if (selected.length > 3) tags.innerHTML += '<span class="bc-fp-sel-tag-count">+' + (selected.length - 3) + '</span>';
+        trigger.insertBefore(tags, trigger.querySelector('.bc-fp-sel-arrow'));
+      }
+    }
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.querySelectorAll('.bc-fp-sel-drop.show').forEach(function(d) {
+        if (d !== drop) { d.classList.remove('show'); d.parentElement.querySelector('.bc-fp-sel-trigger').classList.remove('open'); }
+      });
+      bcFpCloseAllDrops();
+      var isOpen = drop.classList.contains('show');
+      if (isOpen) { drop.classList.remove('show'); trigger.classList.remove('open'); }
+      else { drop.classList.add('show'); trigger.classList.add('open'); }
+    });
+    drop.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var opt = e.target.closest('.bc-fp-sel-opt');
+      if (!opt) return;
+      var val = opt.getAttribute('data-val');
+      if (isMulti) {
+        opt.classList.toggle('selected'); updateMultiDisplay();
+      } else {
+        var text = trigger.querySelector('.bc-fp-sel-text');
+        var current = text.textContent;
+        if (current === val) {
+          text.textContent = '请选择'; text.classList.add('placeholder');
+          drop.querySelectorAll('.bc-fp-sel-opt').forEach(function(o) { o.classList.remove('selected'); });
+        } else {
+          text.textContent = val; text.classList.remove('placeholder');
+          drop.querySelectorAll('.bc-fp-sel-opt').forEach(function(o) { o.classList.toggle('selected', o.getAttribute('data-val') === val); });
+        }
+        drop.classList.remove('show'); trigger.classList.remove('open');
+      }
+    });
+    wrap.appendChild(trigger);
+    wrap.appendChild(drop);
+  });
+}
+
+// --- 日期选择器：PC 用 wxDatePicker，本页退化为原生 <input type=date> ---
+function bcFpPickDate(el) {
+  var input = document.createElement('input');
+  input.type = 'date';
+  if (el.getAttribute('data-value')) input.value = el.getAttribute('data-value');
+  input.style.cssText = 'position:fixed;left:-9999px;opacity:0;';
+  document.body.appendChild(input);
+  input.addEventListener('change', function() {
+    if (input.value) { el.setAttribute('data-value', input.value); el.innerHTML = input.value; el.classList.add('has-value'); }
+    input.remove();
+  });
+  input.addEventListener('blur', function() { setTimeout(function(){ if (input.parentNode) input.remove(); }, 200); });
+  input.focus();
+  if (input.showPicker) { try { input.showPicker(); } catch(e) {} }
+}
+
+// --- 重置 / 搜索（本页：筛选为视觉态，搜索=重渲染表格） ---
+function bcResetFpFilters() {
+  document.querySelectorAll('#bc-fp-filters .bc-fp-sel').forEach(function(wrap) {
+    wrap.querySelectorAll('.bc-fp-sel-opt.selected').forEach(function(o) { o.classList.remove('selected'); });
+    var txt = wrap.querySelector('.bc-fp-sel-text');
+    var tags = wrap.querySelector('.bc-fp-sel-tags');
+    if (tags) tags.remove();
+    if (txt) { txt.textContent = '请选择'; txt.classList.add('placeholder'); txt.style.display = ''; }
+  });
+  document.querySelectorAll('#bc-fp-filters .bc-fp-date-trigger').forEach(function(el) {
+    el.removeAttribute('data-value'); el.classList.remove('has-value');
+    if (el.dataset.ph !== undefined) el.innerHTML = el.dataset.ph;
+  });
+  bcFpClearRegion();
+  bcFpClearChannel();
+  toast('已重置筛选');
+}
+function bcSearchFpFriends() { render(); toast('查询'); }
+
+// --- 初始化 ---
+document.querySelectorAll('#bc-fp-filters .bc-fp-date-trigger').forEach(function(el) { el.dataset.ph = el.textContent; });
+bcFpInitCustomSelects();
+
+/* ============================================================
+   批量分组：分组名组合框（录入关键字匹配已有 / 无匹配即输即建）
+   逻辑沿用 PC 端 DR-028 话术名称组合框（bcCatCombo）那套
+   ============================================================ */
+// 表头全选 → 勾选/取消当页所有行
+function toggleAllRows(box) {
+  document.querySelectorAll('#tbody input[type=checkbox]').forEach(function(c) { c.checked = box.checked; });
+}
+function getCheckedCount() {
+  return document.querySelectorAll('#tbody input[type=checkbox]:checked').length;
+}
+
+// 已有分组 mock（实际取后端好友分组列表）
+var FRIEND_GROUPS = ['高意向客户', '到院未成交', '水光针意向', '玻尿酸意向', 'VIP 客户', '需回访', '抖音来源', '点评来源'];
+
+function openGroupModal() {
+  var n = getCheckedCount();
+  if (!n) { toast('请先勾选好友'); return; }
+  document.getElementById('grpInput').value = '';
+  document.getElementById('grpSelInfo').textContent = '已勾选 ' + n + ' 位好友，确定后加入所选分组';
+  document.getElementById('grpModal').classList.add('show');
+  setTimeout(function() { document.getElementById('grpInput').focus(); grpComboFilter(); }, 0);
+}
+function closeGroupModal() {
+  document.getElementById('grpModal').classList.remove('show');
+  grpComboClose();
+}
+function grpComboFilter() {
+  var input = document.getElementById('grpInput');
+  var drop = document.getElementById('grpComboDrop');
+  if (!input || !drop) return;
+  var q = input.value.trim();
+  var matched = FRIEND_GROUPS.filter(function(g) { return !q || g.indexOf(q) !== -1; });
+  var html = matched.map(function(g) {
+    return '<div class="grp-combo-opt" onmousedown="event.preventDefault();grpComboPick(\'' + g.replace(/'/g, "\\'") + '\')">' + g + '</div>';
+  }).join('');
+  var exact = FRIEND_GROUPS.some(function(g) { return g === q; });
+  if (q && !exact) {
+    html += '<div class="grp-combo-opt grp-combo-create" onmousedown="event.preventDefault();grpComboCreate(\'' + q.replace(/'/g, "\\'") + '\')">＋ 创建「' + q + '」</div>';
+  }
+  if (!html) html = '<div class="grp-combo-empty">输入名称创建新分组</div>';
+  drop.innerHTML = html;
+  drop.classList.add('open');
+}
+function grpComboPick(g) {
+  document.getElementById('grpInput').value = g;
+  grpComboClose();
+}
+function grpComboCreate(g) {
+  if (!FRIEND_GROUPS.some(function(x) { return x === g; })) FRIEND_GROUPS.unshift(g);
+  grpComboPick(g);
+}
+function grpComboClose() {
+  var d = document.getElementById('grpComboDrop');
+  if (d) d.classList.remove('open');
+}
+function confirmGroup() {
+  var name = (document.getElementById('grpInput').value || '').trim();
+  if (!name) { toast('请输入或选择分组'); return; }
+  // 直接录入未走下拉也视为新建
+  if (!FRIEND_GROUPS.some(function(x) { return x === name; })) FRIEND_GROUPS.unshift(name);
+  var n = getCheckedCount();
+  closeGroupModal();
+  toast('已将 ' + n + ' 位好友分组到「' + name + '」');
+}
 </script></body></html>
