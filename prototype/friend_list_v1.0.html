@@ -134,16 +134,42 @@ html, body { overflow: auto; height: auto; }
 .grp-combo-opt:hover { background: var(--hover); }
 .grp-combo-opt.grp-combo-create { color: var(--wx-green); font-weight: 500; }
 .grp-combo-empty { padding: 10px 12px; font-size: 12.5px; color: var(--text-3); }
+
+/* ===== 等级(AI) / 第一需求(AI) 胶囊（对齐 design-spec .ai-pill / .need-pill） ===== */
+.ai-pill { display:inline-block; padding:2px 8px; border-radius:11px; font-size:11.5px; font-weight:600; color:#fff; }
+.ai-pill .aim { font-size:8.5px; background:rgba(255,255,255,0.28); padding:0 3px; border-radius:4px; margin-left:3px; vertical-align:1px; }
+.need-pill { display:inline-block; padding:1px 8px; border-radius:10px; font-size:11.5px; background:#f0f4fa; color:#576b95; }
+.need-pill .aim { font-size:8.5px; background:rgba(87,107,149,0.18); padding:0 3px; border-radius:4px; margin-left:3px; vertical-align:1px; }
+.acc-line { font-size:12.5px; color:var(--text-2); line-height:1.6; }
+
+/* ===== 批量分组弹窗：可拖动 + 四边四角缩放（DR-050 同款机制） ===== */
+#grpModal .modal {
+  position: fixed; margin: 0;
+  width: 720px; height: 520px;
+  min-width: 420px; min-height: 300px;
+  max-width: none; max-height: none;
+  display: flex; flex-direction: column; overflow: visible;
+}
+#grpModal .modal-header { cursor: move; user-select: none; flex-shrink: 0; }
+#grpModal .modal-body { flex: 1 1 auto; min-height: 0; overflow: visible; }
+#grpModal .modal-footer { flex-shrink: 0; }
+.grp-rsz { position: absolute; z-index: 30; }
+.grp-rsz.n  { top:-3px; left:10px; right:10px; height:6px; cursor:ns-resize; }
+.grp-rsz.s  { bottom:-3px; left:10px; right:10px; height:6px; cursor:ns-resize; }
+.grp-rsz.w  { left:-3px; top:10px; bottom:10px; width:6px; cursor:ew-resize; }
+.grp-rsz.e  { right:-3px; top:10px; bottom:10px; width:6px; cursor:ew-resize; }
+.grp-rsz.nw { top:-4px; left:-4px; width:14px; height:14px; cursor:nwse-resize; }
+.grp-rsz.ne { top:-4px; right:-4px; width:14px; height:14px; cursor:nesw-resize; }
+.grp-rsz.sw { bottom:-4px; left:-4px; width:14px; height:14px; cursor:nesw-resize; }
+.grp-rsz.se { bottom:-4px; right:-4px; width:14px; height:14px; cursor:nwse-resize; }
 </style></head>
 <body>
 
 <div class="filter-bar">
   <!-- 顶部工具条：好友总数 + 页面级操作（好友列表页特性，保留） -->
   <div class="fl-toolbar">
-    <span class="total-card">全部好友 <span class="num">993,226</span> 人 ▾</span>
     <div class="f-spacer"></div>
     <button class="btn" onclick="toast('导出表格')">📤 导出表格</button>
-    <button class="btn" onclick="toast('保存为标签')">💾 保存为标签</button>
     <button class="btn" onclick="toast('全部记录')">📋 全部记录</button>
     <button class="btn primary" onclick="toast('创建虚拟好友')">＋ 创建虚拟好友</button>
   </div>
@@ -209,15 +235,18 @@ html, body { overflow: auto; height: auto; }
 </div>
 
 <div class="table-wrap" style="top:130px;">
-  <div class="table-card scroll" style="min-width:1900px;">
+  <div class="table-card scroll" style="min-width:1180px;">
     <table>
       <thead><tr>
         <th class="col-check"><input type="checkbox" id="checkAll" onchange="toggleAllRows(this)"></th>
-        <th>微信昵称</th><th>好友名称</th><th>基本信息</th>
-        <th>可接待销售</th><th>来源信息</th><th>好友状态</th>
-        <th>所在账号</th><th>销售 SPU</th><th>购买 SPU</th>
-        <th>用户信息</th><th>免打扰</th>
-        <th>添加时间</th><th>更新时间</th>
+        <th>微信昵称</th>
+        <th>所在账号</th>
+        <th>添加时间</th>
+        <th>渠道</th>
+        <th>状态</th>
+        <th>等级(AI)</th>
+        <th>第一需求(AI)</th>
+        <th>所在分组</th>
         <th class="col-actions">操作</th>
       </tr></thead>
       <tbody id="tbody"></tbody>
@@ -244,8 +273,8 @@ html, body { overflow: auto; height: auto; }
 
 <!-- 批量分组弹窗：分组名组合框（录入关键字匹配已有 / 无匹配即输即建） -->
 <div class="modal-mask" id="grpModal" onclick="if(event.target===this)closeGroupModal()">
-  <div class="modal" style="width:420px;">
-    <div class="modal-header">批量分组 <span class="modal-close" onclick="closeGroupModal()">×</span></div>
+  <div class="modal" id="grpModalBox">
+    <div class="modal-header" onmousedown="grpDragStart(event)">批量分组 <span class="modal-close" onclick="closeGroupModal()">×</span></div>
     <div class="modal-body" style="overflow:visible;">
       <div class="form-row">
         <label><span class="req">*</span>分组名称</label>
@@ -262,6 +291,14 @@ html, body { overflow: auto; height: auto; }
       <button class="btn" onclick="closeGroupModal()">取消</button>
       <button class="btn primary" onclick="confirmGroup()">确定</button>
     </div>
+    <div class="grp-rsz n"  onmousedown="grpResizeStart(event,'n')"></div>
+    <div class="grp-rsz s"  onmousedown="grpResizeStart(event,'s')"></div>
+    <div class="grp-rsz w"  onmousedown="grpResizeStart(event,'w')"></div>
+    <div class="grp-rsz e"  onmousedown="grpResizeStart(event,'e')"></div>
+    <div class="grp-rsz nw" onmousedown="grpResizeStart(event,'nw')"></div>
+    <div class="grp-rsz ne" onmousedown="grpResizeStart(event,'ne')"></div>
+    <div class="grp-rsz sw" onmousedown="grpResizeStart(event,'sw')"></div>
+    <div class="grp-rsz se" onmousedown="grpResizeStart(event,'se')"></div>
   </div>
 </div>
 
@@ -276,36 +313,50 @@ const ROWS = [
   { nick:'有有',          name:'Y 点评 260425 水光',   phone:'13880056316', sex:'',  birth:'',  city:'',                  scope:'全部', src:'',     status:'',  acc:'AA Yostar 艺星小品 17882352550', saleSpu:'', buySpu:'', userInfo:'PDM 卡号: -\n客户等级: -\n到院: -',           dnd:false, addAt:'',                   updAt:'2026-05-06 11:58' },
   { nick:'pianouan',      name:'Y 点评 260502 玻尿酸', phone:'15080761033', sex:'',  birth:'',  city:'',                  scope:'全部', src:'',     status:'',  acc:'AA Yostar 艺星小品 17882352550', saleSpu:'', buySpu:'', userInfo:'PDM 卡号: -\n客户等级: -\n到院: -',           dnd:false, addAt:'',                   updAt:'2026-05-06 11:58' },
   { nick:'云上开车老司机',name:'Y 点评 260502 祛斑',   phone:'15008206791', sex:'',  birth:'',  city:'',                  scope:'全部', src:'',     status:'',  acc:'AA Yostar 艺星小品 17882352550', saleSpu:'', buySpu:'', userInfo:'PDM 卡号: -\n客户等级: -\n到院: -',           dnd:false, addAt:'',                   updAt:'2026-05-06 11:57' },
-  { nick:'灵',            name:'Y 230506 胸部 15528811139', phone:'',     sex:'',  birth:'',  city:'',                  scope:'全部', src:'',     status:'',  acc:'AA Yostar 艺星小品 17882352550', saleSpu:'', buySpu:'', userInfo:'PDM 卡号: -\n客户等级: -\n到院: -',           dnd:false, addAt:'',                   updAt:'2026-05-06 11:56' },
+  { nick:'灵',            accounts:['AA Yostar 艺星小品 17882352550','贾敏'], name:'Y 230506 胸部 15528811139', phone:'',     sex:'',  birth:'',  city:'',                  scope:'全部', src:'',     status:'',  acc:'AA Yostar 艺星小品 17882352550', saleSpu:'', buySpu:'', userInfo:'PDM 卡号: -\n客户等级: -\n到院: -',           dnd:false, addAt:'',                   updAt:'2026-05-06 11:56' },
   { nick:'rosy',          name:'rosy',                phone:'',           sex:'',  birth:'',  city:'',                  scope:'',     src:'A 成都艺星院长助理好好 17713619739', status:'', acc:'',                                saleSpu:'', buySpu:'', userInfo:'PDM 卡号: -\n客户等级: -\n到院: -',           dnd:false, addAt:'2026-05-06 11:54',   updAt:'2026-05-06 11:54' },
   { nick:'小狮籍~',       name:'Y 抖音填充 19808331579', phone:'',         sex:'',  birth:'',  city:'四川省 乐山市',     scope:'全部', src:'',     status:'',  acc:'贾敏',                            saleSpu:'', buySpu:'', userInfo:'',                                              dnd:false, addAt:'2026-05-06 11:50',   updAt:'2026-05-06 11:50' },
   { nick:'😈',           name:'Y 点评 191123 鼻子 18848458937', phone:'', sex:'',  birth:'',  city:'',                  scope:'全部', src:'',     status:'',  acc:'孙丽威',                          saleSpu:'', buySpu:'', userInfo:'',                                              dnd:false, addAt:'2026-05-06 11:48',   updAt:'2026-05-06 11:48' },
   { nick:'9826',          name:'w 260506 周 18783951824', phone:'',       sex:'',  birth:'',  city:'四川省 南充市',     scope:'全部', src:'',     status:'',  acc:'艺星专家助理妍妍',                saleSpu:'', buySpu:'', userInfo:'',                                              dnd:false, addAt:'2026-05-06 11:45',   updAt:'2026-05-06 11:46' },
   { nick:'',              name:'Y 抖音祛斑 17711083896', phone:'',        sex:'',  birth:'',  city:'',                  scope:'全部', src:'',     status:'',  acc:'贾敏',                            saleSpu:'', buySpu:'', userInfo:'PDM 卡号: -\n客户等级: -\n到院: -',           dnd:false, addAt:'2026-05-06 11:44',   updAt:'2026-05-06 11:53' },
   { nick:'豪德自萎',      name:'Y 点评 260429 兜子 15079173510', phone:'', sex:'', birth:'',  city:'',                  scope:'全部', src:'',     status:'',  acc:'AA Yostar 艺星小品 17882352550', saleSpu:'', buySpu:'', userInfo:'PDM 卡号: -\n客户等级: -\n到院: -',           dnd:false, addAt:'',                   updAt:'2026-05-06 11:49' },
-  { nick:'豆公子',        name:'Y 260506 脱毛 13880132371',     phone:'138****2371', sex:'', birth:'', city:'四川省 成都市', scope:'全部', src:'', status:'', acc:'何陈秀', saleSpu:'', buySpu:'', userInfo:'PDM 卡号: cd260506130\n客户等级: -\n到院: -', dnd:false, addAt:'2026-05-06 11:37',   updAt:'2026-05-06 11:54' },
+  { nick:'豆公子',        accounts:['何陈秀','桂佳'], name:'Y 260506 脱毛 13880132371',     phone:'138****2371', sex:'', birth:'', city:'四川省 成都市', scope:'全部', src:'', status:'', acc:'何陈秀', saleSpu:'', buySpu:'', userInfo:'PDM 卡号: cd260506130\n客户等级: -\n到院: -', dnd:false, addAt:'2026-05-06 11:37',   updAt:'2026-05-06 11:54' },
   { nick:'Ww 蕊蕊_',     name:'Ww 蕊蕊_',                       phone:'',        sex:'', birth:'', city:'',                 scope:'全部', src:'', status:'', acc:'何陈秀',                          saleSpu:'', buySpu:'', userInfo:'',                                              dnd:false, addAt:'2026-05-06 11:35',   updAt:'2026-05-06 11:51' },
   { nick:'jiujiu',        name:'W 260506 哈 18819519381',       phone:'',        sex:'', birth:'', city:'',                 scope:'全部', src:'', status:'', acc:'桂佳',                            saleSpu:'', buySpu:'', userInfo:'PDM 卡号: -\n客户等级: -\n到院: -',           dnd:false, addAt:'2026-05-06 11:34',   updAt:'2026-05-06 11:43' },
 ];
+// 等级(AI) 配色（对齐 PC 端 _AI_GRADE_COLOR / DR-027）
+const _AI_GRADE_COLOR = { '客户':'#07c160', 'A':'#e74c3c', 'B':'#e67e22', 'C':'#3498db', 'D':'#95a5a6' };
+function aiPill(g){ const c = _AI_GRADE_COLOR[g] || '#95a5a6'; return `<span class="ai-pill" style="background:${c}">${g}<span class="aim">AI</span></span>`; }
+function needPill(n){ return n ? `<span class="need-pill">${n}<span class="aim">AI</span></span>` : '<span style="color:var(--text-3)">—</span>'; }
+function channelOf(name){ if(/点评/.test(name)) return '点评'; if(/抖音/.test(name)) return '抖音'; if(/小红书/.test(name)) return '小红书'; if(/院长助理|介绍/.test(name)) return '转介绍'; return '自媒体'; }
+// 等级(AI)/第一需求(AI)/所在分组 按行 mock（确定性，对齐 DR-027 AI 判定，不可手填）
+const _AI = [['C','水光针'],['B','玻尿酸填充'],['C','激光祛斑'],['A','胸部整形'],['客户',''],['B','注射填充'],['A','隆鼻'],['客户',''],['C','激光祛斑'],['B','眼部整形'],['C','脱毛'],['客户',''],['D','']];
+const _GRP = [[],['高意向客户'],[],['VIP 客户','高意向客户'],[],['需回访'],[],[],['到院未成交'],[],['到院未成交'],[],[]];
 function render() {
   document.getElementById('tbody').innerHTML = ROWS.map((r,i) => {
-    const ch = (r.nick || '?')[0];
+    // DR-057：微信昵称列 = 有备注显示备注名，无备注显示原微信昵称
+    const remark = (r.name && r.name !== r.nick) ? r.name : '';
+    const display = remark || r.nick || '(未命名)';
+    const ch = (display || '?')[0];
+    const subNick = (remark && r.nick) ? `<div class="user-sub">昵称：${r.nick}</div>` : '';
+    // 所在账号：多重添加展示所有账号
+    const accs = (r.accounts && r.accounts.length) ? r.accounts : (r.acc ? [r.acc] : []);
+    const accHtml = accs.length ? accs.map(a => `<div class="acc-line">${a}</div>`).join('') : '<span style="color:var(--text-3)">-</span>';
+    const ai = _AI[i] || ['客户',''];
+    const grps = _GRP[i] || [];
+    const grpHtml = grps.length ? `<div class="tag-list">${grps.map(g=>`<span class="tag green">${g}</span>`).join('')}</div>` : '<span style="color:var(--text-3)">-</span>';
+    const st = (i===6) ? '<span class="badge danger">异常</span>' : '<span class="badge">正常</span>';
     return `
     <tr>
       <td><input type="checkbox"></td>
-      <td><div class="user-cell">${avatarChip(i, ch)}<div class="user-name">${r.nick || '<span style="color:var(--text-3)">(未命名)</span>'}</div></div></td>
-      <td><div style="font-size:12.5px;line-height:1.5;">${r.name}<br><span style="color:var(--text-3)">${r.phone}</span></div></td>
-      <td><div class="cell-info">性别: ${r.sex || '-'}<br>生日: ${r.birth || '-'}<br>省市区: ${r.city || '-'}</div></td>
-      <td>${r.scope || '<span style="color:var(--text-3)">-</span>'}</td>
-      <td>${r.src ? `<span style="font-size:12px;color:var(--text-2);">${r.src}</span>` : '<span style="color:var(--text-3)">-</span>'}</td>
-      <td>${r.status || '<span style="color:var(--text-3)">-</span>'}</td>
-      <td><span style="font-size:12.5px;color:var(--text-2);">${r.acc}</span></td>
-      <td>${r.saleSpu || '<span style="color:var(--text-3)">-</span>'}</td>
-      <td>${r.buySpu || '<span style="color:var(--text-3)">-</span>'}</td>
-      <td><div class="cell-info">${(r.userInfo || '-').split('\n').join('<br>')}</div></td>
-      <td>${r.dnd ? '<span class="badge">是</span>' : '<span style="color:var(--text-3)">-</span>'}</td>
-      <td class="col-time ${r.addAt ? '' : 'empty'}">${r.addAt || '—'}</td>
-      <td class="col-time">${r.updAt}</td>
+      <td><div class="user-cell">${avatarChip(i, ch)}<div><div class="user-name">${display}</div>${subNick}</div></div></td>
+      <td>${accHtml}</td>
+      <td class="col-time">${r.addAt || r.updAt || '—'}</td>
+      <td><span class="tag">${channelOf(r.name)}</span></td>
+      <td>${st}</td>
+      <td>${aiPill(ai[0])}</td>
+      <td>${needPill(ai[1])}</td>
+      <td>${grpHtml}</td>
       <td class="col-actions">
         <button class="row-action" onclick="onEdit(${i})">编辑</button>
         <button class="row-action danger" onclick="toast('删除好友')">删除</button>
@@ -729,6 +780,12 @@ function openGroupModal() {
   if (!n) { toast('请先勾选好友'); return; }
   document.getElementById('grpInput').value = '';
   document.getElementById('grpSelInfo').textContent = '已勾选 ' + n + ' 位好友，确定后加入所选分组';
+  // 默认大尺寸 + 居中（之后可四边四角拖拽缩放、标题栏拖动）
+  var box = document.getElementById('grpModalBox');
+  var W = 720, H = 520;
+  box.style.width = W + 'px'; box.style.height = H + 'px';
+  box.style.left = Math.max(8, (window.innerWidth - W) / 2) + 'px';
+  box.style.top = Math.max(8, (window.innerHeight - H) / 2) + 'px';
   document.getElementById('grpModal').classList.add('show');
   setTimeout(function() { document.getElementById('grpInput').focus(); grpComboFilter(); }, 0);
 }
@@ -774,4 +831,40 @@ function confirmGroup() {
   closeGroupModal();
   toast('已将 ' + n + ' 位好友分组到「' + name + '」');
 }
+
+/* 批量分组弹窗：标题栏拖动 + 四边四角缩放（DR-050 同款机制） */
+(function() {
+  var box = null, mode = null, sx, sy, sl, st, sw, sh;
+  function start(e, m) {
+    box = document.getElementById('grpModalBox');
+    if (!box) return;
+    mode = m;
+    var r = box.getBoundingClientRect();
+    sx = e.clientX; sy = e.clientY; sl = r.left; st = r.top; sw = r.width; sh = r.height;
+    document.addEventListener('mousemove', move);
+    document.addEventListener('mouseup', up);
+    e.preventDefault(); e.stopPropagation();
+  }
+  function move(e) {
+    if (!box) return;
+    var dx = e.clientX - sx, dy = e.clientY - sy, minW = 420, minH = 300;
+    var l = sl, t = st, w = sw, h = sh;
+    if (mode === 'move') { l = sl + dx; t = st + dy; }
+    else {
+      if (mode.indexOf('e') >= 0) w = Math.max(minW, sw + dx);
+      if (mode.indexOf('s') >= 0) h = Math.max(minH, sh + dy);
+      if (mode.indexOf('w') >= 0) { w = Math.max(minW, sw - dx); l = sl + (sw - w); }
+      if (mode.indexOf('n') >= 0) { h = Math.max(minH, sh - dy); t = st + (sh - h); }
+    }
+    box.style.left = l + 'px'; box.style.top = t + 'px';
+    box.style.width = w + 'px'; box.style.height = h + 'px';
+  }
+  function up() {
+    box = null; mode = null;
+    document.removeEventListener('mousemove', move);
+    document.removeEventListener('mouseup', up);
+  }
+  window.grpDragStart = function(e) { if (e.target.closest('.modal-close')) return; start(e, 'move'); };
+  window.grpResizeStart = function(e, m) { start(e, m); };
+})();
 </script></body></html>
