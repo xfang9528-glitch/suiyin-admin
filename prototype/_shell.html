@@ -55,6 +55,46 @@
   .header-right {
     display: flex; align-items: center; gap: 8px; color: #4a5564;
   }
+  /* ===== 用户下拉菜单 + 内嵌企业切换 ===== */
+  #userMenu {
+    display: none; position: fixed;
+    top: 52px; right: 16px;
+    background: #fff; border-radius: 10px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.14);
+    min-width: 220px; overflow: hidden; z-index: 200;
+  }
+  .um-head { padding: 12px 16px 10px; border-bottom: 1px solid #f0f0f0; }
+  .um-name { font-weight: 600; color: #1a1a1a; font-size: 14px; }
+  .um-role { font-size: 12px; color: #8a96a3; margin-top: 2px; }
+  .um-label { padding: 10px 16px 4px; font-size: 11.5px; color: #98a2b0; }
+  .um-tenant-list { max-height: 260px; overflow-y: auto; padding: 0 8px 4px; }
+  .um-divider { height: 1px; background: #f0f0f0; margin: 2px 0; }
+  .um-logout {
+    display: flex; align-items: center; gap: 8px;
+    padding: 11px 16px; font-size: 14px; color: #f56c6c;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .um-logout:hover { background: #fff5f5; }
+
+  /* 企业切换列表项（嵌在用户下拉里） */
+  .tenant-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 8px; border-radius: 7px;
+    font-size: 13.5px; color: #1a1a1a;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .tenant-item:hover { background: #f5f7fa; }
+  .tenant-item .ti-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #c9d1da; flex-shrink: 0;
+  }
+  .tenant-item .ti-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tenant-item .ti-tag {
+    font-size: 11px; color: var(--wx-green);
+    background: var(--wx-green-light); padding: 1px 7px; border-radius: 4px;
+  }
+  .tenant-item.is-active { background: #f5fbf7; color: var(--wx-green); font-weight: 500; }
+  .tenant-item.is-active .ti-dot { background: var(--wx-green); }
   .header-icon-btn {
     width: 32px; height: 32px; border-radius: 6px;
     display: flex; align-items: center; justify-content: center;
@@ -268,7 +308,7 @@
 <header class="header">
   <div class="header-left">
     <div class="header-logo">◉</div>
-    <div class="header-brand">佰智德三私域</div>
+    <div class="header-brand" id="headerBrand">佰智德三私域</div>
     <div class="header-env">管理后台</div>
   </div>
   <div class="header-right">
@@ -280,28 +320,18 @@
       <span style="font-size:11px;opacity:.7;margin-left:2px;">▾</span>
     </div>
     <!-- 用户气泡菜单 -->
-    <div id="userMenu" style="
-      display:none;
-      position:fixed;
-      top:52px; right:16px;
-      background:#fff;
-      border-radius:10px;
-      box-shadow:0 6px 24px rgba(0,0,0,0.14);
-      min-width:140px;
-      overflow:hidden;
-      z-index:200;
-    ">
-      <div style="padding:12px 16px 10px; border-bottom:1px solid #f0f0f0;">
-        <div style="font-weight:600;color:#1a1a1a;font-size:14px;">房昕</div>
-        <div style="font-size:12px;color:#8a96a3;margin-top:2px;">超级管理员</div>
+    <div id="userMenu">
+      <div class="um-head">
+        <div class="um-name">房昕</div>
+        <div class="um-role">超级管理员</div>
       </div>
-      <div onclick="doLogout()" style="
-        display:flex; align-items:center; gap:8px;
-        padding:11px 16px;
-        font-size:14px; color:#f56c6c;
-        cursor:pointer;
-        transition:background .15s;
-      " onmouseenter="this.style.background='#fff5f5'" onmouseleave="this.style.background=''">
+      <!-- 企业切换区：仅多租户权限时显示 -->
+      <div id="umTenantSection" style="display:none;">
+        <div class="um-label">切换企业</div>
+        <div class="um-tenant-list" id="tenantList"></div>
+        <div class="um-divider"></div>
+      </div>
+      <div class="um-logout" onclick="doLogout()">
         <span>⎋</span> 退出登录
       </div>
     </div>
@@ -531,15 +561,94 @@ openTab({ id: 'sales', title: '销售管理', page: 'sales_v1.0.html', pinned: t
   }
 })();
 
-/* ========= 用户菜单 ========= */
+/* ========= 用户菜单（含企业切换） ========= */
 function toggleUserMenu(e) {
   e.stopPropagation();
   const menu = document.getElementById('userMenu');
-  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+  const willOpen = menu.style.display !== 'block';
+  if (willOpen) renderTenantList();          // 打开前刷新当前企业高亮
+  menu.style.display = willOpen ? 'block' : 'none';
 }
 document.addEventListener('click', () => {
   document.getElementById('userMenu').style.display = 'none';
 });
+// 点菜单内部不关闭（切换企业的列表在里面）
+document.getElementById('userMenu').addEventListener('click', e => e.stopPropagation());
+
+/* ========= 企业（租户）切换（嵌在右上角用户下拉菜单里） ========= */
+// Mock：房昕作为德三总经理拥有多租户权限，可在有权限的企业间切换。
+// 单租户用户 → ENTERPRISES 只有一项 → 切换区整体隐藏，与登录企业选择/PC端环境切换逻辑一致。
+// 企业 id 对齐租户ID注册表；name 用管理后台显示名。
+let currentTenant = 'bzds';
+// 企业列表与 PC 端原型 (suiyin-pc-chat/prototype/prototype_v1.0.html 的 ENV_ORDER) 保持一致。
+// 现阶段每家企业内容都先沿用现状（同一套菜单/页面/数据），后续再挨个迭代差异化。
+// 顶栏 brand：bzds 保留现状「佰智德三私域」，其余暂用企业名占位。
+const ENTERPRISES = [
+  { id: 'bzds',     name: '佰智德三',           brand: '佰智德三私域' },
+  { id: 'crrm',     name: '诚如风险管理事务所',  brand: '诚如风险管理事务所' },
+  { id: 'dargans',  name: '达根斯',             brand: '达根斯' },
+  { id: 'hqjd',     name: '厚全鸡蛋',           brand: '厚全鸡蛋' },
+  { id: 'jbfs',     name: '锦帛服饰',           brand: '锦帛服饰' },
+  { id: 'mengzhua', name: '萌爪医生',           brand: '萌爪医生' },
+  { id: 'nycl',     name: '南苑茶庐',           brand: '南苑茶庐' },
+  { id: 'rx-liu',   name: '瑞熙小刘',           brand: '瑞熙小刘' },
+  { id: 'rx-wen',   name: '瑞熙小温',           brand: '瑞熙小温' },
+  { id: 'rx-zhou',  name: '瑞熙小周',           brand: '瑞熙小周' },
+  { id: 'txjs',     name: '天馨健身',           brand: '天馨健身' },
+  { id: 'uid',      name: 'uid',               brand: 'uid' },
+  { id: 'yanku',    name: '彦库实业',           brand: '彦库实业' },
+  { id: 'yestar',   name: '艺星',               brand: '艺星' },
+  { id: 'youzi',    name: '柚子烘焙',           brand: '柚子烘焙' },
+];
+
+function initTenantSwitcher() {
+  // 单租户权限：不显示切换区（不占位），下拉菜单仅剩退出登录
+  if (ENTERPRISES.length <= 1) return;
+  document.getElementById('umTenantSection').style.display = 'block';
+  renderTenantList();
+}
+
+function renderTenantList() {
+  const list = document.getElementById('tenantList');
+  if (!list) return;
+  list.innerHTML = ENTERPRISES.map(t => {
+    const active = t.id === currentTenant;
+    return `<div class="tenant-item${active ? ' is-active' : ''}" onclick="switchTenant('${t.id}')">
+      <span class="ti-dot"></span>
+      <span class="ti-name">${t.name}</span>
+      ${active ? '<span class="ti-tag">当前</span>' : ''}
+    </div>`;
+  }).join('');
+}
+
+function switchTenant(id) {
+  const menu = document.getElementById('userMenu');
+  if (id === currentTenant) { menu.style.display = 'none'; return; }
+  const t = ENTERPRISES.find(x => x.id === id);
+  if (!t) return;
+  currentTenant = id;
+  document.getElementById('headerBrand').textContent = t.brand;
+  renderTenantList();
+  menu.style.display = 'none';
+  showTenantToast('已切换到「' + t.name + '」');
+  // 真实环境下：切换企业后会重载对应租户的菜单/数据/主题
+}
+
+function showTenantToast(msg) {
+  let el = document.getElementById('tenantToast');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'tenantToast';
+    el.style.cssText = 'position:fixed;top:70px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.78);color:#fff;padding:9px 18px;border-radius:8px;font-size:13px;z-index:300;transition:opacity .25s;pointer-events:none;';
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  el.style.opacity = '1';
+  clearTimeout(window._tenantToastTimer);
+  window._tenantToastTimer = setTimeout(() => { el.style.opacity = '0'; }, 1600);
+}
+
+initTenantSwitcher();
 function doLogout() {
   window.location.href = 'login_v1.0.html';
 }
