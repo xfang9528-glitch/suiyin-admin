@@ -238,6 +238,17 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 - 失焦延时关闭（150ms），候选用 `onmousedown + preventDefault` 抢在 blur 前选中
 - 首例：好友列表「批量分组」弹窗（分组名录入）
 
+### 可拖动 + 四边四角缩放弹窗（.grp-rsz）· 2026-06-18
+- 沿用 PC 端 DR-050「带标题栏浮窗统一拖动 + 四边四角缩放」：弹窗 `position:fixed`，打开时设默认大尺寸并居中（首例批量分组 720×520）
+- 标题栏 `cursor:move` 拖动整窗（点关闭 × 不触发拖动）；8 个手柄（n/s/w/e 四边 + nw/ne/sw/se 四角）按方向改 left/top/width/height，最小 420×300
+- 承载 `.modal` 改 `display:flex; flex-direction:column`，body `flex:1; overflow:visible`（组合框下拉不被裁），footer 锁底
+- 首例：好友列表「批量分组」弹窗
+
+### 列表「微信昵称」列显示规则（DR-057）· 2026-06-18
+- 有备注 → 显示备注名；无备注 → 显示原微信昵称；都没有 → 「(未命名)」
+- 有备注时主名下加 `.user-sub` 灰字副行「昵称：{原微信昵称}」（原昵称为空则不加）
+- 首例：好友列表 `friend_list_v1.0.html`（艺星）
+
 ### 总原则
 > "微信绿"是品牌色，但用法克制：只在主按钮、激活态、关键徽章、logo 出现。
 > 大面积留白 + 灰阶层次 + 公众号蓝 / 红做次要强调。
