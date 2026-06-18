@@ -218,6 +218,26 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 - AI 小标：右侧 `AI` 圆角小字，背景 `rgba(87,107,149,0.18)`，与等级胶囊视觉一致
 - 空态：AI 未识别出明确需求显 `—`（灰色 `var(--text-3)`）
 
+### 顶栏企业切换器（用户下拉内）· 2026-06-18
+- 位置：顶栏「房昕」用户下拉菜单内（头部 房昕/超级管理员 → 「切换企业」标签 + 企业列表 → 分隔线 → 退出登录），不单独占顶栏 pill
+- 显隐：仅多租户权限显示（`ENTERPRISES.length > 1`），单租户隐藏整段
+- 列表项：左侧灰点 + 企业名 + （当前项）绿底高亮 + 绿色「当前」tag；列表 `max-height:260px` 超出滚动
+- 点菜单内部不关闭（`stopPropagation`），点外部关闭；切换后更新顶栏品牌名 + toast
+- 企业列表与 PC / APP 原型同源（见 [tenant-id-registry]）
+
+### CRM 多维筛选（.bc-fp-filters）· 好友列表（艺星）· 2026-06-18
+- 直接 1:1 复用 PC 端 suiyin-pc-chat 群发选好友·第一步的 `bc-fp-*` 组件（DOM/CSS/JS 整体搬运），保证三端同款
+- 4 列网格；`.collapsed` 时仅显前 8 项（`:nth-child(n+9)` 隐藏），展开看全部 21 维
+- 子控件：`.bc-fp-sel`（自定义单/多选，多选展示标签 + `+N`）、`.bc-fp-cascader-input`（地区省/市/区三列级联 + 所在账号渠道/人设号两列级联，含搜索/全选/Shift 区间）、`.bc-fp-date-trigger`（日期，admin 无 wxDatePicker → 退化原生 date input）
+- 收起/展开切换 + 重置 / 搜索按钮
+- 因筛选高度可变，承载页改自然流式布局（非固定定位）
+
+### 即输即建组合框（.grp-combo）· 通用 · 2026-06-18
+- 逻辑沿用 PC 端 DR-028「话术名称组合框」：输入框 + 可筛选下拉，输入关键字过滤已有项；**无完全匹配时末尾出现绿色「＋ 创建「X」」**，点击即输即建
+- 触发器为普通输入框，下拉 `position:absolute` 挂在 `.grp-combo` 内（弹窗里需把 `.modal-body` 改 `overflow:visible` 防裁切）
+- 失焦延时关闭（150ms），候选用 `onmousedown + preventDefault` 抢在 blur 前选中
+- 首例：好友列表「批量分组」弹窗（分组名录入）
+
 ### 总原则
 > "微信绿"是品牌色，但用法克制：只在主按钮、激活态、关键徽章、logo 出现。
 > 大面积留白 + 灰阶层次 + 公众号蓝 / 红做次要强调。
