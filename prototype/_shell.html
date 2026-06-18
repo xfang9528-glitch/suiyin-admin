@@ -465,6 +465,14 @@ const iframeContainer = document.getElementById('iframeContainer');
 const tabs = new Map(); // id -> {el, iframe, title, page, pinned}
 let activeTabId = null;
 
+// 当前企业（给 iframe 页面传 ?tenant=，多租户门控用）；初始 bzds，切换企业时更新并重载页面
+var SHELL_TENANT = 'bzds';
+function withTenant(page) {
+  if (!page) return page;
+  var sep = page.indexOf('?') === -1 ? '?' : '&';
+  return page + sep + 'tenant=' + SHELL_TENANT;
+}
+
 function openTab({ id, title, page, pinned = false, parent = null }) {
   if (!tabs.has(id)) {
     // 创建 tab
@@ -487,7 +495,7 @@ function openTab({ id, title, page, pinned = false, parent = null }) {
     // 创建 iframe（懒加载，只在第一次打开时设 src）
     const iframe = document.createElement('iframe');
     iframe.className = 'page-iframe';
-    iframe.src = page;
+    iframe.src = withTenant(page);
     iframe.dataset.id = id;
     iframeContainer.appendChild(iframe);
 
@@ -627,11 +635,13 @@ function switchTenant(id) {
   const t = ENTERPRISES.find(x => x.id === id);
   if (!t) return;
   currentTenant = id;
+  SHELL_TENANT = id;
   document.getElementById('headerBrand').textContent = t.brand;
   renderTenantList();
   menu.style.display = 'none';
   showTenantToast('已切换到「' + t.name + '」');
-  // 真实环境下：切换企业后会重载对应租户的菜单/数据/主题
+  // 切换企业 → 重载已打开页面，让其按新租户渲染（多租户门控实时生效）
+  tabs.forEach(function(tb) { tb.iframe.src = withTenant(tb.page); });
 }
 
 function showTenantToast(msg) {
