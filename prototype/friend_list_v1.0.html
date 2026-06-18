@@ -267,8 +267,8 @@ html, body { overflow: auto; height: auto; }
       <select class="f-select"><option>请选择</option></select>
       <span class="f-label">专属销售</span>
       <select class="f-select"><option>请选择</option></select>
-      <button class="bc-fp-btn-search" onclick="render();toast('查询')">查询</button>
-      <button class="bc-fp-btn-reset" onclick="var k=document.getElementById('simpleKw');if(k)k.value='';render();toast('已重置')">重置</button>
+      <button class="bc-fp-btn-search" onclick="simpleSearch()">查询</button>
+      <button class="bc-fp-btn-reset" onclick="simpleReset()">重置</button>
       <span class="fl-simple-note">该租户好友列表为占位，筛选/字段待单独迭代</span>
     </div>
   </div>
@@ -388,8 +388,16 @@ const _ACCT = [
   ['邓梦雨'],
   ['牛海兰01'],
 ];
-function render() {
-  document.getElementById('tbody').innerHTML = ROWS.map((r,i) => {
+// 状态（到院状态：成交/到店/未上门）—— 与筛选「状态」对齐，支撑真实过滤
+const _VISIT = ['未上门','成交','未上门','成交','到店','未上门','到店','未上门','成交','到店','到店','未上门','未上门'];
+let _lastList = null;  // 记住当前渲染的行集（筛选/搜索后），分组后按它重渲染保持视图
+function render(idxList) {
+  const list = idxList || ROWS.map((_, i) => i);
+  _lastList = list;
+  const tbody = document.getElementById('tbody');
+  if (!list.length) { tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;color:var(--text-3);padding:40px 0;">无匹配好友</td></tr>'; return; }
+  tbody.innerHTML = list.map(function(i) {
+    const r = ROWS[i];
     // DR-057：微信昵称列 = 有备注显示备注名，无备注显示原微信昵称
     const remark = (r.name && r.name !== r.nick) ? r.name : '';
     const display = remark || r.nick || '(未命名)';
@@ -401,10 +409,12 @@ function render() {
     const ai = _AI[i] || ['客户',''];
     const grps = _GRP[i] || [];
     const grpHtml = grps.length ? `<div class="tag-list">${grps.map(g=>`<span class="tag green">${g}</span>`).join('')}</div>` : '<span style="color:var(--text-3)">-</span>';
-    const st = (i===6) ? '<span class="badge danger">异常</span>' : '<span class="badge">正常</span>';
+    const vmap = { '成交':'badge', '到店':'badge info', '未上门':'badge gray' };
+    const visit = _VISIT[i] || '未上门';
+    const st = `<span class="${vmap[visit] || 'badge gray'}">${visit}</span>`;
     return `
     <tr>
-      <td><input type="checkbox"></td>
+      <td><input type="checkbox" data-ri="${i}"></td>
       <td><div class="user-cell">${avatarChip(i, ch)}<div><div class="user-name">${display}</div>${subNick}</div></div></td>
       <td>${accHtml}</td>
       <td class="col-time">${r.addAt || r.updAt || '—'}</td>
@@ -809,17 +819,70 @@ function bcResetFpFilters() {
   });
   bcFpClearRegion();
   bcFpClearChannel();
+  var fs = document.getElementById('flSearchInput'); if (fs) fs.value = '';
+  render();
   toast('已重置筛选');
 }
-function bcSearchFpFriends() { render(); toast('已按筛选条件执行筛选'); }
+// 读某筛选项当前选中的值（单/多选都标 .selected）
+function _selByLabel(label) {
+  var items = document.querySelectorAll('#bc-fp-filters .bc-fp-filter-item');
+  for (var k = 0; k < items.length; k++) {
+    var lb = items[k].querySelector('label');
+    if (lb && lb.textContent.trim() === label) {
+      return [].map.call(items[k].querySelectorAll('.bc-fp-sel-opt.selected'), function(o) { return o.getAttribute('data-val'); });
+    }
+  }
+  return [];
+}
+// 执行筛选：按有数据支撑的维度真实过滤（等级AI/第一需求AI/有电话/重复好友/专属销售/状态）
+// 无 mock 数据支撑的维度（地区/各日期/开发人/客服经理/会员等级/建议改善/用户特征/推荐设备/推荐医生/喜好风格/所在账号级联）暂不约束
+function bcSearchFpFriends() {
+  var grade = _selByLabel('等级(AI)：').map(function(g) { return g.replace('级', ''); }); // A级→A
+  var need = _selByLabel('第一需求(AI)：');
+  var phone = _selByLabel('有电话：')[0];
+  var dup = _selByLabel('重复好友：')[0];
+  var spec = _selByLabel('专属销售：')[0];
+  var visit = _selByLabel('状态：')[0];
+  var idx = [];
+  for (var i = 0; i < ROWS.length; i++) {
+    var g = _AI[i][0], nd = _AI[i][1], accts = _ACCT[i] || [], hasPhone = !!ROWS[i].phone;
+    if (grade.length && grade.indexOf(g) === -1) continue;
+    if (need.length && need.indexOf(nd) === -1) continue;
+    if (phone === '是' && !hasPhone) continue;
+    if (phone === '否' && hasPhone) continue;
+    if (dup === '是' && accts.length <= 1) continue;
+    if (dup === '否' && accts.length > 1) continue;
+    if (spec && accts.indexOf(spec) === -1) continue;
+    if (visit && visit !== '全部' && _VISIT[i] !== visit) continue;
+    idx.push(i);
+  }
+  render(idx);
+  toast('筛选出 ' + idx.length + ' 位好友');
+}
 
-// 独立搜索（关键词检索好友：微信昵称/备注/手机号）—— 与上方多维筛选职责区分（DR-058）
+// 独立搜索（关键词检索：昵称/备注名/手机号/卡号）—— 与上方多维筛选职责区分（DR-058）
+function _kwMatch(i, ql) {
+  var r = ROWS[i];
+  return [r.nick, r.name, r.phone, (r.userInfo || '')].join(' ').toLowerCase().indexOf(ql) !== -1;
+}
 function flSearch() {
   var q = (document.getElementById('flSearchInput').value || '').trim();
   if (!q) { toast('请输入搜索关键词'); return; }
-  render();
-  toast('搜索好友：' + q);
+  var ql = q.toLowerCase(), idx = [];
+  for (var i = 0; i < ROWS.length; i++) if (_kwMatch(i, ql)) idx.push(i);
+  render(idx);
+  toast('搜索「' + q + '」：' + idx.length + ' 位');
 }
+// 非艺星租户的简单关键词筛选
+function simpleSearch() {
+  var q = (document.getElementById('simpleKw').value || '').trim();
+  if (!q) { render(); toast('显示全部'); return; }
+  var ql = q.toLowerCase(), idx = [];
+  for (var i = 0; i < ROWS.length; i++) if (_kwMatch(i, ql)) idx.push(i);
+  render(idx);
+  toast('查询到 ' + idx.length + ' 位');
+}
+function simpleReset() { var k = document.getElementById('simpleKw'); if (k) k.value = ''; render(); toast('已重置'); }
 
 // --- 初始化 ---
 document.querySelectorAll('#bc-fp-filters .bc-fp-date-trigger').forEach(function(el) { el.dataset.ph = el.textContent; });
@@ -901,9 +964,12 @@ function confirmGroup() {
   if (!name) { toast('请输入或选择分组'); return; }
   // 直接录入未走下拉也视为新建
   if (!FRIEND_GROUPS.some(function(x) { return x === name; })) FRIEND_GROUPS.unshift(name);
-  var n = getCheckedCount();
+  // 把分组名写进选中行的「所在分组」数据，使其在列里出现标签
+  var checked = [].map.call(document.querySelectorAll('#tbody input[type=checkbox]:checked'), function(c) { return +c.dataset.ri; });
+  checked.forEach(function(i) { if (!_GRP[i]) _GRP[i] = []; if (_GRP[i].indexOf(name) === -1) _GRP[i].push(name); });
   closeGroupModal();
-  toast('已将 ' + n + ' 位好友分组到「' + name + '」');
+  render(_lastList);  // 重渲染：选中行的所在分组列出现新标签（保持当前筛选/搜索视图）
+  toast('已将 ' + checked.length + ' 位好友分组到「' + name + '」');
 }
 
 /* 批量分组弹窗：标题栏拖动 + 四边四角缩放（DR-050 同款机制） */
