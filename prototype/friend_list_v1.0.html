@@ -162,6 +162,14 @@ html, body { overflow: auto; height: auto; }
 .grp-rsz.ne { top:-4px; right:-4px; width:14px; height:14px; cursor:nesw-resize; }
 .grp-rsz.sw { bottom:-4px; left:-4px; width:14px; height:14px; cursor:nesw-resize; }
 .grp-rsz.se { bottom:-4px; right:-4px; width:14px; height:14px; cursor:nwse-resize; }
+
+/* ===== 独立搜索栏（筛选 section 下方，关键词检索好友）DR-058 ===== */
+.fl-search-row { display:flex; align-items:center; gap:10px; padding:12px 0 4px; margin-top:4px; border-top:1px solid var(--border); }
+.fl-search-label { font-size:13px; color:var(--text-2); font-weight:500; flex-shrink:0; }
+.fl-search-box { position:relative; flex:1; max-width:440px; }
+.fl-search-box svg { position:absolute; left:10px; top:50%; transform:translateY(-50%); width:15px; height:15px; color:#b0b0b0; }
+.fl-search-box input { width:100%; height:34px; padding:0 10px 0 32px; border:1px solid #d9d9d9; border-radius:4px; font-size:13px; outline:none; box-sizing:border-box; transition:border-color 0.15s; }
+.fl-search-box input:focus { border-color:var(--wx-green); }
 </style></head>
 <body>
 
@@ -171,7 +179,6 @@ html, body { overflow: auto; height: auto; }
     <div class="f-spacer"></div>
     <button class="btn" onclick="toast('导出表格')">📤 导出表格</button>
     <button class="btn" onclick="toast('全部记录')">📋 全部记录</button>
-    <button class="btn primary" onclick="toast('创建虚拟好友')">＋ 创建虚拟好友</button>
   </div>
 
   <!-- CRM 筛选：与 PC 端群发选好友·第一步「筛选选中」完全一致 -->
@@ -191,11 +198,12 @@ html, body { overflow: auto; height: auto; }
         </div>
       </div>
     </div>
-    <div class="bc-fp-filter-item"><label>等级：</label><div class="bc-fp-sel" data-options="A级,B级,C级,D级" data-multi="true"></div></div>
+    <div class="bc-fp-filter-item"><label>重复好友：</label><div class="bc-fp-sel" data-options="是,否"></div></div>
     <div class="bc-fp-filter-item"><label>等级(AI)：</label><div class="bc-fp-sel" data-options="A级,B级,C级,D级" data-multi="true"></div></div>
     <div class="bc-fp-filter-item"><label>第一需求(AI)：</label><div class="bc-fp-sel" data-options="眼部整形,鼻部整形,面部轮廓,紧肤提升,皮肤管理,注射填充,吸脂塑形"></div></div>
     <div class="bc-fp-filter-item"><label>有电话：</label><div class="bc-fp-sel" data-options="是,否"></div></div>
-    <div class="bc-fp-filter-item"><label>状态：</label><div class="bc-fp-sel" data-options="正常,异常"></div></div>
+    <div class="bc-fp-filter-item"><label>状态：</label><div class="bc-fp-sel" data-options="全部,成交,到店,未上门"></div></div>
+    <div class="bc-fp-filter-item"><label>专属销售：</label><div class="bc-fp-sel" data-options="杜佳,杨瑶 yiyi,陈巧,聂敏,刘瑜02,艺星专家助理妍妍,贾敏,孙丽威,何陈秀,桂佳"></div></div>
     <div class="bc-fp-filter-item"><label>末次咨询日期：</label><div class="bc-fp-filter-date"><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">开始日期</span><span>至</span><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">结束日期</span></div></div>
     <div class="bc-fp-filter-item"><label>添加日期：</label><div class="bc-fp-filter-date"><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">开始日期</span><span>至</span><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">结束日期</span></div></div>
     <div class="bc-fp-filter-item"><label>第二需求(AI)：</label><div class="bc-fp-sel" data-options="眼部整形,鼻部整形,面部轮廓,紧肤提升,皮肤管理"></div></div>
@@ -230,7 +238,16 @@ html, body { overflow: auto; height: auto; }
   <div class="bc-fp-collapse" id="bc-fp-collapse" onclick="bcToggleFilterCollapse()">展开 ▼</div>
   <div class="bc-fp-search-bar">
     <button class="bc-fp-btn-reset" onclick="bcResetFpFilters()">重置</button>
-    <button class="bc-fp-btn-search" onclick="bcSearchFpFriends()">搜索</button>
+    <button class="bc-fp-btn-search" onclick="bcSearchFpFriends()">执行筛选</button>
+  </div>
+  <!-- 独立搜索：在筛选 section 下方，对好友做关键词检索（DR-058：筛选 vs 搜索 职责区分） -->
+  <div class="fl-search-row">
+    <span class="fl-search-label">搜索好友</span>
+    <div class="fl-search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="flSearchInput" placeholder="昵称 / 备注名 / 手机号 / 卡号" autocomplete="off" onkeydown="if(event.key==='Enter')flSearch()">
+    </div>
+    <button class="btn primary" onclick="flSearch()">搜索</button>
   </div>
 </div>
 
@@ -754,7 +771,15 @@ function bcResetFpFilters() {
   bcFpClearChannel();
   toast('已重置筛选');
 }
-function bcSearchFpFriends() { render(); toast('查询'); }
+function bcSearchFpFriends() { render(); toast('已按筛选条件执行筛选'); }
+
+// 独立搜索（关键词检索好友：微信昵称/备注/手机号）—— 与上方多维筛选职责区分（DR-058）
+function flSearch() {
+  var q = (document.getElementById('flSearchInput').value || '').trim();
+  if (!q) { toast('请输入搜索关键词'); return; }
+  render();
+  toast('搜索好友：' + q);
+}
 
 // --- 初始化 ---
 document.querySelectorAll('#bc-fp-filters .bc-fp-date-trigger').forEach(function(el) { el.dataset.ph = el.textContent; });
