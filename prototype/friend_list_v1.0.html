@@ -174,6 +174,24 @@ html, body { overflow: auto; height: auto; }
 /* ===== 非艺星租户：简单关键词筛选（占位） ===== */
 .fl-simple-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:8px 0 4px; }
 .fl-simple-note { font-size:12px; color:var(--text-3); margin-left:6px; }
+
+/* ===== 选中条件查看：列内「查看」链接 + 气泡（移植自 PC 群发选好友） ===== */
+.fl-cond-link { color:#07c160; cursor:pointer; display:inline-flex; align-items:center; gap:3px; font-size:13px; }
+.fl-cond-link:hover { text-decoration:underline; }
+.fl-cond-link svg { width:13px; height:13px; }
+.bc-fd-popup { position:fixed; z-index:9000; background:#fff; border:1px solid #e0e0e0; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.14); width:300px; }
+.bc-fd-arrow { position:absolute; width:9px; height:9px; background:#fff; border-left:1px solid #e0e0e0; border-top:1px solid #e0e0e0; transform:rotate(45deg); top:-5px; }
+.bc-fd-title { padding:10px 14px; font-size:13px; font-weight:600; color:#333; border-bottom:1px solid #f0f0f0; display:flex; justify-content:space-between; align-items:center; }
+.bc-fd-body { padding:2px 0 6px; max-height:380px; overflow-y:auto; }
+.bc-fd-sec { padding:8px 14px 6px; }
+.bc-fd-dim { display:flex; gap:8px; font-size:12.5px; line-height:20px; padding:2px 0; }
+.bc-fd-dim-label { color:#999; flex-shrink:0; min-width:62px; }
+.bc-fd-dim-val { color:#333; word-break:break-all; }
+.bc-fd-dim.fl-hit .bc-fd-dim-label { color:#07c160; }
+.bc-fd-dim.fl-hit .bc-fd-dim-val { color:#07c160; font-weight:600; }
+.bc-fd-empty { font-size:12px; color:#c4c4c4; padding:2px 0; }
+/* 选中条件查看：仅艺星租户显示（非艺星无 CRM 筛选区，隐藏该列） */
+body.tenant-simple .col-cond { display:none; }
 </style></head>
 <body>
 
@@ -211,6 +229,7 @@ html, body { overflow: auto; height: auto; }
     <div class="bc-fp-filter-item"><label>有电话：</label><div class="bc-fp-sel" data-options="是,否"></div></div>
     <div class="bc-fp-filter-item"><label>状态：</label><div class="bc-fp-sel" data-options="全部,成交,到店,未上门"></div></div>
     <div class="bc-fp-filter-item"><label>专属销售：</label><div class="bc-fp-sel" data-options="杜佳,杨瑶 yiyi,陈巧,聂敏,刘瑜02,艺星专家助理妍妍,贾敏,孙丽威,何陈秀,桂佳"></div></div>
+    <div class="bc-fp-filter-item"><label>所在分组：</label><div class="bc-fp-sel" data-options="VIP 客户,高意向客户,需回访,到院未成交"></div></div>
     <div class="bc-fp-filter-item"><label>末次咨询日期：</label><div class="bc-fp-filter-date"><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">开始日期</span><span>至</span><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">结束日期</span></div></div>
     <div class="bc-fp-filter-item"><label>添加日期：</label><div class="bc-fp-filter-date"><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">开始日期</span><span>至</span><span class="bc-fp-date-trigger" onclick="bcFpPickDate(this)">结束日期</span></div></div>
     <div class="bc-fp-filter-item"><label>第二需求(AI)：</label><div class="bc-fp-sel" data-options="眼部整形,鼻部整形,面部轮廓,紧肤提升,皮肤管理"></div></div>
@@ -280,6 +299,7 @@ html, body { overflow: auto; height: auto; }
       <thead><tr>
         <th class="col-check"><input type="checkbox" id="checkAll" onchange="toggleAllRows(this)"></th>
         <th>微信昵称</th>
+        <th class="col-cond">选中条件查看</th>
         <th>所在账号</th>
         <th>添加时间</th>
         <th>渠道</th>
@@ -391,11 +411,13 @@ const _ACCT = [
 // 状态（到院状态：成交/到店/未上门）—— 与筛选「状态」对齐，支撑真实过滤
 const _VISIT = ['未上门','成交','未上门','成交','到店','未上门','到店','未上门','成交','到店','到店','未上门','未上门'];
 let _lastList = null;  // 记住当前渲染的行集（筛选/搜索后），分组后按它重渲染保持视图
+// 选中条件查看：列内「查看」眼睛图标（移植自 PC 群发选好友）
+var _FL_EYE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>';
 function render(idxList) {
   const list = idxList || ROWS.map((_, i) => i);
   _lastList = list;
   const tbody = document.getElementById('tbody');
-  if (!list.length) { tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;color:var(--text-3);padding:40px 0;">无匹配好友</td></tr>'; return; }
+  if (!list.length) { tbody.innerHTML = '<tr><td colspan="11" style="text-align:center;color:var(--text-3);padding:40px 0;">无匹配好友</td></tr>'; return; }
   tbody.innerHTML = list.map(function(i) {
     const r = ROWS[i];
     // DR-057：微信昵称列 = 有备注显示备注名，无备注显示原微信昵称
@@ -416,6 +438,7 @@ function render(idxList) {
     <tr>
       <td><input type="checkbox" data-ri="${i}"></td>
       <td><div class="user-cell">${avatarChip(i, ch)}<div><div class="user-name">${display}</div>${subNick}</div></div></td>
+      <td class="col-cond"><span class="fl-cond-link" onclick="event.stopPropagation();flOpenConditions(${i}, this)">${_FL_EYE_SVG}查看</span></td>
       <td>${accHtml}</td>
       <td class="col-time">${r.addAt || r.updAt || '—'}</td>
       <td><span class="tag">${channelOf(r.name)}</span></td>
@@ -842,10 +865,11 @@ function bcSearchFpFriends() {
   var phone = _selByLabel('有电话：')[0];
   var dup = _selByLabel('重复好友：')[0];
   var spec = _selByLabel('专属销售：')[0];
+  var grp = _selByLabel('所在分组：')[0];
   var visit = _selByLabel('状态：')[0];
   var idx = [];
   for (var i = 0; i < ROWS.length; i++) {
-    var g = _AI[i][0], nd = _AI[i][1], accts = _ACCT[i] || [], hasPhone = !!ROWS[i].phone;
+    var g = _AI[i][0], nd = _AI[i][1], accts = _ACCT[i] || [], hasPhone = !!ROWS[i].phone, grps = _GRP[i] || [];
     if (grade.length && grade.indexOf(g) === -1) continue;
     if (need.length && need.indexOf(nd) === -1) continue;
     if (phone === '是' && !hasPhone) continue;
@@ -853,11 +877,126 @@ function bcSearchFpFriends() {
     if (dup === '是' && accts.length <= 1) continue;
     if (dup === '否' && accts.length > 1) continue;
     if (spec && accts.indexOf(spec) === -1) continue;
+    if (grp && grps.indexOf(grp) === -1) continue;
     if (visit && visit !== '全部' && _VISIT[i] !== visit) continue;
     idx.push(i);
   }
   render(idx);
   toast('筛选出 ' + idx.length + ' 位好友');
+}
+
+// ===== 选中条件查看（移植自 PC 群发选好友·第一步「选中条件查看」）=====
+// 实时读取本次真实设置的筛选条件，气泡展示「维度 + 条件内容」；只展示用户真实设置的项，不编造。
+function flEscapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, function(c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+// 每行好友的全维度 mock：复用已有 mock(_AI/_VISIT/_ACCT/phone/city/addAt)，其余维度按行号确定性生成（刷新不变）
+var _FL_2ND_NEED  = ['紧肤提升','皮肤管理','面部轮廓','眼部整形','注射填充','吸脂塑形','鼻部整形'];
+var _FL_DEVELOPER = ['聂敏','柳霜','邓梦雨','牛海兰','何晓秀','尹巧缘','吴雨星'];
+var _FL_CS_MGR    = ['聂敏','柳霜','邓梦雨'];
+var _FL_VIP       = ['普通','银卡','金卡','钻石'];
+var _FL_REGION    = ['四川省 成都市','四川省 绵阳市','四川省 德阳市','四川省 宜宾市','重庆市 渝中区'];
+var _FL_IMPROVE   = ['眼部','鼻部','面部','皮肤','身体'];
+var _FL_TRAIT     = ['高意向','犹豫中','低意向'];
+var _FL_DEVICE    = ['热玛吉','超声刀','玻尿酸','肉毒素'];
+var _FL_DOCTOR    = ['张医生','王医生','李医生','赵医生'];
+var _FL_STYLE     = ['自然','精致','欧美','韩系'];
+function _flPick(pool, i, k) { return pool[(i * k + k) % pool.length]; }
+function _flDate(i, salt) { var m = 1 + ((i * 3 + salt) % 6); var d = 1 + ((i * 7 + salt * 4) % 27); return '2026-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d); }
+// 返回该行在所有筛选维度上的取值 [{dim, val}]
+function flRowMeta(i) {
+  var r = ROWS[i] || {};
+  var ai = _AI[i] || ['客户', ''];
+  var accs = _ACCT[i] || ((r.accounts && r.accounts.length) ? r.accounts : (r.acc ? [r.acc] : []));
+  var grade = ai[0] === '客户' ? '客户' : (ai[0] + '级');
+  var phone = r.phone || '';
+  return [
+    { dim: '所在账号',      val: accs.length ? accs.join('、') : '—' },
+    { dim: '重复好友',      val: accs.length > 1 ? '是' : '否' },
+    { dim: '等级(AI)',      val: grade },
+    { dim: '第一需求(AI)',  val: ai[1] || '—' },
+    { dim: '有电话',        val: phone ? '是（' + phone + '）' : '否' },
+    { dim: '状态',          val: _VISIT[i] || '未上门' },
+    { dim: '专属销售',      val: accs.length ? accs[0] : '—' },
+    { dim: '所在分组',      val: (_GRP[i] && _GRP[i].length) ? _GRP[i].join('、') : '—' },
+    { dim: '末次咨询日期',  val: _flDate(i, 1) },
+    { dim: '添加日期',      val: r.addAt || r.updAt || '—' },
+    { dim: '第二需求(AI)',  val: _flPick(_FL_2ND_NEED, i, 2) },
+    { dim: '地区',          val: r.city || _flPick(_FL_REGION, i, 3) },
+    { dim: '建档日期',      val: _flDate(i, 2) },
+    { dim: '开发人',        val: _flPick(_FL_DEVELOPER, i, 4) },
+    { dim: '客服经理',      val: _flPick(_FL_CS_MGR, i, 5) },
+    { dim: '会员等级',      val: _flPick(_FL_VIP, i, 6) },
+    { dim: '末次预约日期',  val: _flDate(i, 3) },
+    { dim: '建议改善',      val: _flPick(_FL_IMPROVE, i, 7) },
+    { dim: '用户特征',      val: _flPick(_FL_TRAIT, i, 8) },
+    { dim: '推荐设备/材料', val: _flPick(_FL_DEVICE, i, 9) },
+    { dim: '推荐医生',      val: _flPick(_FL_DOCTOR, i, 10) },
+    { dim: '喜好风格',      val: _flPick(_FL_STYLE, i, 11) },
+    { dim: '末次回访日期',  val: _flDate(i, 4) }
+  ];
+}
+// 读筛选区里「被设置过」的维度名（用于命中高亮）
+function flSelectedDims() {
+  var set = {};
+  document.querySelectorAll('#bc-fp-filters .bc-fp-filter-item').forEach(function(item) {
+    var lb = item.querySelector('label'); if (!lb) return;
+    var dim = lb.textContent.replace(/[:：]\s*$/, '').trim();
+    var ci = item.querySelector('.bc-fp-ci-text');
+    var hasCi = ci && ci.textContent.trim() && ci.textContent.trim() !== '请选择';
+    var has = item.querySelector('.bc-fp-sel-opt.selected') || hasCi || item.querySelector('.bc-fp-date-trigger[data-value]');
+    if (has) set[dim] = true;
+  });
+  return set;
+}
+// 行内「查看」气泡：展示该好友在各筛选维度上的明细（每行独立 mock）；已设筛选则高亮命中维度
+function flOpenConditions(idx, anchor) {
+  flCloseConditions();
+  var conds = flRowMeta(idx);
+  var set = flSelectedDims();
+  var hasFilter = Object.keys(set).length > 0;
+  var body = conds.map(function(c) {
+    var hit = set[c.dim] ? ' fl-hit' : '';
+    return '<div class="bc-fd-dim' + hit + '"><span class="bc-fd-dim-label">' + flEscapeHtml(c.dim)
+      + '</span><span class="bc-fd-dim-val">' + flEscapeHtml(c.val) + '</span></div>';
+  }).join('');
+  var sub = hasFilter ? '命中 ' + Object.keys(set).length + ' / 共 ' + conds.length + ' 项' : '共 ' + conds.length + ' 项';
+  var popup = document.createElement('div');
+  popup.className = 'bc-fd-popup';
+  popup.id = 'bc-fd-popup';
+  popup.onclick = function(e) { e.stopPropagation(); };
+  popup.innerHTML = '<div class="bc-fd-arrow"></div>'
+    + '<div class="bc-fd-title"><span>选中条件</span><span style="color:#bbb;font-weight:400;">' + sub + '</span></div>'
+    + '<div class="bc-fd-body"><div class="bc-fd-sec">' + body + '</div></div>';
+  document.body.appendChild(popup);
+  flPositionConditions(popup, anchor);
+  setTimeout(function() { document.addEventListener('click', flCloseConditionsOnOutside, true); }, 0);
+}
+function flPositionConditions(popup, anchor) {
+  var rect = anchor.getBoundingClientRect();
+  var pw = popup.offsetWidth || 300;
+  var left = rect.left + rect.width / 2 - pw / 2;
+  if (left + pw > window.innerWidth - 12) left = window.innerWidth - pw - 12;
+  if (left < 12) left = 12;
+  popup.style.left = left + 'px';
+  popup.style.top = (rect.bottom + 8) + 'px';
+  var arrow = popup.querySelector('.bc-fd-arrow');
+  if (arrow) {
+    var ax = rect.left + rect.width / 2 - left - 4.5;
+    ax = Math.max(12, Math.min(pw - 21, ax));
+    arrow.style.left = ax + 'px';
+  }
+}
+function flCloseConditionsOnOutside(e) {
+  if (e.target.closest('#bc-fd-popup')) return;
+  flCloseConditions();
+}
+function flCloseConditions() {
+  var popup = document.getElementById('bc-fd-popup');
+  if (popup) popup.remove();
+  document.removeEventListener('click', flCloseConditionsOnOutside, true);
 }
 
 // 独立搜索（关键词检索：昵称/备注名/手机号/卡号）—— 与上方多维筛选职责区分（DR-058）
@@ -895,6 +1034,7 @@ if (TENANT !== 'yestar') {
   var yf = document.getElementById('yestarFilter'); if (yf) yf.style.display = 'none';
   var sf = document.getElementById('simpleFilter'); if (sf) sf.style.display = 'block';
   var cv = document.getElementById('btnCreateVirtual'); if (cv) cv.style.display = '';
+  document.body.classList.add('tenant-simple');
 }
 
 /* ============================================================
