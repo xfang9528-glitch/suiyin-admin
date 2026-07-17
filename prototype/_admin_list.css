@@ -266,3 +266,107 @@ tbody tr:last-child td { border-bottom: none; }
   display: flex; justify-content: flex-end; gap: 8px;
   background: #fafbfc;
 }
+
+/* ========= 账号状态页：对齐真实管理页宽表格 ========= */
+.wechat-account-page { background: #fff; font-size: 13px; }
+.account-filter {
+  height: 74px; top: 12px; left: 18px; right: 18px;
+  border: 0; background: #f7f9fb; padding: 20px 16px; gap: 22px;
+}
+.account-filter .f-label { color: #5f6b7a; font-size: 13px; }
+.account-filter .f-input, .account-filter .f-select {
+  height: 34px; border-color: #dfe5ed; border-radius: 3px; color: #606f80;
+}
+.account-filter .f-input.wide { width: 160px; }
+.account-filter .wide-select { width: 186px; }
+.account-filter .btn { height: 34px; min-width: 64px; justify-content: center; }
+.account-filter .add-account { min-width: 104px; }
+.account-table-wrap {
+  top: 86px; left: 18px; right: 18px; bottom: 0;
+  padding: 0; background: #fff;
+}
+.account-table-card {
+  min-width: 1680px !important;
+  border-radius: 0; border-color: #edf1f5;
+}
+.account-table { table-layout: fixed; font-size: 13px; }
+.account-table thead th {
+  height: 42px; padding: 10px 12px;
+  background: #fbfcfe; color: #6d7887; font-weight: 400;
+  border-right: 1px solid #edf1f5;
+}
+.account-table tbody td {
+  height: 66px; padding: 10px 12px;
+  color: #5d6978; line-height: 1.55;
+  border-right: 1px solid #edf1f5;
+}
+.account-table tbody tr:hover { background: #fbfcfe; }
+.account-table .col-avatar { width: 68px; }
+.account-table .col-nick { width: 132px; }
+.account-table .col-persona { width: 142px; }
+.account-table .col-group, .account-table .col-channel { width: 126px; }
+.account-table .col-type { width: 72px; }
+.account-table .col-device { width: 92px; }
+.account-table .col-agent { width: 108px; }
+.account-table .col-auto { width: 120px; }
+.account-table .col-status { width: 82px; }
+.account-table .col-reception { width: 190px; }
+.account-table .col-actions { width: 250px; }
+.account-avatar {
+  width: 46px; height: 46px; border-radius: 50%; object-fit: cover;
+  display: inline-flex; align-items: center; justify-content: center; background: #c7cdd6;
+}
+.account-avatar.photo {
+  background:
+    radial-gradient(circle at 50% 36%, #ffe2d2 0 17%, transparent 18%),
+    radial-gradient(circle at 50% 100%, #b91536 0 34%, transparent 35%),
+    linear-gradient(135deg, #f8c8d2 0%, #ffd9b7 48%, #8fd3ff 100%);
+}
+.account-avatar.empty::before {
+  content: ''; width: 100%; height: 100%; border-radius: 50%; background: #c7cdd6;
+}
+.strong-cell { color: #4d5968; }
+.type-badge {
+  display: inline-flex; align-items: center; height: 22px; padding: 0 8px;
+  border-radius: 4px; font-size: 12px;
+}
+.type-badge.personal { background: #eaf4ff; color: #5a9df8; }
+.type-badge.enterprise { background: #fff4df; color: #f0a13a; }
+.auto-badge, .account-status {
+  display: inline-flex; align-items: center; height: 24px; padding: 0 10px;
+  border-radius: 4px; font-size: 12px; white-space: nowrap;
+}
+.auto-badge.off, .account-status.offline { background: #fff0ef; color: #ff6b63; }
+.auto-badge.on, .account-status.online { background: #edf9ec; color: #52c948; }
+.reception-list {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 5px; max-width: 168px;
+}
+.reception-chip {
+  display: inline-flex; align-items: center; max-width: 54px; height: 22px; padding: 0 7px;
+  border-radius: 4px; background: #f2f6fb; color: #526273; font-size: 12px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.more-reception { height: 22px; color: #2f80ed; font-size: 12px; white-space: nowrap; }
+.more-reception:hover { text-decoration: underline; }
+.muted-text { color: #a3adba; }
+.account-actions { white-space: normal; line-height: 1.85; }
+.account-actions .row-action {
+  margin-right: 4px; padding: 0; color: #637282;
+}
+.account-actions .primary-link { color: #2f80ed; }
+.account-actions .row-action:hover { background: transparent; color: #07c160; }
+.account-pager { display: none; }
+.reception-modal { width: 520px; max-width: 92vw; }
+.reception-body { padding: 12px 20px 18px; max-height: 420px; }
+.reception-row {
+  display: grid; grid-template-columns: 34px minmax(80px, 1fr) minmax(150px, 1.4fr);
+  gap: 10px; align-items: center; min-height: 42px;
+  border-bottom: 1px solid #f0f2f5; color: #4f5d6d;
+}
+.reception-row:last-child { border-bottom: 0; }
+.reception-index {
+  width: 22px; height: 22px; border-radius: 50%; background: #f2f6fb; color: #8290a0;
+  display: inline-flex; align-items: center; justify-content: center; font-size: 12px;
+}
+.reception-name { font-weight: 500; color: #253244; }
+.reception-meta { color: #8a96a3; font-size: 12px; }

@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>佰智德三私域 · 管理后台</title>
+<link rel="icon" href="data:,">
+<title>艺星医美-深圳 · 管理后台</title>
 <style>
   /* ========= 基础 ========= */
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,27 +31,38 @@
     --sidebar-w: 208px;
   }
 
-  /* ========= 顶部 Header（公众号风格 · 白底） ========= */
+  /* ========= 顶部 Header（对齐真实管理页：左品牌 + 青绿色顶栏） ========= */
   .header {
     position: fixed; top: 0; left: 0; right: 0;
     height: var(--header-h);
-    background: #fff;
-    border-bottom: 1px solid #ebeef2;
+    background: #09bfae;
+    border-bottom: 1px solid #09bfae;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 24px; z-index: 100;
+    padding: 0 16px 0 0; z-index: 100;
   }
   .header-left {
+    width: var(--sidebar-w);
+    height: var(--header-h);
+    background: #fff;
+    border-right: 1px solid #ebeef2;
     display: flex; align-items: center; gap: 10px; color: #1a1a1a;
+    padding: 0 18px;
   }
   .header-logo {
-    width: 30px; height: 30px;
+    width: 34px; height: 34px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    color: var(--wx-green); font-size: 26px; line-height: 1;
+    background: #09bfae; color: #fff; font-size: 18px; line-height: 1;
   }
-  .header-brand { font-size: 15px; font-weight: 600; color: #1a1a1a; letter-spacing: 0.3px; }
-  .header-env {
-    margin-left: 10px; padding: 1px 8px; border-radius: 4px;
-    background: var(--wx-green-light); color: var(--wx-green); font-size: 11.5px;
+  .header-brand { font-size: 16px; font-weight: 600; color: #09a898; letter-spacing: 0.2px; }
+  .header-env { display: none; }
+  .header-left::after {
+    content: '☰';
+    position: fixed;
+    left: calc(var(--sidebar-w) + 24px);
+    top: 17px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
   }
   .header-right {
     display: flex; align-items: center; gap: 8px; color: #4a5564;
@@ -98,10 +110,10 @@
   .header-icon-btn {
     width: 32px; height: 32px; border-radius: 6px;
     display: flex; align-items: center; justify-content: center;
-    color: #6b7684; font-size: 16px;
+    color: rgba(255,255,255,.9); font-size: 16px;
     transition: all 0.15s;
   }
-  .header-icon-btn:hover { background: #f5f7fa; color: #1a1a1a; }
+  .header-icon-btn:hover { background: rgba(255,255,255,.14); color: #fff; }
   .header-icon-btn.icon-with-dot { position: relative; }
   .header-icon-btn.icon-with-dot::after {
     content: attr(data-count);
@@ -119,16 +131,16 @@
     display: flex; align-items: center; gap: 8px;
     padding: 4px 10px 4px 6px; border-radius: 20px;
     transition: background 0.15s;
-    color: #1a1a1a;
+    color: #fff;
   }
-  .header-user:hover { background: #f5f7fa; }
+  .header-user:hover { background: rgba(255,255,255,.14); }
   .header-avatar {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: var(--wx-green); color: #fff;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(255,255,255,.9); color: #9aa8b7;
     display: flex; align-items: center; justify-content: center;
     font-weight: 600; font-size: 12.5px;
   }
-  .header-username { font-size: 13.5px; color: #1a1a1a; }
+  .header-username { font-size: 13.5px; color: #fff; }
 
   /* ========= 左侧菜单 ========= */
   .sidebar {
@@ -170,15 +182,15 @@
     transform: translateY(-40%) rotate(45deg);
   }
   .menu-item.active {
-    color: var(--wx-green);
-    background: #f5fbf7;
+    color: #09bfae;
+    background: #e6f8f6;
     font-weight: 500;
   }
   .menu-item.active::before {
     content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-    width: 3px; background: var(--wx-green);
+    width: 3px; background: #09bfae;
   }
-  .menu-item.active .menu-item-icon { color: var(--wx-green); }
+  .menu-item.active .menu-item-icon { color: #09bfae; }
 
   .submenu { overflow: hidden; max-height: 0; transition: max-height 0.25s ease; }
   .submenu.expanded { max-height: 500px; }
@@ -192,13 +204,13 @@
   }
   .submenu-item:hover { background: #f5f7fa; color: #1a1a1a; }
   .submenu-item.active {
-    color: var(--wx-green);
-    background: #f5fbf7;
+    color: #09bfae;
+    background: #e6f8f6;
     font-weight: 500;
   }
   .submenu-item.active::before {
     content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-    width: 3px; background: var(--wx-green);
+    width: 3px; background: #09bfae;
   }
   .submenu-item .todo-badge {
     margin-left: auto; margin-right: 8px;
@@ -214,7 +226,7 @@
     position: fixed;
     top: var(--header-h); left: var(--sidebar-w); right: 0;
     height: var(--tab-h);
-    background: #fafbfc;
+    background: #fff;
     border-bottom: 1px solid #ebeef2;
     display: flex; align-items: flex-end;
     padding: 0 0 0 8px;
@@ -246,14 +258,14 @@
   .tab:hover { background: #fff; color: #4a5564; }
   .tab.active {
     background: #fff;
-    color: var(--wx-green);
+    color: #409eff;
     border-color: #ebeef2;
     font-weight: 500;
     z-index: 1;
   }
   .tab.active::before {
     content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px;
-    background: var(--wx-green);
+    background: #409eff;
     border-top-left-radius: 6px; border-top-right-radius: 6px;
   }
   .tab-title {
@@ -307,13 +319,12 @@
 <!-- 顶部 Header -->
 <header class="header">
   <div class="header-left">
-    <div class="header-logo">◉</div>
-    <div class="header-brand" id="headerBrand">佰智德三私域</div>
+    <div class="header-logo">⌂</div>
+    <div class="header-brand" id="headerBrand">艺星医美-深圳</div>
     <div class="header-env">管理后台</div>
   </div>
   <div class="header-right">
-    <button class="header-icon-btn icon-with-dot" title="消息" data-count="3">🔔</button>
-    <button class="header-icon-btn" title="帮助">?</button>
+    <button class="header-icon-btn" title="更多">⋯</button>
     <div class="header-user" id="userBtn" onclick="toggleUserMenu(event)">
       <div class="header-avatar">房</div>
       <div class="header-username">房昕</div>
@@ -397,7 +408,7 @@ const MENU = [
       { id: 'chat-ai-analysis', title: '智能分析', page: 'chat_ai_analysis_v1.0.html' },
   ]},
   { id: 'wechat',     icon: '🟢', title: '微信管理', children: [
-      { id: 'wechat-account', title: '帐号状态', page: 'wechat_account_v1.0.html' },
+      { id: 'wechat-account', title: '账号状态', page: 'wechat_account_v1.0.html' },
       { id: 'wechat-acquire', title: '拉新文案', page: 'wechat_acquire_v1.0.html' },
       { id: 'wechat-buddy',   title: '通友管理', page: 'wechat_buddy_v1.0.html' },
   ]},
@@ -466,7 +477,7 @@ const tabs = new Map(); // id -> {el, iframe, title, page, pinned}
 let activeTabId = null;
 
 // 当前企业（给 iframe 页面传 ?tenant=，多租户门控用）；初始 bzds，切换企业时更新并重载页面
-var SHELL_TENANT = 'bzds';
+var SHELL_TENANT = 'yestar-sz';
 function withTenant(page) {
   if (!page) return page;
   var sep = page.indexOf('?') === -1 ? '?' : '&';
@@ -548,7 +559,7 @@ function closeTab(id) {
 }
 
 /* ========= 默认打开首页 ========= */
-openTab({ id: 'sales', title: '销售管理', page: 'sales_v1.0.html', pinned: true });
+openTab({ id: 'wechat-account', title: '账号状态', page: 'wechat_account_v1.0.html', parent: 'wechat', pinned: true });
 
 /* ========= 支持 ?page=<id> 直接定位到指定子页 ========= */
 (function openFromQuery() {
@@ -587,26 +598,27 @@ document.getElementById('userMenu').addEventListener('click', e => e.stopPropaga
 // Mock：房昕作为德三总经理拥有多租户权限，可在有权限的企业间切换。
 // 单租户用户 → ENTERPRISES 只有一项 → 切换区整体隐藏，与登录企业选择/PC端环境切换逻辑一致。
 // 企业 id 对齐租户ID注册表；name 用管理后台显示名。
-let currentTenant = 'bzds';
+let currentTenant = 'yestar-sz';
 // 企业列表与 PC 端原型 (suiyin-pc-chat/prototype/prototype_v1.0.html 的 ENV_ORDER) 保持一致。
 // 现阶段每家企业内容都先沿用现状（同一套菜单/页面/数据），后续再挨个迭代差异化。
 // 顶栏 brand：bzds 保留现状「佰智德三私域」，其余暂用企业名占位。
 const ENTERPRISES = [
-  { id: 'bzds',     name: '佰智德三',           brand: '佰智德三私域' },
-  { id: 'crrm',     name: '诚如风险管理事务所',  brand: '诚如风险管理事务所' },
-  { id: 'dargans',  name: '达根斯',             brand: '达根斯' },
-  { id: 'hqjd',     name: '厚全鸡蛋',           brand: '厚全鸡蛋' },
-  { id: 'jbfs',     name: '锦帛服饰',           brand: '锦帛服饰' },
-  { id: 'mengzhua', name: '萌爪医生',           brand: '萌爪医生' },
-  { id: 'nycl',     name: '南苑茶庐',           brand: '南苑茶庐' },
-  { id: 'rx-liu',   name: '瑞熙小刘',           brand: '瑞熙小刘' },
-  { id: 'rx-wen',   name: '瑞熙小温',           brand: '瑞熙小温' },
-  { id: 'rx-zhou',  name: '瑞熙小周',           brand: '瑞熙小周' },
-  { id: 'txjs',     name: '天馨健身',           brand: '天馨健身' },
-  { id: 'uid',      name: 'uid',               brand: 'uid' },
-  { id: 'yanku',    name: '彦库实业',           brand: '彦库实业' },
-  { id: 'yestar',   name: '艺星',               brand: '艺星' },
-  { id: 'youzi',    name: '柚子烘焙',           brand: '柚子烘焙' },
+  { id: 'bzds',      name: '佰智德三',           brand: '佰智德三' },
+  { id: 'crrm',      name: '诚如风险管理事务所',  brand: '诚如风险管理事务所' },
+  { id: 'dargans',   name: '达根斯',             brand: '达根斯' },
+  { id: 'hqjd',      name: '厚全鸡蛋',           brand: '厚全鸡蛋' },
+  { id: 'jbfs',      name: '锦帛服饰',           brand: '锦帛服饰' },
+  { id: 'mengzhua',  name: '萌爪医生',           brand: '萌爪医生' },
+  { id: 'nycl',      name: '南苑茶庐',           brand: '南苑茶庐' },
+  { id: 'rx-liu',    name: '瑞熙小刘',           brand: '瑞熙小刘' },
+  { id: 'rx-wen',    name: '瑞熙小温',           brand: '瑞熙小温' },
+  { id: 'rx-zhou',   name: '瑞熙小周',           brand: '瑞熙小周' },
+  { id: 'txjs',      name: '天馨健身',           brand: '天馨健身' },
+  { id: 'uid',       name: 'uid',               brand: 'uid' },
+  { id: 'yanku',     name: '彦库实业',           brand: '彦库实业' },
+  { id: 'yestar',    name: '艺星',               brand: '艺星' },
+  { id: 'yestar-sz', name: '艺星深圳',           brand: '艺星医美-深圳' },
+  { id: 'youzi',     name: '柚子烘焙',           brand: '柚子烘焙' },
 ];
 
 function initTenantSwitcher() {
