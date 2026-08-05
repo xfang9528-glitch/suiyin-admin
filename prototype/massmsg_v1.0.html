@@ -112,7 +112,7 @@ function render() {
       <td>${r.excl}</td>
       <td>${statusBadge(r.status)}</td>
       <td>${progressCell(r)}</td>
-      <td class="col-num ${r.deleted ? 'fail' : 'muted'}" title="${r.deletedBreakdown ?? '无删除类失败'}">${r.deleted ?? 0}</td>
+      <td class="col-num ${r.deleted ? 'fail' : 'muted'}" title="${r.deletedBreakdown ?? (r.deleted ? '删除类失败合计 ' + r.deleted : '无删除类失败')}">${r.deleted ?? 0}</td>
       <td class="col-actions">
         ${r.status === 'done' || r.status === 'canceled'
           ? `<button class="row-action danger" onclick="toast('删除')">🗑 删除</button>`
