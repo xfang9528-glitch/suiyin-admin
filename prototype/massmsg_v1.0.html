@@ -114,7 +114,6 @@ function render() {
       <td>${progressCell(r)}</td>
       <td class="col-num ${r.deleted ? 'fail' : 'muted'}">${r.deleted ?? 0}</td>
       <td class="col-actions">
-        <button class="row-action" onclick="toast('查看统计详情')">查看</button>
         ${r.status === 'done' || r.status === 'canceled'
           ? `<button class="row-action danger" onclick="toast('删除')">🗑 删除</button>`
           : `<button class="row-action" onclick="toast('编辑')">编辑</button>
@@ -122,6 +121,7 @@ function render() {
              <button class="row-action danger" onclick="toast('取消')">取消</button>
              <button class="row-action danger" onclick="toast('删除')">删除</button>`}
         <button class="row-action muted" onclick="toast('查看记录')">📋 记录</button>
+        <button class="row-action" onclick="toast('导出统计报表')">导出</button>
       </td>
     </tr>
   `).join('');
