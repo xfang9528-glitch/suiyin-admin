@@ -62,7 +62,7 @@
 <script>
 // 真实数据脱敏 mock（标题来自艺星后台 2026-05-06 抓取）
 const ROWS = [
-  { title:'吴雨贵 109',  src:'',         setAt:'2026-05-06 10:43:55', actAt:'2026-05-06 10:44:21', excl:'48小时', status:'running',  pct:13,  total:10423, sent:1330, deleted:12 },
+  { title:'吴雨贵 109',  src:'',         setAt:'2026-05-06 10:43:55', actAt:'2026-05-06 10:44:21', excl:'48小时', status:'running',  pct:13,  total:10423, sent:1330, deleted:288, deletedBreakdown:'好友被删除 238 + 好友已被删除，需要对方验证 50' },
   { title:'尹巧珠 038',  src:'',         setAt:'2026-05-06 10:35:14', actAt:'2026-05-06 10:35:18', excl:'48小时', status:'running',  pct:37,  total:10447, sent:3827, deleted:0 },
   { title:'姚通 172',    src:'',         setAt:'2026-05-06 10:33:39', actAt:'2026-05-06 10:33:48', excl:'48小时', status:'running',  pct:44,  total:8195, sent:3526, deleted:5 },
   { title:'黎容',         src:'',         setAt:'2026-05-06 10:31:32', actAt:'2026-05-06 10:31:47', excl:'48小时', status:'running',  pct:36,  total:11951, sent:4213 },
@@ -112,7 +112,7 @@ function render() {
       <td>${r.excl}</td>
       <td>${statusBadge(r.status)}</td>
       <td>${progressCell(r)}</td>
-      <td class="col-num ${r.deleted ? 'fail' : 'muted'}">${r.deleted ?? 0}</td>
+      <td class="col-num ${r.deleted ? 'fail' : 'muted'}" title="${r.deletedBreakdown ?? '无删除类失败'}">${r.deleted ?? 0}</td>
       <td class="col-actions">
         ${r.status === 'done' || r.status === 'canceled'
           ? `<button class="row-action danger" onclick="toast('删除')">🗑 删除</button>`
