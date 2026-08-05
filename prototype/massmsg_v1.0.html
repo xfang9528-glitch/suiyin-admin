@@ -34,7 +34,7 @@
       <thead><tr>
         <th>标题</th><th>来源</th><th>群发内容</th>
         <th>设定发布时间</th><th>实际发布时间</th><th>排除已聊天用户</th>
-        <th>状态</th><th>进度</th><th>统计</th>
+        <th>状态</th><th>进度</th><th>删除数</th>
         <th class="col-actions">操作</th>
       </tr></thead>
       <tbody id="tbody"></tbody>
@@ -62,18 +62,18 @@
 <script>
 // 真实数据脱敏 mock（标题来自艺星后台 2026-05-06 抓取）
 const ROWS = [
-  { title:'吴雨贵 109',  src:'',         setAt:'2026-05-06 10:43:55', actAt:'2026-05-06 10:44:21', excl:'48小时', status:'running',  pct:13,  total:10423, sent:1330 },
-  { title:'尹巧珠 038',  src:'',         setAt:'2026-05-06 10:35:14', actAt:'2026-05-06 10:35:18', excl:'48小时', status:'running',  pct:37,  total:10447, sent:3827 },
-  { title:'姚通 172',    src:'',         setAt:'2026-05-06 10:33:39', actAt:'2026-05-06 10:33:48', excl:'48小时', status:'running',  pct:44,  total:8195, sent:3526 },
+  { title:'吴雨贵 109',  src:'',         setAt:'2026-05-06 10:43:55', actAt:'2026-05-06 10:44:21', excl:'48小时', status:'running',  pct:13,  total:10423, sent:1330, deleted:288, deletedBreakdown:'好友被删除 238 + 好友已被删除，需要对方验证 50' },
+  { title:'尹巧珠 038',  src:'',         setAt:'2026-05-06 10:35:14', actAt:'2026-05-06 10:35:18', excl:'48小时', status:'running',  pct:37,  total:10447, sent:3827, deleted:0 },
+  { title:'姚通 172',    src:'',         setAt:'2026-05-06 10:33:39', actAt:'2026-05-06 10:33:48', excl:'48小时', status:'running',  pct:44,  total:8195, sent:3526, deleted:5 },
   { title:'黎容',         src:'',         setAt:'2026-05-06 10:31:32', actAt:'2026-05-06 10:31:47', excl:'48小时', status:'running',  pct:36,  total:11951, sent:4213 },
   { title:'黎客 161',    src:'',         setAt:'2026-05-06 10:29:27', actAt:'2026-05-06 10:29:17', excl:'24小时', status:'running',  pct:65,  total:7762, sent:4992 },
-  { title:'留存群发：自媒体杨博文 04…', src:'留存群发', setAt:'2026-05-03 16:03:23', actAt:'2026-05-03 16:03:34', excl:'24小时', status:'done', pct:97, total:84,  sent:81 },
+  { title:'留存群发：自媒体杨博文 04…', src:'留存群发', setAt:'2026-05-03 16:03:23', actAt:'2026-05-03 16:03:34', excl:'24小时', status:'done', pct:97, total:84,  sent:81, deleted:2 },
   { title:'留存群发：自媒体林一 10…',   src:'留存群发', setAt:'2026-05-03 16:03:18', actAt:'2026-05-03 16:03:34', excl:'24小时', status:'done', pct:99, total:89,  sent:88 },
   { title:'留存群发：自媒体杨博文 01…', src:'留存群发', setAt:'2026-05-03 16:08:14', actAt:'2026-05-03 16:08:34', excl:'24小时', status:'paused', pct:63, total:143, sent:90 },
   { title:'尹巧珠 002',  src:'',         setAt:'2026-04-26 15:03:22', actAt:'2026-04-26 15:03:45', excl:'不限制', status:'running',  pct:88,  total:7686, sent:6754 },
   { title:'杨珠 156',    src:'',         setAt:'2026-04-26 13:36:13', actAt:'2026-04-26 13:36:20', excl:'不限制', status:'running',  pct:86,  total:6694, sent:5701 },
   { title:'蒋丽 139',    src:'',         setAt:'2026-04-26 13:30:00', actAt:'2026-04-26 13:30:19', excl:'不限制', status:'running',  pct:99,  total:8193, sent:8231 },
-  { title:'吴雨贵 058',  src:'',         setAt:'2026-05-05 17:59:09', actAt:'2026-05-05 17:59:21', excl:'48小时', status:'done',     pct:100, total:6915, sent:6915 },
+  { title:'吴雨贵 058',  src:'',         setAt:'2026-05-05 17:59:09', actAt:'2026-05-05 17:59:21', excl:'48小时', status:'done',     pct:100, total:6915, sent:6915, deleted:0 },
   { title:'留存群发：自媒体林一 069', src:'留存群发', setAt:'2026-05-05 16:27:55', actAt:'2026-05-05 16:28:20', excl:'24小时', status:'done', pct:100, total:7,  sent:7 },
   { title:'留存群发：自媒体林一 142', src:'留存群发', setAt:'2026-05-05 16:27:46', actAt:'2026-05-05 16:27:50', excl:'24小时', status:'done', pct:100, total:17, sent:17 },
   { title:'留存群发：自媒体林一 077', src:'留存群发', setAt:'2026-05-05 16:27:41', actAt:'2026-05-05 16:27:50', excl:'24小时', status:'done', pct:100, total:17, sent:17 },
@@ -112,7 +112,7 @@ function render() {
       <td>${r.excl}</td>
       <td>${statusBadge(r.status)}</td>
       <td>${progressCell(r)}</td>
-      <td><a class="row-action" onclick="toast('查看统计详情')">查看</a></td>
+      <td class="col-num ${r.deleted ? 'fail' : 'muted'}" title="${r.deletedBreakdown ?? (r.deleted ? '删除类失败合计 ' + r.deleted : '无删除类失败')}">${r.deleted ?? 0}</td>
       <td class="col-actions">
         ${r.status === 'done' || r.status === 'canceled'
           ? `<button class="row-action danger" onclick="toast('删除')">🗑 删除</button>`
@@ -121,6 +121,7 @@ function render() {
              <button class="row-action danger" onclick="toast('取消')">取消</button>
              <button class="row-action danger" onclick="toast('删除')">删除</button>`}
         <button class="row-action muted" onclick="toast('查看记录')">📋 记录</button>
+        <button class="row-action" onclick="toast('导出统计报表')">导出</button>
       </td>
     </tr>
   `).join('');
