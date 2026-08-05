@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>AI辅助统计</title>
+  <style>
+/* _admin_list.css inlined by build_inline.mjs */
+/* ========= 后台列表页通用样式 v1 ========= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 14px; color: #1a1a1a; background: #f5f7fa;
+}
+:root {
+  --wx-green: #07c160;
+  --wx-green-dark: #06ad56;
+  --wx-green-light: #e8f6ee;
+  --border: #ebeef2;
+  --text-1: #1a1a1a;
+  --text-2: #4a5564;
+  --text-3: #8a96a3;
+  --hover: #f5f7fa;
+  --filter-h: 56px;
+  --pager-h: 48px;
+}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: #d0d7de; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a8b3bf; }
+::-webkit-scrollbar-track { background: transparent; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* ========= 顶部筛选栏 ========= */
+.filter-bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--filter-h);
+  background: #fff; border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex; align-items: center; gap: 16px;
+  flex-wrap: nowrap; overflow-x: auto;
+  z-index: 10;
+}
+.filter-bar::-webkit-scrollbar { display: none; }
+.f-group { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.f-label { font-size: 13px; color: var(--text-2); white-space: nowrap; }
+.f-input, .f-select {
+  height: 30px; padding: 0 10px;
+  border: 1px solid #e5e8ec; border-radius: 3px;
+  font-size: 12.5px; outline: none; background: #fff;
+  font-family: inherit;
+  color: var(--text-1);
+  transition: border-color 0.15s;
+}
+.f-input:focus, .f-select:focus { border-color: var(--wx-green); }
+.f-input.wide { width: 180px; }
+.f-input.date { width: 130px; }
+.f-select { min-width: 120px; cursor: pointer; }
+.f-sep { color: var(--text-3); font-size: 13px; padding: 0 2px; }
+.f-spacer { flex: 1; min-width: 16px; }
+
+.btn {
+  height: 30px; padding: 0 12px; border-radius: 3px;
+  font-size: 12.5px; display: inline-flex; align-items: center; gap: 4px;
+  border: 1px solid #e5e8ec; background: #fff; color: var(--text-2);
+  transition: all 0.15s; flex-shrink: 0;
+  font-weight: 400;
+}
+.btn:hover { border-color: var(--wx-green); color: var(--wx-green); background: #f5fbf7; }
+.btn.primary {
+  background: var(--wx-green); color: #fff; border-color: var(--wx-green);
+  font-weight: 500;
+}
+.btn.primary:hover { background: var(--wx-green-dark); border-color: var(--wx-green-dark); color: #fff; }
+.btn.ghost {
+  background: #fff; color: var(--wx-green); border-color: #c8e6d2;
+}
+.btn.ghost:hover { background: #f5fbf7; border-color: var(--wx-green); }
+.btn.link { border-color: transparent; color: #576b95; padding: 0 6px; height: auto; background: transparent; }
+.btn.link:hover { color: var(--wx-green); background: transparent; border-color: transparent; }
+.btn.sm { height: 26px; padding: 0 8px; font-size: 12px; }
+
+/* ========= 表格区 ========= */
+.table-wrap {
+  position: fixed;
+  top: var(--filter-h); left: 0; right: 0; bottom: var(--pager-h);
+  overflow: auto;
+  padding: 12px 16px 0;
+}
+.table-card {
+  background: #fff; border-radius: 6px; border: 1px solid var(--border);
+  overflow: hidden;
+}
+.table-card.scroll { min-width: 1480px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th {
+  background: #fafbfc; color: #4a5564; font-weight: 500;
+  text-align: left; padding: 11px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px; white-space: nowrap;
+  position: sticky; top: 0; z-index: 1;
+}
+tbody td {
+  padding: 12px; border-bottom: 1px solid #f0f2f5;
+  color: var(--text-1); vertical-align: middle;
+}
+tbody tr:hover { background: #fafbfc; }
+tbody tr:last-child td { border-bottom: none; }
+
+.col-num { font-variant-numeric: tabular-nums; font-weight: 500; }
+.col-num.success { color: var(--wx-green); }
+.col-num.fail { color: #fa5151; }
+.col-num.muted { color: var(--text-3); }
+.col-time { color: var(--text-2); font-size: 12.5px; white-space: nowrap; }
+.col-time.empty { color: #c0c8d1; }
+.col-actions { white-space: nowrap; }
+
+/* 头像 */
+.avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--c1, #80b3ff), var(--c2, #4a90e2));
+  color: #fff; font-size: 13px; font-weight: 600;
+  vertical-align: middle;
+}
+.avatar.sq { border-radius: 6px; }
+.user-cell { display: flex; align-items: center; gap: 10px; }
+.user-name { font-size: 13.5px; line-height: 1.4; }
+.user-sub { font-size: 11.5px; color: var(--text-3); margin-top: 2px; }
+
+/* 状态徽章（公众号克制色系） */
+.badge {
+  display: inline-block; padding: 1px 8px; border-radius: 3px;
+  font-size: 12px; line-height: 1.6;
+  background: #f5fbf7; color: var(--wx-green);
+}
+.badge.gray   { background: #f7f8fa; color: #8a96a3; }
+.badge.warn   { background: #fff8f0; color: #d99a3d; }
+.badge.danger { background: #fef0f0; color: #fa5151; }
+.badge.info   { background: #f0f4fa; color: #576b95; }
+.badge.purple { background: #f6f1fa; color: #8e6cb0; }
+
+/* 标签（多个） */
+.tag-list { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag {
+  display: inline-block; padding: 1px 6px;
+  background: #f7f8fa; color: var(--text-2);
+  border-radius: 3px; font-size: 11.5px;
+}
+.tag.green { background: #f5fbf7; color: var(--wx-green); }
+.tag.blue  { background: #f0f4fa; color: #576b95; }
+
+/* 行操作（公众号风格 · 微信蓝/克制） */
+.row-action {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 3px 6px; margin-right: 2px; border-radius: 3px;
+  font-size: 12.5px; color: #576b95;
+  transition: background 0.12s;
+  background: transparent;
+}
+.row-action:hover { background: #f0f4fa; color: #576b95; }
+.row-action.danger { color: #fa5151; }
+.row-action.danger:hover { background: #fef0f0; color: #fa5151; }
+.row-action.muted { color: var(--text-2); }
+.row-action.muted:hover { background: var(--hover); }
+
+/* 开关 */
+.switch {
+  position: relative; display: inline-block;
+  width: 36px; height: 18px; vertical-align: middle;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.switch-slider {
+  position: absolute; cursor: pointer; inset: 0;
+  background: #d0d7de; border-radius: 18px;
+  transition: 0.2s;
+}
+.switch-slider::before {
+  content: ''; position: absolute; left: 2px; bottom: 2px;
+  width: 14px; height: 14px;
+  background: #fff; border-radius: 50%;
+  transition: 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+.switch input:checked + .switch-slider { background: var(--wx-green); }
+.switch input:checked + .switch-slider::before { transform: translateX(18px); }
+
+/* 空状态 */
+.empty-state {
+  padding: 80px 20px; text-align: center; color: var(--text-3);
+  font-size: 13px;
+}
+.empty-state .empty-icon { font-size: 36px; margin-bottom: 8px; opacity: 0.5; }
+
+/* 分页 */
+.pager {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: var(--pager-h);
+  padding: 0 16px;
+  background: #fff; border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: flex-end;
+  gap: 12px; z-index: 5;
+}
+.pager-info { color: var(--text-3); font-size: 13px; margin-right: 4px; }
+.pager select {
+  height: 28px; padding: 0 8px;
+  border: 1px solid #d0d7de; border-radius: 3px;
+  background: #fff; font-size: 13px; color: var(--text-2);
+  cursor: pointer; outline: none;
+}
+.pager-btn {
+  min-width: 28px; height: 28px; padding: 0 8px; border-radius: 3px;
+  border: 1px solid #d0d7de; background: #fff;
+  color: var(--text-2); font-size: 13px;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all 0.12s;
+}
+.pager-btn:hover:not(:disabled) { border-color: var(--wx-green); color: var(--wx-green); }
+.pager-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pager-btn.cur { background: var(--wx-green); color: #fff; border-color: var(--wx-green); }
+.pager-ellipsis { color: var(--text-3); padding: 0 4px; }
+
+/* Toast */
+.toast {
+  position: fixed; top: 16px; left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  padding: 8px 16px; background: rgba(0,0,0,0.78);
+  color: #fff; border-radius: 4px; font-size: 13px;
+  opacity: 0; transition: all 0.25s;
+  z-index: 2000; pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ========= 通用 modal ========= */
+.modal-mask {
+  display: none;
+  position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+  z-index: 1000; align-items: center; justify-content: center;
+}
+.modal-mask.show { display: flex; }
+.modal {
+  background: #fff; border-radius: 8px;
+  width: 560px; max-width: 92vw;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+.modal.wide { width: 1080px; }
+.modal-header {
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 15px; font-weight: 600;
+}
+.modal-close {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--text-3);
+}
+.modal-close:hover { background: var(--hover); color: var(--text-1); }
+.modal-body { padding: 20px; max-height: 60vh; overflow-y: auto; }
+.form-row { margin-bottom: 14px; }
+.form-row label { display: block; margin-bottom: 6px; font-size: 13px; color: var(--text-2); }
+.form-row label .req { color: #f56c6c; margin-right: 2px; }
+.form-row input, .form-row textarea, .form-row select {
+  width: 100%; padding: 8px 10px;
+  border: 1px solid #d0d7de; border-radius: 4px;
+  font-size: 13px; font-family: inherit;
+  outline: none; transition: border-color 0.15s;
+}
+.form-row input:focus, .form-row textarea:focus, .form-row select:focus { border-color: var(--wx-green); }
+.form-row textarea { resize: vertical; min-height: 70px; }
+.form-tip { font-size: 12px; color: var(--text-3); margin-top: 4px; }
+.modal-footer {
+  padding: 12px 20px; border-top: 1px solid var(--border);
+  display: flex; justify-content: flex-end; gap: 8px;
+  background: #fafbfc;
+}
+
+/* ========= 账号状态页：对齐真实管理页宽表格 ========= */
+.wechat-account-page { background: #fff; font-size: 13px; }
+.account-filter {
+  height: 74px; top: 12px; left: 18px; right: 18px;
+  border: 0; background: #f7f9fb; padding: 20px 16px; gap: 22px;
+}
+.account-filter .f-label { color: #5f6b7a; font-size: 13px; }
+.account-filter .f-input, .account-filter .f-select {
+  height: 34px; border-color: #dfe5ed; border-radius: 3px; color: #606f80;
+}
+.account-filter .f-input.wide { width: 160px; }
+.account-filter .wide-select { width: 186px; }
+.account-filter .btn { height: 34px; min-width: 64px; justify-content: center; }
+.account-filter .add-account { min-width: 104px; }
+.account-table-wrap {
+  top: 86px; left: 18px; right: 18px; bottom: 0;
+  padding: 0; background: #fff;
+}
+.account-table-card {
+  min-width: 1680px !important;
+  border-radius: 0; border-color: #edf1f5;
+}
+.account-table { table-layout: fixed; font-size: 13px; }
+.account-table thead th {
+  height: 42px; padding: 10px 12px;
+  background: #fbfcfe; color: #6d7887; font-weight: 400;
+  border-right: 1px solid #edf1f5;
+}
+.account-table tbody td {
+  height: 66px; padding: 10px 12px;
+  color: #5d6978; line-height: 1.55;
+  border-right: 1px solid #edf1f5;
+}
+.account-table tbody tr:hover { background: #fbfcfe; }
+.account-table .col-avatar { width: 68px; }
+.account-table .col-nick { width: 132px; }
+.account-table .col-persona { width: 142px; }
+.account-table .col-group, .account-table .col-channel { width: 126px; }
+.account-table .col-type { width: 72px; }
+.account-table .col-device { width: 92px; }
+.account-table .col-agent { width: 108px; }
+.account-table .col-auto { width: 120px; }
+.account-table .col-status { width: 82px; }
+.account-table .col-reception { width: 190px; }
+.account-table .col-actions { width: 250px; }
+.account-avatar {
+  width: 46px; height: 46px; border-radius: 50%; object-fit: cover;
+  display: inline-flex; align-items: center; justify-content: center; background: #c7cdd6;
+}
+.account-avatar.photo {
+  background:
+    radial-gradient(circle at 50% 36%, #ffe2d2 0 17%, transparent 18%),
+    radial-gradient(circle at 50% 100%, #b91536 0 34%, transparent 35%),
+    linear-gradient(135deg, #f8c8d2 0%, #ffd9b7 48%, #8fd3ff 100%);
+}
+.account-avatar.empty::before {
+  content: ''; width: 100%; height: 100%; border-radius: 50%; background: #c7cdd6;
+}
+.strong-cell { color: #4d5968; }
+.type-badge {
+  display: inline-flex; align-items: center; height: 22px; padding: 0 8px;
+  border-radius: 4px; font-size: 12px;
+}
+.type-badge.personal { background: #eaf4ff; color: #5a9df8; }
+.type-badge.enterprise { background: #fff4df; color: #f0a13a; }
+.auto-badge, .account-status {
+  display: inline-flex; align-items: center; height: 24px; padding: 0 10px;
+  border-radius: 4px; font-size: 12px; white-space: nowrap;
+}
+.auto-badge.off, .account-status.offline { background: #fff0ef; color: #ff6b63; }
+.auto-badge.on, .account-status.online { background: #edf9ec; color: #52c948; }
+.reception-list {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 5px; max-width: 168px;
+}
+.reception-chip {
+  display: inline-flex; align-items: center; max-width: 54px; height: 22px; padding: 0 7px;
+  border-radius: 4px; background: #f2f6fb; color: #526273; font-size: 12px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.more-reception { height: 22px; color: #2f80ed; font-size: 12px; white-space: nowrap; }
+.more-reception:hover { text-decoration: underline; }
+.muted-text { color: #a3adba; }
+.account-actions { white-space: normal; line-height: 1.85; }
+.account-actions .row-action {
+  margin-right: 4px; padding: 0; color: #637282;
+}
+.account-actions .primary-link { color: #2f80ed; }
+.account-actions .row-action:hover { background: transparent; color: #07c160; }
+.account-pager { display: none; }
+.reception-modal { width: 520px; max-width: 92vw; }
+.reception-body { padding: 12px 20px 18px; max-height: 420px; }
+.reception-row {
+  display: grid; grid-template-columns: 34px minmax(80px, 1fr) minmax(150px, 1.4fr);
+  gap: 10px; align-items: center; min-height: 42px;
+  border-bottom: 1px solid #f0f2f5; color: #4f5d6d;
+}
+.reception-row:last-child { border-bottom: 0; }
+.reception-index {
+  width: 22px; height: 22px; border-radius: 50%; background: #f2f6fb; color: #8290a0;
+  display: inline-flex; align-items: center; justify-content: center; font-size: 12px;
+}
+.reception-name { font-weight: 500; color: #253244; }
+.reception-meta { color: #8a96a3; font-size: 12px; }
+
+</style>
+  <style>
+    /* SPEC-SUIYIN-ADMIN-009@1.0.0 · R001–R010 */
+    .seg {
+      display: inline-flex;
+      height: 30px;
+      overflow: hidden;
+      border: 1px solid #e5e8ec;
+      border-radius: 3px;
+    }
+    .seg button {
+      height: 30px;
+      padding: 0 12px;
+      border-right: 1px solid #e5e8ec;
+      background: #fff;
+      color: var(--text-2);
+      font-size: 12.5px;
+    }
+    .seg button:last-child { border-right: 0; }
+    .seg button:hover { color: var(--wx-green); }
+    .seg button.active {
+      background: var(--wx-green);
+      color: #fff;
+    }
+    .btn.range-active {
+      border-color: #b9dfc7;
+      background: #f5fbf7;
+      color: var(--wx-green);
+      font-weight: 500;
+    }
+    .btn:disabled {
+      cursor: not-allowed;
+      opacity: .58;
+    }
+    .date-error {
+      display: none;
+      color: #fa5151;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .date-error.show { display: inline; }
+    .f-input.invalid {
+      border-color: #fa5151;
+      box-shadow: 0 0 0 2px rgba(250,81,81,.08);
+    }
+    .scope-tip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-left: auto;
+      color: var(--text-3);
+      font-size: 12px;
+      cursor: help;
+      white-space: nowrap;
+    }
+    .scope-tip:hover .scope-pop,
+    .scope-tip:focus-within .scope-pop { display: block; }
+    .scope-pop {
+      position: fixed;
+      z-index: 220;
+      top: 56px;
+      right: 16px;
+      display: none;
+      width: 400px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,.12);
+      color: var(--text-2);
+      font-size: 12.5px;
+      line-height: 1.7;
+      white-space: normal;
+    }
+    .scope-pop b { color: var(--text-1); font-weight: 600; }
+    .scope-pop .scope-line + .scope-line {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed #edf0f3;
+    }
+    .table-card { min-width: 1080px; }
+    .col-c { text-align: center; }
+    .metric-direct { color: var(--wx-green); }
+    .metric-reference { color: #576b95; }
+    .metric-manual { color: var(--text-2); }
+    .ratio-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-width: 190px;
+    }
+    .ratio-bar {
+      width: 86px;
+      height: 6px;
+      overflow: hidden;
+      border-radius: 3px;
+      background: #edf1f4;
+    }
+    .ratio-bar i {
+      display: block;
+      height: 100%;
+      border-radius: 3px;
+      background: var(--wx-green);
+      transition: width .2s ease;
+    }
+    .ratio-num {
+      min-width: 92px;
+      color: var(--text-2);
+      font-size: 12.5px;
+      font-variant-numeric: tabular-nums;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .ratio-num b { color: var(--text-1); font-weight: 600; }
+    .ratio-num .dash { color: var(--text-3); }
+    .state-wrap {
+      padding: 70px 20px;
+      text-align: center;
+      color: var(--text-3);
+    }
+    .state-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      background: #f5f7fa;
+      color: #a1abb7;
+      font-size: 21px;
+      font-weight: 500;
+    }
+    .state-wrap.error .state-icon {
+      background: #fff4f4;
+      color: #fa5151;
+    }
+    .state-wrap.permission .state-icon {
+      background: #f0f4fa;
+      color: #576b95;
+    }
+    .state-title {
+      color: var(--text-2);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .state-desc {
+      margin-top: 5px;
+      color: var(--text-3);
+      font-size: 12px;
+    }
+    .state-action { margin-top: 14px; }
+    .skeleton-row td { height: 47px; }
+    .skeleton {
+      height: 12px;
+      border-radius: 6px;
+      background: linear-gradient(90deg,#f1f3f5 25%,#f8f9fa 37%,#f1f3f5 63%);
+      background-size: 400% 100%;
+      animation: shimmer 1.2s ease infinite;
+    }
+    .skeleton.short { width: 54%; }
+    .skeleton.medium { width: 72%; }
+    .skeleton.center { width: 58%; margin: 0 auto; }
+    @keyframes shimmer {
+      0% { background-position: 100% 0; }
+      100% { background-position: 0 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group" style="gap:4px;">
+    <button class="btn sm" data-range="today" onclick="setRange('today')">今天</button>
+    <button class="btn sm" data-range="yesterday" onclick="setRange('yesterday')">昨天</button>
+    <button class="btn sm" data-range="week" onclick="setRange('week')">本周</button>
+    <button class="btn sm" data-range="month" onclick="setRange('month')">本月</button>
+  </div>
+  <div class="f-group">
+    <input class="f-input date" type="date" id="dateFrom" aria-label="开始日期">
+    <span class="f-sep">至</span>
+    <input class="f-input date" type="date" id="dateTo" aria-label="结束日期">
+    <span class="date-error" id="dateError">开始日期不能晚于结束日期</span>
+  </div>
+  <div class="f-group">
+    <span class="f-label">维度</span>
+    <div class="seg" id="segDim">
+      <button data-dim="account" class="active" onclick="setDim('account')">按销售账号</button>
+      <button data-dim="dept" onclick="setDim('dept')">按部门</button>
+    </div>
+  </div>
+  <div class="f-group">
+    <span class="f-label">部门</span>
+    <select class="f-select" id="fDept">
+      <option value="">全部部门</option>
+      <option>抖音IP</option>
+      <option>小红书</option>
+      <option>电商</option>
+      <option>代运营</option>
+      <option>自媒体</option>
+    </select>
+  </div>
+  <div class="f-group" id="grpKw">
+    <input class="f-input wide" id="kw" placeholder="销售账号 / 姓名" onkeydown="if(event.key==='Enter')runSearch()">
+  </div>
+  <button class="btn primary" id="searchBtn" onclick="runSearch()">🔍 搜索</button>
+  <button class="btn" onclick="onReset()">重置</button>
+
+  <span class="scope-tip" tabindex="0">
+    <span>ⓘ 口径说明</span>
+    <span class="scope-pop">
+      <span class="scope-line"><b>统计范围</b>：仅统计销售发出的单聊文本消息；客户消息、群聊、图片、语音等不计。</span>
+      <span class="scope-line"><b>统计起始</b>：从本功能上线后开始累计，本原型自 2026/08/05 00:00 起演示；历史消息不追溯。</span>
+      <span class="scope-line"><b>三类来源</b>：AI 直发、AI 参考、手动录入按消息现有来源标签互斥计数，不根据正文二次推断。</span>
+      <span class="scope-line"><b>AI 辅助率</b> =（AI 直发 + AI 参考）÷（AI 直发 + AI 参考 + 手动录入），只反映使用构成，不代表 AI 已提升客户等级或到店率。</span>
+    </span>
+  </span>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card">
+    <table id="tbl">
+      <thead id="thead"></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select id="tablePageSize" onchange="onTablePageSize()" aria-label="每页条数">
+    <option value="10">10条/页</option>
+    <option value="20" selected>20条/页</option>
+    <option value="50">50条/页</option>
+  </select>
+  <button class="pager-btn" id="prevBtn" onclick="goTablePage(-1)" aria-label="上一页">‹</button>
+  <span id="pageBtns"></span>
+  <button class="pager-btn" id="nextBtn" onclick="goTablePage(1)" aria-label="下一页">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* mock-data.js inlined by build_inline.mjs */
+/**
+ * 碎银管理后台 Mock 数据
+ * 与 PC 端 / APP 端 mock-data.js 对齐
+ */
+
+// ===== 人设号（3个） =====
+const PERSONAS = [
+  { id: '1号', label: '1号', color: '#e8613a' },
+  { id: '2号', label: '2号', color: '#e8613a' },
+  { id: '3号', label: '3号', color: '#e8613a' },
+];
+
+// ===== 角色 =====
+const ROLE_MAP = {
+  superadmin: { label: '超级管理员', cls: 'role-superadmin', avatarCls: 'superadmin' },
+  admin:      { label: '管理员',     cls: 'role-admin',      avatarCls: 'admin' },
+  sales:      { label: '销售',       cls: 'role-sales',      avatarCls: '' },
+  bookclub:   { label: '读书会管理员', cls: 'role-admin',    avatarCls: 'admin' },
+  engineer:   { label: '工程师',     cls: 'role-sales',      avatarCls: '' },
+  referral:   { label: '拉新人',     cls: 'role-sales',      avatarCls: '' },
+};
+
+const STATUS_MAP = {
+  on:   { dot: 'on',   text: '在线' },
+  off:  { dot: 'off',  text: '离线' },
+  busy: { dot: 'busy', text: '忙碌' },
+};
+
+// ===== 销售人员（12人） =====
+const SALES_DATA = [
+  { id:1, name:'房昕',   phone:'138****8888', role:'superadmin', single:9999, group:9999, mentor:'—',     accounts:['1号','2号','3号'], status:'on',  created:'2024-03-01' },
+  { id:2, name:'王晓琳', phone:'139****2201', role:'admin',      single:500,  group:100,  mentor:'—',     accounts:['1号','2号'],       status:'on',  created:'2024-03-05' },
+  { id:3, name:'陈文博', phone:'186****3357', role:'admin',      single:500,  group:100,  mentor:'—',     accounts:['2号','3号'],       status:'on',  created:'2024-03-05' },
+  { id:4, name:'周海燕', phone:'177****1102', role:'sales',      single:200,  group:50,   mentor:'王晓琳', accounts:['1号','2号'],       status:'on',  created:'2024-04-10' },
+  { id:5, name:'刘建国', phone:'155****6643', role:'sales',      single:200,  group:50,   mentor:'王晓琳', accounts:['3号'],             status:'on',  created:'2024-04-10' },
+  { id:6, name:'赵思远', phone:'135****8821', role:'sales',      single:200,  group:50,   mentor:'陈文博', accounts:['1号'],             status:'on',  created:'2024-05-03' },
+  { id:7, name:'杨雪梅', phone:'158****4490', role:'sales',      single:200,  group:50,   mentor:'陈文博', accounts:['2号'],             status:'busy',created:'2024-05-03' },
+  { id:8, name:'吴国强', phone:'130****7713', role:'sales',      single:200,  group:50,   mentor:'王晓琳', accounts:['3号'],             status:'off', created:'2024-06-18' },
+  { id:9, name:'孙丽华', phone:'181****2230', role:'sales',      single:150,  group:30,   mentor:'周海燕', accounts:['2号'],             status:'on',  created:'2024-07-22' },
+  { id:10,name:'张明宇', phone:'136****5587', role:'sales',      single:150,  group:30,   mentor:'周海燕', accounts:['1号','3号'],       status:'on',  created:'2024-08-14' },
+  { id:11,name:'李婷',   phone:'159****3348', role:'sales',      single:150,  group:30,   mentor:'刘建国', accounts:['3号'],             status:'off', created:'2024-09-01' },
+  { id:12,name:'黄伟',   phone:'176****9902', role:'sales',      single:100,  group:20,   mentor:'刘建国', accounts:['1号'],             status:'on',  created:'2025-01-15' },
+];
+
+// ===== 销售账号（艺星线上真实账号 194 条，房总 2026-05-12 截图同步） =====
+// 用于 stats_script / stats_invite / sales 等统计页 mock
+// dept 已对齐 yestar.wecarepet.com/admin/wechatStatus 权威分组（2026-05-12 拉取）
+// 测试人设「碎银试用-测试」不纳入统计 mock
+const SALES_ACCOUNTS = [
+  // ----- 抖音IP（32 条） -----
+  { id:'a001', name:'罗玲 金金',                    dept:'抖音IP' },
+  { id:'a002', name:'A成都艺星子苗专家助理',         dept:'抖音IP' },
+  { id:'a003', name:'YeStar成都艺星专家助理-铃铃',   dept:'抖音IP' },
+  { id:'a004', name:'周恬 Lucy💕',                 dept:'抖音IP' },
+  { id:'a005', name:'唐可欣',                       dept:'抖音IP' },
+  { id:'a006', name:'张祖欣01',                     dept:'抖音IP' },
+  { id:'a007', name:'张祖欣02',                     dept:'抖音IP' },
+  { id:'a008', name:'成都艺星专家助理Lucy💕',       dept:'抖音IP' },
+  { id:'a009', name:'曹冰清',                       dept:'抖音IP' },
+  { id:'a010', name:'曹琳',                         dept:'抖音IP' },
+  { id:'a011', name:'曹琳02',                       dept:'抖音IP' },
+  { id:'a012', name:'杜佳',                         dept:'抖音IP' },
+  { id:'a013', name:'杨婧01',                       dept:'抖音IP' },
+  { id:'a014', name:'杨婧02',                       dept:'抖音IP' },
+  { id:'a015', name:'林雪 林林',                    dept:'抖音IP' },
+  { id:'a016', name:'林雪言希',                     dept:'抖音IP' },
+  { id:'a017', name:'樊燕玲',                       dept:'抖音IP' },
+  { id:'a018', name:'刘依王01',                     dept:'抖音IP' },
+  { id:'a019', name:'刘依王02',                     dept:'抖音IP' },
+  { id:'a020', name:'刘瑜01',                       dept:'抖音IP' },
+  { id:'a021', name:'刘瑜02',                       dept:'抖音IP' },
+  { id:'a022', name:'佰智德三',                     dept:'抖音IP' },
+  { id:'a023', name:'艺星专家助理Umi',              dept:'抖音IP' },
+  { id:'a024', name:'艺星高级专家助理-嘉嘉',         dept:'抖音IP' },
+  { id:'a025', name:'艺星高级专家助理~小雅',         dept:'抖音IP' },
+  { id:'a026', name:'艺星高级专家助理～多多',        dept:'抖音IP' },
+  { id:'a027', name:'苏杭1',                        dept:'抖音IP' },
+  { id:'a028', name:'赵学',                         dept:'抖音IP' },
+  { id:'a029', name:'赵紫颖01',                     dept:'抖音IP' },
+  { id:'a030', name:'赵紫颖02',                     dept:'抖音IP' },
+  { id:'a031', name:'赵紫颖03',                     dept:'抖音IP' },
+  { id:'a032', name:'马驰 圆圆',                    dept:'抖音IP' },
+
+  // ----- 小红书（20 条） -----
+  { id:'b001', name:'A成都艺星专家助理KK17775575920',     dept:'小红书' },
+  { id:'b002', name:'A成都艺星院长助理好好17713619739',   dept:'小红书' },
+  { id:'b003', name:'Dr周顺波（小红书）01',               dept:'小红书' },
+  { id:'b004', name:'Dr谢雯（小红书）01',                 dept:'小红书' },
+  { id:'b005', name:'向朝医生（小红书）01',               dept:'小红书' },
+  { id:'b006', name:'张经晶',                             dept:'小红书' },
+  { id:'b007', name:'徐亚红医生（小红书）01',             dept:'小红书' },
+  { id:'b008', name:'成都艺星专家助理鑫鑫',                dept:'小红书' },
+  { id:'b009', name:'成都艺星医生助理chloe',              dept:'小红书' },
+  { id:'b010', name:'成都范瓅月（小红书）01',             dept:'小红书' },
+  { id:'b011', name:'李竞医生（小红书）01',               dept:'小红书' },
+  { id:'b012', name:'杨亚平',                             dept:'小红书' },
+  { id:'b013', name:'杨瑶 yiyi',                          dept:'小红书' },
+  { id:'b014', name:'艺星专家助理 Scarlett',              dept:'小红书' },
+  { id:'b015', name:'艺星专家助理Mia',                    dept:'小红书' },
+  { id:'b016', name:'艺星专家助理Nana',                   dept:'小红书' },
+  { id:'b017', name:'艺星专家助理ViVi',                   dept:'小红书' },
+  { id:'b018', name:'艺星专家助理lsla',                   dept:'小红书' },
+  { id:'b019', name:'艺星专家助理妍妍',                   dept:'小红书' },
+  { id:'b020', name:'鄢上淞 小涵',                        dept:'小红书' },
+
+  // ----- 电商（21 条） -----
+  { id:'c001', name:'丁静',         dept:'电商' },
+  { id:'c002', name:'何晓秀',       dept:'电商' },
+  { id:'c003', name:'孙师威01',     dept:'电商' },
+  { id:'c004', name:'孙师威02',     dept:'电商' },
+  { id:'c005', name:'张欣',         dept:'电商' },
+  { id:'c006', name:'柳霜01',       dept:'电商' },
+  { id:'c007', name:'柳霜02',       dept:'电商' },
+  { id:'c008', name:'柳霜03',       dept:'电商' },
+  { id:'c009', name:'熊隆玲01',     dept:'电商' },
+  { id:'c010', name:'熊隆玲02',     dept:'电商' },
+  { id:'c011', name:'牛海兰01',     dept:'电商' },
+  { id:'c012', name:'牛海兰02',     dept:'电商' },
+  { id:'c013', name:'牛海兰03',     dept:'电商' },
+  { id:'c014', name:'王雅莉',       dept:'电商' },
+  { id:'c015', name:'聂敏',         dept:'电商' },
+  { id:'c016', name:'胡琪01',       dept:'电商' },
+  { id:'c017', name:'胡琪02',       dept:'电商' },
+  { id:'c018', name:'裴培01',       dept:'电商' },
+  { id:'c019', name:'裴培02',       dept:'电商' },
+  { id:'c020', name:'邓梦雨',       dept:'电商' },
+  { id:'c021', name:'黄诗琴',       dept:'电商' },
+
+  // ----- 代运营（21 条） -----
+  { id:'d001', name:'何紫霞',       dept:'代运营' },
+  { id:'d002', name:'吉虹蝶01',     dept:'代运营' },
+  { id:'d003', name:'吉虹蝶02',     dept:'代运营' },
+  { id:'d004', name:'曹蕊',         dept:'代运营' },
+  { id:'d005', name:'曹蕊01',       dept:'代运营' },
+  { id:'d006', name:'李倩',         dept:'代运营' },
+  { id:'d007', name:'梁慧01',       dept:'代运营' },
+  { id:'d008', name:'梁慧02',       dept:'代运营' },
+  { id:'d009', name:'王清清',       dept:'代运营' },
+  { id:'d010', name:'王珊',         dept:'代运营' },
+  { id:'d011', name:'王雪01',       dept:'代运营' },
+  { id:'d012', name:'董宗梅01',     dept:'代运营' },
+  { id:'d013', name:'董宗梅02',     dept:'代运营' },
+  { id:'d014', name:'袁桢妍',       dept:'代运营' },
+  { id:'d015', name:'赁霞01',       dept:'代运营' },
+  { id:'d016', name:'郑丽',         dept:'代运营' },
+  { id:'d017', name:'郑丽01',       dept:'代运营' },
+  { id:'d018', name:'陈凤琳',       dept:'代运营' },
+  { id:'d019', name:'陈凤琳01',     dept:'代运营' },
+  { id:'d020', name:'颜婷01',       dept:'代运营' },
+  { id:'d021', name:'颜婷02',       dept:'代运营' },
+
+  // ----- 自媒体（杨博文 / 林一 / 晓晓 矩阵号 100 条） -----
+  { id:'e001', name:'自媒体杨博文033', dept:'自媒体' },
+  { id:'e002', name:'自媒体杨博文028', dept:'自媒体' },
+  { id:'e003', name:'自媒体杨博文041', dept:'自媒体' },
+  { id:'e004', name:'自媒体林一023',   dept:'自媒体' },
+  { id:'e005', name:'自媒体林一035',   dept:'自媒体' },
+  { id:'e006', name:'自媒体晓晓148',   dept:'自媒体' },
+  { id:'e007', name:'自媒体晓晓174',   dept:'自媒体' },
+  { id:'e008', name:'自媒体杨博文002', dept:'自媒体' },
+  { id:'e009', name:'自媒体杨博文011', dept:'自媒体' },
+  { id:'e010', name:'自媒体杨博文015', dept:'自媒体' },
+  { id:'e011', name:'自媒体杨博文016', dept:'自媒体' },
+  { id:'e012', name:'自媒体杨博文025', dept:'自媒体' },
+  { id:'e013', name:'自媒体杨博文029', dept:'自媒体' },
+  { id:'e014', name:'自媒体杨博文032', dept:'自媒体' },
+  { id:'e015', name:'自媒体杨博文036', dept:'自媒体' },
+  { id:'e016', name:'自媒体杨博文037', dept:'自媒体' },
+  { id:'e017', name:'自媒体杨博文038', dept:'自媒体' },
+  { id:'e018', name:'自媒体杨博文039', dept:'自媒体' },
+  { id:'e019', name:'自媒体杨博文042', dept:'自媒体' },
+  { id:'e020', name:'自媒体杨博文045', dept:'自媒体' },
+  { id:'e021', name:'自媒体杨博文055', dept:'自媒体' },
+  { id:'e022', name:'自媒体杨博文057', dept:'自媒体' },
+  { id:'e023', name:'自媒体杨博文059', dept:'自媒体' },
+  { id:'e024', name:'自媒体杨博文061', dept:'自媒体' },
+  { id:'e025', name:'自媒体杨博文066', dept:'自媒体' },
+  { id:'e026', name:'自媒体杨博文068', dept:'自媒体' },
+  { id:'e027', name:'自媒体杨博文073', dept:'自媒体' },
+  { id:'e028', name:'自媒体杨博文074', dept:'自媒体' },
+  { id:'e029', name:'自媒体杨博文076', dept:'自媒体' },
+  { id:'e030', name:'自媒体杨博文081', dept:'自媒体' },
+  { id:'e031', name:'自媒体杨博文083', dept:'自媒体' },
+  { id:'e032', name:'自媒体杨博文091', dept:'自媒体' },
+  { id:'e033', name:'自媒体杨博文092', dept:'自媒体' },
+  { id:'e034', name:'自媒体杨博文095', dept:'自媒体' },
+  { id:'e035', name:'自媒体杨博文096', dept:'自媒体' },
+  { id:'e036', name:'自媒体杨博文097', dept:'自媒体' },
+  { id:'e037', name:'自媒体杨博文101', dept:'自媒体' },
+  { id:'e038', name:'自媒体杨博文104', dept:'自媒体' },
+  { id:'e039', name:'自媒体杨博文105', dept:'自媒体' },
+  { id:'e040', name:'自媒体杨博文107', dept:'自媒体' },
+  { id:'e041', name:'自媒体杨博文109', dept:'自媒体' },
+  { id:'e042', name:'自媒体杨博文115', dept:'自媒体' },
+  { id:'e043', name:'自媒体杨博文125', dept:'自媒体' },
+  { id:'e044', name:'自媒体杨博文127', dept:'自媒体' },
+  { id:'e045', name:'自媒体杨博文128', dept:'自媒体' },
+  { id:'e046', name:'自媒体杨博文130', dept:'自媒体' },
+  { id:'e047', name:'自媒体杨博文135', dept:'自媒体' },
+  { id:'e048', name:'自媒体杨博文136', dept:'自媒体' },
+  { id:'e049', name:'自媒体杨博文137', dept:'自媒体' },
+  { id:'e050', name:'自媒体杨博文138', dept:'自媒体' },
+  { id:'e051', name:'自媒体杨博文139', dept:'自媒体' },
+  { id:'e052', name:'自媒体杨博文145', dept:'自媒体' },
+  { id:'e053', name:'自媒体杨博文156', dept:'自媒体' },
+  { id:'e054', name:'自媒体杨博文172', dept:'自媒体' },
+  { id:'e055', name:'自媒体杨博文181', dept:'自媒体' },
+  { id:'e056', name:'自媒体杨博文183', dept:'自媒体' },
+  { id:'e057', name:'自媒体杨博文194', dept:'自媒体' },
+  { id:'e058', name:'自媒体杨博文197', dept:'自媒体' },
+  { id:'e059', name:'自媒体杨博文X01', dept:'自媒体' },
+  { id:'e060', name:'自媒体林一004',   dept:'自媒体' },
+  { id:'e061', name:'自媒体林一010',   dept:'自媒体' },
+  { id:'e062', name:'自媒体林一012',   dept:'自媒体' },
+  { id:'e063', name:'自媒体林一013',   dept:'自媒体' },
+  { id:'e064', name:'自媒体林一014',   dept:'自媒体' },
+  { id:'e065', name:'自媒体林一020',   dept:'自媒体' },
+  { id:'e066', name:'自媒体林一022',   dept:'自媒体' },
+  { id:'e067', name:'自媒体林一024',   dept:'自媒体' },
+  { id:'e068', name:'自媒体林一027',   dept:'自媒体' },
+  { id:'e069', name:'自媒体林一030',   dept:'自媒体' },
+  { id:'e070', name:'自媒体林一031',   dept:'自媒体' },
+  { id:'e071', name:'自媒体林一044',   dept:'自媒体' },
+  { id:'e072', name:'自媒体林一047',   dept:'自媒体' },
+  { id:'e073', name:'自媒体林一053',   dept:'自媒体' },
+  { id:'e074', name:'自媒体林一056',   dept:'自媒体' },
+  { id:'e075', name:'自媒体林一058',   dept:'自媒体' },
+  { id:'e076', name:'自媒体林一062',   dept:'自媒体' },
+  { id:'e077', name:'自媒体林一063',   dept:'自媒体' },
+  { id:'e078', name:'自媒体林一069',   dept:'自媒体' },
+  { id:'e079', name:'自媒体林一072',   dept:'自媒体' },
+  { id:'e080', name:'自媒体林一077',   dept:'自媒体' },
+  { id:'e081', name:'自媒体林一080',   dept:'自媒体' },
+  { id:'e082', name:'自媒体林一088',   dept:'自媒体' },
+  { id:'e083', name:'自媒体林一099',   dept:'自媒体' },
+  { id:'e084', name:'自媒体林一103',   dept:'自媒体' },
+  { id:'e085', name:'自媒体林一113',   dept:'自媒体' },
+  { id:'e086', name:'自媒体林一116',   dept:'自媒体' },
+  { id:'e087', name:'自媒体林一120',   dept:'自媒体' },
+  { id:'e088', name:'自媒体林一133',   dept:'自媒体' },
+  { id:'e089', name:'自媒体林一134',   dept:'自媒体' },
+  { id:'e090', name:'自媒体林一141',   dept:'自媒体' },
+  { id:'e091', name:'自媒体林一142',   dept:'自媒体' },
+  { id:'e092', name:'自媒体林一144',   dept:'自媒体' },
+  { id:'e093', name:'自媒体林一149',   dept:'自媒体' },
+  { id:'e094', name:'自媒体林一151',   dept:'自媒体' },
+  { id:'e095', name:'自媒体林一154',   dept:'自媒体' },
+  { id:'e096', name:'自媒体林一160',   dept:'自媒体' },
+  { id:'e097', name:'自媒体林一161',   dept:'自媒体' },
+  { id:'e098', name:'自媒体林一162',   dept:'自媒体' },
+  { id:'e099', name:'自媒体林一167',   dept:'自媒体' },
+  { id:'e100', name:'自媒体林一179',   dept:'自媒体' },
+];
+
+// 补默认 alias / used / talked（确定性递减，保证可复现 + 视觉上有梯度）
+SALES_ACCOUNTS.forEach((a, i) => {
+  if (!a.alias)            a.alias  = a.name;
+  if (a.used   === undefined) a.used   = Math.max(28, Math.round(420 - i * 1.92));
+  if (a.talked === undefined) a.talked = Math.max(14, Math.round(212 - i * 0.96));
+});
+
+// ===== 好友/联系人（25人，与 PC/APP 端 USERS 对齐） =====
+const FRIENDS_DATA = [
+  { id:1,  name:'李美丽', phone:'138****5678', wechatId:'limeili_2023',     persona:'1号', gender:'female', addTime:'2024-02-15', source:'扫一扫',   tags:['意向客户','VIP'] },
+  { id:2,  name:'张小花', phone:'136****5432', wechatId:'zhangxiaohua88',   persona:'2号', gender:'female', addTime:'2024-02-20', source:'手机号',   tags:['已消费','水光针'] },
+  { id:4,  name:'王丽华', phone:'150****9876', wechatId:'wanglihua_vip',    persona:'3号', gender:'female', addTime:'2024-03-01', source:'群聊',     tags:['VIP','老客户'] },
+  { id:5,  name:'赵燕子', phone:'133****6666', wechatId:'zhaoyanzi_88',     persona:'2号', gender:'female', addTime:'2024-03-05', source:'扫一扫',   tags:['意向客户'] },
+  { id:6,  name:'陈小雨', phone:'136****6666', wechatId:'chenxiaoyu_99',    persona:'1号', gender:'female', addTime:'2024-03-10', source:'手机号',   tags:['新客户'] },
+  { id:7,  name:'周婷婷', phone:'137****7777', wechatId:'zhoutingting_22',  persona:'2号', gender:'female', addTime:'2024-03-15', source:'群聊',     tags:['已消费'] },
+  { id:8,  name:'刘芳芳', phone:'133****0008', wechatId:'liufangfang_08',   persona:'3号', gender:'female', addTime:'2024-03-20', source:'扫一扫',   tags:['意向客户'] },
+  { id:9,  name:'黄小芳', phone:'159****0009', wechatId:'huangxiaofang_09', persona:'1号', gender:'female', addTime:'2024-04-01', source:'手机号',   tags:['新客户'] },
+  { id:10, name:'吴丽丽', phone:'187****0010', wechatId:'wulili_10',        persona:'2号', gender:'female', addTime:'2024-04-05', source:'群聊',     tags:['已消费','热玛吉'] },
+  { id:11, name:'孙小红', phone:'133****0011', wechatId:'sunxiaohong_11',   persona:'3号', gender:'female', addTime:'2024-04-10', source:'扫一扫',   tags:['意向客户'] },
+  { id:13, name:'马小兰', phone:'176****0013', wechatId:'maxiaolan_13',     persona:'2号', gender:'female', addTime:'2024-04-20', source:'手机号',   tags:['新客户'] },
+  { id:14, name:'杨晓梅', phone:'135****0014', wechatId:'yangxiaomei_14',   persona:'1号', gender:'female', addTime:'2024-05-01', source:'扫一扫',   tags:['已消费'] },
+  { id:15, name:'何小云', phone:'188****0015', wechatId:'hexiaoyun_15',     persona:'3号', gender:'female', addTime:'2024-05-10', source:'群聊',     tags:['意向客户','VIP'] },
+  { id:16, name:'郑小敏', phone:'152****0016', wechatId:'zhengxiaomin_16',  persona:'1号', gender:'female', addTime:'2024-05-15', source:'手机号',   tags:['新客户'] },
+  { id:17, name:'许小琴', phone:'137****0017', wechatId:'xuxiaoqin_17',     persona:'2号', gender:'female', addTime:'2024-05-20', source:'群聊',     tags:['已消费'] },
+  { id:18, name:'朱小燕', phone:'186****0018', wechatId:'zhuxiaoyan_18',    persona:'3号', gender:'female', addTime:'2024-06-01', source:'扫一扫',   tags:['意向客户'] },
+  { id:19, name:'林小玲', phone:'150****0019', wechatId:'linxiaoling_19',   persona:'1号', gender:'female', addTime:'2024-06-10', source:'手机号',   tags:['新客户'] },
+  { id:20, name:'高小慧', phone:'134****0020', wechatId:'gaoxiaohui_20',    persona:'2号', gender:'female', addTime:'2024-06-15', source:'群聊',     tags:['已消费'] },
+  { id:21, name:'曹小丹', phone:'178****0021', wechatId:'caoxiaodan_21',    persona:'3号', gender:'female', addTime:'2024-07-01', source:'扫一扫',   tags:['新客户'] },
+  { id:22, name:'魏小珍', phone:'156****0022', wechatId:'weixiaozhen_22',   persona:'1号', gender:'female', addTime:'2024-07-10', source:'手机号',   tags:['意向客户'] },
+  { id:23, name:'蒋小莉', phone:'138****0023', wechatId:'jiangxiaoli_23',   persona:'2号', gender:'female', addTime:'2024-07-15', source:'群聊',     tags:['已消费'] },
+  { id:24, name:'沈小婷', phone:'136****0024', wechatId:'shenxiaoting_24',  persona:'3号', gender:'female', addTime:'2024-08-01', source:'扫一扫',   tags:['新客户'] },
+  { id:25, name:'韩小冰', phone:'159****0025', wechatId:'hanxiaobing_25',   persona:'1号', gender:'female', addTime:'2024-08-10', source:'手机号',   tags:['VIP','老客户'] },
+  { id:26, name:'唐小静', phone:'187****0026', wechatId:'tangxiaojing_26',  persona:'2号', gender:'female', addTime:'2024-08-15', source:'群聊',     tags:['意向客户'] },
+  { id:27, name:'冯小雪', phone:'133****0027', wechatId:'fengxiaoxue_27',   persona:'3号', gender:'female', addTime:'2024-09-01', source:'扫一扫',   tags:['新客户'] },
+];
+
+// ===== 专家列表（15人，与 PC/APP 端对齐） =====
+const EXPERTS_DATA = [
+  { id:901, name:'张兽医',   specialty:'宠物外科', gender:'male',   status:'on',  phone:'139****1001', created:'2023-06-01' },
+  { id:902, name:'李营养师', specialty:'宠物营养', gender:'female', status:'on',  phone:'136****1002', created:'2023-06-15' },
+  { id:903, name:'王皮肤科', specialty:'皮肤病',   gender:'male',   status:'on',  phone:'155****1003', created:'2023-07-01' },
+  { id:904, name:'赵行为师', specialty:'行为矫正', gender:'female', status:'off', phone:'177****1004', created:'2023-07-10' },
+  { id:905, name:'孙眼科',   specialty:'眼科',     gender:'male',   status:'on',  phone:'138****1005', created:'2023-08-01' },
+  { id:906, name:'周骨科',   specialty:'骨科',     gender:'male',   status:'off', phone:'186****1006', created:'2023-08-15' },
+  { id:907, name:'吴内科',   specialty:'内科',     gender:'female', status:'on',  phone:'130****1007', created:'2023-09-01' },
+  { id:908, name:'郑牙科',   specialty:'口腔科',   gender:'male',   status:'off', phone:'158****1008', created:'2023-09-10' },
+  { id:909, name:'陈中医',   specialty:'中兽医',   gender:'male',   status:'on',  phone:'181****1009', created:'2023-10-01' },
+  { id:910, name:'黄心脏科', specialty:'心脏科',   gender:'female', status:'off', phone:'135****1010', created:'2023-10-15' },
+  { id:911, name:'林繁殖师', specialty:'繁殖',     gender:'female', status:'on',  phone:'159****1011', created:'2023-11-01' },
+  { id:912, name:'徐美容师', specialty:'宠物美容', gender:'female', status:'off', phone:'176****1012', created:'2023-11-10' },
+  { id:913, name:'马训犬师', specialty:'训犬',     gender:'male',   status:'on',  phone:'136****1013', created:'2023-12-01' },
+  { id:914, name:'高急诊',   specialty:'急诊',     gender:'male',   status:'off', phone:'187****1014', created:'2023-12-15' },
+  { id:915, name:'刘康复师', specialty:'康复理疗', gender:'female', status:'off', phone:'133****1015', created:'2024-01-01' },
+];
+
+// ===== 群列表 =====
+const GROUPS_DATA = [
+  { id:101, name:'艺星客户群',  memberCount:128, persona:'1号', created:'2024-02-01' },
+  { id:102, name:'VIP客户群',   memberCount:56,  persona:'1号', created:'2024-03-01' },
+  { id:103, name:'新客咨询群',  memberCount:32,  persona:'2号', created:'2024-04-01' },
+];
+
+// ===== 标签列表 =====
+const TAGS_DATA = [
+  { id:1, name:'VIP',       count:4,  color:'#dc2626' },
+  { id:2, name:'意向客户',   count:8,  color:'#f59e0b' },
+  { id:3, name:'已消费',     count:7,  color:'#07c160' },
+  { id:4, name:'新客户',     count:8,  color:'#3b82f6' },
+  { id:5, name:'老客户',     count:2,  color:'#8b5cf6' },
+  { id:6, name:'水光针',     count:1,  color:'#06b6d4' },
+  { id:7, name:'热玛吉',     count:1,  color:'#ec4899' },
+];
+
+</script>
+<script>
+/* SPEC-SUIYIN-ADMIN-009@1.0.0
+ * R001/R003/R005：日期、上线边界、筛选与重置
+ * R002/R004/R006：三类来源、账号/部门聚合、合计/占比
+ * R007/R008/R010：全租户页面、完整状态、租户隔离与隐私
+ * R009：不展示等级/到店效果归因
+ */
+const QUERY = new URLSearchParams(location.search);
+const TENANT = QUERY.get('tenant') || 'yestar-sz';
+const DATA_TENANT = 'yestar';
+const MOCK_TODAY = '2026-08-05';
+const STATS_STARTED_AT = '2026-08-05';
+const ACCOUNTS = typeof SALES_ACCOUNTS === 'undefined' ? [] : SALES_ACCOUNTS;
+let forcedState = QUERY.get('state') || '';
+
+let DIM = 'account';
+let ACTIVE_RANGE = 'month';
+let TABLE_ROWS = [];
+let tablePage = 1;
+let tablePageSize = 20;
+let loading = false;
+let loadSeq = 0;
+
+function pad2(n) { return String(n).padStart(2, '0'); }
+function parseLocalDate(value) {
+  const parts = String(value || '').split('-').map(Number);
+  if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
+  return new Date(parts[0], parts[1] - 1, parts[2]);
+}
+function formatLocalDate(date) {
+  return `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;
+}
+function addDays(date, amount) {
+  const copy = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  copy.setDate(copy.getDate() + amount);
+  return copy;
+}
+function maxDate(a, b) { return a > b ? a : b; }
+function minDate(a, b) { return a < b ? a : b; }
+function fmt(n) { return Number(n || 0).toLocaleString('zh-CN'); }
+function escapeHtml(value) {
+  return String(value == null ? '' : value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+function hashString(value) {
+  let hash = 2166136261;
+  for (const ch of String(value)) {
+    hash ^= ch.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function updateRangeButtons() {
+  document.querySelectorAll('[data-range]').forEach(btn => {
+    btn.classList.toggle('range-active', btn.dataset.range === ACTIVE_RANGE);
+  });
+}
+function clearDateError() {
+  document.getElementById('dateError').classList.remove('show');
+  document.getElementById('dateFrom').classList.remove('invalid');
+  document.getElementById('dateTo').classList.remove('invalid');
+}
+function validateDateRange() {
+  const fromInput = document.getElementById('dateFrom');
+  const toInput = document.getElementById('dateTo');
+  const from = parseLocalDate(fromInput.value);
+  const to = parseLocalDate(toInput.value);
+  clearDateError();
+  if (!from || !to || from > to) {
+    document.getElementById('dateError').classList.add('show');
+    fromInput.classList.add('invalid');
+    toInput.classList.add('invalid');
+    return null;
+  }
+  return { from, to };
+}
+
+function setRange(kind, shouldRender = true) {
+  const today = parseLocalDate(MOCK_TODAY);
+  let from = today;
+  let to = today;
+  if (kind === 'yesterday') {
+    from = to = addDays(today, -1);
+  } else if (kind === 'week') {
+    const weekday = today.getDay() || 7;
+    from = addDays(today, -(weekday - 1));
+  } else if (kind === 'month') {
+    from = new Date(today.getFullYear(), today.getMonth(), 1);
+  }
+  document.getElementById('dateFrom').value = formatLocalDate(from);
+  document.getElementById('dateTo').value = formatLocalDate(to);
+  ACTIVE_RANGE = kind;
+  updateRangeButtons();
+  clearDateError();
+  if (shouldRender) runSearch();
+}
+
+function setDim(dim, shouldRender = true) {
+  DIM = dim;
+  document.querySelectorAll('#segDim button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.dim === dim);
+  });
+  document.getElementById('grpKw').style.display = dim === 'account' ? '' : 'none';
+  tablePage = 1;
+  renderHead();
+  if (shouldRender) runSearch();
+}
+
+function eligibleDates(from, to) {
+  const start = maxDate(from, parseLocalDate(STATS_STARTED_AT));
+  const end = minDate(to, parseLocalDate(MOCK_TODAY));
+  if (start > end) return [];
+  const days = [];
+  for (let cursor = start; cursor <= end; cursor = addDays(cursor, 1)) {
+    days.push(new Date(cursor.getFullYear(), cursor.getMonth(), cursor.getDate()));
+  }
+  return days;
+}
+
+function accountCounts(account, accountIndex, dates) {
+  let direct = 0;
+  let reference = 0;
+  let manual = 0;
+  const accountSeed = hashString(account.id || account.name || accountIndex);
+  dates.forEach(date => {
+    const dayIndex = Math.round((date - parseLocalDate(STATS_STARTED_AT)) / 86400000);
+    const seed = (accountSeed + Math.imul(accountIndex + 1, 131) + Math.imul(dayIndex + 1, 53)) >>> 0;
+    let total = 52 + (seed % 91) + Math.round(Number(account.talked || 0) * .12);
+    if ((accountIndex + 1) % 47 === 0 && dates.length === 1) total = 0;
+    const directRate = .16 + ((seed >>> 3) % 17) / 100;
+    const referenceRate = .11 + ((seed >>> 7) % 14) / 100;
+    const dayDirect = Math.round(total * directRate);
+    const dayReference = Math.round(total * referenceRate);
+    direct += dayDirect;
+    reference += dayReference;
+    manual += Math.max(0, total - dayDirect - dayReference);
+  });
+  return { direct, reference, manual };
+}
+
+function enrichCounts(row) {
+  const assisted = row.direct + row.reference;
+  const total = assisted + row.manual;
+  return { ...row, assisted, total, rate: total > 0 ? assisted / total : null };
+}
+
+function buildRows(range) {
+  if (TENANT !== DATA_TENANT || !ACCOUNTS.length) return [];
+  const dates = eligibleDates(range.from, range.to);
+  if (!dates.length) return [];
+
+  const dept = document.getElementById('fDept').value;
+  const keyword = (document.getElementById('kw').value || '').trim().toLowerCase();
+  let accounts = ACCOUNTS.map((account, index) => ({
+    ...account,
+    sourceIndex: index,
+    ...accountCounts(account, index, dates),
+  }));
+  if (dept) accounts = accounts.filter(account => account.dept === dept);
+  if (DIM === 'account' && keyword) {
+    accounts = accounts.filter(account =>
+      String(account.name || '').toLowerCase().includes(keyword) ||
+      String(account.alias || '').toLowerCase().includes(keyword)
+    );
+  }
+
+  if (DIM === 'account') {
+    return accounts.map(enrichCounts).sort((a, b) =>
+      b.assisted - a.assisted || b.total - a.total || String(a.name).localeCompare(String(b.name), 'zh-CN')
+    );
+  }
+
+  const grouped = new Map();
+  accounts.forEach(account => {
+    const key = account.dept || '未分组';
+    if (!grouped.has(key)) grouped.set(key, { dept: key, count: 0, direct: 0, reference: 0, manual: 0 });
+    const row = grouped.get(key);
+    row.count += 1;
+    row.direct += account.direct;
+    row.reference += account.reference;
+    row.manual += account.manual;
+  });
+  return Array.from(grouped.values()).map(enrichCounts).sort((a, b) =>
+    b.assisted - a.assisted || b.total - a.total || String(a.dept).localeCompare(String(b.dept), 'zh-CN')
+  );
+}
+
+function renderHead() {
+  const label = DIM === 'account' ? '销售账号' : '部门';
+  const secondCol = DIM === 'account'
+    ? `<th style="width:210px;">${label}</th><th style="width:120px;">所属部门</th>`
+    : `<th style="width:220px;">${label}</th><th class="col-c" style="width:100px;">账号数</th>`;
+  document.getElementById('thead').innerHTML = `<tr>
+    <th style="width:50px;">#</th>
+    ${secondCol}
+    <th class="col-c" style="width:120px;">AI直发</th>
+    <th class="col-c" style="width:120px;">AI参考</th>
+    <th class="col-c" style="width:120px;">手动录入</th>
+    <th class="col-c" style="width:230px;">AI辅助合计 / 占比</th>
+  </tr>`;
+}
+
+function ratioCell(row) {
+  const pct = row.rate == null ? 0 : Math.round(row.rate * 1000) / 10;
+  const rateText = row.rate == null ? '<span class="dash">—</span>' : `${pct.toFixed(1)}%`;
+  return `<div class="ratio-cell">
+    <div class="ratio-bar" aria-hidden="true"><i style="width:${pct}%"></i></div>
+    <span class="ratio-num"><b>${fmt(row.assisted)} 条</b> · ${rateText}</span>
+  </div>`;
+}
+
+function renderLoading() {
+  renderHead();
+  document.getElementById('tbody').innerHTML = Array.from({ length: 7 }, (_, index) => `<tr class="skeleton-row">
+    <td><div class="skeleton short"></div></td>
+    <td><div class="skeleton ${index % 2 ? 'medium' : ''}"></div></td>
+    <td><div class="skeleton short"></div></td>
+    <td><div class="skeleton center"></div></td>
+    <td><div class="skeleton center"></div></td>
+    <td><div class="skeleton center"></div></td>
+    <td><div class="skeleton medium" style="margin:0 auto;"></div></td>
+  </tr>`).join('');
+  document.getElementById('pagerInfo').textContent = '正在统计…';
+  document.getElementById('pageBtns').innerHTML = '';
+  document.getElementById('prevBtn').disabled = true;
+  document.getElementById('nextBtn').disabled = true;
+}
+
+function stateHtml(kind) {
+  if (kind === 'error') {
+    return `<div class="state-wrap error">
+      <div class="state-icon">!</div>
+      <div class="state-title">统计数据加载失败</div>
+      <div class="state-desc">当前筛选条件已保留，请稍后重试</div>
+      <div class="state-action"><button class="btn ghost" onclick="retryLoad()">重试</button></div>
+    </div>`;
+  }
+  if (kind === 'permission') {
+    return `<div class="state-wrap permission">
+      <div class="state-icon">⌁</div>
+      <div class="state-title">你暂无查看 AI 辅助统计的权限</div>
+      <div class="state-desc">如需查看，请联系管理员开通“数据展示”权限</div>
+    </div>`;
+  }
+  return `<div class="state-wrap">
+    <div class="state-icon">∅</div>
+    <div class="state-title">当前筛选范围内暂无数据</div>
+    <div class="state-desc">本页仅统计功能上线后产生的消息</div>
+  </div>`;
+}
+
+function renderState(kind) {
+  renderHead();
+  document.getElementById('tbody').innerHTML = `<tr><td colspan="7">${stateHtml(kind)}</td></tr>`;
+  TABLE_ROWS = [];
+  tablePage = 1;
+  renderPager(0, 1);
+}
+
+function renderTablePage() {
+  const total = TABLE_ROWS.length;
+  const totalPages = Math.max(1, Math.ceil(total / tablePageSize));
+  tablePage = Math.min(Math.max(1, tablePage), totalPages);
+  const start = (tablePage - 1) * tablePageSize;
+  const rows = TABLE_ROWS.slice(start, start + tablePageSize);
+  if (!rows.length) {
+    renderState('empty');
+    return;
+  }
+  document.getElementById('tbody').innerHTML = rows.map((row, index) => {
+    const identity = DIM === 'account'
+      ? `<td>${escapeHtml(row.name)}</td><td><span class="tag">${escapeHtml(row.dept || '未分组')}</span></td>`
+      : `<td><span class="tag">${escapeHtml(row.dept)}</span></td><td class="col-num col-c">${fmt(row.count)}</td>`;
+    return `<tr>
+      <td class="col-num muted">${start + index + 1}</td>
+      ${identity}
+      <td class="col-num col-c metric-direct">${fmt(row.direct)}</td>
+      <td class="col-num col-c metric-reference">${fmt(row.reference)}</td>
+      <td class="col-num col-c metric-manual">${fmt(row.manual)}</td>
+      <td class="col-c">${ratioCell(row)}</td>
+    </tr>`;
+  }).join('');
+  renderPager(total, totalPages);
+}
+
+function pageItems(totalPages, current) {
+  if (totalPages <= 10) return Array.from({ length: totalPages }, (_, i) => i + 1);
+  const pages = new Set([1, totalPages, current - 2, current - 1, current, current + 1, current + 2]);
+  const valid = Array.from(pages).filter(page => page >= 1 && page <= totalPages).sort((a, b) => a - b);
+  const items = [];
+  valid.forEach((page, index) => {
+    if (index && page - valid[index - 1] > 1) items.push('…');
+    items.push(page);
+  });
+  return items;
+}
+
+function renderPager(total, totalPages) {
+  document.getElementById('pagerInfo').textContent = `共 ${total} 条`;
+  document.getElementById('pageBtns').innerHTML = pageItems(totalPages, tablePage).map(item =>
+    item === '…'
+      ? '<span class="pager-ellipsis">…</span>'
+      : `<button class="pager-btn ${item === tablePage ? 'cur' : ''}" onclick="goTablePage(0,${item})">${item}</button>`
+  ).join('');
+  document.getElementById('prevBtn').disabled = total === 0 || tablePage <= 1;
+  document.getElementById('nextBtn').disabled = total === 0 || tablePage >= totalPages;
+}
+
+function finishLoad(range, seq) {
+  if (seq !== loadSeq) return;
+  loading = false;
+  document.getElementById('searchBtn').disabled = false;
+  if (forcedState === 'permission') {
+    renderState('permission');
+    return;
+  }
+  if (forcedState === 'error') {
+    renderState('error');
+    return;
+  }
+  TABLE_ROWS = buildRows(range);
+  tablePage = 1;
+  renderTablePage();
+}
+
+function runSearch(options = {}) {
+  if (loading && !options.force) return;
+  const range = validateDateRange();
+  if (!range) return;
+  const seq = ++loadSeq;
+  loading = true;
+  document.getElementById('searchBtn').disabled = true;
+  renderLoading();
+  window.setTimeout(() => finishLoad(range, seq), options.immediate ? 0 : 180);
+}
+
+function retryLoad() {
+  forcedState = '';
+  toast('正在重新统计');
+  runSearch({ force: true });
+}
+
+function goTablePage(delta, absolute) {
+  const totalPages = Math.max(1, Math.ceil(TABLE_ROWS.length / tablePageSize));
+  tablePage = absolute != null ? absolute : tablePage + delta;
+  tablePage = Math.min(Math.max(1, tablePage), totalPages);
+  renderTablePage();
+}
+
+function onTablePageSize() {
+  tablePageSize = Number(document.getElementById('tablePageSize').value) || 20;
+  tablePage = 1;
+  renderTablePage();
+}
+
+function onReset() {
+  document.getElementById('fDept').value = '';
+  document.getElementById('kw').value = '';
+  setDim('account', false);
+  setRange('month', false);
+  runSearch();
+}
+
+let toastTimer;
+function toast(message) {
+  const el = document.getElementById('toast');
+  el.textContent = message;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 1600);
+}
+
+document.getElementById('dateFrom').max = MOCK_TODAY;
+document.getElementById('dateTo').max = MOCK_TODAY;
+document.getElementById('dateFrom').addEventListener('change', () => { ACTIVE_RANGE = ''; updateRangeButtons(); clearDateError(); });
+document.getElementById('dateTo').addEventListener('change', () => { ACTIVE_RANGE = ''; updateRangeButtons(); clearDateError(); });
+setDim('account', false);
+setRange('month', false);
+runSearch();
+</script>
+</body>
+</html>

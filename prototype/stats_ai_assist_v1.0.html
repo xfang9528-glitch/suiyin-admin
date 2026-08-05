@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>AI辅助统计</title>
+  <link rel="stylesheet" href="_admin_list.css">
+  <style>
+    /* SPEC-SUIYIN-ADMIN-009@1.0.0 · R001–R010 */
+    .seg {
+      display: inline-flex;
+      height: 30px;
+      overflow: hidden;
+      border: 1px solid #e5e8ec;
+      border-radius: 3px;
+    }
+    .seg button {
+      height: 30px;
+      padding: 0 12px;
+      border-right: 1px solid #e5e8ec;
+      background: #fff;
+      color: var(--text-2);
+      font-size: 12.5px;
+    }
+    .seg button:last-child { border-right: 0; }
+    .seg button:hover { color: var(--wx-green); }
+    .seg button.active {
+      background: var(--wx-green);
+      color: #fff;
+    }
+    .btn.range-active {
+      border-color: #b9dfc7;
+      background: #f5fbf7;
+      color: var(--wx-green);
+      font-weight: 500;
+    }
+    .btn:disabled {
+      cursor: not-allowed;
+      opacity: .58;
+    }
+    .date-error {
+      display: none;
+      color: #fa5151;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .date-error.show { display: inline; }
+    .f-input.invalid {
+      border-color: #fa5151;
+      box-shadow: 0 0 0 2px rgba(250,81,81,.08);
+    }
+    .scope-tip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-left: auto;
+      color: var(--text-3);
+      font-size: 12px;
+      cursor: help;
+      white-space: nowrap;
+    }
+    .scope-tip:hover .scope-pop,
+    .scope-tip:focus-within .scope-pop { display: block; }
+    .scope-pop {
+      position: fixed;
+      z-index: 220;
+      top: 56px;
+      right: 16px;
+      display: none;
+      width: 400px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,.12);
+      color: var(--text-2);
+      font-size: 12.5px;
+      line-height: 1.7;
+      white-space: normal;
+    }
+    .scope-pop b { color: var(--text-1); font-weight: 600; }
+    .scope-pop .scope-line + .scope-line {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed #edf0f3;
+    }
+    .table-card { min-width: 1080px; }
+    .col-c { text-align: center; }
+    .metric-direct { color: var(--wx-green); }
+    .metric-reference { color: #576b95; }
+    .metric-manual { color: var(--text-2); }
+    .ratio-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-width: 190px;
+    }
+    .ratio-bar {
+      width: 86px;
+      height: 6px;
+      overflow: hidden;
+      border-radius: 3px;
+      background: #edf1f4;
+    }
+    .ratio-bar i {
+      display: block;
+      height: 100%;
+      border-radius: 3px;
+      background: var(--wx-green);
+      transition: width .2s ease;
+    }
+    .ratio-num {
+      min-width: 92px;
+      color: var(--text-2);
+      font-size: 12.5px;
+      font-variant-numeric: tabular-nums;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .ratio-num b { color: var(--text-1); font-weight: 600; }
+    .ratio-num .dash { color: var(--text-3); }
+    .state-wrap {
+      padding: 70px 20px;
+      text-align: center;
+      color: var(--text-3);
+    }
+    .state-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      background: #f5f7fa;
+      color: #a1abb7;
+      font-size: 21px;
+      font-weight: 500;
+    }
+    .state-wrap.error .state-icon {
+      background: #fff4f4;
+      color: #fa5151;
+    }
+    .state-wrap.permission .state-icon {
+      background: #f0f4fa;
+      color: #576b95;
+    }
+    .state-title {
+      color: var(--text-2);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .state-desc {
+      margin-top: 5px;
+      color: var(--text-3);
+      font-size: 12px;
+    }
+    .state-action { margin-top: 14px; }
+    .skeleton-row td { height: 47px; }
+    .skeleton {
+      height: 12px;
+      border-radius: 6px;
+      background: linear-gradient(90deg,#f1f3f5 25%,#f8f9fa 37%,#f1f3f5 63%);
+      background-size: 400% 100%;
+      animation: shimmer 1.2s ease infinite;
+    }
+    .skeleton.short { width: 54%; }
+    .skeleton.medium { width: 72%; }
+    .skeleton.center { width: 58%; margin: 0 auto; }
+    @keyframes shimmer {
+      0% { background-position: 100% 0; }
+      100% { background-position: 0 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="filter-bar">
+  <div class="f-group" style="gap:4px;">
+    <button class="btn sm" data-range="today" onclick="setRange('today')">今天</button>
+    <button class="btn sm" data-range="yesterday" onclick="setRange('yesterday')">昨天</button>
+    <button class="btn sm" data-range="week" onclick="setRange('week')">本周</button>
+    <button class="btn sm" data-range="month" onclick="setRange('month')">本月</button>
+  </div>
+  <div class="f-group">
+    <input class="f-input date" type="date" id="dateFrom" aria-label="开始日期">
+    <span class="f-sep">至</span>
+    <input class="f-input date" type="date" id="dateTo" aria-label="结束日期">
+    <span class="date-error" id="dateError">开始日期不能晚于结束日期</span>
+  </div>
+  <div class="f-group">
+    <span class="f-label">维度</span>
+    <div class="seg" id="segDim">
+      <button data-dim="account" class="active" onclick="setDim('account')">按销售账号</button>
+      <button data-dim="dept" onclick="setDim('dept')">按部门</button>
+    </div>
+  </div>
+  <div class="f-group">
+    <span class="f-label">部门</span>
+    <select class="f-select" id="fDept">
+      <option value="">全部部门</option>
+      <option>抖音IP</option>
+      <option>小红书</option>
+      <option>电商</option>
+      <option>代运营</option>
+      <option>自媒体</option>
+    </select>
+  </div>
+  <div class="f-group" id="grpKw">
+    <input class="f-input wide" id="kw" placeholder="销售账号 / 姓名" onkeydown="if(event.key==='Enter')runSearch()">
+  </div>
+  <button class="btn primary" id="searchBtn" onclick="runSearch()">🔍 搜索</button>
+  <button class="btn" onclick="onReset()">重置</button>
+
+  <span class="scope-tip" tabindex="0">
+    <span>ⓘ 口径说明</span>
+    <span class="scope-pop">
+      <span class="scope-line"><b>统计范围</b>：仅统计销售发出的单聊文本消息；客户消息、群聊、图片、语音等不计。</span>
+      <span class="scope-line"><b>统计起始</b>：从本功能上线后开始累计，本原型自 2026/08/05 00:00 起演示；历史消息不追溯。</span>
+      <span class="scope-line"><b>三类来源</b>：AI 直发、AI 参考、手动录入按消息现有来源标签互斥计数，不根据正文二次推断。</span>
+      <span class="scope-line"><b>AI 辅助率</b> =（AI 直发 + AI 参考）÷（AI 直发 + AI 参考 + 手动录入），只反映使用构成，不代表 AI 已提升客户等级或到店率。</span>
+    </span>
+  </span>
+</div>
+
+<div class="table-wrap">
+  <div class="table-card">
+    <table id="tbl">
+      <thead id="thead"></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pager">
+  <span class="pager-info" id="pagerInfo">共 0 条</span>
+  <select id="tablePageSize" onchange="onTablePageSize()" aria-label="每页条数">
+    <option value="10">10条/页</option>
+    <option value="20" selected>20条/页</option>
+    <option value="50">50条/页</option>
+  </select>
+  <button class="pager-btn" id="prevBtn" onclick="goTablePage(-1)" aria-label="上一页">‹</button>
+  <span id="pageBtns"></span>
+  <button class="pager-btn" id="nextBtn" onclick="goTablePage(1)" aria-label="下一页">›</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="mock-data.js"></script>
+<script>
+/* SPEC-SUIYIN-ADMIN-009@1.0.0
+ * R001/R003/R005：日期、上线边界、筛选与重置
+ * R002/R004/R006：三类来源、账号/部门聚合、合计/占比
+ * R007/R008/R010：全租户页面、完整状态、租户隔离与隐私
+ * R009：不展示等级/到店效果归因
+ */
+const QUERY = new URLSearchParams(location.search);
+const TENANT = QUERY.get('tenant') || 'yestar-sz';
+const DATA_TENANT = 'yestar';
+const MOCK_TODAY = '2026-08-05';
+const STATS_STARTED_AT = '2026-08-05';
+const ACCOUNTS = typeof SALES_ACCOUNTS === 'undefined' ? [] : SALES_ACCOUNTS;
+let forcedState = QUERY.get('state') || '';
+
+let DIM = 'account';
+let ACTIVE_RANGE = 'month';
+let TABLE_ROWS = [];
+let tablePage = 1;
+let tablePageSize = 20;
+let loading = false;
+let loadSeq = 0;
+
+function pad2(n) { return String(n).padStart(2, '0'); }
+function parseLocalDate(value) {
+  const parts = String(value || '').split('-').map(Number);
+  if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
+  return new Date(parts[0], parts[1] - 1, parts[2]);
+}
+function formatLocalDate(date) {
+  return `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;
+}
+function addDays(date, amount) {
+  const copy = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  copy.setDate(copy.getDate() + amount);
+  return copy;
+}
+function maxDate(a, b) { return a > b ? a : b; }
+function minDate(a, b) { return a < b ? a : b; }
+function fmt(n) { return Number(n || 0).toLocaleString('zh-CN'); }
+function escapeHtml(value) {
+  return String(value == null ? '' : value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+function hashString(value) {
+  let hash = 2166136261;
+  for (const ch of String(value)) {
+    hash ^= ch.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function updateRangeButtons() {
+  document.querySelectorAll('[data-range]').forEach(btn => {
+    btn.classList.toggle('range-active', btn.dataset.range === ACTIVE_RANGE);
+  });
+}
+function clearDateError() {
+  document.getElementById('dateError').classList.remove('show');
+  document.getElementById('dateFrom').classList.remove('invalid');
+  document.getElementById('dateTo').classList.remove('invalid');
+}
+function validateDateRange() {
+  const fromInput = document.getElementById('dateFrom');
+  const toInput = document.getElementById('dateTo');
+  const from = parseLocalDate(fromInput.value);
+  const to = parseLocalDate(toInput.value);
+  clearDateError();
+  if (!from || !to || from > to) {
+    document.getElementById('dateError').classList.add('show');
+    fromInput.classList.add('invalid');
+    toInput.classList.add('invalid');
+    return null;
+  }
+  return { from, to };
+}
+
+function setRange(kind, shouldRender = true) {
+  const today = parseLocalDate(MOCK_TODAY);
+  let from = today;
+  let to = today;
+  if (kind === 'yesterday') {
+    from = to = addDays(today, -1);
+  } else if (kind === 'week') {
+    const weekday = today.getDay() || 7;
+    from = addDays(today, -(weekday - 1));
+  } else if (kind === 'month') {
+    from = new Date(today.getFullYear(), today.getMonth(), 1);
+  }
+  document.getElementById('dateFrom').value = formatLocalDate(from);
+  document.getElementById('dateTo').value = formatLocalDate(to);
+  ACTIVE_RANGE = kind;
+  updateRangeButtons();
+  clearDateError();
+  if (shouldRender) runSearch();
+}
+
+function setDim(dim, shouldRender = true) {
+  DIM = dim;
+  document.querySelectorAll('#segDim button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.dim === dim);
+  });
+  document.getElementById('grpKw').style.display = dim === 'account' ? '' : 'none';
+  tablePage = 1;
+  renderHead();
+  if (shouldRender) runSearch();
+}
+
+function eligibleDates(from, to) {
+  const start = maxDate(from, parseLocalDate(STATS_STARTED_AT));
+  const end = minDate(to, parseLocalDate(MOCK_TODAY));
+  if (start > end) return [];
+  const days = [];
+  for (let cursor = start; cursor <= end; cursor = addDays(cursor, 1)) {
+    days.push(new Date(cursor.getFullYear(), cursor.getMonth(), cursor.getDate()));
+  }
+  return days;
+}
+
+function accountCounts(account, accountIndex, dates) {
+  let direct = 0;
+  let reference = 0;
+  let manual = 0;
+  const accountSeed = hashString(account.id || account.name || accountIndex);
+  dates.forEach(date => {
+    const dayIndex = Math.round((date - parseLocalDate(STATS_STARTED_AT)) / 86400000);
+    const seed = (accountSeed + Math.imul(accountIndex + 1, 131) + Math.imul(dayIndex + 1, 53)) >>> 0;
+    let total = 52 + (seed % 91) + Math.round(Number(account.talked || 0) * .12);
+    if ((accountIndex + 1) % 47 === 0 && dates.length === 1) total = 0;
+    const directRate = .16 + ((seed >>> 3) % 17) / 100;
+    const referenceRate = .11 + ((seed >>> 7) % 14) / 100;
+    const dayDirect = Math.round(total * directRate);
+    const dayReference = Math.round(total * referenceRate);
+    direct += dayDirect;
+    reference += dayReference;
+    manual += Math.max(0, total - dayDirect - dayReference);
+  });
+  return { direct, reference, manual };
+}
+
+function enrichCounts(row) {
+  const assisted = row.direct + row.reference;
+  const total = assisted + row.manual;
+  return { ...row, assisted, total, rate: total > 0 ? assisted / total : null };
+}
+
+function buildRows(range) {
+  if (TENANT !== DATA_TENANT || !ACCOUNTS.length) return [];
+  const dates = eligibleDates(range.from, range.to);
+  if (!dates.length) return [];
+
+  const dept = document.getElementById('fDept').value;
+  const keyword = (document.getElementById('kw').value || '').trim().toLowerCase();
+  let accounts = ACCOUNTS.map((account, index) => ({
+    ...account,
+    sourceIndex: index,
+    ...accountCounts(account, index, dates),
+  }));
+  if (dept) accounts = accounts.filter(account => account.dept === dept);
+  if (DIM === 'account' && keyword) {
+    accounts = accounts.filter(account =>
+      String(account.name || '').toLowerCase().includes(keyword) ||
+      String(account.alias || '').toLowerCase().includes(keyword)
+    );
+  }
+
+  if (DIM === 'account') {
+    return accounts.map(enrichCounts).sort((a, b) =>
+      b.assisted - a.assisted || b.total - a.total || String(a.name).localeCompare(String(b.name), 'zh-CN')
+    );
+  }
+
+  const grouped = new Map();
+  accounts.forEach(account => {
+    const key = account.dept || '未分组';
+    if (!grouped.has(key)) grouped.set(key, { dept: key, count: 0, direct: 0, reference: 0, manual: 0 });
+    const row = grouped.get(key);
+    row.count += 1;
+    row.direct += account.direct;
+    row.reference += account.reference;
+    row.manual += account.manual;
+  });
+  return Array.from(grouped.values()).map(enrichCounts).sort((a, b) =>
+    b.assisted - a.assisted || b.total - a.total || String(a.dept).localeCompare(String(b.dept), 'zh-CN')
+  );
+}
+
+function renderHead() {
+  const label = DIM === 'account' ? '销售账号' : '部门';
+  const secondCol = DIM === 'account'
+    ? `<th style="width:210px;">${label}</th><th style="width:120px;">所属部门</th>`
+    : `<th style="width:220px;">${label}</th><th class="col-c" style="width:100px;">账号数</th>`;
+  document.getElementById('thead').innerHTML = `<tr>
+    <th style="width:50px;">#</th>
+    ${secondCol}
+    <th class="col-c" style="width:120px;">AI直发</th>
+    <th class="col-c" style="width:120px;">AI参考</th>
+    <th class="col-c" style="width:120px;">手动录入</th>
+    <th class="col-c" style="width:230px;">AI辅助合计 / 占比</th>
+  </tr>`;
+}
+
+function ratioCell(row) {
+  const pct = row.rate == null ? 0 : Math.round(row.rate * 1000) / 10;
+  const rateText = row.rate == null ? '<span class="dash">—</span>' : `${pct.toFixed(1)}%`;
+  return `<div class="ratio-cell">
+    <div class="ratio-bar" aria-hidden="true"><i style="width:${pct}%"></i></div>
+    <span class="ratio-num"><b>${fmt(row.assisted)} 条</b> · ${rateText}</span>
+  </div>`;
+}
+
+function renderLoading() {
+  renderHead();
+  document.getElementById('tbody').innerHTML = Array.from({ length: 7 }, (_, index) => `<tr class="skeleton-row">
+    <td><div class="skeleton short"></div></td>
+    <td><div class="skeleton ${index % 2 ? 'medium' : ''}"></div></td>
+    <td><div class="skeleton short"></div></td>
+    <td><div class="skeleton center"></div></td>
+    <td><div class="skeleton center"></div></td>
+    <td><div class="skeleton center"></div></td>
+    <td><div class="skeleton medium" style="margin:0 auto;"></div></td>
+  </tr>`).join('');
+  document.getElementById('pagerInfo').textContent = '正在统计…';
+  document.getElementById('pageBtns').innerHTML = '';
+  document.getElementById('prevBtn').disabled = true;
+  document.getElementById('nextBtn').disabled = true;
+}
+
+function stateHtml(kind) {
+  if (kind === 'error') {
+    return `<div class="state-wrap error">
+      <div class="state-icon">!</div>
+      <div class="state-title">统计数据加载失败</div>
+      <div class="state-desc">当前筛选条件已保留，请稍后重试</div>
+      <div class="state-action"><button class="btn ghost" onclick="retryLoad()">重试</button></div>
+    </div>`;
+  }
+  if (kind === 'permission') {
+    return `<div class="state-wrap permission">
+      <div class="state-icon">⌁</div>
+      <div class="state-title">你暂无查看 AI 辅助统计的权限</div>
+      <div class="state-desc">如需查看，请联系管理员开通“数据展示”权限</div>
+    </div>`;
+  }
+  return `<div class="state-wrap">
+    <div class="state-icon">∅</div>
+    <div class="state-title">当前筛选范围内暂无数据</div>
+    <div class="state-desc">本页仅统计功能上线后产生的消息</div>
+  </div>`;
+}
+
+function renderState(kind) {
+  renderHead();
+  document.getElementById('tbody').innerHTML = `<tr><td colspan="7">${stateHtml(kind)}</td></tr>`;
+  TABLE_ROWS = [];
+  tablePage = 1;
+  renderPager(0, 1);
+}
+
+function renderTablePage() {
+  const total = TABLE_ROWS.length;
+  const totalPages = Math.max(1, Math.ceil(total / tablePageSize));
+  tablePage = Math.min(Math.max(1, tablePage), totalPages);
+  const start = (tablePage - 1) * tablePageSize;
+  const rows = TABLE_ROWS.slice(start, start + tablePageSize);
+  if (!rows.length) {
+    renderState('empty');
+    return;
+  }
+  document.getElementById('tbody').innerHTML = rows.map((row, index) => {
+    const identity = DIM === 'account'
+      ? `<td>${escapeHtml(row.name)}</td><td><span class="tag">${escapeHtml(row.dept || '未分组')}</span></td>`
+      : `<td><span class="tag">${escapeHtml(row.dept)}</span></td><td class="col-num col-c">${fmt(row.count)}</td>`;
+    return `<tr>
+      <td class="col-num muted">${start + index + 1}</td>
+      ${identity}
+      <td class="col-num col-c metric-direct">${fmt(row.direct)}</td>
+      <td class="col-num col-c metric-reference">${fmt(row.reference)}</td>
+      <td class="col-num col-c metric-manual">${fmt(row.manual)}</td>
+      <td class="col-c">${ratioCell(row)}</td>
+    </tr>`;
+  }).join('');
+  renderPager(total, totalPages);
+}
+
+function pageItems(totalPages, current) {
+  if (totalPages <= 10) return Array.from({ length: totalPages }, (_, i) => i + 1);
+  const pages = new Set([1, totalPages, current - 2, current - 1, current, current + 1, current + 2]);
+  const valid = Array.from(pages).filter(page => page >= 1 && page <= totalPages).sort((a, b) => a - b);
+  const items = [];
+  valid.forEach((page, index) => {
+    if (index && page - valid[index - 1] > 1) items.push('…');
+    items.push(page);
+  });
+  return items;
+}
+
+function renderPager(total, totalPages) {
+  document.getElementById('pagerInfo').textContent = `共 ${total} 条`;
+  document.getElementById('pageBtns').innerHTML = pageItems(totalPages, tablePage).map(item =>
+    item === '…'
+      ? '<span class="pager-ellipsis">…</span>'
+      : `<button class="pager-btn ${item === tablePage ? 'cur' : ''}" onclick="goTablePage(0,${item})">${item}</button>`
+  ).join('');
+  document.getElementById('prevBtn').disabled = total === 0 || tablePage <= 1;
+  document.getElementById('nextBtn').disabled = total === 0 || tablePage >= totalPages;
+}
+
+function finishLoad(range, seq) {
+  if (seq !== loadSeq) return;
+  loading = false;
+  document.getElementById('searchBtn').disabled = false;
+  if (forcedState === 'permission') {
+    renderState('permission');
+    return;
+  }
+  if (forcedState === 'error') {
+    renderState('error');
+    return;
+  }
+  TABLE_ROWS = buildRows(range);
+  tablePage = 1;
+  renderTablePage();
+}
+
+function runSearch(options = {}) {
+  if (loading && !options.force) return;
+  const range = validateDateRange();
+  if (!range) return;
+  const seq = ++loadSeq;
+  loading = true;
+  document.getElementById('searchBtn').disabled = true;
+  renderLoading();
+  window.setTimeout(() => finishLoad(range, seq), options.immediate ? 0 : 180);
+}
+
+function retryLoad() {
+  forcedState = '';
+  toast('正在重新统计');
+  runSearch({ force: true });
+}
+
+function goTablePage(delta, absolute) {
+  const totalPages = Math.max(1, Math.ceil(TABLE_ROWS.length / tablePageSize));
+  tablePage = absolute != null ? absolute : tablePage + delta;
+  tablePage = Math.min(Math.max(1, tablePage), totalPages);
+  renderTablePage();
+}
+
+function onTablePageSize() {
+  tablePageSize = Number(document.getElementById('tablePageSize').value) || 20;
+  tablePage = 1;
+  renderTablePage();
+}
+
+function onReset() {
+  document.getElementById('fDept').value = '';
+  document.getElementById('kw').value = '';
+  setDim('account', false);
+  setRange('month', false);
+  runSearch();
+}
+
+let toastTimer;
+function toast(message) {
+  const el = document.getElementById('toast');
+  el.textContent = message;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 1600);
+}
+
+document.getElementById('dateFrom').max = MOCK_TODAY;
+document.getElementById('dateTo').max = MOCK_TODAY;
+document.getElementById('dateFrom').addEventListener('change', () => { ACTIVE_RANGE = ''; updateRangeButtons(); clearDateError(); });
+document.getElementById('dateTo').addEventListener('change', () => { ACTIVE_RANGE = ''; updateRangeButtons(); clearDateError(); });
+setDim('account', false);
+setRange('month', false);
+runSearch();
+</script>
+</body>
+</html>
