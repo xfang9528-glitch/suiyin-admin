@@ -1,0 +1,54 @@
+{
+  "updated_at": "2026-09-18T06:53:54.2004555Z",
+  "source": "用户截图 codex-clipboard-327862bd-54ad-4deb-b83e-3004d4d19c6b.png + 用户明确打不开的不用做；2026-09-18 用户追加排除碎银私域并批准剩余实施",
+  "retained": [
+    "yestar-sz",
+    "jbfs",
+    "mengzhua",
+    "bzds",
+    "crrm",
+    "hqjd",
+    "ykjl",
+    "ruixi-kh-xiaowen",
+    "rxxz",
+    "yestar",
+    "yestar-bj",
+    "yestar-gz",
+    "yestar-hz",
+    "yestar-jx",
+    "yzhb"
+  ],
+  "excluded_by_user": [
+    "txjs",
+    "yksy",
+    "ywxz",
+    "sysyljl",
+    "sytest",
+    "lsxc",
+    "ptb",
+    "testing",
+    "testing2",
+    "dargans",
+    "jrjd",
+    "qqml",
+    "zyyp",
+    "uid",
+    "sysy"
+  ],
+  "skipped_unavailable": [
+    {
+      "tenant": "yxjd",
+      "reason": "印象酒店停留在登录页，按用户打不开的不用做跳过"
+    }
+  ],
+  "not_added": [
+    "nycl",
+    "sysycc",
+    "sysycxy",
+    "sysylc",
+    "sysywz",
+    "sysyzt",
+    "sysywzx"
+  ],
+  "note": "平台登记不等于本次范围；截图未划掉的另一个登录页为印象酒店；所有排除仅限制原型任务，不修改线上配置"
+}

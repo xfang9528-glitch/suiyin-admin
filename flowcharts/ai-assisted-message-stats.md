@@ -1,9 +1,12 @@
 # AI 辅助消息使用统计流程
 
+> 2026-09-19 原型展示补充：当前 Shell 按 SPEC-SUIYIN-ADMIN-051@1.1.0 默认提供来源明确的 Mock；下图空态仍适用于合法无结果，不能据此将非成都原型固定为空。009 的统计业务定义不变。
+
 > Source Contract：`SPEC-SUIYIN-ADMIN-009@1.0.0`
 > 更新日期：2026-08-05
 
 ## 页面主流程
+
 
 ```mermaid
 flowchart TD
@@ -26,6 +29,7 @@ flowchart TD
 
 ## 维度切换与聚合
 
+
 ```mermaid
 flowchart LR
     Accounts[按销售账号] --> Switch{切换维度}
@@ -36,6 +40,7 @@ flowchart LR
 ```
 
 ## 数据边界
+
 
 ```mermaid
 flowchart TD

@@ -1,0 +1,24 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-050",
+  "spec_version": "1.0.0",
+  "artifact_class": "static-html",
+  "engineering_handoff": false,
+  "issue_url": null,
+  "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026091901-admin-live-reference/docs/sdd/SPEC-SUIYIN-ADMIN-050/1.0.0",
+  "release_tag": "v2026091901-admin-live-reference",
+  "files": [
+    "spec.md",
+    "plan.md",
+    "tasks.md",
+    "README.md",
+    "remote-sdd-package.json"
+  ],
+  "file_sha256": {
+    "spec.md": "457bbad5da5cb215af7705d8822c838efb4fea8b8ef489f0708798336040f71b",
+    "plan.md": "587d3e7916af9a7521088b38f47101795f6a239ea7c9042db23b71c38894ed47",
+    "tasks.md": "951e70c26554486480bafcc7e9f76598bc4de6ccda9bc61ab92ade3632d51438",
+    "README.md": "2e26585fcd0e218c7cbaf2accde8fa1c17589f18c815a861aca55cc1152f994b"
+  },
+  "generated_at": "2026-09-19",
+  "remote_verification": "performed after push by release process"
+}

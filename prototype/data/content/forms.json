@@ -1,0 +1,3574 @@
+{
+  "aiModelConfig": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "是否启用",
+        "required": false,
+        "text": "是否启用"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "企业可见",
+        "required": false,
+        "text": "企业可见"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入密钥",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "密钥",
+        "required": false,
+        "text": "密钥"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入接口地址",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "接口地址",
+        "required": false,
+        "text": "接口地址"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "0"
+          }
+        ],
+        "label": "最大Token",
+        "required": false,
+        "text": "最大Token"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "模型名称",
+        "required": true,
+        "text": "模型名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "留空则显示模型名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "展示名称",
+        "required": false,
+        "text": "展示名称"
+      },
+      {
+        "controls": [],
+        "label": "企业展示名",
+        "required": false,
+        "text": "企业展示名"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "思考模式",
+        "required": false,
+        "text": "思考模式"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "供应商",
+        "required": true,
+        "text": "供应商"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "场景",
+        "required": true,
+        "text": "场景"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "scope",
+        "required": true,
+        "text": "scope"
+      }
+    ],
+    "text": "",
+    "title": "新增模型配置",
+    "sourceTenant": "bzds"
+  },
+  "allMenu": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入菜单名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "菜单名称",
+        "required": true,
+        "text": "菜单名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入平台菜单名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "平台菜单名称",
+        "required": false,
+        "text": "平台菜单名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入唯一标识",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "唯一标识",
+        "required": true,
+        "text": "唯一标识"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "菜单状态",
+        "required": false,
+        "text": "菜单状态",
+        "options": [
+          "显示",
+          "隐藏"
+        ]
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入菜单路由",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "菜单路由",
+        "required": false,
+        "text": "菜单路由"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入菜单图标",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "菜单图标",
+        "required": false,
+        "text": "菜单图标"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请选择",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "父级菜单",
+        "required": false,
+        "text": "父级菜单"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "1"
+          }
+        ],
+        "label": "排序",
+        "required": false,
+        "text": "排序"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入备注信息信息",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "备注信息",
+        "required": false,
+        "text": "备注信息"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "菜单类型",
+        "required": false,
+        "text": "菜单类型",
+        "options": [
+          "菜单"
+        ]
+      }
+    ],
+    "text": "",
+    "title": "新增菜单",
+    "sourceTenant": "bzds"
+  },
+  "labelMenu": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入标签名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "标签名称",
+        "required": true,
+        "text": "标签名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入平台标签名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "平台标签名称",
+        "required": false,
+        "text": "平台标签名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入唯一标识",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "唯一标识",
+        "required": true,
+        "text": "唯一标识"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "标签状态",
+        "required": false,
+        "text": "标签状态",
+        "options": [
+          "显示",
+          "隐藏"
+        ]
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请选择",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "父级标签",
+        "required": false,
+        "text": "父级标签"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "1"
+          }
+        ],
+        "label": "排序",
+        "required": false,
+        "text": "排序"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入备注信息信息",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "备注信息",
+        "required": false,
+        "text": "备注信息"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "标签类型",
+        "required": false,
+        "text": "标签类型",
+        "options": [
+          "标签"
+        ]
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "标签模版",
+        "required": false,
+        "text": "标签模版"
+      }
+    ],
+    "text": "",
+    "title": "新增标签",
+    "sourceTenant": "bzds"
+  },
+  "versionList": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "版本号",
+        "required": true,
+        "text": "版本号"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "textarea",
+            "value": ""
+          }
+        ],
+        "label": "更新说明",
+        "required": true,
+        "text": "更新说明"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入下载地址",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "平台1",
+        "required": false,
+        "text": "平台1"
+      },
+      {
+        "controls": [],
+        "label": "",
+        "required": false,
+        "text": ""
+      }
+    ],
+    "text": "",
+    "title": "创建版本",
+    "sourceTenant": "bzds"
+  },
+  "voiceModels": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "如：小美的声音",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "名称",
+        "required": true,
+        "text": "名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "T4 模型文件名，如 xiaomei",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "模型文件",
+        "required": true,
+        "text": "模型文件"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "0.0"
+          }
+        ],
+        "label": "基准音高",
+        "required": false,
+        "text": "基准音高"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "所属企业",
+        "required": true,
+        "text": "所属企业"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "状态",
+        "required": true,
+        "text": "状态",
+        "options": [
+          "就绪",
+          "禁用"
+        ]
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "每行一个 OSS 链接",
+            "text": "",
+            "type": "textarea",
+            "value": ""
+          }
+        ],
+        "label": "录音链接",
+        "required": false,
+        "text": "录音链接"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "训练参数等备注",
+            "text": "",
+            "type": "textarea",
+            "value": ""
+          }
+        ],
+        "label": "备注",
+        "required": false,
+        "text": "备注"
+      }
+    ],
+    "text": "",
+    "title": "新增声音模型",
+    "sourceTenant": "bzds"
+  },
+  "prepaymentList": {
+    "fields": [],
+    "text": "",
+    "title": "",
+    "sourceTenant": "crrm"
+  },
+  "incomeConfirm": {
+    "fields": [],
+    "text": "",
+    "title": "",
+    "sourceTenant": "hqjd"
+  },
+  "ykjlIncomeConfirm": {
+    "fields": [],
+    "text": "",
+    "title": "",
+    "sourceTenant": "rxxz"
+  },
+  "caseLibraryDoctors": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入医生姓名",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "医生姓名",
+        "required": true,
+        "text": "医生姓名"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入医生编码",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "医生编码",
+        "required": true,
+        "text": "医生编码"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "科室",
+        "required": true,
+        "text": "科室"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "状态",
+        "required": true,
+        "text": "状态",
+        "options": [
+          "启用",
+          "停用"
+        ]
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入微信号",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "微信号",
+        "required": true,
+        "text": "微信号"
+      },
+      {
+        "controls": [],
+        "label": "首页图",
+        "required": true,
+        "text": "首页图"
+      },
+      {
+        "controls": [],
+        "label": "简介图",
+        "required": true,
+        "text": "简介图"
+      },
+      {
+        "controls": [],
+        "label": "微信二维码",
+        "required": true,
+        "text": "微信二维码"
+      },
+      {
+        "controls": [],
+        "label": "医生简介",
+        "required": true,
+        "text": "医生简介"
+      }
+    ],
+    "text": "",
+    "title": "新增医生",
+    "sourceTenant": "yestar-hz"
+  },
+  "caseLibraryEntries": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "案例医生",
+        "required": true,
+        "text": "案例医生"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "标题",
+        "required": true,
+        "text": "标题"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "状态",
+        "required": false,
+        "text": "状态"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "1"
+          }
+        ],
+        "label": "排序",
+        "required": false,
+        "text": "排序"
+      },
+      {
+        "controls": [],
+        "label": "案例图片",
+        "required": false,
+        "text": "案例图片"
+      },
+      {
+        "controls": [],
+        "label": "案例视频",
+        "required": false,
+        "text": "案例视频"
+      },
+      {
+        "controls": [],
+        "label": "案例详情",
+        "required": false,
+        "text": "案例详情"
+      }
+    ],
+    "text": "",
+    "title": "",
+    "sourceTenant": "yestar-hz"
+  },
+  "caseLibraryMiniPrograms": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "小程序类型",
+        "required": false,
+        "text": "小程序类型"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "状态",
+        "required": true,
+        "text": "状态",
+        "options": [
+          "启用",
+          "停用"
+        ]
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入小程序名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "小程序名称",
+        "required": true,
+        "text": "小程序名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入原始 ID",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "原始 ID",
+        "required": true,
+        "text": "原始 ID"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入 AppID",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "AppID",
+        "required": true,
+        "text": "AppID"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "pages/home/index",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "页面路径",
+        "required": false,
+        "text": "页面路径"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入 AppSecret",
+            "text": "",
+            "type": "password",
+            "value": ""
+          }
+        ],
+        "label": "AppSecret",
+        "required": true,
+        "text": "AppSecret"
+      },
+      {
+        "controls": [],
+        "label": "二维码",
+        "required": true,
+        "text": "二维码"
+      }
+    ],
+    "text": "",
+    "title": "新增小程序",
+    "sourceTenant": "yestar-hz"
+  },
+  "aiEntModelConfig": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "是否启用",
+        "required": false,
+        "text": "是否启用"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入密钥",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "密钥",
+        "required": false,
+        "text": "密钥"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入接口地址",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "接口地址",
+        "required": false,
+        "text": "接口地址"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "模型名称",
+        "required": true,
+        "text": "模型名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "留空则显示模型名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "展示名称",
+        "required": false,
+        "text": "展示名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "思考模式",
+        "required": false,
+        "text": "思考模式"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "供应商",
+        "required": true,
+        "text": "供应商"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "场景",
+        "required": true,
+        "text": "场景"
+      }
+    ],
+    "text": "",
+    "title": "新增企业模型配置",
+    "sourceTenant": "yestar-sz"
+  },
+  "asrLexicon": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "转写时被听错的写法",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "错词",
+        "required": true,
+        "text": "错词"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "纠正后的标准写法",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "正词",
+        "required": true,
+        "text": "正词"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "纠错方式",
+        "required": true,
+        "text": "纠错方式",
+        "options": [
+          "直接纠正",
+          "结合语境"
+        ]
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "大类",
+        "required": false,
+        "text": "大类"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "启用",
+        "required": false,
+        "text": "启用"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入备注",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "备注",
+        "required": false,
+        "text": "备注"
+      }
+    ],
+    "text": "",
+    "title": "新增纠错映射",
+    "sourceTenant": "yestar-sz"
+  },
+  "customerTags": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "标签类型",
+        "required": false,
+        "text": "标签类型"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入标签名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "标签名称",
+        "required": true,
+        "text": "标签名称"
+      }
+    ],
+    "text": "",
+    "title": "新增标签",
+    "sourceTenant": "yestar-sz"
+  },
+  "friendCircle": {
+    "fields": [
+      {
+        "controls": [],
+        "label": "微信号",
+        "required": false,
+        "text": "微信号"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "发布人",
+        "required": false,
+        "text": "发布人"
+      },
+      {
+        "controls": [],
+        "label": "",
+        "required": false,
+        "text": ""
+      }
+    ],
+    "text": "",
+    "title": "",
+    "sourceTenant": "yestar-sz"
+  },
+  "labels": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "模板名称",
+        "required": true,
+        "text": "模板名称"
+      },
+      {
+        "controls": [],
+        "label": "模板内容",
+        "required": true,
+        "text": "模板内容"
+      }
+    ],
+    "text": "",
+    "title": "新增模板",
+    "sourceTenant": "yestar-sz"
+  },
+  "labelsManage": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入分组名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "分组名称",
+        "required": true,
+        "text": "分组名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "0"
+          }
+        ],
+        "label": "排序",
+        "required": false,
+        "text": "排序"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "组内标签",
+        "required": false,
+        "text": "组内标签"
+      }
+    ],
+    "text": "",
+    "title": "新增标签分组",
+    "sourceTenant": "yestar-sz"
+  },
+  "massMessageListYx": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入群发名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "群发名称",
+        "required": true,
+        "text": "群发名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "群发来源",
+        "required": false,
+        "text": "群发来源"
+      },
+      {
+        "controls": [],
+        "label": "选择好友",
+        "required": true,
+        "text": "选择好友"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "15"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "排除聊天好友",
+        "required": false,
+        "text": "排除聊天好友"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "7"
+          }
+        ],
+        "label": "排除新加好友",
+        "required": false,
+        "text": "排除新加好友"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "",
+        "required": true,
+        "text": "",
+        "options": [
+          "文本",
+          "图片",
+          "视频",
+          "公众号文章",
+          "商品",
+          "小程序"
+        ]
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入文本内容",
+            "text": "",
+            "type": "textarea",
+            "value": ""
+          }
+        ],
+        "label": "",
+        "required": true,
+        "text": ""
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "发送方式",
+        "required": true,
+        "text": "发送方式",
+        "options": [
+          "立即发送",
+          "定时发送"
+        ]
+      }
+    ],
+    "text": "",
+    "title": "版本 1",
+    "sourceTenant": "yestar-sz"
+  },
+  "medicalDepartments": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "科室名称",
+        "required": true,
+        "text": "科室名称"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "0"
+          }
+        ],
+        "label": "排序",
+        "required": false,
+        "text": "排序"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "状态",
+        "required": false,
+        "text": "状态"
+      }
+    ],
+    "text": "",
+    "title": "新增科室",
+    "sourceTenant": "yestar-sz"
+  },
+  "medicalDoctors": {
+    "fields": [
+      {
+        "controls": [],
+        "label": "医生照片（可选）",
+        "required": false,
+        "text": "医生照片（可选）"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "医生姓名",
+        "required": true,
+        "text": "医生姓名"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "所属科室",
+        "required": true,
+        "text": "所属科室"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "可预约院区",
+        "required": true,
+        "text": "可预约院区"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "0"
+          }
+        ],
+        "label": "排序",
+        "required": false,
+        "text": "排序"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "状态",
+        "required": false,
+        "text": "状态"
+      }
+    ],
+    "text": "",
+    "title": "新增医生",
+    "sourceTenant": "yestar-sz"
+  },
+  "medicalLocations": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "院区名称",
+        "required": true,
+        "text": "院区名称"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "地址",
+        "required": true,
+        "text": "地址"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": "例如：地铁 3 号线 A 口步行 300 米",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "交通指引",
+        "required": false,
+        "text": "交通指引"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "0"
+          }
+        ],
+        "label": "排序",
+        "required": false,
+        "text": "排序"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "状态",
+        "required": false,
+        "text": "状态"
+      }
+    ],
+    "text": "",
+    "title": "新增院区",
+    "sourceTenant": "yestar-sz"
+  },
+  "medicalProjects": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "项目名称",
+        "required": true,
+        "text": "项目名称"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "父项目",
+        "required": false,
+        "text": "父项目"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "0"
+          }
+        ],
+        "label": "排序",
+        "required": false,
+        "text": "排序"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "本级状态",
+        "required": false,
+        "text": "本级状态"
+      }
+    ],
+    "text": "",
+    "title": "新增预约项目",
+    "sourceTenant": "yestar-sz"
+  },
+  "products": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入商品名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "商品名称",
+        "required": true,
+        "text": "商品名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请选择",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "商品类目",
+        "required": true,
+        "text": "商品类目"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "门店",
+        "required": false,
+        "text": "门店"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "0"
+          }
+        ],
+        "label": "使用次数",
+        "required": false,
+        "text": "使用次数"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "单位",
+        "required": true,
+        "text": "单位"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "30"
+          }
+        ],
+        "label": "佣金比例",
+        "required": false,
+        "text": "佣金比例"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "0"
+          }
+        ],
+        "label": "价格",
+        "required": false,
+        "text": "价格"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入商品卖点",
+            "text": "",
+            "type": "textarea",
+            "value": ""
+          }
+        ],
+        "label": "商品卖点",
+        "required": false,
+        "text": "商品卖点"
+      },
+      {
+        "controls": [],
+        "label": "商品头图",
+        "required": true,
+        "text": "商品头图"
+      },
+      {
+        "controls": [],
+        "label": "商品详情",
+        "required": true,
+        "text": "商品详情"
+      }
+    ],
+    "text": "",
+    "title": "新增商品",
+    "sourceTenant": "yestar-sz"
+  },
+  "promptTemplate": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "场景",
+        "required": true,
+        "text": "场景"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": true,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "绑定模型",
+        "required": false,
+        "text": "绑定模型"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入内容",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "模板名称",
+        "required": true,
+        "text": "模板名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入内容",
+            "text": "",
+            "type": "textarea",
+            "value": ""
+          }
+        ],
+        "label": "模板内容",
+        "required": true,
+        "text": "模板内容"
+      }
+    ],
+    "text": "",
+    "title": "新增模板",
+    "sourceTenant": "yestar-sz"
+  },
+  "remark-demand-mappings": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "输入备注中包含的关键词",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "关键词",
+        "required": true,
+        "text": "关键词"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "第一需求",
+        "required": true,
+        "text": "第一需求"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "启用",
+        "required": false,
+        "text": "启用"
+      }
+    ],
+    "text": "",
+    "title": "新增词条",
+    "sourceTenant": "yestar-sz"
+  },
+  "role": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入角色名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "角色名称",
+        "required": true,
+        "text": "角色名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "超级管理员",
+        "required": false,
+        "text": "超级管理员"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入备注信息",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "备注信息",
+        "required": false,
+        "text": "备注信息"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "权限菜单",
+        "required": false,
+        "text": "权限菜单"
+      }
+    ],
+    "text": "",
+    "title": "新增角色",
+    "sourceTenant": "yestar-sz"
+  },
+  "sahIncomeConfirm": {
+    "fields": [],
+    "text": "",
+    "title": "",
+    "sourceTenant": "yestar-sz"
+  },
+  "sahPrepaymentList": {
+    "fields": [],
+    "text": "",
+    "title": "",
+    "sourceTenant": "yestar-sz"
+  },
+  "salesManage": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": "请输入销售名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "销售名称",
+        "required": true,
+        "text": "销售名称"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": "请输入销售手机号",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "销售手机号",
+        "required": true,
+        "text": "销售手机号"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "15"
+          }
+        ],
+        "label": "单聊数上限",
+        "required": true,
+        "text": "单聊数上限"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "15"
+          }
+        ],
+        "label": "群聊数上限",
+        "required": true,
+        "text": "群聊数上限"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "权限角色",
+        "required": true,
+        "text": "权限角色"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "可聊天账号",
+        "required": false,
+        "text": "可聊天账号"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "销售微信昵称",
+        "required": false,
+        "text": "销售微信昵称"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "师父",
+        "required": false,
+        "text": "师父"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": "请输入核销员编号",
+            "text": "",
+            "type": "number",
+            "value": "0"
+          }
+        ],
+        "label": "核销员编号",
+        "required": false,
+        "text": "核销员编号"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": "请输入管理员编号",
+            "text": "",
+            "type": "number",
+            "value": "0"
+          }
+        ],
+        "label": "管理员编号",
+        "required": false,
+        "text": "管理员编号"
+      }
+    ],
+    "text": "",
+    "title": "新增销售",
+    "sourceTenant": "yestar-sz"
+  },
+  "sensitiveWords": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入敏感词",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "敏感词",
+        "required": true,
+        "text": "敏感词"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "监控方式",
+        "required": true,
+        "text": "监控方式"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "启用",
+        "required": false,
+        "text": "启用"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入备注信息",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "备注信息",
+        "required": false,
+        "text": "备注信息"
+      }
+    ],
+    "text": "",
+    "title": "新增敏感词",
+    "sourceTenant": "yestar-sz"
+  },
+  "sensitiveWordsCustomer": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入客户监控词",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "监控词",
+        "required": true,
+        "text": "监控词"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "启用",
+        "required": false,
+        "text": "启用"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入备注信息",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "备注信息",
+        "required": false,
+        "text": "备注信息"
+      }
+    ],
+    "text": "",
+    "title": "新增客户词监控",
+    "sourceTenant": "yestar-sz"
+  },
+  "topUpList": {
+    "fields": [],
+    "text": "",
+    "title": "",
+    "sourceTenant": "yestar-sz"
+  },
+  "uploadCustomerList": {
+    "fields": [
+      {
+        "controls": [],
+        "label": "",
+        "required": false,
+        "text": ""
+      }
+    ],
+    "text": "",
+    "title": "批量添加客户",
+    "sourceTenant": "yestar-sz"
+  },
+  "wechatStatus": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "账号类型",
+        "required": false,
+        "text": "账号类型",
+        "options": [
+          "个微",
+          "企微"
+        ]
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入人设名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "人设名称",
+        "required": true,
+        "text": "人设名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "代理",
+        "required": false,
+        "text": "代理",
+        "options": [
+          "自动选择",
+          "手动选择"
+        ]
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "combobox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "录入新增分组（点击右下角确认）或下拉选择已有分组",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "群组归属",
+        "required": false,
+        "text": "群组归属"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "combobox",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请选择",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "渠道归属",
+        "required": false,
+        "text": "渠道归属"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "设备类型",
+        "required": true,
+        "text": "设备类型"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "自动通友开关",
+        "required": false,
+        "text": "自动通友开关"
+      }
+    ],
+    "text": "",
+    "title": "添加账号",
+    "sourceTenant": "yestar-sz"
+  },
+  "customerManagement": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入好友昵称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "用户昵称",
+        "required": true,
+        "text": "用户昵称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "拉新销售",
+        "required": true,
+        "text": "拉新销售"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入微信号",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "微信号",
+        "required": false,
+        "text": "微信号"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "性别",
+        "required": false,
+        "text": "性别"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "checkbox",
+            "value": ""
+          }
+        ],
+        "label": "免打扰",
+        "required": false,
+        "text": "免打扰"
+      }
+    ],
+    "text": "",
+    "title": "新增好友",
+    "sourceTenant": "yzhb"
+  },
+  "massMessageList": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入群发名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "群发名称",
+        "required": true,
+        "text": "群发名称"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "群发来源",
+        "required": false,
+        "text": "群发来源"
+      },
+      {
+        "controls": [],
+        "label": "选择好友",
+        "required": false,
+        "text": "选择好友"
+      },
+      {
+        "controls": [],
+        "label": "选择标签",
+        "required": false,
+        "text": "选择标签"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "15"
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "排除聊天好友",
+        "required": false,
+        "text": "排除聊天好友"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "number",
+            "value": "7"
+          }
+        ],
+        "label": "排除新加好友",
+        "required": false,
+        "text": "排除新加好友"
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "select",
+            "value": ""
+          }
+        ],
+        "label": "",
+        "required": true,
+        "text": ""
+      },
+      {
+        "controls": [
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": "请输入文本内容",
+            "text": "",
+            "type": "textarea",
+            "value": ""
+          }
+        ],
+        "label": "",
+        "required": true,
+        "text": ""
+      },
+      {
+        "controls": [
+          {
+            "checked": true,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "checked": false,
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          }
+        ],
+        "label": "发送方式",
+        "required": true,
+        "text": "发送方式",
+        "options": [
+          "立即发送",
+          "定时发送"
+        ]
+      }
+    ],
+    "text": "",
+    "title": "版本 1",
+    "sourceTenant": "yzhb"
+  },
+  "yzhbIncomeConfirm": {
+    "fields": [],
+    "text": "",
+    "title": "",
+    "sourceTenant": "yzhb"
+  },
+  "wechatStatus_edit": {
+    "fields": [
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": "请输入人设名称",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "人设名称",
+        "required": true,
+        "text": "人设名称"
+      },
+      {
+        "controls": [
+          {
+            "disabled": true,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "disabled": true,
+            "placeholder": null,
+            "text": "",
+            "type": "radio",
+            "value": ""
+          },
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "代理",
+        "required": false,
+        "text": "代理",
+        "options": [
+          "自动选择",
+          "手动选择",
+          "ajs-深圳154"
+        ]
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "combobox",
+            "value": ""
+          },
+          {
+            "disabled": false,
+            "placeholder": "录入新增分组（点击右下角确认）或下拉选择已有分组",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "群组归属",
+        "required": false,
+        "text": "群组归属"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "combobox",
+            "value": ""
+          },
+          {
+            "disabled": false,
+            "placeholder": "请选择",
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "渠道归属",
+        "required": false,
+        "text": "渠道归属"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "登录设备",
+        "required": true,
+        "text": "登录设备"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "自动通友开关",
+        "required": false,
+        "text": "自动通友开关"
+      },
+      {
+        "controls": [
+          {
+            "disabled": false,
+            "placeholder": null,
+            "text": "",
+            "type": "text",
+            "value": ""
+          }
+        ],
+        "label": "声音模型",
+        "required": false,
+        "text": "声音模型"
+      }
+    ],
+    "text": "",
+    "title": "设置人设名称"
+  }
+}

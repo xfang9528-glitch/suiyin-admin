@@ -1,0 +1,28 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-051",
+  "spec_version": "1.1.0",
+  "verified_at": "2026-09-19",
+  "dependencies": [
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-009",
+      "version": "1.0.0",
+      "status": "implemented",
+      "reference_type": "byte-identical-read-only-spec",
+      "path": "SPEC-SUIYIN-ADMIN-009/1.0.0/spec.md",
+      "sha256": "b4ec774e9a2c98bff41bce8e916b63c2c00f444b75c488116385df6995b66105",
+      "prototype_override": "051 R007/R010 override only default mock presentation; statistical semantics unchanged"
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-042",
+      "version": "1.0.0",
+      "status": "approved",
+      "reference_type": "existing-private-canonical",
+      "canonical_url": "https://github.com/PetWebOrg/suiyin-admin/blob/6323f8fc869d8cfd1858635cc00eccf6ba55fe04/docs/sdd/SPEC-SUIYIN-ADMIN-042/1.0.0/spec.md",
+      "git_blob_sha": "896e14b1754931bfb7636a9b697fd0189cc5f70c",
+      "commit": "6323f8fc869d8cfd1858635cc00eccf6ba55fe04",
+      "access": "authorized engineers in existing private repository",
+      "remote_verified_by": "gh api contents, 2026-09-19",
+      "reports_copied": false
+    }
+  ]
+}

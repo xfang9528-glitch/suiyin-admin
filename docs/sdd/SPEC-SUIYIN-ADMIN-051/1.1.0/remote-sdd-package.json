@@ -1,0 +1,46 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-051",
+  "spec_version": "1.1.0",
+  "artifact_class": "static-html",
+  "engineering_handoff": false,
+  "issue_url": null,
+  "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026091901-admin-live-reference/docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0",
+  "release_tag": "v2026091901-admin-live-reference",
+  "files": [
+    "spec.md",
+    "plan.md",
+    "tasks.md",
+    "source-convergence.md",
+    "scope-decision.json",
+    "public-data-audit.md",
+    "README.md",
+    "remote-sdd-package.json"
+  ],
+  "file_sha256": {
+    "spec.md": "fdea0faf0173367f3fe8f5dbbd5dcf1843f0059c94ae3f8ae189f6ad478a4517",
+    "plan.md": "75f83a33e1a414bb390ef6cf4725eb12cec0d95b214c2146cda7cb3b29d6238b",
+    "tasks.md": "a549ed38b10e1ee4e9a2847ceff5086ca4c18b810614aa6474af6bdd50c08df9",
+    "source-convergence.md": "fa62bc24a1a8f8704fcb02be07da937929b9b6d9a69a2415fc770a7001d808c1",
+    "scope-decision.json": "3a2d69a008843df0ca9a814dd1582715256022c46b2f1b707bb4c1d72be78124",
+    "public-data-audit.md": "37168e2c1592e1fca3e33c4fba5b13624d279ad60738d5da083edffe594ddaa3",
+    "README.md": "e87311b74888c30a5d11ec08f103e49e32530baf50863feb56ef6cc229c97311"
+  },
+  "generated_at": "2026-09-19",
+  "remote_verification": "performed after push by release process",
+  "dependencies": [
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-009",
+      "version": "1.0.0",
+      "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026091901-admin-live-reference/docs/sdd/dependencies/SPEC-SUIYIN-ADMIN-009/1.0.0/spec.md",
+      "sha256": "b4ec774e9a2c98bff41bce8e916b63c2c00f444b75c488116385df6995b66105",
+      "git_blob_sha": null
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-042",
+      "version": "1.0.0",
+      "canonical_url": "https://github.com/PetWebOrg/suiyin-admin/blob/6323f8fc869d8cfd1858635cc00eccf6ba55fe04/docs/sdd/SPEC-SUIYIN-ADMIN-042/1.0.0/spec.md",
+      "sha256": null,
+      "git_blob_sha": "896e14b1754931bfb7636a9b697fd0189cc5f70c"
+    }
+  ]
+}

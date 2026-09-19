@@ -1,0 +1,5 @@
+# Immutable SDD contracts and source hashes must preserve exact bytes on Windows.
+docs/sdd/** -text
+# Generated self-contained HTML and release integrity manifest are byte-verified online.
+prototype/_shell_inline.html -text
+release.json -text

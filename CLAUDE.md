@@ -1,74 +1,34 @@
-# 碎银管理页原型（suiyin-admin）
+# 碎银 Admin 原型维护入口
 
-佰智德三管理页 HTML 原型。与 `suiyin-pc-chat` / `suiyin-app-chat` 共同组成税银系统三端。
+当前主线：SPEC-SUIYIN-ADMIN-051@1.1.0，十五租户真实界面对照与完整内容迭代。实施前先读 README.md、docs/design-spec.md、docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md；导航阶段合同 050 只在未被 051 明确替代的范围内适用。
 
-## 基本信息
+## 运行与交付
 
-- **客户**：佰智德三（碎银私域 SaaS）
-- **线上参照**：`bzds.wecarepet.com/admin` → `/admin/salesManage`
-- **架构**：各租户数据保持独立；有跨企业权限的管理员可在用户下拉中切换企业，Shell 通过 `?tenant=` 把当前租户传给内容页
-- **技术栈**：纯 HTML + Tailwind（DR-005 原型不引框架）
-- **主题色**：**微信绿 `#07C160`**（**与 PC/APP 端对齐**，舍弃现状青绿 teal）
-- **现状 UI 基准快照**：`memory/suiyin-admin-ui-snapshot.md`（2026-04-11 记录）
+- 纯 HTML/CSS/JavaScript、静态 JSON/资源、本地 Mock；不引入生产框架，不接真实认证或写 API。
+- 对真实后台只读取页面、展开控件后取消，不能保存配置、删除或发送。
+- 只维护本仓 HTML 原型，不跨 Flutter / React / Go 生产仓。
+- 未收到明确“完整推送”时只迭代原型并打开 Chrome；收到后同步 PRD/流程/设计/单文件/远端 SDD，再按工作区规则 direct-master commit/push/tag。
+- 不创建、更新或对账 APP/PC 开发进度表。生产 Issue 需另行明确指令。
 
-## 目录结构
+## 主线结构
 
-```
-suiyin-admin/
-├── CLAUDE.md                    本文件
-├── index.html                   入口页（所有原型页面索引）
-├── prototype/
-│   ├── _shell.html              骨架模板（header + 左侧15菜单 + Chrome Tab + 主内容区）
-│   ├── login_v1.0.html          登录页
-│   ├── sales_v1.0.html          销售管理（首页）
-│   ├── stats_ai_assist_v1.0.html AI 辅助统计（标准页）
-│   ├── stats_ai_assist_v1.0_inline.html AI 辅助统计（单文件交付页）
-│   ├── ...                      其他模块页
-│   ├── _placeholder.html        未截图菜单的占位页
-│   ├── build_inline.mjs         单页 CSS / JS 内联生成工具
-│   └── mock-data.js             共享 mock 数据
-├── prd/                         PRD 文档
-├── flowcharts/                  流程图
-└── docs/                        其他文档
-```
+- prototype/_shell.html：租户导航、页签、iframe 内容。
+- prototype/admin-navigation.js/css 与 admin-menu-state.js：身份、菜单显示与本地覆盖。
+- prototype/admin-content.html/js/css：内容入口和基础表单/列表。
+- prototype/admin-domain-views.js、admin-expanded-flows.js、admin-extra-flows.js、admin-chat.js、admin-page-editors.js：领域页面。
+- prototype/admin-menu-tree.js/css：普通及平台菜单专用树表。
+- prototype/admin-live-ui.css、data/live-ui-reference.js：原网页实采样式、SVG、控件配置。
+- prototype/data/navigation-snapshot.json、data/content/：按租户/路由分隔数据。
+- prototype/_shell_inline.html：由主线生成的离线单文件，不手工改派生产物。
 
-## 骨架约定
+## 当前约定
 
-1. **顶部 Header**（高 56px，微信绿背景 `#07C160`）
-   - 左：云朵 logo + "佰智德三私域"
-   - 右：用户名 + 头像下拉
-2. **左侧一级菜单**（宽 200px，白底，当前项微信绿左边条）
-   - 15 项菜单 + 子菜单展开
-3. **Chrome 式多 Tab**（高 40px，灰底）
-   - 真做：状态保留、可切可关、首页不可关
-4. **主内容区**（`<main>` 占位，`iframe` 或 postMessage 渲染）
+1. 十五租户按本次范围固定，不能从平台全量目录或 PC ENV_ORDER 自动增加环境。碎银私域及截图排除项不出现。
+2. 同名菜单按 route/identity 区分，不能按中文名合并。可见导航与完整菜单库存分开。
+3. 主线采用原站青绿 #00c4af，品牌 #00af9c，顶栏60px、侧栏240px，具体页面按实采配置；以 docs/design-spec.md 为现行设计入口。
+4. 菜单管理必须保留树、权限开关、固定操作及原站空白弹性列，不套用通用搜索/分页表。
+5. Mock 本租户采样优先，参考/合成数据有来源标识。状态按 tenant + route 隔离，公开包不得带敏感聊天、原始凭据或客户联系信息。
+6. AI 默认演示数据非空，但业务统计定义继续按 009@1.0.0；工作账号触达按 042@1.0.0，不混用人数、消息与统计边界。
+7. 数据校验不能替代人工视觉；同租户同视口比较，报告实际覆盖和已知差异。
 
-## 当前 13 项一级菜单
-
-```
-1. 销售管理
-2. 专家管理
-3. 好友管理（好友列表 / 群列表 / 添加好友 / 删退审核 / 好友标签）
-4. 话术管理
-5. 商品管理
-6. 群发管理
-7. PYQ 管理
-8. 分佣管理（分佣明细 / 分佣合计 / 充值确认 / 预付确认 / 收入确认）
-9. 数据展示（14 个子页）
-   - 拉新记录 / 销售统计 / 销售排名 / 回访统计 / 上班记录
-   - 消息占比统计 / 数据查看日志 / 留存统计 / 群发统计 / 朋友圈统计
-   - 销售使用统计 / 话术统计 / **AI 辅助统计** / 群邀请提及率
-10. 聊天管理（全部聊天 / 分配记录 / 销售词控 / 客户词控 / 智能分析）
-11. 微信管理（账号状态 / 拉新文案 / 通友管理）
-12. AI 管理（AI 提示词库 / AI 模型管理）
-13. 系统管理（角色管理 / 菜单管理 / 标签模板管理 / 系统设置）
-```
-
-未截到的菜单骨架里照样显示，点进去走 `_placeholder.html` 占位页。
-
-## 当前维护重点
-
-1. Shell 菜单与 PRD / 站点地图必须同步，不能只新增页面文件。
-2. 统计页优先复用 `_admin_list.css`、`mock-data.js`、话术统计的筛选与分页模式。
-3. AI 辅助统计只累计功能上线后的单聊文本消息；所有租户都显示完整页面，无本租户数据时走普通空态。
-4. 完整推送时生成页面级 `_inline.html`，并在 Chrome 同时验证 Shell 入口与单文件入口。
+旧微信绿/公众号白头、旧租户列表、统一占位等约定已归档至 docs/history/before-admin-live-reference/，只解释旧页面，不作为当前 Shell 指令。

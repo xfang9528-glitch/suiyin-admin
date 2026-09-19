@@ -1,0 +1,198 @@
+{
+  "sourceKind": "mock",
+  "tenant": "yestar",
+  "captured_at": "2026-09-18T13:23:22.474Z",
+  "total": 25103,
+  "points": [
+    {
+      "date": "20260912",
+      "series": {
+        "微信使用数": {
+          "count": 274,
+          "displayedPercent": 9.94,
+          "massCount": 0
+        },
+        "碎银微信数": {
+          "count": 2064,
+          "displayedPercent": 74.89,
+          "massCount": 722
+        },
+        "企微使用数": {
+          "count": 394,
+          "displayedPercent": 14.3,
+          "massCount": 0
+        },
+        "碎银企微数": {
+          "count": 24,
+          "displayedPercent": 0.87,
+          "massCount": 0
+        }
+      },
+      "total": 2756,
+      "displayedSuiyinPercent": 75.76
+    },
+    {
+      "date": "20260913",
+      "series": {
+        "微信使用数": {
+          "count": 325,
+          "displayedPercent": 9.27,
+          "massCount": 0
+        },
+        "碎银微信数": {
+          "count": 2728,
+          "displayedPercent": 77.79,
+          "massCount": 954
+        },
+        "企微使用数": {
+          "count": 421,
+          "displayedPercent": 12,
+          "massCount": 0
+        },
+        "碎银企微数": {
+          "count": 33,
+          "displayedPercent": 0.94,
+          "massCount": 0
+        }
+      },
+      "total": 3507,
+      "displayedSuiyinPercent": 78.73
+    },
+    {
+      "date": "20260914",
+      "series": {
+        "微信使用数": {
+          "count": 376,
+          "displayedPercent": 8.83,
+          "massCount": 0
+        },
+        "碎银微信数": {
+          "count": 3392,
+          "displayedPercent": 79.66,
+          "massCount": 1187
+        },
+        "企微使用数": {
+          "count": 448,
+          "displayedPercent": 10.52,
+          "massCount": 0
+        },
+        "碎银企微数": {
+          "count": 42,
+          "displayedPercent": 0.99,
+          "massCount": 0
+        }
+      },
+      "total": 4258,
+      "displayedSuiyinPercent": 80.65
+    },
+    {
+      "date": "20260915",
+      "series": {
+        "微信使用数": {
+          "count": 427,
+          "displayedPercent": 14.15,
+          "massCount": 0
+        },
+        "碎银微信数": {
+          "count": 2064,
+          "displayedPercent": 68.41,
+          "massCount": 722
+        },
+        "企微使用数": {
+          "count": 475,
+          "displayedPercent": 15.74,
+          "massCount": 0
+        },
+        "碎银企微数": {
+          "count": 51,
+          "displayedPercent": 1.69,
+          "massCount": 0
+        }
+      },
+      "total": 3017,
+      "displayedSuiyinPercent": 70.1
+    },
+    {
+      "date": "20260916",
+      "series": {
+        "微信使用数": {
+          "count": 478,
+          "displayedPercent": 12.69,
+          "massCount": 0
+        },
+        "碎银微信数": {
+          "count": 2728,
+          "displayedPercent": 72.4,
+          "massCount": 954
+        },
+        "企微使用数": {
+          "count": 502,
+          "displayedPercent": 13.32,
+          "massCount": 0
+        },
+        "碎银企微数": {
+          "count": 60,
+          "displayedPercent": 1.59,
+          "massCount": 0
+        }
+      },
+      "total": 3768,
+      "displayedSuiyinPercent": 73.99
+    },
+    {
+      "date": "20260917",
+      "series": {
+        "微信使用数": {
+          "count": 529,
+          "displayedPercent": 11.71,
+          "massCount": 0
+        },
+        "碎银微信数": {
+          "count": 3392,
+          "displayedPercent": 75.06,
+          "massCount": 1187
+        },
+        "企微使用数": {
+          "count": 529,
+          "displayedPercent": 11.71,
+          "massCount": 0
+        },
+        "碎银企微数": {
+          "count": 69,
+          "displayedPercent": 1.53,
+          "massCount": 0
+        }
+      },
+      "total": 4519,
+      "displayedSuiyinPercent": 76.59
+    },
+    {
+      "date": "20260918",
+      "series": {
+        "微信使用数": {
+          "count": 580,
+          "displayedPercent": 17.69,
+          "massCount": 0
+        },
+        "碎银微信数": {
+          "count": 2064,
+          "displayedPercent": 62.97,
+          "massCount": 722
+        },
+        "企微使用数": {
+          "count": 556,
+          "displayedPercent": 16.96,
+          "massCount": 0
+        },
+        "碎银企微数": {
+          "count": 78,
+          "displayedPercent": 2.38,
+          "massCount": 0
+        }
+      },
+      "total": 3278,
+      "displayedSuiyinPercent": 65.34
+    }
+  ],
+  "scope": "合成演示趋势，不代表线上统计事实；租户数据键独立。"
+}

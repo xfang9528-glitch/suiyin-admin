@@ -1,0 +1,178 @@
+{
+  "source": "yestar-sz-message-stats-tooltips.json",
+  "captured_at": "2026-09-18T06:08:15.854Z",
+  "tenant": "yestar-sz",
+  "url": "https://yestar-sz.wecarepet.com/admin/messageStats",
+  "filters": {
+    "from": "2026-09-12",
+    "to": "2026-09-18",
+    "period": "自然日",
+    "persona": "全部人设",
+    "excludeMassMessages": false
+  },
+  "total": 936804,
+  "points": [
+    {
+      "date": "20260912",
+      "series": {
+        "微信使用数": {
+          "count": 10007,
+          "displayedPercent": 5.54
+        },
+        "碎银微信数": {
+          "count": 167045,
+          "displayedPercent": 92.48
+        },
+        "企微使用数": {
+          "count": 3454,
+          "displayedPercent": 1.91
+        },
+        "碎银企微数": {
+          "count": 118,
+          "displayedPercent": 0.07
+        }
+      },
+      "total": 180624,
+      "displayedSuiyinPercent": 92.55
+    },
+    {
+      "date": "20260913",
+      "series": {
+        "微信使用数": {
+          "count": 11317,
+          "displayedPercent": 10.85
+        },
+        "碎银微信数": {
+          "count": 88879,
+          "displayedPercent": 85.21
+        },
+        "企微使用数": {
+          "count": 3841,
+          "displayedPercent": 3.68
+        },
+        "碎银企微数": {
+          "count": 274,
+          "displayedPercent": 0.26
+        }
+      },
+      "total": 104311,
+      "displayedSuiyinPercent": 85.47
+    },
+    {
+      "date": "20260914",
+      "series": {
+        "微信使用数": {
+          "count": 10483,
+          "displayedPercent": 28.54
+        },
+        "碎银微信数": {
+          "count": 20419,
+          "displayedPercent": 55.59
+        },
+        "企微使用数": {
+          "count": 5598,
+          "displayedPercent": 15.24
+        },
+        "碎银企微数": {
+          "count": 230,
+          "displayedPercent": 0.63
+        }
+      },
+      "total": 36730,
+      "displayedSuiyinPercent": 56.22
+    },
+    {
+      "date": "20260915",
+      "series": {
+        "微信使用数": {
+          "count": 23032,
+          "displayedPercent": 16.43
+        },
+        "碎银微信数": {
+          "count": 99834,
+          "displayedPercent": 71.21
+        },
+        "企微使用数": {
+          "count": 17018,
+          "displayedPercent": 12.14
+        },
+        "碎银企微数": {
+          "count": 315,
+          "displayedPercent": 0.22
+        }
+      },
+      "total": 140199,
+      "displayedSuiyinPercent": 71.43
+    },
+    {
+      "date": "20260916",
+      "series": {
+        "微信使用数": {
+          "count": 26981,
+          "displayedPercent": 14.6
+        },
+        "碎银微信数": {
+          "count": 137505,
+          "displayedPercent": 74.4
+        },
+        "企微使用数": {
+          "count": 20191,
+          "displayedPercent": 10.93
+        },
+        "碎银企微数": {
+          "count": 130,
+          "displayedPercent": 0.07
+        }
+      },
+      "total": 184807,
+      "displayedSuiyinPercent": 74.47
+    },
+    {
+      "date": "20260917",
+      "series": {
+        "微信使用数": {
+          "count": 15100,
+          "displayedPercent": 5.53
+        },
+        "碎银微信数": {
+          "count": 247095,
+          "displayedPercent": 90.44
+        },
+        "企微使用数": {
+          "count": 10695,
+          "displayedPercent": 3.91
+        },
+        "碎银企微数": {
+          "count": 321,
+          "displayedPercent": 0.12
+        }
+      },
+      "total": 273211,
+      "displayedSuiyinPercent": 90.56
+    },
+    {
+      "date": "20260918",
+      "series": {
+        "微信使用数": {
+          "count": 4341,
+          "displayedPercent": 25.65
+        },
+        "碎银微信数": {
+          "count": 7706,
+          "displayedPercent": 45.54
+        },
+        "企微使用数": {
+          "count": 4815,
+          "displayedPercent": 28.45
+        },
+        "碎银企微数": {
+          "count": 60,
+          "displayedPercent": 0.35
+        }
+      },
+      "total": 16922,
+      "displayedSuiyinPercent": 45.89
+    }
+  ],
+  "scope": "仅该筛选快照；比例算术吻合不等于已验证服务端完整统计口径"
+}

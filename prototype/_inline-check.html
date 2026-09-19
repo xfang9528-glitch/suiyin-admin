@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8"><title>完整单文件验收</title><style>body{font:14px system-ui;padding:24px}iframe{width:1480px;height:1000px;border:0}pre{white-space:pre-wrap}button{padding:10px}</style><h1>完整单文件验收</h1><p>以 HTTP 载入单文件，核对内嵌资源、全部租户菜单、编辑弹窗及页面切换。独立 QA 存储。</p><button id="run">开始单文件验收</button><pre id="report">待运行</pre><div id="stage"></div><script>
+const results=[],report=document.querySelector('#report'),stage=document.querySelector('#stage');let frame;
+const check=(name,passed,detail='')=>{results.push({name,passed:!!passed,detail});report.textContent=JSON.stringify({checks:results.length,passed:results.filter(x=>x.passed).length,failed:results.filter(x=>!x.passed)},null,2);};
+const wait=fn=>new Promise((resolve,reject)=>{const start=Date.now(),id=setInterval(()=>{try{if(fn()){clearInterval(id);resolve();}else if(Date.now()-start>20000){clearInterval(id);reject(Error('页面等待超时'));}}catch{}},30)});
+async function load(tenant,page,inline=true){frame?.remove();frame=document.createElement('iframe');frame.src=(inline?'_shell_inline.html':'_shell.html')+'?tenant='+tenant+'&page='+page+'&qa=1';stage.append(frame);await wait(()=>frame.contentDocument?.querySelector('.frame-wrap:not([hidden]) iframe')?.contentDocument?.body.dataset.contentReady==='true');return frame.contentDocument;}
+const inner=d=>d.querySelector('.frame-wrap:not([hidden]) iframe').contentDocument;
+const metrics=d=>{const t=inner(d).querySelector('.menu-tree-table'),w=inner(d).defaultView;return {rows:t.tBodies[0].rows.length,columns:t.tHead.rows[0].cells.length,font:w.getComputedStyle(t).fontSize,rowHeight:t.tBodies[0].rows[0].getBoundingClientRect().height};};
+document.querySelector('#run').onclick=async()=>{document.querySelector('#run').disabled=true;results.length=0;try{
+ const nav=await fetch('data/navigation-snapshot.json').then(r=>r.json());
+ for(const tenant of nav.tenants){const ordinary=await load(tenant.id,'menu',false),baseline=metrics(ordinary);const d=await load(tenant.id,'menu'),c=inner(d);check(tenant.id+' 单文件菜单与目录版一致',JSON.stringify(metrics(d))===JSON.stringify(baseline));check(tenant.id+' 资源完整内嵌',!d.querySelector('script[src],link[rel=stylesheet][href]')&&!c.querySelector('script[src],link[rel=stylesheet][href]')&&d.querySelector('iframe').hasAttribute('srcdoc')&&[...d.images,...c.images].every(i=>i.src.startsWith('data:')));}
+ let d=await load('yestar-sz','menu'),c=inner(d);const edit=[...c.querySelectorAll('tbody tr button')].find(b=>b.textContent.trim()==='编辑');edit.click();check('内嵌菜单编辑弹窗打开',c.querySelector('dialog').open&&c.querySelector('dialog input'));
+ const cancel=[...c.querySelectorAll('dialog button')].find(b=>b.textContent.replace(/\s/g,'')==='取消');cancel.click();check('内嵌弹窗关闭',!c.querySelector('dialog').open);
+ const sales=[...d.querySelectorAll('.nav-button')].find(b=>b.textContent.trim()==='销售管理');sales.click();await wait(()=>inner(d).body.dataset.contentReady==='true');c=inner(d);check('内嵌页签切换有内容',c.querySelectorAll('tbody tr').length>0&&d.querySelectorAll('[role=tab]').length>=2);
+ d=await load('yestar-sz','wechatStatus');c=inner(d);check('帐号页下拉及表格样本',c.querySelectorAll('tbody tr').length>0&&[...c.querySelectorAll('select')].every(s=>s.options.length>1));
+ d=await load('yestar-sz','allChat');c=inner(d);check('聊天页内嵌样本',c.querySelectorAll('.contact').length>0);
+ check('子页仅使用内嵌资源',frame.contentWindow.performance.getEntriesByType('resource').length===0&&[...frame.contentDocument.querySelectorAll('iframe')].every(f=>f.contentWindow.performance.getEntriesByType('resource').length===0));
+ }catch(error){check('验收执行',false,String(error));}finally{frame?.remove();report.dataset.complete='true';document.querySelector('#run').disabled=false;}}
+</script>

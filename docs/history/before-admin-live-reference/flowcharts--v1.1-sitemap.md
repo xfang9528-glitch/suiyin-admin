@@ -1,0 +1,197 @@
+> 历史资料，2026-09-19 已由 SPEC-SUIYIN-ADMIN-051@1.1.0 取代本次主线的视觉、租户入口和 Mock 呈现约定。仅解释旧页面，不作为当前 Shell 实施依据。
+
+# 管理后台 v1.1 站点地图 + 主流程
+
+## 站点地图
+
+```mermaid
+graph LR
+    Login[登录页] --> Shell[骨架 _shell.html]
+    Shell --> M1[销售管理]
+    Shell --> M2[专家管理]
+    Shell --> M3[好友管理]
+    Shell --> M4[话术管理]
+    Shell --> M5[商品管理]
+    Shell --> M6[群发管理]
+    Shell --> M7[PYQ 管理]
+    Shell --> M8[分佣管理]
+    Shell --> M9[数据展示]
+    Shell --> M10[聊天管理]
+    Shell --> M11[微信管理]
+    Shell --> M12[AI 管理]
+    Shell --> M13[系统管理]
+
+    M2 --> M2a[专家信息]
+    M3 --> M3a[好友列表]
+    M3 --> M3b[群列表]
+    M3 --> M3c[添加好友]
+    M3 --> M3d[删退审核]
+    M3 --> M3e[好友标签]
+
+    M8 --> M8a[分佣明细]
+    M8 --> M8b[分佣合计]
+    M8 --> M8c[充值确认]
+    M8 --> M8d[预付确认]
+    M8 --> M8e[收入确认]
+
+    M9 --> M9a[拉新记录]
+    M9 --> M9b[销售统计]
+    M9 --> M9c[销售排名]
+    M9 --> M9d[回访统计]
+    M9 --> M9e[上班记录]
+    M9 --> M9f[消息占比统计]
+    M9 --> M9g[数据查看日志]
+    M9 --> M9h[留存统计]
+    M9 --> M9i[群发统计]
+    M9 --> M9j[朋友圈统计]
+    M9 --> M9k[销售使用统计]
+    M9 --> M9l[话术统计]
+    M9 --> M9m[AI 辅助统计]
+    M9 --> M9n[群邀请提及率]
+
+    M10 --> M10a[全部聊天]
+    M10 --> M10b[分配记录]
+    M10 --> M10c[销售词控]
+    M10 --> M10d[客户词控]
+    M10 --> M10e[智能分析]
+
+    M11 --> M11a[账号状态]
+    M11 --> M11b[拉新文案]
+    M11 --> M11c[通友管理]
+
+    M12 --> M12a[AI提示词库]
+    M12 --> M12b[模型配置]
+
+    M13 --> M13a[角色管理]
+    M13 --> M13b[菜单管理]
+    M13 --> M13c[标签模板管理]
+    M13 --> M13d[系统设置]
+```
+
+## 主交互流程：账号状态 → 查看可接待人（2026-07-17）
+
+```mermaid
+flowchart TD
+    Enter[进入微信管理 → 账号状态] --> Filter[筛选：人设名称 / 群组 / 状态]
+    Filter --> Table[账号状态宽表格]
+    Table --> ReceptionCol[状态右侧「可接待人」列]
+    ReceptionCol --> Show3[单元格展示前三人]
+    Show3 --> HasMore{是否超过 3 人?}
+    HasMore -->|否| End[仅展示名单]
+    HasMore -->|是| More[显示 查看更多（N）]
+    More --> Modal[点击打开完整可接待人列表弹窗]
+    Modal --> FullList[展示全部可接待人 + 群组/渠道上下文]
+    FullList --> Close[Esc / 右上角关闭 / 点遮罩关闭]
+```
+
+## 主交互流程：右上角头像 → 切换企业（同步 PC 列表）
+
+```mermaid
+flowchart TD
+    User[点击右上角房昕头像] --> Menu[用户下拉菜单]
+    Menu --> TenantList[切换企业列表]
+    TenantList --> Order[列表顺序与 PC 端 ENV_ORDER 一致]
+    Order --> Pick{选择企业}
+    Pick -->|当前企业| Close[关闭菜单]
+    Pick -->|其他企业| Switch[更新 currentTenant / SHELL_TENANT]
+    Switch --> Brand[更新顶栏品牌名]
+    Brand --> Reload[已打开 iframe 带 ?tenant=id 重载]
+    Reload --> Toast[Toast: 已切换到企业]
+```
+
+## 主交互流程：批量添加客户（3 步向导）
+
+```mermaid
+flowchart TD
+    Start([点击 + 批量添加客户]) --> S1[Step 1: 选择 xlsx 文件]
+    S1 -->|有效 xlsx| Parse[系统解析客户清单]
+    S1 -->|格式错误| Toast[Toast: 仅支持 .xlsx]
+    Parse --> S2[Step 2: 表格逐行核对<br/>手机号/销售/兴趣点/合作方/验证消息/微信号]
+    S2 -->|编辑销售归属| Update[逐行修改]
+    S2 -->|确认提交| Group[按销售拆批次]
+    Group --> Push[push 到任务队列]
+    Push --> S3[Step 3: 完成提示<br/>已生成 N 个批次任务]
+    S3 -->|关闭弹窗| List[列表刷新看进度]
+```
+
+## 主交互流程：群发管理（创建 → 监控 → 复盘）
+
+```mermaid
+flowchart TD
+    Create[+ 创建群发] --> Form[填写：标题/目标范围/账号/内容/时间/间隔]
+    Form -->|立即发送| RunNow[加入执行队列]
+    Form -->|定时| Wait[等待设定时间]
+    Wait --> RunNow
+    RunNow --> Sending[执行中：进度条 + 实时统计]
+    Sending -->|手动暂停| Paused[已暂停]
+    Sending -->|手动取消| Canceled[已取消]
+    Sending -->|执行完毕| Done[已完成]
+    Paused -->|继续| Sending
+    Done --> Stats[群发统计页查看回复率]
+```
+
+## 主交互流程：群发统计 → 回复列表（2026-05-25）
+
+```mermaid
+flowchart LR
+    Enter[进入数据展示 → 群发统计] --> Filter[筛选：日期 + 类型5选1 + 任务名]
+    Filter --> List[列表 7 列<br/>任务/类型/日期/内容/数量/回复人数/回复率]
+    List -->|点行内「查看回复」| Reply[回复列表子视图 9 列]
+    Reply --> Cols[头像 / 昵称 / 人设 / 回复类型 /<br/>★ 用户等级AI / ★ 第一需求AI /<br/>回复内容 / 回复时间 / 回复延迟]
+    Reply -->|点「← 返回」| List
+    Reply -->|导出| Excel[导出 Excel]
+```
+
+
+## 主交互流程：删退审核
+
+```mermaid
+flowchart LR
+    Submit[销售/客户提交申请] --> Pending[待审核]
+    Pending -->|管理员单条审核| Choice{结果?}
+    Pending -->|批量勾选 + 批量审核| BatchChoice{批量结果?}
+    Choice -->|通过| Approved[已通过 → 执行删除]
+    Choice -->|驳回| Rejected[已驳回]
+    Choice -->|延期| Pending
+    BatchChoice -->|通过/驳回/延期| Apply[批量应用到所选条目]
+```
+
+## 主交互流程：群邀请提及率（管理者催办路径）
+
+```mermaid
+flowchart TD
+    Enter[进入数据展示 → 群邀请提及率] --> Filter[选择时段 + 维度 + 群多选]
+    Filter --> Sort[列表按提及率升序<br/>最差靠前]
+    Sort --> Pick{管理者关注哪行?}
+    Pick -->|看销售个体差异| Click1[点销售行的"明细"按钮]
+    Pick -->|直接催办未邀清单| Click2[点红色"未邀好友 N 人"]
+    Click1 --> Modal[明细 modal · 默认未邀 tab]
+    Click2 --> Modal
+    Modal -->|按加好友时间倒序| UnList[未邀清单<br/>最新加的好友最紧急]
+    Modal -->|切换 tab| InList[已邀清单<br/>含邀请话术原文 + 邀请时间]
+    UnList -->|线下找销售沟通| Action[催办销售跟进]
+    Action --> Recheck[隔几天回查提及率是否上升]
+```
+
+## 主交互流程：AI 辅助统计（2026-08-05）
+
+```mermaid
+flowchart TD
+    EnterAI[进入数据展示 → AI 辅助统计] --> DefaultAI[默认本月 / 按销售账号 / 全部部门]
+    DefaultAI --> FilterAI[快捷日期或自定义日期 + 部门 + 账号关键词]
+    FilterAI --> DateValid{开始日期不晚于结束日期?}
+    DateValid -->|否| InlineError[日期旁提示且保留旧结果]
+    DateValid -->|是| LoadAI[按当前租户加载上线后统计]
+    LoadAI --> PermissionAI{有数据展示权限?}
+    PermissionAI -->|否| DeniedAI[显示无权限说明]
+    PermissionAI -->|是| LoadResult{加载是否成功?}
+    LoadResult -->|否| ErrorAI[失败说明 + 重试]
+    LoadResult -->|是| HasDataAI{当前租户 / 时段有上线后数据?}
+    HasDataAI -->|否| EmptyAI[完整筛选与表头 + 普通空态]
+    HasDataAI -->|是| AccountAI[账号表：三类数量 + AI 辅助合计 / 占比]
+    AccountAI --> SwitchAI{切换按部门?}
+    SwitchAI -->|是| DeptAI[账号数量求和；占比按部门汇总重算]
+    SwitchAI -->|否| AccountAI
+```
+
+详细状态与统计口径见 `flowcharts/ai-assisted-message-stats.md` 与 `SPEC-SUIYIN-ADMIN-009@1.0.0`。

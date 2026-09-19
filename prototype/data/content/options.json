@@ -1,0 +1,3344 @@
+[
+  {
+    "tenant": "bzds",
+    "route": "products",
+    "context": "edit",
+    "label": "商品类目",
+    "multiple": false,
+    "options": [
+      {
+        "text": "课程",
+        "disabled": false
+      },
+      {
+        "text": "用品",
+        "disabled": false
+      },
+      {
+        "text": "活动",
+        "disabled": false
+      },
+      {
+        "text": "费用",
+        "disabled": false
+      }
+    ],
+    "evidence": "bzds--products--edit-options.json"
+  },
+  {
+    "tenant": "bzds",
+    "route": "products",
+    "context": "edit",
+    "label": "单位",
+    "multiple": false,
+    "options": [
+      {
+        "text": "鞍时",
+        "disabled": false
+      },
+      {
+        "text": "次",
+        "disabled": false
+      },
+      {
+        "text": "件",
+        "disabled": false
+      },
+      {
+        "text": "分钟",
+        "disabled": false
+      }
+    ],
+    "evidence": "bzds--products--edit-options.json"
+  },
+  {
+    "tenant": "jbfs",
+    "route": "customerManagement",
+    "context": "assign",
+    "label": "专属销售",
+    "multiple": false,
+    "options": [
+      {
+        "text": "艾俊莉",
+        "disabled": false
+      },
+      {
+        "text": "陈聪（工程师）",
+        "disabled": false
+      },
+      {
+        "text": "陈宣宇（工程师）",
+        "disabled": false
+      },
+      {
+        "text": "春艳",
+        "disabled": false
+      },
+      {
+        "text": "丹丹",
+        "disabled": false
+      },
+      {
+        "text": "丁丁",
+        "disabled": false
+      },
+      {
+        "text": "房昕",
+        "disabled": false
+      },
+      {
+        "text": "甘汶灵",
+        "disabled": false
+      },
+      {
+        "text": "高金鹏",
+        "disabled": false
+      },
+      {
+        "text": "黄姐",
+        "disabled": false
+      },
+      {
+        "text": "李建林（测试）",
+        "disabled": false
+      },
+      {
+        "text": "李锦钰",
+        "disabled": false
+      },
+      {
+        "text": "梁晨（工程师）",
+        "disabled": false
+      },
+      {
+        "text": "刘宸悦",
+        "disabled": false
+      },
+      {
+        "text": "美蓉",
+        "disabled": false
+      },
+      {
+        "text": "宋舒豫",
+        "disabled": false
+      },
+      {
+        "text": "唐惠",
+        "disabled": false
+      },
+      {
+        "text": "唐唐",
+        "disabled": false
+      },
+      {
+        "text": "王争（工程师）",
+        "disabled": false
+      },
+      {
+        "text": "王梓先",
+        "disabled": false
+      },
+      {
+        "text": "小琴",
+        "disabled": false
+      },
+      {
+        "text": "熊林原",
+        "disabled": false
+      },
+      {
+        "text": "张拓（工程师）",
+        "disabled": false
+      },
+      {
+        "text": "赵培欣",
+        "disabled": false
+      }
+    ],
+    "evidence": "jbfs--customerManagement--assign-options.json"
+  },
+  {
+    "tenant": "jbfs",
+    "route": "massMessageCreate",
+    "context": "filter",
+    "label": "群发来源",
+    "multiple": false,
+    "options": [
+      {
+        "text": "营销",
+        "disabled": false
+      },
+      {
+        "text": "留存",
+        "disabled": false
+      }
+    ],
+    "evidence": "jbfs--massMessageCreate--filter-options.json"
+  },
+  {
+    "tenant": "jbfs",
+    "route": "massMessageCreate",
+    "context": "filter",
+    "label": "排除聊天好友",
+    "multiple": false,
+    "options": [
+      {
+        "text": "好友发送",
+        "disabled": false
+      },
+      {
+        "text": "销售发送",
+        "disabled": false
+      },
+      {
+        "text": "双方发送",
+        "disabled": false
+      }
+    ],
+    "evidence": "jbfs--massMessageCreate--filter-options.json"
+  },
+  {
+    "tenant": "jbfs",
+    "route": "massMessageCreate",
+    "context": "filter",
+    "label": "文本",
+    "multiple": false,
+    "options": [
+      {
+        "text": "文本",
+        "disabled": false
+      },
+      {
+        "text": "图片",
+        "disabled": false
+      },
+      {
+        "text": "视频",
+        "disabled": false
+      },
+      {
+        "text": "公众号文章",
+        "disabled": false
+      },
+      {
+        "text": "商品",
+        "disabled": false
+      },
+      {
+        "text": "小程序",
+        "disabled": false
+      }
+    ],
+    "evidence": "jbfs--massMessageCreate--filter-options.json"
+  },
+  {
+    "tenant": "jbfs",
+    "route": "products",
+    "context": "filter",
+    "label": "商品状态",
+    "multiple": false,
+    "options": [
+      {
+        "text": "未上架",
+        "disabled": false
+      },
+      {
+        "text": "已上架",
+        "disabled": false
+      }
+    ],
+    "evidence": "jbfs--products--filter-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "medicalDoctors",
+    "context": "edit",
+    "label": "所属科室",
+    "multiple": false,
+    "options": [
+      {
+        "text": "整形医生",
+        "disabled": false
+      },
+      {
+        "text": "皮肤医生",
+        "disabled": false
+      },
+      {
+        "text": "注射医生",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--medicalDoctors--edit-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "medicalDoctors",
+    "context": "edit",
+    "label": "可预约院区",
+    "multiple": true,
+    "options": [
+      {
+        "text": "深圳艺星",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--medicalDoctors--edit-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "salesManage",
+    "context": "edit",
+    "label": "权限角色",
+    "multiple": true,
+    "options": [
+      {
+        "text": "销售",
+        "disabled": false
+      },
+      {
+        "text": "接待",
+        "disabled": false
+      },
+      {
+        "text": "渠道主管",
+        "disabled": false
+      },
+      {
+        "text": "渠道组长",
+        "disabled": false
+      },
+      {
+        "text": "扫街人",
+        "disabled": false
+      },
+      {
+        "text": "管理员",
+        "disabled": false
+      },
+      {
+        "text": "工程师",
+        "disabled": false
+      },
+      {
+        "text": "拉新人",
+        "disabled": false
+      },
+      {
+        "text": "财务",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--salesManage--edit-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "salesManage",
+    "context": "edit",
+    "label": "可聊天账号",
+    "multiple": true,
+    "options": [
+      {
+        "text": "星星-王洁",
+        "disabled": false
+      },
+      {
+        "text": "柚子-陈平",
+        "disabled": false
+      },
+      {
+        "text": "佑佑-陈平",
+        "disabled": false
+      },
+      {
+        "text": "佳佳-卿晓悦",
+        "disabled": false
+      },
+      {
+        "text": "刘怡情",
+        "disabled": false
+      },
+      {
+        "text": "可可-肖瑶",
+        "disabled": false
+      },
+      {
+        "text": "吴优-王祝萍",
+        "disabled": false
+      },
+      {
+        "text": "娜-齐亚萍",
+        "disabled": false
+      },
+      {
+        "text": "小乔-罗媛媛",
+        "disabled": false
+      },
+      {
+        "text": "小南-刘仁南",
+        "disabled": false
+      },
+      {
+        "text": "小米-吴晓妍",
+        "disabled": false
+      },
+      {
+        "text": "小鱼-张璐璐",
+        "disabled": false
+      },
+      {
+        "text": "小鹿 -张璐璐",
+        "disabled": false
+      },
+      {
+        "text": "悠悠-吴晓妍",
+        "disabled": false
+      },
+      {
+        "text": "昭昭 -卿晓悦",
+        "disabled": false
+      },
+      {
+        "text": "暖暖-廖永峰",
+        "disabled": false
+      },
+      {
+        "text": "杨云",
+        "disabled": false
+      },
+      {
+        "text": "橙子-廖永峰",
+        "disabled": false
+      },
+      {
+        "text": "沫沫-李双阳",
+        "disabled": false
+      },
+      {
+        "text": "涵涵-赵可欣",
+        "disabled": false
+      },
+      {
+        "text": "深圳艺星小雨",
+        "disabled": false
+      },
+      {
+        "text": "玲玲-罗媛媛",
+        "disabled": false
+      },
+      {
+        "text": "珠珠 -任小改",
+        "disabled": false
+      },
+      {
+        "text": "甜-齐亚萍",
+        "disabled": false
+      },
+      {
+        "text": "童童-童洁",
+        "disabled": false
+      },
+      {
+        "text": "糖糖-赵可欣",
+        "disabled": false
+      },
+      {
+        "text": "羊羊-郑惠龄",
+        "disabled": false
+      },
+      {
+        "text": "芮芮刘仁南",
+        "disabled": false
+      },
+      {
+        "text": "邓邓-邓铿玲",
+        "disabled": false
+      },
+      {
+        "text": "金金-张艳玲",
+        "disabled": false
+      },
+      {
+        "text": "陈陈-张艳玲",
+        "disabled": false
+      },
+      {
+        "text": "露露-卢秋菊",
+        "disabled": false
+      },
+      {
+        "text": "VIP管家-康康",
+        "disabled": false
+      },
+      {
+        "text": "VIP管家-敦敦",
+        "disabled": false
+      },
+      {
+        "text": "VIP管家-晓贤",
+        "disabled": false
+      },
+      {
+        "text": "VIP管家-紫婷",
+        "disabled": false
+      },
+      {
+        "text": "VIP管家-静静",
+        "disabled": false
+      },
+      {
+        "text": "刘莉萌",
+        "disabled": false
+      },
+      {
+        "text": "孙颖",
+        "disabled": false
+      },
+      {
+        "text": "王莎莎",
+        "disabled": false
+      },
+      {
+        "text": "群客服-玲玲（9:00-18:00）",
+        "disabled": false
+      },
+      {
+        "text": "胡紫研",
+        "disabled": false
+      },
+      {
+        "text": "艺星预约助理-小垚",
+        "disabled": false
+      },
+      {
+        "text": "艺星预约助理-清清🔔",
+        "disabled": false
+      },
+      {
+        "text": "艺星预约助理-珠珠",
+        "disabled": false
+      },
+      {
+        "text": "艺星预约助理-苗苗",
+        "disabled": false
+      },
+      {
+        "text": "艺星预约助理-雅琴🍓",
+        "disabled": false
+      },
+      {
+        "text": "艺星预约助理—秋美",
+        "disabled": false
+      },
+      {
+        "text": "钟渝玲",
+        "disabled": false
+      },
+      {
+        "text": "Yestar 深圳艺星客服-杨晓纯",
+        "disabled": false
+      },
+      {
+        "text": "刘佳媚-文文",
+        "disabled": false
+      },
+      {
+        "text": "刘可-小颜",
+        "disabled": false
+      },
+      {
+        "text": "刘宗宁-关关",
+        "disabled": false
+      },
+      {
+        "text": "刘林凤-安安",
+        "disabled": false
+      },
+      {
+        "text": "张图南-小曾",
+        "disabled": false
+      },
+      {
+        "text": "张秋波-小雨",
+        "disabled": false
+      },
+      {
+        "text": "李千紫-灵灵",
+        "disabled": false
+      },
+      {
+        "text": "李小倩-倩倩",
+        "disabled": false
+      },
+      {
+        "text": "杨晓纯-杨杨",
+        "disabled": false
+      },
+      {
+        "text": "胡艳-小艺",
+        "disabled": false
+      },
+      {
+        "text": "邹雪梅-楚楚",
+        "disabled": false
+      },
+      {
+        "text": "陈文雯-七七",
+        "disabled": false
+      },
+      {
+        "text": "陈沛-微微",
+        "disabled": false
+      },
+      {
+        "text": "Yestar深圳艺星周助理-周嘉伟",
+        "disabled": false
+      },
+      {
+        "text": "Yestar深圳艺星圆圆-190****0441-汪梦",
+        "disabled": false
+      },
+      {
+        "text": "丹丹-许海丹",
+        "disabled": false
+      },
+      {
+        "text": "大乾-谭阳谦",
+        "disabled": false
+      },
+      {
+        "text": "妮妮-刘佳欣",
+        "disabled": false
+      },
+      {
+        "text": "小北 -胡惠聪",
+        "disabled": false
+      },
+      {
+        "text": "小夏-夏海原",
+        "disabled": false
+      },
+      {
+        "text": "小天 -谭天晴",
+        "disabled": false
+      },
+      {
+        "text": "小希-刘冠希",
+        "disabled": false
+      },
+      {
+        "text": "小彭-彭生豪",
+        "disabled": false
+      },
+      {
+        "text": "小慧-彭招",
+        "disabled": false
+      },
+      {
+        "text": "小桐-邓传丽",
+        "disabled": false
+      },
+      {
+        "text": "小琦 莫加琦",
+        "disabled": false
+      },
+      {
+        "text": "小琳-朱婷婷",
+        "disabled": false
+      },
+      {
+        "text": "小瑞 陈祥龙",
+        "disabled": false
+      },
+      {
+        "text": "曾曾 -曾家凤",
+        "disabled": false
+      },
+      {
+        "text": "朵朵-李艳",
+        "disabled": false
+      },
+      {
+        "text": "浅浅 -罗梓嫣",
+        "disabled": false
+      },
+      {
+        "text": "澄澄 - 曾丝仁",
+        "disabled": false
+      },
+      {
+        "text": "珊珊-黄珊珊",
+        "disabled": false
+      },
+      {
+        "text": "琪琪-周佳琪",
+        "disabled": false
+      },
+      {
+        "text": "苏苏 卓思思",
+        "disabled": false
+      },
+      {
+        "text": "豆豆 -康佳倩",
+        "disabled": false
+      },
+      {
+        "text": "里里-陈家清",
+        "disabled": false
+      },
+      {
+        "text": "鑫鑫 -田秋红",
+        "disabled": false
+      },
+      {
+        "text": "雯雯-周文倩",
+        "disabled": false
+      },
+      {
+        "text": "仁瑞馨 预约号",
+        "disabled": false
+      },
+      {
+        "text": "任瑞馨 预约号\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "刘丽院长预约号",
+        "disabled": false
+      },
+      {
+        "text": "刘洋注射院长",
+        "disabled": false
+      },
+      {
+        "text": "刘洋院长\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "刘登涛",
+        "disabled": false
+      },
+      {
+        "text": "刘秀峰",
+        "disabled": false
+      },
+      {
+        "text": "吕瑛",
+        "disabled": false
+      },
+      {
+        "text": "姚忠志院长",
+        "disabled": false
+      },
+      {
+        "text": "徐英院长",
+        "disabled": false
+      },
+      {
+        "text": "李艳华",
+        "disabled": false
+      },
+      {
+        "text": "杨芳注射院长",
+        "disabled": false
+      },
+      {
+        "text": "杨芳注射院长\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "杨芳院长",
+        "disabled": false
+      },
+      {
+        "text": "杨芳院长助理",
+        "disabled": false
+      },
+      {
+        "text": "林登文",
+        "disabled": false
+      },
+      {
+        "text": "毕丽院长（预约制）",
+        "disabled": false
+      },
+      {
+        "text": "温磊",
+        "disabled": false
+      },
+      {
+        "text": "牛克辉院长",
+        "disabled": false
+      },
+      {
+        "text": "皮肤医生闵玉雪",
+        "disabled": false
+      },
+      {
+        "text": "苏瑞",
+        "disabled": false
+      },
+      {
+        "text": "蒲翠玲-预约号",
+        "disabled": false
+      },
+      {
+        "text": "蒲翠玲院长（预约制）",
+        "disabled": false
+      },
+      {
+        "text": "蒲翠玲预约号",
+        "disabled": false
+      },
+      {
+        "text": "蒲蒲院长助理",
+        "disabled": false
+      },
+      {
+        "text": "谈晓沅",
+        "disabled": false
+      },
+      {
+        "text": "郑文涛院长",
+        "disabled": false
+      },
+      {
+        "text": "郭世伟医生",
+        "disabled": false
+      },
+      {
+        "text": "陈利利院长",
+        "disabled": false
+      },
+      {
+        "text": "陈猛",
+        "disabled": false
+      },
+      {
+        "text": "高飞院长",
+        "disabled": false
+      },
+      {
+        "text": "何蓉-秋秋",
+        "disabled": false
+      },
+      {
+        "text": "冯琪-芊芊",
+        "disabled": false
+      },
+      {
+        "text": "刘亮-亮亮",
+        "disabled": false
+      },
+      {
+        "text": "张志凌-Gin",
+        "disabled": false
+      },
+      {
+        "text": "张欢-欢欢",
+        "disabled": false
+      },
+      {
+        "text": "彭洋洋-洋洋",
+        "disabled": false
+      },
+      {
+        "text": "林时燕-柒柒",
+        "disabled": false
+      },
+      {
+        "text": "梁桢-大渔",
+        "disabled": false
+      },
+      {
+        "text": "涂乐-CC",
+        "disabled": false
+      },
+      {
+        "text": "温莉莉-阳阳",
+        "disabled": false
+      },
+      {
+        "text": "王雅丽-嘉悦",
+        "disabled": false
+      },
+      {
+        "text": "罗丽-双双",
+        "disabled": false
+      },
+      {
+        "text": "郭宏-九九",
+        "disabled": false
+      },
+      {
+        "text": "陈嘉怡-小一",
+        "disabled": false
+      },
+      {
+        "text": "黄婷钰-婷婷",
+        "disabled": false
+      },
+      {
+        "text": "刘红菌-刘助理",
+        "disabled": false
+      },
+      {
+        "text": "黄珊-思思",
+        "disabled": false
+      },
+      {
+        "text": "丁楚夏\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "何佩",
+        "disabled": false
+      },
+      {
+        "text": "冯子涵",
+        "disabled": false
+      },
+      {
+        "text": "刘子赫",
+        "disabled": false
+      },
+      {
+        "text": "刘王丽",
+        "disabled": false
+      },
+      {
+        "text": "卢碧娥",
+        "disabled": false
+      },
+      {
+        "text": "吴丽",
+        "disabled": false
+      },
+      {
+        "text": "周文青",
+        "disabled": false
+      },
+      {
+        "text": "周科",
+        "disabled": false
+      },
+      {
+        "text": "唐文",
+        "disabled": false
+      },
+      {
+        "text": "尹珊",
+        "disabled": false
+      },
+      {
+        "text": "尹露",
+        "disabled": false
+      },
+      {
+        "text": "崔文锦",
+        "disabled": false
+      },
+      {
+        "text": "张宇宏",
+        "disabled": false
+      },
+      {
+        "text": "张思淇",
+        "disabled": false
+      },
+      {
+        "text": "张晶",
+        "disabled": false
+      },
+      {
+        "text": "张莹",
+        "disabled": false
+      },
+      {
+        "text": "张雪",
+        "disabled": false
+      },
+      {
+        "text": "彭履萍",
+        "disabled": false
+      },
+      {
+        "text": "彭雨晴",
+        "disabled": false
+      },
+      {
+        "text": "徐立丽",
+        "disabled": false
+      },
+      {
+        "text": "戴青云",
+        "disabled": false
+      },
+      {
+        "text": "李佳琪",
+        "disabled": false
+      },
+      {
+        "text": "李媛",
+        "disabled": false
+      },
+      {
+        "text": "李敏",
+        "disabled": false
+      },
+      {
+        "text": "李文波",
+        "disabled": false
+      },
+      {
+        "text": "李梦雪",
+        "disabled": false
+      },
+      {
+        "text": "李燕梅",
+        "disabled": false
+      },
+      {
+        "text": "李雪婷",
+        "disabled": false
+      },
+      {
+        "text": "杨芳芳",
+        "disabled": false
+      },
+      {
+        "text": "林宸帆",
+        "disabled": false
+      },
+      {
+        "text": "毛振宇",
+        "disabled": false
+      },
+      {
+        "text": "沈妙丽",
+        "disabled": false
+      },
+      {
+        "text": "白瑞洋",
+        "disabled": false
+      },
+      {
+        "text": "罗秀丽",
+        "disabled": false
+      },
+      {
+        "text": "蓝嘉欣",
+        "disabled": false
+      },
+      {
+        "text": "蔡玲玲",
+        "disabled": false
+      },
+      {
+        "text": "袁佳佳",
+        "disabled": false
+      },
+      {
+        "text": "赵四芳",
+        "disabled": false
+      },
+      {
+        "text": "赵巧丽",
+        "disabled": false
+      },
+      {
+        "text": "邱新洁",
+        "disabled": false
+      },
+      {
+        "text": "陈琪",
+        "disabled": false
+      },
+      {
+        "text": "陈莉君",
+        "disabled": false
+      },
+      {
+        "text": "雷杨梅",
+        "disabled": false
+      },
+      {
+        "text": "马露青",
+        "disabled": false
+      },
+      {
+        "text": "高雪莹",
+        "disabled": false
+      },
+      {
+        "text": "黄海屏",
+        "disabled": false
+      },
+      {
+        "text": "黄燕",
+        "disabled": false
+      },
+      {
+        "text": "黎秀娟",
+        "disabled": false
+      },
+      {
+        "text": "龚静",
+        "disabled": false
+      },
+      {
+        "text": "龚静1\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "任瑞馨院长助理-仝苗苗\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "冯星龙主任助理-黄楚文\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "刘丽院长助理-周鑫\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "微整杨芳院长助理-甘子",
+        "disabled": false
+      },
+      {
+        "text": "杨芳院长助理-刘江\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "杨芳院长助理·李怡珊\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "毕丽院长助理-林洁燕\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "蒲翠玲院长助理-付有婷\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "蒲翠玲院长助理-黄桂旋\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "高飞院长助理-张晓菀\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "高飞院长助理-杨文娟\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "周珂-珂珂",
+        "disabled": false
+      },
+      {
+        "text": "房圆圆",
+        "disabled": false
+      },
+      {
+        "text": "江燕苗-江江",
+        "disabled": false
+      },
+      {
+        "text": "肖海英-自媒体",
+        "disabled": false
+      },
+      {
+        "text": "自媒体万成A106",
+        "disabled": false
+      },
+      {
+        "text": "自媒体万成A107",
+        "disabled": false
+      },
+      {
+        "text": "自媒体万成A124",
+        "disabled": false
+      },
+      {
+        "text": "自媒体万成A59",
+        "disabled": false
+      },
+      {
+        "text": "自媒体万成A73",
+        "disabled": false
+      },
+      {
+        "text": "自媒体万成A74",
+        "disabled": false
+      },
+      {
+        "text": "自媒体刘月梅A102",
+        "disabled": false
+      },
+      {
+        "text": "自媒体刘月梅A237",
+        "disabled": false
+      },
+      {
+        "text": "自媒体刘月梅A238",
+        "disabled": false
+      },
+      {
+        "text": "自媒体刘月梅A28",
+        "disabled": false
+      },
+      {
+        "text": "自媒体刘月梅A29",
+        "disabled": false
+      },
+      {
+        "text": "自媒体刘月梅A49",
+        "disabled": false
+      },
+      {
+        "text": "自媒体刘月梅A99",
+        "disabled": false
+      },
+      {
+        "text": "自媒体叶惠美A111",
+        "disabled": false
+      },
+      {
+        "text": "自媒体叶惠美A2",
+        "disabled": false
+      },
+      {
+        "text": "自媒体叶惠美A21",
+        "disabled": false
+      },
+      {
+        "text": "自媒体叶惠美A23",
+        "disabled": false
+      },
+      {
+        "text": "自媒体叶惠美A5",
+        "disabled": false
+      },
+      {
+        "text": "自媒体叶惠美A6",
+        "disabled": false
+      },
+      {
+        "text": "自媒体叶惠美A61",
+        "disabled": false
+      },
+      {
+        "text": "自媒体叶惠美A64",
+        "disabled": false
+      },
+      {
+        "text": "自媒体吴美芳A108",
+        "disabled": false
+      },
+      {
+        "text": "自媒体吴美芳A109",
+        "disabled": false
+      },
+      {
+        "text": "自媒体吴美芳A17",
+        "disabled": false
+      },
+      {
+        "text": "自媒体吴美芳A19",
+        "disabled": false
+      },
+      {
+        "text": "自媒体吴美芳A201",
+        "disabled": false
+      },
+      {
+        "text": "自媒体吴美芳A51",
+        "disabled": false
+      },
+      {
+        "text": "自媒体吴美芳A52",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张德雯A130",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张德雯A230",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张德雯A231",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张德雯A65",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张德雯A96",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张水芳A13",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张水芳A157",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张水芳A158",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张水芳A190",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张水芳A43",
+        "disabled": false
+      },
+      {
+        "text": "自媒体徐子涵A10",
+        "disabled": false
+      },
+      {
+        "text": "自媒体徐子涵A100",
+        "disabled": false
+      },
+      {
+        "text": "自媒体徐子涵A103",
+        "disabled": false
+      },
+      {
+        "text": "自媒体徐子涵A104",
+        "disabled": false
+      },
+      {
+        "text": "自媒体徐子涵A151",
+        "disabled": false
+      },
+      {
+        "text": "自媒体徐子涵A45",
+        "disabled": false
+      },
+      {
+        "text": "自媒体徐子涵A80",
+        "disabled": false
+      },
+      {
+        "text": "自媒体曾檬A159",
+        "disabled": false
+      },
+      {
+        "text": "自媒体曾檬A48",
+        "disabled": false
+      },
+      {
+        "text": "自媒体曾檬A70",
+        "disabled": false
+      },
+      {
+        "text": "自媒体曾檬A71",
+        "disabled": false
+      },
+      {
+        "text": "自媒体曾檬A79",
+        "disabled": false
+      },
+      {
+        "text": "自媒体李影影A131",
+        "disabled": false
+      },
+      {
+        "text": "自媒体李影影A209",
+        "disabled": false
+      },
+      {
+        "text": "自媒体李影影A212",
+        "disabled": false
+      },
+      {
+        "text": "自媒体李影影A3",
+        "disabled": false
+      },
+      {
+        "text": "自媒体李影影A54",
+        "disabled": false
+      },
+      {
+        "text": "自媒体李影影A90",
+        "disabled": false
+      },
+      {
+        "text": "自媒体杜淑清A118",
+        "disabled": false
+      },
+      {
+        "text": "自媒体杜淑清A128",
+        "disabled": false
+      },
+      {
+        "text": "自媒体杜淑清A129",
+        "disabled": false
+      },
+      {
+        "text": "自媒体杜淑清A15",
+        "disabled": false
+      },
+      {
+        "text": "自媒体杜淑清A31",
+        "disabled": false
+      },
+      {
+        "text": "自媒体杜淑清A32",
+        "disabled": false
+      },
+      {
+        "text": "自媒体杜淑清A39",
+        "disabled": false
+      },
+      {
+        "text": "自媒体段慧敏A125",
+        "disabled": false
+      },
+      {
+        "text": "自媒体段慧敏A139",
+        "disabled": false
+      },
+      {
+        "text": "自媒体段慧敏A210",
+        "disabled": false
+      },
+      {
+        "text": "自媒体段慧敏A25",
+        "disabled": false
+      },
+      {
+        "text": "自媒体段慧敏A55",
+        "disabled": false
+      },
+      {
+        "text": "自媒体段慧敏A75",
+        "disabled": false
+      },
+      {
+        "text": "自媒体胡悦A22",
+        "disabled": false
+      },
+      {
+        "text": "自媒体胡悦A33",
+        "disabled": false
+      },
+      {
+        "text": "自媒体胡悦A7",
+        "disabled": false
+      },
+      {
+        "text": "自媒体胡悦A91",
+        "disabled": false
+      },
+      {
+        "text": "自媒体胡悦A92",
+        "disabled": false
+      },
+      {
+        "text": "自媒体郑美月A182",
+        "disabled": false
+      },
+      {
+        "text": "自媒体郑美月A203",
+        "disabled": false
+      },
+      {
+        "text": "自媒体郑美月A36",
+        "disabled": false
+      },
+      {
+        "text": "自媒体郑美月A67",
+        "disabled": false
+      },
+      {
+        "text": "自媒体郑美月A68",
+        "disabled": false
+      },
+      {
+        "text": "自媒体郑美月A77",
+        "disabled": false
+      },
+      {
+        "text": "自媒体郑美月A78",
+        "disabled": false
+      },
+      {
+        "text": "自媒体陈斌A155",
+        "disabled": false
+      },
+      {
+        "text": "自媒体陈斌A161",
+        "disabled": false
+      },
+      {
+        "text": "自媒体陈斌A173",
+        "disabled": false
+      },
+      {
+        "text": "自媒体陈斌A207",
+        "disabled": false
+      },
+      {
+        "text": "自媒体陈斌A225",
+        "disabled": false
+      },
+      {
+        "text": "自媒体陈斌A62",
+        "disabled": false
+      },
+      {
+        "text": "自媒体陈斌A8",
+        "disabled": false
+      },
+      {
+        "text": "自媒体陈斌A85",
+        "disabled": false
+      },
+      {
+        "text": "自媒体陈斌A86",
+        "disabled": false
+      },
+      {
+        "text": "自媒体黎宁静A113",
+        "disabled": false
+      },
+      {
+        "text": "自媒体黎宁静A116",
+        "disabled": false
+      },
+      {
+        "text": "自媒体黎宁静A154",
+        "disabled": false
+      },
+      {
+        "text": "自媒体黎宁静A168",
+        "disabled": false
+      },
+      {
+        "text": "自媒体黎宁静A188",
+        "disabled": false
+      },
+      {
+        "text": "自媒体黎宁静A189",
+        "disabled": false
+      },
+      {
+        "text": "艾芳芳",
+        "disabled": false
+      },
+      {
+        "text": "蔡华",
+        "disabled": false
+      },
+      {
+        "text": "多多\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "录错\n不可接待 · 从没登录成功",
+        "disabled": true
+      },
+      {
+        "text": "社群贴心客服-壹壹",
+        "disabled": false
+      },
+      {
+        "text": "社群贴心客服-小歌",
+        "disabled": false
+      },
+      {
+        "text": "社群贴心客服-岚岚",
+        "disabled": false
+      },
+      {
+        "text": "社群贴心客服-莎莎",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--salesManage--edit-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "salesManage",
+    "context": "edit",
+    "label": "销售微信昵称",
+    "multiple": false,
+    "options": [
+      {
+        "text": "Vik",
+        "disabled": false
+      },
+      {
+        "text": "安燃",
+        "disabled": false
+      },
+      {
+        "text": "Jason👄",
+        "disabled": false
+      },
+      {
+        "text": "靜.",
+        "disabled": false
+      },
+      {
+        "text": "woo",
+        "disabled": false
+      },
+      {
+        "text": "Zoey🔆",
+        "disabled": false
+      },
+      {
+        "text": "兄の妹🦄",
+        "disabled": false
+      },
+      {
+        "text": "黄海屏",
+        "disabled": false
+      },
+      {
+        "text": "bruin_彬彬",
+        "disabled": false
+      },
+      {
+        "text": "Sophie_郭儿",
+        "disabled": false
+      },
+      {
+        "text": "🌸",
+        "disabled": false
+      },
+      {
+        "text": "Gzy祉言👑🥳",
+        "disabled": false
+      },
+      {
+        "text": "缘分",
+        "disabled": false
+      },
+      {
+        "text": "淇淇",
+        "disabled": false
+      },
+      {
+        "text": "Fiona",
+        "disabled": false
+      },
+      {
+        "text": "Yenziy 🎀",
+        "disabled": false
+      },
+      {
+        "text": "A深圳艺星专家助理鑫鑫",
+        "disabled": false
+      },
+      {
+        "text": "Luna.",
+        "disabled": false
+      },
+      {
+        "text": "BM🎠",
+        "disabled": false
+      },
+      {
+        "text": "斌芬陶瓷.yoyo",
+        "disabled": false
+      },
+      {
+        "text": "..",
+        "disabled": false
+      },
+      {
+        "text": "༺韩ᝰꫛꫀꪝ",
+        "disabled": false
+      },
+      {
+        "text": "桃浔",
+        "disabled": false
+      },
+      {
+        "text": "郑律师",
+        "disabled": false
+      },
+      {
+        "text": "Tbueee",
+        "disabled": false
+      },
+      {
+        "text": "掌柜 . 赖赖",
+        "disabled": false
+      },
+      {
+        "text": "Birdy",
+        "disabled": false
+      },
+      {
+        "text": "睡个好觉💤",
+        "disabled": false
+      },
+      {
+        "text": "黄沐羚🍎",
+        "disabled": false
+      },
+      {
+        "text": "多金🏩",
+        "disabled": false
+      },
+      {
+        "text": "廖焯妃",
+        "disabled": false
+      },
+      {
+        "text": "ㅤ",
+        "disabled": false
+      },
+      {
+        "text": "阿月",
+        "disabled": false
+      },
+      {
+        "text": "阿华",
+        "disabled": false
+      },
+      {
+        "text": "🐡",
+        "disabled": false
+      },
+      {
+        "text": "THEO.",
+        "disabled": false
+      },
+      {
+        "text": "文老师1",
+        "disabled": false
+      },
+      {
+        "text": ".",
+        "disabled": false
+      },
+      {
+        "text": "芳芳订制眉眼唇 祛斑",
+        "disabled": false
+      },
+      {
+        "text": "盆鱼宴",
+        "disabled": false
+      },
+      {
+        "text": "Dai",
+        "disabled": false
+      },
+      {
+        "text": "啵啵虎saki",
+        "disabled": false
+      },
+      {
+        "text": "哭有什么用",
+        "disabled": false
+      },
+      {
+        "text": "洢yy",
+        "disabled": false
+      },
+      {
+        "text": "Z",
+        "disabled": false
+      },
+      {
+        "text": "7",
+        "disabled": false
+      },
+      {
+        "text": "失约海",
+        "disabled": false
+      },
+      {
+        "text": "暖阳",
+        "disabled": false
+      },
+      {
+        "text": "周琬瞳",
+        "disabled": false
+      },
+      {
+        "text": "희희",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--salesManage--edit-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "salesManage",
+    "context": "edit",
+    "label": "师父",
+    "multiple": false,
+    "options": [
+      {
+        "text": "高雪莹",
+        "disabled": true
+      },
+      {
+        "text": "蓝嘉欣",
+        "disabled": false
+      },
+      {
+        "text": "黄海屏",
+        "disabled": false
+      },
+      {
+        "text": "彭雨晴",
+        "disabled": false
+      },
+      {
+        "text": "杨云",
+        "disabled": false
+      },
+      {
+        "text": "王菁",
+        "disabled": false
+      },
+      {
+        "text": "赵巧丽",
+        "disabled": false
+      },
+      {
+        "text": "邱新洁",
+        "disabled": false
+      },
+      {
+        "text": "白瑞洋",
+        "disabled": false
+      },
+      {
+        "text": "侯玉昌",
+        "disabled": false
+      },
+      {
+        "text": "毛振宇",
+        "disabled": false
+      },
+      {
+        "text": "自媒体杨薇",
+        "disabled": false
+      },
+      {
+        "text": "自媒体郑美月",
+        "disabled": false
+      },
+      {
+        "text": "自媒体黎宁静",
+        "disabled": false
+      },
+      {
+        "text": "自媒体刘月梅",
+        "disabled": false
+      },
+      {
+        "text": "自媒体李影影",
+        "disabled": false
+      },
+      {
+        "text": "自媒体段慧敏",
+        "disabled": false
+      },
+      {
+        "text": "自媒体杜淑清",
+        "disabled": false
+      },
+      {
+        "text": "自媒体徐子涵",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张水芳",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--salesManage--edit-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "salesStatsNew",
+    "context": "filter",
+    "label": "自然日",
+    "multiple": false,
+    "options": [
+      {
+        "text": "自然日",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--salesStatsNew--filter-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "salesStatsNew",
+    "context": "filter",
+    "label": "销售",
+    "multiple": false,
+    "options": [
+      {
+        "text": "自然日",
+        "disabled": false
+      },
+      {
+        "text": "全部",
+        "disabled": false
+      },
+      {
+        "text": "甘田梓欣",
+        "disabled": false
+      },
+      {
+        "text": "艾芳芳",
+        "disabled": false
+      },
+      {
+        "text": "白瑞洋",
+        "disabled": false
+      },
+      {
+        "text": "蔡华",
+        "disabled": false
+      },
+      {
+        "text": "蔡玲玲",
+        "disabled": false
+      },
+      {
+        "text": "测试",
+        "disabled": false
+      },
+      {
+        "text": "曾家凤",
+        "disabled": false
+      },
+      {
+        "text": "曾丽菊主任助理—曹丹",
+        "disabled": false
+      },
+      {
+        "text": "曾倩华",
+        "disabled": false
+      },
+      {
+        "text": "曾丝仁",
+        "disabled": false
+      },
+      {
+        "text": "沈妙丽",
+        "disabled": false
+      },
+      {
+        "text": "陈聪（工程师）",
+        "disabled": false
+      },
+      {
+        "text": "陈家清",
+        "disabled": false
+      },
+      {
+        "text": "陈嘉怡",
+        "disabled": false
+      },
+      {
+        "text": "陈嘉颖",
+        "disabled": false
+      },
+      {
+        "text": "陈菁",
+        "disabled": false
+      },
+      {
+        "text": "陈利利院长助理艾格",
+        "disabled": false
+      },
+      {
+        "text": "陈莉君",
+        "disabled": false
+      },
+      {
+        "text": "陈沛",
+        "disabled": false
+      },
+      {
+        "text": "陈平",
+        "disabled": false
+      },
+      {
+        "text": "陈琪",
+        "disabled": false
+      },
+      {
+        "text": "陈文雯",
+        "disabled": false
+      },
+      {
+        "text": "陈鲜娇",
+        "disabled": false
+      },
+      {
+        "text": "陈祥龙",
+        "disabled": false
+      },
+      {
+        "text": "陈晓贤",
+        "disabled": false
+      },
+      {
+        "text": "陈宣宇（工程师）",
+        "disabled": false
+      },
+      {
+        "text": "崔文锦",
+        "disabled": false
+      },
+      {
+        "text": "戴青云",
+        "disabled": false
+      },
+      {
+        "text": "邓传丽",
+        "disabled": false
+      },
+      {
+        "text": "邓铿玲",
+        "disabled": false
+      },
+      {
+        "text": "丁楚夏",
+        "disabled": false
+      },
+      {
+        "text": "抖音杨",
+        "disabled": false
+      },
+      {
+        "text": "段语绮",
+        "disabled": false
+      },
+      {
+        "text": "房昕",
+        "disabled": false
+      },
+      {
+        "text": "房圆圆",
+        "disabled": false
+      },
+      {
+        "text": "冯琪",
+        "disabled": false
+      },
+      {
+        "text": "冯子涵",
+        "disabled": false
+      },
+      {
+        "text": "付有婷",
+        "disabled": false
+      },
+      {
+        "text": "甘淑思（陈利利院长助理）",
+        "disabled": false
+      },
+      {
+        "text": "高雪莹",
+        "disabled": false
+      },
+      {
+        "text": "高铱",
+        "disabled": false
+      },
+      {
+        "text": "高志达",
+        "disabled": false
+      },
+      {
+        "text": "工程师测试",
+        "disabled": false
+      },
+      {
+        "text": "龚静",
+        "disabled": false
+      },
+      {
+        "text": "郭宏",
+        "disabled": false
+      },
+      {
+        "text": "郭焕鸽",
+        "disabled": false
+      },
+      {
+        "text": "郭世伟医生",
+        "disabled": false
+      },
+      {
+        "text": "韩畅",
+        "disabled": false
+      },
+      {
+        "text": "何佩",
+        "disabled": false
+      },
+      {
+        "text": "何清",
+        "disabled": false
+      },
+      {
+        "text": "何蓉",
+        "disabled": false
+      },
+      {
+        "text": "侯玉昌",
+        "disabled": false
+      },
+      {
+        "text": "胡惠聪",
+        "disabled": false
+      },
+      {
+        "text": "胡艳",
+        "disabled": false
+      },
+      {
+        "text": "胡紫研",
+        "disabled": false
+      },
+      {
+        "text": "黄楚文",
+        "disabled": false
+      },
+      {
+        "text": "黄桂旋",
+        "disabled": false
+      },
+      {
+        "text": "黄海屏",
+        "disabled": false
+      },
+      {
+        "text": "黄海萍",
+        "disabled": false
+      },
+      {
+        "text": "黄珊",
+        "disabled": false
+      },
+      {
+        "text": "黄珊珊",
+        "disabled": false
+      },
+      {
+        "text": "黄婷钰",
+        "disabled": false
+      },
+      {
+        "text": "黄燕",
+        "disabled": false
+      },
+      {
+        "text": "黄莹",
+        "disabled": false
+      },
+      {
+        "text": "江燕苗",
+        "disabled": false
+      },
+      {
+        "text": "静依主任助理-黄巍",
+        "disabled": false
+      },
+      {
+        "text": "康佳倩",
+        "disabled": false
+      },
+      {
+        "text": "可可-肖瑶",
+        "disabled": false
+      },
+      {
+        "text": "赖考媚",
+        "disabled": false
+      },
+      {
+        "text": "蓝嘉欣",
+        "disabled": false
+      },
+      {
+        "text": "雷杨梅",
+        "disabled": false
+      },
+      {
+        "text": "黎秀娟",
+        "disabled": false
+      },
+      {
+        "text": "李佳奇",
+        "disabled": false
+      },
+      {
+        "text": "李佳琪",
+        "disabled": false
+      },
+      {
+        "text": "李建林（测试）",
+        "disabled": false
+      },
+      {
+        "text": "李静",
+        "disabled": false
+      },
+      {
+        "text": "李梦雪",
+        "disabled": false
+      },
+      {
+        "text": "李敏",
+        "disabled": false
+      },
+      {
+        "text": "李千紫",
+        "disabled": false
+      },
+      {
+        "text": "李双阳",
+        "disabled": false
+      },
+      {
+        "text": "李文波",
+        "disabled": false
+      },
+      {
+        "text": "李小倩",
+        "disabled": false
+      },
+      {
+        "text": "李雪婷",
+        "disabled": false
+      },
+      {
+        "text": "李雅琴",
+        "disabled": false
+      },
+      {
+        "text": "李艳",
+        "disabled": false
+      },
+      {
+        "text": "李艳华",
+        "disabled": false
+      },
+      {
+        "text": "李燕梅",
+        "disabled": false
+      },
+      {
+        "text": "李怡珊",
+        "disabled": false
+      },
+      {
+        "text": "李愉",
+        "disabled": false
+      },
+      {
+        "text": "李媛",
+        "disabled": false
+      },
+      {
+        "text": "李梓萌",
+        "disabled": false
+      },
+      {
+        "text": "梁晨（工程师）",
+        "disabled": false
+      },
+      {
+        "text": "梁桢",
+        "disabled": false
+      },
+      {
+        "text": "廖永峰",
+        "disabled": false
+      },
+      {
+        "text": "林宸帆",
+        "disabled": false
+      },
+      {
+        "text": "林登文",
+        "disabled": false
+      },
+      {
+        "text": "林鼎津",
+        "disabled": false
+      },
+      {
+        "text": "林洁燕",
+        "disabled": false
+      },
+      {
+        "text": "林时燕",
+        "disabled": false
+      },
+      {
+        "text": "刘登涛",
+        "disabled": false
+      },
+      {
+        "text": "刘登涛主任助理-文文",
+        "disabled": false
+      },
+      {
+        "text": "刘冠希",
+        "disabled": false
+      },
+      {
+        "text": "刘红菌",
+        "disabled": false
+      },
+      {
+        "text": "刘佳媚",
+        "disabled": false
+      },
+      {
+        "text": "刘佳欣",
+        "disabled": false
+      },
+      {
+        "text": "刘江",
+        "disabled": false
+      },
+      {
+        "text": "刘可",
+        "disabled": false
+      },
+      {
+        "text": "刘莉萌",
+        "disabled": false
+      },
+      {
+        "text": "刘亮",
+        "disabled": false
+      },
+      {
+        "text": "刘林凤",
+        "disabled": false
+      },
+      {
+        "text": "刘仁南",
+        "disabled": false
+      },
+      {
+        "text": "刘王丽",
+        "disabled": false
+      },
+      {
+        "text": "刘文涛主任助理-曹艺",
+        "disabled": false
+      },
+      {
+        "text": "刘秀峰",
+        "disabled": false
+      },
+      {
+        "text": "刘秀峰院长助理-新茹",
+        "disabled": false
+      },
+      {
+        "text": "刘怡情",
+        "disabled": false
+      },
+      {
+        "text": "刘子赫",
+        "disabled": false
+      },
+      {
+        "text": "刘宗宁",
+        "disabled": false
+      },
+      {
+        "text": "卢碧娥",
+        "disabled": false
+      },
+      {
+        "text": "卢秋菊",
+        "disabled": false
+      },
+      {
+        "text": "吕瑛",
+        "disabled": false
+      },
+      {
+        "text": "罗丽",
+        "disabled": false
+      },
+      {
+        "text": "罗秀丽",
+        "disabled": false
+      },
+      {
+        "text": "罗媛媛",
+        "disabled": false
+      },
+      {
+        "text": "罗梓嫣",
+        "disabled": false
+      },
+      {
+        "text": "骆康婵",
+        "disabled": false
+      },
+      {
+        "text": "马露青",
+        "disabled": false
+      },
+      {
+        "text": "毛振宇",
+        "disabled": false
+      },
+      {
+        "text": "蒙丽梅",
+        "disabled": false
+      },
+      {
+        "text": "聂敦亚",
+        "disabled": false
+      },
+      {
+        "text": "牛克辉院长",
+        "disabled": false
+      },
+      {
+        "text": "彭履萍",
+        "disabled": false
+      },
+      {
+        "text": "彭生豪",
+        "disabled": false
+      },
+      {
+        "text": "彭洋洋",
+        "disabled": false
+      },
+      {
+        "text": "彭雨晴",
+        "disabled": false
+      },
+      {
+        "text": "彭招",
+        "disabled": false
+      },
+      {
+        "text": "皮肤医生闵玉雪",
+        "disabled": false
+      },
+      {
+        "text": "蒲翠玲-预约号",
+        "disabled": false
+      },
+      {
+        "text": "蒲蒲院长助理",
+        "disabled": false
+      },
+      {
+        "text": "齐亚萍",
+        "disabled": false
+      },
+      {
+        "text": "卿晓悦",
+        "disabled": false
+      },
+      {
+        "text": "邱新洁",
+        "disabled": false
+      },
+      {
+        "text": "任问墨",
+        "disabled": false
+      },
+      {
+        "text": "任小改",
+        "disabled": false
+      },
+      {
+        "text": "深圳艺星范主任助理-丹丹",
+        "disabled": false
+      },
+      {
+        "text": "深圳艺星梅红主任助理-刘湘",
+        "disabled": false
+      },
+      {
+        "text": "深圳艺星闵主任助理-文文",
+        "disabled": false
+      },
+      {
+        "text": "施语岚",
+        "disabled": false
+      },
+      {
+        "text": "孙颖",
+        "disabled": false
+      },
+      {
+        "text": "谈晓沅",
+        "disabled": false
+      },
+      {
+        "text": "谈晓沅院长助理-黄巍",
+        "disabled": false
+      },
+      {
+        "text": "覃铭婵",
+        "disabled": false
+      },
+      {
+        "text": "谭天晴",
+        "disabled": false
+      },
+      {
+        "text": "谭阳谦",
+        "disabled": false
+      },
+      {
+        "text": "唐文",
+        "disabled": false
+      },
+      {
+        "text": "田秋红",
+        "disabled": false
+      },
+      {
+        "text": "仝苗苗",
+        "disabled": false
+      },
+      {
+        "text": "童洁",
+        "disabled": false
+      },
+      {
+        "text": "涂乐",
+        "disabled": false
+      },
+      {
+        "text": "汪梦",
+        "disabled": false
+      },
+      {
+        "text": "王洁",
+        "disabled": false
+      },
+      {
+        "text": "王菁",
+        "disabled": false
+      },
+      {
+        "text": "王莎莎",
+        "disabled": false
+      },
+      {
+        "text": "王雅丽",
+        "disabled": false
+      },
+      {
+        "text": "王媛媛",
+        "disabled": false
+      },
+      {
+        "text": "王月丽",
+        "disabled": false
+      },
+      {
+        "text": "王争（工程师）",
+        "disabled": false
+      },
+      {
+        "text": "王祝萍",
+        "disabled": false
+      },
+      {
+        "text": "王梓先（工程师）",
+        "disabled": false
+      },
+      {
+        "text": "温磊",
+        "disabled": false
+      },
+      {
+        "text": "温莉莉",
+        "disabled": false
+      },
+      {
+        "text": "吴丽",
+        "disabled": false
+      },
+      {
+        "text": "吴玲玲",
+        "disabled": false
+      },
+      {
+        "text": "吴秋美",
+        "disabled": false
+      },
+      {
+        "text": "吴晓妍",
+        "disabled": false
+      },
+      {
+        "text": "小琦-莫加琦",
+        "disabled": false
+      },
+      {
+        "text": "小夏-夏海原",
+        "disabled": false
+      },
+      {
+        "text": "小雨",
+        "disabled": false
+      },
+      {
+        "text": "肖海英",
+        "disabled": false
+      },
+      {
+        "text": "谢东华",
+        "disabled": false
+      },
+      {
+        "text": "熊姬珠",
+        "disabled": false
+      },
+      {
+        "text": "徐乐西",
+        "disabled": false
+      },
+      {
+        "text": "徐立丽",
+        "disabled": false
+      },
+      {
+        "text": "徐茂瑜",
+        "disabled": false
+      },
+      {
+        "text": "徐莎莎",
+        "disabled": false
+      },
+      {
+        "text": "徐英院长",
+        "disabled": false
+      },
+      {
+        "text": "许必赢",
+        "disabled": false
+      },
+      {
+        "text": "许海丹",
+        "disabled": false
+      },
+      {
+        "text": "晏静",
+        "disabled": false
+      },
+      {
+        "text": "羊羊-郑惠龄",
+        "disabled": false
+      },
+      {
+        "text": "杨芳芳",
+        "disabled": false
+      },
+      {
+        "text": "杨芳院长",
+        "disabled": false
+      },
+      {
+        "text": "杨芳院长助理",
+        "disabled": false
+      },
+      {
+        "text": "杨芳注射院长",
+        "disabled": false
+      },
+      {
+        "text": "杨苗",
+        "disabled": false
+      },
+      {
+        "text": "杨群",
+        "disabled": false
+      },
+      {
+        "text": "杨文娟",
+        "disabled": false
+      },
+      {
+        "text": "杨晓纯",
+        "disabled": false
+      },
+      {
+        "text": "杨晓纯2",
+        "disabled": false
+      },
+      {
+        "text": "杨一恒",
+        "disabled": false
+      },
+      {
+        "text": "杨云",
+        "disabled": false
+      },
+      {
+        "text": "姚忠志院长",
+        "disabled": false
+      },
+      {
+        "text": "叶向丹",
+        "disabled": false
+      },
+      {
+        "text": "艺星段主任助理-曹丹",
+        "disabled": false
+      },
+      {
+        "text": "艺星郭玲主任助理-蒴丹",
+        "disabled": false
+      },
+      {
+        "text": "艺星李艳华院长助理-馨悦",
+        "disabled": false
+      },
+      {
+        "text": "艺星姚院长助理-艾米",
+        "disabled": false
+      },
+      {
+        "text": "艺星张振宇主任助理-刘湘",
+        "disabled": false
+      },
+      {
+        "text": "艺星赵主任助理-丹丹",
+        "disabled": false
+      },
+      {
+        "text": "艺星朱主任助理-袁蒴丹",
+        "disabled": false
+      },
+      {
+        "text": "尹芳",
+        "disabled": false
+      },
+      {
+        "text": "尹露",
+        "disabled": false
+      },
+      {
+        "text": "尹珊",
+        "disabled": false
+      },
+      {
+        "text": "袁佳佳",
+        "disabled": false
+      },
+      {
+        "text": "岳海瑜",
+        "disabled": false
+      },
+      {
+        "text": "张欢",
+        "disabled": false
+      },
+      {
+        "text": "张晶",
+        "disabled": false
+      },
+      {
+        "text": "张玲",
+        "disabled": false
+      },
+      {
+        "text": "张璐璐",
+        "disabled": false
+      },
+      {
+        "text": "张秋波",
+        "disabled": false
+      },
+      {
+        "text": "张思淇",
+        "disabled": false
+      },
+      {
+        "text": "张拓（工程师）",
+        "disabled": false
+      },
+      {
+        "text": "张图南",
+        "disabled": false
+      },
+      {
+        "text": "张旺奇",
+        "disabled": false
+      },
+      {
+        "text": "张晓菀",
+        "disabled": false
+      },
+      {
+        "text": "张雪",
+        "disabled": false
+      },
+      {
+        "text": "张雪岚",
+        "disabled": false
+      },
+      {
+        "text": "张艳玲",
+        "disabled": false
+      },
+      {
+        "text": "张莹",
+        "disabled": false
+      },
+      {
+        "text": "张宇宏",
+        "disabled": false
+      },
+      {
+        "text": "张志凌",
+        "disabled": false
+      },
+      {
+        "text": "张紫婷",
+        "disabled": false
+      },
+      {
+        "text": "赵可欣",
+        "disabled": false
+      },
+      {
+        "text": "赵茜",
+        "disabled": false
+      },
+      {
+        "text": "赵巧丽",
+        "disabled": false
+      },
+      {
+        "text": "赵四芳",
+        "disabled": false
+      },
+      {
+        "text": "郑敏主任助理-新茹",
+        "disabled": false
+      },
+      {
+        "text": "郑文涛院长",
+        "disabled": false
+      },
+      {
+        "text": "钟锡珠",
+        "disabled": false
+      },
+      {
+        "text": "钟渝玲",
+        "disabled": false
+      },
+      {
+        "text": "钟蕴芯",
+        "disabled": false
+      },
+      {
+        "text": "周佳琪",
+        "disabled": false
+      },
+      {
+        "text": "周嘉伟",
+        "disabled": false
+      },
+      {
+        "text": "周珂",
+        "disabled": false
+      },
+      {
+        "text": "周科",
+        "disabled": false
+      },
+      {
+        "text": "周文倩",
+        "disabled": false
+      },
+      {
+        "text": "周文青",
+        "disabled": false
+      },
+      {
+        "text": "周鑫",
+        "disabled": false
+      },
+      {
+        "text": "朱婷婷",
+        "disabled": false
+      },
+      {
+        "text": "卓思思",
+        "disabled": false
+      },
+      {
+        "text": "自媒体曾檬",
+        "disabled": false
+      },
+      {
+        "text": "自媒体陈斌",
+        "disabled": false
+      },
+      {
+        "text": "自媒体杜淑清",
+        "disabled": false
+      },
+      {
+        "text": "自媒体段慧敏",
+        "disabled": false
+      },
+      {
+        "text": "自媒体胡悦",
+        "disabled": false
+      },
+      {
+        "text": "自媒体黎宁静",
+        "disabled": false
+      },
+      {
+        "text": "自媒体李影影",
+        "disabled": false
+      },
+      {
+        "text": "自媒体刘月梅",
+        "disabled": false
+      },
+      {
+        "text": "自媒体万成",
+        "disabled": false
+      },
+      {
+        "text": "自媒体吴美芳",
+        "disabled": false
+      },
+      {
+        "text": "自媒体徐子涵",
+        "disabled": false
+      },
+      {
+        "text": "自媒体杨薇",
+        "disabled": false
+      },
+      {
+        "text": "自媒体叶惠美",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张德雯",
+        "disabled": false
+      },
+      {
+        "text": "自媒体张水芳",
+        "disabled": false
+      },
+      {
+        "text": "自媒体郑美月",
+        "disabled": false
+      },
+      {
+        "text": "邹雪梅",
+        "disabled": false
+      },
+      {
+        "text": "未知",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--salesStatsNew--filter-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "salesStatsNew",
+    "context": "filter",
+    "label": "来源",
+    "multiple": false,
+    "options": [
+      {
+        "text": "全部",
+        "disabled": false
+      },
+      {
+        "text": "渠道",
+        "disabled": false
+      },
+      {
+        "text": "利益点",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--salesStatsNew--filter-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "salesStatsNew",
+    "context": "filter",
+    "label": "渠道",
+    "multiple": false,
+    "options": [
+      {
+        "text": "渠道",
+        "disabled": false
+      },
+      {
+        "text": "利益点",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--salesStatsNew--filter-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "salesStatsNew",
+    "context": "filter",
+    "label": "选择门店",
+    "multiple": false,
+    "options": [
+      {
+        "text": "人数",
+        "disabled": false
+      },
+      {
+        "text": "按商品",
+        "disabled": false
+      },
+      {
+        "text": "麓湖店",
+        "disabled": false
+      },
+      {
+        "text": "环球店",
+        "disabled": false
+      },
+      {
+        "text": "绿道店",
+        "disabled": false
+      },
+      {
+        "text": "欢乐谷店",
+        "disabled": false
+      },
+      {
+        "text": "天府大悦城店",
+        "disabled": false
+      },
+      {
+        "text": "蒲江店",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--salesStatsNew--filter-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "salesStatsNew",
+    "context": "filter",
+    "label": "人数",
+    "multiple": false,
+    "options": [
+      {
+        "text": "人数",
+        "disabled": false
+      },
+      {
+        "text": "按商品",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--salesStatsNew--filter-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "wechatStatus",
+    "context": "edit",
+    "label": "群组归属",
+    "multiple": false,
+    "options": [
+      {
+        "text": "电商",
+        "disabled": false
+      },
+      {
+        "text": "医生号",
+        "disabled": false
+      },
+      {
+        "text": "微整科专家助理",
+        "disabled": false
+      },
+      {
+        "text": "自媒体",
+        "disabled": false
+      },
+      {
+        "text": "私域运营",
+        "disabled": false
+      },
+      {
+        "text": "内容中心",
+        "disabled": false
+      },
+      {
+        "text": "客服三部",
+        "disabled": false
+      },
+      {
+        "text": "抖音",
+        "disabled": false
+      },
+      {
+        "text": "大搜",
+        "disabled": false
+      },
+      {
+        "text": "默认分组",
+        "disabled": false
+      },
+      {
+        "text": "代运营-三方",
+        "disabled": false
+      },
+      {
+        "text": "会员中心",
+        "disabled": false
+      }
+    ],
+    "evidence": "visible-popover-2026-09-18"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "wechatStatus",
+    "context": "edit",
+    "label": "代理",
+    "multiple": false,
+    "options": [
+      {
+        "text": "ajs-深圳126",
+        "disabled": false
+      },
+      {
+        "text": "ajs-深圳141",
+        "disabled": false
+      },
+      {
+        "text": "ajs-深圳151",
+        "disabled": false
+      },
+      {
+        "text": "ajs-深圳131",
+        "disabled": false
+      },
+      {
+        "text": "ajs-深圳133",
+        "disabled": false
+      },
+      {
+        "text": "ajs-深圳139",
+        "disabled": false
+      },
+      {
+        "text": "ajs-深圳155",
+        "disabled": false
+      },
+      {
+        "text": "ajs-深圳150",
+        "disabled": false
+      },
+      {
+        "text": "ajs-深圳127",
+        "disabled": true
+      },
+      {
+        "text": "ajs-深圳135",
+        "disabled": true
+      },
+      {
+        "text": "ajs-深圳132",
+        "disabled": true
+      },
+      {
+        "text": "ajs-深圳130",
+        "disabled": true
+      },
+      {
+        "text": "ajs-深圳145",
+        "disabled": true
+      },
+      {
+        "text": "ajs-深圳128",
+        "disabled": true
+      },
+      {
+        "text": "ajs-深圳129",
+        "disabled": true
+      },
+      {
+        "text": "ajs-深圳153",
+        "disabled": true
+      },
+      {
+        "text": "ajs-深圳148",
+        "disabled": true
+      },
+      {
+        "text": "ajs-深圳152",
+        "disabled": true
+      },
+      {
+        "text": "ajs-深圳154",
+        "disabled": true
+      },
+      {
+        "text": "ajs-深圳149",
+        "disabled": true
+      }
+    ],
+    "evidence": "yestar-sz--wechatStatus--edit-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "wechatStatus",
+    "context": "edit",
+    "label": "登录设备",
+    "multiple": false,
+    "options": [
+      {
+        "text": "ipad",
+        "disabled": false
+      },
+      {
+        "text": "mac",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--wechatStatus--edit-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "wechatStatus",
+    "context": "edit",
+    "label": "自动通友开关",
+    "multiple": false,
+    "options": [
+      {
+        "text": "自动通过",
+        "disabled": false
+      },
+      {
+        "text": "禁止自动通过",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--wechatStatus--edit-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "wechatStatus",
+    "context": "edit",
+    "label": "声音模型",
+    "multiple": false,
+    "options": [
+      {
+        "text": "徐英的声音",
+        "disabled": false
+      },
+      {
+        "text": "陈星光的声音",
+        "disabled": false
+      },
+      {
+        "text": "李高峰的声音",
+        "disabled": false
+      },
+      {
+        "text": "姚忠志的声音",
+        "disabled": false
+      },
+      {
+        "text": "苏瑞的声音",
+        "disabled": false
+      },
+      {
+        "text": "郑文涛的声音",
+        "disabled": false
+      },
+      {
+        "text": "林登文的声音",
+        "disabled": false
+      },
+      {
+        "text": "温磊的声音",
+        "disabled": false
+      },
+      {
+        "text": "郭世伟的声音",
+        "disabled": false
+      },
+      {
+        "text": "牛克辉的声音",
+        "disabled": false
+      }
+    ],
+    "evidence": "yestar-sz--wechatStatus--edit-options.json"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "asrLexicon",
+    "context": "edit",
+    "label": "大类",
+    "multiple": true,
+    "options": [
+      {
+        "text": "微整",
+        "disabled": false
+      },
+      {
+        "text": "整外",
+        "disabled": false
+      },
+      {
+        "text": "皮肤",
+        "disabled": false
+      },
+      {
+        "text": "眼",
+        "disabled": false
+      },
+      {
+        "text": "胸",
+        "disabled": false
+      },
+      {
+        "text": "鼻",
+        "disabled": false
+      }
+    ],
+    "evidence": "visible-popover-2026-09-18"
+  }
+]
