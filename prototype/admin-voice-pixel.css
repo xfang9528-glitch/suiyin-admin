@@ -1,0 +1,8 @@
+/* Voice inherits sales usage's confirmed action theme; no date-mode or rule change.
+   Include after admin-sales-usage.css and admin-sales-voice-stats.css. */
+.admin-content .voice-stats-page{--usage-primary:#00c4af;--usage-primary-hover:#33d0bf}
+.admin-content .voice-filters button.primary{background:var(--usage-primary);border-color:var(--usage-primary);color:#fff}
+.admin-content .voice-filters button.primary:hover:not(:disabled){background:var(--usage-primary-hover);border-color:var(--usage-primary-hover);color:#fff}
+.admin-content .voice-filters button.primary:disabled{background:#80e2d7;border-color:#80e2d7;color:#fff}
+.admin-content .voice-filters .quick-dates button.selected{background:var(--usage-primary);border-color:var(--usage-primary);color:#fff}
+.admin-content .voice-stats-page .usage-date-control:focus-within{border-color:#409eff}

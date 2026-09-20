@@ -1,0 +1,47 @@
+{
+  "kind": "Isolated local browser checks; not production verification",
+  "checkedAt": "2026-09-20T07:16:31.819Z",
+  "checks": [
+    {
+      "name": "Usage uses segmented controls, filters without wrapping, and natural table scroll",
+      "pass": true
+    },
+    {
+      "name": "Usage range controls and invalid date prevention remain functional",
+      "pass": true
+    },
+    {
+      "name": "Usage sorting retains group totals and department tags",
+      "pass": true
+    },
+    {
+      "name": "Message chart legend, tooltip and correct dated total",
+      "pass": true
+    },
+    {
+      "name": "Message queries distinguish unsampled exclusions and dates from zero data",
+      "pass": true
+    },
+    {
+      "name": "Message snapshot provenance is reachable from the source info control",
+      "pass": true
+    },
+    {
+      "name": "AI uses Shenzhen visible records and correct assistance denominator",
+      "pass": true
+    },
+    {
+      "name": "AI filtering, sorting, reset and unavailable department breakdown",
+      "pass": true
+    },
+    {
+      "name": "Changed data views load only their own tenant snapshots on every existing route",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true,
+      "detail": []
+    }
+  ]
+}

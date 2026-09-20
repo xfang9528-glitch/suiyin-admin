@@ -1,0 +1,10 @@
+{
+  "tenant": "yestar-jx",
+  "route": "aiAssistStats",
+  "state": "not-captured",
+  "start": null,
+  "end": null,
+  "source": null,
+  "rows": [],
+  "departmentAllocationComplete": false
+}

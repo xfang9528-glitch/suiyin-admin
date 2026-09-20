@@ -1,0 +1,61 @@
+{
+  "checked_at": "2026-09-20",
+  "scope": "SPEC-SUIYIN-ADMIN-052@1.1.2",
+  "assertions": {
+    "rule_body_unchanged": true,
+    "acceptance_ids_unchanged": true,
+    "depends_on_specs": "SPEC-SUIYIN-ADMIN-051@1.1.0",
+    "active_blue_directives": 0,
+    "source_boundary": "Screenshot evidence replaces temporary other-route color inference only; no new behavior"
+  },
+  "matches": [
+    {
+      "file": "spec.md",
+      "line": 104,
+      "text": "- 1.1.2：E011 提供销售使用统计当前路由的直接截图，主操作为青绿 #00c4af；变声按既有 R007 继承同一颜色。1.1.1 以其他路由蓝色按钮作临时参照的判断已被替代。数字右对齐、直接日期区间及既有计数/分页不变；未完成在线逐像素验收。",
+      "classification": "superseded or explicit history"
+    },
+    {
+      "file": "spec.md",
+      "line": 106,
+      "text": "- E009 替代 1.0.0 的单日/范围切换控件；统计仍支持同日与跨日，直接以起止日期表达。历史 1.1.0 / 1.1.1 的颜色判断均仅作演进记录；当前以 E011 的路由直接证据为准，日期直接区间决策继续有效。",
+      "classification": "existing dependency or historical version"
+    },
+    {
+      "file": "spec.md",
+      "line": 331,
+      "text": "| 1.0.0 | 2026-09-20 | Codex / 房总批准 | Q001 关闭，计数口径冻结并开始静态原型实现 | 房总“按这个方案做” |",
+      "classification": "existing dependency or historical version"
+    },
+    {
+      "file": "spec.md",
+      "line": 332,
+      "text": "| 1.0.0 实施记录 | 2026-09-20 | Codex | 静态页面及菜单联动实现；324 项结构/计数/DOM 检查通过，18 项 HTTP 通过；Chrome 视觉待验证 | 浏览器控制持续连接失败，不标为 verified |",
+      "classification": "existing dependency or historical version"
+    },
+    {
+      "file": "spec.md",
+      "line": 335,
+      "text": "| 1.1.1 | 2026-09-20 | 房总授权 / Codex | 对齐修正后的参照：蓝色主按钮、计数右对齐、直接区间日历；口径与分页不变 | E010，052先前参照基准失真 |",
+      "classification": "superseded or explicit history"
+    },
+    {
+      "file": "spec.md",
+      "line": 337,
+      "text": "| 1.1.2 | 2026-09-20 | 房总纠偏 / Codex | 以使用统计直接截图替代其他路由蓝色临时基准；主操作 #00c4af，R/AC及业务口径不变 | E011，像素纠偏后明确完整推送 |",
+      "classification": "superseded or explicit history"
+    },
+    {
+      "file": "plan.md",
+      "line": 90,
+      "text": "1.1.2 参照勘误：与053@1.0.1共享青绿 #00c4af 主操作、右对齐和日历；直接区间不显示单日/范围。旧版本蓝色检查仅保留为历史，不作当前色值证明。本轮证据和在线缺口见 verification.md。",
+      "classification": "superseded or explicit history"
+    },
+    {
+      "file": "tasks.md",
+      "line": 22,
+      "text": "1.1.2 参照勘误：与053@1.0.1共享青绿 #00c4af 主操作、右对齐和日历；直接区间不显示单日/范围。旧版本蓝色检查仅保留为历史，不作当前色值证明。本轮证据和在线缺口见 verification.md。",
+      "classification": "superseded or explicit history"
+    }
+  ]
+}

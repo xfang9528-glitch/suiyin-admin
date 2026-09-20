@@ -1,0 +1,51 @@
+{
+  "source_sha256": "8d6f8e5d9a9073616d17687d2919fa5be5b124749e5988b3831f9c1dc3a04262",
+  "projection": {
+    "kind": "Presentation DOM and preserved statistics; not rendered pixel verification",
+    "at": "2026-09-20T06:45:29.974Z",
+    "checks": [
+      {
+        "name": "Segmented captions preserve native radio controls",
+        "pass": true
+      },
+      {
+        "name": "Every department detail uses a tag; subtotal does not",
+        "pass": true
+      },
+      {
+        "name": "Heading explanation icon is present",
+        "pass": true
+      },
+      {
+        "name": "Reset has no invented icon",
+        "pass": true
+      },
+      {
+        "name": "The captured date and all source group data are unchanged",
+        "pass": true
+      },
+      {
+        "name": "Group sorting preserves totals and detail tag count",
+        "pass": true
+      },
+      {
+        "name": "Range mode still exposes both date fields",
+        "pass": true
+      },
+      {
+        "name": "Single mode still hides the second date",
+        "pass": true
+      },
+      {
+        "name": "Export remains department detail only",
+        "pass": true
+      },
+      {
+        "name": "No runtime errors",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "status": "pass"
+  }
+}

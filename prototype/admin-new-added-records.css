@@ -1,0 +1,43 @@
+/* Recruitment records: source form geometry and viewport-height empty table. */
+.admin-content:has(.newadded-page),.admin-content:has(.newadded-page) #app{height:100vh;min-height:0;background:#fff;overflow:hidden}
+.admin-content .newadded-page{height:100%;display:flex;flex-direction:column;min-height:0;gap:0;padding:0 0 14px;background:#fff}
+.admin-content .newadded-filters{flex:none;background:#f8f9fa;padding:8px 16px;margin:0 0 10px;border:0}
+.newadded-filter-fields{display:flex;align-items:center;flex-wrap:wrap;gap:12px 32px}
+.admin-content .newadded-filter-fields>.field{flex:none;display:flex;flex-direction:row;align-items:center;gap:0;min-width:0;max-width:none;padding:0}
+.admin-content .newadded-filter-fields>.field>span{flex:none;white-space:nowrap;padding-right:12px;font-size:14px;line-height:32px;color:#606266}
+.admin-content .newadded-date-control{width:260px;height:32px;flex:none}
+.admin-content .newadded-date-control input{height:30px;font-size:14px}
+.admin-content .newadded-account-field>.live-select{width:240px}
+.admin-content .newadded-repeated-field>.live-select,.admin-content .newadded-friend-field>.live-select{width:120px}
+.newadded-actions{display:flex;align-items:center;gap:12px;margin-top:12px}
+.admin-content .newadded-actions button{height:32px;padding:8px 15px}
+.admin-content .newadded-actions .button-icon{margin-right:0}
+.admin-content .newadded-actions .newadded-export{color:#67c23a;background:#f0f9eb;border-color:#c2e7b0}
+.admin-content .newadded-actions .newadded-export:before{content:"";display:inline-block;vertical-align:-2px;width:14px;height:14px;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.admin-content .newadded-actions .newadded-export:hover:not(:disabled){color:#fff;background:#67c23a;border-color:#67c23a}
+.admin-content .newadded-actions .newadded-export:disabled{color:#b3e19d;background:#f0f9eb;border-color:#e1f3d8}
+.admin-content .newadded-filters .filter-error{margin:8px 0 0}
+.newadded-results{flex:1;min-height:0;background:white;display:flex;flex-direction:column;padding:0 12px}
+.newadded-table-wrap{flex:1;min-height:0;overflow:auto;border:1px solid #ebeef5;background:#fff}
+.admin-content .newadded-table{width:100%;min-width:1220px!important;border-collapse:separate;border-spacing:0;table-layout:fixed;background:#fff}
+.admin-content .newadded-table col:nth-child(1){width:200px!important}
+.admin-content .newadded-table col:nth-child(2){width:180px!important}
+.admin-content .newadded-table col:nth-child(3){width:140px!important}
+.admin-content .newadded-table col:nth-child(4){width:260px!important}
+.admin-content .newadded-table col:nth-child(5){width:170px!important}
+.admin-content .newadded-table col:nth-child(6){width:100px!important}
+.admin-content .newadded-table col:nth-child(7){width:auto!important}
+.admin-content .newadded-table th{height:40px;padding:8px 12px;line-height:23px;text-align:left;font-size:14px;color:#909399;font-weight:400;border-right:1px solid #ebeef5;border-bottom:1px solid #ebeef5;white-space:nowrap;background:#fff}
+.admin-content .newadded-table th:last-child{border-right:0}
+.newadded-empty{position:sticky;left:0;width:100%;text-align:center;line-height:60px;font-size:14px;font-weight:400;color:#909399;white-space:nowrap}
+.newadded-pager{display:flex;flex:none;align-items:center;justify-content:flex-end;gap:0;padding:4px 12px 0;min-height:44px;background:#fff}
+.admin-content .newadded-pager>.live-select{width:128px;flex:none;margin-right:16px}
+.admin-content .newadded-pager button:not(.live-select-trigger):not(.live-select-clear){height:32px;min-width:32px;padding:0 8px;background:#fff;border:0;color:#303133;font-weight:700}
+.admin-content .newadded-pager button.selected{color:#409eff!important}
+.admin-content .newadded-pager button:disabled{color:#a8abb2!important}
+.newadded-total{font-size:14px;line-height:32px;margin-left:16px;color:#606266;white-space:nowrap}
+.admin-content .newadded-select .live-options{min-width:120px}
+.admin-content .newadded-friend-field .live-options{overflow:visible;transform:translateY(4px)}
+.admin-content .newadded-friend-field .live-options:before{content:"";position:absolute;top:-6px;left:50%;width:10px;height:10px;background:#fff;border-top:1px solid #e4e7ed;border-left:1px solid #e4e7ed;transform:translateX(-50%) rotate(45deg)}
+.admin-content .newadded-friend-field .live-option.selected{background:#f5f7fa}
+@media(max-width:760px){.newadded-filter-fields{gap:12px 16px}.admin-content .newadded-filter-fields>.field{max-width:100%}.admin-content .newadded-date-control{width:240px}.newadded-filters{overflow:auto}.newadded-pager{padding-left:0}}

@@ -1,0 +1,112 @@
+[
+  {
+    "tenant": "yestar-sz",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "yestar-sz",
+    "route": "aiAssistStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "jbfs",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "mengzhua",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "bzds",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "bzds",
+    "route": "aiAssistStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "crrm",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "hqjd",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "ykjl",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "ruixi-kh-xiaowen",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "rxxz",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "yestar",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "yestar",
+    "route": "aiAssistStats",
+    "state": "not-captured"
+  },
+  {
+    "tenant": "yestar-bj",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "yestar-bj",
+    "route": "aiAssistStats",
+    "state": "not-captured"
+  },
+  {
+    "tenant": "yestar-gz",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "yestar-gz",
+    "route": "aiAssistStats",
+    "state": "not-captured"
+  },
+  {
+    "tenant": "yestar-hz",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "yestar-hz",
+    "route": "aiAssistStats",
+    "state": "not-captured"
+  },
+  {
+    "tenant": "yestar-jx",
+    "route": "messageStats",
+    "state": "ready"
+  },
+  {
+    "tenant": "yestar-jx",
+    "route": "aiAssistStats",
+    "state": "not-captured"
+  },
+  {
+    "tenant": "yzhb",
+    "route": "messageStats",
+    "state": "ready"
+  }
+]

@@ -10232,107 +10232,127 @@
     "label": "拉新记录",
     "source": "https://yestar-sz.wecarepet.com/admin/newAddedRecords",
     "sampleTenant": "yestar-sz",
-    "sampleSource": "existing-prototype-mock",
+    "sampleSource": "https://yestar-sz.wecarepet.com/admin/newAddedRecords",
     "schemaSource": "https://yestar-sz.wecarepet.com/admin/newAddedRecords",
-    "capturedAt": "2026-09-18T08:47:26.889Z",
-    "state": "mock",
-    "dataRevision": "2026-09-18-filled-v4-public-demo-identities-v1",
+    "capturedAt": "2026-09-20",
+    "state": "captured",
+    "dataRevision": "2026-09-20-newAddedRecords-user-screenshot-empty-v1",
     "forms": [
       {
         "fields": [
           {
+            "label": "拉新时间",
+            "text": "拉新时间\n至",
+            "required": true,
             "controls": [
               {
-                "disabled": false,
-                "placeholder": "开始日期",
-                "tag": "INPUT",
-                "text": "",
                 "type": "text",
-                "value": "2026-09-18"
+                "tag": "INPUT",
+                "placeholder": "开始日期",
+                "value": "2026-09-20",
+                "disabled": false
               },
               {
-                "disabled": false,
+                "type": "text",
+                "tag": "INPUT",
                 "placeholder": "结束日期",
-                "tag": "INPUT",
-                "text": "",
-                "type": "text",
-                "value": "2026-09-18"
+                "value": "2026-09-20",
+                "disabled": false
               }
-            ],
-            "label": "拉新时间",
-            "text": "拉新时间\n至"
+            ]
           },
           {
-            "controls": [],
             "label": "微信号",
-            "text": "微信号\n全部人设"
-          },
-          {
+            "text": "微信号\n全部人设",
+            "required": true,
             "controls": [
               {
-                "disabled": false,
-                "placeholder": null,
-                "tag": "INPUT",
-                "text": "",
-                "type": "text",
-                "value": ""
+                "type": "select",
+                "tag": "SELECT",
+                "value": "",
+                "placeholder": "全部人设",
+                "disabled": false
               }
             ],
+            "options": [
+              "全部人设"
+            ],
+            "optionsComplete": false
+          },
+          {
             "label": "重复添加",
-            "text": "重复添加\n全部"
-          },
-          {
+            "text": "重复添加\n全部",
             "controls": [
               {
-                "disabled": false,
-                "placeholder": null,
-                "tag": "INPUT",
-                "text": "",
-                "type": "text",
-                "value": ""
+                "type": "select",
+                "tag": "SELECT",
+                "value": "",
+                "placeholder": "全部",
+                "disabled": false
               }
             ],
-            "label": "好友状态",
-            "text": "好友状态\n全部"
+            "options": [
+              "全部"
+            ],
+            "optionsComplete": false
           },
           {
-            "controls": [],
+            "label": "好友状态",
+            "text": "好友状态\n全部",
+            "controls": [
+              {
+                "type": "select",
+                "tag": "SELECT",
+                "value": "",
+                "placeholder": "全部",
+                "disabled": false
+              }
+            ],
+            "options": [
+              "全部",
+              "仅好友",
+              "仅已流失"
+            ],
+            "optionsComplete": true
+          },
+          {
             "label": "",
-            "text": "查询\n重置\n导出表格"
+            "text": "查询\n重置\n导出表格",
+            "controls": []
           }
         ]
       }
     ],
     "inputs": [
       {
+        "type": "text",
         "placeholder": "开始日期",
-        "text": "",
-        "type": "text",
-        "value": "2026-09-18"
+        "value": "2026-09-20",
+        "text": ""
       },
       {
+        "type": "text",
         "placeholder": "结束日期",
-        "text": "",
-        "type": "text",
-        "value": "2026-09-18"
+        "value": "2026-09-20",
+        "text": ""
       },
       {
-        "placeholder": null,
-        "text": "",
-        "type": "text",
-        "value": ""
+        "type": "select",
+        "placeholder": "全部人设",
+        "value": "",
+        "text": ""
       },
       {
-        "placeholder": null,
-        "text": "",
-        "type": "text",
-        "value": ""
+        "type": "select",
+        "placeholder": "全部",
+        "value": "",
+        "text": ""
       },
       {
-        "placeholder": null,
-        "text": "",
-        "type": "text",
-        "value": ""
+        "type": "select",
+        "placeholder": "全部",
+        "value": "",
+        "text": ""
       }
     ],
     "tables": [
@@ -10346,164 +10366,7 @@
           "好友状态",
           "流失时间"
         ],
-        "rows": [
-          {
-            "id": "0-0",
-            "cells": [
-              "演示客户 EEEA736C",
-              "星星-王洁",
-              "演示备注 EEEA736C",
-              "星星-王洁",
-              "2026-09-18 09:30:00",
-              "已流失",
-              "2026-09-18 15:20:00"
-            ],
-            "actions": []
-          },
-          {
-            "id": "0-1",
-            "cells": [
-              "演示客户 50CA9B12",
-              "柚子-陈平",
-              "演示备注 DF2257C9",
-              "柚子-陈平",
-              "2026-09-17 09:30:00",
-              "正常",
-              "尚未流失"
-            ],
-            "actions": []
-          },
-          {
-            "id": "0-2",
-            "cells": [
-              "演示客户 301781C6",
-              "VIP管家-康康",
-              "演示备注 301781C6",
-              "VIP管家-康康",
-              "2026-09-16 09:30:00",
-              "正常",
-              "尚未流失"
-            ],
-            "actions": []
-          },
-          {
-            "id": "0-3",
-            "cells": [
-              "演示客户 56D157CD",
-              "VIP管家-敦敦",
-              "演示备注 7EDC78E5",
-              "VIP管家-敦敦",
-              "2026-09-15 09:30:00",
-              "正常",
-              "尚未流失"
-            ],
-            "actions": []
-          },
-          {
-            "id": "0-4",
-            "cells": [
-              "演示客户 4F9169E3",
-              "VIP管家-晓贤",
-              "演示备注 863EB402",
-              "VIP管家-晓贤",
-              "2026-09-14 09:30:00",
-              "已流失",
-              "2026-09-18 15:20:00"
-            ],
-            "actions": []
-          },
-          {
-            "id": "0-5",
-            "cells": [
-              "演示客户 14979EC8",
-              "VIP管家-紫婷",
-              "136****1455",
-              "VIP管家-紫婷",
-              "2026-09-13 09:30:00",
-              "正常",
-              "尚未流失"
-            ],
-            "actions": []
-          },
-          {
-            "id": "0-6",
-            "cells": [
-              "演示客户 AEFD361C",
-              "VIP管家-静静",
-              "演示备注 3B99013E",
-              "VIP管家-静静",
-              "2026-09-12 09:30:00",
-              "正常",
-              "尚未流失"
-            ],
-            "actions": []
-          },
-          {
-            "id": "0-7",
-            "cells": [
-              "演示客户 13207987",
-              "Yestar 深圳艺星客服-杨晓纯",
-              "演示备注 2F6205EB",
-              "Yestar 深圳艺星客服-杨晓纯",
-              "2026-09-18 09:30:00",
-              "正常",
-              "尚未流失"
-            ],
-            "actions": []
-          },
-          {
-            "id": "0-8",
-            "cells": [
-              "演示客户 07B2F444",
-              "Yestar深圳艺星周助理-周嘉伟",
-              "演示备注 8CF69EF1",
-              "Yestar深圳艺星周助理-周嘉伟",
-              "2026-09-17 09:30:00",
-              "已流失",
-              "2026-09-18 15:20:00"
-            ],
-            "actions": []
-          },
-          {
-            "id": "0-9",
-            "cells": [
-              "演示客户 FCAF00EA",
-              "Yestar深圳艺星圆圆-190****0441-汪梦",
-              "演示备注 D28F5998",
-              "Yestar深圳艺星圆圆-190****0441-汪梦",
-              "2026-09-16 09:30:00",
-              "正常",
-              "尚未流失"
-            ],
-            "actions": []
-          },
-          {
-            "id": "0-10",
-            "cells": [
-              "演示客户 CDB0C859",
-              "丁楚夏",
-              "演示备注 9249122E",
-              "丁楚夏",
-              "2026-09-15 09:30:00",
-              "正常",
-              "尚未流失"
-            ],
-            "actions": []
-          },
-          {
-            "id": "0-11",
-            "cells": [
-              "演示客户 29F304E5",
-              "丹丹-许海丹",
-              "演示备注 B735E0A1",
-              "丹丹-许海丹",
-              "2026-09-14 09:30:00",
-              "正常",
-              "尚未流失"
-            ],
-            "actions": []
-          }
-        ]
+        "rows": []
       }
     ],
     "buttons": [
@@ -10513,10 +10376,21 @@
     ],
     "tabs": [],
     "pagination": "20条/页\n1\n共 0 条",
-    "text": "拉新记录\n头像昵称\t所在微信号\t微信备注\t其他已添加人设\t拉新时间\t好友状态\t流失时间\n演示客户 EEEA736C\t星星-王洁\t演示备注 EEEA736C\t星星-王洁\t2026-09-18 09:30:00\t已流失\t2026-09-18 15:20:00\n演示客户 50CA9B12\t柚子-陈平\t演示备注 DF2257C9\t柚子-陈平\t2026-09-17 09:30:00\t正常\t尚未流失\n演示客户 301781C6\tVIP管家-康康\t演示备注 301781C6\tVIP管家-康康\t2026-09-16 09:30:00\t正常\t尚未流失\n演示客户 56D157CD\tVIP管家-敦敦\t演示备注 7EDC78E5\tVIP管家-敦敦\t2026-09-15 09:30:00\t正常\t尚未流失\n演示客户 4F9169E3\tVIP管家-晓贤\t演示备注 863EB402\tVIP管家-晓贤\t2026-09-14 09:30:00\t已流失\t2026-09-18 15:20:00\n演示客户 14979EC8\tVIP管家-紫婷\t136****1455\tVIP管家-紫婷\t2026-09-13 09:30:00\t正常\t尚未流失\n演示客户 AEFD361C\tVIP管家-静静\t演示备注 3B99013E\tVIP管家-静静\t2026-09-12 09:30:00\t正常\t尚未流失\n演示客户 13207987\tYestar 深圳艺星客服-杨晓纯\t演示备注 2F6205EB\tYestar 深圳艺星客服-杨晓纯\t2026-09-18 09:30:00\t正常\t尚未流失\n演示客户 07B2F444\tYestar深圳艺星周助理-周嘉伟\t演示备注 8CF69EF1\tYestar深圳艺星周助理-周嘉伟\t2026-09-17 09:30:00\t已流失\t2026-09-18 15:20:00\n演示客户 FCAF00EA\tYestar深圳艺星圆圆-190****0441-汪梦\t演示备注 D28F5998\tYestar深圳艺星圆圆-190****0441-汪梦\t2026-09-16 09:30:00\t正常\t尚未流失\n演示客户 CDB0C859\t丁楚夏\t演示备注 9249122E\t丁楚夏\t2026-09-15 09:30:00\t正常\t尚未流失\n演示客户 29F304E5\t丹丹-许海丹\t演示备注 B735E0A1\t丹丹-许海丹\t2026-09-14 09:30:00\t正常\t尚未流失",
+    "text": "拉新记录\n头像昵称\t所在微信号\t微信备注\t其他已添加人设\t拉新时间\t好友状态\t流失时间",
     "canvas": 0,
     "expandedForms": {},
-    "publicDataPolicy": "public-demo-identities-v1"
+    "publicDataPolicy": "public-demo-identities-v1",
+    "capturedAtPrecision": "day",
+    "evidenceKind": "user-screenshot",
+    "evidenceRef": "user-screenshot-2026-09-20-newAddedRecords",
+    "sampleConditions": {
+      "start": "2026-09-20",
+      "end": "2026-09-20",
+      "account": "全部人设",
+      "repeated": "全部",
+      "friend": "全部"
+    },
+    "publicDataNotes": "本租户空态快照，没有客户、账号或销售明细；未采集的筛选条件不得视为真实空态。"
   },
   "salesStatsNew": {
     "tenant": "yestar-sz",

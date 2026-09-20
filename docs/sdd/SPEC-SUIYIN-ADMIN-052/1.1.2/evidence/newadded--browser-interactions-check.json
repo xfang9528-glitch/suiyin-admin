@@ -1,0 +1,36 @@
+{
+  "source_sha256": "acf0a4dbfb233fb720bbd2540c4ea148bd3e82a20df6e362328c31e2f161b533",
+  "projection": {
+    "kind": "Isolated local Chrome real click/input/download interactions; no authenticated source window accessed",
+    "passed": 14,
+    "failed": 0,
+    "checks": [
+      "default date and observed empty state",
+      "real dropdown opens with exactly observed three options",
+      "friend dropdown is 120px wide",
+      "filter draft does not overwrite submitted snapshot",
+      "unknown filter state is not claimed empty and cannot export",
+      "reset restores observed filters and empty snapshot",
+      "calendar partial range Escape restores original dates",
+      "calendar complete range commits and queries independent 09-18 capture",
+      "invalid manual date rejects query and retains last submitted state",
+      "descending range rejects query",
+      "unobserved date does not invent an empty result",
+      "actual Chrome download contains only seven headers and zero data rows",
+      "all seven columns fit without horizontal overflow",
+      "no browser runtime errors"
+    ],
+    "horizontal": {
+      "client": 1224,
+      "scroll": 1224
+    },
+    "friendPopupBox": {
+      "x": 1269.375,
+      "y": 177,
+      "width": 120,
+      "height": 116
+    },
+    "errors": [],
+    "exportDataRows": 0
+  }
+}

@@ -1,0 +1,14 @@
+/* Screenshot-confirmed shared canvas, 2026-09-20.
+   Include after admin-live-ui.css in both shell and content documents.
+   Page-specific controls and table geometry stay with their own modules. */
+html:has(>body.admin-shell),
+html:has(>body.admin-content){background:#fff}
+body.admin-content{min-height:100vh;background:#fff}
+.admin-content #app{min-height:100vh;background:#fff}
+.admin-shell .workspace,
+.admin-shell .pages,
+.admin-shell .frame-wrap,
+.admin-shell .page-frame{background:#fff}
+/* The captured Shenzhen recruitment screen has a 10px right workspace inset. */
+.admin-shell #panel-newAddedRecords .page-frame[src*="tenant=yestar-sz&"]{width:calc(100% + 10px)}
+.admin-shell:has(.page-frame[src*="tenant=yestar-sz&"]) .brand h1{letter-spacing:2px}

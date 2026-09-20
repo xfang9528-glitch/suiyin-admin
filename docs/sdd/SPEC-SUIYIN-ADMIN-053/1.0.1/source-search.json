@@ -1,0 +1,43 @@
+{
+  "checked_at": "2026-09-20",
+  "scope": "SPEC-SUIYIN-ADMIN-053@1.0.1",
+  "assertions": {
+    "rule_body_unchanged": true,
+    "acceptance_ids_unchanged": true,
+    "depends_on_specs": "SPEC-SUIYIN-ADMIN-051@1.1.0",
+    "active_blue_directives": 0,
+    "source_boundary": "Screenshot evidence replaces temporary other-route color inference only; no new behavior"
+  },
+  "matches": [
+    {
+      "file": "spec.md",
+      "line": 64,
+      "text": "| E005 | USER | 较早提供的其他Admin路由截图 | 蓝色按钮仅为历史临时推断，已被本路由直接证据 E007 替代 | superseded |",
+      "classification": "superseded or explicit history"
+    },
+    {
+      "file": "spec.md",
+      "line": 70,
+      "text": "- 1.0.0 使用其他路由蓝色按钮作为临时基准的判断被 E007 的本路由直接截图替代：主操作 #00c4af。分段模式、快捷日、部门标签及表格横线按本路由截图恢复；新版本并未证明所有 hover、滚动和字体栅格完全相同。",
+      "classification": "superseded or explicit history"
+    },
+    {
+      "file": "spec.md",
+      "line": 196,
+      "text": "| 1.0.0 | 2026-09-20 | 房总授权 / Codex | 全部已证实差异纠偏 | E001 |",
+      "classification": "existing dependency or historical version"
+    },
+    {
+      "file": "spec.md",
+      "line": 198,
+      "text": "| 1.0.1 | 2026-09-20 | 房总纠偏 / Codex | 直接截图替代蓝色临时依据；恢复分段、标签、表格及滚动外观，R/AC及快照口径不变 | E007，像素纠偏后明确完整推送 |",
+      "classification": "superseded or explicit history"
+    },
+    {
+      "file": "tasks.md",
+      "line": 15,
+      "text": "- [x] T008 直接截图取代临时蓝色依据，恢复分段模式/快捷组/部门标签/表格横线/主操作 #00c4af（R006）。",
+      "classification": "superseded or explicit history"
+    }
+  ]
+}

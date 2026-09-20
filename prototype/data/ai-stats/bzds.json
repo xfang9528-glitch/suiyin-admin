@@ -1,0 +1,72 @@
+{
+  "tenant": "bzds",
+  "route": "aiAssistStats",
+  "state": "captured",
+  "start": "2026-09-01",
+  "end": "2026-09-18",
+  "source": "https://bzds.wecarepet.com/admin/aiAssistStats",
+  "rows": [
+    {
+      "id": "bzds:capture:0",
+      "order": 0,
+      "name": "陈宣宇",
+      "departments": [
+        "默认分组"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 12,
+      "success": 12
+    },
+    {
+      "id": "bzds:capture:1",
+      "order": 1,
+      "name": "房昕",
+      "departments": [
+        "默认分组"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 491,
+      "success": 528
+    },
+    {
+      "id": "bzds:capture:2",
+      "order": 2,
+      "name": "张拓（工程师）",
+      "departments": [
+        "默认分组"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 4,
+      "success": 4
+    },
+    {
+      "id": "bzds:capture:3",
+      "order": 3,
+      "name": "王争",
+      "departments": [
+        "默认分组"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 1,
+      "success": 2
+    },
+    {
+      "id": "bzds:capture:4",
+      "order": 4,
+      "name": "梁晨（工程师）",
+      "departments": [
+        "默认分组"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 5,
+      "success": 15
+    }
+  ],
+  "departmentAllocationComplete": false,
+  "capturedAt": "2026-09-18T09:06:04.523Z"
+}

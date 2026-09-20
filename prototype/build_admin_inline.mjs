@@ -9,6 +9,8 @@ const files=(dir)=>fs.readdirSync(path.join(root,dir),{withFileTypes:true}).flat
 const types={'.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.svg':'image/svg+xml'};
 const assets=Object.fromEntries(files('assets').map(p=>[p,'data:'+(types[path.extname(p)]||'application/octet-stream')+';base64,'+fs.readFileSync(path.join(root,p)).toString('base64')]));
 const embedAssets=text=>Object.entries(assets).reduce((out,[p,data])=>out.split(p).join(data),text);
+// srcdoc replaces src in the standalone shell; retain the same query context for frame CSS.
+const inlineFrameSelectors=css=>css.replace(/\.page-frame\[src(?=[~|^$*]?=|\])/g,'.page-frame[data-inline-src');
 const serial=value=>JSON.stringify(value).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
 const data=Object.fromEntries(files('data').filter(p=>p.endsWith('.json')).map(p=>[p,JSON.parse(embedAssets(read(p)))]));
 function offlineFetch(input){
@@ -19,7 +21,7 @@ function offlineFetch(input){
 }
 function inlinePage(file){
  const scripts=[];
- let html=read(file).replace(/<link\s+rel=["']stylesheet["']\s+href=["']([^"']+)["']\s*\/?\s*>/gi,(_,p)=>'<style>\n'+embedAssets(read(p))+'\n</style>');
+ let html=read(file).replace(/<link\s+rel=["']stylesheet["']\s+href=["']([^"']+)["']\s*\/?\s*>/gi,(_,p)=>'<style>\n'+inlineFrameSelectors(embedAssets(read(p)))+'\n</style>');
  html=html.replace(/<script\s+src=["']([^"']+)["'][^>]*>\s*<\/script>/gi,(_,p)=>{
   let code=embedAssets(read(p));
   // about:srcdoc has an opaque location.origin; use the inherited parent origin for messages.
@@ -30,7 +32,7 @@ function inlinePage(file){
   if(p==='admin-navigation.js'){
    const needle="frame.src='admin-content.html?'+p;";
    if(!code.includes(needle))throw Error('Inline iframe adapter must be updated for navigation changes');
-   code=code.replace(needle,'frame.srcdoc=window.__ADMIN_INLINE_FRAME__(p.toString());');
+   code=code.replace(needle,"frame.dataset.inlineSrc='admin-content.html?'+p;frame.srcdoc=window.__ADMIN_INLINE_FRAME__(p.toString());");
   }
   scripts.push('<script>\n'+code.replace(/<\/script/gi,'<\\/script')+'\n</script>');return '';
  });

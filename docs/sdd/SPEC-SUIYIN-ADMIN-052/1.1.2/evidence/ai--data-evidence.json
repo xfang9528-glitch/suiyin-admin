@@ -1,0 +1,110 @@
+{
+  "source_sha256": "2560c6f36791184cc77694e368e6be7185bfc91ece194c957bdcaf1ebe805932",
+  "projection": [
+    {
+      "tenant": "yestar-sz",
+      "state": "partial",
+      "rows": 22,
+      "start": "2026-09-01",
+      "end": "2026-09-20"
+    },
+    {
+      "tenant": "jbfs",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "mengzhua",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "bzds",
+      "state": "captured",
+      "rows": 5,
+      "start": "2026-09-01",
+      "end": "2026-09-18"
+    },
+    {
+      "tenant": "crrm",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "hqjd",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "ykjl",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "ruixi-kh-xiaowen",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "rxxz",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "yestar",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "yestar-bj",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "yestar-gz",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "yestar-hz",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "yestar-jx",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    },
+    {
+      "tenant": "yzhb",
+      "state": "not-captured",
+      "rows": 0,
+      "start": null,
+      "end": null
+    }
+  ]
+}

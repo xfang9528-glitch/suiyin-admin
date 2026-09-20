@@ -1,0 +1,86 @@
+{
+  "source_sha256": "9995ab56368f2dc9fb47ef1137c7ab8fcd25c247d0b7b2b9a428ce6f28826bdf",
+  "projection": {
+    "kind": "Isolated local Chrome, staging CSS intercepted; no target source changed",
+    "metrics": {
+      "viewport": {
+        "width": 1250,
+        "height": 1467
+      },
+      "form": {
+        "x": 0,
+        "y": 0,
+        "width": 1250,
+        "height": 92
+      },
+      "date": {
+        "x": 93.6875,
+        "y": 8,
+        "width": 260,
+        "height": 32
+      },
+      "actions": {
+        "x": 16,
+        "y": 52,
+        "width": 1218,
+        "height": 32
+      },
+      "tableWrap": {
+        "x": 12,
+        "y": 102,
+        "width": 1226,
+        "height": 1307
+      },
+      "table": {
+        "x": 13,
+        "y": 103,
+        "width": 1224,
+        "height": 40
+      },
+      "pager": {
+        "x": 0,
+        "y": 1409,
+        "width": 1250,
+        "height": 44
+      },
+      "pagerSelect": {
+        "x": 938.78125,
+        "y": 1417,
+        "width": 128,
+        "height": 32
+      },
+      "headers": [
+        {
+          "label": "头像昵称",
+          "width": 200
+        },
+        {
+          "label": "所在微信号",
+          "width": 180
+        },
+        {
+          "label": "微信备注",
+          "width": 140
+        },
+        {
+          "label": "其他已添加人设",
+          "width": 260
+        },
+        {
+          "label": "拉新时间",
+          "width": 170
+        },
+        {
+          "label": "好友状态",
+          "width": 100
+        },
+        {
+          "label": "流失时间",
+          "width": 174
+        }
+      ],
+      "scrollWidth": 1224,
+      "clientWidth": 1224
+    }
+  }
+}

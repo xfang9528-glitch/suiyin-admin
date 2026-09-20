@@ -1,0 +1,2123 @@
+{
+  "checkedAt": "2026-09-20T07:42:11.175Z",
+  "scope": "Runtime and regular/inline artifact equivalence only. Not production visual pixel acceptance.",
+  "checks": [
+    {
+      "name": "normal-http salesMessageUsage load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1248,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\normal-http-salesMessageUsage.png"
+      }
+    },
+    {
+      "name": "normal-http salesMessageUsage real controls",
+      "pass": true,
+      "detail": {
+        "users": 94,
+        "rangeValidation": true,
+        "reset": true,
+        "groupSort": true
+      }
+    },
+    {
+      "name": "normal-http newAddedRecords load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1258,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\normal-http-newAddedRecords.png"
+      }
+    },
+    {
+      "name": "normal-http newAddedRecords real controls",
+      "pass": true,
+      "detail": {
+        "emptyRows": 0,
+        "friendBoundary": true,
+        "reset": true,
+        "pageSize": true
+      }
+    },
+    {
+      "name": "normal-http messageStats load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1248,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\normal-http-messageStats.png"
+      }
+    },
+    {
+      "name": "normal-http messageStats real controls",
+      "pass": true,
+      "detail": {
+        "total": 936804,
+        "tooltip": true,
+        "legend": true,
+        "unsampledBoundary": true,
+        "sourceDialog": true
+      }
+    },
+    {
+      "name": "normal-http aiAssistStats load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1248,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\normal-http-aiAssistStats.png"
+      }
+    },
+    {
+      "name": "normal-http aiAssistStats real controls",
+      "pass": true,
+      "detail": {
+        "rows": 22,
+        "assistanceDenominator": true,
+        "search": true,
+        "reset": true,
+        "sort": true,
+        "departmentBoundary": true
+      }
+    },
+    {
+      "name": "inline-http salesMessageUsage load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1248,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\inline-http-salesMessageUsage.png"
+      }
+    },
+    {
+      "name": "inline-http salesMessageUsage real controls",
+      "pass": true,
+      "detail": {
+        "users": 94,
+        "rangeValidation": true,
+        "reset": true,
+        "groupSort": true
+      }
+    },
+    {
+      "name": "inline-http salesMessageUsage self contained",
+      "pass": true
+    },
+    {
+      "name": "inline-http newAddedRecords load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1258,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\inline-http-newAddedRecords.png"
+      }
+    },
+    {
+      "name": "inline-http newAddedRecords real controls",
+      "pass": true,
+      "detail": {
+        "emptyRows": 0,
+        "friendBoundary": true,
+        "reset": true,
+        "pageSize": true
+      }
+    },
+    {
+      "name": "inline-http newAddedRecords self contained",
+      "pass": true
+    },
+    {
+      "name": "inline-http messageStats load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1248,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\inline-http-messageStats.png"
+      }
+    },
+    {
+      "name": "inline-http messageStats real controls",
+      "pass": true,
+      "detail": {
+        "total": 936804,
+        "tooltip": true,
+        "legend": true,
+        "unsampledBoundary": true,
+        "sourceDialog": true
+      }
+    },
+    {
+      "name": "inline-http messageStats self contained",
+      "pass": true
+    },
+    {
+      "name": "inline-http aiAssistStats load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1248,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\inline-http-aiAssistStats.png"
+      }
+    },
+    {
+      "name": "inline-http aiAssistStats real controls",
+      "pass": true,
+      "detail": {
+        "rows": 22,
+        "assistanceDenominator": true,
+        "search": true,
+        "reset": true,
+        "sort": true,
+        "departmentBoundary": true
+      }
+    },
+    {
+      "name": "inline-http aiAssistStats self contained",
+      "pass": true
+    },
+    {
+      "name": "inline-file salesMessageUsage load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1248,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\inline-file-salesMessageUsage.png"
+      }
+    },
+    {
+      "name": "inline-file salesMessageUsage real controls",
+      "pass": true,
+      "detail": {
+        "users": 94,
+        "rangeValidation": true,
+        "reset": true,
+        "groupSort": true
+      }
+    },
+    {
+      "name": "inline-file salesMessageUsage no network dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-file newAddedRecords load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1258,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\inline-file-newAddedRecords.png"
+      }
+    },
+    {
+      "name": "inline-file newAddedRecords real controls",
+      "pass": true,
+      "detail": {
+        "emptyRows": 0,
+        "friendBoundary": true,
+        "reset": true,
+        "pageSize": true
+      }
+    },
+    {
+      "name": "inline-file newAddedRecords no network dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-file messageStats load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1248,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\inline-file-messageStats.png"
+      }
+    },
+    {
+      "name": "inline-file messageStats real controls",
+      "pass": true,
+      "detail": {
+        "total": 936804,
+        "tooltip": true,
+        "legend": true,
+        "unsampledBoundary": true,
+        "sourceDialog": true
+      }
+    },
+    {
+      "name": "inline-file messageStats no network dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-file aiAssistStats load and render",
+      "pass": true,
+      "detail": {
+        "viewport": {
+          "w": 1248,
+          "h": 1459
+        },
+        "brandSpacing": "2px",
+        "screenshot": "renders\\inline-file-aiAssistStats.png"
+      }
+    },
+    {
+      "name": "inline-file aiAssistStats real controls",
+      "pass": true,
+      "detail": {
+        "rows": 22,
+        "assistanceDenominator": true,
+        "search": true,
+        "reset": true,
+        "sort": true,
+        "departmentBoundary": true
+      }
+    },
+    {
+      "name": "inline-file aiAssistStats no network dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-http salesMessageUsage matches regular HTML layout and data",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": false,
+        "raster": {
+          "differentPixels": 1,
+          "maxChannelDelta": 1,
+          "bbox": [
+            574,
+            297,
+            575,
+            298
+          ]
+        }
+      }
+    },
+    {
+      "name": "inline-file salesMessageUsage matches regular HTML layout and data",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": false,
+        "raster": {
+          "differentPixels": 1,
+          "maxChannelDelta": 1,
+          "bbox": [
+            574,
+            297,
+            575,
+            298
+          ]
+        }
+      }
+    },
+    {
+      "name": "inline-http newAddedRecords matches regular HTML layout and data",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "inline-file newAddedRecords matches regular HTML layout and data",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "inline-http messageStats matches regular HTML layout and data",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "inline-file messageStats matches regular HTML layout and data",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "inline-http aiAssistStats matches regular HTML layout and data",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "inline-file aiAssistStats matches regular HTML layout and data",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "All 15 tenant AI JSON and new modules included",
+      "pass": true,
+      "detail": {
+        "aiJsonFiles": 15
+      }
+    },
+    {
+      "name": "No runtime errors or blocked external calls",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "runtime": [
+    {
+      "entry": "normal-http",
+      "route": "salesMessageUsage",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:8169/prototype/_shell.html?tenant=yestar-sz&page=salesMessageUsage",
+          "resource": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-navigation.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-ui.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/live-ui-reference.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-state.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-pixel-parity.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-navigation.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/siyu-logo.png",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/avatar-default.png",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/navigation-snapshot.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.html?tenant=yestar-sz&route=salesMessageUsage&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=%E9%94%80%E5%94%AE%E4%BD%BF%E7%94%A8%E7%BB%9F%E8%AE%A1&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=captured",
+          "resource": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/source-chevron.svg",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-expanded.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-ui.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-tree.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-voice-stats.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-stats-date-picker.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-usage.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-filter-calendars.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-dashboard.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-pixel-parity.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-voice-pixel.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-ai-stats-aligned.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-new-added-records.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-message-stats-aligned.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/live-ui-reference.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-controls.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-state.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/page-evidence.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/form-schemas.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/button-states.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-domain-views.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-chat.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-extra-flows.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-expanded-flows.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-page-editors.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-tree.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-voice-stats.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-stats-date-picker.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-filter-calendars.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-appointment-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-dashboard.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-usage.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-customer-source-controls.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-ai-stats-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/new-added-records.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-new-added-records.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-message-stats-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/yestar-sz.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/forms.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/navigation-snapshot.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/options.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/sales-usage/yestar-sz.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/source-chevron.svg",
+          "resource": "image"
+        }
+      ]
+    },
+    {
+      "entry": "normal-http",
+      "route": "newAddedRecords",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:8169/prototype/_shell.html?tenant=yestar-sz&page=newAddedRecords",
+          "resource": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-navigation.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-ui.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/live-ui-reference.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-state.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-pixel-parity.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-navigation.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/siyu-logo.png",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/avatar-default.png",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/navigation-snapshot.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.html?tenant=yestar-sz&route=newAddedRecords&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=%E6%8B%89%E6%96%B0%E8%AE%B0%E5%BD%95&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=mock",
+          "resource": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/source-chevron.svg",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-expanded.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-ui.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-tree.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-voice-stats.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-stats-date-picker.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-usage.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-filter-calendars.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-dashboard.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-pixel-parity.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-voice-pixel.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-ai-stats-aligned.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-new-added-records.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-message-stats-aligned.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/live-ui-reference.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-controls.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-state.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/page-evidence.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/form-schemas.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/button-states.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-domain-views.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-chat.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-extra-flows.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-expanded-flows.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-page-editors.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-tree.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-voice-stats.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-stats-date-picker.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-filter-calendars.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-appointment-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-dashboard.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-usage.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-customer-source-controls.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-ai-stats-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/new-added-records.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-new-added-records.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-message-stats-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/yestar-sz.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/forms.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/navigation-snapshot.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/options.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/source-chevron.svg",
+          "resource": "image"
+        }
+      ]
+    },
+    {
+      "entry": "normal-http",
+      "route": "messageStats",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:8169/prototype/_shell.html?tenant=yestar-sz&page=messageStats",
+          "resource": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-navigation.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-ui.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/live-ui-reference.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-state.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-pixel-parity.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-navigation.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/siyu-logo.png",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/avatar-default.png",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/navigation-snapshot.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.html?tenant=yestar-sz&route=messageStats&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=%E6%B6%88%E6%81%AF%E5%8D%A0%E6%AF%94%E7%BB%9F%E8%AE%A1&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=captured",
+          "resource": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/source-chevron.svg",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-expanded.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-ui.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-tree.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-voice-stats.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-stats-date-picker.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-usage.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-filter-calendars.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-dashboard.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-pixel-parity.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-voice-pixel.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-ai-stats-aligned.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-new-added-records.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-message-stats-aligned.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/live-ui-reference.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-controls.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-state.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/page-evidence.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/form-schemas.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/button-states.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-domain-views.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-chat.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-extra-flows.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-expanded-flows.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-page-editors.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-tree.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-voice-stats.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-stats-date-picker.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-filter-calendars.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-appointment-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-dashboard.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-usage.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-customer-source-controls.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-ai-stats-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/new-added-records.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-new-added-records.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-message-stats-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/yestar-sz.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/forms.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/navigation-snapshot.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/options.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/message-chart-yestar-sz.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/source-chevron.svg",
+          "resource": "image"
+        }
+      ]
+    },
+    {
+      "entry": "normal-http",
+      "route": "aiAssistStats",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:8169/prototype/_shell.html?tenant=yestar-sz&page=aiAssistStats",
+          "resource": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-navigation.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-ui.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/live-ui-reference.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-state.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-pixel-parity.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-navigation.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/siyu-logo.png",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/avatar-default.png",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/navigation-snapshot.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.html?tenant=yestar-sz&route=aiAssistStats&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=AI%E8%BE%85%E5%8A%A9%E7%BB%9F%E8%AE%A1&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=reference",
+          "resource": "document"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/source-chevron.svg",
+          "resource": "image"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-expanded.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-ui.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-tree.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-voice-stats.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-stats-date-picker.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-usage.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-filter-calendars.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-dashboard.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-pixel-parity.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-voice-pixel.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-ai-stats-aligned.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-new-added-records.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-message-stats-aligned.css",
+          "resource": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/live-ui-reference.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-live-controls.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-state.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/page-evidence.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/form-schemas.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/button-states.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-content.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-domain-views.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-chat.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-extra-flows.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-expanded-flows.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-page-editors.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-menu-tree.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-voice-stats.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-stats-date-picker.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-filter-calendars.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-appointment-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-dashboard.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-sales-usage.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-customer-source-controls.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-ai-stats-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/new-added-records.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-new-added-records.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/admin-message-stats-aligned.js",
+          "resource": "script"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/yestar-sz.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/forms.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/navigation-snapshot.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/content/options.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/data/ai-stats/yestar-sz.json",
+          "resource": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:8169/prototype/assets/source-chevron.svg",
+          "resource": "image"
+        }
+      ]
+    },
+    {
+      "entry": "inline-http",
+      "route": "salesMessageUsage",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:51459/_shell_inline.html?tenant=yestar-sz&page=salesMessageUsage",
+          "resource": "document"
+        }
+      ]
+    },
+    {
+      "entry": "inline-http",
+      "route": "newAddedRecords",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:51459/_shell_inline.html?tenant=yestar-sz&page=newAddedRecords",
+          "resource": "document"
+        }
+      ]
+    },
+    {
+      "entry": "inline-http",
+      "route": "messageStats",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:51459/_shell_inline.html?tenant=yestar-sz&page=messageStats",
+          "resource": "document"
+        }
+      ]
+    },
+    {
+      "entry": "inline-http",
+      "route": "aiAssistStats",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:51459/_shell_inline.html?tenant=yestar-sz&page=aiAssistStats",
+          "resource": "document"
+        }
+      ]
+    },
+    {
+      "entry": "inline-file",
+      "route": "salesMessageUsage",
+      "requests": [
+        {
+          "url": "file:///E:/%E5%92%8CCC%E7%9A%84%E6%97%A5%E8%AE%B0/artifacts/admin-pixel-push-20260920/inline/_shell_inline.html?tenant=yestar-sz&page=salesMessageUsage",
+          "resource": "document"
+        }
+      ]
+    },
+    {
+      "entry": "inline-file",
+      "route": "newAddedRecords",
+      "requests": [
+        {
+          "url": "file:///E:/%E5%92%8CCC%E7%9A%84%E6%97%A5%E8%AE%B0/artifacts/admin-pixel-push-20260920/inline/_shell_inline.html?tenant=yestar-sz&page=newAddedRecords",
+          "resource": "document"
+        }
+      ]
+    },
+    {
+      "entry": "inline-file",
+      "route": "messageStats",
+      "requests": [
+        {
+          "url": "file:///E:/%E5%92%8CCC%E7%9A%84%E6%97%A5%E8%AE%B0/artifacts/admin-pixel-push-20260920/inline/_shell_inline.html?tenant=yestar-sz&page=messageStats",
+          "resource": "document"
+        }
+      ]
+    },
+    {
+      "entry": "inline-file",
+      "route": "aiAssistStats",
+      "requests": [
+        {
+          "url": "file:///E:/%E5%92%8CCC%E7%9A%84%E6%97%A5%E8%AE%B0/artifacts/admin-pixel-push-20260920/inline/_shell_inline.html?tenant=yestar-sz&page=aiAssistStats",
+          "resource": "document"
+        }
+      ]
+    }
+  ],
+  "snapshots": {
+    "normal-http:salesMessageUsage": {
+      "viewport": {
+        "w": 1248,
+        "h": 1459
+      },
+      "text": "统计时间单日范围至今天昨天前天部门选择部门抖音内容中心医生号自媒体代运营-三方大搜电商会员中心客服三部私域运营选择部门×选择部门抖音内容中心医生号自媒体代运营-三方大搜电商会员中心客服三部私域运营搜索重置导出销售碎银发送消息统计使用人数：94 人 · 合计：消息 7,679 条 · 好友 1,939 个#销售部门消息数聊天好友数1冯琪抖音4571862曾家凤内容中心347医生号36340合计397473刘佳欣内容中心5918医生号30179合计360974许海丹内容中心103医生号34062合计350655周文倩内容中心265医生号27855合计304606温莉莉抖音284437江燕苗自媒体278228周佳琪内容中心175医生号24195合计2581009陈平代运营-三方2362610黄婷钰抖音2232411汪梦内容中心627医生号15024合计2123112张艳玲代运营-三方9328医生号11433合计2076113林时燕抖音206814曾丝仁内容中心274医生号17839合计2054315彭招内容中心4619医生号15749合计2036816张志凌抖音1814917梁桢抖音1624818邓铿玲代运营-三方1595019李艳内容中心106医生号14532合计1553820何蓉抖音1311221齐亚萍代运营-三方1301522刘红菌大搜1201223陈祥龙内容中心155医生号9629合计1113424张秋波电商1104925郭宏抖音1073526谭天晴内容中心62医生号9516合计1011827邹雪梅电商972028刘冠希内容中心103医生号8120合计912329康佳倩内容中心254医生号6531合计903530彭洋洋抖音904031张欢抖音892432刘亮抖音86733胡艳电商842834刘可电商664535朱婷婷内容中心73医生号5812合计651536邓传丽内容中心308医生号3413合计642137陈沛电商612838小夏-夏海原内容中心5613医生号31合计591439陈文雯电商591940杨晓纯电商555441王洁代运营-三方541142刘怡情代运营-三方53743张图南电商51644廖永峰代运营-三方501145刘佳媚电商482746陈家清内容中心384医生号54合计43847胡惠聪内容中心158医生号2513合计402148彭生豪医生号392049童洁代运营-三方391050罗丽抖音392451张璐璐代运营-三方381052刘宗宁电商352053房圆圆自媒体34454任小改代运营-三方321355小琦-莫加琦内容中心83医生号224合计30756黄珊珊内容中心136医生号168合计291457赵可欣代运营-三方27858陈嘉怡抖音26959罗媛媛代运营-三方251160谭阳谦医生号20961胡紫研会员中心19462李雅琴会员中心16663尹芳抖音15164沈妙丽客服三部15165吴晓妍代运营-三方14466罗梓嫣内容中心62医生号82合计14467何清会员中心12568卿晓悦代运营-三方12369肖海英自媒体11470卢秋菊代运营-三方10471张雪岚自媒体10172王月丽电商8173刘仁南代运营-三方7374施语岚私域运营7175周嘉伟内容中心11医生号51合计6276谢东华自媒体6677李愉医生号5278张紫婷会员中心4379王莎莎会员中心4180自媒体张德雯自媒体4281周科客服三部3182涂乐抖音3183熊姬珠内容中心3184自媒体叶惠美自媒体3285刘莉萌会员中心2286李双阳代运营-三方2287钟锡珠会员中心2188卓思思内容中心1189孙颖会员中心1190晏静会员中心1191杨芳芳客服三部1192聂敦亚会员中心1193赖考媚会员中心1194陈琪客服三部11合计7,6791,939样本日期：2026-09-18 · 艺星深圳 · 部门选项仅含样本中出现的部门",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1240,
+          "h": 68,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(248, 249, 250)"
+        },
+        ".usage-results": {
+          "x": 8,
+          "y": 86,
+          "w": 1224,
+          "h": 5792.90625,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".usage-heading": {
+          "x": 25,
+          "y": 103,
+          "w": 1190,
+          "h": 41.59375,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".usage-table": {
+          "x": 25,
+          "y": 144.59375,
+          "w": 1190,
+          "h": 5717.3125,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".usage-table tbody tr": {
+          "x": 25,
+          "y": 184.6875,
+          "w": 1190,
+          "h": 40.09375,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1248,
+        "frameContext": null
+      },
+      "pngHash": "501d41854b6f578a397c0e8425d1ff7a95dc8a0f33a199140c03f320e276ac69"
+    },
+    "normal-http:newAddedRecords": {
+      "viewport": {
+        "w": 1258,
+        "h": 1459
+      },
+      "text": "拉新时间至微信号全部人设全部人设×全部人设重复添加全部全部×全部好友状态全部仅好友仅已流失全部×全部仅好友仅已流失查询重置导出表格头像昵称所在微信号微信备注其他已添加人设拉新时间好友状态流失时间暂无数据20条/页50条/页100条/页20条/页×20条/页50条/页100条/页‹1›共 0 条",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1258,
+          "h": 92,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(248, 249, 250)"
+        },
+        ".newadded-results": {
+          "x": 0,
+          "y": 102,
+          "w": 1258,
+          "h": 1299,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".newadded-table": {
+          "x": 13,
+          "y": 103,
+          "w": 1232,
+          "h": 40,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".newadded-pager": {
+          "x": 0,
+          "y": 1401,
+          "w": 1258,
+          "h": 44,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1258,
+        "frameContext": null
+      },
+      "pngHash": "cd0743212f3efa0777cf7b62001f71c934dfbc65f578b826b2006a0745bf1f52"
+    },
+    "normal-http:messageStats": {
+      "viewport": {
+        "w": 1248,
+        "h": 1459
+      },
+      "text": "统计时间至自然日自然日×自然日微信号全部人设星星-王洁柚子-陈平VIP管家-康康VIP管家-敦敦VIP管家-晓贤VIP管家-紫婷VIP管家-静静Yestar 深圳艺星客服-杨晓纯Yestar深圳艺星周助理-周嘉伟Yestar深圳艺星圆圆-190****0441-汪梦丁楚夏丹丹-许海丹仁瑞馨 预约号任瑞馨 预约号任瑞馨院长助理-仝苗苗佑佑-陈平何佩何蓉-秋秋佳佳-卿晓悦冯子涵全部人设×全部人设星星-王洁柚子-陈平VIP管家-康康VIP管家-敦敦VIP管家-晓贤VIP管家-紫婷VIP管家-静静Yestar 深圳艺星客服-杨晓纯Yestar深圳艺星周助理-周嘉伟Yestar深圳艺星圆圆-190****0441-汪梦丁楚夏丹丹-许海丹仁瑞馨 预约号任瑞馨 预约号任瑞馨院长助理-仝苗苗佑佑-陈平何佩何蓉-秋秋佳佳-卿晓悦冯子涵排除群发消息搜索重置消息占比i936,804微信使用数碎银微信数企微使用数碎银企微数碎银占比使用数占比500,000100 %400,00080 %300,00060 %200,00040 %100,00020 %00 %20260912202609132026091420260915202609162026091720260918",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1238,
+          "h": 68,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(248, 249, 250)"
+        },
+        ".message-stat-card": {
+          "x": 8,
+          "y": 86,
+          "w": 1222,
+          "h": 458,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".message-total": {
+          "x": 25,
+          "y": 135,
+          "w": 1188,
+          "h": 42,
+          "font": "28px",
+          "color": "rgb(48, 49, 51)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".message-plot": {
+          "x": 25,
+          "y": 169,
+          "w": 1188,
+          "h": 356,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".message-legend": {
+          "x": 25,
+          "y": 177,
+          "w": 1188,
+          "h": 24,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1248,
+        "frameContext": null
+      },
+      "pngHash": "883d0b7d01e927980be708e78cf77d0d2445d642da128cee7cecfb9fa47a5f64"
+    },
+    "normal-http:aiAssistStats": {
+      "viewport": {
+        "w": 1248,
+        "h": 1459
+      },
+      "text": "今天昨天本周本月至维度按销售账号按部门部门全部部门抖音内容中心医生号客服三部电商代运营-三方大搜会员中心微整科专家助理私域运营自媒体FB皮肤科专家助理全部部门×全部部门抖音内容中心医生号客服三部电商代运营-三方大搜会员中心微整科专家助理私域运营自媒体FB皮肤科专家助理搜索重置i口径说明#销售账号所属部门AI直发AI参考手动文本AI辅助合计AI辅助率成功消息总数1陈嘉怡抖音934185743 条2.3%22452冯琪抖音185246323 条0.9%40203曾丝仁内容中心,医生号124158016 条1.0%21394张宇宏客服三部93512 条70.6%185刘可电商73172010 条0.6%19626李千紫电商73110410 条0.9%12157陈祥龙内容中心,医生号100205410 条0.5%25558刘怡情代运营-三方100105410 条0.9%13869林宸帆客服三部90679 条11.8%8010何蓉抖音7039217 条0.2%543311温莉莉抖音4031174 条0.1%450212刘红茵大搜0428354 条0.1%446913杨晓纯电商0317383 条0.2%186514李小倩电商3018423 条0.2%198215林时燕抖音1048601 条0.0%739016房昕代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,微整科专家助理,抖音,电商,私域运营,自媒体00290 条0.0%917陈宣宇（工程师）代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,抖音,电商,私域运营,自媒体00300 条0.0%1718任问墨代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,抖音,电商,私域运营,自媒体0030 条0.0%019李梓萌代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,抖音,电商,私域运营,自媒体0040 条0.0%2520钟蕴芯FB,代运营-三方,会员中心,内容中心,医生号,大搜,微整科专家助理,抖音,电商,皮肤科专家助理,私域运营00220 条0.0%5621王月丽电商001280 条0.0%13622熊姬珠代运营-三方,内容中心,医生号00740 条0.0%67截图样本：2026-09-01 至 2026-09-20 · 仅已确认的 22 条可见记录，非完整统计。",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1387.375,
+          "h": 48,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".ai-filter-scroll": {
+          "x": 0,
+          "y": 0,
+          "w": 1248,
+          "h": 56,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".ai-result-surface": {
+          "x": 0,
+          "y": 56,
+          "w": 1248,
+          "h": 1392.5,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(245, 247, 250)"
+        },
+        ".ai-table": {
+          "x": 17,
+          "y": 69,
+          "w": 1214,
+          "h": 1378.5,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".ai-table tbody tr": {
+          "x": 17,
+          "y": 109,
+          "w": 1214,
+          "h": 42,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgba(0, 0, 0, 0)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1248,
+        "frameContext": null
+      },
+      "pngHash": "ced094a05c7b7893159bd7ab73ef366514145c2a446e1889e0a2969ce5fce906"
+    },
+    "inline-http:salesMessageUsage": {
+      "viewport": {
+        "w": 1248,
+        "h": 1459
+      },
+      "text": "统计时间单日范围至今天昨天前天部门选择部门抖音内容中心医生号自媒体代运营-三方大搜电商会员中心客服三部私域运营选择部门×选择部门抖音内容中心医生号自媒体代运营-三方大搜电商会员中心客服三部私域运营搜索重置导出销售碎银发送消息统计使用人数：94 人 · 合计：消息 7,679 条 · 好友 1,939 个#销售部门消息数聊天好友数1冯琪抖音4571862曾家凤内容中心347医生号36340合计397473刘佳欣内容中心5918医生号30179合计360974许海丹内容中心103医生号34062合计350655周文倩内容中心265医生号27855合计304606温莉莉抖音284437江燕苗自媒体278228周佳琪内容中心175医生号24195合计2581009陈平代运营-三方2362610黄婷钰抖音2232411汪梦内容中心627医生号15024合计2123112张艳玲代运营-三方9328医生号11433合计2076113林时燕抖音206814曾丝仁内容中心274医生号17839合计2054315彭招内容中心4619医生号15749合计2036816张志凌抖音1814917梁桢抖音1624818邓铿玲代运营-三方1595019李艳内容中心106医生号14532合计1553820何蓉抖音1311221齐亚萍代运营-三方1301522刘红菌大搜1201223陈祥龙内容中心155医生号9629合计1113424张秋波电商1104925郭宏抖音1073526谭天晴内容中心62医生号9516合计1011827邹雪梅电商972028刘冠希内容中心103医生号8120合计912329康佳倩内容中心254医生号6531合计903530彭洋洋抖音904031张欢抖音892432刘亮抖音86733胡艳电商842834刘可电商664535朱婷婷内容中心73医生号5812合计651536邓传丽内容中心308医生号3413合计642137陈沛电商612838小夏-夏海原内容中心5613医生号31合计591439陈文雯电商591940杨晓纯电商555441王洁代运营-三方541142刘怡情代运营-三方53743张图南电商51644廖永峰代运营-三方501145刘佳媚电商482746陈家清内容中心384医生号54合计43847胡惠聪内容中心158医生号2513合计402148彭生豪医生号392049童洁代运营-三方391050罗丽抖音392451张璐璐代运营-三方381052刘宗宁电商352053房圆圆自媒体34454任小改代运营-三方321355小琦-莫加琦内容中心83医生号224合计30756黄珊珊内容中心136医生号168合计291457赵可欣代运营-三方27858陈嘉怡抖音26959罗媛媛代运营-三方251160谭阳谦医生号20961胡紫研会员中心19462李雅琴会员中心16663尹芳抖音15164沈妙丽客服三部15165吴晓妍代运营-三方14466罗梓嫣内容中心62医生号82合计14467何清会员中心12568卿晓悦代运营-三方12369肖海英自媒体11470卢秋菊代运营-三方10471张雪岚自媒体10172王月丽电商8173刘仁南代运营-三方7374施语岚私域运营7175周嘉伟内容中心11医生号51合计6276谢东华自媒体6677李愉医生号5278张紫婷会员中心4379王莎莎会员中心4180自媒体张德雯自媒体4281周科客服三部3182涂乐抖音3183熊姬珠内容中心3184自媒体叶惠美自媒体3285刘莉萌会员中心2286李双阳代运营-三方2287钟锡珠会员中心2188卓思思内容中心1189孙颖会员中心1190晏静会员中心1191杨芳芳客服三部1192聂敦亚会员中心1193赖考媚会员中心1194陈琪客服三部11合计7,6791,939样本日期：2026-09-18 · 艺星深圳 · 部门选项仅含样本中出现的部门",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1240,
+          "h": 68,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(248, 249, 250)"
+        },
+        ".usage-results": {
+          "x": 8,
+          "y": 86,
+          "w": 1224,
+          "h": 5792.90625,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".usage-heading": {
+          "x": 25,
+          "y": 103,
+          "w": 1190,
+          "h": 41.59375,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".usage-table": {
+          "x": 25,
+          "y": 144.59375,
+          "w": 1190,
+          "h": 5717.3125,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".usage-table tbody tr": {
+          "x": 25,
+          "y": 184.6875,
+          "w": 1190,
+          "h": 40.09375,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1248,
+        "frameContext": "admin-content.html?tenant=yestar-sz&route=salesMessageUsage&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=%E9%94%80%E5%94%AE%E4%BD%BF%E7%94%A8%E7%BB%9F%E8%AE%A1&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=captured"
+      },
+      "pngHash": "e0e062b9ee4d010989e9976c4cb4f9e405e0e80794555503fbdb784b9c316b82"
+    },
+    "inline-http:newAddedRecords": {
+      "viewport": {
+        "w": 1258,
+        "h": 1459
+      },
+      "text": "拉新时间至微信号全部人设全部人设×全部人设重复添加全部全部×全部好友状态全部仅好友仅已流失全部×全部仅好友仅已流失查询重置导出表格头像昵称所在微信号微信备注其他已添加人设拉新时间好友状态流失时间暂无数据20条/页50条/页100条/页20条/页×20条/页50条/页100条/页‹1›共 0 条",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1258,
+          "h": 92,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(248, 249, 250)"
+        },
+        ".newadded-results": {
+          "x": 0,
+          "y": 102,
+          "w": 1258,
+          "h": 1299,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".newadded-table": {
+          "x": 13,
+          "y": 103,
+          "w": 1232,
+          "h": 40,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".newadded-pager": {
+          "x": 0,
+          "y": 1401,
+          "w": 1258,
+          "h": 44,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1258,
+        "frameContext": "admin-content.html?tenant=yestar-sz&route=newAddedRecords&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=%E6%8B%89%E6%96%B0%E8%AE%B0%E5%BD%95&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=mock"
+      },
+      "pngHash": "cd0743212f3efa0777cf7b62001f71c934dfbc65f578b826b2006a0745bf1f52"
+    },
+    "inline-http:messageStats": {
+      "viewport": {
+        "w": 1248,
+        "h": 1459
+      },
+      "text": "统计时间至自然日自然日×自然日微信号全部人设星星-王洁柚子-陈平VIP管家-康康VIP管家-敦敦VIP管家-晓贤VIP管家-紫婷VIP管家-静静Yestar 深圳艺星客服-杨晓纯Yestar深圳艺星周助理-周嘉伟Yestar深圳艺星圆圆-190****0441-汪梦丁楚夏丹丹-许海丹仁瑞馨 预约号任瑞馨 预约号任瑞馨院长助理-仝苗苗佑佑-陈平何佩何蓉-秋秋佳佳-卿晓悦冯子涵全部人设×全部人设星星-王洁柚子-陈平VIP管家-康康VIP管家-敦敦VIP管家-晓贤VIP管家-紫婷VIP管家-静静Yestar 深圳艺星客服-杨晓纯Yestar深圳艺星周助理-周嘉伟Yestar深圳艺星圆圆-190****0441-汪梦丁楚夏丹丹-许海丹仁瑞馨 预约号任瑞馨 预约号任瑞馨院长助理-仝苗苗佑佑-陈平何佩何蓉-秋秋佳佳-卿晓悦冯子涵排除群发消息搜索重置消息占比i936,804微信使用数碎银微信数企微使用数碎银企微数碎银占比使用数占比500,000100 %400,00080 %300,00060 %200,00040 %100,00020 %00 %20260912202609132026091420260915202609162026091720260918",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1238,
+          "h": 68,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(248, 249, 250)"
+        },
+        ".message-stat-card": {
+          "x": 8,
+          "y": 86,
+          "w": 1222,
+          "h": 458,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".message-total": {
+          "x": 25,
+          "y": 135,
+          "w": 1188,
+          "h": 42,
+          "font": "28px",
+          "color": "rgb(48, 49, 51)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".message-plot": {
+          "x": 25,
+          "y": 169,
+          "w": 1188,
+          "h": 356,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".message-legend": {
+          "x": 25,
+          "y": 177,
+          "w": 1188,
+          "h": 24,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1248,
+        "frameContext": "admin-content.html?tenant=yestar-sz&route=messageStats&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=%E6%B6%88%E6%81%AF%E5%8D%A0%E6%AF%94%E7%BB%9F%E8%AE%A1&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=captured"
+      },
+      "pngHash": "883d0b7d01e927980be708e78cf77d0d2445d642da128cee7cecfb9fa47a5f64"
+    },
+    "inline-http:aiAssistStats": {
+      "viewport": {
+        "w": 1248,
+        "h": 1459
+      },
+      "text": "今天昨天本周本月至维度按销售账号按部门部门全部部门抖音内容中心医生号客服三部电商代运营-三方大搜会员中心微整科专家助理私域运营自媒体FB皮肤科专家助理全部部门×全部部门抖音内容中心医生号客服三部电商代运营-三方大搜会员中心微整科专家助理私域运营自媒体FB皮肤科专家助理搜索重置i口径说明#销售账号所属部门AI直发AI参考手动文本AI辅助合计AI辅助率成功消息总数1陈嘉怡抖音934185743 条2.3%22452冯琪抖音185246323 条0.9%40203曾丝仁内容中心,医生号124158016 条1.0%21394张宇宏客服三部93512 条70.6%185刘可电商73172010 条0.6%19626李千紫电商73110410 条0.9%12157陈祥龙内容中心,医生号100205410 条0.5%25558刘怡情代运营-三方100105410 条0.9%13869林宸帆客服三部90679 条11.8%8010何蓉抖音7039217 条0.2%543311温莉莉抖音4031174 条0.1%450212刘红茵大搜0428354 条0.1%446913杨晓纯电商0317383 条0.2%186514李小倩电商3018423 条0.2%198215林时燕抖音1048601 条0.0%739016房昕代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,微整科专家助理,抖音,电商,私域运营,自媒体00290 条0.0%917陈宣宇（工程师）代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,抖音,电商,私域运营,自媒体00300 条0.0%1718任问墨代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,抖音,电商,私域运营,自媒体0030 条0.0%019李梓萌代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,抖音,电商,私域运营,自媒体0040 条0.0%2520钟蕴芯FB,代运营-三方,会员中心,内容中心,医生号,大搜,微整科专家助理,抖音,电商,皮肤科专家助理,私域运营00220 条0.0%5621王月丽电商001280 条0.0%13622熊姬珠代运营-三方,内容中心,医生号00740 条0.0%67截图样本：2026-09-01 至 2026-09-20 · 仅已确认的 22 条可见记录，非完整统计。",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1387.375,
+          "h": 48,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".ai-filter-scroll": {
+          "x": 0,
+          "y": 0,
+          "w": 1248,
+          "h": 56,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".ai-result-surface": {
+          "x": 0,
+          "y": 56,
+          "w": 1248,
+          "h": 1392.5,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(245, 247, 250)"
+        },
+        ".ai-table": {
+          "x": 17,
+          "y": 69,
+          "w": 1214,
+          "h": 1378.5,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".ai-table tbody tr": {
+          "x": 17,
+          "y": 109,
+          "w": 1214,
+          "h": 42,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgba(0, 0, 0, 0)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1248,
+        "frameContext": "admin-content.html?tenant=yestar-sz&route=aiAssistStats&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=AI%E8%BE%85%E5%8A%A9%E7%BB%9F%E8%AE%A1&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=reference"
+      },
+      "pngHash": "ced094a05c7b7893159bd7ab73ef366514145c2a446e1889e0a2969ce5fce906"
+    },
+    "inline-file:salesMessageUsage": {
+      "viewport": {
+        "w": 1248,
+        "h": 1459
+      },
+      "text": "统计时间单日范围至今天昨天前天部门选择部门抖音内容中心医生号自媒体代运营-三方大搜电商会员中心客服三部私域运营选择部门×选择部门抖音内容中心医生号自媒体代运营-三方大搜电商会员中心客服三部私域运营搜索重置导出销售碎银发送消息统计使用人数：94 人 · 合计：消息 7,679 条 · 好友 1,939 个#销售部门消息数聊天好友数1冯琪抖音4571862曾家凤内容中心347医生号36340合计397473刘佳欣内容中心5918医生号30179合计360974许海丹内容中心103医生号34062合计350655周文倩内容中心265医生号27855合计304606温莉莉抖音284437江燕苗自媒体278228周佳琪内容中心175医生号24195合计2581009陈平代运营-三方2362610黄婷钰抖音2232411汪梦内容中心627医生号15024合计2123112张艳玲代运营-三方9328医生号11433合计2076113林时燕抖音206814曾丝仁内容中心274医生号17839合计2054315彭招内容中心4619医生号15749合计2036816张志凌抖音1814917梁桢抖音1624818邓铿玲代运营-三方1595019李艳内容中心106医生号14532合计1553820何蓉抖音1311221齐亚萍代运营-三方1301522刘红菌大搜1201223陈祥龙内容中心155医生号9629合计1113424张秋波电商1104925郭宏抖音1073526谭天晴内容中心62医生号9516合计1011827邹雪梅电商972028刘冠希内容中心103医生号8120合计912329康佳倩内容中心254医生号6531合计903530彭洋洋抖音904031张欢抖音892432刘亮抖音86733胡艳电商842834刘可电商664535朱婷婷内容中心73医生号5812合计651536邓传丽内容中心308医生号3413合计642137陈沛电商612838小夏-夏海原内容中心5613医生号31合计591439陈文雯电商591940杨晓纯电商555441王洁代运营-三方541142刘怡情代运营-三方53743张图南电商51644廖永峰代运营-三方501145刘佳媚电商482746陈家清内容中心384医生号54合计43847胡惠聪内容中心158医生号2513合计402148彭生豪医生号392049童洁代运营-三方391050罗丽抖音392451张璐璐代运营-三方381052刘宗宁电商352053房圆圆自媒体34454任小改代运营-三方321355小琦-莫加琦内容中心83医生号224合计30756黄珊珊内容中心136医生号168合计291457赵可欣代运营-三方27858陈嘉怡抖音26959罗媛媛代运营-三方251160谭阳谦医生号20961胡紫研会员中心19462李雅琴会员中心16663尹芳抖音15164沈妙丽客服三部15165吴晓妍代运营-三方14466罗梓嫣内容中心62医生号82合计14467何清会员中心12568卿晓悦代运营-三方12369肖海英自媒体11470卢秋菊代运营-三方10471张雪岚自媒体10172王月丽电商8173刘仁南代运营-三方7374施语岚私域运营7175周嘉伟内容中心11医生号51合计6276谢东华自媒体6677李愉医生号5278张紫婷会员中心4379王莎莎会员中心4180自媒体张德雯自媒体4281周科客服三部3182涂乐抖音3183熊姬珠内容中心3184自媒体叶惠美自媒体3285刘莉萌会员中心2286李双阳代运营-三方2287钟锡珠会员中心2188卓思思内容中心1189孙颖会员中心1190晏静会员中心1191杨芳芳客服三部1192聂敦亚会员中心1193赖考媚会员中心1194陈琪客服三部11合计7,6791,939样本日期：2026-09-18 · 艺星深圳 · 部门选项仅含样本中出现的部门",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1240,
+          "h": 68,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(248, 249, 250)"
+        },
+        ".usage-results": {
+          "x": 8,
+          "y": 86,
+          "w": 1224,
+          "h": 5792.90625,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".usage-heading": {
+          "x": 25,
+          "y": 103,
+          "w": 1190,
+          "h": 41.59375,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".usage-table": {
+          "x": 25,
+          "y": 144.59375,
+          "w": 1190,
+          "h": 5717.3125,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".usage-table tbody tr": {
+          "x": 25,
+          "y": 184.6875,
+          "w": 1190,
+          "h": 40.09375,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1248,
+        "frameContext": "admin-content.html?tenant=yestar-sz&route=salesMessageUsage&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=%E9%94%80%E5%94%AE%E4%BD%BF%E7%94%A8%E7%BB%9F%E8%AE%A1&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=captured"
+      },
+      "pngHash": "e0e062b9ee4d010989e9976c4cb4f9e405e0e80794555503fbdb784b9c316b82"
+    },
+    "inline-file:newAddedRecords": {
+      "viewport": {
+        "w": 1258,
+        "h": 1459
+      },
+      "text": "拉新时间至微信号全部人设全部人设×全部人设重复添加全部全部×全部好友状态全部仅好友仅已流失全部×全部仅好友仅已流失查询重置导出表格头像昵称所在微信号微信备注其他已添加人设拉新时间好友状态流失时间暂无数据20条/页50条/页100条/页20条/页×20条/页50条/页100条/页‹1›共 0 条",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1258,
+          "h": 92,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(248, 249, 250)"
+        },
+        ".newadded-results": {
+          "x": 0,
+          "y": 102,
+          "w": 1258,
+          "h": 1299,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".newadded-table": {
+          "x": 13,
+          "y": 103,
+          "w": 1232,
+          "h": 40,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".newadded-pager": {
+          "x": 0,
+          "y": 1401,
+          "w": 1258,
+          "h": 44,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1258,
+        "frameContext": "admin-content.html?tenant=yestar-sz&route=newAddedRecords&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=%E6%8B%89%E6%96%B0%E8%AE%B0%E5%BD%95&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=mock"
+      },
+      "pngHash": "cd0743212f3efa0777cf7b62001f71c934dfbc65f578b826b2006a0745bf1f52"
+    },
+    "inline-file:messageStats": {
+      "viewport": {
+        "w": 1248,
+        "h": 1459
+      },
+      "text": "统计时间至自然日自然日×自然日微信号全部人设星星-王洁柚子-陈平VIP管家-康康VIP管家-敦敦VIP管家-晓贤VIP管家-紫婷VIP管家-静静Yestar 深圳艺星客服-杨晓纯Yestar深圳艺星周助理-周嘉伟Yestar深圳艺星圆圆-190****0441-汪梦丁楚夏丹丹-许海丹仁瑞馨 预约号任瑞馨 预约号任瑞馨院长助理-仝苗苗佑佑-陈平何佩何蓉-秋秋佳佳-卿晓悦冯子涵全部人设×全部人设星星-王洁柚子-陈平VIP管家-康康VIP管家-敦敦VIP管家-晓贤VIP管家-紫婷VIP管家-静静Yestar 深圳艺星客服-杨晓纯Yestar深圳艺星周助理-周嘉伟Yestar深圳艺星圆圆-190****0441-汪梦丁楚夏丹丹-许海丹仁瑞馨 预约号任瑞馨 预约号任瑞馨院长助理-仝苗苗佑佑-陈平何佩何蓉-秋秋佳佳-卿晓悦冯子涵排除群发消息搜索重置消息占比i936,804微信使用数碎银微信数企微使用数碎银企微数碎银占比使用数占比500,000100 %400,00080 %300,00060 %200,00040 %100,00020 %00 %20260912202609132026091420260915202609162026091720260918",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1238,
+          "h": 68,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(248, 249, 250)"
+        },
+        ".message-stat-card": {
+          "x": 8,
+          "y": 86,
+          "w": 1222,
+          "h": 458,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".message-total": {
+          "x": 25,
+          "y": 135,
+          "w": 1188,
+          "h": 42,
+          "font": "28px",
+          "color": "rgb(48, 49, 51)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".message-plot": {
+          "x": 25,
+          "y": 169,
+          "w": 1188,
+          "h": 356,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        ".message-legend": {
+          "x": 25,
+          "y": 177,
+          "w": 1188,
+          "h": 24,
+          "font": "14px",
+          "color": "rgb(96, 98, 102)",
+          "bg": "rgba(0, 0, 0, 0)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1248,
+        "frameContext": "admin-content.html?tenant=yestar-sz&route=messageStats&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=%E6%B6%88%E6%81%AF%E5%8D%A0%E6%AF%94%E7%BB%9F%E8%AE%A1&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=captured"
+      },
+      "pngHash": "883d0b7d01e927980be708e78cf77d0d2445d642da128cee7cecfb9fa47a5f64"
+    },
+    "inline-file:aiAssistStats": {
+      "viewport": {
+        "w": 1248,
+        "h": 1459
+      },
+      "text": "今天昨天本周本月至维度按销售账号按部门部门全部部门抖音内容中心医生号客服三部电商代运营-三方大搜会员中心微整科专家助理私域运营自媒体FB皮肤科专家助理全部部门×全部部门抖音内容中心医生号客服三部电商代运营-三方大搜会员中心微整科专家助理私域运营自媒体FB皮肤科专家助理搜索重置i口径说明#销售账号所属部门AI直发AI参考手动文本AI辅助合计AI辅助率成功消息总数1陈嘉怡抖音934185743 条2.3%22452冯琪抖音185246323 条0.9%40203曾丝仁内容中心,医生号124158016 条1.0%21394张宇宏客服三部93512 条70.6%185刘可电商73172010 条0.6%19626李千紫电商73110410 条0.9%12157陈祥龙内容中心,医生号100205410 条0.5%25558刘怡情代运营-三方100105410 条0.9%13869林宸帆客服三部90679 条11.8%8010何蓉抖音7039217 条0.2%543311温莉莉抖音4031174 条0.1%450212刘红茵大搜0428354 条0.1%446913杨晓纯电商0317383 条0.2%186514李小倩电商3018423 条0.2%198215林时燕抖音1048601 条0.0%739016房昕代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,微整科专家助理,抖音,电商,私域运营,自媒体00290 条0.0%917陈宣宇（工程师）代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,抖音,电商,私域运营,自媒体00300 条0.0%1718任问墨代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,抖音,电商,私域运营,自媒体0030 条0.0%019李梓萌代运营-三方,会员中心,内容中心,医生号,大搜,客服三部,抖音,电商,私域运营,自媒体0040 条0.0%2520钟蕴芯FB,代运营-三方,会员中心,内容中心,医生号,大搜,微整科专家助理,抖音,电商,皮肤科专家助理,私域运营00220 条0.0%5621王月丽电商001280 条0.0%13622熊姬珠代运营-三方,内容中心,医生号00740 条0.0%67截图样本：2026-09-01 至 2026-09-20 · 仅已确认的 22 条可见记录，非完整统计。",
+      "elements": {
+        "form": {
+          "x": 0,
+          "y": 0,
+          "w": 1387.375,
+          "h": 48,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".ai-filter-scroll": {
+          "x": 0,
+          "y": 0,
+          "w": 1248,
+          "h": 56,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".ai-result-surface": {
+          "x": 0,
+          "y": 56,
+          "w": 1248,
+          "h": 1392.5,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(245, 247, 250)"
+        },
+        ".ai-table": {
+          "x": 17,
+          "y": 69,
+          "w": 1214,
+          "h": 1378.5,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgb(255, 255, 255)"
+        },
+        ".ai-table tbody tr": {
+          "x": 17,
+          "y": 109,
+          "w": 1214,
+          "h": 42,
+          "font": "12px",
+          "color": "rgb(74, 85, 100)",
+          "bg": "rgba(0, 0, 0, 0)"
+        }
+      },
+      "shell": {
+        "brandSpacing": "2px",
+        "frameW": 1248,
+        "frameContext": "admin-content.html?tenant=yestar-sz&route=aiAssistStats&tenantName=%E8%89%BA%E6%98%9F%E6%B7%B1%E5%9C%B3&pageName=AI%E8%BE%85%E5%8A%A9%E7%BB%9F%E8%AE%A1&capturedAt=2026-09-18T07%3A04%3A28.572Z&status=reference"
+      },
+      "pngHash": "ced094a05c7b7893159bd7ab73ef366514145c2a446e1889e0a2969ce5fce906"
+    }
+  }
+}

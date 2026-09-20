@@ -1,0 +1,333 @@
+{
+  "tenant": "yestar-sz",
+  "route": "aiAssistStats",
+  "state": "partial",
+  "start": "2026-09-01",
+  "end": "2026-09-20",
+  "source": "user-screenshot-2026-09-20-aiAssistStats",
+  "rows": [
+    {
+      "id": "yestar-sz:screenshot:01",
+      "order": 0,
+      "name": "陈嘉怡",
+      "departments": [
+        "抖音"
+      ],
+      "direct": 9,
+      "reference": 34,
+      "manual": 1857,
+      "success": 2245
+    },
+    {
+      "id": "yestar-sz:screenshot:02",
+      "order": 1,
+      "name": "冯琪",
+      "departments": [
+        "抖音"
+      ],
+      "direct": 18,
+      "reference": 5,
+      "manual": 2463,
+      "success": 4020
+    },
+    {
+      "id": "yestar-sz:screenshot:03",
+      "order": 2,
+      "name": "曾丝仁",
+      "departments": [
+        "内容中心",
+        "医生号"
+      ],
+      "direct": 12,
+      "reference": 4,
+      "manual": 1580,
+      "success": 2139
+    },
+    {
+      "id": "yestar-sz:screenshot:04",
+      "order": 3,
+      "name": "张宇宏",
+      "departments": [
+        "客服三部"
+      ],
+      "direct": 9,
+      "reference": 3,
+      "manual": 5,
+      "success": 18
+    },
+    {
+      "id": "yestar-sz:screenshot:05",
+      "order": 4,
+      "name": "刘可",
+      "departments": [
+        "电商"
+      ],
+      "direct": 7,
+      "reference": 3,
+      "manual": 1720,
+      "success": 1962
+    },
+    {
+      "id": "yestar-sz:screenshot:06",
+      "order": 5,
+      "name": "李千紫",
+      "departments": [
+        "电商"
+      ],
+      "direct": 7,
+      "reference": 3,
+      "manual": 1104,
+      "success": 1215
+    },
+    {
+      "id": "yestar-sz:screenshot:07",
+      "order": 6,
+      "name": "陈祥龙",
+      "departments": [
+        "内容中心",
+        "医生号"
+      ],
+      "direct": 10,
+      "reference": 0,
+      "manual": 2054,
+      "success": 2555
+    },
+    {
+      "id": "yestar-sz:screenshot:08",
+      "order": 7,
+      "name": "刘怡情",
+      "departments": [
+        "代运营-三方"
+      ],
+      "direct": 10,
+      "reference": 0,
+      "manual": 1054,
+      "success": 1386
+    },
+    {
+      "id": "yestar-sz:screenshot:09",
+      "order": 8,
+      "name": "林宸帆",
+      "departments": [
+        "客服三部"
+      ],
+      "direct": 9,
+      "reference": 0,
+      "manual": 67,
+      "success": 80
+    },
+    {
+      "id": "yestar-sz:screenshot:10",
+      "order": 9,
+      "name": "何蓉",
+      "departments": [
+        "抖音"
+      ],
+      "direct": 7,
+      "reference": 0,
+      "manual": 3921,
+      "success": 5433
+    },
+    {
+      "id": "yestar-sz:screenshot:11",
+      "order": 10,
+      "name": "温莉莉",
+      "departments": [
+        "抖音"
+      ],
+      "direct": 4,
+      "reference": 0,
+      "manual": 3117,
+      "success": 4502
+    },
+    {
+      "id": "yestar-sz:screenshot:12",
+      "order": 11,
+      "name": "刘红茵",
+      "departments": [
+        "大搜"
+      ],
+      "direct": 0,
+      "reference": 4,
+      "manual": 2835,
+      "success": 4469
+    },
+    {
+      "id": "yestar-sz:screenshot:13",
+      "order": 12,
+      "name": "杨晓纯",
+      "departments": [
+        "电商"
+      ],
+      "direct": 0,
+      "reference": 3,
+      "manual": 1738,
+      "success": 1865
+    },
+    {
+      "id": "yestar-sz:screenshot:14",
+      "order": 13,
+      "name": "李小倩",
+      "departments": [
+        "电商"
+      ],
+      "direct": 3,
+      "reference": 0,
+      "manual": 1842,
+      "success": 1982
+    },
+    {
+      "id": "yestar-sz:screenshot:15",
+      "order": 14,
+      "name": "林时燕",
+      "departments": [
+        "抖音"
+      ],
+      "direct": 1,
+      "reference": 0,
+      "manual": 4860,
+      "success": 7390
+    },
+    {
+      "id": "yestar-sz:screenshot:16",
+      "order": 15,
+      "name": "房昕",
+      "departments": [
+        "代运营-三方",
+        "会员中心",
+        "内容中心",
+        "医生号",
+        "大搜",
+        "客服三部",
+        "微整科专家助理",
+        "抖音",
+        "电商",
+        "私域运营",
+        "自媒体"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 29,
+      "success": 9
+    },
+    {
+      "id": "yestar-sz:screenshot:17",
+      "order": 16,
+      "name": "陈宣宇（工程师）",
+      "departments": [
+        "代运营-三方",
+        "会员中心",
+        "内容中心",
+        "医生号",
+        "大搜",
+        "客服三部",
+        "抖音",
+        "电商",
+        "私域运营",
+        "自媒体"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 30,
+      "success": 17
+    },
+    {
+      "id": "yestar-sz:screenshot:18",
+      "order": 17,
+      "name": "任问墨",
+      "departments": [
+        "代运营-三方",
+        "会员中心",
+        "内容中心",
+        "医生号",
+        "大搜",
+        "客服三部",
+        "抖音",
+        "电商",
+        "私域运营",
+        "自媒体"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 3,
+      "success": 0
+    },
+    {
+      "id": "yestar-sz:screenshot:19",
+      "order": 18,
+      "name": "李梓萌",
+      "departments": [
+        "代运营-三方",
+        "会员中心",
+        "内容中心",
+        "医生号",
+        "大搜",
+        "客服三部",
+        "抖音",
+        "电商",
+        "私域运营",
+        "自媒体"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 4,
+      "success": 25
+    },
+    {
+      "id": "yestar-sz:screenshot:20",
+      "order": 19,
+      "name": "钟蕴芯",
+      "departments": [
+        "FB",
+        "代运营-三方",
+        "会员中心",
+        "内容中心",
+        "医生号",
+        "大搜",
+        "微整科专家助理",
+        "抖音",
+        "电商",
+        "皮肤科专家助理",
+        "私域运营"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 22,
+      "success": 56
+    },
+    {
+      "id": "yestar-sz:screenshot:21",
+      "order": 20,
+      "name": "王月丽",
+      "departments": [
+        "电商"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 128,
+      "success": 136
+    },
+    {
+      "id": "yestar-sz:screenshot:22",
+      "order": 21,
+      "name": "熊姬珠",
+      "departments": [
+        "代运营-三方",
+        "内容中心",
+        "医生号"
+      ],
+      "direct": 0,
+      "reference": 0,
+      "manual": 74,
+      "success": 67
+    }
+  ],
+  "departmentAllocationComplete": false,
+  "sourceFile": "codex-clipboard-1450384b-31eb-4463-8650-609b390a7d1b.png",
+  "capturedAt": "2026-09-20",
+  "visibleRows": {
+    "first": 1,
+    "last": 22,
+    "completeDataset": false
+  }
+}

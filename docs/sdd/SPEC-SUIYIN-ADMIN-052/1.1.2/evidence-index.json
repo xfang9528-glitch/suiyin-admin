@@ -1,0 +1,59 @@
+{
+  "kind": "Evidence projections; not full live visual acceptance",
+  "sources": [
+    {
+      "route": "salesMessageUsage",
+      "source_type": "user-supplied side-by-side screenshot; right-hand real-admin reference",
+      "file_name": "codex-clipboard-29274bbc-61d7-4409-a81e-586edf0477b5.png",
+      "sha256": "ace5cfdb141fa13786848f25b797586c030d68989468c3ec4d09614572781964",
+      "publication": "private source; original not included"
+    },
+    {
+      "route": "newAddedRecords",
+      "source_type": "user-supplied side-by-side screenshot; right-hand real-admin reference",
+      "file_name": "codex-clipboard-38ef6ba3-483e-4e62-b74f-2c50299c5d39.png",
+      "sha256": "fedc3275d9e4058d48b6b733a777b34d9aacef007f3fdf90a57e14609783ef1f",
+      "publication": "private source; original not included"
+    },
+    {
+      "route": "messageStats",
+      "source_type": "user-supplied side-by-side screenshot; right-hand real-admin reference",
+      "file_name": "codex-clipboard-a7a3f77b-b6f9-43d8-b719-b82df640f4cc.png",
+      "sha256": "a0daf617b292693fae589d9cc41db241d174bed9e26cce0721fa84571225283c",
+      "publication": "private source; original not included"
+    },
+    {
+      "route": "aiAssistStats",
+      "source_type": "user-supplied side-by-side screenshot; right-hand real-admin reference",
+      "file_name": "codex-clipboard-1450384b-31eb-4463-8650-609b390a7d1b.png",
+      "sha256": "bbdc5d8f33f9057d201a8d3de02d835bcb3d8ddaf4743f5420a9eb517ce5ac9b",
+      "publication": "private source; original not included"
+    }
+  ],
+  "reports": [
+    {
+      "file": "evidence/interaction-check.json",
+      "source_sha256": "77bef8175826a0d59149c5ff8c9c2aa7c9e73dcea92406295522ba59a5b55a6e"
+    },
+    {
+      "file": "evidence/usage--usage-geometry-final.json",
+      "source_sha256": "5c51edd2de1167db2d78d4fc683fab3cc7f1ed6054ba606a341e2c17e343128f"
+    },
+    {
+      "file": "evidence/usage--usage-presentation-check.json",
+      "source_sha256": "8d6f8e5d9a9073616d17687d2919fa5be5b124749e5988b3831f9c1dc3a04262"
+    },
+    {
+      "file": "evidence/newadded--refined-geometry.json",
+      "source_sha256": "9995ab56368f2dc9fb47ef1137c7ab8fcd25c247d0b7b2b9a428ce6f28826bdf"
+    },
+    {
+      "file": "evidence/newadded--browser-interactions-check.json",
+      "source_sha256": "acf0a4dbfb233fb720bbd2540c4ea148bd3e82a20df6e362328c31e2f161b533"
+    },
+    {
+      "file": "evidence/ai--data-evidence.json",
+      "source_sha256": "2560c6f36791184cc77694e368e6be7185bfc91ece194c957bdcaf1ebe805932"
+    }
+  ]
+}
