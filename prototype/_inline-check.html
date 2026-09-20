@@ -12,7 +12,11 @@ document.querySelector('#run').onclick=async()=>{document.querySelector('#run').
  const cancel=[...c.querySelectorAll('dialog button')].find(b=>b.textContent.replace(/\s/g,'')==='取消');cancel.click();check('内嵌弹窗关闭',!c.querySelector('dialog').open);
  const sales=[...d.querySelectorAll('.nav-button')].find(b=>b.textContent.trim()==='销售管理');sales.click();await wait(()=>inner(d).body.dataset.contentReady==='true');c=inner(d);check('内嵌页签切换有内容',c.querySelectorAll('tbody tr').length>0&&d.querySelectorAll('[role=tab]').length>=2);
  d=await load('yestar-sz','wechatStatus');c=inner(d);check('帐号页下拉及表格样本',c.querySelectorAll('tbody tr').length>0&&[...c.querySelectorAll('select')].every(s=>s.options.length>1));
- d=await load('yestar-sz','allChat');c=inner(d);check('聊天页内嵌样本',c.querySelectorAll('.contact').length>0);
+ d=await load('yestar-sz','allChat');c=inner(d);
+ // Current AdminChat preserves Shenzhen's captured empty state; synthetic contacts require an explicit demo toggle.
+ const chatDemo=[...c.querySelectorAll('button')].find(b=>b.textContent.trim()==='查看本地演示会话');
+ check('聊天页保留深圳采集空态',c.querySelectorAll('.contact').length===0&&c.querySelector('.chat-pane')?.textContent.includes('暂无聊天内容')&&!!chatDemo);
+ chatDemo?.click();check('聊天页显式切换内嵌演示样本',c.querySelectorAll('.contact').length>0&&c.querySelectorAll('.message').length===3);
  check('子页仅使用内嵌资源',frame.contentWindow.performance.getEntriesByType('resource').length===0&&[...frame.contentDocument.querySelectorAll('iframe')].every(f=>f.contentWindow.performance.getEntriesByType('resource').length===0));
  }catch(error){check('验收执行',false,String(error));}finally{frame?.remove();report.dataset.complete='true';document.querySelector('#run').disabled=false;}}
 </script>

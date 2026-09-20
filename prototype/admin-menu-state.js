@@ -32,3 +32,27 @@ window.AdminMenuState={
   return order(tenant.menu).filter(shown).map(g=>g.children?{...g,children:order(g.children).filter(c=>shown(c)&&enabled.has(c.route))}:g).filter(g=>g.children?g.children.length:enabled.has(g.route));
  }
 };
+
+/* SPEC-SUIYIN-ADMIN-058: ai-cost-stats-v1 migration. */
+(() => {
+ const state=window.AdminMenuState,previous=state.migrate;
+ state.migrate=function(tenant,override){
+  const migrated=previous.call(this,tenant,override),migration='ai-cost-stats-v1',route='aiCostStats';
+  if(migrated?.appliedMigrations?.[migration])return migrated;
+  const parent=tenant.menu.find(group=>group.children?.some(child=>child.route===route));
+  if(!parent)return migrated;
+  const saved=structuredClone(migrated||{}),hadEnabled=Array.isArray(override?.enabled);
+  const wasEnabled=hadEnabled&&override.enabled.includes(route);
+  if(!Array.isArray(saved.enabled))saved.enabled=this.defaultEnabled(tenant);
+  if(!wasEnabled){
+   saved.enabled=saved.enabled.filter(item=>item!==route);
+   const parentKey=parent.route||parent.id,parentShown=(saved.display?.[parentKey]??parent.display)!=='隐藏';
+   const child=parent.children.find(item=>item.route===route),childShown=(saved.display?.[route]??child.display)!=='隐藏';
+   const siblingShown=parent.children.some(item=>item.route!==route&&saved.enabled.includes(item.route)&&(saved.display?.[item.route]??item.display)!=='隐藏');
+   if(parentShown&&childShown&&(!hadEnabled||siblingShown))saved.enabled.push(route);
+  }
+  saved.appliedMigrations={...saved.appliedMigrations,[migration]:true};
+  saved.menuDataRevision=tenant.menuDataRevision||'2026-09-20-menu-ai-cost-stats-v1';
+  return saved;
+ };
+})();

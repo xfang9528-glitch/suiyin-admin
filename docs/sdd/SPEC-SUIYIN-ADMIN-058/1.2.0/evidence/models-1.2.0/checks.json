@@ -1,0 +1,114 @@
+{
+  "at": "2026-09-20T11:52:11.783Z",
+  "logic": [
+    "完整82天且记录日期有效、刷新稳定",
+    "月/日/范围和六种分类两个指标原精度复算",
+    "既有三日次数/费用黄金值保留",
+    "模型映射五项目四模型且参考来源不升级",
+    "范围边界6/30缺样本不作0、零记录仍为明确演示配置",
+    "部分模型未知保留已知，全未知不借当前配置补",
+    "新增样本各类有不同波动且租户独立"
+  ],
+  "ui": [
+    "四列表格与五项目对应模型",
+    "82天曲线和样本说明",
+    "单类图和每日提示模型一致，表格不受筛选影响",
+    "缺日提示按连续区间压缩，草稿不生效",
+    "四列表格窄窗内滚动，页面无水平溢出",
+    "重置恢复今天单点/次数/全部",
+    "模型QA zero",
+    "模型QA disabled",
+    "模型QA model-unknown",
+    "模型QA model-partial",
+    "模型QA model-multiple"
+  ],
+  "tenants": [
+    {
+      "id": "yestar-sz",
+      "modelSource": "captured"
+    },
+    {
+      "id": "jbfs",
+      "state": "no-entry"
+    },
+    {
+      "id": "mengzhua",
+      "modelSource": "captured"
+    },
+    {
+      "id": "bzds",
+      "modelSource": "captured"
+    },
+    {
+      "id": "crrm",
+      "modelSource": "reference"
+    },
+    {
+      "id": "hqjd",
+      "state": "no-entry"
+    },
+    {
+      "id": "ykjl",
+      "modelSource": "reference"
+    },
+    {
+      "id": "ruixi-kh-xiaowen",
+      "modelSource": "reference"
+    },
+    {
+      "id": "rxxz",
+      "modelSource": "reference"
+    },
+    {
+      "id": "yestar",
+      "modelSource": "reference"
+    },
+    {
+      "id": "yestar-bj",
+      "modelSource": "reference"
+    },
+    {
+      "id": "yestar-gz",
+      "modelSource": "reference"
+    },
+    {
+      "id": "yestar-hz",
+      "modelSource": "reference"
+    },
+    {
+      "id": "yestar-jx",
+      "modelSource": "reference"
+    },
+    {
+      "id": "yzhb",
+      "modelSource": "reference"
+    }
+  ],
+  "performance": [
+    {
+      "operation": "82-day-query",
+      "ms": 266
+    },
+    {
+      "operation": "82-day-query",
+      "ms": 235
+    },
+    {
+      "operation": "82-day-query",
+      "ms": 260
+    },
+    {
+      "operation": "metric-and-category",
+      "ms": 167
+    },
+    {
+      "operation": "metric-and-category",
+      "ms": 161
+    },
+    {
+      "operation": "metric-and-category",
+      "ms": 158
+    }
+  ],
+  "errors": []
+}

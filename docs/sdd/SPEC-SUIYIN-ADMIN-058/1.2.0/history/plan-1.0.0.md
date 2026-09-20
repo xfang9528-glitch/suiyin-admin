@@ -1,0 +1,116 @@
+---
+plan_for: SPEC-SUIYIN-ADMIN-058
+spec_version: 1.0.0
+status: approved
+artifact_class: static-html
+exception_status: not-required
+exception_approved_by: none
+exception_approved_at: none
+operational_profile: none
+last_updated: 2026-09-20
+---
+
+# Prototype Plan — AI费用统计
+
+## 1. Constitution Check
+
+| 原则 | 结论 | 证据 / 例外理由 |
+|---|---|---|
+| 用户结果优先 | PASS | R001–R006回答哪些分析、多少次、费用多少 |
+| 事实与推断分离 | PASS | inventory.md；正式计费Q002–Q004延期，页面显式演示 |
+| 逻辑先于界面 | PASS | 1.0.0已由房总“按这个方案做”批准 |
+| 状态完整 | PASS | 15个AC覆盖查询/零/未知/失败/隔离 |
+| 平台与租户边界 | PASS | 13个已有AI管理入口；jbfs/hqjd不扩展 |
+| 真实能力承诺 | PASS | 所有次数与金额为本地合成样本 |
+| 运行类型与生产隔离 | PASS | 纯HTML/JS/CSS/本地JSON，无生产实现 |
+| 精确依赖与证据闭环 | PASS | 051@1.1.0、053@1.0.2、055@1.1.0 |
+
+## 2. Artifact Boundary
+
+- **运行类型**：static-html。
+- **为什么**：复用现有静态Shell和本地演示数据，只在浏览器筛选和计算。
+- **有状态信号**：无；既有localStorage菜单偏好只在当前浏览器，非共享持久化；本地静态文件读取不是业务服务API。
+- **例外**：not-required。
+- **Operational Profile**：none。
+- **生产边界**：不进入Flutter/React/Go生产仓，不连接真实费用、扣费或菜单接口；询问陈宣宇属于取证。
+
+## 3. 复用地图
+
+| 类型 | 复用对象 | 路径 / 组件 | 复用理由 | 需要调整 |
+|---|---|---|---|---|
+| HTML | 内容容器/Shell | prototype/admin-content.html、_shell.html | 当前路由体系 | 内容容器载入新JS/CSS；Shell无需新实现 |
+| Token | 日期/统计样式 | admin-sales-usage.css、admin-content.css | 与现有单日/范围一致 | 仅费用页局部CSS |
+| Component | 日历 | AdminUsageDatePicker.attach | 既有两月范围及键盘/Escape | 复用API，日期草稿不提前提交 |
+| Component | 表头冻结 | admin-table-sticky.js/css | 055批准规则 | 沿用table-wrap语义 |
+| Component | 菜单配置 | AdminMenuState、admin-menu-tree | 侧栏与菜单管理一致 | 新路由迁移，不重开隐藏父级 |
+| Mock | 合成事件/费用记录 | 新增admin-ai-cost-stats.js内固定样本生成器 | 租户键隔离，业务任务与费用分开 | 固定9月18–20日，不按今天漂移 |
+
+## 4. 文件与路由
+
+根目录：E:/AI 项目/佰智德三/碎银原型/suiyin-admin/prototype。
+
+| 文件 | 路由 / 页面 | 动作 | 对应规则 |
+|---|---|---|---|
+| admin-ai-cost-stats.js、admin-ai-cost-stats.css | aiCostStats | 新增专用renderer、固定合成事件、汇总与状态 | R002–R010 |
+| admin-content.html | 共享容器 | 引入新资源；不改变其他renderer | R010 |
+| data/navigation-snapshot.json | 13租户menu/settings | 增加同稳定route菜单 | R001 R007 |
+| data/content/{13个适用租户}.json | aiCostStats与menu/allMenu已有树 | 增加Mock页面元信息与菜单节点 | R001 R007 R008 |
+| admin-menu-state.js | 本地菜单偏好迁移 | 追加幂等迁移，保留原迁移及隐藏保护 | R001 R007 |
+| 本SPEC目录verification.md及evidence/ | 本地验收 | 写实际检查、截图和复算证据 | 全部AC |
+
+不写旧独立ai_*页面、不生成inline或更新完整PRD/设计规范。当前已有项目不安装新项目控制面；实现由主线程独占修改，子agent只读调查与审查。
+
+## 5. 信息结构
+
+- 页面骨架：时间筛选、简洁标题/已应用时间、三列表格、表尾合计、演示与费用口径说明。
+- 主操作：搜索。
+- 次操作：单日/范围、日期、今天/昨天/前天、重置。
+- 状态反馈区域：表格区域显示loading/error/no-sample；部分覆盖和待核算紧贴合计。
+- 返回 / 关闭：既有Shell页签。
+
+## 6. 交互实现
+
+| 触发 | 默认态 | 进行中 | 成功 | 失败 | 取消 / 重试 | 规则 |
+|---|---|---|---|---|---|---|
+| 查询 | 上海今天单日 | 禁用重复提交且清旧结果 | 更新已应用日期与统一结果 | 独立错误 | 同查询重试 | R002 R009 |
+| 日历/模式 | 日期草稿 | 不改已应用结果 | 搜索后生效 | 非法日期提示 | Escape恢复未完成选择 | R002 |
+| 租户切换 | 本租户菜单 | 清理旧结果 | 新租户固定样本 | 无权/缺父级拒绝 | 返回已有入口 | R001 R007 |
+| 费用汇总 | 五类 | 同查询记录 | 次数/金额各自汇总 | 缺数据不置0 | 调整日期 | R003–R008 |
+
+## 7. Mock 方案
+
+| 数据集 | 表达的场景 | 关键字段 | 敏感信息处理 |
+|---|---|---|---|
+| tenant独立固定事件 | 五类分析、跨日成功、自动重试/手动重跑 | tenantId/taskId/project/status/at | 全部合成、ID含租户 |
+| tenant独立费用记录 | 已知示例、待确认、零、小额、失败仍有费用 | chargeId/taskId/project/at/amountMicros/basis | 全部demo，无真实账单 |
+| 固定日期覆盖 | 9月18–20及区间部分覆盖 | coverage、dataThrough、projectCoverage | 不能把未覆盖日期当0 |
+| QA专用状态 | 全零、全未知、未启用、未知任务ID、未归类、失败重试、无权 | 仅qa=1启用的costState | 不在客户页面新增调试工具 |
+
+## 8. 验证计划
+
+| 验收 ID | 操作路径 | 预期 | 视觉检查 |
+|---|---|---|---|
+| AC-R001-01、AC-R007-01 | 13租户导航/菜单树/隐藏迁移/另2租户 | 同route、隔离、隐藏不能绕过 | 主租户Shell与菜单 |
+| AC-R002-01/02 | 输入/单日范围/搜索/重置/日历Escape | 草稿和应用分离、日期校验 | Chrome默认与范围 |
+| AC-R003-01 | 五类与说明 | 不承诺真实日执行 | 表内项目与说明 |
+| AC-R004-01/02 | 固定事件人工构造复算 | 首次成功去重、跨日/费用独立 | 次数单元格 |
+| AC-R005-01/02、AC-R006-01/02/03 | 已知/未知/未归类/缺日期/小额 | 完整性诚实、0与未知分开 | 部分覆盖和未知状态 |
+| AC-R008-01、AC-R009-01 | 样本标识、空/错误/重试 | 不沿用旧金额 | 对应状态 |
+| AC-R010-01 | 滚动/窄窗/日历层级 | 冻结对齐、无脚本错误 | 截图/DOM几何 |
+
+使用本机Chrome及临时Playwright检查；仅为计数/金额等关键逻辑做有判定价值的复算，不搭建生产测试体系。修改后核对旧销售使用/变声/AI辅助与菜单不回归。
+
+## 9. 风险与回退
+
+- 菜单迁移可能影响旧localStorage：使用单独迁移键，保存显式隐藏项和父级显示状态，重复读取幂等。
+- CSS只限定ai-cost页面，原日期组件不改；新renderer只接aiCostStats路由。
+- 金额以整数微元累加后格式化，已知零和未知分开；分类/日期不完整不显示完整总计。
+- 回退仅撤销本次新增页面/菜单/迁移；保留已有用户改动。
+- 页面说明明确本地合成样本、费用口径待确认。
+
+## 10. 预览计划
+
+- 本地服务：复用或启动仅监听127.0.0.1的静态服务，目标端口8148。
+- Chrome目标URL：http://127.0.0.1:8148/prototype/_shell.html?tenant=yestar-sz&page=aiCostStats。
+- 首屏定位：AI管理展开、AI费用统计选中。
+- 展示默认、范围与部分未知；最终留在默认可查看页面。

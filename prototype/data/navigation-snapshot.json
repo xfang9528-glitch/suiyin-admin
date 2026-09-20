@@ -827,6 +827,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 59
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 60
             }
           ],
           "display": "显示",
@@ -851,7 +865,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 61
+              "settingIndex": 62
             },
             {
               "id": "menu",
@@ -865,7 +879,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 62
+              "settingIndex": 63
             },
             {
               "id": "labels",
@@ -879,7 +893,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 63
+              "settingIndex": 64
             },
             {
               "id": "setting",
@@ -893,7 +907,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 64
+              "settingIndex": 65
             },
             {
               "id": "labelsManage",
@@ -907,13 +921,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 65
+              "settingIndex": 66
             }
           ],
           "display": "显示",
           "sort": 1,
           "superPermission": false,
-          "settingIndex": 60
+          "settingIndex": 61
         }
       ],
       "settings": [
@@ -1338,6 +1352,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 1,
@@ -1389,7 +1410,7 @@
       "navigationCapturedAt": "2026-09-18T15:05:08.141Z",
       "clientVersion": "v2026091804",
       "clientVersionEvidence": "2026-09-20 user supplied Shenzhen screenshots",
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "jbfs",
@@ -3143,6 +3164,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 49
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 50
             }
           ],
           "display": "显示",
@@ -3167,7 +3202,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 51
+              "settingIndex": 52
             },
             {
               "id": "menu",
@@ -3181,7 +3216,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 52
+              "settingIndex": 53
             },
             {
               "id": "labels",
@@ -3195,7 +3230,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 53
+              "settingIndex": 54
             },
             {
               "id": "setting",
@@ -3209,7 +3244,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 54
+              "settingIndex": 55
             },
             {
               "id": "labelsManage",
@@ -3223,13 +3258,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 55
+              "settingIndex": 56
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 50
+          "settingIndex": 51
         }
       ],
       "settings": [
@@ -3584,6 +3619,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 0,
@@ -3632,7 +3674,7 @@
         "platformAssignment": "sample-captured",
         "content": "implemented-local"
       },
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "bzds",
@@ -4426,6 +4468,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 57
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 58
             }
           ],
           "display": "显示",
@@ -4450,7 +4506,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 59
+              "settingIndex": 60
             },
             {
               "id": "caseLibraryEntries",
@@ -4464,7 +4520,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 60
+              "settingIndex": 61
             },
             {
               "id": "caseLibraryMiniPrograms",
@@ -4478,7 +4534,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 61
+              "settingIndex": 62
             },
             {
               "id": "caseLibrarySubjectShares",
@@ -4492,13 +4548,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 62
+              "settingIndex": 63
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 58
+          "settingIndex": 59
         },
         {
           "id": "group-14",
@@ -4517,7 +4573,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 64
+              "settingIndex": 65
             },
             {
               "id": "menu",
@@ -4531,7 +4587,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 65
+              "settingIndex": 66
             },
             {
               "id": "labels",
@@ -4545,7 +4601,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 66
+              "settingIndex": 67
             },
             {
               "id": "setting",
@@ -4559,7 +4615,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 67
+              "settingIndex": 68
             },
             {
               "id": "labelsManage",
@@ -4573,13 +4629,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 68
+              "settingIndex": 69
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 63
+          "settingIndex": 64
         },
         {
           "id": "group-15",
@@ -4598,7 +4654,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 70
+              "settingIndex": 71
             },
             {
               "id": "labelMenu",
@@ -4612,7 +4668,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 71
+              "settingIndex": 72
             },
             {
               "id": "entList",
@@ -4626,7 +4682,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 72
+              "settingIndex": 73
             },
             {
               "id": "allWeChatStatus",
@@ -4640,7 +4696,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 73
+              "settingIndex": 74
             },
             {
               "id": "esIndex",
@@ -4654,7 +4710,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 74
+              "settingIndex": 75
             },
             {
               "id": "versionList",
@@ -4668,7 +4724,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 75
+              "settingIndex": 76
             },
             {
               "id": "aiModelConfig",
@@ -4682,7 +4738,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 76
+              "settingIndex": 77
             },
             {
               "id": "auditDict",
@@ -4696,7 +4752,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 77
+              "settingIndex": 78
             },
             {
               "id": "voiceModels",
@@ -4710,13 +4766,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 78
+              "settingIndex": 79
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 69
+          "settingIndex": 70
         }
       ],
       "settings": [
@@ -5127,6 +5183,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "案例库管理",
           "display": "显示",
           "sort": 0,
@@ -5280,7 +5343,7 @@
         "platformAssignment": "sample-captured",
         "content": "implemented-local"
       },
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "crrm",
@@ -5853,6 +5916,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 41
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 42
             }
           ],
           "display": "显示",
@@ -5877,7 +5954,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             },
             {
               "id": "menu",
@@ -5891,7 +5968,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "labels",
@@ -5905,7 +5982,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "setting",
@@ -5919,7 +5996,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "labelsManage",
@@ -5933,13 +6010,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 42
+          "settingIndex": 43
         }
       ],
       "settings": [
@@ -6238,6 +6315,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 0,
@@ -6286,7 +6370,7 @@
         "platformAssignment": "unknown",
         "content": "implemented-local"
       },
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "hqjd",
@@ -7938,6 +8022,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 43
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 44
             }
           ],
           "display": "显示",
@@ -7962,7 +8060,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": true,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "menu",
@@ -7976,7 +8074,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": true,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "labels",
@@ -7990,7 +8088,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": true,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "setting",
@@ -8004,7 +8102,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             },
             {
               "id": "labelsManage",
@@ -8018,13 +8116,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 49
+              "settingIndex": 50
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 44
+          "settingIndex": 45
         }
       ],
       "settings": [
@@ -8337,6 +8435,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 0,
@@ -8385,7 +8490,7 @@
         "platformAssignment": "unknown",
         "content": "implemented-local"
       },
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "ruixi-kh-xiaowen",
@@ -9025,6 +9130,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 46
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 47
             }
           ],
           "display": "显示",
@@ -9049,7 +9168,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             },
             {
               "id": "menu",
@@ -9063,7 +9182,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 49
+              "settingIndex": 50
             },
             {
               "id": "labels",
@@ -9077,7 +9196,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 50
+              "settingIndex": 51
             },
             {
               "id": "setting",
@@ -9091,7 +9210,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 51
+              "settingIndex": 52
             },
             {
               "id": "labelsManage",
@@ -9105,13 +9224,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 52
+              "settingIndex": 53
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 47
+          "settingIndex": 48
         }
       ],
       "settings": [
@@ -9445,6 +9564,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 0,
@@ -9493,7 +9619,7 @@
         "platformAssignment": "unknown",
         "content": "implemented-local"
       },
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "rxxz",
@@ -10108,6 +10234,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 44
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 45
             }
           ],
           "display": "显示",
@@ -10132,7 +10272,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "menu",
@@ -10146,7 +10286,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "labels",
@@ -10160,7 +10300,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             },
             {
               "id": "setting",
@@ -10174,7 +10314,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 49
+              "settingIndex": 50
             },
             {
               "id": "labelsManage",
@@ -10188,13 +10328,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 50
+              "settingIndex": 51
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 45
+          "settingIndex": 46
         }
       ],
       "settings": [
@@ -10514,6 +10654,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 0,
@@ -10562,7 +10709,7 @@
         "platformAssignment": "unknown",
         "content": "implemented-local"
       },
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yestar",
@@ -11286,6 +11433,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 52
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 53
             }
           ],
           "display": "显示",
@@ -11310,7 +11471,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 54
+              "settingIndex": 55
             },
             {
               "id": "menu",
@@ -11324,7 +11485,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 55
+              "settingIndex": 56
             },
             {
               "id": "labels",
@@ -11338,7 +11499,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 56
+              "settingIndex": 57
             },
             {
               "id": "setting",
@@ -11352,7 +11513,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 57
+              "settingIndex": 58
             },
             {
               "id": "labelsManage",
@@ -11366,13 +11527,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 58
+              "settingIndex": 59
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 53
+          "settingIndex": 54
         }
       ],
       "settings": [
@@ -11748,6 +11909,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 0,
@@ -11798,7 +11966,7 @@
       },
       "navigationCapturedAt": "2026-09-18T15:05:16.025Z",
       "clientVersion": "v2026091803",
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yestar-bj",
@@ -12494,6 +12662,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 50
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 51
             }
           ],
           "display": "显示",
@@ -12518,7 +12700,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 52
+              "settingIndex": 53
             },
             {
               "id": "menu",
@@ -12532,7 +12714,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 53
+              "settingIndex": 54
             },
             {
               "id": "labels",
@@ -12546,7 +12728,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 54
+              "settingIndex": 55
             },
             {
               "id": "setting",
@@ -12560,7 +12742,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 55
+              "settingIndex": 56
             },
             {
               "id": "labelsManage",
@@ -12574,7 +12756,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 56
+              "settingIndex": 57
             },
             {
               "id": "remark-demand-mappings",
@@ -12588,13 +12770,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 57
+              "settingIndex": 58
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 51
+          "settingIndex": 52
         }
       ],
       "settings": [
@@ -12956,6 +13138,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 0,
@@ -13011,7 +13200,7 @@
         "platformAssignment": "unknown",
         "content": "implemented-local"
       },
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yestar-gz",
@@ -13816,6 +14005,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 58
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 59
             }
           ],
           "display": "显示",
@@ -13840,7 +14043,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 60
+              "settingIndex": 61
             },
             {
               "id": "menu",
@@ -13854,7 +14057,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 61
+              "settingIndex": 62
             },
             {
               "id": "labels",
@@ -13868,7 +14071,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 62
+              "settingIndex": 63
             },
             {
               "id": "setting",
@@ -13882,7 +14085,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 63
+              "settingIndex": 64
             },
             {
               "id": "labelsManage",
@@ -13896,13 +14099,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 64
+              "settingIndex": 65
             }
           ],
           "display": "显示",
           "sort": 1,
           "superPermission": false,
-          "settingIndex": 59
+          "settingIndex": 60
         }
       ],
       "settings": [
@@ -14320,6 +14523,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 1,
@@ -14370,7 +14580,7 @@
       },
       "navigationCapturedAt": "2026-09-18T15:08:24.210Z",
       "clientVersion": "v2026091803",
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yestar-hz",
@@ -15175,6 +15385,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 58
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 59
             }
           ],
           "display": "显示",
@@ -15199,7 +15423,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 60
+              "settingIndex": 61
             },
             {
               "id": "menu",
@@ -15213,7 +15437,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 61
+              "settingIndex": 62
             },
             {
               "id": "labels",
@@ -15227,7 +15451,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 62
+              "settingIndex": 63
             },
             {
               "id": "setting",
@@ -15241,7 +15465,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 63
+              "settingIndex": 64
             },
             {
               "id": "labelsManage",
@@ -15255,13 +15479,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 64
+              "settingIndex": 65
             }
           ],
           "display": "显示",
           "sort": 1,
           "superPermission": false,
-          "settingIndex": 59
+          "settingIndex": 60
         },
         {
           "id": "group-14",
@@ -15280,7 +15504,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 66
+              "settingIndex": 67
             },
             {
               "id": "caseLibraryEntries",
@@ -15294,7 +15518,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 67
+              "settingIndex": 68
             },
             {
               "id": "caseLibraryMiniPrograms",
@@ -15308,7 +15532,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 68
+              "settingIndex": 69
             },
             {
               "id": "caseLibrarySubjectShares",
@@ -15322,13 +15546,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 69
+              "settingIndex": 70
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 65
+          "settingIndex": 66
         }
       ],
       "settings": [
@@ -15746,6 +15970,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 1,
@@ -15831,7 +16062,7 @@
       },
       "navigationCapturedAt": "2026-09-18T15:08:28.998Z",
       "clientVersion": "v2026091803",
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yestar-jx",
@@ -16636,6 +16867,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 58
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 59
             }
           ],
           "display": "显示",
@@ -16660,7 +16905,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 60
+              "settingIndex": 61
             },
             {
               "id": "menu",
@@ -16674,7 +16919,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 61
+              "settingIndex": 62
             },
             {
               "id": "labels",
@@ -16688,7 +16933,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 62
+              "settingIndex": 63
             },
             {
               "id": "setting",
@@ -16702,7 +16947,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 63
+              "settingIndex": 64
             },
             {
               "id": "labelsManage",
@@ -16716,13 +16961,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 64
+              "settingIndex": 65
             }
           ],
           "display": "显示",
           "sort": 1,
           "superPermission": false,
-          "settingIndex": 59
+          "settingIndex": 60
         }
       ],
       "settings": [
@@ -17140,6 +17385,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 1,
@@ -17190,7 +17442,7 @@
       },
       "navigationCapturedAt": "2026-09-18T15:08:34.170Z",
       "clientVersion": "v2026091803",
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yzhb",
@@ -17791,6 +18043,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 43
+            },
+            {
+              "id": "aiCostStats",
+              "route": "aiCostStats",
+              "label": "AI费用统计",
+              "platformId": "platform-aiCostStats",
+              "platformLabel": "AI费用统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 7h6M9 11h6M9 15h3\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 44
             }
           ],
           "display": "显示",
@@ -17815,7 +18081,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "menu",
@@ -17829,7 +18095,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "labels",
@@ -17843,7 +18109,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "setting",
@@ -17857,7 +18123,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             },
             {
               "id": "labelsManage",
@@ -17871,13 +18137,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 49
+              "settingIndex": 50
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 44
+          "settingIndex": 45
         }
       ],
       "settings": [
@@ -18190,6 +18456,13 @@
           "level": 1
         },
         {
+          "label": "AI费用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "系统管理",
           "display": "显示",
           "sort": 0,
@@ -18238,16 +18511,22 @@
         "platformAssignment": "unknown",
         "content": "implemented-local"
       },
-      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+      "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1"
     }
   ],
-  "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1",
+  "menuDataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1",
   "prototypeAdditions": [
     {
       "route": "salesVoiceStats",
       "spec": "SPEC-SUIYIN-ADMIN-052@1.0.0",
       "source": "approved-static-prototype",
       "addedAt": "2026-09-20T00:00:00.000Z"
+    },
+    {
+      "route": "aiCostStats",
+      "spec": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+      "source": "approved-static-prototype",
+      "addedAt": "2026-09-20T00:00:00Z"
     }
   ]
 }

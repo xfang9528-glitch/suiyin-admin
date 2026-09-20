@@ -1,0 +1,26 @@
+[
+  {
+    "script": "validate-spec.mjs",
+    "exitCode": 0,
+    "stdout": "{\n  \"file\": \"E:\\\\AI 项目\\\\prototype-sdd\\\\specs\\\\058-admin-ai-cost-stats\\\\spec.md\",\n  \"status\": \"implemented\",\n  \"rules\": 19,\n  \"acceptanceCriteria\": 24,\n  \"questionsOpen\": 0,\n  \"dependencies\": [\n    \"SPEC-SUIYIN-ADMIN-051@1.1.0\",\n    \"SPEC-SUIYIN-ADMIN-053@1.0.2\",\n    \"SPEC-SUIYIN-ADMIN-055@1.1.0\"\n  ],\n  \"errors\": [],\n  \"warnings\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "script": "validate-plan-boundary.mjs",
+    "exitCode": 0,
+    "stdout": "{\n  \"file\": \"E:\\\\AI 项目\\\\prototype-sdd\\\\specs\\\\058-admin-ai-cost-stats\\\\plan.md\",\n  \"sourceSpec\": \"SPEC-SUIYIN-ADMIN-058@1.2.0\",\n  \"artifactClass\": \"static-html\",\n  \"legacy\": false,\n  \"errors\": [],\n  \"warnings\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "script": "validate-source-convergence.mjs",
+    "exitCode": 0,
+    "stdout": "{\n  \"file\": \"E:\\\\AI 项目\\\\prototype-sdd\\\\specs\\\\058-admin-ai-cost-stats\\\\source-convergence.md\",\n  \"ledger\": \"CONVERGENCE-SUIYIN-ADMIN-058\",\n  \"sourceSpec\": \"SPEC-SUIYIN-ADMIN-058@1.2.0\",\n  \"sources\": 13,\n  \"searches\": 5,\n  \"errors\": [],\n  \"warnings\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "script": "validate-traceability.mjs",
+    "exitCode": 0,
+    "stdout": "{\n  \"spec\": \"SPEC-SUIYIN-ADMIN-058@1.2.0\",\n  \"handoff\": \"HANDOFF-SUIYIN-ADMIN-058\",\n  \"testContract\": \"TEST-CONTRACT-SUIYIN-ADMIN-058\",\n  \"mustRules\": 19,\n  \"acceptanceCriteria\": 24,\n  \"issueSlices\": 1,\n  \"tests\": 24,\n  \"evidenceStage\": \"preparation\",\n  \"errors\": [],\n  \"warnings\": []\n}\n",
+    "stderr": ""
+  }
+]

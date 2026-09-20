@@ -1,0 +1,539 @@
+{
+  "at": "2026-09-20T12:04:12.135Z",
+  "runtime": "Google Chrome headless via Playwright",
+  "base": "http://127.0.0.1:8148/prototype/",
+  "build": {
+    "jsonFiles": 78,
+    "assets": 5,
+    "bytes": 7395986
+  },
+  "globalInline": {
+    "checks": 37,
+    "passed": 37,
+    "failed": []
+  },
+  "checks": [
+    {
+      "name": "既有完整单文件验收（按当前聊天设计修正）",
+      "passed": true,
+      "detail": {
+        "checks": 37,
+        "passed": 37,
+        "failed": []
+      }
+    },
+    {
+      "name": "bzds-ordinary 四列表头",
+      "passed": true,
+      "detail": [
+        "分析项目",
+        "专属模型",
+        "分析次数",
+        "费用（元）"
+      ]
+    },
+    {
+      "name": "bzds-ordinary 五个项目行",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds-ordinary 默认单日单点",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds-ordinary 本租户模型名称",
+      "passed": true,
+      "detail": "碎银·客户标签洞察模型\n专属模型"
+    },
+    {
+      "name": "bzds-ordinary 五行均有模型名",
+      "passed": true,
+      "detail": [
+        "碎银·客户标签洞察模型专属模型",
+        "碎银·客户画像超智模型专属模型",
+        "碎银·客户画像超智模型专属模型",
+        "碎银·客户沟通进度分析模型专属模型",
+        "碎银·图灵聊天辅助模型专属模型"
+      ]
+    },
+    {
+      "name": "bzds-ordinary 真实输入范围产生82点",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "name": "bzds-ordinary 首尾日期匹配",
+      "passed": true,
+      "detail": {
+        "first": "2026-07-01",
+        "last": "2026-09-20"
+      }
+    },
+    {
+      "name": "bzds-ordinary 查询日期已生效",
+      "passed": true,
+      "detail": "2026-07-01 至 2026-09-20"
+    },
+    {
+      "name": "bzds-ordinary 切费用表格保持不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds-ordinary 切单类别表格保持不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds-ordinary 单类曲线包含模型",
+      "passed": true,
+      "detail": "专属模型：碎银·客户标签洞察模型"
+    },
+    {
+      "name": "bzds-ordinary 费用单类别仍82点",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds-ordinary 首日提示含模型",
+      "passed": true,
+      "detail": "2026-07-01\n客户标签分析 · 费用\n碎银·客户标签洞察模型\n0.51 元 · 已列范围数据完整"
+    },
+    {
+      "name": "bzds-ordinary 无JavaScript错误",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "bzds-inline 四列表头",
+      "passed": true,
+      "detail": [
+        "分析项目",
+        "专属模型",
+        "分析次数",
+        "费用（元）"
+      ]
+    },
+    {
+      "name": "bzds-inline 五个项目行",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds-inline 默认单日单点",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds-inline 本租户模型名称",
+      "passed": true,
+      "detail": "碎银·客户标签洞察模型\n专属模型"
+    },
+    {
+      "name": "bzds-inline 五行均有模型名",
+      "passed": true,
+      "detail": [
+        "碎银·客户标签洞察模型专属模型",
+        "碎银·客户画像超智模型专属模型",
+        "碎银·客户画像超智模型专属模型",
+        "碎银·客户沟通进度分析模型专属模型",
+        "碎银·图灵聊天辅助模型专属模型"
+      ]
+    },
+    {
+      "name": "bzds-inline 真实输入范围产生82点",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "name": "bzds-inline 首尾日期匹配",
+      "passed": true,
+      "detail": {
+        "first": "2026-07-01",
+        "last": "2026-09-20"
+      }
+    },
+    {
+      "name": "bzds-inline 查询日期已生效",
+      "passed": true,
+      "detail": "2026-07-01 至 2026-09-20"
+    },
+    {
+      "name": "bzds-inline 切费用表格保持不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds-inline 切单类别表格保持不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds-inline 单类曲线包含模型",
+      "passed": true,
+      "detail": "专属模型：碎银·客户标签洞察模型"
+    },
+    {
+      "name": "bzds-inline 费用单类别仍82点",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds-inline 首日提示含模型",
+      "passed": true,
+      "detail": "2026-07-01\n客户标签分析 · 费用\n碎银·客户标签洞察模型\n0.51 元 · 已列范围数据完整"
+    },
+    {
+      "name": "bzds-inline 无JavaScript错误",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "bzds-inline Shell与内容资源内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds 普通与单文件表格一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds 普通与单文件82点一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz-ordinary 四列表头",
+      "passed": true,
+      "detail": [
+        "分析项目",
+        "专属模型",
+        "分析次数",
+        "费用（元）"
+      ]
+    },
+    {
+      "name": "yestar-sz-ordinary 五个项目行",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz-ordinary 默认单日单点",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz-ordinary 本租户模型名称",
+      "passed": true,
+      "detail": "星瞳 StarInsight\n专属模型\n客户标签洞察模型"
+    },
+    {
+      "name": "yestar-sz-ordinary 五行均有模型名",
+      "passed": true,
+      "detail": [
+        "星瞳 StarInsight专属模型客户标签洞察模型",
+        "星鉴 StarLens专属模型客户画像超智模型",
+        "星鉴 StarLens专属模型用于AI上下文整理",
+        "星程 StarPath专属模型客户沟通进度分析模型",
+        "星语 StarTalk专属模型图灵聊天辅助模型"
+      ]
+    },
+    {
+      "name": "yestar-sz-ordinary 真实输入范围产生82点",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "name": "yestar-sz-ordinary 首尾日期匹配",
+      "passed": true,
+      "detail": {
+        "first": "2026-07-01",
+        "last": "2026-09-20"
+      }
+    },
+    {
+      "name": "yestar-sz-ordinary 查询日期已生效",
+      "passed": true,
+      "detail": "2026-07-01 至 2026-09-20"
+    },
+    {
+      "name": "yestar-sz-ordinary 切费用表格保持不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz-ordinary 切单类别表格保持不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz-ordinary 单类曲线包含模型",
+      "passed": true,
+      "detail": "专属模型：星瞳 StarInsight"
+    },
+    {
+      "name": "yestar-sz-ordinary 费用单类别仍82点",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz-ordinary 首日提示含模型",
+      "passed": true,
+      "detail": "2026-07-01\n客户标签分析 · 费用\n星瞳 StarInsight\n0.62 元 · 已列范围数据完整"
+    },
+    {
+      "name": "yestar-sz-ordinary 无JavaScript错误",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "yestar-sz-inline 四列表头",
+      "passed": true,
+      "detail": [
+        "分析项目",
+        "专属模型",
+        "分析次数",
+        "费用（元）"
+      ]
+    },
+    {
+      "name": "yestar-sz-inline 五个项目行",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz-inline 默认单日单点",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz-inline 本租户模型名称",
+      "passed": true,
+      "detail": "星瞳 StarInsight\n专属模型\n客户标签洞察模型"
+    },
+    {
+      "name": "yestar-sz-inline 五行均有模型名",
+      "passed": true,
+      "detail": [
+        "星瞳 StarInsight专属模型客户标签洞察模型",
+        "星鉴 StarLens专属模型客户画像超智模型",
+        "星鉴 StarLens专属模型用于AI上下文整理",
+        "星程 StarPath专属模型客户沟通进度分析模型",
+        "星语 StarTalk专属模型图灵聊天辅助模型"
+      ]
+    },
+    {
+      "name": "yestar-sz-inline 真实输入范围产生82点",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "name": "yestar-sz-inline 首尾日期匹配",
+      "passed": true,
+      "detail": {
+        "first": "2026-07-01",
+        "last": "2026-09-20"
+      }
+    },
+    {
+      "name": "yestar-sz-inline 查询日期已生效",
+      "passed": true,
+      "detail": "2026-07-01 至 2026-09-20"
+    },
+    {
+      "name": "yestar-sz-inline 切费用表格保持不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz-inline 切单类别表格保持不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz-inline 单类曲线包含模型",
+      "passed": true,
+      "detail": "专属模型：星瞳 StarInsight"
+    },
+    {
+      "name": "yestar-sz-inline 费用单类别仍82点",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz-inline 首日提示含模型",
+      "passed": true,
+      "detail": "2026-07-01\n客户标签分析 · 费用\n星瞳 StarInsight\n0.62 元 · 已列范围数据完整"
+    },
+    {
+      "name": "yestar-sz-inline 无JavaScript错误",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "yestar-sz-inline Shell与内容资源内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz 普通与单文件表格一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz 普通与单文件82点一致",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "pages": [
+    {
+      "tenant": "bzds",
+      "mode": "ordinary",
+      "url": "http://127.0.0.1:8148/prototype/_shell.html?tenant=bzds&page=aiCostStats&qa=1",
+      "columns": 4,
+      "rows": 5,
+      "points": 82,
+      "applied": "2026-07-01 至 2026-09-20",
+      "models": [
+        "碎银·客户标签洞察模型专属模型",
+        "碎银·客户画像超智模型专属模型",
+        "碎银·客户画像超智模型专属模型",
+        "碎银·客户沟通进度分析模型专属模型",
+        "碎银·图灵聊天辅助模型专属模型"
+      ]
+    },
+    {
+      "tenant": "bzds",
+      "mode": "inline",
+      "url": "http://127.0.0.1:8148/prototype/_shell_inline.html?tenant=bzds&page=aiCostStats&qa=1",
+      "columns": 4,
+      "rows": 5,
+      "points": 82,
+      "applied": "2026-07-01 至 2026-09-20",
+      "models": [
+        "碎银·客户标签洞察模型专属模型",
+        "碎银·客户画像超智模型专属模型",
+        "碎银·客户画像超智模型专属模型",
+        "碎银·客户沟通进度分析模型专属模型",
+        "碎银·图灵聊天辅助模型专属模型"
+      ]
+    },
+    {
+      "tenant": "yestar-sz",
+      "mode": "ordinary",
+      "url": "http://127.0.0.1:8148/prototype/_shell.html?tenant=yestar-sz&page=aiCostStats&qa=1",
+      "columns": 4,
+      "rows": 5,
+      "points": 82,
+      "applied": "2026-07-01 至 2026-09-20",
+      "models": [
+        "星瞳 StarInsight专属模型客户标签洞察模型",
+        "星鉴 StarLens专属模型客户画像超智模型",
+        "星鉴 StarLens专属模型用于AI上下文整理",
+        "星程 StarPath专属模型客户沟通进度分析模型",
+        "星语 StarTalk专属模型图灵聊天辅助模型"
+      ]
+    },
+    {
+      "tenant": "yestar-sz",
+      "mode": "inline",
+      "url": "http://127.0.0.1:8148/prototype/_shell_inline.html?tenant=yestar-sz&page=aiCostStats&qa=1",
+      "columns": 4,
+      "rows": 5,
+      "points": 82,
+      "applied": "2026-07-01 至 2026-09-20",
+      "models": [
+        "星瞳 StarInsight专属模型客户标签洞察模型",
+        "星鉴 StarLens专属模型客户画像超智模型",
+        "星鉴 StarLens专属模型用于AI上下文整理",
+        "星程 StarPath专属模型客户沟通进度分析模型",
+        "星语 StarTalk专属模型图灵聊天辅助模型"
+      ]
+    }
+  ],
+  "errors": [],
+  "requestFailures": [],
+  "summary": {
+    "checks": 63,
+    "passed": 63,
+    "failed": 0,
+    "globalInlineChecks": 37,
+    "globalInlinePassed": 37,
+    "targetedChecks": 62,
+    "pages": 4,
+    "jsErrors": 0,
+    "requestFailures": 0
+  },
+  "chatRegressionFollowup": {
+    "at": "2026-09-20T12:05:18.076Z",
+    "reason": "Existing _inline-check assumes .contact > 0 on the initial Shenzhen allChat state, but current AdminChat intentionally starts with captured empty state and an explicit synthetic demo toggle.",
+    "results": [
+      {
+        "mode": "ordinary",
+        "initial": {
+          "contacts": 0,
+          "text": "请选择客户\n暂无聊天内容",
+          "toggle": 1
+        },
+        "demo": {
+          "contacts": 20,
+          "messages": 3,
+          "text": "演示客户 EEEA736C\n待分配 · 牛克辉院长\n2026-09-18 · 合成演示对话\n您好，我想了解服务和预约安排。\n09:30\n您好，请告诉我您方便的时间，我可以为您介绍预约流程。\n09:32\n我先确认一下时间，稍后联系您。\n09:35\n\n只读查看 · 演示对话正文为合成内容。"
+        },
+        "restored": {
+          "contacts": 0,
+          "text": "请选择客户\n暂无聊天内容"
+        },
+        "passed": true
+      },
+      {
+        "mode": "inline",
+        "initial": {
+          "contacts": 0,
+          "text": "请选择客户\n暂无聊天内容",
+          "toggle": 1
+        },
+        "demo": {
+          "contacts": 20,
+          "messages": 3,
+          "text": "演示客户 EEEA736C\n待分配 · 牛克辉院长\n2026-09-18 · 合成演示对话\n您好，我想了解服务和预约安排。\n09:30\n您好，请告诉我您方便的时间，我可以为您介绍预约流程。\n09:32\n我先确认一下时间，稍后联系您。\n09:35\n\n只读查看 · 演示对话正文为合成内容。"
+        },
+        "restored": {
+          "contacts": 0,
+          "text": "请选择客户\n暂无聊天内容"
+        },
+        "passed": true
+      }
+    ],
+    "ordinaryInlineMatch": true,
+    "errors": [],
+    "conclusion": "product behavior correct; existing test assertion stale"
+  },
+  "initialGlobalInline": {
+    "checks": 36,
+    "passed": 35,
+    "failed": [
+      {
+        "name": "聊天页内嵌样本",
+        "passed": false,
+        "detail": ""
+      }
+    ]
+  },
+  "rerunAt": "2026-09-20T12:06:09.712Z",
+  "testToolCorrection": {
+    "file": "prototype/_inline-check.html",
+    "reason": "Follow current AdminChat: verify Shenzhen captured empty state, then explicitly enter synthetic demo and verify contacts/messages; chat implementation unchanged.",
+    "checks": {
+      "checks": 37,
+      "passed": 37,
+      "failed": []
+    },
+    "jsErrors": [],
+    "requestFailures": []
+  }
+}

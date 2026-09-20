@@ -17587,7 +17587,7 @@
     "schemaSource": "https://bzds.wecarepet.com/admin/menu",
     "capturedAt": "2026-09-18T07:04:17.884Z",
     "state": "captured",
-    "dataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1",
+    "dataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1",
     "forms": [],
     "inputs": [],
     "tables": [
@@ -18879,6 +18879,29 @@
             }
           },
           {
+            "id": "0-aiCostStats",
+            "cells": [
+              "AI费用统计",
+              "否",
+              "显示",
+              "0",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "aiCostStats",
+              "parentKey": "group-12"
+            },
+            "source": "SPEC-SUIYIN-ADMIN-058@1.0.0"
+          },
+          {
             "id": "0-57",
             "cells": [
               "案例库管理",
@@ -19347,7 +19370,7 @@
       "全部记录"
     ],
     "tabs": [],
-    "text": "菜单管理\n菜单名称\t超级权限\t菜单状态\t排序\t\t操作\n销售管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n专家管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n专家信息\t否\t显示\t0\t\t编辑\n 删除\n 记录\n好友管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n好友列表\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群列表\t否\t显示\t0\t\t编辑\n 删除\n 记录\n添加好友\t否\t显示\t0\t\t编辑\n 删除\n 记录\n删退审核\t否\t显示\t0\t\t编辑\n 删除\n 记录\n好友标签\t否\t显示\t0\t\t编辑\n 删除\n 记录\n话术管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n商品管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n商品管理(小程序)\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群发管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\nPYQ管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分佣管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n预付确认\t否\t显示\t0\t\t编辑\n 删除\n 记录\n收入确认\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分佣明细\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分佣合计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n充值确认\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分佣项目统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n数据展示\t否\t显示\t0\t\t编辑\n 删除\n 记录\n拉新记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n拉新记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n反馈分析\t否\t显示\t0\t\t编辑\n 删除\n 记录\n回访统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售排名\t否\t显示\t0\t\t编辑\n 删除\n 记录\n上班记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n预付统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n交付统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n消息占比统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n数据查看日志\t否\t显示\t0\t\t编辑\n 删除\n 记录\n留存统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群发统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n朋友圈统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售使用统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售变声统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群邀请提及率\t否\t显示\t0\t\t编辑\n 删除\n 记录\n话术统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI辅助统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n触达与消息统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n聊天管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n全部聊天\t否\t显示\t3\t\t编辑\n 删除\n 记录\n销售接待查询\t否\t显示\t2\t\t编辑\n 删除\n 记录\n分配记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售词控\t否\t显示\t0\t\t编辑\n 删除\n 记录\n客户词控\t否\t显示\t0\t\t编辑\n 删除\n 记录\n智能分析\t否\t显示\t0\t\t编辑\n 删除\n 记录\n微信管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n帐号状态\t否\t显示\t0\t\t编辑\n 删除\n 记录\n拉新文案\t否\t显示\t0\t\t编辑\n 删除\n 记录\n通友管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI 管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI提示词库\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI模型管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n语音纠错词库\t否\t显示\t0\t\t编辑\n 删除\n 记录\n沟通进度分析\t否\t显示\t0\t\t编辑\n 删除\n 记录\n案例库管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n医生管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n案例管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n案例小程序\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分享记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n系统管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n角色管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n菜单管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n标签模板管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n系统设置\t否\t显示\t0\t\t编辑\n 删除\n 记录\n标签管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n平台管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n平台菜单管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n客户标签管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n环境管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n全部帐号状态\t否\t显示\t0\t\t编辑\n 删除\n 记录\n索引任务管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\nApp版本管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI-模型配置\t否\t显示\t0\t\t编辑\n 删除\n 记录\n日志字典\t否\t显示\t0\t\t编辑\n 删除\n 记录\n声音模型管理\t否\t显示\t0\t\t编辑\n 删除\n 记录",
+    "text": "菜单管理\n菜单名称\t超级权限\t菜单状态\t排序\t\t操作\n销售管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n专家管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n专家信息\t否\t显示\t0\t\t编辑\n 删除\n 记录\n好友管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n好友列表\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群列表\t否\t显示\t0\t\t编辑\n 删除\n 记录\n添加好友\t否\t显示\t0\t\t编辑\n 删除\n 记录\n删退审核\t否\t显示\t0\t\t编辑\n 删除\n 记录\n好友标签\t否\t显示\t0\t\t编辑\n 删除\n 记录\n话术管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n商品管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n商品管理(小程序)\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群发管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\nPYQ管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分佣管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n预付确认\t否\t显示\t0\t\t编辑\n 删除\n 记录\n收入确认\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分佣明细\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分佣合计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n充值确认\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分佣项目统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n数据展示\t否\t显示\t0\t\t编辑\n 删除\n 记录\n拉新记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n拉新记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n反馈分析\t否\t显示\t0\t\t编辑\n 删除\n 记录\n回访统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售排名\t否\t显示\t0\t\t编辑\n 删除\n 记录\n上班记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n预付统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n交付统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n消息占比统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n数据查看日志\t否\t显示\t0\t\t编辑\n 删除\n 记录\n留存统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群发统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n朋友圈统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售使用统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售变声统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群邀请提及率\t否\t显示\t0\t\t编辑\n 删除\n 记录\n话术统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI辅助统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n触达与消息统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n聊天管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n全部聊天\t否\t显示\t3\t\t编辑\n 删除\n 记录\n销售接待查询\t否\t显示\t2\t\t编辑\n 删除\n 记录\n分配记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售词控\t否\t显示\t0\t\t编辑\n 删除\n 记录\n客户词控\t否\t显示\t0\t\t编辑\n 删除\n 记录\n智能分析\t否\t显示\t0\t\t编辑\n 删除\n 记录\n微信管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n帐号状态\t否\t显示\t0\t\t编辑\n 删除\n 记录\n拉新文案\t否\t显示\t0\t\t编辑\n 删除\n 记录\n通友管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI 管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI提示词库\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI模型管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n语音纠错词库\t否\t显示\t0\t\t编辑\n 删除\n 记录\n沟通进度分析\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI费用统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n案例库管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n医生管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n案例管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n案例小程序\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分享记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n系统管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n角色管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n菜单管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n标签模板管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n系统设置\t否\t显示\t0\t\t编辑\n 删除\n 记录\n标签管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n平台管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n平台菜单管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n客户标签管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n环境管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n全部帐号状态\t否\t显示\t0\t\t编辑\n 删除\n 记录\n索引任务管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\nApp版本管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI-模型配置\t否\t显示\t0\t\t编辑\n 删除\n 记录\n日志字典\t否\t显示\t0\t\t编辑\n 删除\n 记录\n声音模型管理\t否\t显示\t0\t\t编辑\n 删除\n 记录",
     "expandedForms": {},
     "layout": "menu-tree",
     "publicDataPolicy": "public-demo-identities-v1",
@@ -19611,7 +19634,7 @@
     "schemaSource": "https://bzds.wecarepet.com/admin/allMenu",
     "capturedAt": "2026-09-18T15:05:20.450Z",
     "state": "captured",
-    "dataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1",
+    "dataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1",
     "forms": [],
     "inputs": [],
     "tables": [
@@ -21365,6 +21388,35 @@
             }
           },
           {
+            "id": "0-aiCostStats",
+            "cells": [
+              "AI费用统计",
+              "AI费用统计",
+              "aiCostStats",
+              "",
+              "显示",
+              "menu",
+              "1",
+              "",
+              "编辑 删除 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "parentId": "0-65",
+              "key": "aiCostStats"
+            },
+            "extra": {
+              "唯一标识": "ai_cost_stats"
+            },
+            "source": "SPEC-SUIYIN-ADMIN-058@1.0.0"
+          },
+          {
             "id": "0-71",
             "cells": [
               "医生管理",
@@ -22072,7 +22124,7 @@
       "全部记录"
     ],
     "tabs": [],
-    "text": "平台菜单管理\n菜单名称\t平台菜单名称\t菜单路由\t菜单图标\t菜单状态\t菜单类型\t排序\t备注信息\t操作\n销售管理\t销售管理\tsalesManage\tusers\t显示\tmenu\t109\t\t编辑 删除 记录\n专家管理\t专家管理\t\tsiyuxiaoshouzhuanjiaguanli\t显示\tmenu\t108\t\t编辑 删除 记录\n专家信息\t专家信息\texpertList\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n好友管理\t客户管理\t\taddress-book\t显示\tmenu\t108\t\t编辑 删除 记录\n好友列表\t好友列表\tcustomerManagement\tusers\t显示\tmenu\t99\t\t编辑 删除 记录\n好友列表\t好友列表-艺星\tyxCustomerList\tusers\t显示\tmenu\t99\t\t编辑 删除 记录\n群列表\t群列表\tcustomerGroupList\tusers-group\t显示\tmenu\t98\t\t编辑 删除 记录\n添加好友\t好友客户\tuploadCustomerList\tuser-plus\t显示\tmenu\t97\t\t编辑 删除 记录\n删退审核\t删退审核\tapprovalList\tsiyuxiaoshouweixin\t显示\tmenu\t1\t\t编辑 删除 记录\n好友标签\t好友标签\tcustomerTags\ttags\t显示\tmenu\t1\t\t编辑 删除 记录\n话术管理\t话术管理\tlanguageManage\tnotebook\t显示\tmenu\t107\t\t编辑 删除 记录\n马匹管理\t马匹管理\tequineManagement\tsiyuxiaoshoupinpaiguanli\t显示\tmenu\t106\t\t编辑 删除 记录\n商品管理\t商品管理\tproducts\tpackage\t显示\tmenu\t105\t\t编辑 删除 记录\n商品管理(小程序)\t商品管理（小程序）\tminiProgramProducts\tsiyuxiaoshoushangpinguanli\t显示\tmenu\t105\t小程序商品管理\t编辑 删除 记录\n商品管理\t商品管理（有赞）\tyouzanProductList\tsiyuxiaoshoushangpinguanli\t显示\tmenu\t105\t\t编辑 删除 记录\n品牌管理\t品牌管理（萌爪）\tbrandList\tsiyuxiaoshoushangpinguanli\t显示\tmenu\t105\t\t编辑 删除 记录\n群发管理\t群发管理\tmassMessageList\tsend\t显示\tmenu\t104\t\t编辑 删除 记录\n群发管理\t群发管理(艺星专用)\tmassMessageListYx\tsiyuxiaoshouqunfaguanlioff\t显示\tmenu\t104\t艺星专用\t编辑 删除 记录\nPYQ管理\tPYQ管理\tfriendCircle\tmood-smile\t显示\tmenu\t103\t\t编辑 删除 记录\n分佣管理\t分佣管理\t\tcoins\t显示\tmenu\t102\t\t编辑 删除 记录\n预付确认\t预付确认\tprepaymentList\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n收入确认\t收入确认\tincomeConfirm\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n旧版分佣明细\t分佣明细\trewardList\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n旧版分佣合计\t分佣合计\trewardTotal\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n分佣明细\t新版分佣明细\trewardListNew\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t新版分佣明细\t编辑 删除 记录\n分佣合计\t新版分佣合计\trewardTotalNew\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t新版分佣合计\t编辑 删除 记录\n充值确认\t充值确认\ttopUpList\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n收入确认\t收入确认（瑞熙）\tykjlIncomeConfirm\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t(瑞熙)收入确认 -小刘总-小温总使用\t编辑 删除 记录\n预付确认\t预付确认（圣爱和）\tsahPrepaymentList\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n收入确认\t收入确认（圣爱和）\tsahIncomeConfirm\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n分佣项目统计\t分佣项目统计\trewardItemStats\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n收入确认\t收入确认(yzhb)\tyzhbIncomeConfirm\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n数据展示\t数据展示\t\tsiyuxiaoshoushujuzhanshi\t显示\tmenu\t101\t\t编辑 删除 记录\n拉新记录\t新拉新记录\tnewAddedRecords\t\t显示\tmenu\t999\t\t编辑 删除 记录\n拉新记录\t拉新记录\tsalesStatsReferral\tsiyuxiaoshoulaxinliebian\t显示\tmenu\t4\t\t编辑 删除 记录\n销售统计\t销售统计\tsalesStatsNew\tsiyuxiaoshoushishishuju\t显示\tmenu\t3\t通用版\t编辑 删除 记录\n反馈分析\t反馈分析\tfeedbackAi\tsiyuxiaoshoushishishuju\t显示\tmenu\t2\t\t编辑 删除 记录\n销售统计\t销售统计（达根斯）\tsalesStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n回访统计\t回访统计\trevisitStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n销售排名\t销售排名\tsalesRakingStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n上班记录\t上班记录\tdutyRecord\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n预付统计\t预付统计\tprepayStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n交付统计\t交付统计\trevenueStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n消息占比统计\t消息占比统计\tmessageStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n数据查看日志\t数据查看日志\tdataViewLog\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n留存统计\t留存统计\tretentionStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n群发统计\t群发统计\tmassMessageStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n朋友圈统计\t朋友圈统计\tfriendCircleStats\t\t显示\tmenu\t1\t\t编辑 删除 记录\n销售使用统计\t销售使用统计\tsalesMessageUsage\t\t显示\tmenu\t1\t\t编辑 删除 记录\n销售变声统计\t销售变声统计\tsalesVoiceStats\t\t显示\tmenu\t1\t\t编辑 删除 记录\n群邀请提及率\t群邀请提及率\tgroupInviteStats\t\t显示\tmenu\t1\t\t编辑 删除 记录\n话术统计\t话术统计\tscriptUsageStats\t\t显示\tmenu\t1\t\t编辑 删除 记录\nAI辅助统计\tAI辅助统计\taiAssistStats\trobot\t显示\tmenu\t1\t\t编辑 删除 记录\n触达与消息统计\t触达与消息统计\tworkAccountDailyStats\tchart-histogram\t显示\tmenu\t1\t\t编辑 删除 记录\n聊天管理\t聊天管理\t\tsiyuxiaoshouliaotianguanli\t显示\tmenu\t100\t\t编辑 删除 记录\n销售接待查询\t销售接待查询\tsalesReceptionQuery\tmessage-search\t显示\tmenu\t2\t\t编辑 删除 记录\n分配记录\t分配记录\tallocationRecord\tsiyuxiaoshousongyou01\t显示\tmenu\t1\t\t编辑 删除 记录\n全部聊天\t全部聊天\tallChat\tsiyuxiaoshouweixin\t显示\tmenu\t1\t\t编辑 删除 记录\n销售词控\t销售词控\tsensitiveWords\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n客户词控\t客户词控\tsensitiveWordsCustomer\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n智能分析\t智能分析\taiLabelStats\t\t显示\tmenu\t0\t\t编辑 删除 记录\n备注需求词库\t备注需求词库\tremark-demand-mappings\tsiyuxiaoshouexpert2\t显示\tmenu\t-1\t艺星家族备注关键词映射第一需求；#3820\t编辑 删除 记录\n微信管理\t微信管理\t\tsiyuxiaoshouweixin\t显示\tmenu\t99\t\t编辑 删除 记录\n帐号状态\t帐号状态\twechatStatus\tsiyuxiaoshouzixun\t显示\tmenu\t1\t\t编辑 删除 记录\n拉新文案\t拉新文案\twechatLaxin\tsiyuxiaoshouzixun\t显示\tmenu\t1\t\t编辑 删除 记录\n通友管理\t通友管理\tacceptFriendConfig\tsiyuxiaoshouzixun\t显示\tmenu\t1\t\t编辑 删除 记录\nAI 管理\tAI 管理\taiManager\tsiyuxiaoshouliaotianguanli\t显示\tmenu\t98\t\t编辑 删除 记录\nAI提示词库\tAI提示词库\tpromptTemplate\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\nAI-场景模型绑定\tAI-场景模型绑定\taiSceneModel\tsiyuxiaoshouexpert2\t隐藏\tmenu\t1\t\t编辑 删除 记录\nAI模型管理\tAI模型管理\taiEntModelConfig\tbrain\t显示\tmenu\t1\t\t编辑 删除 记录\n语音纠错词库\t语音纠错词库\tasrLexicon\tlanguage\t显示\tmenu\t1\t\t编辑 删除 记录\n沟通进度分析\t客户聊天质检\taiChatQuality\tclipboard-check\t显示\tmenu\t1\t\t编辑 删除 记录\n医生管理\t\t\t\t显示\tmenu\t97\t\t编辑 删除 记录\n医生列表\t\tmedicalDoctors\t\t显示\tmenu\t5\t\t编辑 删除 记录\n科室管理\t\tmedicalDepartments\t\t显示\tmenu\t4\t\t编辑 删除 记录\n院区管理\t\tmedicalLocations\t\t显示\tmenu\t3\t\t编辑 删除 记录\n预约设置\t\tappointmentSettings\t\t显示\tmenu\t2\t\t编辑 删除 记录\n预约记录\t\tappointmentRecords\t\t显示\tmenu\t1\t\t编辑 删除 记录\n项目管理\t项目管理\tmedicalProjects\thierarchy-2\t显示\tmenu\t1\t分级预约项目管理\t编辑 删除 记录\n案例库管理\t案例库管理\t\t\t显示\tmenu\t96\t\t编辑 删除 记录\n医生管理\t医生管理\tcaseLibraryDoctors\t\t显示\tmenu\t1\t\t编辑 删除 记录\n案例管理\t案例管理\tcaseLibraryEntries\t\t显示\tmenu\t1\t\t编辑 删除 记录\n案例小程序\t案例小程序\tcaseLibraryMiniPrograms\t\t显示\tmenu\t1\t\t编辑 删除 记录\n分享记录\t分享记录\tcaseLibrarySubjectShares\t\t显示\tmenu\t1\t\t编辑 删除 记录\n系统管理\t系统管理\t\tsiyuxiaoshouzhuanjiaguanli\t显示\tmenu\t90\t\t编辑 删除 记录\n角色管理\t角色管理\trole\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n菜单管理\t菜单管理\tmenu\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n标签模板管理\t标签模板管理\tlabels\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n系统设置\t配置项\tsetting\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n标签管理\t标签管理\tlabelsManage\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n平台管理\t平台管理\t\tsiyuxiaoshoushishishuju\t显示\tmenu\t80\t\t编辑 删除 记录\n平台菜单管理\t平台菜单管理\tallMenu\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n客户标签管理\t客户标签管理\tlabelMenu\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n环境管理\t环境管理\tentList\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n全部帐号状态\t全部帐号状态\tallWeChatStatus\tsiyuxiaoshouzixun\t显示\tmenu\t1\t\t编辑 删除 记录\n索引任务管理\t索引任务管理\tesIndex\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\nApp版本管理\tApp版本管理\tversionList\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\nAI-模型配置\tAI-模型配置\taiModelConfig\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n日志字典\t日志字典\tauditDict\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n声音模型管理\t声音模型管理\tvoiceModels\t\t显示\tmenu\t1\t\t编辑 删除 记录\n艺星深圳\t艺星深圳\t\t\t显示\tmenu\t1\t\t编辑 删除 记录",
+    "text": "平台菜单管理\n菜单名称\t平台菜单名称\t菜单路由\t菜单图标\t菜单状态\t菜单类型\t排序\t备注信息\t操作\n销售管理\t销售管理\tsalesManage\tusers\t显示\tmenu\t109\t\t编辑 删除 记录\n专家管理\t专家管理\t\tsiyuxiaoshouzhuanjiaguanli\t显示\tmenu\t108\t\t编辑 删除 记录\n专家信息\t专家信息\texpertList\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n好友管理\t客户管理\t\taddress-book\t显示\tmenu\t108\t\t编辑 删除 记录\n好友列表\t好友列表\tcustomerManagement\tusers\t显示\tmenu\t99\t\t编辑 删除 记录\n好友列表\t好友列表-艺星\tyxCustomerList\tusers\t显示\tmenu\t99\t\t编辑 删除 记录\n群列表\t群列表\tcustomerGroupList\tusers-group\t显示\tmenu\t98\t\t编辑 删除 记录\n添加好友\t好友客户\tuploadCustomerList\tuser-plus\t显示\tmenu\t97\t\t编辑 删除 记录\n删退审核\t删退审核\tapprovalList\tsiyuxiaoshouweixin\t显示\tmenu\t1\t\t编辑 删除 记录\n好友标签\t好友标签\tcustomerTags\ttags\t显示\tmenu\t1\t\t编辑 删除 记录\n话术管理\t话术管理\tlanguageManage\tnotebook\t显示\tmenu\t107\t\t编辑 删除 记录\n马匹管理\t马匹管理\tequineManagement\tsiyuxiaoshoupinpaiguanli\t显示\tmenu\t106\t\t编辑 删除 记录\n商品管理\t商品管理\tproducts\tpackage\t显示\tmenu\t105\t\t编辑 删除 记录\n商品管理(小程序)\t商品管理（小程序）\tminiProgramProducts\tsiyuxiaoshoushangpinguanli\t显示\tmenu\t105\t小程序商品管理\t编辑 删除 记录\n商品管理\t商品管理（有赞）\tyouzanProductList\tsiyuxiaoshoushangpinguanli\t显示\tmenu\t105\t\t编辑 删除 记录\n品牌管理\t品牌管理（萌爪）\tbrandList\tsiyuxiaoshoushangpinguanli\t显示\tmenu\t105\t\t编辑 删除 记录\n群发管理\t群发管理\tmassMessageList\tsend\t显示\tmenu\t104\t\t编辑 删除 记录\n群发管理\t群发管理(艺星专用)\tmassMessageListYx\tsiyuxiaoshouqunfaguanlioff\t显示\tmenu\t104\t艺星专用\t编辑 删除 记录\nPYQ管理\tPYQ管理\tfriendCircle\tmood-smile\t显示\tmenu\t103\t\t编辑 删除 记录\n分佣管理\t分佣管理\t\tcoins\t显示\tmenu\t102\t\t编辑 删除 记录\n预付确认\t预付确认\tprepaymentList\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n收入确认\t收入确认\tincomeConfirm\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n旧版分佣明细\t分佣明细\trewardList\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n旧版分佣合计\t分佣合计\trewardTotal\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n分佣明细\t新版分佣明细\trewardListNew\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t新版分佣明细\t编辑 删除 记录\n分佣合计\t新版分佣合计\trewardTotalNew\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t新版分佣合计\t编辑 删除 记录\n充值确认\t充值确认\ttopUpList\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n收入确认\t收入确认（瑞熙）\tykjlIncomeConfirm\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t(瑞熙)收入确认 -小刘总-小温总使用\t编辑 删除 记录\n预付确认\t预付确认（圣爱和）\tsahPrepaymentList\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n收入确认\t收入确认（圣爱和）\tsahIncomeConfirm\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n分佣项目统计\t分佣项目统计\trewardItemStats\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n收入确认\t收入确认(yzhb)\tyzhbIncomeConfirm\tsiyuxiaoshoushouruqueren\t显示\tmenu\t1\t\t编辑 删除 记录\n数据展示\t数据展示\t\tsiyuxiaoshoushujuzhanshi\t显示\tmenu\t101\t\t编辑 删除 记录\n拉新记录\t新拉新记录\tnewAddedRecords\t\t显示\tmenu\t999\t\t编辑 删除 记录\n拉新记录\t拉新记录\tsalesStatsReferral\tsiyuxiaoshoulaxinliebian\t显示\tmenu\t4\t\t编辑 删除 记录\n销售统计\t销售统计\tsalesStatsNew\tsiyuxiaoshoushishishuju\t显示\tmenu\t3\t通用版\t编辑 删除 记录\n反馈分析\t反馈分析\tfeedbackAi\tsiyuxiaoshoushishishuju\t显示\tmenu\t2\t\t编辑 删除 记录\n销售统计\t销售统计（达根斯）\tsalesStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n回访统计\t回访统计\trevisitStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n销售排名\t销售排名\tsalesRakingStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n上班记录\t上班记录\tdutyRecord\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n预付统计\t预付统计\tprepayStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n交付统计\t交付统计\trevenueStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n消息占比统计\t消息占比统计\tmessageStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n数据查看日志\t数据查看日志\tdataViewLog\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n留存统计\t留存统计\tretentionStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n群发统计\t群发统计\tmassMessageStats\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n朋友圈统计\t朋友圈统计\tfriendCircleStats\t\t显示\tmenu\t1\t\t编辑 删除 记录\n销售使用统计\t销售使用统计\tsalesMessageUsage\t\t显示\tmenu\t1\t\t编辑 删除 记录\n销售变声统计\t销售变声统计\tsalesVoiceStats\t\t显示\tmenu\t1\t\t编辑 删除 记录\n群邀请提及率\t群邀请提及率\tgroupInviteStats\t\t显示\tmenu\t1\t\t编辑 删除 记录\n话术统计\t话术统计\tscriptUsageStats\t\t显示\tmenu\t1\t\t编辑 删除 记录\nAI辅助统计\tAI辅助统计\taiAssistStats\trobot\t显示\tmenu\t1\t\t编辑 删除 记录\n触达与消息统计\t触达与消息统计\tworkAccountDailyStats\tchart-histogram\t显示\tmenu\t1\t\t编辑 删除 记录\n聊天管理\t聊天管理\t\tsiyuxiaoshouliaotianguanli\t显示\tmenu\t100\t\t编辑 删除 记录\n销售接待查询\t销售接待查询\tsalesReceptionQuery\tmessage-search\t显示\tmenu\t2\t\t编辑 删除 记录\n分配记录\t分配记录\tallocationRecord\tsiyuxiaoshousongyou01\t显示\tmenu\t1\t\t编辑 删除 记录\n全部聊天\t全部聊天\tallChat\tsiyuxiaoshouweixin\t显示\tmenu\t1\t\t编辑 删除 记录\n销售词控\t销售词控\tsensitiveWords\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n客户词控\t客户词控\tsensitiveWordsCustomer\tsiyuxiaoshoushishishuju\t显示\tmenu\t1\t\t编辑 删除 记录\n智能分析\t智能分析\taiLabelStats\t\t显示\tmenu\t0\t\t编辑 删除 记录\n备注需求词库\t备注需求词库\tremark-demand-mappings\tsiyuxiaoshouexpert2\t显示\tmenu\t-1\t艺星家族备注关键词映射第一需求；#3820\t编辑 删除 记录\n微信管理\t微信管理\t\tsiyuxiaoshouweixin\t显示\tmenu\t99\t\t编辑 删除 记录\n帐号状态\t帐号状态\twechatStatus\tsiyuxiaoshouzixun\t显示\tmenu\t1\t\t编辑 删除 记录\n拉新文案\t拉新文案\twechatLaxin\tsiyuxiaoshouzixun\t显示\tmenu\t1\t\t编辑 删除 记录\n通友管理\t通友管理\tacceptFriendConfig\tsiyuxiaoshouzixun\t显示\tmenu\t1\t\t编辑 删除 记录\nAI 管理\tAI 管理\taiManager\tsiyuxiaoshouliaotianguanli\t显示\tmenu\t98\t\t编辑 删除 记录\nAI提示词库\tAI提示词库\tpromptTemplate\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\nAI-场景模型绑定\tAI-场景模型绑定\taiSceneModel\tsiyuxiaoshouexpert2\t隐藏\tmenu\t1\t\t编辑 删除 记录\nAI模型管理\tAI模型管理\taiEntModelConfig\tbrain\t显示\tmenu\t1\t\t编辑 删除 记录\n语音纠错词库\t语音纠错词库\tasrLexicon\tlanguage\t显示\tmenu\t1\t\t编辑 删除 记录\n沟通进度分析\t客户聊天质检\taiChatQuality\tclipboard-check\t显示\tmenu\t1\t\t编辑 删除 记录\nAI费用统计\tAI费用统计\taiCostStats\t\t显示\tmenu\t1\t\t编辑 删除 记录\n医生管理\t\t\t\t显示\tmenu\t97\t\t编辑 删除 记录\n医生列表\t\tmedicalDoctors\t\t显示\tmenu\t5\t\t编辑 删除 记录\n科室管理\t\tmedicalDepartments\t\t显示\tmenu\t4\t\t编辑 删除 记录\n院区管理\t\tmedicalLocations\t\t显示\tmenu\t3\t\t编辑 删除 记录\n预约设置\t\tappointmentSettings\t\t显示\tmenu\t2\t\t编辑 删除 记录\n预约记录\t\tappointmentRecords\t\t显示\tmenu\t1\t\t编辑 删除 记录\n项目管理\t项目管理\tmedicalProjects\thierarchy-2\t显示\tmenu\t1\t分级预约项目管理\t编辑 删除 记录\n案例库管理\t案例库管理\t\t\t显示\tmenu\t96\t\t编辑 删除 记录\n医生管理\t医生管理\tcaseLibraryDoctors\t\t显示\tmenu\t1\t\t编辑 删除 记录\n案例管理\t案例管理\tcaseLibraryEntries\t\t显示\tmenu\t1\t\t编辑 删除 记录\n案例小程序\t案例小程序\tcaseLibraryMiniPrograms\t\t显示\tmenu\t1\t\t编辑 删除 记录\n分享记录\t分享记录\tcaseLibrarySubjectShares\t\t显示\tmenu\t1\t\t编辑 删除 记录\n系统管理\t系统管理\t\tsiyuxiaoshouzhuanjiaguanli\t显示\tmenu\t90\t\t编辑 删除 记录\n角色管理\t角色管理\trole\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n菜单管理\t菜单管理\tmenu\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n标签模板管理\t标签模板管理\tlabels\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n系统设置\t配置项\tsetting\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n标签管理\t标签管理\tlabelsManage\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n平台管理\t平台管理\t\tsiyuxiaoshoushishishuju\t显示\tmenu\t80\t\t编辑 删除 记录\n平台菜单管理\t平台菜单管理\tallMenu\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n客户标签管理\t客户标签管理\tlabelMenu\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n环境管理\t环境管理\tentList\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n全部帐号状态\t全部帐号状态\tallWeChatStatus\tsiyuxiaoshouzixun\t显示\tmenu\t1\t\t编辑 删除 记录\n索引任务管理\t索引任务管理\tesIndex\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\nApp版本管理\tApp版本管理\tversionList\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\nAI-模型配置\tAI-模型配置\taiModelConfig\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n日志字典\t日志字典\tauditDict\tsiyuxiaoshouexpert2\t显示\tmenu\t1\t\t编辑 删除 记录\n声音模型管理\t声音模型管理\tvoiceModels\t\t显示\tmenu\t1\t\t编辑 删除 记录\n艺星深圳\t艺星深圳\t\t\t显示\tmenu\t1\t\t编辑 删除 记录",
     "expandedForms": {},
     "layout": "menu-tree",
     "publicDataPolicy": "public-demo-identities-v1",
@@ -25445,5 +25497,28 @@
     "canvas": 0,
     "expandedForms": {},
     "publicDataPolicy": "public-demo-identities-v1"
+  },
+  "aiCostStats": {
+    "tenant": "bzds",
+    "route": "aiCostStats",
+    "label": "AI费用统计",
+    "source": "本地合成演示数据 · SPEC-SUIYIN-ADMIN-058@1.2.0",
+    "capturedAt": "2026-09-20T00:00:00Z",
+    "state": "mock",
+    "dataRevision": "2026-09-20-ai-cost-models-v2-public-demo-identities-v1",
+    "forms": [],
+    "inputs": [],
+    "tables": [],
+    "buttons": [
+      "今天",
+      "昨天",
+      "前天",
+      "搜索",
+      "重置"
+    ],
+    "tabs": [],
+    "text": "AI费用统计",
+    "publicDataPolicy": "public-demo-identities-v1",
+    "spec": "SPEC-SUIYIN-ADMIN-058@1.2.0"
   }
 }
