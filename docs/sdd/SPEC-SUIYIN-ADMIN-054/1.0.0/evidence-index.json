@@ -1,0 +1,125 @@
+{
+  "scope": "Public evidence projections; not a current browser visual acceptance",
+  "reports": [
+    {
+      "file": "evidence/evidence-audit/all-pages-dom-check.json",
+      "original_report_sha256": "b7d1cdd3dd6b45c7d01a0ea4961d5fd728457cbacbb8874b41b166d3e13ca117",
+      "public_report_sha256": "2daf06d93208c22f2058f783c17e26fd6b992478327c43ff547722f6d3360abc",
+      "kind": "Non-rendering DOM integration; not browser visual acceptance",
+      "total": 752,
+      "passed": 752
+    },
+    {
+      "file": "evidence/evidence-audit/matrix.json",
+      "original_report_sha256": "bc9a629a0af6454dc4590e362ffff75f528015b1a7af87fd3011d900db9a2a14",
+      "public_report_sha256": "35fe0aabf83f59c7f60289d885abf96fc70a8982930a2b609255813016ef5e10",
+      "kind": "Audit-time evidence matrix, before corrections; use final all-pages-dom-check.json for current source states",
+      "total": null,
+      "passed": null
+    },
+    {
+      "file": "evidence/form-schema-fix/actual-schema-check.json",
+      "original_report_sha256": "21b123ba4db86196a981f7d0d85f1c66ce43da2ee50817e8acf95c24ed95dee3",
+      "public_report_sha256": "a83e7583a77aa1420d4ff59df7c3e3a10cb13d7f525d6099105a4ac7addc0970",
+      "kind": "Final actual repository schema recovery over752pages andDOM; not pixel acceptance",
+      "total": 1552,
+      "passed": 1552
+    },
+    {
+      "file": "evidence/generic-fix/actual-recheck.json",
+      "original_report_sha256": "18f48290165535f63afd0acb1387f591c553425db90b2718c4ca25d8ccacff9d",
+      "public_report_sha256": "c187a2a0126c9595b3b7f92913d3f9a5943c8feb75e93701603d94446330cfb3",
+      "kind": "actual target repository JSDOM integration; not browser pixel acceptance",
+      "total": 112,
+      "passed": 112
+    },
+    {
+      "file": "evidence/specialized-audit/specialized-target-check.json",
+      "original_report_sha256": "0d0d4fabd8eee147eeaef853e276540ab70baeab23afbb5b8c0f011dec4fef94",
+      "public_report_sha256": "ab247f5526c11b8e6b6c3fe962ddbd680d11f1a79618235d6f59c86d6fafb9dd",
+      "kind": "DOM and behavior checks, not rendered pixel acceptance",
+      "total": 209,
+      "passed": 209
+    },
+    {
+      "file": "evidence/specialized-audit/language-settings-target-check.json",
+      "original_report_sha256": "0d3faede47856b6ac3d6bbfb821f0c3267379cc1c62a93239f9d8474850e6a35",
+      "public_report_sha256": "1ea82692084fc10be851d79ca40795ea5066007486e291ca2c7d78bf1e43a513",
+      "kind": "DOM and local interaction, not screenshot comparison",
+      "total": 255,
+      "passed": 255
+    },
+    {
+      "file": "evidence/specialized-audit/customer-source-controls-target-check.json",
+      "original_report_sha256": "68f093ca686e7a1aab2ba084610bdd4137b2f8a7e0d4593604e94abe602e3d28",
+      "public_report_sha256": "a04f4271e7cfd1d01c765fd791881ebf20afd2e232a4fd7daa58aac6be11e442",
+      "kind": "DOM and local interaction, not pixel acceptance",
+      "total": 156,
+      "passed": 156
+    },
+    {
+      "file": "evidence/final-controls-check.json",
+      "original_report_sha256": "3a6e123bb6b2d17e888aa6cb74816c1954738503784860b42c68de487b2db9b3",
+      "public_report_sha256": "0fe98df43c7f893ec343813b2a0447a5112c72f92c9ca1e55a8160481d5b3dca",
+      "kind": "actual local DOM/state/CSS declarations, not browser pixel validation",
+      "total": 37,
+      "passed": 37
+    },
+    {
+      "file": "evidence/legacy-regression/usage-check.json",
+      "original_report_sha256": "f8ad76313ea99ac89ce368b8f01ccc6846ea586cadd727768998c009e63dc71d",
+      "public_report_sha256": "96b184ae859f3fd7e364e247911e71219b8cbfb0bcfc054926dc6a92d078b108",
+      "kind": "non-rendering DOM and data integration; not browser visual acceptance",
+      "total": 258,
+      "passed": 258
+    },
+    {
+      "file": "evidence/legacy-regression/usage-boundary-check.json",
+      "original_report_sha256": "12459c7a5004cdeaa5bdd0ebe38f1d8a148a673d791dfd00994a18caeb08497d",
+      "public_report_sha256": "7eb0981656a7775147646b389ce04d667bcded2d4d6d9c939428d99de09f96e7",
+      "kind": "non-rendering DOM authorization/error boundaries; not browser visual acceptance",
+      "total": 33,
+      "passed": 33
+    },
+    {
+      "file": "evidence/legacy-regression/voice-integration-check.json",
+      "original_report_sha256": "eae9d0939a3d20a560c5b03cb8c61746d9649272ee2d0bc01d5d36934b313143",
+      "public_report_sha256": "c28530be90c3143848ad16715c8a4aaa21f5d351824a50c8268e7554aee350eb",
+      "kind": "non-rendering DOM/calendar integration and CSS declaration parity; not visual acceptance",
+      "total": 31,
+      "passed": 31
+    },
+    {
+      "file": "evidence/delivery-check.json",
+      "original_report_sha256": "666d43b3c7295e7d1d21d29ae2dd9e166c20bbf0f92e732573f4d87103f83574",
+      "public_report_sha256": "f65ef4bc69f4e2303dceb742657ecbd0ed846d71d4569a8fd43d56c20916abfa",
+      "kind": "HTTP byte parity and JavaScript syntax, not browser visual verification",
+      "total": null,
+      "passed": null
+    },
+    {
+      "file": "evidence/installed-files.json",
+      "original_report_sha256": "b643347b3753c543aad3f9d7fd68c257fef762a4f34e702a6cfab569a1c07282",
+      "public_report_sha256": "c77891b4f9ca0b4e876519cf16b0a3b6b14e19a2c4b3ec42ca4fe94f27050e83",
+      "kind": "Installed file hashes at implementation verification",
+      "total": null,
+      "passed": null
+    },
+    {
+      "file": "evidence/evidence-audit/dashboard-data-hashes.json",
+      "original_report_sha256": "b12a28ae270a763476c6657b9882f54d6ffe14e4c48b0ab6072a489ad670ffc2",
+      "public_report_sha256": "002380f8470f1a576cf237d30d8ebaf1355c93d90bce1f5957d3863030efc640",
+      "kind": "Recorded evidence",
+      "total": 15,
+      "passed": 15
+    },
+    {
+      "file": "evidence/browser-verification.json",
+      "original_report_sha256": "3f4b11e37f5fa4729c883692688a983ef80e2860655e8245a5d91a7214eccda2",
+      "public_report_sha256": "d670f85b9fe9508d5670b36a158fad4850852af2b7d436e53ef1b386a50767c4",
+      "kind": "Recorded evidence",
+      "total": null,
+      "passed": null
+    }
+  ]
+}

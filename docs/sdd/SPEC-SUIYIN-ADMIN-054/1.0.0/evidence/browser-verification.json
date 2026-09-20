@@ -1,0 +1,10 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "3f4b11e37f5fa4729c883692688a983ef80e2860655e8245a5d91a7214eccda2",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "checkedAt": "2026-09-20T06:08:12.982Z",
+  "state": "unavailable",
+  "error": "nodeRepl.fetch request failed",
+  "pixelVerified": false,
+  "localHttp": "81/81 byte parity"
+}

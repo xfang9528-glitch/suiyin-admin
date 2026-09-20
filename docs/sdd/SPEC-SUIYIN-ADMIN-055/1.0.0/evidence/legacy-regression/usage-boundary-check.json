@@ -1,0 +1,148 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "12459c7a5004cdeaa5bdd0ebe38f1d8a148a673d791dfd00994a18caeb08497d",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "kind": "non-rendering DOM authorization/error boundaries; not browser visual acceptance",
+  "checkedAt": "2026-09-20T06:02:39.933Z",
+  "total": 33,
+  "passed": 33,
+  "failed": 0,
+  "hashes": {
+    "admin-sales-usage.js": "e3485ea2e50364a36112de2a325bc24672d5824b56fa2c90967af6e8eafc1b91",
+    "admin-menu-state.js": "171b0a9b1a770f88da0d5a1ecdbbececb4f3719eaa62d2012116ed16814135a3"
+  },
+  "checks": [
+    {
+      "name": "yestar-sz hidden parent explains hidden route",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz hidden parent has no statistics renderer or sales names",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz hidden parent does not fetch statistics payload",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz hidden parent no runtime error",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz hidden child explains hidden route",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz hidden child has no statistics renderer or sales names",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz hidden child does not fetch statistics payload",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz hidden child no runtime error",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz disabled child explains hidden route",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz disabled child has no statistics renderer or sales names",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz disabled child does not fetch statistics payload",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz disabled child no runtime error",
+      "pass": true
+    },
+    {
+      "name": "jbfs hidden parent explains hidden route",
+      "pass": true
+    },
+    {
+      "name": "jbfs hidden parent has no statistics renderer or sales names",
+      "pass": true
+    },
+    {
+      "name": "jbfs hidden parent does not fetch statistics payload",
+      "pass": true
+    },
+    {
+      "name": "jbfs hidden parent no runtime error",
+      "pass": true
+    },
+    {
+      "name": "jbfs hidden child explains hidden route",
+      "pass": true
+    },
+    {
+      "name": "jbfs hidden child has no statistics renderer or sales names",
+      "pass": true
+    },
+    {
+      "name": "jbfs hidden child does not fetch statistics payload",
+      "pass": true
+    },
+    {
+      "name": "jbfs hidden child no runtime error",
+      "pass": true
+    },
+    {
+      "name": "jbfs disabled child explains hidden route",
+      "pass": true
+    },
+    {
+      "name": "jbfs disabled child has no statistics renderer or sales names",
+      "pass": true
+    },
+    {
+      "name": "jbfs disabled child does not fetch statistics payload",
+      "pass": true
+    },
+    {
+      "name": "jbfs disabled child no runtime error",
+      "pass": true
+    },
+    {
+      "name": "QA failed fetch gives error rather than empty/zero",
+      "pass": true
+    },
+    {
+      "name": "error disables export",
+      "pass": true
+    },
+    {
+      "name": "retry loads correct tenant captured groups",
+      "pass": true
+    },
+    {
+      "name": "retry restores original totals",
+      "pass": true
+    },
+    {
+      "name": "retry runtime errors absent",
+      "pass": true
+    },
+    {
+      "name": "foreign tenant payload rejected",
+      "pass": true
+    },
+    {
+      "name": "foreign sales/department data never rendered",
+      "pass": true
+    },
+    {
+      "name": "foreign payload cannot export",
+      "pass": true
+    },
+    {
+      "name": "foreign payload rejection handled without uncaught error",
+      "pass": true
+    }
+  ]
+}

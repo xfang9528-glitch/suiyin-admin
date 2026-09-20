@@ -1,0 +1,18 @@
+{
+  "tenantId": "mengzhua",
+  "route": "salesMessageUsage",
+  "state": "captured",
+  "capturedAt": "2026-09-18T09:02:09.771Z",
+  "sampleDate": "2026-09-18",
+  "sourceUrl": "https://mengzhua.wecarepet.com/admin/salesMessageUsage",
+  "sourceLabel": "本租户 2026-09-18 已采集样本",
+  "departmentOptionsScope": "sample-observed",
+  "departmentOptionsLabel": "仅含本租户样本中出现的部门",
+  "groups": [],
+  "departmentOptions": [],
+  "totals": {
+    "users": 0,
+    "messages": 0,
+    "friends": 0
+  }
+}

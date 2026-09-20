@@ -1,0 +1,848 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "0d0d4fabd8eee147eeaef853e276540ab70baeab23afbb5b8c0f011dec4fef94",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "kind": "DOM and behavior checks, not rendered pixel acceptance",
+  "artifact": "installed target repository",
+  "total": 209,
+  "passed": 209,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "yestar-sz/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz query labels demo",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "jbfs/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "jbfs/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "jbfs allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "jbfs allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "jbfs allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "jbfs allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "jbfs reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "jbfs no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "jbfs query labels demo",
+      "pass": true
+    },
+    {
+      "name": "jbfs reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "mengzhua allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "mengzhua allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "mengzhua allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "mengzhua allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "mengzhua reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "mengzhua no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "mengzhua query labels demo",
+      "pass": true
+    },
+    {
+      "name": "mengzhua reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "bzds/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "bzds/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "bzds allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "bzds allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "bzds allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "bzds allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "bzds reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "bzds no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "bzds query labels demo",
+      "pass": true
+    },
+    {
+      "name": "bzds reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "crrm/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "crrm/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "crrm allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "crrm allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "crrm allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "crrm allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "crrm reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "crrm no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "crrm query labels demo",
+      "pass": true
+    },
+    {
+      "name": "crrm reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "hqjd/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "hqjd/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "hqjd allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "hqjd allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "hqjd allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "hqjd allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "hqjd reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "hqjd no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "hqjd query labels demo",
+      "pass": true
+    },
+    {
+      "name": "hqjd reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "ykjl/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "ykjl/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "ykjl allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "ykjl allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "ykjl allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "ykjl allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "ykjl reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "ykjl no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "ykjl query labels demo",
+      "pass": true
+    },
+    {
+      "name": "ykjl reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen query labels demo",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "rxxz/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "rxxz/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "rxxz allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "rxxz allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "rxxz allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "rxxz allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "rxxz reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "rxxz no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "rxxz query labels demo",
+      "pass": true
+    },
+    {
+      "name": "rxxz reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "yestar/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "yestar allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "yestar allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "yestar allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "yestar no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "yestar query labels demo",
+      "pass": true
+    },
+    {
+      "name": "yestar reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj query labels demo",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz query labels demo",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz query labels demo",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx query labels demo",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "yzhb/allChat initializes",
+      "pass": true
+    },
+    {
+      "name": "yzhb/allChat no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yzhb allChat own search only",
+      "pass": true
+    },
+    {
+      "name": "yzhb allChat source state accurate",
+      "pass": true
+    },
+    {
+      "name": "yzhb allChat explicit demo switch",
+      "pass": true
+    },
+    {
+      "name": "yzhb allChat returns source state",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesReceptionQuery initializes",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesReceptionQuery no conversation initially",
+      "pass": true
+    },
+    {
+      "name": "yzhb reception wait for query",
+      "pass": true
+    },
+    {
+      "name": "yzhb no invented nickname filter",
+      "pass": true
+    },
+    {
+      "name": "yzhb query labels demo",
+      "pass": true
+    },
+    {
+      "name": "yzhb reception reset waits for query",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/wechatLaxin initializes",
+      "pass": true
+    },
+    {
+      "name": "wechatLaxin no invented preview",
+      "pass": true
+    },
+    {
+      "name": "wechatLaxin one captured action",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/acceptFriendConfig initializes",
+      "pass": true
+    },
+    {
+      "name": "acceptFriendConfig no invented preview",
+      "pass": true
+    },
+    {
+      "name": "acceptFriendConfig one captured action",
+      "pass": true
+    },
+    {
+      "name": "accept fixed controls remain disabled",
+      "pass": true
+    },
+    {
+      "name": "accept weekdays preserved",
+      "pass": true
+    },
+    {
+      "name": "bzds/messageStats initializes",
+      "pass": true
+    },
+    {
+      "name": "chart unmatched filter never shows unfiltered snapshot total",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/aiAssistStats initializes",
+      "pass": true
+    },
+    {
+      "name": "AI no duplicate mode",
+      "pass": true
+    },
+    {
+      "name": "AI department aggregation sums and rate",
+      "pass": true
+    },
+    {
+      "name": "AI aggregation preserves source rows",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/appointmentSettings initializes",
+      "pass": true
+    },
+    {
+      "name": "appointment all captured sections",
+      "pass": true
+    },
+    {
+      "name": "appointment source action set",
+      "pass": true
+    },
+    {
+      "name": "appointment switch",
+      "pass": true
+    },
+    {
+      "name": "disable rule clears both styles",
+      "pass": true
+    },
+    {
+      "name": "re-enable does not reselect",
+      "pass": true
+    },
+    {
+      "name": "eight digit alpha is converted to CSS RGBA order",
+      "pass": true
+    },
+    {
+      "name": "blank color stays unspecified",
+      "pass": true
+    },
+    {
+      "name": "appointment rejects non-image upload",
+      "pass": true
+    },
+    {
+      "name": "appointment image can be previewed",
+      "pass": true
+    },
+    {
+      "name": "appointment image can be cleared",
+      "pass": true
+    },
+    {
+      "name": "appointment zero saved",
+      "pass": true
+    },
+    {
+      "name": "appointment save excludes unsaved sync",
+      "pass": true
+    },
+    {
+      "name": "sync separately saved",
+      "pass": true
+    },
+    {
+      "name": "zero survives refresh",
+      "pass": true
+    }
+  ]
+}

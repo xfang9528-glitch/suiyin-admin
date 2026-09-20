@@ -1,60 +1,47 @@
 # AI 辅助消息使用统计流程
 
-> 2026-09-19 原型展示补充：当前 Shell 按 SPEC-SUIYIN-ADMIN-051@1.1.0 默认提供来源明确的 Mock；下图空态仍适用于合法无结果，不能据此将非成都原型固定为空。009 的统计业务定义不变。
+更新：2026-09-20。业务口径继续 009@1.0.0，当前 Shell 结构依 051@1.1.0、055/056@1.0.0。入口为 `aiAssistStats`；旧独立页的固定默认值和快捷日期组合不作为当前页面结构承诺。
 
-> Source Contract：`SPEC-SUIYIN-ADMIN-009@1.0.0`
-> 更新日期：2026-08-05
-
-## 页面主流程
-
+## 原型查询与部门汇总
 
 ```mermaid
 flowchart TD
-    Enter[数据展示 → AI 辅助统计] --> Defaults[本月 / 按销售账号 / 全部部门 / 空关键词]
-    Defaults --> Edit[修改快捷日期、自定义日期、部门或关键词]
-    Edit --> Search[搜索]
-    Search --> Valid{日期区间合法?}
-    Valid -->|否| DateError[内联错误；旧结果不刷新]
-    Valid -->|是| Scope[锁定当前租户 + 上线时刻 + 单聊文本消息]
-    Scope --> Loading[加载骨架]
-    Loading --> Permission{有数据展示权限?}
-    Permission -->|否| Denied[无权限说明]
-    Permission -->|是| Success{统计成功?}
-    Success -->|否| Error[失败说明 + 重试]
-    Success -->|是| Rows{有结果?}
-    Rows -->|否| Empty[完整筛选与表头 + 普通空态]
-    Rows -->|是| Table[三类数量 + AI 辅助合计 / 占比]
-    Table --> Page[分页 10 / 20 / 50]
+    Enter[数据展示 AI辅助统计] --> Source[加载本租户页面及可见来源说明]
+    Source --> Form[按源表单显示日期 维度及筛选]
+    Form --> Draft[编辑查询草稿]
+    Draft --> Submit[提交页面原有查询动作]
+    Submit --> Valid{条件合法}
+    Valid -->|否| Error[字段错误 旧结果保留]
+    Valid -->|是| Rows[筛选适用样本]
+    Rows --> Missing[缺少样本或未采集 明确说明]
+    Rows --> Empty[已知无匹配 显示空态]
+    Rows --> Mode{来源维度}
+    Mode -->|销售账号| Accounts[账号明细]
+    Mode -->|部门| Sum[筛选后按部门累加三类消息]
+    Sum --> Ratio[用汇总后的分子分母重算比例]
+    Accounts --> Result[表格与来源要求的分页]
+    Ratio --> Result
 ```
 
-## 维度切换与聚合
-
-
-```mermaid
-flowchart LR
-    Accounts[按销售账号] --> Switch{切换维度}
-    Switch -->|按部门| Sum[三类数量按部门成员求和]
-    Sum --> Recalc[用部门汇总计数重算占比]
-    Recalc --> Departments[部门表：部门 / 账号数 / 三类数量 / 合计占比]
-    Switch -->|按销售账号| Accounts
-```
-
-## 数据边界
-
+## 业务合同的数据边界
 
 ```mermaid
 flowchart TD
-    Message[候选销售消息] --> Tenant{属于当前租户?}
+    Message[候选销售消息] --> Tenant{属于当前租户}
     Tenant -->|否| Drop1[排除]
-    Tenant -->|是| Time{sent_at 不早于实际上线时刻?}
-    Time -->|否| Drop2[排除且不追溯]
-    Time -->|是| Type{单聊文本消息?}
-    Type -->|否| Drop3[首期排除]
-    Type -->|是| Label{来源标签}
-    Label --> Direct[AI 直发]
-    Label --> Reference[AI 参考]
+    Tenant -->|是| Launch{不早于该环境实际上线时刻}
+    Launch -->|否| Drop2[排除 不追溯不估算]
+    Launch -->|是| Type{查询范围内单聊文本}
+    Type -->|否| Drop3[排除]
+    Type -->|是| Label{已有来源标签}
+    Label --> Direct[AI直发]
+    Label --> Reference[AI参考]
     Label --> Manual[手动录入]
-    Label --> Missing[无有效标签：不进入三类；本页不展示覆盖率]
+    Label --> Unknown[无有效标签 不进入三类]
+    Direct --> Assist[AI辅助合计]
+    Reference --> Assist
+    Assist --> Rate[辅助合计除以三类总数 零分母按合同显示破折号]
+    Manual --> Rate
 ```
 
-本流程只验证使用量统计，不进入客户等级、到店或成交效果归因。
+第二图是已批准业务合同，不能拿静态页面结构检查当作真实生产数据验收。当前原型参考和合成样本有来源标签；不展示消息正文，不据使用量推断客户升级、到店或成交效果。

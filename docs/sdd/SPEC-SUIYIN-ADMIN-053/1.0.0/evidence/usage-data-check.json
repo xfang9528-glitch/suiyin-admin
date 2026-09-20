@@ -1,0 +1,291 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "d998f9bd7941ef47d7812a279fb705d6a69b4f6d8968bc6e14db432a92ce29a6",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "checkedAt": "2026-09-20T05:21:46.586Z",
+  "scope": "Local prototype data preparation only; no current live-data claim",
+  "namePolicy": "Employee names are read exclusively from existing delivered content JSON; captures are used only for numeric/structure validation. The existing public-data policy retains employee display names.",
+  "departmentPolicy": "Options contain only departments observed in this tenant sample, not the full live department inventory.",
+  "tenants": [
+    {
+      "tenantId": "yestar-sz",
+      "state": "captured",
+      "capturedAt": "2026-09-18T08:47:41.328Z",
+      "sampleDate": "2026-09-18",
+      "groups": 94,
+      "departments": 10,
+      "detailRows": 117,
+      "totals": {
+        "users": 94,
+        "messages": 7679,
+        "friends": 1939
+      },
+      "rawGroupCount": 94,
+      "rawDetailCount": 117,
+      "validatedSubtotals": 23,
+      "validatedGrandTotal": true,
+      "independentHeadingTotals": {
+        "users": 94,
+        "messages": 7679,
+        "friends": 1939
+      },
+      "currentRawEmployeeNameMatches": 94,
+      "rawCaptureSha256": "ec3191932d22750a8f724bc97087211f70333c3e80e8a22b2c00c5f2f6e46332",
+      "outputSha256": "975596b296a5dde6159513bf07153bf51677278330ef17b525f77d6340d787f7"
+    },
+    {
+      "tenantId": "jbfs",
+      "state": "captured",
+      "capturedAt": "2026-09-18T09:00:31.535Z",
+      "sampleDate": "2026-09-18",
+      "groups": 4,
+      "departments": 1,
+      "detailRows": 4,
+      "totals": {
+        "users": 4,
+        "messages": 94,
+        "friends": 41
+      },
+      "rawGroupCount": 4,
+      "rawDetailCount": 4,
+      "validatedSubtotals": 0,
+      "validatedGrandTotal": true,
+      "independentHeadingTotals": {
+        "users": 4,
+        "messages": 94,
+        "friends": 41
+      },
+      "currentRawEmployeeNameMatches": 4,
+      "rawCaptureSha256": "50d38a6a5e481a0148832da76083dd74e57c7f405f768b0a87273d175f3b4443",
+      "outputSha256": "14239b2554a23cb62a8796da92cbff7b914fd852f7ddadc0ed5e9b80450ea65e"
+    },
+    {
+      "tenantId": "mengzhua",
+      "state": "captured",
+      "capturedAt": "2026-09-18T09:02:09.771Z",
+      "sampleDate": "2026-09-18",
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "rawGroupCount": 0,
+      "rawDetailCount": 0,
+      "validatedSubtotals": 0,
+      "validatedGrandTotal": false,
+      "independentHeadingTotals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "currentRawEmployeeNameMatches": 0,
+      "rawCaptureSha256": "587947d721dc444c692ad650c618de649ca01a3d70f7226260ad1cff7c10e652",
+      "outputSha256": "44514ba4396c6e29459ebfb9c9c6001895d724b45350efefc38bc6604d749574"
+    },
+    {
+      "tenantId": "bzds",
+      "state": "captured",
+      "capturedAt": "2026-09-18T09:02:49.185Z",
+      "sampleDate": "2026-09-18",
+      "groups": 1,
+      "departments": 1,
+      "detailRows": 1,
+      "totals": {
+        "users": 1,
+        "messages": 12,
+        "friends": 1
+      },
+      "rawGroupCount": 1,
+      "rawDetailCount": 1,
+      "validatedSubtotals": 0,
+      "validatedGrandTotal": true,
+      "independentHeadingTotals": {
+        "users": 1,
+        "messages": 12,
+        "friends": 1
+      },
+      "currentRawEmployeeNameMatches": 1,
+      "rawCaptureSha256": "306509ee3a6c25d10ef56f5bc445904212a7a4985ed4d28b1fc70afc06240c82",
+      "outputSha256": "e195a3ba64cfe8f0bfdfef8205af9d07594bf2ff816abc8c9cbf31ab505a81c9"
+    },
+    {
+      "tenantId": "crrm",
+      "state": "not-captured",
+      "capturedAt": null,
+      "sampleDate": null,
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "referenceSampleRemoved": true,
+      "outputSha256": "bd75f6a9e38e1bd1e542016ee7385eec24fc63eaa3a21256509c0724c044b867"
+    },
+    {
+      "tenantId": "hqjd",
+      "state": "not-captured",
+      "capturedAt": null,
+      "sampleDate": null,
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "referenceSampleRemoved": true,
+      "outputSha256": "8e9d0be828d287b6c5ee7c08c0e1efe708160bf5f8f0e57ed5717866280efa75"
+    },
+    {
+      "tenantId": "ykjl",
+      "state": "not-captured",
+      "capturedAt": null,
+      "sampleDate": null,
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "referenceSampleRemoved": true,
+      "outputSha256": "a0ecbb09aaddeb595a10f11b2d90bd3ac80158e6b6b3086b4b0feb6ff0fc12fb"
+    },
+    {
+      "tenantId": "ruixi-kh-xiaowen",
+      "state": "not-captured",
+      "capturedAt": null,
+      "sampleDate": null,
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "referenceSampleRemoved": true,
+      "outputSha256": "842e6166f7952cda0a5cdea00cb37a569ce31cce397ef241b2304edf5560e2df"
+    },
+    {
+      "tenantId": "rxxz",
+      "state": "not-captured",
+      "capturedAt": null,
+      "sampleDate": null,
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "referenceSampleRemoved": true,
+      "outputSha256": "29f21e7101f2261320dfc23aae69f8994b379879e3ce846ca94ae4a19db19a49"
+    },
+    {
+      "tenantId": "yestar",
+      "state": "not-captured",
+      "capturedAt": null,
+      "sampleDate": null,
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "referenceSampleRemoved": true,
+      "outputSha256": "37cb8c2a7787251207b9527ec6c635f57e6c7e69277da7cc329aa9951eabd4a9"
+    },
+    {
+      "tenantId": "yestar-bj",
+      "state": "not-captured",
+      "capturedAt": null,
+      "sampleDate": null,
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "referenceSampleRemoved": true,
+      "outputSha256": "9240fd19a0f8a345b2b69a5b0902aa19d32a7cdcab17214acb9a86aab38c2c96"
+    },
+    {
+      "tenantId": "yestar-gz",
+      "state": "not-captured",
+      "capturedAt": null,
+      "sampleDate": null,
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "referenceSampleRemoved": true,
+      "outputSha256": "a231d24a5444a1ff9b65290065aa3ebd6d28003edb0659ce0699966b51acaf63"
+    },
+    {
+      "tenantId": "yestar-hz",
+      "state": "not-captured",
+      "capturedAt": null,
+      "sampleDate": null,
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "referenceSampleRemoved": true,
+      "outputSha256": "5b174ca3602616badffdd13a4ede78da0813b5d8a6fc3d57816fab50cbcc20b1"
+    },
+    {
+      "tenantId": "yestar-jx",
+      "state": "not-captured",
+      "capturedAt": null,
+      "sampleDate": null,
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "referenceSampleRemoved": true,
+      "outputSha256": "5f5befbf9cef4e24c7da0c8ed01808fb621e50f239f9b6cdbe034da88eae9709"
+    },
+    {
+      "tenantId": "yzhb",
+      "state": "not-captured",
+      "capturedAt": null,
+      "sampleDate": null,
+      "groups": 0,
+      "departments": 0,
+      "detailRows": 0,
+      "totals": {
+        "users": 0,
+        "messages": 0,
+        "friends": 0
+      },
+      "referenceSampleRemoved": true,
+      "outputSha256": "731aaeeee892f9d2fe2d1e24df54af9a92d14a11fb8b0bf93f83207b629020db"
+    }
+  ]
+}

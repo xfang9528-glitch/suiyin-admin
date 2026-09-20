@@ -1,0 +1,148 @@
+{
+  "tenantId": "rxxz",
+  "route": "salesStatsNew",
+  "state": "reference",
+  "sampleTenant": "bzds",
+  "sampleSource": "https://bzds.wecarepet.com/admin/salesStatsNew",
+  "capturedAt": "2026-09-18T09:02:42.519Z",
+  "from": "2026-09-12",
+  "to": "2026-09-18",
+  "granularity": "自然日",
+  "canvasCount": 8,
+  "metrics": [
+    {
+      "label": "拉新人数",
+      "value": "0",
+      "selector": null,
+      "table": -1
+    },
+    {
+      "label": "拉新分布",
+      "value": "0",
+      "selector": "渠道",
+      "table": -1
+    },
+    {
+      "label": "预付订单数",
+      "value": "1",
+      "selector": "选择门店",
+      "table": -1
+    },
+    {
+      "label": "预付均值",
+      "value": "10",
+      "selector": "选择门店",
+      "table": -1
+    },
+    {
+      "label": "商品预付人数",
+      "value": "1",
+      "selector": "选择门店",
+      "table": 0
+    },
+    {
+      "label": "商品预付金额",
+      "value": "10",
+      "selector": "选择门店",
+      "table": 1
+    },
+    {
+      "label": "交付总额",
+      "value": "3.33",
+      "selector": "选择门店",
+      "table": -1
+    },
+    {
+      "label": "交付人次",
+      "value": "1",
+      "selector": "选择门店",
+      "table": -1
+    },
+    {
+      "label": "交付均值",
+      "value": "3.33",
+      "selector": "选择门店",
+      "table": -1
+    },
+    {
+      "label": "商品销售人数",
+      "value": "1",
+      "selector": "人数",
+      "table": -1
+    },
+    {
+      "label": "商品交付人数",
+      "value": "1",
+      "selector": "选择门店",
+      "table": 2
+    },
+    {
+      "label": "商品交付金额",
+      "value": "3.33",
+      "selector": "选择门店",
+      "table": 3
+    }
+  ],
+  "tables": [
+    {
+      "headers": [
+        "排名",
+        "商品名称",
+        "商品预付人数"
+      ],
+      "rows": [
+        [
+          "1",
+          "测试商品",
+          "1"
+        ]
+      ],
+      "hasProductImage": true
+    },
+    {
+      "headers": [
+        "排名",
+        "商品名称",
+        "商品预付金额"
+      ],
+      "rows": [
+        [
+          "1",
+          "测试商品",
+          "10"
+        ]
+      ],
+      "hasProductImage": true
+    },
+    {
+      "headers": [
+        "排名",
+        "商品名称",
+        "商品交付人数"
+      ],
+      "rows": [
+        [
+          "1",
+          "测试商品",
+          "1"
+        ]
+      ],
+      "hasProductImage": true
+    },
+    {
+      "headers": [
+        "排名",
+        "商品名称",
+        "商品交付金额"
+      ],
+      "rows": [
+        [
+          "1",
+          "测试商品",
+          "3.33"
+        ]
+      ],
+      "hasProductImage": true
+    }
+  ]
+}

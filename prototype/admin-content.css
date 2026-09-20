@@ -3,3 +3,14 @@
 .multi-filter{position:relative;min-width:180px;max-width:260px;border:1px solid #dfe6ed;border-radius:4px;background:white;font-size:13px}.multi-filter summary{padding:10px;cursor:pointer;white-space:nowrap}.multi-options{position:absolute;z-index:12;background:white;box-shadow:0 6px 20px #22334426;border:1px solid #dfe6ed;border-radius:4px;padding:10px;min-width:240px;max-width:330px;max-height:320px;overflow:auto}.multi-options label{padding:6px 0;line-height:1.6}.chat-list-heading{padding:15px;border-bottom:1px solid #e6edf1;font-weight:600}.chat-date{text-align:center;font-size:12px;color:#909eaa}.chat-title{display:flex;flex-direction:column;gap:8px}.date-range{display:flex;gap:8px;align-items:center}.date-range[hidden]{display:none}.date-range input{padding:8px;border:1px solid #dfe6ed;border-radius:4px}.contact{width:100%;text-align:left;white-space:normal!important;border:none!important;border-bottom:1px solid #edf1f4!important;border-radius:0!important}.contact small{display:block;margin-top:5px;font-size:11px;color:#8996a1}.chart-card{min-height:360px}@media(max-width:800px){.chat-layout{grid-template-columns:200px 1fr}.multi-filter{min-width:130px}}
 
 .filter-panel{overflow:visible}.num .long-cell{min-width:65px}.table-wrap td:has(.avatar){min-width:60px}.comparison .phone-card{max-width:100%}@media(max-width:900px){.comparison{grid-template-columns:1fr}}
+
+/* Preserve captured filter groups, labels and control sizes. */
+.source-filters[hidden],.source-toolbar[hidden]{display:none!important}
+.admin-content .source-filters .source-range-field{max-width:none}
+.admin-content .source-filter-range{display:flex;align-items:center;gap:8px;min-width:0;max-width:100%}
+.admin-content .source-filter-range input{width:calc((100% - 30px)/2);min-width:0;height:var(--source-control-height,32px)}
+.admin-content .source-filters .radio-group{display:flex;align-items:center;gap:14px;white-space:nowrap}
+.admin-content .source-filters .radio-group label{display:flex;gap:5px;align-items:center}
+.admin-content .source-filters .radio-group input{width:auto;height:auto;min-height:0;padding:0;margin:0;accent-color:var(--blue)}
+.admin-content .source-filters .quick-dates{display:inline-flex;align-items:center}
+.admin-content .source-filters .field>input{height:var(--source-control-height,32px)}

@@ -1,0 +1,18 @@
+{
+  "tenantId": "yestar-bj",
+  "route": "salesMessageUsage",
+  "state": "not-captured",
+  "capturedAt": null,
+  "sampleDate": null,
+  "sourceUrl": "https://yestar-bj.wecarepet.com/admin/salesMessageUsage",
+  "sourceLabel": "本租户销售使用统计尚未采集",
+  "departmentOptionsScope": "sample-observed",
+  "departmentOptionsLabel": "本租户尚无已采集部门样本",
+  "groups": [],
+  "departmentOptions": [],
+  "totals": {
+    "users": 0,
+    "messages": 0,
+    "friends": 0
+  }
+}

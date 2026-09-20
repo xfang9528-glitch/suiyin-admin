@@ -530,6 +530,20 @@
               "settingIndex": 37
             },
             {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 38
+            },
+            {
               "id": "groupInviteStats",
               "route": "groupInviteStats",
               "label": "群邀请提及率",
@@ -541,7 +555,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             },
             {
               "id": "scriptUsageStats",
@@ -555,7 +569,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             },
             {
               "id": "aiAssistStats",
@@ -569,7 +583,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             },
             {
               "id": "workAccountDailyStats",
@@ -583,7 +597,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 41
+              "settingIndex": 42
             }
           ],
           "display": "显示",
@@ -608,7 +622,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             },
             {
               "id": "salesReceptionQuery",
@@ -622,7 +636,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "allocationRecord",
@@ -636,7 +650,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "sensitiveWords",
@@ -650,7 +664,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -664,7 +678,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "aiLabelStats",
@@ -678,7 +692,7 @@
               "display": "显示",
               "sort": -1,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             },
             {
               "id": "remark-demand-mappings",
@@ -692,13 +706,13 @@
               "display": "显示",
               "sort": -2,
               "superPermission": false,
-              "settingIndex": 49
+              "settingIndex": 50
             }
           ],
           "display": "显示",
           "sort": 4,
           "superPermission": false,
-          "settingIndex": 42
+          "settingIndex": 43
         },
         {
           "id": "group-11",
@@ -717,7 +731,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 51
+              "settingIndex": 52
             },
             {
               "id": "wechatLaxin",
@@ -731,7 +745,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 52
+              "settingIndex": 53
             },
             {
               "id": "acceptFriendConfig",
@@ -745,13 +759,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 53
+              "settingIndex": 54
             }
           ],
           "display": "显示",
           "sort": 3,
           "superPermission": false,
-          "settingIndex": 50
+          "settingIndex": 51
         },
         {
           "id": "group-12",
@@ -770,7 +784,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 55
+              "settingIndex": 56
             },
             {
               "id": "aiEntModelConfig",
@@ -784,7 +798,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 56
+              "settingIndex": 57
             },
             {
               "id": "asrLexicon",
@@ -798,7 +812,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 57
+              "settingIndex": 58
             },
             {
               "id": "aiChatQuality",
@@ -812,13 +826,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 58
+              "settingIndex": 59
             }
           ],
           "display": "显示",
           "sort": 2,
           "superPermission": false,
-          "settingIndex": 54
+          "settingIndex": 55
         },
         {
           "id": "group-13",
@@ -837,7 +851,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 60
+              "settingIndex": 61
             },
             {
               "id": "menu",
@@ -851,7 +865,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 61
+              "settingIndex": 62
             },
             {
               "id": "labels",
@@ -865,7 +879,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 62
+              "settingIndex": 63
             },
             {
               "id": "setting",
@@ -879,7 +893,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 63
+              "settingIndex": 64
             },
             {
               "id": "labelsManage",
@@ -893,13 +907,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 64
+              "settingIndex": 65
             }
           ],
           "display": "显示",
           "sort": 1,
           "superPermission": false,
-          "settingIndex": 59
+          "settingIndex": 60
         }
       ],
       "settings": [
@@ -1170,6 +1184,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "群邀请提及率",
           "display": "显示",
           "sort": 0,
@@ -1366,7 +1387,8 @@
         "content": "implemented-local"
       },
       "navigationCapturedAt": "2026-09-18T15:05:08.141Z",
-      "clientVersion": "v2026091803"
+      "clientVersion": "v2026091803",
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "jbfs",
@@ -1822,6 +1844,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 32
+            },
+            {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 33
             }
           ],
           "display": "显示",
@@ -1846,7 +1882,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 34
+              "settingIndex": 35
             },
             {
               "id": "salesReceptionQuery",
@@ -1860,7 +1896,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 35
+              "settingIndex": 36
             },
             {
               "id": "allocationRecord",
@@ -1874,7 +1910,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 36
+              "settingIndex": 37
             },
             {
               "id": "sensitiveWords",
@@ -1888,7 +1924,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 37
+              "settingIndex": 38
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -1902,7 +1938,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             },
             {
               "id": "aiLabelStats",
@@ -1916,13 +1952,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 33
+          "settingIndex": 34
         },
         {
           "id": "group-10",
@@ -1941,7 +1977,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 41
+              "settingIndex": 42
             },
             {
               "id": "wechatLaxin",
@@ -1955,7 +1991,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             },
             {
               "id": "acceptFriendConfig",
@@ -1969,13 +2005,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 40
+          "settingIndex": 41
         },
         {
           "id": "group-11",
@@ -1994,7 +2030,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "menu",
@@ -2008,7 +2044,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "labels",
@@ -2022,7 +2058,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "setting",
@@ -2036,7 +2072,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             },
             {
               "id": "labelsManage",
@@ -2050,13 +2086,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 49
+              "settingIndex": 50
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 44
+          "settingIndex": 45
         }
       ],
       "settings": [
@@ -2292,6 +2328,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "聊天管理",
           "display": "显示",
           "sort": 0,
@@ -2416,7 +2459,8 @@
         "displaySettings": "captured",
         "platformAssignment": "sample-captured",
         "content": "implemented-local"
-      }
+      },
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "mengzhua",
@@ -2869,6 +2913,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 32
+            },
+            {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 33
             }
           ],
           "display": "显示",
@@ -2893,7 +2951,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 34
+              "settingIndex": 35
             },
             {
               "id": "salesReceptionQuery",
@@ -2907,7 +2965,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 35
+              "settingIndex": 36
             },
             {
               "id": "allocationRecord",
@@ -2921,7 +2979,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 36
+              "settingIndex": 37
             },
             {
               "id": "sensitiveWords",
@@ -2935,7 +2993,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 37
+              "settingIndex": 38
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -2949,7 +3007,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             },
             {
               "id": "aiLabelStats",
@@ -2963,13 +3021,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 33
+          "settingIndex": 34
         },
         {
           "id": "group-11",
@@ -2988,7 +3046,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 41
+              "settingIndex": 42
             },
             {
               "id": "wechatLaxin",
@@ -3002,7 +3060,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             },
             {
               "id": "acceptFriendConfig",
@@ -3016,13 +3074,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 40
+          "settingIndex": 41
         },
         {
           "id": "group-12",
@@ -3041,7 +3099,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "aiEntModelConfig",
@@ -3055,7 +3113,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "asrLexicon",
@@ -3069,7 +3127,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "aiChatQuality",
@@ -3083,13 +3141,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 44
+          "settingIndex": 45
         },
         {
           "id": "group-13",
@@ -3108,7 +3166,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 50
+              "settingIndex": 51
             },
             {
               "id": "menu",
@@ -3122,7 +3180,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 51
+              "settingIndex": 52
             },
             {
               "id": "labels",
@@ -3136,7 +3194,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 52
+              "settingIndex": 53
             },
             {
               "id": "setting",
@@ -3150,7 +3208,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 53
+              "settingIndex": 54
             },
             {
               "id": "labelsManage",
@@ -3164,13 +3222,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 54
+              "settingIndex": 55
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 49
+          "settingIndex": 50
         }
       ],
       "settings": [
@@ -3406,6 +3464,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "聊天管理",
           "display": "显示",
           "sort": 0,
@@ -3565,7 +3630,8 @@
         "displaySettings": "captured",
         "platformAssignment": "sample-captured",
         "content": "implemented-local"
-      }
+      },
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "bzds",
@@ -4076,6 +4142,20 @@
               "settingIndex": 36
             },
             {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 37
+            },
+            {
               "id": "groupInviteStats",
               "route": "groupInviteStats",
               "label": "群邀请提及率",
@@ -4087,7 +4167,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 37
+              "settingIndex": 38
             },
             {
               "id": "scriptUsageStats",
@@ -4101,7 +4181,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             },
             {
               "id": "aiAssistStats",
@@ -4115,7 +4195,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             },
             {
               "id": "workAccountDailyStats",
@@ -4129,7 +4209,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             }
           ],
           "display": "显示",
@@ -4154,7 +4234,7 @@
               "display": "显示",
               "sort": 3,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             },
             {
               "id": "salesReceptionQuery",
@@ -4168,7 +4248,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             },
             {
               "id": "allocationRecord",
@@ -4182,7 +4262,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "sensitiveWords",
@@ -4196,7 +4276,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -4210,7 +4290,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "aiLabelStats",
@@ -4224,13 +4304,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 41
+          "settingIndex": 42
         },
         {
           "id": "group-11",
@@ -4249,7 +4329,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 49
+              "settingIndex": 50
             },
             {
               "id": "wechatLaxin",
@@ -4263,7 +4343,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 50
+              "settingIndex": 51
             },
             {
               "id": "acceptFriendConfig",
@@ -4277,13 +4357,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 51
+              "settingIndex": 52
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 48
+          "settingIndex": 49
         },
         {
           "id": "group-12",
@@ -4302,7 +4382,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 53
+              "settingIndex": 54
             },
             {
               "id": "aiEntModelConfig",
@@ -4316,7 +4396,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 54
+              "settingIndex": 55
             },
             {
               "id": "asrLexicon",
@@ -4330,7 +4410,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 55
+              "settingIndex": 56
             },
             {
               "id": "aiChatQuality",
@@ -4344,13 +4424,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 56
+              "settingIndex": 57
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 52
+          "settingIndex": 53
         },
         {
           "id": "group-13",
@@ -4369,7 +4449,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 58
+              "settingIndex": 59
             },
             {
               "id": "caseLibraryEntries",
@@ -4383,7 +4463,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 59
+              "settingIndex": 60
             },
             {
               "id": "caseLibraryMiniPrograms",
@@ -4397,7 +4477,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 60
+              "settingIndex": 61
             },
             {
               "id": "caseLibrarySubjectShares",
@@ -4411,13 +4491,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 61
+              "settingIndex": 62
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 57
+          "settingIndex": 58
         },
         {
           "id": "group-14",
@@ -4436,7 +4516,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 63
+              "settingIndex": 64
             },
             {
               "id": "menu",
@@ -4450,7 +4530,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 64
+              "settingIndex": 65
             },
             {
               "id": "labels",
@@ -4464,7 +4544,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 65
+              "settingIndex": 66
             },
             {
               "id": "setting",
@@ -4478,7 +4558,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 66
+              "settingIndex": 67
             },
             {
               "id": "labelsManage",
@@ -4492,13 +4572,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 67
+              "settingIndex": 68
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 62
+          "settingIndex": 63
         },
         {
           "id": "group-15",
@@ -4517,7 +4597,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 69
+              "settingIndex": 70
             },
             {
               "id": "labelMenu",
@@ -4531,7 +4611,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 70
+              "settingIndex": 71
             },
             {
               "id": "entList",
@@ -4545,7 +4625,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 71
+              "settingIndex": 72
             },
             {
               "id": "allWeChatStatus",
@@ -4559,7 +4639,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 72
+              "settingIndex": 73
             },
             {
               "id": "esIndex",
@@ -4573,7 +4653,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 73
+              "settingIndex": 74
             },
             {
               "id": "versionList",
@@ -4587,7 +4667,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 74
+              "settingIndex": 75
             },
             {
               "id": "aiModelConfig",
@@ -4601,7 +4681,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 75
+              "settingIndex": 76
             },
             {
               "id": "auditDict",
@@ -4615,7 +4695,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 76
+              "settingIndex": 77
             },
             {
               "id": "voiceModels",
@@ -4629,13 +4709,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 77
+              "settingIndex": 78
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 68
+          "settingIndex": 69
         }
       ],
       "settings": [
@@ -4893,6 +4973,13 @@
         },
         {
           "label": "销售使用统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
+          "label": "销售变声统计",
           "display": "显示",
           "sort": 0,
           "superPermission": false,
@@ -5191,7 +5278,8 @@
         "displaySettings": "captured",
         "platformAssignment": "sample-captured",
         "content": "implemented-local"
-      }
+      },
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "crrm",
@@ -5535,6 +5623,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 24
+            },
+            {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 25
             }
           ],
           "display": "显示",
@@ -5559,7 +5661,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 26
+              "settingIndex": 27
             },
             {
               "id": "salesReceptionQuery",
@@ -5573,7 +5675,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 27
+              "settingIndex": 28
             },
             {
               "id": "allocationRecord",
@@ -5587,7 +5689,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 28
+              "settingIndex": 29
             },
             {
               "id": "sensitiveWords",
@@ -5601,7 +5703,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 29
+              "settingIndex": 30
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -5615,7 +5717,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 30
+              "settingIndex": 31
             },
             {
               "id": "aiLabelStats",
@@ -5629,13 +5731,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 31
+              "settingIndex": 32
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 25
+          "settingIndex": 26
         },
         {
           "id": "group-9",
@@ -5654,7 +5756,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 33
+              "settingIndex": 34
             },
             {
               "id": "wechatLaxin",
@@ -5668,7 +5770,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 34
+              "settingIndex": 35
             },
             {
               "id": "acceptFriendConfig",
@@ -5682,13 +5784,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 35
+              "settingIndex": 36
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 32
+          "settingIndex": 33
         },
         {
           "id": "group-10",
@@ -5707,7 +5809,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 37
+              "settingIndex": 38
             },
             {
               "id": "aiEntModelConfig",
@@ -5721,7 +5823,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             },
             {
               "id": "asrLexicon",
@@ -5735,7 +5837,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             },
             {
               "id": "aiChatQuality",
@@ -5749,13 +5851,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 36
+          "settingIndex": 37
         },
         {
           "id": "group-11",
@@ -5774,7 +5876,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             },
             {
               "id": "menu",
@@ -5788,7 +5890,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             },
             {
               "id": "labels",
@@ -5802,7 +5904,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "setting",
@@ -5816,7 +5918,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "labelsManage",
@@ -5830,13 +5932,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 41
+          "settingIndex": 42
         }
       ],
       "settings": [
@@ -6016,6 +6118,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "聊天管理",
           "display": "显示",
           "sort": 0,
@@ -6175,7 +6284,8 @@
         "displaySettings": "captured",
         "platformAssignment": "unknown",
         "content": "implemented-local"
-      }
+      },
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "hqjd",
@@ -6617,6 +6727,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 31
+            },
+            {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 32
             }
           ],
           "display": "显示",
@@ -6641,7 +6765,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 33
+              "settingIndex": 34
             },
             {
               "id": "salesReceptionQuery",
@@ -6655,7 +6779,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 34
+              "settingIndex": 35
             },
             {
               "id": "allocationRecord",
@@ -6669,7 +6793,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 35
+              "settingIndex": 36
             },
             {
               "id": "sensitiveWords",
@@ -6683,7 +6807,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 36
+              "settingIndex": 37
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -6697,7 +6821,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 37
+              "settingIndex": 38
             },
             {
               "id": "aiLabelStats",
@@ -6711,13 +6835,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 32
+          "settingIndex": 33
         },
         {
           "id": "group-10",
@@ -6736,7 +6860,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             },
             {
               "id": "wechatLaxin",
@@ -6750,7 +6874,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 41
+              "settingIndex": 42
             },
             {
               "id": "acceptFriendConfig",
@@ -6764,13 +6888,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 39
+          "settingIndex": 40
         },
         {
           "id": "group-11",
@@ -6789,7 +6913,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "menu",
@@ -6803,7 +6927,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "labels",
@@ -6817,7 +6941,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "setting",
@@ -6831,7 +6955,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "labelsManage",
@@ -6845,13 +6969,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 43
+          "settingIndex": 44
         }
       ],
       "settings": [
@@ -7080,6 +7204,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "聊天管理",
           "display": "显示",
           "sort": 0,
@@ -7204,7 +7335,8 @@
         "displaySettings": "captured",
         "platformAssignment": "unknown",
         "content": "implemented-local"
-      }
+      },
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "ykjl",
@@ -7576,6 +7708,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 26
+            },
+            {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 27
             }
           ],
           "display": "显示",
@@ -7600,7 +7746,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 28
+              "settingIndex": 29
             },
             {
               "id": "salesReceptionQuery",
@@ -7614,7 +7760,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 29
+              "settingIndex": 30
             },
             {
               "id": "allocationRecord",
@@ -7628,7 +7774,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 30
+              "settingIndex": 31
             },
             {
               "id": "sensitiveWords",
@@ -7642,7 +7788,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 31
+              "settingIndex": 32
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -7656,7 +7802,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 32
+              "settingIndex": 33
             },
             {
               "id": "aiLabelStats",
@@ -7670,13 +7816,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 33
+              "settingIndex": 34
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 27
+          "settingIndex": 28
         },
         {
           "id": "group-9",
@@ -7695,7 +7841,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": true,
-              "settingIndex": 35
+              "settingIndex": 36
             },
             {
               "id": "wechatLaxin",
@@ -7709,7 +7855,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 36
+              "settingIndex": 37
             },
             {
               "id": "acceptFriendConfig",
@@ -7723,13 +7869,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 37
+              "settingIndex": 38
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": true,
-          "settingIndex": 34
+          "settingIndex": 35
         },
         {
           "id": "group-10",
@@ -7748,7 +7894,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             },
             {
               "id": "aiEntModelConfig",
@@ -7762,7 +7908,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             },
             {
               "id": "asrLexicon",
@@ -7776,7 +7922,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 41
+              "settingIndex": 42
             },
             {
               "id": "aiChatQuality",
@@ -7790,13 +7936,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 38
+          "settingIndex": 39
         },
         {
           "id": "group-11",
@@ -7815,7 +7961,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": true,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "menu",
@@ -7829,7 +7975,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": true,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "labels",
@@ -7843,7 +7989,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": true,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "setting",
@@ -7857,7 +8003,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "labelsManage",
@@ -7871,13 +8017,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 43
+          "settingIndex": 44
         }
       ],
       "settings": [
@@ -8071,6 +8217,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "聊天管理",
           "display": "显示",
           "sort": 0,
@@ -8230,7 +8383,8 @@
         "displaySettings": "captured",
         "platformAssignment": "unknown",
         "content": "implemented-local"
-      }
+      },
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "ruixi-kh-xiaowen",
@@ -8641,6 +8795,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 29
+            },
+            {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 30
             }
           ],
           "display": "显示",
@@ -8665,7 +8833,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 31
+              "settingIndex": 32
             },
             {
               "id": "salesReceptionQuery",
@@ -8679,7 +8847,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 32
+              "settingIndex": 33
             },
             {
               "id": "allocationRecord",
@@ -8693,7 +8861,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 33
+              "settingIndex": 34
             },
             {
               "id": "sensitiveWords",
@@ -8707,7 +8875,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 34
+              "settingIndex": 35
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -8721,7 +8889,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 35
+              "settingIndex": 36
             },
             {
               "id": "aiLabelStats",
@@ -8735,13 +8903,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 36
+              "settingIndex": 37
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 30
+          "settingIndex": 31
         },
         {
           "id": "group-11",
@@ -8760,7 +8928,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             },
             {
               "id": "wechatLaxin",
@@ -8774,7 +8942,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             },
             {
               "id": "acceptFriendConfig",
@@ -8788,13 +8956,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 37
+          "settingIndex": 38
         },
         {
           "id": "group-12",
@@ -8813,7 +8981,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             },
             {
               "id": "aiEntModelConfig",
@@ -8827,7 +8995,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             },
             {
               "id": "asrLexicon",
@@ -8841,7 +9009,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "aiChatQuality",
@@ -8855,13 +9023,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 41
+          "settingIndex": 42
         },
         {
           "id": "group-13",
@@ -8880,7 +9048,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "menu",
@@ -8894,7 +9062,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             },
             {
               "id": "labels",
@@ -8908,7 +9076,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 49
+              "settingIndex": 50
             },
             {
               "id": "setting",
@@ -8922,7 +9090,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 50
+              "settingIndex": 51
             },
             {
               "id": "labelsManage",
@@ -8936,13 +9104,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 51
+              "settingIndex": 52
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 46
+          "settingIndex": 47
         }
       ],
       "settings": [
@@ -9157,6 +9325,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "聊天管理",
           "display": "显示",
           "sort": 0,
@@ -9316,7 +9491,8 @@
         "displaySettings": "captured",
         "platformAssignment": "unknown",
         "content": "implemented-local"
-      }
+      },
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "rxxz",
@@ -9702,6 +9878,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 27
+            },
+            {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 28
             }
           ],
           "display": "显示",
@@ -9726,7 +9916,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 29
+              "settingIndex": 30
             },
             {
               "id": "salesReceptionQuery",
@@ -9740,7 +9930,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 30
+              "settingIndex": 31
             },
             {
               "id": "allocationRecord",
@@ -9754,7 +9944,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 31
+              "settingIndex": 32
             },
             {
               "id": "sensitiveWords",
@@ -9768,7 +9958,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 32
+              "settingIndex": 33
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -9782,7 +9972,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 33
+              "settingIndex": 34
             },
             {
               "id": "aiLabelStats",
@@ -9796,13 +9986,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 34
+              "settingIndex": 35
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 28
+          "settingIndex": 29
         },
         {
           "id": "group-10",
@@ -9821,7 +10011,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 36
+              "settingIndex": 37
             },
             {
               "id": "wechatLaxin",
@@ -9835,7 +10025,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 37
+              "settingIndex": 38
             },
             {
               "id": "acceptFriendConfig",
@@ -9849,13 +10039,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 35
+          "settingIndex": 36
         },
         {
           "id": "group-11",
@@ -9874,7 +10064,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             },
             {
               "id": "aiEntModelConfig",
@@ -9888,7 +10078,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 41
+              "settingIndex": 42
             },
             {
               "id": "asrLexicon",
@@ -9902,7 +10092,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             },
             {
               "id": "aiChatQuality",
@@ -9916,13 +10106,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 39
+          "settingIndex": 40
         },
         {
           "id": "group-12",
@@ -9941,7 +10131,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "menu",
@@ -9955,7 +10145,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "labels",
@@ -9969,7 +10159,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "setting",
@@ -9983,7 +10173,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             },
             {
               "id": "labelsManage",
@@ -9997,13 +10187,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 49
+              "settingIndex": 50
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 44
+          "settingIndex": 45
         }
       ],
       "settings": [
@@ -10204,6 +10394,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "聊天管理",
           "display": "显示",
           "sort": 0,
@@ -10363,7 +10560,8 @@
         "displaySettings": "captured",
         "platformAssignment": "unknown",
         "content": "implemented-local"
-      }
+      },
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yestar",
@@ -10790,6 +10988,20 @@
               "settingIndex": 30
             },
             {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 31
+            },
+            {
               "id": "groupInviteStats",
               "route": "groupInviteStats",
               "label": "群邀请提及率",
@@ -10801,7 +11013,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 31
+              "settingIndex": 32
             },
             {
               "id": "scriptUsageStats",
@@ -10815,7 +11027,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 32
+              "settingIndex": 33
             },
             {
               "id": "aiAssistStats",
@@ -10829,7 +11041,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 33
+              "settingIndex": 34
             },
             {
               "id": "workAccountDailyStats",
@@ -10843,7 +11055,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 34
+              "settingIndex": 35
             }
           ],
           "display": "显示",
@@ -10868,7 +11080,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 36
+              "settingIndex": 37
             },
             {
               "id": "salesReceptionQuery",
@@ -10882,7 +11094,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 37
+              "settingIndex": 38
             },
             {
               "id": "allocationRecord",
@@ -10896,7 +11108,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             },
             {
               "id": "sensitiveWords",
@@ -10910,7 +11122,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -10924,7 +11136,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             },
             {
               "id": "aiLabelStats",
@@ -10938,7 +11150,7 @@
               "display": "显示",
               "sort": -1,
               "superPermission": false,
-              "settingIndex": 41
+              "settingIndex": 42
             },
             {
               "id": "remark-demand-mappings",
@@ -10952,13 +11164,13 @@
               "display": "显示",
               "sort": -2,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 35
+          "settingIndex": 36
         },
         {
           "id": "group-10",
@@ -10977,7 +11189,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "wechatLaxin",
@@ -10991,7 +11203,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "acceptFriendConfig",
@@ -11005,13 +11217,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 43
+          "settingIndex": 44
         },
         {
           "id": "group-11",
@@ -11030,7 +11242,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             },
             {
               "id": "aiEntModelConfig",
@@ -11044,7 +11256,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 49
+              "settingIndex": 50
             },
             {
               "id": "asrLexicon",
@@ -11058,7 +11270,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 50
+              "settingIndex": 51
             },
             {
               "id": "aiChatQuality",
@@ -11072,13 +11284,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 51
+              "settingIndex": 52
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 47
+          "settingIndex": 48
         },
         {
           "id": "group-12",
@@ -11097,7 +11309,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 53
+              "settingIndex": 54
             },
             {
               "id": "menu",
@@ -11111,7 +11323,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 54
+              "settingIndex": 55
             },
             {
               "id": "labels",
@@ -11125,7 +11337,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 55
+              "settingIndex": 56
             },
             {
               "id": "setting",
@@ -11139,7 +11351,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 56
+              "settingIndex": 57
             },
             {
               "id": "labelsManage",
@@ -11153,13 +11365,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 57
+              "settingIndex": 58
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 52
+          "settingIndex": 53
         }
       ],
       "settings": [
@@ -11381,6 +11593,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "群邀请提及率",
           "display": "显示",
           "sort": 0,
@@ -11577,7 +11796,8 @@
         "content": "implemented-local"
       },
       "navigationCapturedAt": "2026-09-18T15:05:16.025Z",
-      "clientVersion": "v2026091803"
+      "clientVersion": "v2026091803",
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yestar-bj",
@@ -12004,6 +12224,20 @@
               "settingIndex": 30
             },
             {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 31
+            },
+            {
               "id": "groupInviteStats",
               "route": "groupInviteStats",
               "label": "群邀请提及率",
@@ -12015,7 +12249,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 31
+              "settingIndex": 32
             },
             {
               "id": "scriptUsageStats",
@@ -12029,7 +12263,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 32
+              "settingIndex": 33
             },
             {
               "id": "aiAssistStats",
@@ -12043,7 +12277,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 33
+              "settingIndex": 34
             }
           ],
           "display": "显示",
@@ -12068,7 +12302,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 35
+              "settingIndex": 36
             },
             {
               "id": "salesReceptionQuery",
@@ -12082,7 +12316,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 36
+              "settingIndex": 37
             },
             {
               "id": "allocationRecord",
@@ -12096,7 +12330,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 37
+              "settingIndex": 38
             },
             {
               "id": "sensitiveWords",
@@ -12110,7 +12344,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -12124,7 +12358,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             },
             {
               "id": "aiLabelStats",
@@ -12138,13 +12372,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 34
+          "settingIndex": 35
         },
         {
           "id": "group-10",
@@ -12163,7 +12397,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             },
             {
               "id": "wechatLaxin",
@@ -12177,7 +12411,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             },
             {
               "id": "acceptFriendConfig",
@@ -12191,13 +12425,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 41
+          "settingIndex": 42
         },
         {
           "id": "group-11",
@@ -12216,7 +12450,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "aiEntModelConfig",
@@ -12230,7 +12464,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "asrLexicon",
@@ -12244,7 +12478,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             },
             {
               "id": "aiChatQuality",
@@ -12258,13 +12492,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 49
+              "settingIndex": 50
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 45
+          "settingIndex": 46
         },
         {
           "id": "group-12",
@@ -12283,7 +12517,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 51
+              "settingIndex": 52
             },
             {
               "id": "menu",
@@ -12297,7 +12531,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 52
+              "settingIndex": 53
             },
             {
               "id": "labels",
@@ -12311,7 +12545,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 53
+              "settingIndex": 54
             },
             {
               "id": "setting",
@@ -12325,7 +12559,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 54
+              "settingIndex": 55
             },
             {
               "id": "labelsManage",
@@ -12339,7 +12573,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 55
+              "settingIndex": 56
             },
             {
               "id": "remark-demand-mappings",
@@ -12353,13 +12587,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 56
+              "settingIndex": 57
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 50
+          "settingIndex": 51
         }
       ],
       "settings": [
@@ -12581,6 +12815,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "群邀请提及率",
           "display": "显示",
           "sort": 0,
@@ -12768,7 +13009,8 @@
         "displaySettings": "captured",
         "platformAssignment": "unknown",
         "content": "implemented-local"
-      }
+      },
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yestar-gz",
@@ -13290,6 +13532,20 @@
               "settingIndex": 37
             },
             {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 38
+            },
+            {
               "id": "groupInviteStats",
               "route": "groupInviteStats",
               "label": "群邀请提及率",
@@ -13301,7 +13557,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             },
             {
               "id": "scriptUsageStats",
@@ -13315,7 +13571,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             },
             {
               "id": "aiAssistStats",
@@ -13329,7 +13585,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             }
           ],
           "display": "显示",
@@ -13354,7 +13610,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             },
             {
               "id": "salesReceptionQuery",
@@ -13368,7 +13624,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             },
             {
               "id": "allocationRecord",
@@ -13382,7 +13638,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "sensitiveWords",
@@ -13396,7 +13652,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -13410,7 +13666,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "aiLabelStats",
@@ -13424,7 +13680,7 @@
               "display": "显示",
               "sort": -1,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "remark-demand-mappings",
@@ -13438,13 +13694,13 @@
               "display": "显示",
               "sort": -2,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             }
           ],
           "display": "显示",
           "sort": 4,
           "superPermission": false,
-          "settingIndex": 41
+          "settingIndex": 42
         },
         {
           "id": "group-11",
@@ -13463,7 +13719,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 50
+              "settingIndex": 51
             },
             {
               "id": "wechatLaxin",
@@ -13477,7 +13733,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 51
+              "settingIndex": 52
             },
             {
               "id": "acceptFriendConfig",
@@ -13491,13 +13747,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 52
+              "settingIndex": 53
             }
           ],
           "display": "显示",
           "sort": 3,
           "superPermission": false,
-          "settingIndex": 49
+          "settingIndex": 50
         },
         {
           "id": "group-12",
@@ -13516,7 +13772,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 54
+              "settingIndex": 55
             },
             {
               "id": "aiEntModelConfig",
@@ -13530,7 +13786,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 55
+              "settingIndex": 56
             },
             {
               "id": "asrLexicon",
@@ -13544,7 +13800,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 56
+              "settingIndex": 57
             },
             {
               "id": "aiChatQuality",
@@ -13558,13 +13814,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 57
+              "settingIndex": 58
             }
           ],
           "display": "显示",
           "sort": 2,
           "superPermission": false,
-          "settingIndex": 53
+          "settingIndex": 54
         },
         {
           "id": "group-13",
@@ -13583,7 +13839,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 59
+              "settingIndex": 60
             },
             {
               "id": "menu",
@@ -13597,7 +13853,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 60
+              "settingIndex": 61
             },
             {
               "id": "labels",
@@ -13611,7 +13867,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 61
+              "settingIndex": 62
             },
             {
               "id": "setting",
@@ -13625,7 +13881,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 62
+              "settingIndex": 63
             },
             {
               "id": "labelsManage",
@@ -13639,13 +13895,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 63
+              "settingIndex": 64
             }
           ],
           "display": "显示",
           "sort": 1,
           "superPermission": false,
-          "settingIndex": 58
+          "settingIndex": 59
         }
       ],
       "settings": [
@@ -13916,6 +14172,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "群邀请提及率",
           "display": "显示",
           "sort": 0,
@@ -14105,7 +14368,8 @@
         "content": "implemented-local"
       },
       "navigationCapturedAt": "2026-09-18T15:08:24.210Z",
-      "clientVersion": "v2026091803"
+      "clientVersion": "v2026091803",
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yestar-hz",
@@ -14627,6 +14891,20 @@
               "settingIndex": 37
             },
             {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 38
+            },
+            {
               "id": "groupInviteStats",
               "route": "groupInviteStats",
               "label": "群邀请提及率",
@@ -14638,7 +14916,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             },
             {
               "id": "scriptUsageStats",
@@ -14652,7 +14930,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             },
             {
               "id": "aiAssistStats",
@@ -14666,7 +14944,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             }
           ],
           "display": "显示",
@@ -14691,7 +14969,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             },
             {
               "id": "salesReceptionQuery",
@@ -14705,7 +14983,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             },
             {
               "id": "allocationRecord",
@@ -14719,7 +14997,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "sensitiveWords",
@@ -14733,7 +15011,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -14747,7 +15025,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "aiLabelStats",
@@ -14761,7 +15039,7 @@
               "display": "显示",
               "sort": -1,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "remark-demand-mappings",
@@ -14775,13 +15053,13 @@
               "display": "显示",
               "sort": -2,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             }
           ],
           "display": "显示",
           "sort": 4,
           "superPermission": false,
-          "settingIndex": 41
+          "settingIndex": 42
         },
         {
           "id": "group-11",
@@ -14800,7 +15078,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 50
+              "settingIndex": 51
             },
             {
               "id": "wechatLaxin",
@@ -14814,7 +15092,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 51
+              "settingIndex": 52
             },
             {
               "id": "acceptFriendConfig",
@@ -14828,13 +15106,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 52
+              "settingIndex": 53
             }
           ],
           "display": "显示",
           "sort": 3,
           "superPermission": false,
-          "settingIndex": 49
+          "settingIndex": 50
         },
         {
           "id": "group-12",
@@ -14853,7 +15131,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 54
+              "settingIndex": 55
             },
             {
               "id": "aiEntModelConfig",
@@ -14867,7 +15145,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 55
+              "settingIndex": 56
             },
             {
               "id": "asrLexicon",
@@ -14881,7 +15159,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 56
+              "settingIndex": 57
             },
             {
               "id": "aiChatQuality",
@@ -14895,13 +15173,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 57
+              "settingIndex": 58
             }
           ],
           "display": "显示",
           "sort": 2,
           "superPermission": false,
-          "settingIndex": 53
+          "settingIndex": 54
         },
         {
           "id": "group-13",
@@ -14920,7 +15198,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 59
+              "settingIndex": 60
             },
             {
               "id": "menu",
@@ -14934,7 +15212,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 60
+              "settingIndex": 61
             },
             {
               "id": "labels",
@@ -14948,7 +15226,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 61
+              "settingIndex": 62
             },
             {
               "id": "setting",
@@ -14962,7 +15240,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 62
+              "settingIndex": 63
             },
             {
               "id": "labelsManage",
@@ -14976,13 +15254,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 63
+              "settingIndex": 64
             }
           ],
           "display": "显示",
           "sort": 1,
           "superPermission": false,
-          "settingIndex": 58
+          "settingIndex": 59
         },
         {
           "id": "group-14",
@@ -15001,7 +15279,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 65
+              "settingIndex": 66
             },
             {
               "id": "caseLibraryEntries",
@@ -15015,7 +15293,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 66
+              "settingIndex": 67
             },
             {
               "id": "caseLibraryMiniPrograms",
@@ -15029,7 +15307,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 67
+              "settingIndex": 68
             },
             {
               "id": "caseLibrarySubjectShares",
@@ -15043,13 +15321,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 68
+              "settingIndex": 69
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 64
+          "settingIndex": 65
         }
       ],
       "settings": [
@@ -15320,6 +15598,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "群邀请提及率",
           "display": "显示",
           "sort": 0,
@@ -15544,7 +15829,8 @@
         "content": "implemented-local"
       },
       "navigationCapturedAt": "2026-09-18T15:08:28.998Z",
-      "clientVersion": "v2026091803"
+      "clientVersion": "v2026091803",
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yestar-jx",
@@ -16066,6 +16352,20 @@
               "settingIndex": 37
             },
             {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 38
+            },
+            {
               "id": "groupInviteStats",
               "route": "groupInviteStats",
               "label": "群邀请提及率",
@@ -16077,7 +16377,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 38
+              "settingIndex": 39
             },
             {
               "id": "scriptUsageStats",
@@ -16091,7 +16391,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             },
             {
               "id": "aiAssistStats",
@@ -16105,7 +16405,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             }
           ],
           "display": "显示",
@@ -16130,7 +16430,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             },
             {
               "id": "salesReceptionQuery",
@@ -16144,7 +16444,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 43
+              "settingIndex": 44
             },
             {
               "id": "allocationRecord",
@@ -16158,7 +16458,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "sensitiveWords",
@@ -16172,7 +16472,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -16186,7 +16486,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "aiLabelStats",
@@ -16200,7 +16500,7 @@
               "display": "显示",
               "sort": -1,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "remark-demand-mappings",
@@ -16214,13 +16514,13 @@
               "display": "显示",
               "sort": -2,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             }
           ],
           "display": "显示",
           "sort": 4,
           "superPermission": false,
-          "settingIndex": 41
+          "settingIndex": 42
         },
         {
           "id": "group-11",
@@ -16239,7 +16539,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 50
+              "settingIndex": 51
             },
             {
               "id": "wechatLaxin",
@@ -16253,7 +16553,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 51
+              "settingIndex": 52
             },
             {
               "id": "acceptFriendConfig",
@@ -16267,13 +16567,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 52
+              "settingIndex": 53
             }
           ],
           "display": "显示",
           "sort": 3,
           "superPermission": false,
-          "settingIndex": 49
+          "settingIndex": 50
         },
         {
           "id": "group-12",
@@ -16292,7 +16592,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 54
+              "settingIndex": 55
             },
             {
               "id": "aiEntModelConfig",
@@ -16306,7 +16606,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 55
+              "settingIndex": 56
             },
             {
               "id": "asrLexicon",
@@ -16320,7 +16620,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 56
+              "settingIndex": 57
             },
             {
               "id": "aiChatQuality",
@@ -16334,13 +16634,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 57
+              "settingIndex": 58
             }
           ],
           "display": "显示",
           "sort": 2,
           "superPermission": false,
-          "settingIndex": 53
+          "settingIndex": 54
         },
         {
           "id": "group-13",
@@ -16359,7 +16659,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 59
+              "settingIndex": 60
             },
             {
               "id": "menu",
@@ -16373,7 +16673,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 60
+              "settingIndex": 61
             },
             {
               "id": "labels",
@@ -16387,7 +16687,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 61
+              "settingIndex": 62
             },
             {
               "id": "setting",
@@ -16401,7 +16701,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 62
+              "settingIndex": 63
             },
             {
               "id": "labelsManage",
@@ -16415,13 +16715,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 63
+              "settingIndex": 64
             }
           ],
           "display": "显示",
           "sort": 1,
           "superPermission": false,
-          "settingIndex": 58
+          "settingIndex": 59
         }
       ],
       "settings": [
@@ -16692,6 +16992,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "群邀请提及率",
           "display": "显示",
           "sort": 0,
@@ -16881,7 +17188,8 @@
         "content": "implemented-local"
       },
       "navigationCapturedAt": "2026-09-18T15:08:34.170Z",
-      "clientVersion": "v2026091803"
+      "clientVersion": "v2026091803",
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
     },
     {
       "id": "yzhb",
@@ -17253,6 +17561,20 @@
               "sort": 0,
               "superPermission": false,
               "settingIndex": 26
+            },
+            {
+              "id": "salesVoiceStats",
+              "route": "salesVoiceStats",
+              "label": "销售变声统计",
+              "platformId": "platform-salesVoiceStats",
+              "platformLabel": "销售变声统计",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><path d=\"M12 3v18M8 7v10M4 10v4M16 7v10M20 10v4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "settingIndex": 27
             }
           ],
           "display": "显示",
@@ -17277,7 +17599,7 @@
               "display": "显示",
               "sort": 2,
               "superPermission": false,
-              "settingIndex": 28
+              "settingIndex": 29
             },
             {
               "id": "salesReceptionQuery",
@@ -17291,7 +17613,7 @@
               "display": "显示",
               "sort": 1,
               "superPermission": false,
-              "settingIndex": 29
+              "settingIndex": 30
             },
             {
               "id": "allocationRecord",
@@ -17305,7 +17627,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 30
+              "settingIndex": 31
             },
             {
               "id": "sensitiveWords",
@@ -17319,7 +17641,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 31
+              "settingIndex": 32
             },
             {
               "id": "sensitiveWordsCustomer",
@@ -17333,7 +17655,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 32
+              "settingIndex": 33
             },
             {
               "id": "aiLabelStats",
@@ -17347,13 +17669,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 33
+              "settingIndex": 34
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 27
+          "settingIndex": 28
         },
         {
           "id": "group-10",
@@ -17372,7 +17694,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 35
+              "settingIndex": 36
             },
             {
               "id": "wechatLaxin",
@@ -17386,7 +17708,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 36
+              "settingIndex": 37
             },
             {
               "id": "acceptFriendConfig",
@@ -17400,13 +17722,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 37
+              "settingIndex": 38
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 34
+          "settingIndex": 35
         },
         {
           "id": "group-11",
@@ -17425,7 +17747,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 39
+              "settingIndex": 40
             },
             {
               "id": "aiEntModelConfig",
@@ -17439,7 +17761,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 40
+              "settingIndex": 41
             },
             {
               "id": "asrLexicon",
@@ -17453,7 +17775,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 41
+              "settingIndex": 42
             },
             {
               "id": "aiChatQuality",
@@ -17467,13 +17789,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 42
+              "settingIndex": 43
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 38
+          "settingIndex": 39
         },
         {
           "id": "group-12",
@@ -17492,7 +17814,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 44
+              "settingIndex": 45
             },
             {
               "id": "menu",
@@ -17506,7 +17828,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 45
+              "settingIndex": 46
             },
             {
               "id": "labels",
@@ -17520,7 +17842,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 46
+              "settingIndex": 47
             },
             {
               "id": "setting",
@@ -17534,7 +17856,7 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 47
+              "settingIndex": 48
             },
             {
               "id": "labelsManage",
@@ -17548,13 +17870,13 @@
               "display": "显示",
               "sort": 0,
               "superPermission": false,
-              "settingIndex": 48
+              "settingIndex": 49
             }
           ],
           "display": "显示",
           "sort": 0,
           "superPermission": false,
-          "settingIndex": 43
+          "settingIndex": 44
         }
       ],
       "settings": [
@@ -17748,6 +18070,13 @@
           "level": 1
         },
         {
+          "label": "销售变声统计",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "level": 1
+        },
+        {
           "label": "聊天管理",
           "display": "显示",
           "sort": 0,
@@ -17907,7 +18236,17 @@
         "displaySettings": "captured",
         "platformAssignment": "unknown",
         "content": "implemented-local"
-      }
+      },
+      "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1"
+    }
+  ],
+  "menuDataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1",
+  "prototypeAdditions": [
+    {
+      "route": "salesVoiceStats",
+      "spec": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+      "source": "approved-static-prototype",
+      "addedAt": "2026-09-20T00:00:00.000Z"
     }
   ]
 }

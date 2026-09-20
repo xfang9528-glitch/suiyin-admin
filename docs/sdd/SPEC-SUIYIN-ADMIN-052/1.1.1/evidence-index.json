@@ -1,0 +1,29 @@
+{
+  "scope": "Public evidence projections; not a current browser visual acceptance",
+  "reports": [
+    {
+      "file": "evidence/1.1.1/voice-integration-check.json",
+      "original_report_sha256": "da2092ac26aa49887eddf02898bb6633b5981d323b7d2fff77baef604b44aa95",
+      "public_report_sha256": "548d1899a81f542b217cfa4a911867e424e47bddf3dc1d883f16fa2568155752",
+      "kind": "non-rendering DOM/calendar integration and CSS declaration parity; not visual acceptance",
+      "total": 31,
+      "passed": 31
+    },
+    {
+      "file": "evidence/1.1.1/file-hashes.json",
+      "original_report_sha256": "daddbeb94f068e7b9d78ad64875624b5f7251cd9e5281ff8346ac4a16ee2479c",
+      "public_report_sha256": "0fb6bafa2eb4162fc869005066c92358461e1d6fc6a56e5cad194cc120cc7348",
+      "kind": "Recorded evidence",
+      "total": null,
+      "passed": null
+    },
+    {
+      "file": "evidence/menu-check.json",
+      "original_report_sha256": "bf07ee0750a4cb1ebb327f52f5dfd63dfbf1c583593cf2bd6b803784da3d90a7",
+      "public_report_sha256": "a2e8957da16cfcd883e2480e3274b547b081410fd68fb2f5c4492eed588a3cee",
+      "kind": "Recorded evidence",
+      "total": null,
+      "passed": 151
+    }
+  ]
+}

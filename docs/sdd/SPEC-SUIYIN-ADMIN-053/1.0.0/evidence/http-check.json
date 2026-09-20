@@ -1,0 +1,195 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "e92aaed87df953237b84c77cf3d0397db6b90c2989d774c97da5c1623d23aad6",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "checkedAt": "2026-09-20T05:29:34.606Z",
+  "total": 37,
+  "passed": 37,
+  "checks": [
+    {
+      "status": 200,
+      "file": "_shell.html",
+      "sha256": "d092b7e753e2bd54eb552d81f6130e010afaa175f70c6ec4d7ec81622cf22e2e"
+    },
+    {
+      "status": 200,
+      "file": "admin-content.html",
+      "sha256": "2ec3cc42e9c7fb22290f055c80d456fe0a3d1680dbfa51446ae7f7f22e500e0a"
+    },
+    {
+      "status": 200,
+      "file": "admin-content.css",
+      "sha256": "7b3ed5cbd9a2c4efffc5369a47d27e8712efdaf5240c455947c75342873cd99b"
+    },
+    {
+      "status": 200,
+      "file": "admin-expanded.css",
+      "sha256": "72ada870fbd0270563d10c50a9ae70fc0de08529a207c4aa41d6997563f39e38"
+    },
+    {
+      "status": 200,
+      "file": "admin-live-ui.css",
+      "sha256": "c617eccba47406ad131c63e52ccf279eaaca2354798ae2256ac107342326d05e"
+    },
+    {
+      "status": 200,
+      "file": "admin-menu-tree.css",
+      "sha256": "6f6aab8ff8d59a91cd32dd7c8268922aedebd32d28a8691c3d8220ff425d8413"
+    },
+    {
+      "status": 200,
+      "file": "admin-sales-voice-stats.css",
+      "sha256": "f989895b5a8d6963298b6c377662ee8d287866f0e6fc8bd4c0fab043b523d5fd"
+    },
+    {
+      "status": 200,
+      "file": "admin-stats-date-picker.css",
+      "sha256": "bb07a4450e5251d3c324890696a675f1df9a83bf7ab6e0b5e9638fb8cf455128"
+    },
+    {
+      "status": 200,
+      "file": "admin-sales-usage.css",
+      "sha256": "228fa5b9ab712b33cc02ed1cb8a7e0c24fa50f013f3751b7c4f2fb4c29763473"
+    },
+    {
+      "status": 200,
+      "file": "data/live-ui-reference.js",
+      "sha256": "e8787a838bd9bc69d494ff9e9383694b605dd1cc4cf14eb0aef1f884872351b7"
+    },
+    {
+      "status": 200,
+      "file": "admin-live-controls.js",
+      "sha256": "c2e5b87286ebd4c42bf7852df08e18fe9be6adfa9955590bc46f951370375321"
+    },
+    {
+      "status": 200,
+      "file": "admin-menu-state.js",
+      "sha256": "171b0a9b1a770f88da0d5a1ecdbbececb4f3719eaa62d2012116ed16814135a3"
+    },
+    {
+      "status": 200,
+      "file": "admin-content.js",
+      "sha256": "7d9a7223516d0701be4f3196f1be078f83cd01e5c7c1e947b2579782a457a573"
+    },
+    {
+      "status": 200,
+      "file": "admin-domain-views.js",
+      "sha256": "e51f1248c8253294556075b39742b85234320a6f7c56c9eb283e98fa5ccbf0b4"
+    },
+    {
+      "status": 200,
+      "file": "admin-chat.js",
+      "sha256": "9a822b94d307eb545d450907f55eb775579482158526977c3982ec8dc96ad81d"
+    },
+    {
+      "status": 200,
+      "file": "admin-extra-flows.js",
+      "sha256": "2dae0bdab514135ab1514512c2b136ef94750e250bf73113e22e52b880eaf930"
+    },
+    {
+      "status": 200,
+      "file": "admin-expanded-flows.js",
+      "sha256": "241c318da54ecd17b677b78367f4f5302a124cde10137d651de75fd61864954c"
+    },
+    {
+      "status": 200,
+      "file": "admin-page-editors.js",
+      "sha256": "0bb54b3fab5b407a58a05d66f2e30056e73697ec7491f6e24684c90d38aca181"
+    },
+    {
+      "status": 200,
+      "file": "admin-menu-tree.js",
+      "sha256": "5dcedbbc43978e6ed66ea896d724b80b03f0120d4926d2165b72b2453387dc32"
+    },
+    {
+      "status": 200,
+      "file": "admin-sales-voice-stats.js",
+      "sha256": "321a18041a3ee78cf629c39a17418822b6e5da96fc8f137904b3cf226f91fe24"
+    },
+    {
+      "status": 200,
+      "file": "admin-stats-date-picker.js",
+      "sha256": "5798834c57e05dea340a815afcb4769e49cf006b3f22552ebb5e732dee36e030"
+    },
+    {
+      "status": 200,
+      "file": "admin-sales-usage.js",
+      "sha256": "e3485ea2e50364a36112de2a325bc24672d5824b56fa2c90967af6e8eafc1b91"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/bzds.json",
+      "sha256": "e195a3ba64cfe8f0bfdfef8205af9d07594bf2ff816abc8c9cbf31ab505a81c9"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/crrm.json",
+      "sha256": "bd75f6a9e38e1bd1e542016ee7385eec24fc63eaa3a21256509c0724c044b867"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/hqjd.json",
+      "sha256": "8e9d0be828d287b6c5ee7c08c0e1efe708160bf5f8f0e57ed5717866280efa75"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/jbfs.json",
+      "sha256": "14239b2554a23cb62a8796da92cbff7b914fd852f7ddadc0ed5e9b80450ea65e"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/mengzhua.json",
+      "sha256": "44514ba4396c6e29459ebfb9c9c6001895d724b45350efefc38bc6604d749574"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/ruixi-kh-xiaowen.json",
+      "sha256": "842e6166f7952cda0a5cdea00cb37a569ce31cce397ef241b2304edf5560e2df"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/rxxz.json",
+      "sha256": "29f21e7101f2261320dfc23aae69f8994b379879e3ce846ca94ae4a19db19a49"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/yestar-bj.json",
+      "sha256": "9240fd19a0f8a345b2b69a5b0902aa19d32a7cdcab17214acb9a86aab38c2c96"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/yestar-gz.json",
+      "sha256": "a231d24a5444a1ff9b65290065aa3ebd6d28003edb0659ce0699966b51acaf63"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/yestar-hz.json",
+      "sha256": "5b174ca3602616badffdd13a4ede78da0813b5d8a6fc3d57816fab50cbcc20b1"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/yestar-jx.json",
+      "sha256": "5f5befbf9cef4e24c7da0c8ed01808fb621e50f239f9b6cdbe034da88eae9709"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/yestar-sz.json",
+      "sha256": "975596b296a5dde6159513bf07153bf51677278330ef17b525f77d6340d787f7"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/yestar.json",
+      "sha256": "37cb8c2a7787251207b9527ec6c635f57e6c7e69277da7cc329aa9951eabd4a9"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/ykjl.json",
+      "sha256": "a0ecbb09aaddeb595a10f11b2d90bd3ac80158e6b6b3086b4b0feb6ff0fc12fb"
+    },
+    {
+      "status": 200,
+      "file": "data/sales-usage/yzhb.json",
+      "sha256": "731aaeeee892f9d2fe2d1e24df54af9a92d14a11fb8b0bf93f83207b629020db"
+    }
+  ]
+}

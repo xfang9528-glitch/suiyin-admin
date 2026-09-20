@@ -1,0 +1,61 @@
+{
+  "scope": "Public evidence projections; not a current browser visual acceptance",
+  "reports": [
+    {
+      "file": "evidence/usage-check.json",
+      "original_report_sha256": "697aa28f05f4c81df33c240baa56dc839073baae706d1e643d1ff1d6d4e7de74",
+      "public_report_sha256": "2b0801d6743a1b8b97336bc5105116887c2331897c9a2955565a2c707d23f7df",
+      "kind": "non-rendering DOM and data integration; not browser visual acceptance",
+      "total": 258,
+      "passed": 258
+    },
+    {
+      "file": "evidence/usage-boundary-check.json",
+      "original_report_sha256": "117b526fa95d27469fd65387bf08951932b6bdb10c0fba1243bd76e2073d252b",
+      "public_report_sha256": "adafa825909936172af5e19095d44dc6edc560a1fa1132e2492c7c899d3a5c4f",
+      "kind": "non-rendering DOM authorization/error boundaries; not browser visual acceptance",
+      "total": 33,
+      "passed": 33
+    },
+    {
+      "file": "evidence/voice-integration-check.json",
+      "original_report_sha256": "da2092ac26aa49887eddf02898bb6633b5981d323b7d2fff77baef604b44aa95",
+      "public_report_sha256": "548d1899a81f542b217cfa4a911867e424e47bddf3dc1d883f16fa2568155752",
+      "kind": "non-rendering DOM/calendar integration and CSS declaration parity; not visual acceptance",
+      "total": 31,
+      "passed": 31
+    },
+    {
+      "file": "evidence/date-picker-check.json",
+      "original_report_sha256": "80db0a84d78fd3e610f724a1bd51ef170a2dea401d22f5be68e274ba65807079",
+      "public_report_sha256": "a691b00dc47487312780649e6684963b99179090673a5a98e65cc84d3e73a660",
+      "kind": "Recorded evidence",
+      "total": null,
+      "passed": null
+    },
+    {
+      "file": "evidence/http-check.json",
+      "original_report_sha256": "e92aaed87df953237b84c77cf3d0397db6b90c2989d774c97da5c1623d23aad6",
+      "public_report_sha256": "43b6f3179ca3a06731b45aa32802c01bb77eb0dc65a1cd56efd99be82a7705f0",
+      "kind": "Recorded evidence",
+      "total": 37,
+      "passed": 37
+    },
+    {
+      "file": "evidence/usage-data-check.json",
+      "original_report_sha256": "d998f9bd7941ef47d7812a279fb705d6a69b4f6d8968bc6e14db432a92ce29a6",
+      "public_report_sha256": "e29e3f6a41825002d75f26e8abaaf2efb4e8567216804cc0afb5f8cffe48589a",
+      "kind": "Recorded evidence",
+      "total": null,
+      "passed": null
+    },
+    {
+      "file": "evidence/file-hashes.json",
+      "original_report_sha256": "daddbeb94f068e7b9d78ad64875624b5f7251cd9e5281ff8346ac4a16ee2479c",
+      "public_report_sha256": "0fb6bafa2eb4162fc869005066c92358461e1d6fc6a56e5cad194cc120cc7348",
+      "kind": "Recorded evidence",
+      "total": null,
+      "passed": null
+    }
+  ]
+}

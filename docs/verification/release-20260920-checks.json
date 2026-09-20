@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-09-20T06:20:18.832Z",
+  "kind": "Static release candidate verification; no Chrome pixel acceptance",
+  "coverage": {
+    "tenants": 15,
+    "routes": 84,
+    "tenantRoutes": 752
+  },
+  "inline": {
+    "passed": 179,
+    "total": 179,
+    "representativeEntries": 144,
+    "jsonFiles": 63,
+    "assets": 5,
+    "externalNetworkRequests": 0,
+    "sha256": "c50cb7b530b92f5cdeefa35759997067ecf9613f2a8129a424012214360b592e"
+  },
+  "publicData": {
+    "pages": 752,
+    "rows": 11261,
+    "identityCells": 2405,
+    "secretFields": 36,
+    "failures": 0
+  },
+  "browser": {
+    "status": "blocked",
+    "reason": "nodeRepl.fetch request failed",
+    "visualAcceptance": false
+  }
+}

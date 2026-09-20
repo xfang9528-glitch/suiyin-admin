@@ -1,0 +1,25 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "bf07ee0750a4cb1ebb327f52f5dfd63dfbf1c583593cf2bd6b803784da3d90a7",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "passed": 151,
+  "failed": 0,
+  "tenants": [
+    "yestar-sz",
+    "jbfs",
+    "mengzhua",
+    "bzds",
+    "crrm",
+    "hqjd",
+    "ykjl",
+    "ruixi-kh-xiaowen",
+    "rxxz",
+    "yestar",
+    "yestar-bj",
+    "yestar-gz",
+    "yestar-hz",
+    "yestar-jx",
+    "yzhb"
+  ],
+  "checks": 151
+}

@@ -14699,6 +14699,30 @@
     "expandedForms": {},
     "publicDataPolicy": "public-demo-identities-v1"
   },
+  "salesVoiceStats": {
+    "tenant": "yestar-hz",
+    "route": "salesVoiceStats",
+    "label": "销售变声统计",
+    "source": "合成演示数据 · SPEC-SUIYIN-ADMIN-052@1.0.0",
+    "capturedAt": "2026-09-20T00:00:00.000Z",
+    "state": "mock",
+    "dataRevision": "2026-09-20-sales-voice-stats-v1-public-demo-identities-v1",
+    "forms": [],
+    "inputs": [],
+    "tables": [],
+    "buttons": [
+      "今天",
+      "昨天",
+      "前天",
+      "搜索",
+      "重置",
+      "导出"
+    ],
+    "tabs": [],
+    "text": "销售变声统计",
+    "publicDataPolicy": "public-demo-identities-v1",
+    "spec": "SPEC-SUIYIN-ADMIN-052@1.0.0"
+  },
   "groupInviteStats": {
     "tenant": "yestar-hz",
     "route": "groupInviteStats",
@@ -20224,7 +20248,7 @@
     "schemaSource": "https://yestar-hz.wecarepet.com/admin/menu",
     "capturedAt": "2026-09-18T15:08:28.998Z",
     "state": "captured",
-    "dataRevision": "2026-09-18-menu-tree-v1-public-demo-identities-v1",
+    "dataRevision": "2026-09-20-menu-sales-voice-stats-v1-public-demo-identities-v1",
     "forms": [],
     "inputs": [],
     "tables": [
@@ -21075,6 +21099,29 @@
             }
           },
           {
+            "id": "0-salesVoiceStats",
+            "cells": [
+              "销售变声统计",
+              "否",
+              "显示",
+              "0",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "salesVoiceStats",
+              "parentKey": "group-9"
+            },
+            "source": "SPEC-SUIYIN-ADMIN-052@1.0.0"
+          },
+          {
             "id": "0-38",
             "cells": [
               "群邀请提及率",
@@ -21763,10 +21810,17 @@
       "全部记录"
     ],
     "tabs": [],
-    "text": "菜单管理\n菜单名称\t超级权限\t菜单状态\t排序\t\t操作\n销售管理\t否\t显示\t14\t\t编辑 删除 记录\n专家管理\t否\t隐藏\t13\t\t编辑 删除 记录\n专家信息\t否\t显示\t0\t\t编辑 删除 记录\n医生管理\t否\t显示\t12\t\t编辑 删除 记录\n医生列表\t否\t显示\t5\t\t编辑 删除 记录\n科室管理\t否\t显示\t4\t\t编辑 删除 记录\n院区管理\t否\t显示\t3\t\t编辑 删除 记录\n预约设置\t否\t显示\t2\t\t编辑 删除 记录\n预约记录\t否\t显示\t1\t\t编辑 删除 记录\n项目管理\t否\t显示\t0\t\t编辑 删除 记录\n好友管理\t否\t显示\t11\t\t编辑 删除 记录\n好友列表\t否\t显示\t0\t\t编辑 删除 记录\n群列表\t否\t显示\t0\t\t编辑 删除 记录\n添加好友\t否\t显示\t0\t\t编辑 删除 记录\n删退审核\t否\t显示\t0\t\t编辑 删除 记录\n好友标签\t否\t显示\t0\t\t编辑 删除 记录\n话术管理\t否\t显示\t10\t\t编辑 删除 记录\n商品管理\t否\t隐藏\t9\t\t编辑 删除 记录\n群发管理\t否\t显示\t8\t\t编辑 删除 记录\nPYQ管理\t否\t显示\t7\t\t编辑 删除 记录\n分佣管理\t否\t隐藏\t6\t\t编辑 删除 记录\n分佣明细\t否\t显示\t0\t\t编辑 删除 记录\n分佣合计\t否\t显示\t0\t\t编辑 删除 记录\n充值确认\t否\t显示\t0\t\t编辑 删除 记录\n预付确认\t否\t显示\t0\t\t编辑 删除 记录\n收入确认\t否\t显示\t0\t\t编辑 删除 记录\n数据展示\t否\t显示\t5\t\t编辑 删除 记录\n拉新记录\t否\t显示\t0\t\t编辑 删除 记录\n销售统计\t否\t显示\t0\t\t编辑 删除 记录\n回访统计\t否\t显示\t0\t\t编辑 删除 记录\n销售排名\t否\t显示\t0\t\t编辑 删除 记录\n上班记录\t否\t显示\t0\t\t编辑 删除 记录\n消息占比统计\t否\t显示\t0\t\t编辑 删除 记录\n数据查看日志\t否\t显示\t0\t\t编辑 删除 记录\n留存统计\t否\t显示\t0\t\t编辑 删除 记录\n群发统计\t否\t显示\t0\t\t编辑 删除 记录\n朋友圈统计\t否\t显示\t0\t\t编辑 删除 记录\n销售使用统计\t否\t显示\t0\t\t编辑 删除 记录\n群邀请提及率\t否\t显示\t0\t\t编辑 删除 记录\n话术统计\t否\t显示\t0\t\t编辑 删除 记录\nAI辅助统计\t否\t显示\t0\t\t编辑 删除 记录\n聊天管理\t否\t显示\t4\t\t编辑 删除 记录\n全部聊天\t否\t显示\t2\t\t编辑 删除 记录\n销售接待查询\t否\t显示\t1\t\t编辑 删除 记录\n分配记录\t否\t显示\t0\t\t编辑 删除 记录\n销售词控\t否\t显示\t0\t\t编辑 删除 记录\n客户词控\t否\t显示\t0\t\t编辑 删除 记录\n智能分析\t否\t显示\t-1\t\t编辑 删除 记录\n备注需求词库\t否\t显示\t-2\t\t编辑 删除 记录\n微信管理\t否\t显示\t3\t\t编辑 删除 记录\n帐号状态\t否\t显示\t0\t\t编辑 删除 记录\n拉新文案\t否\t显示\t0\t\t编辑 删除 记录\n通友管理\t否\t显示\t0\t\t编辑 删除 记录\nAI 管理\t否\t显示\t2\t\t编辑 删除 记录\nAI提示词库\t否\t显示\t0\t\t编辑 删除 记录\nAI模型管理\t否\t显示\t0\t\t编辑 删除 记录\n语音纠错词库\t否\t显示\t0\t\t编辑 删除 记录\n沟通进度分析\t否\t显示\t0\t\t编辑 删除 记录\n系统管理\t否\t显示\t1\t\t编辑 删除 记录\n角色管理\t否\t显示\t0\t\t编辑 删除 记录\n菜单管理\t否\t显示\t0\t\t编辑 删除 记录\n标签模板管理\t否\t显示\t0\t\t编辑 删除 记录\n系统设置\t否\t显示\t0\t\t编辑 删除 记录\n标签管理\t否\t显示\t0\t\t编辑 删除 记录\n案例库管理\t否\t显示\t0\t\t编辑 删除 记录\n医生管理\t否\t显示\t0\t\t编辑 删除 记录\n案例管理\t否\t显示\t0\t\t编辑 删除 记录\n案例小程序\t否\t显示\t0\t\t编辑 删除 记录\n分享记录\t否\t显示\t0\t\t编辑 删除 记录",
+    "text": "菜单管理\n菜单名称\t超级权限\t菜单状态\t排序\t\t操作\n销售管理\t否\t显示\t14\t\t编辑 删除 记录\n专家管理\t否\t隐藏\t13\t\t编辑 删除 记录\n专家信息\t否\t显示\t0\t\t编辑 删除 记录\n医生管理\t否\t显示\t12\t\t编辑 删除 记录\n医生列表\t否\t显示\t5\t\t编辑 删除 记录\n科室管理\t否\t显示\t4\t\t编辑 删除 记录\n院区管理\t否\t显示\t3\t\t编辑 删除 记录\n预约设置\t否\t显示\t2\t\t编辑 删除 记录\n预约记录\t否\t显示\t1\t\t编辑 删除 记录\n项目管理\t否\t显示\t0\t\t编辑 删除 记录\n好友管理\t否\t显示\t11\t\t编辑 删除 记录\n好友列表\t否\t显示\t0\t\t编辑 删除 记录\n群列表\t否\t显示\t0\t\t编辑 删除 记录\n添加好友\t否\t显示\t0\t\t编辑 删除 记录\n删退审核\t否\t显示\t0\t\t编辑 删除 记录\n好友标签\t否\t显示\t0\t\t编辑 删除 记录\n话术管理\t否\t显示\t10\t\t编辑 删除 记录\n商品管理\t否\t隐藏\t9\t\t编辑 删除 记录\n群发管理\t否\t显示\t8\t\t编辑 删除 记录\nPYQ管理\t否\t显示\t7\t\t编辑 删除 记录\n分佣管理\t否\t隐藏\t6\t\t编辑 删除 记录\n分佣明细\t否\t显示\t0\t\t编辑 删除 记录\n分佣合计\t否\t显示\t0\t\t编辑 删除 记录\n充值确认\t否\t显示\t0\t\t编辑 删除 记录\n预付确认\t否\t显示\t0\t\t编辑 删除 记录\n收入确认\t否\t显示\t0\t\t编辑 删除 记录\n数据展示\t否\t显示\t5\t\t编辑 删除 记录\n拉新记录\t否\t显示\t0\t\t编辑 删除 记录\n销售统计\t否\t显示\t0\t\t编辑 删除 记录\n回访统计\t否\t显示\t0\t\t编辑 删除 记录\n销售排名\t否\t显示\t0\t\t编辑 删除 记录\n上班记录\t否\t显示\t0\t\t编辑 删除 记录\n消息占比统计\t否\t显示\t0\t\t编辑 删除 记录\n数据查看日志\t否\t显示\t0\t\t编辑 删除 记录\n留存统计\t否\t显示\t0\t\t编辑 删除 记录\n群发统计\t否\t显示\t0\t\t编辑 删除 记录\n朋友圈统计\t否\t显示\t0\t\t编辑 删除 记录\n销售使用统计\t否\t显示\t0\t\t编辑 删除 记录\n销售变声统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群邀请提及率\t否\t显示\t0\t\t编辑 删除 记录\n话术统计\t否\t显示\t0\t\t编辑 删除 记录\nAI辅助统计\t否\t显示\t0\t\t编辑 删除 记录\n聊天管理\t否\t显示\t4\t\t编辑 删除 记录\n全部聊天\t否\t显示\t2\t\t编辑 删除 记录\n销售接待查询\t否\t显示\t1\t\t编辑 删除 记录\n分配记录\t否\t显示\t0\t\t编辑 删除 记录\n销售词控\t否\t显示\t0\t\t编辑 删除 记录\n客户词控\t否\t显示\t0\t\t编辑 删除 记录\n智能分析\t否\t显示\t-1\t\t编辑 删除 记录\n备注需求词库\t否\t显示\t-2\t\t编辑 删除 记录\n微信管理\t否\t显示\t3\t\t编辑 删除 记录\n帐号状态\t否\t显示\t0\t\t编辑 删除 记录\n拉新文案\t否\t显示\t0\t\t编辑 删除 记录\n通友管理\t否\t显示\t0\t\t编辑 删除 记录\nAI 管理\t否\t显示\t2\t\t编辑 删除 记录\nAI提示词库\t否\t显示\t0\t\t编辑 删除 记录\nAI模型管理\t否\t显示\t0\t\t编辑 删除 记录\n语音纠错词库\t否\t显示\t0\t\t编辑 删除 记录\n沟通进度分析\t否\t显示\t0\t\t编辑 删除 记录\n系统管理\t否\t显示\t1\t\t编辑 删除 记录\n角色管理\t否\t显示\t0\t\t编辑 删除 记录\n菜单管理\t否\t显示\t0\t\t编辑 删除 记录\n标签模板管理\t否\t显示\t0\t\t编辑 删除 记录\n系统设置\t否\t显示\t0\t\t编辑 删除 记录\n标签管理\t否\t显示\t0\t\t编辑 删除 记录\n案例库管理\t否\t显示\t0\t\t编辑 删除 记录\n医生管理\t否\t显示\t0\t\t编辑 删除 记录\n案例管理\t否\t显示\t0\t\t编辑 删除 记录\n案例小程序\t否\t显示\t0\t\t编辑 删除 记录\n分享记录\t否\t显示\t0\t\t编辑 删除 记录",
     "expandedForms": {},
     "layout": "menu-tree",
-    "publicDataPolicy": "public-demo-identities-v1"
+    "publicDataPolicy": "public-demo-identities-v1",
+    "prototypeAdditions": [
+      {
+        "route": "salesVoiceStats",
+        "spec": "SPEC-SUIYIN-ADMIN-052@1.0.0",
+        "source": "approved-static-prototype"
+      }
+    ]
   },
   "labels": {
     "tenant": "yestar-hz",

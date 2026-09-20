@@ -1,92 +1,139 @@
-# 管理后台内容与菜单交互流程
+# 管理后台交互流程
 
-行为合同：[SPEC-SUIYIN-ADMIN-051@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md)。以下全部为静态原型中的操作。
+更新：2026-09-20。静态原型共 15 租户、752 入口、84 路由；合同为 051@1.1.0、052@1.1.1、053/054/055/056@1.0.0，见 [合同入口](../README.md)。以下流程均不写真实后台。
 
-## 入口、租户与内容
+## 入口、租户与证据
 
 ```mermaid
 flowchart TD
-    Start[打开 Shell 或离线单文件] --> Tenant{租户在批准范围内}
-    Tenant -->|否| Denied[提示选择保留租户]
-    Tenant -->|是| Config[读取本租户菜单与本地覆盖]
-    Config --> Visible[按显示状态生成侧栏]
-    Visible --> Route[按路由身份打开内容页签]
-    Route --> Load{本地样本读取}
-    Load -->|失败| Retry[说明读取失败并提供重试]
+    Start[打开 Shell 或生成的单文件] --> Tenant{登记租户且页面可见}
+    Tenant -->|否| Denied[提示选择租户或无查看权限]
+    Tenant -->|是| Config[读取本租户菜单和本地覆盖]
+    Config --> Route[按稳定路由打开领域页面]
+    Route --> Load{静态样本读取}
+    Load -->|失败| Retry[说明错误并提供重试]
     Retry --> Route
-    Load -->|成功| Page[对应领域页面和来源标识]
-    Page --> Switch[选择其他保留租户]
-    Switch --> New[新开带目标租户的本地页面]
-    Switch --> Blocked[弹页被阻止时提供目标链接]
-    New --> Config
+    Load -->|成功| Source{样本性质}
+    Source --> Captured[本租户采样 标注采集时间与状态]
+    Source --> Reference[参考样本 标注参考租户]
+    Source --> Mock[合成演示 明确不是业务实况]
+    Source --> Missing[未采集 不填零或借用人员]
+    Captured --> Page[对应领域结构及可见来源说明]
+    Reference --> Page
+    Mock --> Page
+    Missing --> Page
+    Page --> Switch[切换租户 新开对应本地页面]
+    Switch --> Config
 ```
 
-## 本地表单与查询
+原始快照中的加载中不能判成确认空态。新窗口被浏览器阻止时提供目标链接。参考内容不授权跨租户借入实体选项。
+
+## 查询与本地编辑
 
 ```mermaid
 flowchart TD
-    List[页面及样本] --> Query[输入筛选并查询]
-    Query --> Valid{条件合法}
-    Valid -->|否| Error[显示字段错误并保留结果]
-    Valid -->|是| Result{匹配样本}
-    Result -->|无| Empty[筛选无结果 可重置]
-    Result -->|有| List
-    List --> Edit[打开对应表单或整页编辑]
-    Edit --> Options[展开实际选项 保留禁用状态]
-    Options --> Submit{确认或取消}
-    Submit -->|取消| List
-    Submit -->|确认| Check{必填与数值校验}
-    Check -->|失败| Edit
-    Check -->|通过| Save[仅写当前租户与路由的本地状态]
-    Save --> List
+    Page[按来源显示字段 控件和动作] --> Draft[修改筛选草稿]
+    Draft --> Calendar[日期输入或日历选择]
+    Calendar --> Cancel[Escape或外部点击 取消未完成选择]
+    Cancel --> Draft
+    Calendar --> Submit[按页面原动作搜索或执行筛选]
+    Submit --> Valid{条件合法}
+    Valid -->|否| Error[提示错误 保留上次结果]
+    Valid -->|是| Coverage{有适用样本}
+    Coverage -->|缺快照| NoSnapshot[说明所选范围没有样本]
+    Coverage -->|有| Result[筛选后显示结果或真实空态]
+    Result --> Tools[仅显示来源要求的分页 排序和选择]
+    Page --> Edit[已采集表单或明确标记的本地演示表单]
+    Edit --> Choice{取消或确认}
+    Choice -->|取消| Page
+    Choice -->|确认且校验通过| Save[只保存当前租户及路由的本地状态]
+    Save --> Page
 ```
 
-## 菜单管理
+## 数据展示与菜单管理同步
 
 ```mermaid
 flowchart TD
-    Tree[完整菜单库存树 无通用分页] --> Expand[展开或收起子菜单]
-    Tree --> Edit[修改菜单 名称只读]
-    Edit --> Fields[状态 权限 排序 可负数]
-    Fields --> Decision{确认或取消}
+    New[数据展示新增二级菜单 DR-095] --> Register[同次登记全部适用租户菜单库存]
+    Register --> Platform[存在平台定义时同步定义]
+    Platform --> Identity[核对稳定身份 名称 路由 父级]
+    Identity --> Existing[继承父级 显示 排序 权限边界]
+    Existing --> Tree[完整菜单专用树]
+    Tree --> Edit[编辑显示和排序 或查看记录]
+    Edit --> Decision{取消或确认}
     Decision -->|取消| Tree
-    Decision -->|确认| Persist[保存本地菜单配置和编辑记录]
-    Persist --> Nav[重算本租户可见侧栏]
-    Nav --> Tree
-    Tree --> Records[查看单条或全部编辑记录]
-    Tree --> Delete[删除警告含明确对象]
-    Delete --> D{确认或取消}
-    D -->|取消| Tree
-    D -->|确认| LocalDelete[仅移除本地对象及对应子项]
-    LocalDelete --> Nav
+    Decision -->|确认| Local[保存本租户本地配置]
+    Local --> Nav[同租户侧栏联动]
+    Nav --> Check[入口可打开且菜单管理配置可读回]
+    Tree --> Hidden[隐藏项仍留库存 可恢复]
 ```
 
-## 平台菜单与分配演示
+平台父级级联阻止自身或后代形成循环；本地分配先展示差异和影响租户，再确认。删除指明对象与影响范围，取消不修改；不借此开放隐藏父菜单或改变真实权限。
+
+## 销售变声统计
 
 ```mermaid
 flowchart TD
-    Platform[平台菜单树] --> Edit[新增或编辑目录属性]
-    Edit --> Parent[展开父级级联]
-    Parent --> Cycle{自身或后代节点}
-    Cycle -->|是| Prevent[禁止形成循环]
-    Cycle -->|否| Save[保存本地目录并保持树顺序]
-    Platform --> Action[同步 复制 增量 或删减]
-    Action --> Targets[选择本地目标租户及菜单]
-    Targets --> Preview[查看差异和影响范围]
-    Preview --> Confirm{确认}
-    Confirm -->|否| Platform
-    Confirm -->|是| Apply[仅更新目标租户本地配置]
-    Apply --> Nav[侧栏与菜单页读回]
+    Entry[所有登记租户 销售变声统计] --> Permission{菜单及父级允许}
+    Permission -->|否| Denied[无权限说明]
+    Permission -->|是| Range[直接起止日期 今天昨天前天 部门]
+    Range --> Search[校验后搜索]
+    Search --> Tenant[仅当前租户授权范围的合成事件]
+    Tenant --> Dedup[按独立任务选首次成功记录]
+    Dedup --> Exclude[失败 试听 取消 重试和重复回调不另计]
+    Exclude --> Time[按首次成功上海自然日筛选]
+    Time --> Aggregate[发起销售稳定身份及事件部门汇总]
+    Aggregate --> Result[次数表 零次数或无匹配分别表达]
+    Result --> Sort[次数数值排序及分页]
+    Result --> Export[导出全部筛选结果]
 ```
 
-## 证据判定
+多工作账号归属同一销售，消息发送是否成功不改变计数。读取错误显示重试，不能将失败显示为全员 0。
+
+## 销售使用统计
+
+```mermaid
+flowchart TD
+    Entry[销售使用统计] --> Model{本租户专用快照}
+    Model -->|11租户未采集| Missing[明确未采集 无外租户回退]
+    Model -->|4租户已采集| Draft[快照日期 单日或范围 本租户样本部门]
+    Draft --> Search[搜索提交]
+    Search --> Complete{日期有完整快照}
+    Complete -->|否| NoSnapshot[所选日期尚无本地样本]
+    Complete -->|是| Groups[销售组及部门明细]
+    Groups --> Sort[按销售组汇总排序 组内不拆散]
+    Sort --> Table[部门明细 小计 全表合计]
+    Table --> Summary[使用人数 消息与好友合计]
+    Table --> CSV[仅导出筛选明细 不重复小计总计]
+```
+
+萌爪采集为空与未采集不同。此页无通用分页、汇总卡或列设置；变声页保留其已批准分页，不机械照抄。
+
+## 领域页面与缺证据状态
+
+```mermaid
+flowchart TD
+    Route[选择领域路由] --> Chat[聊天按各自初态 销售接待先查询]
+    Route --> Config[配置按原表单与确定操作]
+    Route --> Dashboard[销售统计12指标及4排行]
+    Dashboard --> ChartGap[8处图表缺明细 保留区域并说明]
+    Route --> Friends[好友页恢复已采集入口和独立搜索]
+    Friends --> ExpandGap[未采集展开或账号选项 明确提示]
+    Route --> Scripts[话术搜索按按钮或Enter提交]
+    Scripts --> TreeGap[层级不明 不伪造原站树]
+```
+
+## 验收分层
 
 ```mermaid
 flowchart LR
-    Data[737 组合数据和静态检查] --> DataResult[证明字段 数据 路由与边界]
-    Flow[54 菜单及22流程检查] --> FlowResult[证明指定本地操作]
-    Visual[同租户同视口人工及几何对照] --> VisualResult[证明已观察页面的布局]
-    DataResult --> Limits[分别记录范围与未核对项]
-    FlowResult --> Limits
-    VisualResult --> Limits
+    DOM[752入口DOM与租户来源检查] --> Structure[证明加载和指定结构]
+    Flows[专项操作与数据断言] --> Behavior[证明对应静态交互和规则]
+    Visual[同租户同视口真实浏览器对照] --> Pixels[仅证明实际观察页面视觉]
+    Structure --> Report[分别报告范围 缺口及证据日期]
+    Behavior --> Report
+    Pixels --> Report
+    Remote[提交标签远端与Pages回执] --> Delivery[证明发布版本 不证明视觉全量一致]
 ```
+
+2026-09-20 Chrome 连接失败，因此当前新增修复尚缺最新实站视觉复验；不能用脚本通过代替该证据。

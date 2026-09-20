@@ -1,0 +1,160 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "3a6e123bb6b2d17e888aa6cb74816c1954738503784860b42c68de487b2db9b3",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "kind": "actual local DOM/state/CSS declarations, not browser pixel validation",
+  "checkedAt": "2026-09-20T06:01:48.713Z",
+  "total": 37,
+  "passed": 37,
+  "failed": [],
+  "checks": [
+    {
+      "name": "approvalList loads",
+      "pass": true
+    },
+    {
+      "name": "approvalList 批量审核 initially disabled",
+      "pass": true
+    },
+    {
+      "name": "approvalList 批量处理删除 initially disabled",
+      "pass": true
+    },
+    {
+      "name": "approvalList 批量审核 enables for selected record",
+      "pass": true
+    },
+    {
+      "name": "approvalList 批量处理删除 enables for selected record",
+      "pass": true
+    },
+    {
+      "name": "approvalList 批量审核 disables after clear",
+      "pass": true
+    },
+    {
+      "name": "approvalList 批量处理删除 disables after clear",
+      "pass": true
+    },
+    {
+      "name": "yxCustomerList loads",
+      "pass": true
+    },
+    {
+      "name": "yxCustomerList 批量删除 initially disabled",
+      "pass": true
+    },
+    {
+      "name": "yxCustomerList 批量分组 initially disabled",
+      "pass": true
+    },
+    {
+      "name": "yxCustomerList 批量删除 enables for selected record",
+      "pass": true
+    },
+    {
+      "name": "yxCustomerList 批量分组 enables for selected record",
+      "pass": true
+    },
+    {
+      "name": "yxCustomerList 批量删除 disables after clear",
+      "pass": true
+    },
+    {
+      "name": "yxCustomerList 批量分组 disables after clear",
+      "pass": true
+    },
+    {
+      "name": "incomeConfirm loads",
+      "pass": true
+    },
+    {
+      "name": "incomeConfirm 批量设置分佣 initially disabled",
+      "pass": true
+    },
+    {
+      "name": "incomeConfirm 批量设置分佣 enables for selected record",
+      "pass": true
+    },
+    {
+      "name": "incomeConfirm 批量设置分佣 disables after clear",
+      "pass": true
+    },
+    {
+      "name": "asrLexicon loads",
+      "pass": true
+    },
+    {
+      "name": "asrLexicon 批量修改大类 initially disabled",
+      "pass": true
+    },
+    {
+      "name": "asrLexicon 批量删除 initially disabled",
+      "pass": true
+    },
+    {
+      "name": "asrLexicon 批量修改大类 enables for selected record",
+      "pass": true
+    },
+    {
+      "name": "asrLexicon 批量删除 enables for selected record",
+      "pass": true
+    },
+    {
+      "name": "asrLexicon 批量修改大类 disables after clear",
+      "pass": true
+    },
+    {
+      "name": "asrLexicon 批量删除 disables after clear",
+      "pass": true
+    },
+    {
+      "name": "export disabled with empty local sample",
+      "pass": true
+    },
+    {
+      "name": "revisitStats source-specific button color",
+      "pass": true
+    },
+    {
+      "name": "wechatStatus source-specific button color",
+      "pass": true
+    },
+    {
+      "name": "crrm dashboard dates match visible snapshot before search",
+      "pass": true
+    },
+    {
+      "name": "crrm default search preserves complete snapshot",
+      "pass": true
+    },
+    {
+      "name": "crrm reset preserves snapshot date defaults",
+      "pass": true
+    },
+    {
+      "name": "yestar dashboard dates match visible snapshot before search",
+      "pass": true
+    },
+    {
+      "name": "yestar default search preserves complete snapshot",
+      "pass": true
+    },
+    {
+      "name": "yestar reset preserves snapshot date defaults",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz dashboard dates match visible snapshot before search",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz default search preserves complete snapshot",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz reset preserves snapshot date defaults",
+      "pass": true
+    }
+  ]
+}

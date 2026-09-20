@@ -16,7 +16,7 @@ window.AdminMenu=(()=>{
   if(kind==='audit'){dialog.classList.add('menu-audit-dialog');dialog.style.setProperty('--dialog-width',size.innerWidth*.8+'px');dialog.style.setProperty('--dialog-left',size.innerWidth*.1+'px');dialog.style.setProperty('--dialog-top','105.7px');dialog.style.height=Math.max(280,size.innerHeight-211.4)+'px';}
   dialog.addEventListener('close',()=>{dialog.style.height='';dialog.classList.remove('menu-delete-dialog','menu-audit-dialog');if(frame){A.$('app').style.cssText='';document.body.classList.remove('menu-modal-open');frame.classList.remove('menu-dialog-layer');}},{once:true});
  }
- function override(){try{return JSON.parse(localStorage.getItem(A.navStorageKey(A.tenant))||'null');}catch{return null;}}
+ function override(){return window.AdminMenuState.read(A.tenantInfo,A.navStorageKey(A.tenant));}
  function audit(row,field,before,after,type='UPDATE'){
   if(String(before)===String(after))return;
   (A.model.auditRecords??=[]).unshift({rowId:row.id,object:get(row,'菜单名称'),time:new Date().toLocaleString('sv-SE'),actor:'房昕',type,field,before:String(before),after:String(after),source:'local'});

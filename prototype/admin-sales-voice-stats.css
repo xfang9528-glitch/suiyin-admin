@@ -1,0 +1,20 @@
+/* SPEC-SUIYIN-ADMIN-052@1.1.0: use salesMessageUsage's shared admin styling. */
+/* Button colors, type, inputs, quick dates, rows and pagination inherit admin-live-ui.css. */
+.voice-date-inputs{display:flex;align-items:center;gap:10px}
+.voice-stats-page .voice-date-inputs input{width:150px}
+.voice-date-inputs input:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.voice-date-inputs input[aria-invalid=true]{border-color:var(--red)}
+.voice-note{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 16px;color:var(--muted);font-size:12px;border:1px solid var(--line);border-bottom:0}
+.voice-stats-page .voice-note button{font-size:12px}
+.voice-results{position:relative}
+.admin-content .voice-table-wrap{max-height:calc(100vh - 212px)}
+.admin-content .voice-table-wrap table{width:100%;min-width:660px;table-layout:fixed}
+.admin-content .voice-table-wrap tfoot td{background:var(--soft);font-weight:500;position:sticky;bottom:0;border-top:1px solid var(--line)}
+.voice-source{font-size:12px;color:var(--muted);margin:10px 2px}
+.voice-error{text-align:center;padding:55px 24px;border:1px solid var(--line);color:var(--muted)}
+.voice-error strong{font-size:15px;font-weight:400;color:var(--ink)}
+.voice-error p{margin:10px 0 18px;font-size:13px}
+.voice-loading{position:absolute;inset:0;z-index:4;background:rgb(255 255 255 / 86%);display:grid;place-items:center;color:var(--blue);min-height:160px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:950px){.admin-content .voice-table-wrap{max-height:calc(100vh - 250px)}}
+@media(max-width:600px){.voice-stats-page .voice-date-inputs input{width:130px}.voice-note{padding:10px}.voice-source{padding:0 8px}.admin-content .voice-table-wrap{max-height:calc(100vh - 300px)}}

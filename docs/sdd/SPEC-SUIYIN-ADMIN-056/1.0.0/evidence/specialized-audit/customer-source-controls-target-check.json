@@ -1,0 +1,635 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "68f093ca686e7a1aab2ba084610bdd4137b2f8a7e0d4593604e94abe602e3d28",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "kind": "DOM and local interaction, not pixel acceptance",
+  "total": 156,
+  "passed": 156,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "yestar-sz/yxCustomerList initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList expand reset execute order",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList advanced state explicitly uncollected",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList separate keyword row follows filter actions",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList keyword is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList submitted keyword filters data",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList reset retains expand and one keyword row",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement initializes",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement 来源信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement 好友信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement 用户信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement 购买信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement unknown expansion does not fabricate fields/data",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement initializes",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement 来源信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement 好友信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement 用户信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement 购买信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement unknown expansion does not fabricate fields/data",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement initializes",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement 来源信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement 好友信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement 用户信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement 购买信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement unknown expansion does not fabricate fields/data",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement initializes",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement 来源信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement 好友信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement 用户信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement 购买信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement unknown expansion does not fabricate fields/data",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement initializes",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement 来源信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement 好友信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement 用户信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement 购买信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement unknown expansion does not fabricate fields/data",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement initializes",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement 来源信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement 好友信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement 用户信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement 购买信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement unknown expansion does not fabricate fields/data",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement initializes",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement 来源信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement 好友信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement 用户信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement 购买信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement unknown expansion does not fabricate fields/data",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement initializes",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement 来源信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement 好友信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement 用户信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement 购买信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement unknown expansion does not fabricate fields/data",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList expand reset execute order",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList advanced state explicitly uncollected",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList separate keyword row follows filter actions",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList keyword is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList submitted keyword filters data",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList reset retains expand and one keyword row",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList expand reset execute order",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList advanced state explicitly uncollected",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList separate keyword row follows filter actions",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList keyword is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList submitted keyword filters data",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList reset retains expand and one keyword row",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList expand reset execute order",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList advanced state explicitly uncollected",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList separate keyword row follows filter actions",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList keyword is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList submitted keyword filters data",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList reset retains expand and one keyword row",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList expand reset execute order",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList advanced state explicitly uncollected",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList separate keyword row follows filter actions",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList keyword is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList submitted keyword filters data",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList reset retains expand and one keyword row",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList expand reset execute order",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList advanced state explicitly uncollected",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList separate keyword row follows filter actions",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList keyword is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList submitted keyword filters data",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList reset retains expand and one keyword row",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement initializes",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement top matches captured button order",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement toolbar precedes filters",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement no duplicate top actions",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement 来源信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement 好友信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement 用户信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement 购买信息 exposes missing source state",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement unknown expansion does not fabricate fields/data",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement no interaction errors",
+      "pass": true
+    }
+  ]
+}

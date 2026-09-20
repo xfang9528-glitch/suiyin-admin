@@ -1,0 +1,597 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "666d43b3c7295e7d1d21d29ae2dd9e166c20bbf0f92e732573f4d87103f83574",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "kind": "HTTP byte parity and JavaScript syntax, not browser visual verification",
+  "checkedAt": "2026-09-20T06:05:27.131Z",
+  "http": {
+    "total": 81,
+    "passed": 81,
+    "results": [
+      {
+        "file": "_shell.html",
+        "status": 200,
+        "equal": true,
+        "sha256": "d092b7e753e2bd54eb552d81f6130e010afaa175f70c6ec4d7ec81622cf22e2e"
+      },
+      {
+        "file": "admin-content.html",
+        "status": 200,
+        "equal": true,
+        "sha256": "e7c8d8c4f13567e76a107fc0d1a475608a7d4b045e117babc5d5d4e76fed42b0"
+      },
+      {
+        "file": "data/navigation-snapshot.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "b6b996ded98f9b947c056605f10208864a4683cff1b8236b664b42e435b7298a"
+      },
+      {
+        "file": "data/content/forms.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "26b41f7c29e4cf099c4a442b42cfaba185d456d0371fb0ebd19fbcdcb424488d"
+      },
+      {
+        "file": "data/content/options.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "d776eaaaf0dbf03cc346bc3488e5411fee3a52e094ef385986c57c254e6f732d"
+      },
+      {
+        "file": "admin-content.css",
+        "status": 200,
+        "equal": true,
+        "sha256": "c2af34f4308d2647df6bc635211715a0998a058a9f912123f4e67f1181cb1407"
+      },
+      {
+        "file": "admin-expanded.css",
+        "status": 200,
+        "equal": true,
+        "sha256": "72ada870fbd0270563d10c50a9ae70fc0de08529a207c4aa41d6997563f39e38"
+      },
+      {
+        "file": "admin-live-ui.css",
+        "status": 200,
+        "equal": true,
+        "sha256": "c617eccba47406ad131c63e52ccf279eaaca2354798ae2256ac107342326d05e"
+      },
+      {
+        "file": "admin-menu-tree.css",
+        "status": 200,
+        "equal": true,
+        "sha256": "6f6aab8ff8d59a91cd32dd7c8268922aedebd32d28a8691c3d8220ff425d8413"
+      },
+      {
+        "file": "admin-sales-voice-stats.css",
+        "status": 200,
+        "equal": true,
+        "sha256": "f989895b5a8d6963298b6c377662ee8d287866f0e6fc8bd4c0fab043b523d5fd"
+      },
+      {
+        "file": "admin-stats-date-picker.css",
+        "status": 200,
+        "equal": true,
+        "sha256": "bb07a4450e5251d3c324890696a675f1df9a83bf7ab6e0b5e9638fb8cf455128"
+      },
+      {
+        "file": "admin-sales-usage.css",
+        "status": 200,
+        "equal": true,
+        "sha256": "228fa5b9ab712b33cc02ed1cb8a7e0c24fa50f013f3751b7c4f2fb4c29763473"
+      },
+      {
+        "file": "admin-filter-calendars.css",
+        "status": 200,
+        "equal": true,
+        "sha256": "e9604c22351c296dddb73997d9b92fee2f0e6989238a1a8be12e31abd788abd3"
+      },
+      {
+        "file": "admin-sales-dashboard.css",
+        "status": 200,
+        "equal": true,
+        "sha256": "18117d6336a3371d8b214467ed33279184dd55ea49880be9bd8b2de626b35ff0"
+      },
+      {
+        "file": "data/live-ui-reference.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "e8787a838bd9bc69d494ff9e9383694b605dd1cc4cf14eb0aef1f884872351b7"
+      },
+      {
+        "file": "admin-live-controls.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "c2e5b87286ebd4c42bf7852df08e18fe9be6adfa9955590bc46f951370375321"
+      },
+      {
+        "file": "admin-menu-state.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "171b0a9b1a770f88da0d5a1ecdbbececb4f3719eaa62d2012116ed16814135a3"
+      },
+      {
+        "file": "data/page-evidence.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "9baf07fa2d3e05d9ae0e6dca9dc15ce826d67202434b1d58fb2e234184411302"
+      },
+      {
+        "file": "data/form-schemas.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "879a134e7f8854ef8c27c1aeacc1704b7b983beef1059a072a6e9d28393f12f7"
+      },
+      {
+        "file": "data/button-states.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "4607ab16abcd06939edf02d2eb092f5542621add657ded0aa68c00799c80c01c"
+      },
+      {
+        "file": "admin-content.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "364ced7d90fe29138f6078178510436a269777353eb7ef6025d3c2cd1edaf6ae"
+      },
+      {
+        "file": "admin-domain-views.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "b8ed20bd907786054e537013d1e23a55087a3445048920916c894ef9586abb62"
+      },
+      {
+        "file": "admin-chat.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "c08cf0296b8c2001698f6fb2d0ae950beea6b5df60176577d0e6e09837820bf0"
+      },
+      {
+        "file": "admin-extra-flows.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "2dae0bdab514135ab1514512c2b136ef94750e250bf73113e22e52b880eaf930"
+      },
+      {
+        "file": "admin-expanded-flows.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "b3ad117b8872351ecdb9e790fa74629243dd40c28bf7c38dc4b5866a00ce8db0"
+      },
+      {
+        "file": "admin-page-editors.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "0bb54b3fab5b407a58a05d66f2e30056e73697ec7491f6e24684c90d38aca181"
+      },
+      {
+        "file": "admin-menu-tree.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "5dcedbbc43978e6ed66ea896d724b80b03f0120d4926d2165b72b2453387dc32"
+      },
+      {
+        "file": "admin-sales-voice-stats.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "321a18041a3ee78cf629c39a17418822b6e5da96fc8f137904b3cf226f91fe24"
+      },
+      {
+        "file": "admin-stats-date-picker.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "5798834c57e05dea340a815afcb4769e49cf006b3f22552ebb5e732dee36e030"
+      },
+      {
+        "file": "admin-filter-calendars.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "bb7a3facce734ce12928b4fe45f689baecc2ba587b5bae4e8edffbaab0f7a518"
+      },
+      {
+        "file": "admin-appointment-aligned.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "d5f42c81a924c5486332b1feea8b88a61d403fbb6bfddecd04c721cf0befbaee"
+      },
+      {
+        "file": "admin-sales-dashboard.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "20770304aa3fd76ab80f7ee36a3034f1224d5eb9ed44f019fb6bca89893d0ca8"
+      },
+      {
+        "file": "admin-sales-usage.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "e3485ea2e50364a36112de2a325bc24672d5824b56fa2c90967af6e8eafc1b91"
+      },
+      {
+        "file": "admin-customer-source-controls.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "45cc6c0e6e341a01b8e6ecd6a41f3fd952d4eb2ffd7d08a44d7ff5311014493e"
+      },
+      {
+        "file": "admin-navigation.css",
+        "status": 200,
+        "equal": true,
+        "sha256": "25278ec842cec946e600dbcfababe92cd1e24a05f602b5da0259f605e225d2b5"
+      },
+      {
+        "file": "admin-navigation.js",
+        "status": 200,
+        "equal": true,
+        "sha256": "b0b23fbdfbb81966209e4308d1bef1112ee0a554eed3a3d1454de2184bafe883"
+      },
+      {
+        "file": "data/content/yestar-sz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "84731b81077de63ef2f9701e4f4dff067a0429a27bda8dc240372ed0430645bc"
+      },
+      {
+        "file": "data/sales-usage/yestar-sz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "975596b296a5dde6159513bf07153bf51677278330ef17b525f77d6340d787f7"
+      },
+      {
+        "file": "data/sales-dashboard/yestar-sz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "ec60f3d2db0d8aad9631c5a8a0bdc6b7bc56c31c23589d1b89663982813ac61a"
+      },
+      {
+        "file": "data/content/jbfs.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "5bea0e3d31e8574a84ed4852afb9ca935eb90861ad5be86854aa6e98b21e31c2"
+      },
+      {
+        "file": "data/sales-usage/jbfs.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "14239b2554a23cb62a8796da92cbff7b914fd852f7ddadc0ed5e9b80450ea65e"
+      },
+      {
+        "file": "data/sales-dashboard/jbfs.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "674093791e2f1a064116738ff78924608713086b1131c7bef854c43d37b9be54"
+      },
+      {
+        "file": "data/content/mengzhua.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "b0b2c5a7954a3bff1756f784ffc9310f53268ee113419a9f838f34590964f0e1"
+      },
+      {
+        "file": "data/sales-usage/mengzhua.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "44514ba4396c6e29459ebfb9c9c6001895d724b45350efefc38bc6604d749574"
+      },
+      {
+        "file": "data/sales-dashboard/mengzhua.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "760f454780d74fdeb74dd17f743a5ab3c95f8919546f5fe9ca1eeea2718ebcbe"
+      },
+      {
+        "file": "data/content/bzds.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "836a1caac789d83f6496ddeb6faa0f9c434f580befa8e37ceacbdce0d796f88e"
+      },
+      {
+        "file": "data/sales-usage/bzds.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "e195a3ba64cfe8f0bfdfef8205af9d07594bf2ff816abc8c9cbf31ab505a81c9"
+      },
+      {
+        "file": "data/sales-dashboard/bzds.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "9a5e15f8299203123ee7238bec61df24a115c42d23f4ccd35d641bf2a39d3476"
+      },
+      {
+        "file": "data/content/crrm.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "a24d18876c391b21c31cbaafd4b448b3f4d62e2a2383a1c0552b185f4c80b4d7"
+      },
+      {
+        "file": "data/sales-usage/crrm.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "bd75f6a9e38e1bd1e542016ee7385eec24fc63eaa3a21256509c0724c044b867"
+      },
+      {
+        "file": "data/sales-dashboard/crrm.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "21d56bd2414dd9c1199b7cbabed57ff28dd74296341cd9f41334977ec77a1f7d"
+      },
+      {
+        "file": "data/content/hqjd.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "1f35dd24afcc7ddca861fc3135b6e21a70f81569d32b487e530c2e4b87f59792"
+      },
+      {
+        "file": "data/sales-usage/hqjd.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "8e9d0be828d287b6c5ee7c08c0e1efe708160bf5f8f0e57ed5717866280efa75"
+      },
+      {
+        "file": "data/sales-dashboard/hqjd.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "77643c8161808c82c12b06aecca91939613ee8066fdb164594a5d44a98be1a2a"
+      },
+      {
+        "file": "data/content/ykjl.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "6b36cdc74b0485bb7e89b9fba8cefd89b031fc6fcd655b9fb5332bd9fd8674ea"
+      },
+      {
+        "file": "data/sales-usage/ykjl.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "a0ecbb09aaddeb595a10f11b2d90bd3ac80158e6b6b3086b4b0feb6ff0fc12fb"
+      },
+      {
+        "file": "data/sales-dashboard/ykjl.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "69e22ffd98fb6c44ea7e19a01632638e9c9a643cc3b19aeffddd832210a912f5"
+      },
+      {
+        "file": "data/content/ruixi-kh-xiaowen.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "cf800942fdf416a85fda99ca3df4348aec854cc0f072b76f503017e1ba230247"
+      },
+      {
+        "file": "data/sales-usage/ruixi-kh-xiaowen.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "842e6166f7952cda0a5cdea00cb37a569ce31cce397ef241b2304edf5560e2df"
+      },
+      {
+        "file": "data/sales-dashboard/ruixi-kh-xiaowen.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "5cd247c58129f6f933ba07bd8a73f26ed3735793571971e6f4b605ad04e563c9"
+      },
+      {
+        "file": "data/content/rxxz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "d7b9efa3cd9748b5297fba3c99e7eefa2c6ba1e4b81ac49271eef37426780834"
+      },
+      {
+        "file": "data/sales-usage/rxxz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "29f21e7101f2261320dfc23aae69f8994b379879e3ce846ca94ae4a19db19a49"
+      },
+      {
+        "file": "data/sales-dashboard/rxxz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "e0349c5f88e1e4fc4c8bb82a339c96953b6cbda162fd5d04ec61c44a3a6fd793"
+      },
+      {
+        "file": "data/content/yestar.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "70f2560ca81b95d5c22525ce8c9e2061b8c6a05f45bd3d7d3e45e64118b61927"
+      },
+      {
+        "file": "data/sales-usage/yestar.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "37cb8c2a7787251207b9527ec6c635f57e6c7e69277da7cc329aa9951eabd4a9"
+      },
+      {
+        "file": "data/sales-dashboard/yestar.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "73e8827337e6bd17d5465b4a570a3dd3e1db148be8fe38ae5ea5d7a0635b5686"
+      },
+      {
+        "file": "data/content/yestar-bj.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "66e5e9d6a706f80d53ea294d3fd4cb4d922bb402004cb169ef9d4893230a15cf"
+      },
+      {
+        "file": "data/sales-usage/yestar-bj.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "9240fd19a0f8a345b2b69a5b0902aa19d32a7cdcab17214acb9a86aab38c2c96"
+      },
+      {
+        "file": "data/sales-dashboard/yestar-bj.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "235103bc8e09fbb3c1dd0628cf10db5ae4457c7c88fe6d1bc09c487c218ce35b"
+      },
+      {
+        "file": "data/content/yestar-gz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "d8dbfb3075bc0336677ca659a1cb7fc71dad08e9bd6e2f240e8e49f2d128443c"
+      },
+      {
+        "file": "data/sales-usage/yestar-gz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "a231d24a5444a1ff9b65290065aa3ebd6d28003edb0659ce0699966b51acaf63"
+      },
+      {
+        "file": "data/sales-dashboard/yestar-gz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "20c1511fb82267ade4985fd9d521576aeb8fcd9d147668dac85175bbd752c4f8"
+      },
+      {
+        "file": "data/content/yestar-hz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "f16a2fbbaa232bc8a4c7c64dd7089fa3083c133577959fe8f6427c7d14400375"
+      },
+      {
+        "file": "data/sales-usage/yestar-hz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "5b174ca3602616badffdd13a4ede78da0813b5d8a6fc3d57816fab50cbcc20b1"
+      },
+      {
+        "file": "data/sales-dashboard/yestar-hz.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "477b9a56a0958551a75928a79fe09fa9684506c7c2ab25bc27ef6fa2be84b610"
+      },
+      {
+        "file": "data/content/yestar-jx.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "f4440b924f50a28d0a28c4fde784ef0b84d7221c5ed74a8b75c4a21cb5779801"
+      },
+      {
+        "file": "data/sales-usage/yestar-jx.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "5f5befbf9cef4e24c7da0c8ed01808fb621e50f239f9b6cdbe034da88eae9709"
+      },
+      {
+        "file": "data/sales-dashboard/yestar-jx.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "b53dee808e4914fb28c510955535ac13c9bef0f1969feb036396443ff4545f41"
+      },
+      {
+        "file": "data/content/yzhb.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "06d0a2a00d22da1d32ef16c2ab0ba46e532480ec27b6fd34a348bb6b4c0061fa"
+      },
+      {
+        "file": "data/sales-usage/yzhb.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "731aaeeee892f9d2fe2d1e24df54af9a92d14a11fb8b0bf93f83207b629020db"
+      },
+      {
+        "file": "data/sales-dashboard/yzhb.json",
+        "status": 200,
+        "equal": true,
+        "sha256": "86f1cce3de3d7c9dd4684e7e024419a5b009aaeb97385eed38d5305ab3c6c15b"
+      }
+    ]
+  },
+  "syntax": {
+    "total": 23,
+    "passed": 23,
+    "results": [
+      {
+        "file": "data/live-ui-reference.js",
+        "passed": true
+      },
+      {
+        "file": "admin-live-controls.js",
+        "passed": true
+      },
+      {
+        "file": "admin-menu-state.js",
+        "passed": true
+      },
+      {
+        "file": "data/page-evidence.js",
+        "passed": true
+      },
+      {
+        "file": "data/form-schemas.js",
+        "passed": true
+      },
+      {
+        "file": "data/button-states.js",
+        "passed": true
+      },
+      {
+        "file": "admin-content.js",
+        "passed": true
+      },
+      {
+        "file": "admin-domain-views.js",
+        "passed": true
+      },
+      {
+        "file": "admin-chat.js",
+        "passed": true
+      },
+      {
+        "file": "admin-extra-flows.js",
+        "passed": true
+      },
+      {
+        "file": "admin-expanded-flows.js",
+        "passed": true
+      },
+      {
+        "file": "admin-page-editors.js",
+        "passed": true
+      },
+      {
+        "file": "admin-menu-tree.js",
+        "passed": true
+      },
+      {
+        "file": "admin-sales-voice-stats.js",
+        "passed": true
+      },
+      {
+        "file": "admin-stats-date-picker.js",
+        "passed": true
+      },
+      {
+        "file": "admin-filter-calendars.js",
+        "passed": true
+      },
+      {
+        "file": "admin-appointment-aligned.js",
+        "passed": true
+      },
+      {
+        "file": "admin-sales-dashboard.js",
+        "passed": true
+      },
+      {
+        "file": "admin-sales-usage.js",
+        "passed": true
+      },
+      {
+        "file": "admin-customer-source-controls.js",
+        "passed": true
+      },
+      {
+        "file": "data/live-ui-reference.js",
+        "passed": true
+      },
+      {
+        "file": "admin-menu-state.js",
+        "passed": true
+      },
+      {
+        "file": "admin-navigation.js",
+        "passed": true
+      }
+    ]
+  }
+}

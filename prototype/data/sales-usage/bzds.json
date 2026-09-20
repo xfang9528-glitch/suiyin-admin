@@ -1,0 +1,37 @@
+{
+  "tenantId": "bzds",
+  "route": "salesMessageUsage",
+  "state": "captured",
+  "capturedAt": "2026-09-18T09:02:49.185Z",
+  "sampleDate": "2026-09-18",
+  "sourceUrl": "https://bzds.wecarepet.com/admin/salesMessageUsage",
+  "sourceLabel": "本租户 2026-09-18 已采集样本",
+  "departmentOptionsScope": "sample-observed",
+  "departmentOptionsLabel": "仅含本租户样本中出现的部门",
+  "groups": [
+    {
+      "id": "bzds-sale-1",
+      "order": 1,
+      "sales": "房昕",
+      "departments": [
+        {
+          "id": "bzds-dept-9708949d3770",
+          "name": "默认分组",
+          "messages": 12,
+          "friends": 1
+        }
+      ]
+    }
+  ],
+  "departmentOptions": [
+    {
+      "id": "bzds-dept-9708949d3770",
+      "name": "默认分组"
+    }
+  ],
+  "totals": {
+    "users": 1,
+    "messages": 12,
+    "friends": 1
+  }
+}

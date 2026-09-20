@@ -1,0 +1,6224 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "21b123ba4db86196a981f7d0d85f1c66ce43da2ee50817e8acf95c24ed95dee3",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "kind": "Final actual repository schema recovery over752pages andDOM; not pixel acceptance",
+  "total": 1552,
+  "passed": 1552,
+  "failed": 0,
+  "hashes": {
+    "admin-content.js": "364ced7d90fe29138f6078178510436a269777353eb7ef6025d3c2cd1edaf6ae",
+    "admin-content.html": "e7c8d8c4f13567e76a107fc0d1a475608a7d4b045e117babc5d5d4e76fed42b0",
+    "data/form-schemas.js": "879a134e7f8854ef8c27c1aeacc1704b7b983beef1059a072a6e9d28393f12f7"
+  },
+  "checks": [
+    {
+      "name": "crrm/salesStatsNew loads final actual repository",
+      "pass": true
+    },
+    {
+      "name": "crrm reference source controls use exact data interval",
+      "pass": true
+    },
+    {
+      "name": "crrm reference defaults query succeeds",
+      "pass": true
+    },
+    {
+      "name": "crrm reference edited interval refuses false source totals",
+      "pass": true
+    },
+    {
+      "name": "crrm reference reset restores data interval andmetrics",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesStatsNew loads final actual repository",
+      "pass": true
+    },
+    {
+      "name": "yestar reference source controls use exact data interval",
+      "pass": true
+    },
+    {
+      "name": "yestar reference defaults query succeeds",
+      "pass": true
+    },
+    {
+      "name": "yestar reference edited interval refuses false source totals",
+      "pass": true
+    },
+    {
+      "name": "yestar reference reset restores data interval andmetrics",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesStatsNew loads final actual repository",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz reference source controls use exact data interval",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz reference defaults query succeeds",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz reference edited interval refuses false source totals",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz reference reset restores data interval andmetrics",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/expertList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/expertList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/medicalDoctors no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/medicalDoctors never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/medicalDepartments no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/medicalDepartments never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/medicalLocations no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/medicalLocations never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/appointmentSettings no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/appointmentSettings never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/appointmentRecords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/appointmentRecords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/medicalProjects no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/medicalProjects never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/massMessageListYx no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/massMessageListYx never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/topUpList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/topUpList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/sahPrepaymentList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/sahPrepaymentList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/sahIncomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/sahIncomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/newAddedRecords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/newAddedRecords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/retentionStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/retentionStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/massMessageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/massMessageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/friendCircleStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/friendCircleStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/groupInviteStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/groupInviteStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/scriptUsageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/scriptUsageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/aiAssistStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/aiAssistStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/workAccountDailyStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/workAccountDailyStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/remark-demand-mappings no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/remark-demand-mappings never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/massMessageList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/massMessageList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/massMessageListYx no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/massMessageListYx never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/prepaymentList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/prepaymentList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/incomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/incomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesStatsReferral no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesStatsReferral never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/feedbackAi no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/feedbackAi never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/prepayStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/prepayStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/revenueStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/revenueStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/retentionStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/retentionStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/massMessageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/massMessageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/friendCircleStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/friendCircleStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "jbfs/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "jbfs/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/expertList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/expertList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerManagement never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/miniProgramProducts no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/miniProgramProducts never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/brandList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/brandList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/massMessageList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/massMessageList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/prepaymentList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/prepaymentList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/incomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/incomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/rewardItemStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/rewardItemStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesStatsReferral no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesStatsReferral never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/feedbackAi no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/feedbackAi never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/prepayStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/prepayStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/revenueStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/revenueStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/expertList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/expertList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerManagement never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/miniProgramProducts no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/miniProgramProducts never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/massMessageList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/massMessageList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/prepaymentList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/prepaymentList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/incomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/incomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/topUpList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/topUpList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/rewardItemStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/rewardItemStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/newAddedRecords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/newAddedRecords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesStatsReferral no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesStatsReferral never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/feedbackAi no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/feedbackAi never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/prepayStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/prepayStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/revenueStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/revenueStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/retentionStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/retentionStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/massMessageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/massMessageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/friendCircleStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/friendCircleStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/groupInviteStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/groupInviteStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/scriptUsageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/scriptUsageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/aiAssistStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/aiAssistStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/workAccountDailyStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/workAccountDailyStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/caseLibraryDoctors no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/caseLibraryDoctors never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/caseLibraryEntries no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/caseLibraryEntries never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/caseLibraryMiniPrograms no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/caseLibraryMiniPrograms never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/caseLibrarySubjectShares no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/caseLibrarySubjectShares never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/allMenu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/allMenu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/labelMenu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/labelMenu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/entList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/entList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/allWeChatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/allWeChatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/esIndex no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/esIndex never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/versionList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/versionList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/aiModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/aiModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/auditDict no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/auditDict never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "bzds/voiceModels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "bzds/voiceModels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerManagement never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/miniProgramProducts no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/miniProgramProducts never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/massMessageList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/massMessageList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/prepaymentList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/prepaymentList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/incomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/incomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesStatsReferral no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesStatsReferral never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "crrm/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "crrm/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerManagement never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/miniProgramProducts no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/miniProgramProducts never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/massMessageList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/massMessageList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/massMessageListYx no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/massMessageListYx never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/incomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/incomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesStatsReferral no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesStatsReferral never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/feedbackAi no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/feedbackAi never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/prepayStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/prepayStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/revenueStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/revenueStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/retentionStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/retentionStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/massMessageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/massMessageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/friendCircleStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/friendCircleStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "hqjd/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "hqjd/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerManagement never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/massMessageList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/massMessageList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/topUpList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/topUpList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/ykjlIncomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/ykjlIncomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/rewardItemStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/rewardItemStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesStatsReferral no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesStatsReferral never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/feedbackAi no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/feedbackAi never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ykjl/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ykjl/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/expertList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/expertList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerManagement never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/miniProgramProducts no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/miniProgramProducts never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/massMessageList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/massMessageList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/topUpList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/topUpList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/ykjlIncomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/ykjlIncomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/rewardItemStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/rewardItemStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesStatsReferral no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesStatsReferral never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/feedbackAi no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/feedbackAi never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerManagement never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/miniProgramProducts no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/miniProgramProducts never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/massMessageList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/massMessageList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/topUpList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/topUpList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/ykjlIncomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/ykjlIncomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/rewardItemStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/rewardItemStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesStatsReferral no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesStatsReferral never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/feedbackAi no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/feedbackAi never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "rxxz/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "rxxz/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/expertList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/expertList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/yxCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/massMessageListYx no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/massMessageListYx never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/topUpList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/topUpList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/sahPrepaymentList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/sahPrepaymentList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/sahIncomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/sahIncomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/newAddedRecords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/newAddedRecords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/retentionStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/retentionStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/massMessageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/massMessageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/friendCircleStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/friendCircleStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/groupInviteStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/groupInviteStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/scriptUsageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/scriptUsageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/aiAssistStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/aiAssistStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/workAccountDailyStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/workAccountDailyStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar/remark-demand-mappings no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar/remark-demand-mappings never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/expertList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/expertList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/yxCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/massMessageListYx no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/massMessageListYx never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/topUpList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/topUpList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/sahPrepaymentList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/sahPrepaymentList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/sahIncomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/sahIncomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/newAddedRecords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/newAddedRecords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/retentionStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/retentionStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/massMessageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/massMessageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/friendCircleStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/friendCircleStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/groupInviteStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/groupInviteStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/scriptUsageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/scriptUsageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/aiAssistStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/aiAssistStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/remark-demand-mappings no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/remark-demand-mappings never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/expertList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/expertList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/medicalDoctors no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/medicalDoctors never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/medicalDepartments no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/medicalDepartments never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/medicalLocations no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/medicalLocations never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/appointmentSettings no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/appointmentSettings never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/appointmentRecords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/appointmentRecords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/medicalProjects no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/medicalProjects never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/yxCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/massMessageListYx no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/massMessageListYx never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/topUpList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/topUpList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/sahPrepaymentList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/sahPrepaymentList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/sahIncomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/sahIncomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/newAddedRecords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/newAddedRecords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/retentionStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/retentionStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/massMessageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/massMessageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/friendCircleStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/friendCircleStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/groupInviteStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/groupInviteStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/scriptUsageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/scriptUsageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/aiAssistStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/aiAssistStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/remark-demand-mappings no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/remark-demand-mappings never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/expertList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/expertList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/medicalDoctors no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/medicalDoctors never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/medicalDepartments no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/medicalDepartments never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/medicalLocations no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/medicalLocations never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/appointmentSettings no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/appointmentSettings never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/appointmentRecords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/appointmentRecords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/medicalProjects no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/medicalProjects never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/yxCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/massMessageListYx no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/massMessageListYx never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/topUpList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/topUpList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/sahPrepaymentList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/sahPrepaymentList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/sahIncomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/sahIncomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/newAddedRecords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/newAddedRecords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/retentionStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/retentionStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/massMessageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/massMessageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/friendCircleStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/friendCircleStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/groupInviteStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/groupInviteStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/scriptUsageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/scriptUsageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiAssistStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiAssistStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/remark-demand-mappings no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/remark-demand-mappings never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/caseLibraryDoctors no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/caseLibraryDoctors never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/caseLibraryEntries no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/caseLibraryEntries never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/caseLibraryMiniPrograms no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/caseLibraryMiniPrograms never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/caseLibrarySubjectShares no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/caseLibrarySubjectShares never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/expertList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/expertList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/medicalDoctors no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/medicalDoctors never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/medicalDepartments no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/medicalDepartments never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/medicalLocations no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/medicalLocations never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/appointmentSettings no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/appointmentSettings never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/appointmentRecords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/appointmentRecords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/medicalProjects no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/medicalProjects never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/yxCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/massMessageListYx no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/massMessageListYx never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/topUpList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/topUpList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/sahPrepaymentList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/sahPrepaymentList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/sahIncomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/sahIncomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/newAddedRecords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/newAddedRecords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/retentionStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/retentionStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/massMessageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/massMessageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/friendCircleStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/friendCircleStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/groupInviteStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/groupInviteStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/scriptUsageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/scriptUsageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/aiAssistStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/aiAssistStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/remark-demand-mappings no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/remark-demand-mappings never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerManagement never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerGroupList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerGroupList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/uploadCustomerList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/uploadCustomerList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/approvalList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/approvalList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerTags no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/customerTags never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/languageManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/languageManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/products no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/products never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/miniProgramProducts no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/miniProgramProducts never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/massMessageList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/massMessageList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/friendCircle no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/friendCircle never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/rewardListNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/rewardListNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/rewardTotalNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/rewardTotalNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/topUpList no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/topUpList never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/rewardItemStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/rewardItemStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/yzhbIncomeConfirm no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/yzhbIncomeConfirm never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesStatsReferral no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesStatsReferral never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesStatsNew no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesStatsNew never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/revisitStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/revisitStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesRakingStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesRakingStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/dutyRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/dutyRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/messageStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/messageStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/dataViewLog no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/dataViewLog never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesMessageUsage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesMessageUsage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesVoiceStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesVoiceStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/allChat no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/allChat never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesReceptionQuery no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesReceptionQuery never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/allocationRecord no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/allocationRecord never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/sensitiveWords no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/sensitiveWords never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/sensitiveWordsCustomer no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/sensitiveWordsCustomer never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/aiLabelStats no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/aiLabelStats never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/wechatStatus no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/wechatStatus never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/wechatLaxin no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/wechatLaxin never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/acceptFriendConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/acceptFriendConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/promptTemplate no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/promptTemplate never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/aiEntModelConfig no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/aiEntModelConfig never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/asrLexicon no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/asrLexicon never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/aiChatQuality no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/aiChatQuality never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/role no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/role never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/menu no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/menu never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/labels no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/labels never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/setting no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/setting never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "yzhb/labelsManage no unnamed controls orblank radio choices",
+      "pass": true
+    },
+    {
+      "name": "yzhb/labelsManage never mutates source orcopies entity/default date values",
+      "pass": true
+    },
+    {
+      "name": "all752registered page forms audited",
+      "pass": true
+    },
+    {
+      "name": "schemaSource mismatch cannot cross routes",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesStatsNew loads final actual repository",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesStatsNew no fallback筛选项 text",
+      "pass": true
+    },
+    {
+      "name": "reference dashboard has search/reset andnatural-day control",
+      "pass": true
+    },
+    {
+      "name": "yestar/scriptUsageStats loads final actual repository",
+      "pass": true
+    },
+    {
+      "name": "yestar/scriptUsageStats no fallback筛选项 text",
+      "pass": true
+    },
+    {
+      "name": "yestar/scriptUsageStats source dimensional names restored",
+      "pass": true
+    },
+    {
+      "name": "yestar/scriptUsageStats four source quick dates restored",
+      "pass": true
+    },
+    {
+      "name": "yestar/scriptUsageStats dimension query uses checked restoration",
+      "pass": true
+    },
+    {
+      "name": "yestar/groupInviteStats loads final actual repository",
+      "pass": true
+    },
+    {
+      "name": "yestar/groupInviteStats no fallback筛选项 text",
+      "pass": true
+    },
+    {
+      "name": "yestar/groupInviteStats source dimensional names restored",
+      "pass": true
+    },
+    {
+      "name": "yestar/groupInviteStats four source quick dates restored",
+      "pass": true
+    },
+    {
+      "name": "yestar/groupInviteStats dimension query uses checked restoration",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiAssistStats loads final actual repository",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiAssistStats no fallback筛选项 text",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiAssistStats source dimensional names restored",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiAssistStats four source quick dates restored",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/aiAssistStats dimension query uses checked restoration",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/products loads final actual repository",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/products no fallback筛选项 text",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/products product status field restored",
+      "pass": true
+    },
+    {
+      "name": "crrm/miniProgramProducts loads final actual repository",
+      "pass": true
+    },
+    {
+      "name": "crrm/miniProgramProducts no fallback筛选项 text",
+      "pass": true
+    },
+    {
+      "name": "crrm/miniProgramProducts product status field restored",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList loads final actual repository",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList no fallback筛选项 text",
+      "pass": true
+    },
+    {
+      "name": "uncollected account selector preserves label andhonest unavailable state",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/yxCustomerList orphan keyword search input restored",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement loads final actual repository",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement no fallback筛选项 text",
+      "pass": true
+    },
+    {
+      "name": "jbfs/customerManagement orphan keyword search input restored",
+      "pass": true
+    }
+  ]
+}

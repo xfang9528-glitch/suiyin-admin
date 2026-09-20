@@ -1,0 +1,30 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "daddbeb94f068e7b9d78ad64875624b5f7251cd9e5281ff8346ac4a16ee2479c",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "checkedAt": "2026-09-20T05:31:59.288Z",
+  "spec": "SPEC-SUIYIN-ADMIN-053@1.0.0",
+  "files": {
+    "admin-sales-usage.js": "e3485ea2e50364a36112de2a325bc24672d5824b56fa2c90967af6e8eafc1b91",
+    "admin-sales-usage.css": "228fa5b9ab712b33cc02ed1cb8a7e0c24fa50f013f3751b7c4f2fb4c29763473",
+    "admin-stats-date-picker.js": "5798834c57e05dea340a815afcb4769e49cf006b3f22552ebb5e732dee36e030",
+    "admin-stats-date-picker.css": "bb07a4450e5251d3c324890696a675f1df9a83bf7ab6e0b5e9638fb8cf455128",
+    "admin-sales-voice-stats.js": "321a18041a3ee78cf629c39a17418822b6e5da96fc8f137904b3cf226f91fe24",
+    "admin-content.html": "2ec3cc42e9c7fb22290f055c80d456fe0a3d1680dbfa51446ae7f7f22e500e0a",
+    "data/sales-usage/bzds.json": "e195a3ba64cfe8f0bfdfef8205af9d07594bf2ff816abc8c9cbf31ab505a81c9",
+    "data/sales-usage/crrm.json": "bd75f6a9e38e1bd1e542016ee7385eec24fc63eaa3a21256509c0724c044b867",
+    "data/sales-usage/hqjd.json": "8e9d0be828d287b6c5ee7c08c0e1efe708160bf5f8f0e57ed5717866280efa75",
+    "data/sales-usage/jbfs.json": "14239b2554a23cb62a8796da92cbff7b914fd852f7ddadc0ed5e9b80450ea65e",
+    "data/sales-usage/mengzhua.json": "44514ba4396c6e29459ebfb9c9c6001895d724b45350efefc38bc6604d749574",
+    "data/sales-usage/ruixi-kh-xiaowen.json": "842e6166f7952cda0a5cdea00cb37a569ce31cce397ef241b2304edf5560e2df",
+    "data/sales-usage/rxxz.json": "29f21e7101f2261320dfc23aae69f8994b379879e3ce846ca94ae4a19db19a49",
+    "data/sales-usage/yestar-bj.json": "9240fd19a0f8a345b2b69a5b0902aa19d32a7cdcab17214acb9a86aab38c2c96",
+    "data/sales-usage/yestar-gz.json": "a231d24a5444a1ff9b65290065aa3ebd6d28003edb0659ce0699966b51acaf63",
+    "data/sales-usage/yestar-hz.json": "5b174ca3602616badffdd13a4ede78da0813b5d8a6fc3d57816fab50cbcc20b1",
+    "data/sales-usage/yestar-jx.json": "5f5befbf9cef4e24c7da0c8ed01808fb621e50f239f9b6cdbe034da88eae9709",
+    "data/sales-usage/yestar-sz.json": "975596b296a5dde6159513bf07153bf51677278330ef17b525f77d6340d787f7",
+    "data/sales-usage/yestar.json": "37cb8c2a7787251207b9527ec6c635f57e6c7e69277da7cc329aa9951eabd4a9",
+    "data/sales-usage/ykjl.json": "a0ecbb09aaddeb595a10f11b2d90bd3ac80158e6b6b3086b4b0feb6ff0fc12fb",
+    "data/sales-usage/yzhb.json": "731aaeeee892f9d2fe2d1e24df54af9a92d14a11fb8b0bf93f83207b629020db"
+  }
+}

@@ -1,0 +1,1264 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "f8ad76313ea99ac89ce368b8f01ccc6846ea586cadd727768998c009e63dc71d",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "kind": "non-rendering DOM and data integration; not browser visual acceptance",
+  "checkedAt": "2026-09-20T06:02:33.667Z",
+  "total": 258,
+  "passed": 258,
+  "failed": 0,
+  "tenants": {
+    "yestar-sz": {
+      "state": "success",
+      "sampleDate": "2026-09-18",
+      "sales": 94,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        },
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音"
+        },
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心"
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号"
+        },
+        {
+          "id": "yestar-sz-dept-b83335a19f7a",
+          "name": "自媒体"
+        },
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方"
+        },
+        {
+          "id": "yestar-sz-dept-ba93e8572b17",
+          "name": "大搜"
+        },
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商"
+        },
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心"
+        },
+        {
+          "id": "yestar-sz-dept-b2e81cd75f93",
+          "name": "客服三部"
+        },
+        {
+          "id": "yestar-sz-dept-48d02262e18b",
+          "name": "私域运营"
+        }
+      ]
+    },
+    "jbfs": {
+      "state": "success",
+      "sampleDate": "2026-09-18",
+      "sales": 4,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        },
+        {
+          "id": "jbfs-dept-9708949d3770",
+          "name": "默认分组"
+        }
+      ]
+    },
+    "mengzhua": {
+      "state": "empty",
+      "sampleDate": "2026-09-18",
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    },
+    "bzds": {
+      "state": "success",
+      "sampleDate": "2026-09-18",
+      "sales": 1,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        },
+        {
+          "id": "bzds-dept-9708949d3770",
+          "name": "默认分组"
+        }
+      ]
+    },
+    "crrm": {
+      "state": "not-captured",
+      "sampleDate": null,
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    },
+    "hqjd": {
+      "state": "not-captured",
+      "sampleDate": null,
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    },
+    "ykjl": {
+      "state": "not-captured",
+      "sampleDate": null,
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    },
+    "ruixi-kh-xiaowen": {
+      "state": "not-captured",
+      "sampleDate": null,
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    },
+    "rxxz": {
+      "state": "not-captured",
+      "sampleDate": null,
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    },
+    "yestar": {
+      "state": "not-captured",
+      "sampleDate": null,
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    },
+    "yestar-bj": {
+      "state": "not-captured",
+      "sampleDate": null,
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    },
+    "yestar-gz": {
+      "state": "not-captured",
+      "sampleDate": null,
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    },
+    "yestar-hz": {
+      "state": "not-captured",
+      "sampleDate": null,
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    },
+    "yestar-jx": {
+      "state": "not-captured",
+      "sampleDate": null,
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    },
+    "yzhb": {
+      "state": "not-captured",
+      "sampleDate": null,
+      "sales": 0,
+      "departments": [
+        {
+          "id": "",
+          "name": "选择部门"
+        }
+      ]
+    }
+  },
+  "hashes": {
+    "admin-sales-usage.js": "e3485ea2e50364a36112de2a325bc24672d5824b56fa2c90967af6e8eafc1b91",
+    "admin-sales-usage.css": "228fa5b9ab712b33cc02ed1cb8a7e0c24fa50f013f3751b7c4f2fb4c29763473",
+    "admin-content.html": "e7c8d8c4f13567e76a107fc0d1a475608a7d4b045e117babc5d5d4e76fed42b0"
+  },
+  "checks": [
+    {
+      "name": "coverage exactly 15 tenants",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz capture boundary",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz captured totals match independent 9/18 evidence",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz detail count matches independent 9/18 evidence",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz original title present",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz initial date and source explain saved sample",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz usage, message and friend summary",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz populated captured state",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "jbfs dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "jbfs never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "jbfs capture boundary",
+      "pass": true
+    },
+    {
+      "name": "jbfs captured totals match independent 9/18 evidence",
+      "pass": true
+    },
+    {
+      "name": "jbfs detail count matches independent 9/18 evidence",
+      "pass": true
+    },
+    {
+      "name": "jbfs dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "jbfs original title present",
+      "pass": true
+    },
+    {
+      "name": "jbfs no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "jbfs filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "jbfs department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "jbfs initial date and source explain saved sample",
+      "pass": true
+    },
+    {
+      "name": "jbfs usage, message and friend summary",
+      "pass": true
+    },
+    {
+      "name": "jbfs populated captured state",
+      "pass": true
+    },
+    {
+      "name": "jbfs all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "jbfs sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "jbfs total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "jbfs tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "mengzhua dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "mengzhua never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "mengzhua capture boundary",
+      "pass": true
+    },
+    {
+      "name": "mengzhua captured totals match independent 9/18 evidence",
+      "pass": true
+    },
+    {
+      "name": "mengzhua detail count matches independent 9/18 evidence",
+      "pass": true
+    },
+    {
+      "name": "mengzhua dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "mengzhua original title present",
+      "pass": true
+    },
+    {
+      "name": "mengzhua no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "mengzhua filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "mengzhua department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "mengzhua initial date and source explain saved sample",
+      "pass": true
+    },
+    {
+      "name": "mengzhua usage, message and friend summary",
+      "pass": true
+    },
+    {
+      "name": "mengzhua true captured empty distinct from missing",
+      "pass": true
+    },
+    {
+      "name": "bzds dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "bzds never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "bzds capture boundary",
+      "pass": true
+    },
+    {
+      "name": "bzds captured totals match independent 9/18 evidence",
+      "pass": true
+    },
+    {
+      "name": "bzds detail count matches independent 9/18 evidence",
+      "pass": true
+    },
+    {
+      "name": "bzds dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "bzds original title present",
+      "pass": true
+    },
+    {
+      "name": "bzds no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "bzds filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "bzds department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "bzds initial date and source explain saved sample",
+      "pass": true
+    },
+    {
+      "name": "bzds usage, message and friend summary",
+      "pass": true
+    },
+    {
+      "name": "bzds populated captured state",
+      "pass": true
+    },
+    {
+      "name": "bzds all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "bzds sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "bzds total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "bzds tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "crrm dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "crrm never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "crrm capture boundary",
+      "pass": true
+    },
+    {
+      "name": "crrm dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "crrm original title present",
+      "pass": true
+    },
+    {
+      "name": "crrm no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "crrm filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "crrm department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "crrm uncollected is explicit and cannot export",
+      "pass": true
+    },
+    {
+      "name": "hqjd dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "hqjd never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "hqjd capture boundary",
+      "pass": true
+    },
+    {
+      "name": "hqjd dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "hqjd original title present",
+      "pass": true
+    },
+    {
+      "name": "hqjd no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "hqjd filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "hqjd department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "hqjd uncollected is explicit and cannot export",
+      "pass": true
+    },
+    {
+      "name": "ykjl dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "ykjl never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "ykjl capture boundary",
+      "pass": true
+    },
+    {
+      "name": "ykjl dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "ykjl original title present",
+      "pass": true
+    },
+    {
+      "name": "ykjl no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "ykjl filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "ykjl department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "ykjl uncollected is explicit and cannot export",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen capture boundary",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen original title present",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen uncollected is explicit and cannot export",
+      "pass": true
+    },
+    {
+      "name": "rxxz dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "rxxz never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "rxxz capture boundary",
+      "pass": true
+    },
+    {
+      "name": "rxxz dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "rxxz original title present",
+      "pass": true
+    },
+    {
+      "name": "rxxz no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "rxxz filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "rxxz department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "rxxz uncollected is explicit and cannot export",
+      "pass": true
+    },
+    {
+      "name": "yestar dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "yestar never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "yestar capture boundary",
+      "pass": true
+    },
+    {
+      "name": "yestar dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yestar original title present",
+      "pass": true
+    },
+    {
+      "name": "yestar no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "yestar filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "yestar department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "yestar uncollected is explicit and cannot export",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj capture boundary",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj original title present",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj uncollected is explicit and cannot export",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz capture boundary",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz original title present",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz uncollected is explicit and cannot export",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz capture boundary",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz original title present",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz uncollected is explicit and cannot export",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx capture boundary",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx original title present",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx uncollected is explicit and cannot export",
+      "pass": true
+    },
+    {
+      "name": "yzhb dataset tenant identity",
+      "pass": true
+    },
+    {
+      "name": "yzhb never borrows another tenant sample",
+      "pass": true
+    },
+    {
+      "name": "yzhb capture boundary",
+      "pass": true
+    },
+    {
+      "name": "yzhb dedicated page loaded without runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yzhb original title present",
+      "pass": true
+    },
+    {
+      "name": "yzhb no injected cards/pager/column settings/refresh",
+      "pass": true
+    },
+    {
+      "name": "yzhb filter action group keeps search/reset/export together",
+      "pass": true
+    },
+    {
+      "name": "yzhb department options exact tenant dataset",
+      "pass": true
+    },
+    {
+      "name": "yzhb uncollected is explicit and cannot export",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz usage retains single/range modes",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz both numeric headings right aligned",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz both numeric cells right aligned",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz empty date rejects query and preserves result",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz malformed date rejects query and preserves result",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz nonexistent calendar date rejects query",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz reversed range rejected without removing prior data",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz same-day range returns sample unchanged",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz partially covered range is missing snapshot, not invented sum",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz 今天 uses current Shanghai day",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz 今天 sampled/missing state truthful",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz 昨天 uses current Shanghai day",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz 昨天 sampled/missing state truthful",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz 前天 uses current Shanghai day",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz 前天 sampled/missing state truthful",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz reset restores captured date and exact original groups",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz department edit keeps submitted result",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz department all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz department sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz department total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz department tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz department usage, message and friend summary",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz messages ascending orders sales totals",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz messages ascending all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz messages ascending sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz messages ascending total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz messages ascending tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz messages descending orders sales totals",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz messages descending all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz messages descending sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz messages descending total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz messages descending tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz friends ascending orders sales totals",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz friends ascending all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz friends ascending sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz friends ascending total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz friends ascending tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz friends descending orders sales totals",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz friends descending all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz friends descending sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz friends descending total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz friends descending tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz export detail rows only, no subtotals or whole-table total",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz exported numeric sums match saved source once",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz export identifies tenant",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz no interaction runtime errors",
+      "pass": true
+    },
+    {
+      "name": "jbfs usage retains single/range modes",
+      "pass": true
+    },
+    {
+      "name": "jbfs both numeric headings right aligned",
+      "pass": true
+    },
+    {
+      "name": "jbfs both numeric cells right aligned",
+      "pass": true
+    },
+    {
+      "name": "jbfs empty date rejects query and preserves result",
+      "pass": true
+    },
+    {
+      "name": "jbfs malformed date rejects query and preserves result",
+      "pass": true
+    },
+    {
+      "name": "jbfs nonexistent calendar date rejects query",
+      "pass": true
+    },
+    {
+      "name": "jbfs reversed range rejected without removing prior data",
+      "pass": true
+    },
+    {
+      "name": "jbfs same-day range returns sample unchanged",
+      "pass": true
+    },
+    {
+      "name": "jbfs partially covered range is missing snapshot, not invented sum",
+      "pass": true
+    },
+    {
+      "name": "jbfs 今天 uses current Shanghai day",
+      "pass": true
+    },
+    {
+      "name": "jbfs 今天 sampled/missing state truthful",
+      "pass": true
+    },
+    {
+      "name": "jbfs 昨天 uses current Shanghai day",
+      "pass": true
+    },
+    {
+      "name": "jbfs 昨天 sampled/missing state truthful",
+      "pass": true
+    },
+    {
+      "name": "jbfs 前天 uses current Shanghai day",
+      "pass": true
+    },
+    {
+      "name": "jbfs 前天 sampled/missing state truthful",
+      "pass": true
+    },
+    {
+      "name": "jbfs reset restores captured date and exact original groups",
+      "pass": true
+    },
+    {
+      "name": "jbfs department edit keeps submitted result",
+      "pass": true
+    },
+    {
+      "name": "jbfs department all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "jbfs department sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "jbfs department total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "jbfs department tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "jbfs department usage, message and friend summary",
+      "pass": true
+    },
+    {
+      "name": "jbfs messages ascending orders sales totals",
+      "pass": true
+    },
+    {
+      "name": "jbfs messages ascending all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "jbfs messages ascending sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "jbfs messages ascending total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "jbfs messages ascending tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "jbfs messages descending orders sales totals",
+      "pass": true
+    },
+    {
+      "name": "jbfs messages descending all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "jbfs messages descending sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "jbfs messages descending total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "jbfs messages descending tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "jbfs friends ascending orders sales totals",
+      "pass": true
+    },
+    {
+      "name": "jbfs friends ascending all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "jbfs friends ascending sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "jbfs friends ascending total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "jbfs friends ascending tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "jbfs friends descending orders sales totals",
+      "pass": true
+    },
+    {
+      "name": "jbfs friends descending all sales shown without pagination",
+      "pass": true
+    },
+    {
+      "name": "jbfs friends descending sales rowspan, intact departments/subtotal, sequential ranks and empty sixth column",
+      "pass": true
+    },
+    {
+      "name": "jbfs friends descending total in tfoot without salesperson or rank",
+      "pass": true
+    },
+    {
+      "name": "jbfs friends descending tfoot exact detail sum",
+      "pass": true
+    },
+    {
+      "name": "jbfs export detail rows only, no subtotals or whole-table total",
+      "pass": true
+    },
+    {
+      "name": "jbfs exported numeric sums match saved source once",
+      "pass": true
+    },
+    {
+      "name": "jbfs export identifies tenant",
+      "pass": true
+    },
+    {
+      "name": "jbfs no interaction runtime errors",
+      "pass": true
+    },
+    {
+      "name": "usage renderer leaves approved voice date range without modes",
+      "pass": true
+    },
+    {
+      "name": "voice runtime errors absent",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,1031 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "0d3faede47856b6ac3d6bbfb821f0c3267379cc1c62a93239f9d8474850e6a35",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "kind": "DOM and local interaction, not screenshot comparison",
+  "total": 255,
+  "passed": 255,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "yestar-sz/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "jbfs/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "jbfs source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "jbfs hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "jbfs typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "jbfs search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "jbfs empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "jbfs editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "jbfs no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "jbfs/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "jbfs setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "jbfs setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "jbfs setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "jbfs setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "jbfs setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "jbfs setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "jbfs setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "jbfs setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "mengzhua source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "mengzhua hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "mengzhua typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "mengzhua search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "mengzhua empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "mengzhua editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "mengzhua no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "mengzhua setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "mengzhua setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "mengzhua setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "mengzhua setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "mengzhua setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "mengzhua setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "mengzhua setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "mengzhua setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "bzds/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "bzds source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "bzds hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "bzds typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "bzds search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "bzds empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "bzds editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "bzds no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "bzds/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "bzds setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "bzds setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "bzds setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "bzds setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "bzds setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "bzds setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "bzds setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "bzds setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "crrm/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "crrm source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "crrm hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "crrm typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "crrm search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "crrm empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "crrm editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "crrm no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "crrm/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "crrm setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "crrm setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "crrm setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "crrm setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "crrm setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "crrm setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "crrm setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "crrm setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "hqjd/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "hqjd source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "hqjd hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "hqjd typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "hqjd search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "hqjd empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "hqjd editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "hqjd no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "hqjd/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "hqjd setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "hqjd setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "hqjd setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "hqjd setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "hqjd setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "hqjd setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "hqjd setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "hqjd setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "ykjl/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "ykjl source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "ykjl hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ykjl typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "ykjl search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "ykjl empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "ykjl editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "ykjl no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "ykjl/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "ykjl setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "ykjl setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ykjl setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ykjl setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ykjl setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ykjl setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ykjl setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ykjl setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "rxxz/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "rxxz source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "rxxz hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "rxxz typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "rxxz search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "rxxz empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "rxxz editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "rxxz no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "rxxz/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "rxxz setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "rxxz setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "rxxz setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "rxxz setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "rxxz setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "rxxz setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "rxxz setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "rxxz setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yestar/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "yestar hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "yestar empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "yestar editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "yestar no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yestar/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "yestar setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx setting dialogs no runtime errors",
+      "pass": true
+    },
+    {
+      "name": "yzhb/languageManage initializes",
+      "pass": true
+    },
+    {
+      "name": "yzhb source search button and placeholder",
+      "pass": true
+    },
+    {
+      "name": "yzhb hierarchy boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yzhb typing is draft until search",
+      "pass": true
+    },
+    {
+      "name": "yzhb search submits title filter",
+      "pass": true
+    },
+    {
+      "name": "yzhb empty submitted keyword restores all",
+      "pass": true
+    },
+    {
+      "name": "yzhb editor does not assert real complete tree",
+      "pass": true
+    },
+    {
+      "name": "yzhb no interaction errors",
+      "pass": true
+    },
+    {
+      "name": "yzhb/setting initializes",
+      "pass": true
+    },
+    {
+      "name": "yzhb setting list retains entries",
+      "pass": true
+    },
+    {
+      "name": "yzhb setting dialog 0 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yzhb setting dialog 1 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yzhb setting dialog 2 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yzhb setting dialog 3 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yzhb setting dialog 4 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yzhb setting dialog 5 source boundary visible",
+      "pass": true
+    },
+    {
+      "name": "yzhb setting dialogs no runtime errors",
+      "pass": true
+    }
+  ]
+}

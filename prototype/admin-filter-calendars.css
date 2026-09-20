@@ -1,0 +1,12 @@
+.admin-content .source-filter-range[data-calendar-ready]{display:flex;align-items:center;border:1px solid #dcdfe6;background:#fff;border-radius:4px;gap:0;overflow:visible;padding:0 5px}
+.admin-content .source-filter-range[data-calendar-ready]>input{border:0;box-shadow:none!important;min-width:0;width:calc((100% - 58px)/2);flex:1;text-align:center;padding:0 3px;background:transparent}
+.admin-content .source-filter-range[data-calendar-ready]:focus-within,.admin-content .source-single-date:focus-within{border-color:#409eff}
+.admin-content .source-date-trigger{border:0;background:transparent;color:#a8abb2;flex:0 0 24px;width:24px;min-width:24px;height:30px;padding:0;display:inline-flex;align-items:center;justify-content:center;box-shadow:none}
+.admin-content .source-date-trigger:hover{color:#409eff;background:transparent}
+.admin-content .source-date-trigger:focus-visible{outline:2px solid #409eff;outline-offset:-2px}
+.admin-content .source-single-date{display:flex;align-items:center;gap:0;border:1px solid #dcdfe6;border-radius:4px;background:#fff;min-width:0;width:220px;padding:0 5px;height:32px}
+.admin-content .source-single-date>input{border:0;box-shadow:none!important;min-width:0;flex:1;width:100%;padding:0 5px;height:30px;background:transparent}
+
+/* Revisit search color is directly visible in the user-provided current screenshot. */
+.admin-content[data-admin-route="revisitStats"] .filter-actions button.primary{background:#409eff;border-color:#409eff;color:#fff}
+.admin-content[data-admin-route="revisitStats"] .filter-actions button.primary:hover{background:#79bbff;border-color:#79bbff;color:#fff}

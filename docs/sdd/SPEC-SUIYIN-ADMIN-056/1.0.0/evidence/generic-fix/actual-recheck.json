@@ -1,0 +1,471 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "18f48290165535f63afd0acb1387f591c553425db90b2718c4ca25d8ccacff9d",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "kind": "actual target repository JSDOM integration; not browser pixel acceptance",
+  "checkedAt": "2026-09-20T06:02:13.085Z",
+  "total": 112,
+  "passed": 112,
+  "failed": 0,
+  "hashes": {
+    "admin-content.html": "e7c8d8c4f13567e76a107fc0d1a475608a7d4b045e117babc5d5d4e76fed42b0",
+    "admin-content.js": "364ced7d90fe29138f6078178510436a269777353eb7ef6025d3c2cd1edaf6ae",
+    "admin-content.css": "c2af34f4308d2647df6bc635211715a0998a058a9f912123f4e67f1181cb1407",
+    "admin-filter-calendars.js": "bb7a3facce734ce12928b4fe45f689baecc2ba587b5bae4e8edffbaab0f7a518",
+    "admin-filter-calendars.css": "e9604c22351c296dddb73997d9b92fee2f0e6989238a1a8be12e31abd788abd3",
+    "admin-sales-dashboard.js": "20770304aa3fd76ab80f7ee36a3034f1224d5eb9ed44f019fb6bca89893d0ca8",
+    "admin-sales-dashboard.css": "18117d6336a3371d8b214467ed33279184dd55ea49880be9bd8b2de626b35ff0",
+    "admin-stats-date-picker.js": "5798834c57e05dea340a815afcb4769e49cf006b3f22552ebb5e732dee36e030",
+    "data/page-evidence.js": "9baf07fa2d3e05d9ae0e6dca9dc15ce826d67202434b1d58fb2e234184411302"
+  },
+  "checks": [
+    {
+      "name": "bzds raw12metrics exact",
+      "pass": true
+    },
+    {
+      "name": "bzds raw4tables exact",
+      "pass": true
+    },
+    {
+      "name": "bzds raw capture metadata",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "bzds twelve DOM metric values exact",
+      "pass": true
+    },
+    {
+      "name": "bzds four tables and8truthful chart placeholders",
+      "pass": true
+    },
+    {
+      "name": "bzds source header captured identity",
+      "pass": true
+    },
+    {
+      "name": "bzds all4product image slots restored",
+      "pass": true
+    },
+    {
+      "name": "bzds source rowheight preserved",
+      "pass": true
+    },
+    {
+      "name": "bzds exact grouped source dates query success",
+      "pass": true
+    },
+    {
+      "name": "bzds cleared start dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "bzds cleared end dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "bzds cleared both dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "bzds reset restores controls, snapshot andsource",
+      "pass": true
+    },
+    {
+      "name": "jbfs raw12metrics exact",
+      "pass": true
+    },
+    {
+      "name": "jbfs raw4tables exact",
+      "pass": true
+    },
+    {
+      "name": "jbfs raw capture metadata",
+      "pass": true
+    },
+    {
+      "name": "jbfs/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "jbfs twelve DOM metric values exact",
+      "pass": true
+    },
+    {
+      "name": "jbfs four tables and8truthful chart placeholders",
+      "pass": true
+    },
+    {
+      "name": "jbfs source header captured identity",
+      "pass": true
+    },
+    {
+      "name": "jbfs all4tables truly empty no borrowed product images",
+      "pass": true
+    },
+    {
+      "name": "jbfs exact grouped source dates query success",
+      "pass": true
+    },
+    {
+      "name": "jbfs cleared start dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "jbfs cleared end dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "jbfs cleared both dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "jbfs reset restores controls, snapshot andsource",
+      "pass": true
+    },
+    {
+      "name": "mengzhua raw12metrics exact",
+      "pass": true
+    },
+    {
+      "name": "mengzhua raw4tables exact",
+      "pass": true
+    },
+    {
+      "name": "mengzhua raw capture metadata",
+      "pass": true
+    },
+    {
+      "name": "mengzhua/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "mengzhua twelve DOM metric values exact",
+      "pass": true
+    },
+    {
+      "name": "mengzhua four tables and8truthful chart placeholders",
+      "pass": true
+    },
+    {
+      "name": "mengzhua source header captured identity",
+      "pass": true
+    },
+    {
+      "name": "mengzhua all4tables truly empty no borrowed product images",
+      "pass": true
+    },
+    {
+      "name": "mengzhua exact grouped source dates query success",
+      "pass": true
+    },
+    {
+      "name": "mengzhua cleared start dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "mengzhua cleared end dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "mengzhua cleared both dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "mengzhua reset restores controls, snapshot andsource",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz raw12metrics exact",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz raw4tables exact",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz raw capture metadata",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz twelve DOM metric values exact",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz four tables and8truthful chart placeholders",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz source header captured identity",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz all4tables truly empty no borrowed product images",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz exact grouped source dates query success",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz cleared start dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz cleared end dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz cleared both dates blocked from snapshot",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz reset restores controls, snapshot andsource",
+      "pass": true
+    },
+    {
+      "name": "crrm/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "crrm reference metrics/tables exact attributed source",
+      "pass": true
+    },
+    {
+      "name": "crrm reference in visible header andsummary",
+      "pass": true
+    },
+    {
+      "name": "hqjd/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "hqjd reference metrics/tables exact attributed source",
+      "pass": true
+    },
+    {
+      "name": "hqjd reference in visible header andsummary",
+      "pass": true
+    },
+    {
+      "name": "ykjl/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "ykjl reference metrics/tables exact attributed source",
+      "pass": true
+    },
+    {
+      "name": "ykjl reference in visible header andsummary",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen reference metrics/tables exact attributed source",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen reference in visible header andsummary",
+      "pass": true
+    },
+    {
+      "name": "rxxz/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "rxxz reference metrics/tables exact attributed source",
+      "pass": true
+    },
+    {
+      "name": "rxxz reference in visible header andsummary",
+      "pass": true
+    },
+    {
+      "name": "yestar/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "yestar reference metrics/tables exact attributed source",
+      "pass": true
+    },
+    {
+      "name": "yestar reference in visible header andsummary",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj reference metrics/tables exact attributed source",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj reference in visible header andsummary",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz reference metrics/tables exact attributed source",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz reference in visible header andsummary",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz reference metrics/tables exact attributed source",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz reference in visible header andsummary",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx reference metrics/tables exact attributed source",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx reference in visible header andsummary",
+      "pass": true
+    },
+    {
+      "name": "yzhb/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "yzhb reference metrics/tables exact attributed source",
+      "pass": true
+    },
+    {
+      "name": "yzhb reference in visible header andsummary",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "tenantId mismatch rejects data with retry andzero metric cards",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "route mismatch rejects data with retry andzero metric cards",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "load failure does not appear as empty business data",
+      "pass": true
+    },
+    {
+      "name": "retry recovers original12metrics",
+      "pass": true
+    },
+    {
+      "name": "bzds/salesStatsNew actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "generic calendar uses text inputs andone350pxgroup",
+      "pass": true
+    },
+    {
+      "name": "manual input stays draft",
+      "pass": true
+    },
+    {
+      "name": "manual valid unmatched range gives no-snapshot",
+      "pass": true
+    },
+    {
+      "name": "reverse range rejected without applying filter",
+      "pass": true
+    },
+    {
+      "name": "invalid 2026-02-30 rejected without applying",
+      "pass": true
+    },
+    {
+      "name": "invalid 2026-13-01 rejected without applying",
+      "pass": true
+    },
+    {
+      "name": "invalid 2026-9-12 rejected without applying",
+      "pass": true
+    },
+    {
+      "name": "invalid not-a-date rejected without applying",
+      "pass": true
+    },
+    {
+      "name": "source date trigger opens dualmonth calendar",
+      "pass": true
+    },
+    {
+      "name": "unfinished selection escape restores source interval",
+      "pass": true
+    },
+    {
+      "name": "outside cancellation restores dates",
+      "pass": true
+    },
+    {
+      "name": "completed picker selection commits draft dates only",
+      "pass": true
+    },
+    {
+      "name": "completed picker range uses query boundary",
+      "pass": true
+    },
+    {
+      "name": "reset replaces picker andremoves old popover",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz/appointmentRecords actual repository load without runtime error",
+      "pass": true
+    },
+    {
+      "name": "two source ranges retain four inputs andtwo separate calendars",
+      "pass": true
+    },
+    {
+      "name": "multi-range reset leaves two calendars without duplicates",
+      "pass": true
+    },
+    {
+      "name": "target files unchanged during verification",
+      "pass": true
+    }
+  ]
+}

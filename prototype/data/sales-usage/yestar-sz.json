@@ -1,0 +1,1420 @@
+{
+  "tenantId": "yestar-sz",
+  "route": "salesMessageUsage",
+  "state": "captured",
+  "capturedAt": "2026-09-18T08:47:41.328Z",
+  "sampleDate": "2026-09-18",
+  "sourceUrl": "https://yestar-sz.wecarepet.com/admin/salesMessageUsage",
+  "sourceLabel": "本租户 2026-09-18 已采集样本",
+  "departmentOptionsScope": "sample-observed",
+  "departmentOptionsLabel": "仅含本租户样本中出现的部门",
+  "groups": [
+    {
+      "id": "yestar-sz-sale-1",
+      "order": 1,
+      "sales": "冯琪",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 457,
+          "friends": 186
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-2",
+      "order": 2,
+      "sales": "曾家凤",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 34,
+          "friends": 7
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 363,
+          "friends": 40
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-3",
+      "order": 3,
+      "sales": "刘佳欣",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 59,
+          "friends": 18
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 301,
+          "friends": 79
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-4",
+      "order": 4,
+      "sales": "许海丹",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 10,
+          "friends": 3
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 340,
+          "friends": 62
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-5",
+      "order": 5,
+      "sales": "周文倩",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 26,
+          "friends": 5
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 278,
+          "friends": 55
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-6",
+      "order": 6,
+      "sales": "温莉莉",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 284,
+          "friends": 43
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-7",
+      "order": 7,
+      "sales": "江燕苗",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-b83335a19f7a",
+          "name": "自媒体",
+          "messages": 278,
+          "friends": 22
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-8",
+      "order": 8,
+      "sales": "周佳琪",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 17,
+          "friends": 5
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 241,
+          "friends": 95
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-9",
+      "order": 9,
+      "sales": "陈平",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 236,
+          "friends": 26
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-10",
+      "order": 10,
+      "sales": "黄婷钰",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 223,
+          "friends": 24
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-11",
+      "order": 11,
+      "sales": "汪梦",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 62,
+          "friends": 7
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 150,
+          "friends": 24
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-12",
+      "order": 12,
+      "sales": "张艳玲",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 93,
+          "friends": 28
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 114,
+          "friends": 33
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-13",
+      "order": 13,
+      "sales": "林时燕",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 206,
+          "friends": 8
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-14",
+      "order": 14,
+      "sales": "曾丝仁",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 27,
+          "friends": 4
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 178,
+          "friends": 39
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-15",
+      "order": 15,
+      "sales": "彭招",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 46,
+          "friends": 19
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 157,
+          "friends": 49
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-16",
+      "order": 16,
+      "sales": "张志凌",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 181,
+          "friends": 49
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-17",
+      "order": 17,
+      "sales": "梁桢",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 162,
+          "friends": 48
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-18",
+      "order": 18,
+      "sales": "邓铿玲",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 159,
+          "friends": 50
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-19",
+      "order": 19,
+      "sales": "李艳",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 10,
+          "friends": 6
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 145,
+          "friends": 32
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-20",
+      "order": 20,
+      "sales": "何蓉",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 131,
+          "friends": 12
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-21",
+      "order": 21,
+      "sales": "齐亚萍",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 130,
+          "friends": 15
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-22",
+      "order": 22,
+      "sales": "刘红菌",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-ba93e8572b17",
+          "name": "大搜",
+          "messages": 120,
+          "friends": 12
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-23",
+      "order": 23,
+      "sales": "陈祥龙",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 15,
+          "friends": 5
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 96,
+          "friends": 29
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-24",
+      "order": 24,
+      "sales": "张秋波",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商",
+          "messages": 110,
+          "friends": 49
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-25",
+      "order": 25,
+      "sales": "郭宏",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 107,
+          "friends": 35
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-26",
+      "order": 26,
+      "sales": "谭天晴",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 6,
+          "friends": 2
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 95,
+          "friends": 16
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-27",
+      "order": 27,
+      "sales": "邹雪梅",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商",
+          "messages": 97,
+          "friends": 20
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-28",
+      "order": 28,
+      "sales": "刘冠希",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 10,
+          "friends": 3
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 81,
+          "friends": 20
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-29",
+      "order": 29,
+      "sales": "康佳倩",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 25,
+          "friends": 4
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 65,
+          "friends": 31
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-30",
+      "order": 30,
+      "sales": "彭洋洋",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 90,
+          "friends": 40
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-31",
+      "order": 31,
+      "sales": "张欢",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 89,
+          "friends": 24
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-32",
+      "order": 32,
+      "sales": "刘亮",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 86,
+          "friends": 7
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-33",
+      "order": 33,
+      "sales": "胡艳",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商",
+          "messages": 84,
+          "friends": 28
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-34",
+      "order": 34,
+      "sales": "刘可",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商",
+          "messages": 66,
+          "friends": 45
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-35",
+      "order": 35,
+      "sales": "朱婷婷",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 7,
+          "friends": 3
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 58,
+          "friends": 12
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-36",
+      "order": 36,
+      "sales": "邓传丽",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 30,
+          "friends": 8
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 34,
+          "friends": 13
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-37",
+      "order": 37,
+      "sales": "陈沛",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商",
+          "messages": 61,
+          "friends": 28
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-38",
+      "order": 38,
+      "sales": "小夏-夏海原",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 56,
+          "friends": 13
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 3,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-39",
+      "order": 39,
+      "sales": "陈文雯",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商",
+          "messages": 59,
+          "friends": 19
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-40",
+      "order": 40,
+      "sales": "杨晓纯",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商",
+          "messages": 55,
+          "friends": 54
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-41",
+      "order": 41,
+      "sales": "王洁",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 54,
+          "friends": 11
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-42",
+      "order": 42,
+      "sales": "刘怡情",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 53,
+          "friends": 7
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-43",
+      "order": 43,
+      "sales": "张图南",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商",
+          "messages": 51,
+          "friends": 6
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-44",
+      "order": 44,
+      "sales": "廖永峰",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 50,
+          "friends": 11
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-45",
+      "order": 45,
+      "sales": "刘佳媚",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商",
+          "messages": 48,
+          "friends": 27
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-46",
+      "order": 46,
+      "sales": "陈家清",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 38,
+          "friends": 4
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 5,
+          "friends": 4
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-47",
+      "order": 47,
+      "sales": "胡惠聪",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 15,
+          "friends": 8
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 25,
+          "friends": 13
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-48",
+      "order": 48,
+      "sales": "彭生豪",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 39,
+          "friends": 20
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-49",
+      "order": 49,
+      "sales": "童洁",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 39,
+          "friends": 10
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-50",
+      "order": 50,
+      "sales": "罗丽",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 39,
+          "friends": 24
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-51",
+      "order": 51,
+      "sales": "张璐璐",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 38,
+          "friends": 10
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-52",
+      "order": 52,
+      "sales": "刘宗宁",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商",
+          "messages": 35,
+          "friends": 20
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-53",
+      "order": 53,
+      "sales": "房圆圆",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-b83335a19f7a",
+          "name": "自媒体",
+          "messages": 34,
+          "friends": 4
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-54",
+      "order": 54,
+      "sales": "任小改",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 32,
+          "friends": 13
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-55",
+      "order": 55,
+      "sales": "小琦-莫加琦",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 8,
+          "friends": 3
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 22,
+          "friends": 4
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-56",
+      "order": 56,
+      "sales": "黄珊珊",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 13,
+          "friends": 6
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 16,
+          "friends": 8
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-57",
+      "order": 57,
+      "sales": "赵可欣",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 27,
+          "friends": 8
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-58",
+      "order": 58,
+      "sales": "陈嘉怡",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 26,
+          "friends": 9
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-59",
+      "order": 59,
+      "sales": "罗媛媛",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 25,
+          "friends": 11
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-60",
+      "order": 60,
+      "sales": "谭阳谦",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 20,
+          "friends": 9
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-61",
+      "order": 61,
+      "sales": "胡紫研",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心",
+          "messages": 19,
+          "friends": 4
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-62",
+      "order": 62,
+      "sales": "李雅琴",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心",
+          "messages": 16,
+          "friends": 6
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-63",
+      "order": 63,
+      "sales": "尹芳",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 15,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-64",
+      "order": 64,
+      "sales": "沈妙丽",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-b2e81cd75f93",
+          "name": "客服三部",
+          "messages": 15,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-65",
+      "order": 65,
+      "sales": "吴晓妍",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 14,
+          "friends": 4
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-66",
+      "order": 66,
+      "sales": "罗梓嫣",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 6,
+          "friends": 2
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 8,
+          "friends": 2
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-67",
+      "order": 67,
+      "sales": "何清",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心",
+          "messages": 12,
+          "friends": 5
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-68",
+      "order": 68,
+      "sales": "卿晓悦",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 12,
+          "friends": 3
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-69",
+      "order": 69,
+      "sales": "肖海英",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-b83335a19f7a",
+          "name": "自媒体",
+          "messages": 11,
+          "friends": 4
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-70",
+      "order": 70,
+      "sales": "卢秋菊",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 10,
+          "friends": 4
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-71",
+      "order": 71,
+      "sales": "张雪岚",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-b83335a19f7a",
+          "name": "自媒体",
+          "messages": 10,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-72",
+      "order": 72,
+      "sales": "王月丽",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-84e22744e400",
+          "name": "电商",
+          "messages": 8,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-73",
+      "order": 73,
+      "sales": "刘仁南",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 7,
+          "friends": 3
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-74",
+      "order": 74,
+      "sales": "施语岚",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-48d02262e18b",
+          "name": "私域运营",
+          "messages": 7,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-75",
+      "order": 75,
+      "sales": "周嘉伟",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 1,
+          "friends": 1
+        },
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 5,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-76",
+      "order": 76,
+      "sales": "谢东华",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-b83335a19f7a",
+          "name": "自媒体",
+          "messages": 6,
+          "friends": 6
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-77",
+      "order": 77,
+      "sales": "李愉",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-2628179ca128",
+          "name": "医生号",
+          "messages": 5,
+          "friends": 2
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-78",
+      "order": 78,
+      "sales": "张紫婷",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心",
+          "messages": 4,
+          "friends": 3
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-79",
+      "order": 79,
+      "sales": "王莎莎",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心",
+          "messages": 4,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-80",
+      "order": 80,
+      "sales": "自媒体张德雯",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-b83335a19f7a",
+          "name": "自媒体",
+          "messages": 4,
+          "friends": 2
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-81",
+      "order": 81,
+      "sales": "周科",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-b2e81cd75f93",
+          "name": "客服三部",
+          "messages": 3,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-82",
+      "order": 82,
+      "sales": "涂乐",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-d077d0b18e19",
+          "name": "抖音",
+          "messages": 3,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-83",
+      "order": 83,
+      "sales": "熊姬珠",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 3,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-84",
+      "order": 84,
+      "sales": "自媒体叶惠美",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-b83335a19f7a",
+          "name": "自媒体",
+          "messages": 3,
+          "friends": 2
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-85",
+      "order": 85,
+      "sales": "刘莉萌",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心",
+          "messages": 2,
+          "friends": 2
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-86",
+      "order": 86,
+      "sales": "李双阳",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-97fb9e0d8e8a",
+          "name": "代运营-三方",
+          "messages": 2,
+          "friends": 2
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-87",
+      "order": 87,
+      "sales": "钟锡珠",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心",
+          "messages": 2,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-88",
+      "order": 88,
+      "sales": "卓思思",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-a12c2e980b23",
+          "name": "内容中心",
+          "messages": 1,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-89",
+      "order": 89,
+      "sales": "孙颖",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心",
+          "messages": 1,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-90",
+      "order": 90,
+      "sales": "晏静",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心",
+          "messages": 1,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-91",
+      "order": 91,
+      "sales": "杨芳芳",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-b2e81cd75f93",
+          "name": "客服三部",
+          "messages": 1,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-92",
+      "order": 92,
+      "sales": "聂敦亚",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心",
+          "messages": 1,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-93",
+      "order": 93,
+      "sales": "赖考媚",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-1182ff0452c8",
+          "name": "会员中心",
+          "messages": 1,
+          "friends": 1
+        }
+      ]
+    },
+    {
+      "id": "yestar-sz-sale-94",
+      "order": 94,
+      "sales": "陈琪",
+      "departments": [
+        {
+          "id": "yestar-sz-dept-b2e81cd75f93",
+          "name": "客服三部",
+          "messages": 1,
+          "friends": 1
+        }
+      ]
+    }
+  ],
+  "departmentOptions": [
+    {
+      "id": "yestar-sz-dept-d077d0b18e19",
+      "name": "抖音"
+    },
+    {
+      "id": "yestar-sz-dept-a12c2e980b23",
+      "name": "内容中心"
+    },
+    {
+      "id": "yestar-sz-dept-2628179ca128",
+      "name": "医生号"
+    },
+    {
+      "id": "yestar-sz-dept-b83335a19f7a",
+      "name": "自媒体"
+    },
+    {
+      "id": "yestar-sz-dept-97fb9e0d8e8a",
+      "name": "代运营-三方"
+    },
+    {
+      "id": "yestar-sz-dept-ba93e8572b17",
+      "name": "大搜"
+    },
+    {
+      "id": "yestar-sz-dept-84e22744e400",
+      "name": "电商"
+    },
+    {
+      "id": "yestar-sz-dept-1182ff0452c8",
+      "name": "会员中心"
+    },
+    {
+      "id": "yestar-sz-dept-b2e81cd75f93",
+      "name": "客服三部"
+    },
+    {
+      "id": "yestar-sz-dept-48d02262e18b",
+      "name": "私域运营"
+    }
+  ],
+  "totals": {
+    "users": 94,
+    "messages": 7679,
+    "friends": 1939
+  }
+}

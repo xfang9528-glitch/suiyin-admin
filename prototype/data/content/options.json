@@ -1891,10 +1891,6 @@
     "multiple": false,
     "options": [
       {
-        "text": "自然日",
-        "disabled": false
-      },
-      {
         "text": "全部",
         "disabled": false
       },
@@ -3020,14 +3016,6 @@
     "label": "选择门店",
     "multiple": false,
     "options": [
-      {
-        "text": "人数",
-        "disabled": false
-      },
-      {
-        "text": "按商品",
-        "disabled": false
-      },
       {
         "text": "麓湖店",
         "disabled": false

@@ -1,0 +1,145 @@
+{
+  "public_projection": true,
+  "original_report_sha256": "da2092ac26aa49887eddf02898bb6633b5981d323b7d2fff77baef604b44aa95",
+  "projection_policy": "Checks, route identity, numeric results and file hashes only; raw business records, screenshots and private local paths are excluded.",
+  "kind": "non-rendering DOM/calendar integration and CSS declaration parity; not visual acceptance",
+  "checkedAt": "2026-09-20T05:30:57.880Z",
+  "total": 31,
+  "passed": 31,
+  "failed": 0,
+  "hashes": {
+    "admin-sales-usage.js": "e3485ea2e50364a36112de2a325bc24672d5824b56fa2c90967af6e8eafc1b91",
+    "admin-sales-usage.css": "228fa5b9ab712b33cc02ed1cb8a7e0c24fa50f013f3751b7c4f2fb4c29763473",
+    "admin-sales-voice-stats.js": "321a18041a3ee78cf629c39a17418822b6e5da96fc8f137904b3cf226f91fe24",
+    "admin-sales-voice-stats.css": "f989895b5a8d6963298b6c377662ee8d287866f0e6fc8bd4c0fab043b523d5fd",
+    "admin-stats-date-picker.js": "5798834c57e05dea340a815afcb4769e49cf006b3f22552ebb5e732dee36e030",
+    "admin-stats-date-picker.css": "bb07a4450e5251d3c324890696a675f1df9a83bf7ab6e0b5e9638fb8cf455128",
+    "admin-content.html": "2ec3cc42e9c7fb22290f055c80d456fe0a3d1680dbfa51446ae7f7f22e500e0a"
+  },
+  "checks": [
+    {
+      "name": "usage input click opens calendar and retains text focus",
+      "pass": true
+    },
+    {
+      "name": "usage hand typing closes picker without restoring previous date",
+      "pass": true
+    },
+    {
+      "name": "usage typed 9/17 submitted and displayed consistently",
+      "pass": true
+    },
+    {
+      "name": "usage first range pick stays tentative",
+      "pass": true
+    },
+    {
+      "name": "usage Escape cancels unfinished range without altering committed snapshot",
+      "pass": true
+    },
+    {
+      "name": "usage calendar same-day selection returns saved sample",
+      "pass": true
+    },
+    {
+      "name": "usage calendar integration errors absent",
+      "pass": true
+    },
+    {
+      "name": "voice uses shared calendar with direct range and no mode selector",
+      "pass": true
+    },
+    {
+      "name": "voice typed range is a draft until search",
+      "pass": true
+    },
+    {
+      "name": "voice typed date displayed range agrees with result",
+      "pass": true
+    },
+    {
+      "name": "voice typed date result matches committed range",
+      "pass": true
+    },
+    {
+      "name": "voice calendar commits two endpoints as draft",
+      "pass": true
+    },
+    {
+      "name": "voice calendar range displayed range agrees with result",
+      "pass": true
+    },
+    {
+      "name": "voice calendar range result matches committed range",
+      "pass": true
+    },
+    {
+      "name": "voice shortcut 今天 displayed range agrees with result",
+      "pass": true
+    },
+    {
+      "name": "voice shortcut 今天 result matches committed range",
+      "pass": true
+    },
+    {
+      "name": "voice shortcut 今天 closes open calendar",
+      "pass": true
+    },
+    {
+      "name": "voice shortcut 昨天 displayed range agrees with result",
+      "pass": true
+    },
+    {
+      "name": "voice shortcut 昨天 result matches committed range",
+      "pass": true
+    },
+    {
+      "name": "voice shortcut 昨天 closes open calendar",
+      "pass": true
+    },
+    {
+      "name": "voice shortcut 前天 displayed range agrees with result",
+      "pass": true
+    },
+    {
+      "name": "voice shortcut 前天 result matches committed range",
+      "pass": true
+    },
+    {
+      "name": "voice shortcut 前天 closes open calendar",
+      "pass": true
+    },
+    {
+      "name": "voice reset displayed range agrees with result",
+      "pass": true
+    },
+    {
+      "name": "voice reset result matches committed range",
+      "pass": true
+    },
+    {
+      "name": "voice reset cancels unfinished calendar",
+      "pass": true
+    },
+    {
+      "name": "usage and voice share explicit blue primary token and primary declaration",
+      "pass": true
+    },
+    {
+      "name": "primary button computed properties agree",
+      "pass": true
+    },
+    {
+      "name": "usage and voice numeric cells both right align",
+      "pass": true
+    },
+    {
+      "name": "usage and voice numeric headings both right align",
+      "pass": true
+    },
+    {
+      "name": "voice calendar integration errors absent",
+      "pass": true
+    }
+  ]
+}

@@ -2,7 +2,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-const root=path.dirname(fileURLToPath(import.meta.url));
+const root=process.argv[2]?path.resolve(process.argv[2]):path.dirname(fileURLToPath(import.meta.url));
+const outputFile=process.argv[3]?path.resolve(process.argv[3]):path.join(root,'_shell_inline.html');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const files=(dir)=>fs.readdirSync(path.join(root,dir),{withFileTypes:true}).flatMap(d=>d.isDirectory()?files(dir+'/'+d.name):[dir+'/'+d.name]);
 const types={'.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.svg':'image/svg+xml'};
@@ -24,7 +25,8 @@ function inlinePage(file){
   // about:srcdoc has an opaque location.origin; use the inherited parent origin for messages.
   const origin="(window.__ADMIN_INLINE_ORIGIN__||location.origin)";
   code=code.replaceAll('location.origin',origin).replaceAll(','+origin+')',','+origin+"==='null'?'*':"+origin+')');
-  if(p==='admin-content.js')code=code.replace('new URLSearchParams(location.search)','new URLSearchParams(window.__ADMIN_INLINE_PARAMS__||location.search)');
+  // Every content module uses the frame query, including voice/usage QA state.
+  code=code.replaceAll('new URLSearchParams(location.search)','new URLSearchParams(window.__ADMIN_INLINE_PARAMS__||location.search)');
   if(p==='admin-navigation.js'){
    const needle="frame.src='admin-content.html?'+p;";
    if(!code.includes(needle))throw Error('Inline iframe adapter must be updated for navigation changes');
@@ -39,5 +41,5 @@ const bootstrap=`window.__ADMIN_INLINE_DATA__=${serial(data)};window.fetch=${off
 let output=inlinePage('_shell.html');
 // Install data before any shell scripts; all original scripts retain their order at body end.
 output=output.replace('<body class="admin-shell">','<body class="admin-shell"><script>'+bootstrap+'<'+ '/script>');
-fs.writeFileSync(path.join(root,'_shell_inline.html'),output);
+fs.writeFileSync(outputFile,output);
 console.log(JSON.stringify({output:'prototype/_shell_inline.html',jsonFiles:Object.keys(data).length,assets:Object.keys(assets).length,bytes:Buffer.byteLength(output)}));

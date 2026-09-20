@@ -1,0 +1,76 @@
+{
+  "tenantId": "jbfs",
+  "route": "salesMessageUsage",
+  "state": "captured",
+  "capturedAt": "2026-09-18T09:00:31.535Z",
+  "sampleDate": "2026-09-18",
+  "sourceUrl": "https://jbfs.wecarepet.com/admin/salesMessageUsage",
+  "sourceLabel": "本租户 2026-09-18 已采集样本",
+  "departmentOptionsScope": "sample-observed",
+  "departmentOptionsLabel": "仅含本租户样本中出现的部门",
+  "groups": [
+    {
+      "id": "jbfs-sale-1",
+      "order": 1,
+      "sales": "刘宸悦",
+      "departments": [
+        {
+          "id": "jbfs-dept-9708949d3770",
+          "name": "默认分组",
+          "messages": 35,
+          "friends": 10
+        }
+      ]
+    },
+    {
+      "id": "jbfs-sale-2",
+      "order": 2,
+      "sales": "唐唐",
+      "departments": [
+        {
+          "id": "jbfs-dept-9708949d3770",
+          "name": "默认分组",
+          "messages": 34,
+          "friends": 9
+        }
+      ]
+    },
+    {
+      "id": "jbfs-sale-3",
+      "order": 3,
+      "sales": "小琴",
+      "departments": [
+        {
+          "id": "jbfs-dept-9708949d3770",
+          "name": "默认分组",
+          "messages": 24,
+          "friends": 21
+        }
+      ]
+    },
+    {
+      "id": "jbfs-sale-4",
+      "order": 4,
+      "sales": "艾俊莉",
+      "departments": [
+        {
+          "id": "jbfs-dept-9708949d3770",
+          "name": "默认分组",
+          "messages": 1,
+          "friends": 1
+        }
+      ]
+    }
+  ],
+  "departmentOptions": [
+    {
+      "id": "jbfs-dept-9708949d3770",
+      "name": "默认分组"
+    }
+  ],
+  "totals": {
+    "users": 4,
+    "messages": 94,
+    "friends": 41
+  }
+}
