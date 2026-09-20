@@ -1,0 +1,63 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-052",
+  "spec_version": "1.2.0",
+  "scope": "Local static prototype evidence and contract preparation; not production verification",
+  "files": [
+    {
+      "file": "evidence/all-page-table-check.json",
+      "sha256": "e981a927d8dc3850c39cfa89ce1acfb2cfee3f3dcdf9fff919e009b2a33ba570"
+    },
+    {
+      "file": "evidence/installed-sticky-entrypoint.json",
+      "sha256": "896cb0b708d6b88ff3b3a64338005099f19d712607c98e956d62972cb561cd59"
+    },
+    {
+      "file": "evidence/installed-voice.json",
+      "sha256": "977ad59b9a270cfb576aeadf9b99ec82c441a25ad85a8cfa0b04b6c0555a3fc9"
+    },
+    {
+      "file": "evidence/preview-check.json",
+      "sha256": "63e698c0dce77c6ea792d01af6bd6114f14048e79987ca3955568835a968c6e7"
+    },
+    {
+      "file": "evidence/sticky-COVERAGE.md",
+      "sha256": "c4917e826b67b3e4eb8d83367df9f4671a5c456de9419a8c9c5ef46603517c77"
+    },
+    {
+      "file": "evidence/sticky-independent-review.json",
+      "sha256": "b7d55797822024fa76ffd9bc097714632c1dc1a590adebc4231c3d5f2ad41233"
+    },
+    {
+      "file": "evidence/sticky-runtime-report.json",
+      "sha256": "5d79f24c8df46ad16fa7d5a68e696f3d375f2d013d1c1c580b6eda4d31ef37c4"
+    },
+    {
+      "file": "evidence/traceability.json",
+      "sha256": "bf1c32d4e92d0022dd93c9998f6a1e4502815566b09d87666014316847f1fff5"
+    },
+    {
+      "file": "evidence/validate-plan-boundary.json",
+      "sha256": "39383750be709e6f451043ba36057ece3adbc1a05328858ff956bf0f921c6d60"
+    },
+    {
+      "file": "evidence/validate-source-convergence.json",
+      "sha256": "f19369177e830360a52fbac1a219de5c8b4a30f141b0bab4ea242d3b682723d9"
+    },
+    {
+      "file": "evidence/validate-spec.json",
+      "sha256": "3706549d0c4327d3e77cd881f059dcb0c581015bee309aafabe4e9ca864ef598"
+    },
+    {
+      "file": "evidence/voice-geometry.json",
+      "sha256": "4b5b87234de8fda717918331f07cf9bba4eaf19c28729693bb9a9b1e8dbb8a8b"
+    },
+    {
+      "file": "evidence/voice-tenant-checks.json",
+      "sha256": "d9f34f8db75f060483e27d73697d8f1b2f8866a9b036bfa7f81b98a36408a3f1"
+    },
+    {
+      "file": "evidence/voice-verification.json",
+      "sha256": "e8f01faffbcb12dbbc4b042cd4b65e0579c34a8680589584171aeb0b51c59c07"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+/* One original header group follows its actual visible scrollport. Keeping the
+   table's cells in place preserves column widths, sorting, and horizontal pins. */
+.admin-content table > thead[data-admin-table-sticky] {
+  position: relative;
+  z-index: 4;
+  background: #fff;
+  transform: translateY(var(--admin-table-header-offset, 0px));
+}
+
+/* Existing right/left sticky cells keep their horizontal pin. Vertical pinning
+   belongs to the entire group, so grouped/multi-row headers cannot overlap. */
+.admin-content table > thead[data-admin-table-sticky] > tr > :is(th, td) {
+  top: auto !important;
+  bottom: auto !important;
+}
+
+@media print {
+  .admin-content table > thead[data-admin-table-sticky] {
+    transform: none !important;
+  }
+}

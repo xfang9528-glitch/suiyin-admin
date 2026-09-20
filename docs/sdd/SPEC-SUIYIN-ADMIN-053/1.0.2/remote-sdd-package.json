@@ -1,0 +1,74 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-053",
+  "spec_version": "1.0.2",
+  "artifact_class": "static-html",
+  "engineering_handoff": false,
+  "engineering_handoff_status": "not-requested",
+  "issue_url": null,
+  "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026092003-admin-voice-filters-sticky/docs/sdd/SPEC-SUIYIN-ADMIN-053/1.0.2",
+  "release_tag": "v2026092003-admin-voice-filters-sticky",
+  "files": [
+    "README.md",
+    "current-document-search.json",
+    "evidence-index.json",
+    "evidence/sticky-independent-review.json",
+    "evidence/validate-plan-boundary.json",
+    "evidence/validate-source-convergence.json",
+    "evidence/validate-spec.json",
+    "evidence/voice-geometry.json",
+    "evidence/voice-tenant-checks.json",
+    "evidence/voice-verification.json",
+    "plan.md",
+    "source-convergence.md",
+    "source-search.json",
+    "spec.md",
+    "tasks.md",
+    "verification.md",
+    "remote-sdd-package.json"
+  ],
+  "file_sha256": {
+    "README.md": "266a0963a7ad2e8bdcd9f91f874609aa27cf3b44ebeec2fbccdb6b4df8a0d6f4",
+    "current-document-search.json": "79d46b18090fc661093863e0fd36ead44d612e3e178405e5e26090305e041cf0",
+    "evidence-index.json": "5f8a8f871876f87a153544ea3e32a765c53c075ca7110324c8c7c5d81b2ce52c",
+    "evidence/sticky-independent-review.json": "b7d55797822024fa76ffd9bc097714632c1dc1a590adebc4231c3d5f2ad41233",
+    "evidence/validate-plan-boundary.json": "c64d50130a5539a9cb0cf485b9e47094af6da6cac7a063d9cfce2b6e8a6409cb",
+    "evidence/validate-source-convergence.json": "3e53a741a1d4d54932fbb8d31cf862061340062ebfc2a0e62ceaa5c65d08fabc",
+    "evidence/validate-spec.json": "8195caba8577428c156d8f128cc207920302b40847add7cec0a8ab3a78d9c229",
+    "evidence/voice-geometry.json": "4b5b87234de8fda717918331f07cf9bba4eaf19c28729693bb9a9b1e8dbb8a8b",
+    "evidence/voice-tenant-checks.json": "d9f34f8db75f060483e27d73697d8f1b2f8866a9b036bfa7f81b98a36408a3f1",
+    "evidence/voice-verification.json": "e8f01faffbcb12dbbc4b042cd4b65e0579c34a8680589584171aeb0b51c59c07",
+    "plan.md": "cde41d1881954291e9226ae16c182047d666e97ed08615dbe6e515aea674a745",
+    "source-convergence.md": "ab80710ba47f269e251f90d377dadfaa2937ea37935b71956d21872da5f9c0d6",
+    "source-search.json": "a40dd77618bf0efabf5bb868d81552c3953e289cacc4bf60127ad905e395de6f",
+    "spec.md": "50348abf18158e9c4e6bb40d6532732c6f0b18d9d97153f46435fd6647ae05c7",
+    "tasks.md": "7f3849210f3a969ce21e86ac857b812926643549e5a4f9cfeb9cd2177cd96593",
+    "verification.md": "a75602f4b21c9d0879cab83ae009daa20b49931f738ad76887db9b98dc95b0af"
+  },
+  "generated_at": "2026-09-20",
+  "remote_verification": "Required after push; generation does not establish remote publication",
+  "dependencies": [
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-051",
+      "version": "1.1.0",
+      "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026091901-admin-live-reference/docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md",
+      "sha256": "fdea0faf0173367f3fe8f5dbbd5dcf1843f0059c94ae3f8ae189f6ad478a4517",
+      "reference_type": "frozen-existing-release"
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-009",
+      "version": "1.0.0",
+      "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026091901-admin-live-reference/docs/sdd/dependencies/SPEC-SUIYIN-ADMIN-009/1.0.0/spec.md",
+      "sha256": "b4ec774e9a2c98bff41bce8e916b63c2c00f444b75c488116385df6995b66105",
+      "git_blob_sha": null,
+      "relationship": "transitive-through-051"
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-042",
+      "version": "1.0.0",
+      "canonical_url": "https://github.com/PetWebOrg/suiyin-admin/blob/6323f8fc869d8cfd1858635cc00eccf6ba55fe04/docs/sdd/SPEC-SUIYIN-ADMIN-042/1.0.0/spec.md",
+      "sha256": null,
+      "git_blob_sha": "896e14b1754931bfb7636a9b697fd0189cc5f70c",
+      "relationship": "transitive-through-051"
+    }
+  ]
+}

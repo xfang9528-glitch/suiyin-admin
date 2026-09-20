@@ -1,0 +1,149 @@
+{
+  "checkedAt": "2026-09-20T08:19:46.221Z",
+  "scope": "Independent local staged-module review; no production or fixture source mutations",
+  "checks": [
+    {
+      "name": "Actual voice inner scrolling keeps its original sortable header above body rows",
+      "pass": true,
+      "detail": {
+        "value": {
+          "max": 355,
+          "scrollTop": 230
+        },
+        "result": {
+          "head": 110,
+          "expected": 110,
+          "onTop": true,
+          "tableBottom": 761,
+          "headBottom": 150
+        }
+      }
+    },
+    {
+      "name": "Date popover remains above the frozen voice header and cancels normally",
+      "pass": true,
+      "detail": {
+        "popoverOpen": true,
+        "overlaps": true,
+        "hitIsPopover": true
+      }
+    },
+    {
+      "name": "Department popover remains above the frozen voice header and closes normally",
+      "pass": true,
+      "detail": {
+        "popoverOpen": true,
+        "overlaps": true,
+        "hitIsPopover": true
+      }
+    },
+    {
+      "name": "Modal explanation paints above the table and blocks background hits",
+      "pass": true,
+      "detail": {
+        "modal": true,
+        "hitIsDialog": true
+      }
+    },
+    {
+      "name": "Sort and page-size rerenders register fresh headers, preserve sorting and release previous offsets",
+      "pass": true,
+      "detail": {
+        "top": 110,
+        "wrap": 110,
+        "offset": "",
+        "scrollTop": 0
+      }
+    },
+    {
+      "name": "Document-scrolled usage header stops at its table end and never covers following content",
+      "pass": true,
+      "detail": {
+        "headerTop": -240.1875,
+        "headerBottom": -200.09375,
+        "tableBottom": -200.09375,
+        "afterTop": -147.90625,
+        "hitHeader": false
+      }
+    },
+    {
+      "name": "Two independent document tables leave the gap clear and freeze only the visible table",
+      "pass": true,
+      "detail": [
+        {
+          "anchor": "gap",
+          "value": {
+            "headers": [
+              {
+                "id": "one",
+                "top": -140,
+                "bottom": -100,
+                "tableBottom": -100
+              },
+              {
+                "id": "two",
+                "top": 150,
+                "bottom": 190,
+                "tableBottom": 1390
+              }
+            ],
+            "hit": null
+          }
+        },
+        {
+          "anchor": "two",
+          "value": {
+            "headers": [
+              {
+                "id": "one",
+                "top": -390,
+                "bottom": -350,
+                "tableBottom": -350
+              },
+              {
+                "id": "two",
+                "top": 0,
+                "bottom": 40,
+                "tableBottom": 1140
+              }
+            ],
+            "hit": "two"
+          }
+        },
+        {
+          "anchor": "after",
+          "value": {
+            "headers": [
+              {
+                "id": "one",
+                "top": -1630,
+                "bottom": -1590,
+                "tableBottom": -1590
+              },
+              {
+                "id": "two",
+                "top": -140,
+                "bottom": -100,
+                "tableBottom": -100
+              }
+            ],
+            "hit": null
+          }
+        }
+      ]
+    },
+    {
+      "name": "Removing and reinserting a translated header restores its geometry after rerender",
+      "pass": true,
+      "detail": {
+        "top": 0,
+        "offset": "100px"
+      }
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true,
+      "errors": []
+    }
+  ]
+}

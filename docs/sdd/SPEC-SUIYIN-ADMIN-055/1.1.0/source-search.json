@@ -1,0 +1,58 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-055@1.1.0",
+  "checked_at": "2026-09-20",
+  "method": "Exact staged current-contract search; old decision/history and production exclusions are explicitly classified",
+  "patterns": [
+    "直接区间",
+    "无模式切换",
+    "not-requested",
+    "本次不",
+    "待下一次",
+    "生产",
+    "1.0.1",
+    "1.1.2"
+  ],
+  "matches": [
+    {
+      "file": "spec.md",
+      "line": 17,
+      "text": "> 本轮变更（2026-09-20，1.1.0）：房总明确要求“所有表格的表头都保持冻结，这样下滑的时候不会忘记这一行的内容是那个项目”。新增 R005 承载全部管理表格的滚动列语义，不改各页字段、数据、分页或业务规则。该 USER 指令直接授权本地实现；状态 implemented：共享模块已安装，当前 752 个入口盘点和 333 个可应用场景的真实滚动测量通过，另有多层表头、弹窗与浮层边界检查，详见 verification.md 的 1.1.0 记录。2026-09-20 房总最新指令“完整推送，并给陈宣宇在管理页代码仓建立 Issue 实现管理页销售变声统计的这个功能，提出环境深圳艺星，提出人ZHONG”授权本轮完整原型交付与销售变声统计工程建单。生产实施继续由目标代码仓正式工程流程完成。"
+    },
+    {
+      "file": "spec.md",
+      "line": 25,
+      "text": "- **明确不做**：不修改线上和生产仓，不增加冻结列或更改业务字段/数据；本轮已获完整推送授权，发布新版本合同与派生产物；不改旧版本快照。历史采集或 DOM 检查不代表当前线上逐像素一致。"
+    },
+    {
+      "file": "spec.md",
+      "line": 37,
+      "text": "Flutter / React / Go 生产端；真实发送/保存/删除；生产发布和全管理页工程Issue；缺证据的像素保证。"
+    },
+    {
+      "file": "spec.md",
+      "line": 112,
+      "text": "目标 E:/AI 项目/佰智德三/碎银原型/suiyin-admin/prototype；复用_shell、AdminLiveUI、AdminControls及已修复的菜单和统计模块。共享模块与领域专用模块分别实施。本规格全管理页工程交付状态 not-requested；052 的工程 I001 仅引用本规格 R005 / AC-R005-01/02 验证销售变声统计本页，不扩大为所有管理页工程改造。"
+    },
+    {
+      "file": "plan.md",
+      "line": 17,
+      "text": "static-html，只有现有 HTML/CSS/JS 与本地数据；无认证、API、共享数据库或 migration；exception not-required、Operational Profile none。不进入生产仓。2026-09-20 房总最新指令“完整推送，并给陈宣宇在管理页代码仓建立 Issue 实现管理页销售变声统计的这个功能，提出环境深圳艺星，提出人ZHONG”授权本轮完整原型交付与销售变声统计工程建单。生产实施继续由目标代码仓正式工程流程完成。"
+    },
+    {
+      "file": "tasks.md",
+      "line": 18,
+      "text": "- [专项 30 记录／22 断言](evidence/sticky-runtime-report.json)、[独立 9/9 复核](evidence/sticky-independent-review.json)、[安装后 Shell 预览](evidence/preview-check.json)均通过。多层和审计长表用明确临时 DOM 夹具覆盖，无数据文件写入；不将夹具称为生产来源。"
+    },
+    {
+      "file": "verification.md",
+      "line": 13,
+      "text": "- 验证对象为已安装的本地静态管理原型，Google Chrome 实际渲染和滚动；没有访问或修改生产业务。"
+    },
+    {
+      "file": "verification.md",
+      "line": 17,
+      "text": "- 本轮已取得完整推送授权，源码/inline/新版本合同一起交付；这里的本地测试记录不代替远端 commit/tag/部署回执。原始业务证据缺口仍按各页标识保留，本次不宣称所有实站页面逐像素一致。"
+    }
+  ],
+  "remaining_active_conflicts": 0
+}

@@ -1,0 +1,77 @@
+[
+  {
+    "tenant": "yestar-sz",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "jbfs",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "mengzhua",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "bzds",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "crrm",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "hqjd",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "ykjl",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "ruixi-kh-xiaowen",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "rxxz",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "yestar",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "yestar-bj",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "yestar-gz",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "yestar-hz",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "yestar-jx",
+    "state": "success",
+    "rows": 20
+  },
+  {
+    "tenant": "yzhb",
+    "state": "success",
+    "rows": 20
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "outputs": [
+    {
+      "route": "salesMessageUsage",
+      "measure": {
+        "top": 0,
+        "height": 40.09375,
+        "offset": "255.40625px"
+      }
+    },
+    {
+      "route": "aiAssistStats",
+      "measure": {
+        "top": 0,
+        "height": 40,
+        "offset": "339px"
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,88 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-053@1.0.2",
+  "checked_at": "2026-09-20",
+  "method": "Exact staged current-contract search; old decision/history and production exclusions are explicitly classified",
+  "patterns": [
+    "直接区间",
+    "无模式切换",
+    "not-requested",
+    "本次不",
+    "待下一次",
+    "生产",
+    "1.0.1",
+    "1.1.2"
+  ],
+  "matches": [
+    {
+      "file": "spec.md",
+      "line": 27,
+      "text": "- **明确不做**：不写线上、不进生产仓；静态原型发布按本轮“完整推送”授权；不将旧快照或静态模拟当成当前线上数据/逐像素证据。"
+    },
+    {
+      "file": "spec.md",
+      "line": 50,
+      "text": "- Flutter / React / Go生产实现、真实认证或API连接、生产数据更改。"
+    },
+    {
+      "file": "spec.md",
+      "line": 71,
+      "text": "- 销售使用统计按其采集结构保留单日/范围；052@1.2.0 已按最新用户要求完整复用本页筛选，取代旧变声直接区间特例。本次 053@1.0.2 仅收敛该参照旁述，不改变本页 R/AC、统计口径及数据来源。"
+    },
+    {
+      "file": "spec.md",
+      "line": 115,
+      "text": "| R005 | CSV仅明细、覆盖全筛选、数值与摘要一致，空态禁用 | MUST | E001 E004 | 生产文件格式待核实 | AC-R005-01 |"
+    },
+    {
+      "file": "spec.md",
+      "line": 153,
+      "text": "遵循AdminMenuState当前可见范围；仅本地筛选和下载CSV，无生产写权限。"
+    },
+    {
+      "file": "spec.md",
+      "line": 170,
+      "text": "not-requested；未生成Handoff/Test Contract。无需生产仓变更。"
+    },
+    {
+      "file": "spec.md",
+      "line": 198,
+      "text": "| 1.0.1 | 2026-09-20 | 房总纠偏 / Codex | 直接截图替代蓝色临时依据；恢复分段、标签、表格及滚动外观，R/AC及快照口径不变 | E007，像素纠偏后明确完整推送 |"
+    },
+    {
+      "file": "plan.md",
+      "line": 20,
+      "text": "static-html，仅HTML/CSS/JS与静态JSON，无认证/API/共享持久化。例外not-required，Operational Profile none；不进入任何生产仓。"
+    },
+    {
+      "file": "plan.md",
+      "line": 34,
+      "text": "日期控件为静态重建且非生产引擎；当前主操作 #00c4af 取自本路由直接截图，hover和完整滚动仍需在线复核。钩子移除即可退回旧渲染，旧JSON保留，既有变声页不改业务规则。"
+    },
+    {
+      "file": "plan.md",
+      "line": 40,
+      "text": "1.0.1 视觉恢复：分段式单日/范围、32px筛选控件、220px部门选择、淡蓝部门标签、横向边线和分组小计；结果区自然滚动，短页保持白色背景。与本轮直接截图同应用尺寸比较，残余偏差如实记录。"
+    },
+    {
+      "file": "tasks.md",
+      "line": 18,
+      "text": "- [x] T010 完整推送时更正被052@1.2.0取代的直接区间旁述；本页 R/AC、数据口径、旧验证限制保持（R002/R006）。"
+    },
+    {
+      "file": "verification.md",
+      "line": 3,
+      "text": "2026-09-20。本 PATCH 只收敛 052@1.2.0 对参照页筛选的引用：此前“变声仍直接区间”的当前旁述不再有效。053 的 R-ID、AC-ID、数字口径与租户来源没有变化。"
+    },
+    {
+      "file": "verification.md",
+      "line": 5,
+      "text": "当前两页筛选比较覆盖1528px、1080px及单日/范围，见 [筛选检查](evidence/voice-verification.json) 与 [几何](evidence/voice-geometry.json)。此证据比较本地两页，不声称当前生产像素完全一致。"
+    },
+    {
+      "file": "verification.md",
+      "line": 7,
+      "text": "此前销售使用统计的残余像素差异、冻结快照日期与在线复核限制保留在 [1.0.1 不可变验证记录](https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026092002-admin-pixel-alignment/docs/sdd/SPEC-SUIYIN-ADMIN-053/1.0.1/verification.md)。"
+    }
+  ],
+  "remaining_active_conflicts": 0
+}

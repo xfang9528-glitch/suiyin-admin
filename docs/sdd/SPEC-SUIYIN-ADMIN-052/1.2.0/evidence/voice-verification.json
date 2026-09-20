@@ -1,0 +1,39 @@
+{
+  "kind": "Local Chrome usage versus staged voice controls; not a production comparison",
+  "checkedAt": "2026-09-20T08:15:52.939Z",
+  "checks": [
+    {
+      "name": "Usage and voice filters share exact controls and computed geometry at 1528px and 1080px in both date modes",
+      "pass": true
+    },
+    {
+      "name": "Single-day and range calendar use identical one-month and two-month popovers",
+      "pass": true
+    },
+    {
+      "name": "Quick dates submit the selected day and preserve tenant counts",
+      "pass": true
+    },
+    {
+      "name": "Range calendar draft cancellation and selecting two dates do not auto-submit",
+      "pass": true
+    },
+    {
+      "name": "Invalid range blocks submission and reset clears the error and department in single mode",
+      "pass": true
+    },
+    {
+      "name": "Department filters from only the current voice fixture and export includes every filtered row",
+      "pass": true
+    },
+    {
+      "name": "All registered tenants retain both date modes and isolated voice identities",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true,
+      "errors": []
+    }
+  ]
+}

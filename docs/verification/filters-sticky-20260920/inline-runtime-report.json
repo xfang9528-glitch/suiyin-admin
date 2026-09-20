@@ -1,0 +1,1882 @@
+{
+  "checkedAt": "2026-09-20T08:40:45.795Z",
+  "scope": "Google Chrome local normal HTTP, inline HTTP, offline file artifact equivalence and representative real sticky-header/filter interactions; not production acceptance.",
+  "browser": "Google Chrome",
+  "viewport": {
+    "width": 1280,
+    "height": 760
+  },
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "normal-http salesVoiceStats current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "normal-http voice real filters query reset CSV",
+      "pass": true,
+      "detail": {
+        "singleAndRange": true,
+        "calendar": true,
+        "invalidRange": true,
+        "quickDateQuery": true,
+        "rangeQuery": true,
+        "departmentQuery": true,
+        "reset": true,
+        "exportRows": 26,
+        "csvSha256": "619b0c153e5d0c46e79ba1119920df00d70d73018a842ed1d3245346914df03a"
+      }
+    },
+    {
+      "name": "normal-http salesVoiceStats frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": ".voice-table-wrap",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 710,
+          "clipTop": 110,
+          "top": 110,
+          "height": 40,
+          "bottom": 1231,
+          "cells": [
+            {
+              "x": -192,
+              "w": 72
+            },
+            {
+              "x": -120,
+              "w": 273
+            },
+            {
+              "x": 153,
+              "w": 292.5
+            },
+            {
+              "x": 445.5,
+              "w": 337.5
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 710,
+          "clipTop": 110,
+          "top": 110,
+          "height": 40,
+          "bottom": 931,
+          "cells": [
+            {
+              "x": -192,
+              "w": 72
+            },
+            {
+              "x": -120,
+              "w": 273
+            },
+            {
+              "x": 153,
+              "w": 292.5
+            },
+            {
+              "x": 445.5,
+              "w": 337.5
+            }
+          ],
+          "registered": true,
+          "offset": "300px"
+        },
+        "expected": 110,
+        "sortRetained": true
+      }
+    },
+    {
+      "name": "normal-http salesMessageUsage current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "normal-http salesMessageUsage frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": "document",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 5297,
+          "clipTop": 0,
+          "top": 144.59375,
+          "height": 40.09375,
+          "bottom": 5861.90625,
+          "cells": [
+            {
+              "x": 25,
+              "w": 72
+            },
+            {
+              "x": 97,
+              "w": 234
+            },
+            {
+              "x": 331,
+              "w": 270
+            },
+            {
+              "x": 601,
+              "w": 212
+            },
+            {
+              "x": 813,
+              "w": 232
+            },
+            {
+              "x": 1045,
+              "w": 154
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 5297,
+          "clipTop": 0,
+          "top": 0,
+          "height": 40.09375,
+          "bottom": 5561.90625,
+          "cells": [
+            {
+              "x": 25,
+              "w": 72
+            },
+            {
+              "x": 97,
+              "w": 234
+            },
+            {
+              "x": 331,
+              "w": 270
+            },
+            {
+              "x": 601,
+              "w": 212
+            },
+            {
+              "x": 813,
+              "w": 232
+            },
+            {
+              "x": 1045,
+              "w": 154
+            }
+          ],
+          "registered": true,
+          "offset": "155.40625px"
+        },
+        "expected": 0,
+        "sortRetained": true
+      }
+    },
+    {
+      "name": "normal-http aiAssistStats current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "normal-http aiAssistStats frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": "document",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 881,
+          "clipTop": 0,
+          "top": 69,
+          "height": 40,
+          "bottom": 1447.5,
+          "cells": [
+            {
+              "x": 17,
+              "w": 60
+            },
+            {
+              "x": 77,
+              "w": 200
+            },
+            {
+              "x": 277,
+              "w": 150
+            },
+            {
+              "x": 427,
+              "w": 120
+            },
+            {
+              "x": 547,
+              "w": 120
+            },
+            {
+              "x": 667,
+              "w": 120
+            },
+            {
+              "x": 787,
+              "w": 130
+            },
+            {
+              "x": 917,
+              "w": 170
+            },
+            {
+              "x": 1087,
+              "w": 140
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 881,
+          "clipTop": 0,
+          "top": 0,
+          "height": 40,
+          "bottom": 1147.5,
+          "cells": [
+            {
+              "x": 17,
+              "w": 60
+            },
+            {
+              "x": 77,
+              "w": 200
+            },
+            {
+              "x": 277,
+              "w": 150
+            },
+            {
+              "x": 427,
+              "w": 120
+            },
+            {
+              "x": 547,
+              "w": 120
+            },
+            {
+              "x": 667,
+              "w": 120
+            },
+            {
+              "x": 787,
+              "w": 130
+            },
+            {
+              "x": 917,
+              "w": 170
+            },
+            {
+              "x": 1087,
+              "w": 140
+            }
+          ],
+          "registered": true,
+          "offset": "231px"
+        },
+        "expected": 0,
+        "sortRetained": true
+      }
+    },
+    {
+      "name": "normal-http workAccountDailyStats current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "normal-http workAccountDailyStats frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": ".table-wrap",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 11577,
+          "clipTop": 189,
+          "top": 189,
+          "height": 40,
+          "bottom": 12182,
+          "cells": [
+            {
+              "x": 1,
+              "w": 64
+            },
+            {
+              "x": 65,
+              "w": 130
+            },
+            {
+              "x": 195,
+              "w": 210
+            },
+            {
+              "x": 405,
+              "w": 120
+            },
+            {
+              "x": 525,
+              "w": 120
+            },
+            {
+              "x": 645,
+              "w": 120
+            },
+            {
+              "x": 765,
+              "w": 120
+            },
+            {
+              "x": 885,
+              "w": 120
+            },
+            {
+              "x": 1005,
+              "w": 120
+            },
+            {
+              "x": 1125,
+              "w": 120
+            },
+            {
+              "x": 1245,
+              "w": 120
+            },
+            {
+              "x": 1365,
+              "w": 210
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 11577,
+          "clipTop": 189,
+          "top": 189,
+          "height": 40,
+          "bottom": 11882,
+          "cells": [
+            {
+              "x": 1,
+              "w": 64
+            },
+            {
+              "x": 65,
+              "w": 130
+            },
+            {
+              "x": 195,
+              "w": 210
+            },
+            {
+              "x": 405,
+              "w": 120
+            },
+            {
+              "x": 525,
+              "w": 120
+            },
+            {
+              "x": 645,
+              "w": 120
+            },
+            {
+              "x": 765,
+              "w": 120
+            },
+            {
+              "x": 885,
+              "w": 120
+            },
+            {
+              "x": 1005,
+              "w": 120
+            },
+            {
+              "x": 1125,
+              "w": 120
+            },
+            {
+              "x": 1245,
+              "w": 120
+            },
+            {
+              "x": 1365,
+              "w": 210
+            }
+          ],
+          "registered": true,
+          "offset": "300px"
+        },
+        "expected": 189,
+        "sortRetained": false
+      }
+    },
+    {
+      "name": "normal-http menu current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "normal-http menu frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": ".menu-table-wrap",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 3300,
+          "clipTop": 84,
+          "top": 84,
+          "height": 40,
+          "bottom": 3925.1875,
+          "cells": [
+            {
+              "x": 0,
+              "w": 200
+            },
+            {
+              "x": 200,
+              "w": 150
+            },
+            {
+              "x": 350,
+              "w": 150
+            },
+            {
+              "x": 500,
+              "w": 150
+            },
+            {
+              "x": 650,
+              "w": 200
+            },
+            {
+              "x": 850,
+              "w": 150
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 3300,
+          "clipTop": 84,
+          "top": 84,
+          "height": 40,
+          "bottom": 3625.1875,
+          "cells": [
+            {
+              "x": 0,
+              "w": 200
+            },
+            {
+              "x": 200,
+              "w": 150
+            },
+            {
+              "x": 350,
+              "w": 150
+            },
+            {
+              "x": 500,
+              "w": 150
+            },
+            {
+              "x": 650,
+              "w": 200
+            },
+            {
+              "x": 850,
+              "w": 150
+            }
+          ],
+          "registered": true,
+          "offset": "300px"
+        },
+        "expected": 84,
+        "redraw": true,
+        "rowsBefore": 66,
+        "rowsAfter": 66
+      }
+    },
+    {
+      "name": "inline-http salesVoiceStats current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "inline-http voice real filters query reset CSV",
+      "pass": true,
+      "detail": {
+        "singleAndRange": true,
+        "calendar": true,
+        "invalidRange": true,
+        "quickDateQuery": true,
+        "rangeQuery": true,
+        "departmentQuery": true,
+        "reset": true,
+        "exportRows": 26,
+        "csvSha256": "619b0c153e5d0c46e79ba1119920df00d70d73018a842ed1d3245346914df03a"
+      }
+    },
+    {
+      "name": "inline-http salesVoiceStats frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": ".voice-table-wrap",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 710,
+          "clipTop": 110,
+          "top": 110,
+          "height": 40,
+          "bottom": 1231,
+          "cells": [
+            {
+              "x": -192,
+              "w": 72
+            },
+            {
+              "x": -120,
+              "w": 273
+            },
+            {
+              "x": 153,
+              "w": 292.5
+            },
+            {
+              "x": 445.5,
+              "w": 337.5
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 710,
+          "clipTop": 110,
+          "top": 110,
+          "height": 40,
+          "bottom": 931,
+          "cells": [
+            {
+              "x": -192,
+              "w": 72
+            },
+            {
+              "x": -120,
+              "w": 273
+            },
+            {
+              "x": 153,
+              "w": 292.5
+            },
+            {
+              "x": 445.5,
+              "w": 337.5
+            }
+          ],
+          "registered": true,
+          "offset": "300px"
+        },
+        "expected": 110,
+        "sortRetained": true
+      }
+    },
+    {
+      "name": "inline-http salesVoiceStats no external resource dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-http salesMessageUsage current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "inline-http salesMessageUsage frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": "document",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 5297,
+          "clipTop": 0,
+          "top": 144.59375,
+          "height": 40.09375,
+          "bottom": 5861.90625,
+          "cells": [
+            {
+              "x": 25,
+              "w": 72
+            },
+            {
+              "x": 97,
+              "w": 234
+            },
+            {
+              "x": 331,
+              "w": 270
+            },
+            {
+              "x": 601,
+              "w": 212
+            },
+            {
+              "x": 813,
+              "w": 232
+            },
+            {
+              "x": 1045,
+              "w": 154
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 5297,
+          "clipTop": 0,
+          "top": 0,
+          "height": 40.09375,
+          "bottom": 5561.90625,
+          "cells": [
+            {
+              "x": 25,
+              "w": 72
+            },
+            {
+              "x": 97,
+              "w": 234
+            },
+            {
+              "x": 331,
+              "w": 270
+            },
+            {
+              "x": 601,
+              "w": 212
+            },
+            {
+              "x": 813,
+              "w": 232
+            },
+            {
+              "x": 1045,
+              "w": 154
+            }
+          ],
+          "registered": true,
+          "offset": "155.40625px"
+        },
+        "expected": 0,
+        "sortRetained": true
+      }
+    },
+    {
+      "name": "inline-http salesMessageUsage no external resource dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-http aiAssistStats current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "inline-http aiAssistStats frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": "document",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 881,
+          "clipTop": 0,
+          "top": 69,
+          "height": 40,
+          "bottom": 1447.5,
+          "cells": [
+            {
+              "x": 17,
+              "w": 60
+            },
+            {
+              "x": 77,
+              "w": 200
+            },
+            {
+              "x": 277,
+              "w": 150
+            },
+            {
+              "x": 427,
+              "w": 120
+            },
+            {
+              "x": 547,
+              "w": 120
+            },
+            {
+              "x": 667,
+              "w": 120
+            },
+            {
+              "x": 787,
+              "w": 130
+            },
+            {
+              "x": 917,
+              "w": 170
+            },
+            {
+              "x": 1087,
+              "w": 140
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 881,
+          "clipTop": 0,
+          "top": 0,
+          "height": 40,
+          "bottom": 1147.5,
+          "cells": [
+            {
+              "x": 17,
+              "w": 60
+            },
+            {
+              "x": 77,
+              "w": 200
+            },
+            {
+              "x": 277,
+              "w": 150
+            },
+            {
+              "x": 427,
+              "w": 120
+            },
+            {
+              "x": 547,
+              "w": 120
+            },
+            {
+              "x": 667,
+              "w": 120
+            },
+            {
+              "x": 787,
+              "w": 130
+            },
+            {
+              "x": 917,
+              "w": 170
+            },
+            {
+              "x": 1087,
+              "w": 140
+            }
+          ],
+          "registered": true,
+          "offset": "231px"
+        },
+        "expected": 0,
+        "sortRetained": true
+      }
+    },
+    {
+      "name": "inline-http aiAssistStats no external resource dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-http workAccountDailyStats current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "inline-http workAccountDailyStats frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": ".table-wrap",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 11577,
+          "clipTop": 189,
+          "top": 189,
+          "height": 40,
+          "bottom": 12182,
+          "cells": [
+            {
+              "x": 1,
+              "w": 64
+            },
+            {
+              "x": 65,
+              "w": 130
+            },
+            {
+              "x": 195,
+              "w": 210
+            },
+            {
+              "x": 405,
+              "w": 120
+            },
+            {
+              "x": 525,
+              "w": 120
+            },
+            {
+              "x": 645,
+              "w": 120
+            },
+            {
+              "x": 765,
+              "w": 120
+            },
+            {
+              "x": 885,
+              "w": 120
+            },
+            {
+              "x": 1005,
+              "w": 120
+            },
+            {
+              "x": 1125,
+              "w": 120
+            },
+            {
+              "x": 1245,
+              "w": 120
+            },
+            {
+              "x": 1365,
+              "w": 210
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 11577,
+          "clipTop": 189,
+          "top": 189,
+          "height": 40,
+          "bottom": 11882,
+          "cells": [
+            {
+              "x": 1,
+              "w": 64
+            },
+            {
+              "x": 65,
+              "w": 130
+            },
+            {
+              "x": 195,
+              "w": 210
+            },
+            {
+              "x": 405,
+              "w": 120
+            },
+            {
+              "x": 525,
+              "w": 120
+            },
+            {
+              "x": 645,
+              "w": 120
+            },
+            {
+              "x": 765,
+              "w": 120
+            },
+            {
+              "x": 885,
+              "w": 120
+            },
+            {
+              "x": 1005,
+              "w": 120
+            },
+            {
+              "x": 1125,
+              "w": 120
+            },
+            {
+              "x": 1245,
+              "w": 120
+            },
+            {
+              "x": 1365,
+              "w": 210
+            }
+          ],
+          "registered": true,
+          "offset": "300px"
+        },
+        "expected": 189,
+        "sortRetained": false
+      }
+    },
+    {
+      "name": "inline-http workAccountDailyStats no external resource dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-http menu current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "inline-http menu frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": ".menu-table-wrap",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 3300,
+          "clipTop": 84,
+          "top": 84,
+          "height": 40,
+          "bottom": 3925.1875,
+          "cells": [
+            {
+              "x": 0,
+              "w": 200
+            },
+            {
+              "x": 200,
+              "w": 150
+            },
+            {
+              "x": 350,
+              "w": 150
+            },
+            {
+              "x": 500,
+              "w": 150
+            },
+            {
+              "x": 650,
+              "w": 200
+            },
+            {
+              "x": 850,
+              "w": 150
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 3300,
+          "clipTop": 84,
+          "top": 84,
+          "height": 40,
+          "bottom": 3625.1875,
+          "cells": [
+            {
+              "x": 0,
+              "w": 200
+            },
+            {
+              "x": 200,
+              "w": 150
+            },
+            {
+              "x": 350,
+              "w": 150
+            },
+            {
+              "x": 500,
+              "w": 150
+            },
+            {
+              "x": 650,
+              "w": 200
+            },
+            {
+              "x": 850,
+              "w": 150
+            }
+          ],
+          "registered": true,
+          "offset": "300px"
+        },
+        "expected": 84,
+        "redraw": true,
+        "rowsBefore": 66,
+        "rowsAfter": 66
+      }
+    },
+    {
+      "name": "inline-http menu no external resource dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-file salesVoiceStats current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "inline-file voice real filters query reset CSV",
+      "pass": true,
+      "detail": {
+        "singleAndRange": true,
+        "calendar": true,
+        "invalidRange": true,
+        "quickDateQuery": true,
+        "rangeQuery": true,
+        "departmentQuery": true,
+        "reset": true,
+        "exportRows": 26,
+        "csvSha256": "619b0c153e5d0c46e79ba1119920df00d70d73018a842ed1d3245346914df03a"
+      }
+    },
+    {
+      "name": "inline-file salesVoiceStats frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": ".voice-table-wrap",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 710,
+          "clipTop": 110,
+          "top": 110,
+          "height": 40,
+          "bottom": 1231,
+          "cells": [
+            {
+              "x": -192,
+              "w": 72
+            },
+            {
+              "x": -120,
+              "w": 273
+            },
+            {
+              "x": 153,
+              "w": 292.5
+            },
+            {
+              "x": 445.5,
+              "w": 337.5
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 710,
+          "clipTop": 110,
+          "top": 110,
+          "height": 40,
+          "bottom": 931,
+          "cells": [
+            {
+              "x": -192,
+              "w": 72
+            },
+            {
+              "x": -120,
+              "w": 273
+            },
+            {
+              "x": 153,
+              "w": 292.5
+            },
+            {
+              "x": 445.5,
+              "w": 337.5
+            }
+          ],
+          "registered": true,
+          "offset": "300px"
+        },
+        "expected": 110,
+        "sortRetained": true
+      }
+    },
+    {
+      "name": "inline-file salesVoiceStats no external resource dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-file salesMessageUsage current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "inline-file salesMessageUsage frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": "document",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 5297,
+          "clipTop": 0,
+          "top": 144.59375,
+          "height": 40.09375,
+          "bottom": 5861.90625,
+          "cells": [
+            {
+              "x": 25,
+              "w": 72
+            },
+            {
+              "x": 97,
+              "w": 234
+            },
+            {
+              "x": 331,
+              "w": 270
+            },
+            {
+              "x": 601,
+              "w": 212
+            },
+            {
+              "x": 813,
+              "w": 232
+            },
+            {
+              "x": 1045,
+              "w": 154
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 5297,
+          "clipTop": 0,
+          "top": 0,
+          "height": 40.09375,
+          "bottom": 5561.90625,
+          "cells": [
+            {
+              "x": 25,
+              "w": 72
+            },
+            {
+              "x": 97,
+              "w": 234
+            },
+            {
+              "x": 331,
+              "w": 270
+            },
+            {
+              "x": 601,
+              "w": 212
+            },
+            {
+              "x": 813,
+              "w": 232
+            },
+            {
+              "x": 1045,
+              "w": 154
+            }
+          ],
+          "registered": true,
+          "offset": "155.40625px"
+        },
+        "expected": 0,
+        "sortRetained": true
+      }
+    },
+    {
+      "name": "inline-file salesMessageUsage no external resource dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-file aiAssistStats current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "inline-file aiAssistStats frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": "document",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 881,
+          "clipTop": 0,
+          "top": 69,
+          "height": 40,
+          "bottom": 1447.5,
+          "cells": [
+            {
+              "x": 17,
+              "w": 60
+            },
+            {
+              "x": 77,
+              "w": 200
+            },
+            {
+              "x": 277,
+              "w": 150
+            },
+            {
+              "x": 427,
+              "w": 120
+            },
+            {
+              "x": 547,
+              "w": 120
+            },
+            {
+              "x": 667,
+              "w": 120
+            },
+            {
+              "x": 787,
+              "w": 130
+            },
+            {
+              "x": 917,
+              "w": 170
+            },
+            {
+              "x": 1087,
+              "w": 140
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 881,
+          "clipTop": 0,
+          "top": 0,
+          "height": 40,
+          "bottom": 1147.5,
+          "cells": [
+            {
+              "x": 17,
+              "w": 60
+            },
+            {
+              "x": 77,
+              "w": 200
+            },
+            {
+              "x": 277,
+              "w": 150
+            },
+            {
+              "x": 427,
+              "w": 120
+            },
+            {
+              "x": 547,
+              "w": 120
+            },
+            {
+              "x": 667,
+              "w": 120
+            },
+            {
+              "x": 787,
+              "w": 130
+            },
+            {
+              "x": 917,
+              "w": 170
+            },
+            {
+              "x": 1087,
+              "w": 140
+            }
+          ],
+          "registered": true,
+          "offset": "231px"
+        },
+        "expected": 0,
+        "sortRetained": true
+      }
+    },
+    {
+      "name": "inline-file aiAssistStats no external resource dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-file workAccountDailyStats current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "inline-file workAccountDailyStats frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": ".table-wrap",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 11577,
+          "clipTop": 189,
+          "top": 189,
+          "height": 40,
+          "bottom": 12182,
+          "cells": [
+            {
+              "x": 1,
+              "w": 64
+            },
+            {
+              "x": 65,
+              "w": 130
+            },
+            {
+              "x": 195,
+              "w": 210
+            },
+            {
+              "x": 405,
+              "w": 120
+            },
+            {
+              "x": 525,
+              "w": 120
+            },
+            {
+              "x": 645,
+              "w": 120
+            },
+            {
+              "x": 765,
+              "w": 120
+            },
+            {
+              "x": 885,
+              "w": 120
+            },
+            {
+              "x": 1005,
+              "w": 120
+            },
+            {
+              "x": 1125,
+              "w": 120
+            },
+            {
+              "x": 1245,
+              "w": 120
+            },
+            {
+              "x": 1365,
+              "w": 210
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 11577,
+          "clipTop": 189,
+          "top": 189,
+          "height": 40,
+          "bottom": 11882,
+          "cells": [
+            {
+              "x": 1,
+              "w": 64
+            },
+            {
+              "x": 65,
+              "w": 130
+            },
+            {
+              "x": 195,
+              "w": 210
+            },
+            {
+              "x": 405,
+              "w": 120
+            },
+            {
+              "x": 525,
+              "w": 120
+            },
+            {
+              "x": 645,
+              "w": 120
+            },
+            {
+              "x": 765,
+              "w": 120
+            },
+            {
+              "x": 885,
+              "w": 120
+            },
+            {
+              "x": 1005,
+              "w": 120
+            },
+            {
+              "x": 1125,
+              "w": 120
+            },
+            {
+              "x": 1245,
+              "w": 120
+            },
+            {
+              "x": 1365,
+              "w": 210
+            }
+          ],
+          "registered": true,
+          "offset": "300px"
+        },
+        "expected": 189,
+        "sortRetained": false
+      }
+    },
+    {
+      "name": "inline-file workAccountDailyStats no external resource dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-file menu current layout and data",
+      "pass": true,
+      "detail": {
+        "w": 1000,
+        "h": 625,
+        "headerCount": 1,
+        "stickyModule": true
+      }
+    },
+    {
+      "name": "inline-file menu frozen original header scroll and controls",
+      "pass": true,
+      "detail": {
+        "selector": ".menu-table-wrap",
+        "before": {
+          "scrollTop": 0,
+          "scrollMax": 3300,
+          "clipTop": 84,
+          "top": 84,
+          "height": 40,
+          "bottom": 3925.1875,
+          "cells": [
+            {
+              "x": 0,
+              "w": 200
+            },
+            {
+              "x": 200,
+              "w": 150
+            },
+            {
+              "x": 350,
+              "w": 150
+            },
+            {
+              "x": 500,
+              "w": 150
+            },
+            {
+              "x": 650,
+              "w": 200
+            },
+            {
+              "x": 850,
+              "w": 150
+            }
+          ],
+          "registered": true,
+          "offset": ""
+        },
+        "after": {
+          "scrollTop": 300,
+          "scrollMax": 3300,
+          "clipTop": 84,
+          "top": 84,
+          "height": 40,
+          "bottom": 3625.1875,
+          "cells": [
+            {
+              "x": 0,
+              "w": 200
+            },
+            {
+              "x": 200,
+              "w": 150
+            },
+            {
+              "x": 350,
+              "w": 150
+            },
+            {
+              "x": 500,
+              "w": 150
+            },
+            {
+              "x": 650,
+              "w": 200
+            },
+            {
+              "x": 850,
+              "w": 150
+            }
+          ],
+          "registered": true,
+          "offset": "300px"
+        },
+        "expected": 84,
+        "redraw": true,
+        "rowsBefore": 66,
+        "rowsAfter": 66
+      }
+    },
+    {
+      "name": "inline-file menu no external resource dependencies",
+      "pass": true
+    },
+    {
+      "name": "inline-http salesVoiceStats exact geometry/data and initial raster comparison",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "inline-file salesVoiceStats exact geometry/data and initial raster comparison",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "inline-http salesMessageUsage exact geometry/data and initial raster comparison",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": false,
+        "raster": {
+          "differentPixels": 2,
+          "maxChannelDelta": 1,
+          "bbox": [
+            697,
+            143,
+            698,
+            175
+          ]
+        }
+      }
+    },
+    {
+      "name": "inline-file salesMessageUsage exact geometry/data and initial raster comparison",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": false,
+        "raster": {
+          "differentPixels": 2,
+          "maxChannelDelta": 1,
+          "bbox": [
+            697,
+            143,
+            698,
+            175
+          ]
+        }
+      }
+    },
+    {
+      "name": "inline-http aiAssistStats exact geometry/data and initial raster comparison",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": false,
+        "raster": {
+          "differentPixels": 2,
+          "maxChannelDelta": 2,
+          "bbox": [
+            460,
+            133,
+            461,
+            161
+          ]
+        }
+      }
+    },
+    {
+      "name": "inline-file aiAssistStats exact geometry/data and initial raster comparison",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": false,
+        "raster": {
+          "differentPixels": 2,
+          "maxChannelDelta": 2,
+          "bbox": [
+            460,
+            133,
+            461,
+            161
+          ]
+        }
+      }
+    },
+    {
+      "name": "inline-http workAccountDailyStats exact geometry/data and initial raster comparison",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "inline-file workAccountDailyStats exact geometry/data and initial raster comparison",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "inline-http menu exact geometry/data and initial raster comparison",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "inline-file menu exact geometry/data and initial raster comparison",
+      "pass": true,
+      "detail": {
+        "identicalPngBytes": true,
+        "raster": {
+          "differentPixels": 0,
+          "maxChannelDelta": 0,
+          "bbox": null
+        }
+      }
+    },
+    {
+      "name": "sticky source and all 78 tenant data resources embedded",
+      "pass": true,
+      "detail": {
+        "bytes": 7329226,
+        "jsonFiles": 78
+      }
+    },
+    {
+      "name": "no browser script errors or blocked external calls",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "runtime": [
+    {
+      "entry": "normal-http",
+      "route": "salesVoiceStats",
+      "requestCount": 57,
+      "httpRequests": 57
+    },
+    {
+      "entry": "normal-http",
+      "route": "salesMessageUsage",
+      "requestCount": 58,
+      "httpRequests": 58
+    },
+    {
+      "entry": "normal-http",
+      "route": "aiAssistStats",
+      "requestCount": 58,
+      "httpRequests": 58
+    },
+    {
+      "entry": "normal-http",
+      "route": "workAccountDailyStats",
+      "requestCount": 57,
+      "httpRequests": 57
+    },
+    {
+      "entry": "normal-http",
+      "route": "menu",
+      "requestCount": 56,
+      "httpRequests": 56
+    },
+    {
+      "entry": "inline-http",
+      "route": "salesVoiceStats",
+      "requestCount": 1,
+      "httpRequests": 1
+    },
+    {
+      "entry": "inline-http",
+      "route": "salesMessageUsage",
+      "requestCount": 1,
+      "httpRequests": 1
+    },
+    {
+      "entry": "inline-http",
+      "route": "aiAssistStats",
+      "requestCount": 1,
+      "httpRequests": 1
+    },
+    {
+      "entry": "inline-http",
+      "route": "workAccountDailyStats",
+      "requestCount": 1,
+      "httpRequests": 1
+    },
+    {
+      "entry": "inline-http",
+      "route": "menu",
+      "requestCount": 1,
+      "httpRequests": 1
+    },
+    {
+      "entry": "inline-file",
+      "route": "salesVoiceStats",
+      "requestCount": 1,
+      "httpRequests": 0
+    },
+    {
+      "entry": "inline-file",
+      "route": "salesMessageUsage",
+      "requestCount": 1,
+      "httpRequests": 0
+    },
+    {
+      "entry": "inline-file",
+      "route": "aiAssistStats",
+      "requestCount": 1,
+      "httpRequests": 0
+    },
+    {
+      "entry": "inline-file",
+      "route": "workAccountDailyStats",
+      "requestCount": 1,
+      "httpRequests": 0
+    },
+    {
+      "entry": "inline-file",
+      "route": "menu",
+      "requestCount": 1,
+      "httpRequests": 0
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-053",
+  "spec_version": "1.0.2",
+  "scope": "Local static prototype evidence and contract preparation; not production verification",
+  "files": [
+    {
+      "file": "evidence/sticky-independent-review.json",
+      "sha256": "b7d55797822024fa76ffd9bc097714632c1dc1a590adebc4231c3d5f2ad41233"
+    },
+    {
+      "file": "evidence/validate-plan-boundary.json",
+      "sha256": "c64d50130a5539a9cb0cf485b9e47094af6da6cac7a063d9cfce2b6e8a6409cb"
+    },
+    {
+      "file": "evidence/validate-source-convergence.json",
+      "sha256": "3e53a741a1d4d54932fbb8d31cf862061340062ebfc2a0e62ceaa5c65d08fabc"
+    },
+    {
+      "file": "evidence/validate-spec.json",
+      "sha256": "8195caba8577428c156d8f128cc207920302b40847add7cec0a8ab3a78d9c229"
+    },
+    {
+      "file": "evidence/voice-geometry.json",
+      "sha256": "4b5b87234de8fda717918331f07cf9bba4eaf19c28729693bb9a9b1e8dbb8a8b"
+    },
+    {
+      "file": "evidence/voice-tenant-checks.json",
+      "sha256": "d9f34f8db75f060483e27d73697d8f1b2f8866a9b036bfa7f81b98a36408a3f1"
+    },
+    {
+      "file": "evidence/voice-verification.json",
+      "sha256": "e8f01faffbcb12dbbc4b042cd4b65e0579c34a8680589584171aeb0b51c59c07"
+    }
+  ]
+}

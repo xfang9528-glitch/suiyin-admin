@@ -1,4 +1,4 @@
-/* SPEC-SUIYIN-ADMIN-052@1.1.1. Synthetic, tenant-isolated, browser-local statistics. */
+/* Sales voice statistics: tenant-isolated counts with the sales usage filter controls. */
 'use strict';
 window.AdminVoiceStats = (() => {
   const route = 'salesVoiceStats';
@@ -14,7 +14,7 @@ window.AdminVoiceStats = (() => {
     return /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value+'T00:00:00Z')) && new Date(value+'T00:00:00Z').toISOString().slice(0,10) === value;
   }
   function validate(query) {
-    if (!validDate(query.start) || !validDate(query.end)) return '请选择完整的统计日期';
+    if (!validDate(query.start) || !validDate(query.end)) return '请选择完整、有效的统计日期';
     if (query.start > query.end) return '开始日期不能晚于结束日期';
     return '';
   }
@@ -91,39 +91,35 @@ window.AdminVoiceStats = (() => {
     }
     const today = day();let data = fixture(A.tenant,today);
     let submitted = {start:today, end:today, department:''};
-    let rows = aggregate(data,submitted), page=1, size=20, direction='none', busy=false, failed=false;
+    let rows = aggregate(data,submitted), page=1, size=20, direction='none', mode='single', busy=false, failed=false;
     let failNext = qa && q.get('voiceState') === 'error';
     const emptyDemo = qa && q.get('voiceState') === 'empty';
-    const form = node('form','card filter-panel voice-filters'); form.noValidate=true;
-    const dates = node('div','field voice-dates'), label=node('span','','统计时间');
-    const dateBox=node('div','voice-date-inputs usage-date-control is-range');
-    const start=node('input'), end=node('input'), to=node('span','','至');
-    start.type=end.type='text';start.placeholder=end.placeholder='YYYY-MM-DD';start.inputMode=end.inputMode='numeric';start.maxLength=end.maxLength=10;start.value=end.value=today;
-    start.setAttribute('aria-label','开始日期');end.setAttribute('aria-label','结束日期');
-    start.required=end.required=true;
-    const openDate=button('',()=>{});openDate.className='usage-date-open';openDate.dataset.dateOpen='';openDate.setAttribute('aria-label','打开统计日期日历');openDate.innerHTML='<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 3v4m10-4v4M3 10h18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';to.className='usage-date-separator';dateBox.append(openDate,start,to,end);
-    const quick=node('div','quick-dates');
-    ['今天','昨天','前天'].forEach((text,i) => {
-      const b=button(text,() => {start.value=end.value=offsetDay(day(),-i);markQuick();submit();});b.dataset.offset=String(-i);quick.append(b);
-    });
-    dates.append(label,dateBox);form.append(quick,dates);
-    const depLabel=node('label','field');depLabel.append(node('span','','部门'));
-    const dep=node('select');dep.setAttribute('aria-label','部门');dep.append(new Option('全部部门',''));
-    data.departments.forEach(d=>dep.append(new Option(d.name,d.id)));const depControl=A.searchableSelect(dep,'部门');depControl.style.width='220px';depLabel.append(depControl);form.append(depLabel);
-    const actions=node('div','filter-actions'), search=button('搜索',submit,'primary'), reset=button('重置',resetAll), exportButton=button('导出',exportAll);
-    search.type='submit';search.onclick=null;actions.append(search,reset,exportButton);form.append(actions);
-    const error=node('p','filter-error');error.hidden=true;error.setAttribute('role','alert');form.append(error);
-    form.onsubmit=e=>{e.preventDefault();submit();};
+    // Use the same markup classes and control order as sales usage; data stays local to voice statistics.
+    const form=node('form','card filter-panel usage-filters voice-filters');form.noValidate=true;
+    const dateField=node('div','field usage-date-field');dateField.append(node('span','','统计时间'));
+    const dates=node('div','usage-date-fields'),modes=node('div','usage-date-modes');modes.setAttribute('role','radiogroup');modes.setAttribute('aria-label','统计日期方式');
+    for(const [value,text]of[['single','单日'],['range','范围']]){const label=node('label'),r=node('input');r.type='radio';r.name='usage-date-mode';r.value=value;r.checked=value===mode;r.onchange=()=>{if(!r.checked)return;mode=value;calendar?.close();if(mode==='single')end.value=start.value;else if(!validDate(end.value))end.value=validDate(start.value)?start.value:day();syncMode();};label.append(r,node('span','usage-mode-caption',text));modes.append(label);}
+    const dateBox=node('div','usage-date-control'),openDate=button('',()=>{}),start=node('input'),end=node('input'),to=node('span','usage-date-separator','至');
+    openDate.dataset.dateOpen='';openDate.className='usage-date-open';openDate.setAttribute('aria-label','打开统计日期日历');openDate.innerHTML='<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 3v4m10-4v4M3 10h18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
+    for(const [input,label]of[[start,'开始日期'],[end,'结束日期']]){input.type='text';input.placeholder='YYYY-MM-DD';input.inputMode='numeric';input.maxLength=10;input.autocomplete='off';input.value=today;input.setAttribute('aria-label',label);input.setAttribute('aria-describedby','usage-date-error');}
+    dateBox.append(openDate,start,to,end);
+    const quick=node('div','quick-dates');['今天','昨天','前天'].forEach((text,i)=>{const b=button(text,()=>{calendar?.close();start.value=end.value=offsetDay(day(),-i);markQuick();submit();});b.dataset.offset=String(-i);quick.append(b);});
+    dates.append(modes,dateBox,quick);dateField.append(dates);form.append(dateField);
+    const depLabel=node('label','field usage-department-field'),dep=node('select');dep.setAttribute('aria-label','部门');dep.append(new Option('选择部门',''));data.departments.forEach(d=>dep.append(new Option(d.name,d.id)));depLabel.append(node('span','','部门'),A.searchableSelect(dep,'部门'));form.append(depLabel);
+    const actions=node('div','filter-actions'),search=button('搜索',()=>{},'primary'),reset=button('重置',resetAll),exportButton=button('导出',exportAll);search.type='submit';search.onclick=null;reset.querySelector('.button-icon')?.remove();actions.append(search,reset,exportButton);form.append(actions);
+    const error=node('p','filter-error');error.id='usage-date-error';error.hidden=true;error.setAttribute('role','alert');form.append(error);form.onsubmit=e=>{e.preventDefault();submit();};
     const note=node('div','voice-note');
     note.append(node('span','','按成功生成的独立变声任务计次；失败、试听及同一任务重试不重复计数。'));
     note.append(button('口径说明',() => A.showDialog('销售变声统计口径',node('p','form-note','每个独立变声任务首次成功生成计 1 次，按成功时间（北京时间）归入统计日期，并归属发起任务的销售和当时部门。同一任务失败后重试成功仍为 1 次；重复回调、试听和取消不增加次数，不要求消息发送成功。多个工作账号按同一销售身份汇总，同名销售不合并。'),[{label:'关闭',run:A.closeDialog}]),'link'));
     const result=node('section','voice-results');result.setAttribute('aria-label','销售变声统计结果');
     const source=node('p','voice-source','合成演示数据 · 示例日期 '+data.coverage.start+' 至 '+data.coverage.end+' · '+A.tenantInfo.name);
     root.append(form,note,result,source);
-    function draft(){return {start:start.value,end:end.value,department:dep.value};}
+    function draft(){return {start:start.value.trim(),end:mode==='single'?start.value.trim():end.value.trim(),department:dep.value};}
     function markQuick(){quick.querySelectorAll('button').forEach(b=>{const selected=start.value===end.value&&start.value===offsetDay(day(),Number(b.dataset.offset));b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',String(selected));});}
-    const calendar=window.AdminUsageDatePicker?.attach({host:dateBox,start,end,getMode:()=>'range',onChange:markQuick});start.oninput=markQuick;end.oninput=markQuick;
-    function setBusy(value){busy=value;result.setAttribute('aria-busy',String(value));form.querySelectorAll('button,input,select').forEach(c=>c.disabled=value);}
+    const calendar=window.AdminUsageDatePicker?.attach({host:dateBox,start,end,getMode:()=>mode,onChange:()=>{if(mode==='single')end.value=start.value;markQuick();}});
+    start.addEventListener('input',()=>{if(mode==='single')end.value=start.value;markQuick();});end.addEventListener('input',markQuick);
+    function syncMode(){to.hidden=end.hidden=mode!=='range';end.disabled=busy||mode!=='range';dateBox.classList.toggle('is-range',mode==='range');modes.querySelectorAll('input').forEach(r=>r.checked=r.value===mode);calendar?.refresh();markQuick();}
+    function setBusy(value){busy=value;result.setAttribute('aria-busy',String(value));form.querySelectorAll('button,input,select').forEach(c=>c.disabled=value);if(!value)syncMode();}
     function sorted(){return direction==='none'?[...rows]:[...rows].sort((a,b)=>(a.count-b.count)*(direction==='ascending'?1:-1)||a.salesId.localeCompare(b.salesId));}
     function draw(){
       result.replaceChildren();result.dataset.state=busy?'loading':failed?'error':'success';
@@ -162,10 +158,10 @@ window.AdminVoiceStats = (() => {
       catch {failed=true;}
       finally {setBusy(false);draw();}
     }
-    function submit(){if(busy)return;calendar?.refresh();const value=draft(),message=validate(value);error.hidden=!message;error.textContent=message;if(message){start.setAttribute('aria-invalid','true');return;}start.removeAttribute('aria-invalid');markQuick();run(value);}
-    function resetAll(){if(busy)return;calendar?.refresh();start.value=end.value=day();dep.value='';dep.dispatchEvent(new Event('change',{bubbles:true}));direction='none';error.hidden=true;start.removeAttribute('aria-invalid');markQuick();run(draft());}
+    function submit(){if(busy)return;const value=draft(),message=validate(value);error.hidden=!message;error.textContent=message;start.setAttribute('aria-invalid',String(!!message));end.setAttribute('aria-invalid',String(!!message));if(message)return;calendar?.close();markQuick();run(value);}
+    function resetAll(){if(busy)return;calendar?.close();mode='single';start.value=end.value=day();dep.value='';dep.dispatchEvent(new Event('change',{bubbles:true}));direction='none';error.hidden=true;start.removeAttribute('aria-invalid');end.removeAttribute('aria-invalid');syncMode();run(draft());}
     function exportAll(){if(busy||failed||!rows.length)return;const blob=new Blob([csv(sorted())],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),link=node('a');link.href=url;link.download=A.tenant+'-销售变声统计-'+submitted.start+'_'+submitted.end+'.csv';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);A.toast('已导出全部 '+rows.length+' 条筛选结果（合成演示数据）');}
-    markQuick();draw();if(failNext||emptyDemo)run(submitted);
+    syncMode();draw();if(failNext||emptyDemo)run(submitted);
     return true;
   }
   const previous=window.AdminViews;

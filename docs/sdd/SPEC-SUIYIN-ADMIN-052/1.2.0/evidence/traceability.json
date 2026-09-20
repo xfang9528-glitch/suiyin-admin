@@ -1,0 +1,12 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-052@1.2.0",
+  "handoff": "HANDOFF-SUIYIN-ADMIN-052",
+  "testContract": "TEST-CONTRACT-SUIYIN-ADMIN-052",
+  "mustRules": 7,
+  "acceptanceCriteria": 10,
+  "issueSlices": 1,
+  "tests": 12,
+  "evidenceStage": "preparation",
+  "errors": [],
+  "warnings": []
+}

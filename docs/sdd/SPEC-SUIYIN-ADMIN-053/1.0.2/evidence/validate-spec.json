@@ -1,0 +1,12 @@
+{
+  "file": "E:\\和CC的日记\\artifacts\\admin-voice-delivery-20260920\\sdd\\canonical\\053-admin-sales-usage-alignment\\spec.md",
+  "status": "implemented",
+  "rules": 7,
+  "acceptanceCriteria": 7,
+  "questionsOpen": 0,
+  "dependencies": [
+    "SPEC-SUIYIN-ADMIN-051@1.1.0"
+  ],
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,130 @@
+{
+  "tag": "v2026092003-admin-voice-filters-sticky",
+  "checked_at": "2026-09-20",
+  "method": "Exact current candidate documents from docs manifest and non-versioned SDD errata; hashes bind installation. Old immutable package directories excluded from current-source search.",
+  "patterns": [
+    "直接区间",
+    "直接日期区间",
+    "不显示单日",
+    "无模式切换",
+    "不复制日期模式",
+    "052@1.1.2",
+    "053@1.0.1",
+    "055@1.0.0"
+  ],
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "7864541371a7d67f6b34b7dd9640ab004376da0ea6e54e693d0897079ef5a64b",
+      "matches": []
+    },
+    {
+      "file": "CLAUDE.md",
+      "sha256": "9ac7a68b544248339bfe81fda81ef481de18177578cb4947e49c1aac0044cb5a",
+      "matches": []
+    },
+    {
+      "file": "prd/admin-live-reference.md",
+      "sha256": "03695adf2c909fcd64582b60c92b190e50bb73b5be7183f2961b17664a1f7822",
+      "matches": []
+    },
+    {
+      "file": "flowcharts/admin-live-reference.md",
+      "sha256": "4796ec6ae1ca4165228499d306c18f41cf17c1e0b7a1bb3b05daa74989a6b8d4",
+      "matches": []
+    },
+    {
+      "file": "docs/design-spec.md",
+      "sha256": "7feffee38f3a86fe1bca91480692d191736ccb4058dd6c7f1ee78f18bb51ce21",
+      "matches": []
+    },
+    {
+      "file": "prd/ai-assisted-message-stats.md",
+      "sha256": "f28253b93215ac3bdb395fada9b4c48963d63a45d8cdf438228d9d97bf5e318d",
+      "matches": []
+    },
+    {
+      "file": "flowcharts/ai-assisted-message-stats.md",
+      "sha256": "4f06614f0587f7ba1a5c9ec1afb9d4654f439f3db5b6b921863a9193d94f7656",
+      "matches": []
+    },
+    {
+      "file": "docs/verification/admin-live-reference.md",
+      "sha256": "3f8a3e1142a8fafe89485c286bdf99c908eae395874a23a7dc037854464794f1",
+      "matches": [
+        {
+          "line": 36,
+          "text": "上一轮 `v2026092002-admin-pixel-alignment` 按用户四张实站对照截图修正使用统计、深圳拉新记录、消息占比和 AI 辅助统计，并统一共享内容白底。变声主操作跟随使用统计改为 #00c4af，当时保留直接区间与首次成功计次；日期模式已在本轮按 052@1.2.0 替代为共享单日/范围。"
+        }
+      ]
+    },
+    {
+      "file": "index.html",
+      "sha256": "ea2b80db500b03c7fad3d7550461c529fc8e96e184b7969d003d7aaf764ccfd8",
+      "matches": []
+    },
+    {
+      "file": "docs/verification/filters-sticky-20260920.md",
+      "sha256": "523aecf0db378353117e64dffe76f1af9106da96cf52bcca2516cbe4d23e369b",
+      "matches": []
+    },
+    {
+      "file": "docs/verification/pixel-correction-20260920.md",
+      "sha256": "292677c99ecaa5f65ca604ce96ee8450e11a75ab8a61ec5a09fab91fe6532ad6",
+      "matches": [
+        {
+          "line": 3,
+          "text": "本记录为 v2026092002-admin-pixel-alignment 历史发布证据；当时的变声直接日期区间已被 [052@1.2.0](../sdd/SPEC-SUIYIN-ADMIN-052/1.2.0/spec.md) 的共享单日/范围替代，所有表头已按 [本轮冻结记录](filters-sticky-20260920.md) 更新。以下测量按当时版本保留，不作为当前日期模式指令。"
+        },
+        {
+          "line": 13,
+          "text": "- 修复短页面下方灰色底露出；变声页跟随已确认的使用统计青绿主操作，继续保留直接日期区间。"
+        }
+      ]
+    },
+    {
+      "file": "docs/verification/filters-sticky-source-search.md",
+      "sha256": "be447c9bcd9425e1e2ce7ee04b5b1e5b1853b055c9bdcd55acfee0bb64235395",
+      "matches": [
+        {
+          "line": 9,
+          "text": "| 变声仅直接区间、不显示单日、无额外模式、不复制日期模式、两页模式分开 | README、维护约定、PRD、流程和设计规范原段落已改为完整共用单日/范围；模式草稿、快捷提交、取消和重置逐项一致。 |"
+        },
+        {
+          "line": 10,
+          "text": "| 当前引用 052@1.1.2 / 053@1.0.1 / 055@1.0.0 | 当前入口分别指向 052@1.2.0 / 053@1.0.2 / 055@1.1.0；051、054、056 保留原精确版本。 |"
+        },
+        {
+          "line": 11,
+          "text": "| 旧四页验证里的直接日期区间 | intentional-history：历史记录顶部明示当轮 tag、现行替代合同和本轮验证入口；验收摘要同句注明当前已改为共享模式，不作为新指令。 |"
+        }
+      ]
+    },
+    {
+      "file": "docs/sdd/pixel-correction-20260920.md",
+      "sha256": "d139b49663633de9cd1cfdcc938b85bc0d4229648433d3f6dc1de995949de4a1",
+      "classification": "intentional-history with current replacement links",
+      "matches": [
+        {
+          "line": 3,
+          "text": "> 本记录仅描述 `v2026092002-admin-pixel-alignment` 的上次发布。其“直接区间”边界已被最新用户指令替代；当前合同为 [052@1.2.0](SPEC-SUIYIN-ADMIN-052/1.2.0/spec.md)、[053@1.0.2](SPEC-SUIYIN-ADMIN-053/1.0.2/spec.md)、[055@1.1.0](SPEC-SUIYIN-ADMIN-055/1.1.0/spec.md)。销售变声筛选完整复用销售使用统计；所有原型表格冻结。当前验证见 [筛选与冻结记录](../verification/filters-sticky-20260920.md)，工程交付见 [销售变声 Issue #401](https://github.com/PetWebOrg/suiyin-admin/issues/401)。以下旧正文按历史保留，不能作为当前日期模式或工程状态指令。"
+        },
+        {
+          "line": 13,
+          "text": "| 销售变声统计 | [052@1.1.2](SPEC-SUIYIN-ADMIN-052/1.1.2/spec.md) | R007共享主操作按直接截图改为#00c4af；直接区间和计数不变 |"
+        },
+        {
+          "line": 14,
+          "text": "| 销售使用统计 | [053@1.0.1](SPEC-SUIYIN-ADMIN-053/1.0.1/spec.md) | R006恢复分段日期、部门标签、横线与行高；分组、导出和租户规则不变 |"
+        },
+        {
+          "line": 15,
+          "text": "| 全页证据与共享控件 | [054@1.0.0](SPEC-SUIYIN-ADMIN-054/1.0.0/spec.md)、[055@1.0.0](SPEC-SUIYIN-ADMIN-055/1.0.0/spec.md) | 按055 R001–R004恢复拉新微信号选择、来源空态、七列和底部分页；修正短页背景 |"
+        }
+      ]
+    }
+  ],
+  "classification": "Every retained hit is inside explicitly dated historical release text or an explicit supersession notice. No active current instruction retains the direct-range exception.",
+  "remaining_active_conflicts": 0,
+  "docs_audit_sha256": "9c15c272b52118c0b8cccf3644a7d09664300e411895d28d88c8f361c87486e4"
+}
