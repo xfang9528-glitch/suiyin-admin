@@ -1,0 +1,32 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-060",
+  "spec_version": "1.1.0",
+  "artifact_class": "static-html",
+  "engineering_handoff": true,
+  "engineering_handoff_status": "issued",
+  "issue_url": "https://github.com/PetWebOrg/suiyin-admin/issues/408",
+  "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026092103-admin-menu-drag-global/docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0",
+  "release_tag": "v2026092103-admin-menu-drag-global",
+  "files": [
+    "README.md",
+    "spec.md",
+    "plan.md",
+    "tasks.md",
+    "source-convergence.md",
+    "issue-handoff.md",
+    "test-contract.md",
+    "verification.md",
+    "source-search.txt",
+    "evidence/results.json",
+    "evidence/memory-results.json",
+    "evidence/platform-navigation-results.json",
+    "evidence/platform-destination-results.json",
+    "evidence/inline-results.json",
+    "evidence/verified-default.png",
+    "evidence/verified-cross-parent-drag.png",
+    "evidence/verified-horizontal-scroll.png",
+    "evidence/memory-restored.png",
+    "evidence/platform-navigation-linked.png",
+    "evidence/inline-verified.png"
+  ]
+}

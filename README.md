@@ -3,6 +3,7 @@
 这是十五租户的静态管理后台原型，用于对照真实页面、评审操作和统计规则。当前范围为 **15 个租户、765 个租户页面入口、85 种路由**。数据包含本租户脱敏采样、标明来源的参考样本和合成演示；不是实时后台，所有修改只影响本地原型。
 
 - [预约记录组合图](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=appointmentRecords&appointmentDemo=1&appointmentView=chart)（完整合成演示） · [产品说明](prd/appointment-chart.md) · [交互流程](flowcharts/appointment-chart.md) · [062交付包](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/README.md)
+- [平台菜单拖动与全租户导航联动](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=allMenu) · [产品说明](prd/platform-menu-drag.md) · [交互流程](flowcharts/platform-menu-drag.md) · [060交付包](docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/README.md)
 - [在线管理页](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=wechatStatus)
 - [AI费用统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=aiCostStats) · [费用产品说明](prd/ai-cost-stats.md) · [费用交互流程](flowcharts/ai-cost-stats.md)
 - [销售变声统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=salesVoiceStats) · [销售使用统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=salesMessageUsage) · [菜单管理](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=menu)
@@ -37,12 +38,13 @@
 | [054@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-054/1.0.0/README.md) | 全管理页证据矩阵与对齐路线 |
 | [055@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-055/1.1.0/README.md) | 共享筛选、控件与来源；所有管理表格表头冻结 |
 | [056@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-056/1.0.0/README.md) | 聊天、配置及仪表盘结构 |
+| [060@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/README.md) | 平台菜单拖动、二级跨组、全租户侧栏联动与本地记忆；替代旧版平台手工排序和不联动假设 |
 | [062@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/README.md) | 预约列表/图表、每日预约柱形及期间累计折线、全量筛选与来源边界 |
 | [058@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/README.md) | AI费用、分类趋势、82天演示样本与专属模型 |
 
 上一轮本地 Chrome 检查覆盖 752 个入口、665 张表格及 333 个实际滚动场景，冻结失败和脚本错误均为 0；筛选专项 8/8、冻结专项 22 项断言及独立复核 9/9 通过。同日期、同视口下两页单日及范围筛选截图分别字节一致。这些检查证明本地筛选一致性与表头行为；上一轮四页截图的边缘、排序图标和实站滚动细节仍待继续迭代，不代表全部页面已逐像素验收。
 
-本地预览在仓根运行 `python -m http.server 8148 --bind 127.0.0.1`，再用 Google Chrome 打开 `http://127.0.0.1:8148/prototype/_shell.html?tenant=bzds&page=aiCostStats`。正常演示状态按租户和路由隔离；验收使用独立 QA 存储。
+本地预览在仓根运行 `python -m http.server 8148 --bind 127.0.0.1`，再用 Google Chrome 打开 `http://127.0.0.1:8148/prototype/_shell.html?tenant=bzds&page=aiCostStats`。业务演示状态按租户和路由隔离；060 平台菜单配置在当前浏览器同源的全部租户侧栏共享，租户可用页面范围及独立隐藏保留；验收使用隔离浏览器或独立 QA 存储。
 
 发布版本以 [release.json](release.json)、远端提交和交付回执为准；文档中的候选状态不代表已上传。历史独立页面及其文件仍用于追溯，[旧主题与导航](docs/history/before-admin-live-reference/README.md)、[旧好友页](docs/history/before-admin-wide-alignment/README.md) 均不作为当前 Shell 的实现指令。原型发布不等于生产端上线。既有销售变声工程 Issue 已创建：[管理页销售变声统计 #401](https://github.com/PetWebOrg/suiyin-admin/issues/401)，负责人陈宣宇（cxy-chenxuanyu），提出环境深圳艺星、提出人 ZHONG、平台 PC。工程范围覆盖生产租户注册表中全部适用租户；15 个租户只是本原型覆盖清单，不是生产白名单。交付映射见 [052 工程交付合同](docs/sdd/SPEC-SUIYIN-ADMIN-052/1.2.0/issue-handoff.md)。全管理页冻结随本次原型发布，不因此扩大该工程 Issue 到全管理页改造；不更新开发进度表。
 

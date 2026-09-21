@@ -1,0 +1,80 @@
+{
+  "at": "2026-09-21T04:56:53.335Z",
+  "browser": "153.0.8010.50",
+  "url": "http://127.0.0.1:8148/prototype/_shell.html",
+  "results": [
+    {
+      "name": "AC-R001-01 · 102 handles, nine columns, automatic order and no numeric form",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R002-01 · expanded root moves with all children",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R002-01 · collapsed root carries hidden children",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R003-01 · same-name children reorder by ID",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R003-01 · child crosses parent with one record",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R003-01 · empty root receives child and original root remains",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R004-01 · hover expands collapsed target and Escape restores it",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R004-01 · same position and outside-table release are no-ops",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R005-01 · real edge autoscroll, frozen header, horizontal handles",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R006-01 · persist, undo, refresh, preserve prior edits",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R006-02 · failed move and failed undo rollback atomically",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R006-01 · cancelled edit keeps undo, actual edit invalidates it",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R007-01 · ordinary menu and other tenant storage remain isolated",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R008-01 · keyboard same-parent, cross-parent, root and cancellation",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R004/008 · legacy third level, readonly and empty state",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R001-01 · new root appends with automatic sequence",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R002-01 · root dropped over child goes after entire target group",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R008-01 · touch drag shares parent and save semantics",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

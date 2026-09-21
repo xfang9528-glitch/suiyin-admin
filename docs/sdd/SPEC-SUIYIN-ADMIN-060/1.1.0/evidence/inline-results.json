@@ -1,0 +1,34 @@
+{
+  "at": "2026-09-21T06:27:32.432Z",
+  "url": "file:///E:/AI%20%E9%A1%B9%E7%9B%AE/%E4%BD%B0%E6%99%BA%E5%BE%B7%E4%B8%89/%E7%A2%8E%E9%93%B6%E5%8E%9F%E5%9E%8B/suiyin-admin/prototype/_shell_inline.html?tenant=bzds&page=allMenu",
+  "browser": "153.0.8010.50",
+  "isolatedContext": true,
+  "results": [
+    {
+      "name": "file:// boots offline with drag handles and no network requests",
+      "status": "PASS"
+    },
+    {
+      "name": "root drag updates navigation and undo restores moved root offline",
+      "status": "PASS"
+    },
+    {
+      "name": "child cross-parent and hide/show update offline sidebar",
+      "status": "PASS"
+    },
+    {
+      "name": "offline refresh reads saved platform tree and sidebar",
+      "status": "PASS"
+    },
+    {
+      "name": "another eligible tenant updates live and reloads without adding routes",
+      "status": "PASS"
+    },
+    {
+      "name": "offline bundle has no script errors or HTTP dependencies",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "requests": []
+}

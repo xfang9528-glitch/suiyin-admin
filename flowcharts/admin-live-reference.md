@@ -8,7 +8,7 @@
 flowchart TD
     Start[打开 Shell 或生成的单文件] --> Tenant{登记租户且页面可见}
     Tenant -->|否| Denied[提示选择租户或无查看权限]
-    Tenant -->|是| Config[读取本租户菜单和本地覆盖]
+    Tenant -->|是| Config[读取本租户库存及本地覆盖 并叠加平台统一菜单规则]
     Config --> Route[按稳定路由打开领域页面]
     Route --> Load{静态样本读取}
     Load -->|失败| Retry[说明错误并提供重试]
@@ -46,7 +46,7 @@ flowchart TD
     Page --> Edit[已采集表单或明确标记的本地演示表单]
     Edit --> Choice{取消或确认}
     Choice -->|取消| Page
-    Choice -->|确认且校验通过| Save[只保存当前租户及路由的本地状态]
+    Choice -->|确认且校验通过| Save[保存本地状态 普通业务按租户隔离 平台规则联动全租户]
     Save --> Page
 ```
 
@@ -59,7 +59,11 @@ flowchart TD
     Platform --> Identity[核对稳定身份 名称 路由 父级]
     Identity --> Existing[继承父级 显示 排序 权限边界]
     Existing --> Tree[完整菜单专用树]
-    Tree --> Edit[编辑显示和排序 或查看记录]
+    Tree --> Scope{普通菜单或平台菜单}
+    Scope -->|普通menu| Edit[编辑显示和排序 或查看记录]
+    Scope -->|平台allMenu| Drag[按060拖动整组或二级跨组 编辑显示状态]
+    Drag --> PlatformSave[保存统一平台配置 失败回滚]
+    PlatformSave --> AllNav[全部租户侧栏即时更新 刷新恢复]
     Edit --> Decision{取消或确认}
     Decision -->|取消| Tree
     Decision -->|确认| Local[保存本租户本地配置]

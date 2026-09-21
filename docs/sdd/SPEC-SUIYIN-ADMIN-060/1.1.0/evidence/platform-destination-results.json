@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-21T05:03:22.979Z",
+  "results": [
+    {
+      "name": "absent destination creates a container without granting new page routes",
+      "status": "PASS"
+    },
+    {
+      "name": "leaf destination retains its own page and moved child",
+      "status": "PASS"
+    }
+  ]
+}

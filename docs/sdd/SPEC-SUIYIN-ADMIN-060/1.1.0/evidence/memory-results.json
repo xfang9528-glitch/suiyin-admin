@@ -1,0 +1,33 @@
+{
+  "at": "2026-09-21T04:57:30.027Z",
+  "url": "http://127.0.0.1:8148/prototype/_shell.html?tenant=bzds&page=allMenu",
+  "browser": "153.0.8010.50",
+  "isolatedContext": true,
+  "results": [
+    {
+      "name": "exact user URL: sort and hidden values persist after browser reload",
+      "status": "PASS"
+    },
+    {
+      "name": "menu collapse and both scroll offsets survive refresh",
+      "status": "PASS"
+    },
+    {
+      "name": "sidebar groups, scroll, collapsed state and open tabs survive refresh",
+      "status": "PASS"
+    },
+    {
+      "name": "reopening same URL in a new tab restores config and view",
+      "status": "PASS"
+    },
+    {
+      "name": "hidden edit fails honestly when browser storage rejects writes",
+      "status": "PASS"
+    },
+    {
+      "name": "tenant menu hide/show updates sidebar without reloading and restores hidden entry",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}
