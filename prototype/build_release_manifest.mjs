@@ -10,6 +10,6 @@ const tag=process.argv[2];
 if(!tag||!/^[a-zA-Z0-9._-]+$/.test(tag))throw Error('usage: node prototype/build_release_manifest.mjs <release-tag>');
 const files=git('ls-files','-z').toString().split('\0').filter(p=>p&&p!=='release.json'&&!p.startsWith('.github/')&&!p.startsWith('.')&&p!=='serve.js');
 const hashes=Object.fromEntries(files.map(p=>[p,crypto.createHash('sha256').update(git('show',':'+p)).digest('hex')]));
-const manifest={tag,spec:'SPEC-SUIYIN-ADMIN-058@1.2.0',baseline:'SPEC-SUIYIN-ADMIN-051@1.1.0',specs:['SPEC-SUIYIN-ADMIN-052@1.2.0','SPEC-SUIYIN-ADMIN-053@1.0.2','SPEC-SUIYIN-ADMIN-054@1.0.0','SPEC-SUIYIN-ADMIN-055@1.1.0','SPEC-SUIYIN-ADMIN-056@1.0.0','SPEC-SUIYIN-ADMIN-058@1.2.0'],runtime:'static-html',coverage:{tenants:15,routes:85,tenantRoutes:765},generatedAt:new Date().toISOString(),files:hashes};
+const manifest={tag,spec:'SPEC-SUIYIN-ADMIN-062@1.0.0',baseline:'SPEC-SUIYIN-ADMIN-051@1.1.0',specs:['SPEC-SUIYIN-ADMIN-052@1.2.0','SPEC-SUIYIN-ADMIN-053@1.0.2','SPEC-SUIYIN-ADMIN-054@1.0.0','SPEC-SUIYIN-ADMIN-055@1.1.0','SPEC-SUIYIN-ADMIN-056@1.0.0','SPEC-SUIYIN-ADMIN-058@1.2.0','SPEC-SUIYIN-ADMIN-062@1.0.0'],runtime:'static-html',coverage:{tenants:15,routes:85,tenantRoutes:765},generatedAt:new Date().toISOString(),files:hashes};
 fs.writeFileSync(path.join(root,'release.json'),JSON.stringify(manifest,null,2)+'\n');
 console.log(JSON.stringify({tag,files:files.length,output:'release.json'}));

@@ -2,13 +2,14 @@
 
 这是十五租户的静态管理后台原型，用于对照真实页面、评审操作和统计规则。当前范围为 **15 个租户、765 个租户页面入口、85 种路由**。数据包含本租户脱敏采样、标明来源的参考样本和合成演示；不是实时后台，所有修改只影响本地原型。
 
+- [预约记录组合图](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=appointmentRecords&appointmentDemo=1&appointmentView=chart)（完整合成演示） · [产品说明](prd/appointment-chart.md) · [交互流程](flowcharts/appointment-chart.md) · [062交付包](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/README.md)
 - [在线管理页](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=wechatStatus)
 - [AI费用统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=aiCostStats) · [费用产品说明](prd/ai-cost-stats.md) · [费用交互流程](flowcharts/ai-cost-stats.md)
 - [销售变声统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=salesVoiceStats) · [销售使用统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=salesMessageUsage) · [菜单管理](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=menu)
-- [离线单文件](prototype/_shell_inline.html)：由主线生成，包含所需静态数据和资源。历史单文件检查见 [筛选与冻结运行记录](docs/verification/filters-sticky-20260920/inline-runtime-report.json)；本次重新生成后的实际结果另见 [058 验收记录](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/verification.md)，旧报告不代替当前生成物验证。完整人工断网验收与实站像素验收仍分别保留。
+- [离线单文件](prototype/_shell_inline.html)：由主线生成，包含所需静态数据和资源。历史单文件检查见 [筛选与冻结运行记录](docs/verification/filters-sticky-20260920/inline-runtime-report.json)；本次重新生成后的实际结果见 [062 验收记录](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/verification.md)；上一轮另见 [058 验收记录](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/verification.md)，旧报告不代替当前生成物验证。完整人工断网验收与实站像素验收仍分别保留。
 - [产品说明](prd/admin-live-reference.md) · [交互流程](flowcharts/admin-live-reference.md) · [设计规范](docs/design-spec.md) · [验收与已知边界](docs/verification/admin-live-reference.md)
 
-本次新增「AI管理 → AI费用统计」，覆盖已有 AI 管理父级的 13 个租户。单日/范围查询五类分析的次数、客户费用、专属模型和分类趋势；2026-07-01 至 2026-09-20 共 82 天均为固定合成样本。未知费用、缺日期和参考模型配置明确说明，不作为真实扣费或历史调用证据。行为合同为 [058@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/README.md)，远端发布和工程状态以交付回执为准。
+上一轮新增「AI管理 → AI费用统计」，覆盖已有 AI 管理父级的 13 个租户。单日/范围查询五类分析的次数、客户费用、专属模型和分类趋势；2026-07-01 至 2026-09-20 共 82 天均为固定合成样本。未知费用、缺日期和参考模型配置明确说明，不作为真实扣费或历史调用证据。行为合同为 [058@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/README.md)，远端发布和工程状态以交付回执为准。
 
 既有已交付范围：所有租户新增「数据展示 → 销售变声统计」，同步对应菜单管理和已有平台菜单定义。按独立变声任务首次成功生成计次，失败、试听及同任务重试不重复计，消息发送成功与否不影响该次数。筛选与销售使用统计完整一致：统计时间、单日/范围、日期日历、今天/昨天/前天、部门、搜索/重置/导出，保留各自日期和数据来源。
 
@@ -22,6 +23,8 @@
 
 其他管理页继续按各自证据保留菜单树、聊天、配置、销售仪表盘和好友结构。来源说明区分本租户采样、参考样本、演示与未采集；参考样本机制不适用于使用统计与 AI辅助统计的数据回退。
 
+本次预约记录保留列表并增加总量与柱线组合图，覆盖深圳、广州、杭州、嘉兴的既有入口，统计所有已应用筛选结果。原样本与完整演示明确分开；工程提出环境深圳艺星、提出人李愉，负责人陈宣宇。
+
 当前合同如下，051 为基线，后续合同仅替代各自范围内的旧实现：
 
 | 合同 | 内容 |
@@ -32,6 +35,7 @@
 | [054@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-054/1.0.0/README.md) | 全管理页证据矩阵与对齐路线 |
 | [055@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-055/1.1.0/README.md) | 共享筛选、控件与来源；所有管理表格表头冻结 |
 | [056@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-056/1.0.0/README.md) | 聊天、配置及仪表盘结构 |
+| [062@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/README.md) | 预约列表/图表、每日预约柱形及期间累计折线、全量筛选与来源边界 |
 | [058@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/README.md) | AI费用、分类趋势、82天演示样本与专属模型 |
 
 上一轮本地 Chrome 检查覆盖 752 个入口、665 张表格及 333 个实际滚动场景，冻结失败和脚本错误均为 0；筛选专项 8/8、冻结专项 22 项断言及独立复核 9/9 通过。同日期、同视口下两页单日及范围筛选截图分别字节一致。这些检查证明本地筛选一致性与表头行为；上一轮四页截图的边缘、排序图标和实站滚动细节仍待继续迭代，不代表全部页面已逐像素验收。
@@ -43,3 +47,5 @@
 AI费用统计工程执行以 [058 Handoff](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/issue-handoff.md) 和 [Test Contract](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/test-contract.md) 为入口；提出环境佰智德三、提出人房昕，负责人陈宣宇。真实 Issue 编号及交付状态由实际建单回执登记，不复用销售变声 #401。
 
 AI费用统计工程Issue已建立：[#402](https://github.com/PetWebOrg/suiyin-admin/issues/402)，陈宣宇（cxy-chenxuanyu），提出人房昕、环境佰智德三、平台PC。原型发布标签 `v2026092004-admin-ai-cost-stats`；实现与生产验收待正式工程流程。
+
+预约图表工程Issue已建立：[#404](https://github.com/PetWebOrg/suiyin-admin/issues/404)，负责人陈宣宇（cxy-chenxuanyu），提出环境深圳艺星、提出人李愉、平台PC。交付标签 v2026092101-admin-appointment-chart；原型已实现，生产实现待正式工程流程。

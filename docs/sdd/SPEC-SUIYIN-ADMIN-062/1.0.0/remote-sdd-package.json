@@ -1,0 +1,29 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-062",
+  "spec_version": "1.0.0",
+  "artifact_class": "static-html",
+  "engineering_handoff": true,
+  "engineering_handoff_status": "issued",
+  "issue_url": "https://github.com/PetWebOrg/suiyin-admin/issues/404",
+  "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026092101-admin-appointment-chart/docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0",
+  "release_tag": "v2026092101-admin-appointment-chart",
+  "files": [
+    "README.md",
+    "spec.md",
+    "plan.md",
+    "tasks.md",
+    "source-convergence.md",
+    "issue-handoff.md",
+    "test-contract.md",
+    "verification.md",
+    "source-search.txt",
+    "evidence/checks.json",
+    "evidence/appointment-chart.png",
+    "evidence/appointment-list.png",
+    "evidence/tooltip.png",
+    "evidence/narrow.png",
+    "evidence/filtered.png",
+    "evidence/inline-chart.png",
+    "evidence/inline-checks.json"
+  ]
+}

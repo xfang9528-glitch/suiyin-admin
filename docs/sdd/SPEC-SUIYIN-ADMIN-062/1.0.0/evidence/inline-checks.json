@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-21T04:02:41.881Z",
+  "runtime": "file://, Google Chrome, HTTP(S) blocked",
+  "passed": 6,
+  "checks": [
+    "Offline file:// chart loads 318 synthetic appointments without a server",
+    "Offline switch to appointment list works",
+    "Offline original Shenzhen sample remains 20 with separate source",
+    "Offline reference samples are not counted as current-tenant totals",
+    "Offline appointment settings remain independent",
+    "Zero browser errors and zero external resource requests"
+  ],
+  "errors": [],
+  "blocked": []
+}
