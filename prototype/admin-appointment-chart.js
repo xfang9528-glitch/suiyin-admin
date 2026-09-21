@@ -219,17 +219,16 @@ window.AdminAppointmentChart = (() => {
       svg.append(svgElement('text',{x:margin.left-12,y:yy+4,'text-anchor':'end',class:'appt-axis'},String(Math.round(leftMax*(5-i)/5))));
       svg.append(svgElement('text',{x:width-margin.right+12,y:yy+4,class:'appt-axis'},String(Math.round(rightMax*(5-i)/5))));
     }
-    const barWidth=Math.min(22,plotWidth/visible.length*.5),lineSegments=[]; let current=[];
+    const barWidth=Math.min(22,plotWidth/visible.length*.5),linePoints=[];
     visible.forEach((p,i)=>{
-      if(p.known)current.push(`${x(i)},${y(p.cumulative,rightMax)}`);
-      else if(current.length){lineSegments.push(current);current=[];}
+      // Every date retains the running total, including days with no new records.
+      linePoints.push(`${x(i)},${y(p.cumulative,rightMax)}`);
       if(p.count !== null)svg.append(svgElement('rect',{x:x(i)-barWidth/2,y:y(p.count,leftMax),width:barWidth,height:plotHeight*p.count/leftMax,rx:2,class:'appt-bar','data-date':p.date,'data-count':p.count}));
       if (i%Math.max(1,Math.ceil(visible.length/14))===0 || i===visible.length-1) svg.append(svgElement('text',{x:x(i),y:height-23,'text-anchor':'middle',class:'appt-axis'},p.date.slice(5)));
     });
-    if(current.length)lineSegments.push(current);
-    lineSegments.forEach(segment=>svg.append(svgElement('polyline',{points:segment.join(' '),class:'appt-line'+(complete?'':' partial')})));
+    svg.append(svgElement('polyline',{points:linePoints.join(' '),class:'appt-line'}));
     visible.forEach((p,i)=>{
-      if(p.known)svg.append(svgElement('circle',{cx:x(i),cy:y(p.cumulative,rightMax),r:3.5,class:'appt-point','data-cumulative':p.cumulative}));
+      svg.append(svgElement('circle',{cx:x(i),cy:y(p.cumulative,rightMax),r:3.5,class:'appt-point','data-date':p.date,'data-cumulative':p.cumulative}));
       const hit=svgElement('rect',{x:x(i)-plotWidth/visible.length/2,y:margin.top,width:plotWidth/visible.length,height:plotHeight,tabindex:i===0?0:-1,role:'button',class:'appt-hit','aria-label':p.date+'，每日预约量'+(p.count===null?'未采到明细':p.count+'条')+'，期间'+(complete?'':'已采样')+'累计'+p.cumulative+'条'});
       hit.addEventListener('mouseenter',()=>showTip(p,hit)); hit.addEventListener('mouseleave',dismissTip);
       hit.addEventListener('focus',()=>showTip(p,hit)); hit.addEventListener('blur',dismissTip);
@@ -261,7 +260,7 @@ window.AdminAppointmentChart = (() => {
     const labels=node('div','appt-legend');
     for(const [cls,text] of [['bar','每日预约量'],['line','期间累计预约量']]){const item=node('span');item.append(node('i',cls),document.createTextNode(text));labels.append(item);}
     labels.append(node('small','','指向日期查看详情 · 键盘 ← → 切换日期'));chartHost.append(labels);
-    if (!complete) chartHost.append(node('p','appt-data-note','仅依据已采样记录，非全部预约；未采到明细的日期留空，不代表当天没有预约。'));
+    if (!complete) chartHost.append(node('p','appt-data-note','仅依据已采样记录，非全部预约；未采到明细的日期柱形留空，折线保留已采样累计值，不代表当天没有预约。'));
     if (summary.missing) chartHost.append(node('p','appt-data-note','预约日期缺失 '+summary.missing+' 条，已计入总量，未绘入图表。'));
     if (applied[fields.creatorDepartment] && data.some(r=>!r.creatorDepartment)) chartHost.append(node('p','appt-data-note','部分样本缺少创建人当前部门，本次仅匹配已知部门的记录。'));
     if (!matched.length) { chartHost.append(A.empty(complete?'当前筛选暂无预约记录':'当前筛选暂无已采样记录',complete?'可调整筛选条件后重新查询。':'当前为部分采样，无法据此判断全部预约是否为零。'));return; }

@@ -6,7 +6,7 @@
 - [在线管理页](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=wechatStatus)
 - [AI费用统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=aiCostStats) · [费用产品说明](prd/ai-cost-stats.md) · [费用交互流程](flowcharts/ai-cost-stats.md)
 - [销售变声统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=salesVoiceStats) · [销售使用统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=salesMessageUsage) · [菜单管理](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=menu)
-- [离线单文件](prototype/_shell_inline.html)：由主线生成，包含所需静态数据和资源。历史单文件检查见 [筛选与冻结运行记录](docs/verification/filters-sticky-20260920/inline-runtime-report.json)；本次重新生成后的实际结果见 [062 验收记录](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/verification.md)；上一轮另见 [058 验收记录](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/verification.md)，旧报告不代替当前生成物验证。完整人工断网验收与实站像素验收仍分别保留。
+- [离线单文件](prototype/_shell_inline.html)：由主线生成，包含所需静态数据和资源。历史单文件检查见 [筛选与冻结运行记录](docs/verification/filters-sticky-20260920/inline-runtime-report.json)；本次曲线与单文件验证见[修复说明](docs/sdd/appointment-curve-correction-20260921.md)；初版结果见 [062 验收记录](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/verification.md)；上一轮另见 [058 验收记录](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/verification.md)，旧报告不代替当前生成物验证。完整人工断网验收与实站像素验收仍分别保留。
 - [产品说明](prd/admin-live-reference.md) · [交互流程](flowcharts/admin-live-reference.md) · [设计规范](docs/design-spec.md) · [验收与已知边界](docs/verification/admin-live-reference.md)
 
 上一轮新增「AI管理 → AI费用统计」，覆盖已有 AI 管理父级的 13 个租户。单日/范围查询五类分析的次数、客户费用、专属模型和分类趋势；2026-07-01 至 2026-09-20 共 82 天均为固定合成样本。未知费用、缺日期和参考模型配置明确说明，不作为真实扣费或历史调用证据。行为合同为 [058@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/README.md)，远端发布和工程状态以交付回执为准。
@@ -23,7 +23,9 @@
 
 其他管理页继续按各自证据保留菜单树、聊天、配置、销售仪表盘和好友结构。来源说明区分本租户采样、参考样本、演示与未采集；参考样本机制不适用于使用统计与 AI辅助统计的数据回退。
 
-本次预约记录保留列表并增加总量与柱线组合图，覆盖深圳、广州、杭州、嘉兴的既有入口，统计所有已应用筛选结果。原样本与完整演示明确分开；工程提出环境深圳艺星、提出人李愉，负责人陈宣宇。
+本次累计曲线视觉修复已获用户确认：逐日保留圆点、零值日水平延续、虚线不断开；见[修复说明](docs/sdd/appointment-curve-correction-20260921.md)。原有062@1.0.0行为合同继续有效。
+
+预约记录保留列表并增加总量与柱线组合图，覆盖深圳、广州、杭州、嘉兴的既有入口，统计所有已应用筛选结果。原样本与完整演示明确分开；工程提出环境深圳艺星、提出人李愉，负责人陈宣宇。
 
 当前合同如下，051 为基线，后续合同仅替代各自范围内的旧实现：
 

@@ -1,0 +1,79 @@
+{
+  "date": "2026-09-21T04:28:01.917Z",
+  "browser": "Google Chrome headless",
+  "scenarios": 10,
+  "checks": [
+    {
+      "runtime": "HTML",
+      "scenario": "42-day complete demo",
+      "points": 42,
+      "flatDates": 3,
+      "continuous": true,
+      "dashed": true,
+      "total": 318,
+      "tooltip": "2026-09-06\n每日预约量：0 条\n期间累计预约量：38 条"
+    },
+    {
+      "runtime": "HTML",
+      "scenario": "11-day partial sample",
+      "points": 11,
+      "flatDates": 3,
+      "continuous": true,
+      "dashed": true,
+      "total": 20,
+      "tooltip": "2026-09-27\n每日预约量：未采到明细\n期间已采样累计：11 条"
+    },
+    {
+      "runtime": "HTML",
+      "scenario": "range starts with zero day",
+      "passed": true
+    },
+    {
+      "runtime": "HTML",
+      "scenario": "single-day cumulative circle",
+      "passed": true
+    },
+    {
+      "runtime": "HTML",
+      "scenario": "empty result remains empty",
+      "passed": true
+    },
+    {
+      "runtime": "offline file",
+      "scenario": "42-day complete demo",
+      "points": 42,
+      "flatDates": 3,
+      "continuous": true,
+      "dashed": true,
+      "total": 318,
+      "tooltip": "2026-09-06\n每日预约量：0 条\n期间累计预约量：38 条"
+    },
+    {
+      "runtime": "offline file",
+      "scenario": "11-day partial sample",
+      "points": 11,
+      "flatDates": 3,
+      "continuous": true,
+      "dashed": true,
+      "total": 20,
+      "tooltip": "2026-09-27\n每日预约量：未采到明细\n期间已采样累计：11 条"
+    },
+    {
+      "runtime": "offline file",
+      "scenario": "range starts with zero day",
+      "passed": true
+    },
+    {
+      "runtime": "offline file",
+      "scenario": "single-day cumulative circle",
+      "passed": true
+    },
+    {
+      "runtime": "offline file",
+      "scenario": "empty result remains empty",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "blockedOfflineRequests": []
+}

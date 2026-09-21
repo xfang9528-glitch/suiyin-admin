@@ -30,7 +30,7 @@
 .appt-legend{display:flex;align-items:center;gap:25px;margin:8px 0 25px;font-size:13px;color:#606266;flex-wrap:wrap}
 .appt-legend>span{display:flex;align-items:center;gap:8px}
 .appt-legend i.bar{width:12px;height:12px;background:#8ebcf1;border-radius:2px}
-.appt-legend i.line{width:20px;height:2px;background:#00b6a3;position:relative}
+.appt-legend i.line{width:20px;height:2px;background:repeating-linear-gradient(to right,#00b6a3 0 5px,transparent 5px 9px);position:relative}
 .appt-legend i.line:after{content:'';position:absolute;left:7px;top:-3px;width:6px;height:6px;border:1.5px solid #00b6a3;background:white;border-radius:50%}
 .appt-legend>small{margin-left:auto;color:#a0a4ab;font-size:12px}
 .appt-plot-scroll{width:100%;overflow:auto;overscroll-behavior-x:contain;padding-bottom:5px}
@@ -39,8 +39,7 @@
 .appt-axis{fill:#909399;font-size:11px}
 .appt-axis-title{fill:#909399;font-size:12px}
 .appt-bar{fill:#8ebcf1}
-.appt-line{stroke:#00b6a3;stroke-width:2.5;fill:none;stroke-linejoin:round}
-.appt-line.partial{stroke-dasharray:5 4}
+.appt-line{stroke:#00b6a3;stroke-width:2.5;fill:none;stroke-linejoin:round;stroke-dasharray:5 4}
 .appt-point{fill:#fff;stroke:#00b6a3;stroke-width:2}
 .appt-hit{fill:transparent;cursor:crosshair;outline:none}
 .appt-hit:hover,.appt-hit:focus{fill:#409eff0c;stroke:#c9dff6;stroke-dasharray:3 3}
