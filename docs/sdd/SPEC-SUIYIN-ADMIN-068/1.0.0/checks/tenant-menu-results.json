@@ -1,0 +1,173 @@
+{
+  "at": "2026-09-26T10:36:10.665Z",
+  "url": "http://127.0.0.1:8148/prototype/_shell.html?tenant=yestar-sz&page=menu&qa=1",
+  "browser": "153.0.8010.54",
+  "isolatedContext": true,
+  "qaKeysOnly": true,
+  "filter": null,
+  "tenants": [
+    "yestar-sz",
+    "jbfs",
+    "mengzhua",
+    "bzds",
+    "crrm",
+    "hqjd",
+    "ykjl",
+    "ruixi-kh-xiaowen",
+    "rxxz",
+    "yestar",
+    "yestar-bj",
+    "yestar-gz",
+    "yestar-hz",
+    "yestar-jx",
+    "yzhb"
+  ],
+  "results": [
+    {
+      "name": "matrix:yestar-sz · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2555
+    },
+    {
+      "name": "matrix:jbfs · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2144
+    },
+    {
+      "name": "matrix:mengzhua · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2188
+    },
+    {
+      "name": "matrix:bzds · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2430
+    },
+    {
+      "name": "matrix:crrm · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2240
+    },
+    {
+      "name": "matrix:hqjd · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2071
+    },
+    {
+      "name": "matrix:ykjl · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2127
+    },
+    {
+      "name": "matrix:ruixi-kh-xiaowen · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2198
+    },
+    {
+      "name": "matrix:rxxz · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2153
+    },
+    {
+      "name": "matrix:yestar · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2232
+    },
+    {
+      "name": "matrix:yestar-bj · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2161
+    },
+    {
+      "name": "matrix:yestar-gz · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2248
+    },
+    {
+      "name": "matrix:yestar-hz · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2268
+    },
+    {
+      "name": "matrix:yestar-jx · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2254
+    },
+    {
+      "name": "matrix:yzhb · six columns, three moves and sidebar",
+      "status": "PASS",
+      "ms": 2102
+    },
+    {
+      "name": "persistence · undo, refresh, reopen and prior fields",
+      "status": "PASS",
+      "ms": 3024
+    },
+    {
+      "name": "windows · same tenant live update, isolation and stale undo",
+      "status": "PASS",
+      "ms": 26432
+    },
+    {
+      "name": "failure · failed move and undo preserve saved model and remote window",
+      "status": "PASS",
+      "ms": 28906
+    },
+    {
+      "name": "cancel-keyboard · no-op, escape, outside, blur and keyboard",
+      "status": "PASS",
+      "ms": 2237
+    },
+    {
+      "name": "disabled · readonly, legacy depth and empty",
+      "status": "PASS",
+      "ms": 930
+    },
+    {
+      "name": "platform-first · preexisting platform order is table and sidebar baseline",
+      "status": "PASS",
+      "ms": 13508
+    },
+    {
+      "name": "platform-later · local group and parent survive, untouched parent follows",
+      "status": "PASS",
+      "ms": 10692
+    },
+    {
+      "name": "platform-order · adjusted lists retain order and untouched groups inherit",
+      "status": "PASS",
+      "ms": 3965
+    },
+    {
+      "name": "invalid-parent · unavailable local target falls back then returns",
+      "status": "PASS",
+      "ms": 1871
+    },
+    {
+      "name": "external-drag · incoming update cancels current drag",
+      "status": "PASS",
+      "ms": 12040
+    },
+    {
+      "name": "duplicate-route · conflict preserves inventory and disables related rows",
+      "status": "PASS",
+      "ms": 523
+    },
+    {
+      "name": "legacy-settings · old numeric order, labels and hidden fields remain",
+      "status": "PASS",
+      "ms": 945
+    },
+    {
+      "name": "duplicate-hidden · conflicted rows cannot revive platform-hidden pages",
+      "status": "PASS",
+      "ms": 1992
+    },
+    {
+      "name": "scroll-touch · hover expand, edge scroll, frozen header and touch",
+      "status": "PASS",
+      "ms": 3354
+    }
+  ],
+  "errors": []
+}

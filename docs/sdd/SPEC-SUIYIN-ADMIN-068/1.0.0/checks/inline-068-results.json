@@ -1,0 +1,46 @@
+{
+  "at": "2026-09-26T11:35:15.959Z",
+  "browser": "153.0.8010.54",
+  "file": "E:/AI 项目/佰智德三/碎银原型/suiyin-admin/prototype/_shell_inline.html",
+  "fileBytes": 7495320,
+  "fileSha256": "2410d6dd907331bab601e1cf7a6907ec9d9afd18476f736c609548d73923b4e7",
+  "isolatedContexts": true,
+  "qa": true,
+  "httpBlocked": true,
+  "results": [
+    {
+      "name": "yestar-sz: offline ordinary menu load",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: all three pointer moves update navigation offline",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: undo and reload retain saved table and navigation",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: offline ordinary menu load",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: all three pointer moves update navigation offline",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: undo and reload retain saved table and navigation",
+      "status": "PASS"
+    },
+    {
+      "name": "offline platform allMenu drag, undo, cross-parent and hide restore",
+      "status": "PASS"
+    },
+    {
+      "name": "standalone bundle has zero external dependencies and runtime errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

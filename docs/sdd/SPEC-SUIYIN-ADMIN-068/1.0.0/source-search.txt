@@ -1,0 +1,68 @@
+SPEC-SUIYIN-ADMIN-068@1.0.0 Source Convergence Search Proof / 2026-09-26
+Q001 command: rg -n -e 窄排序框 -e 编辑显示和排序 -e 平台增加一级整组拖动 -e 所有租户侧栏按统一结构即时更新 -e 统一侧栏顺序、父级 -e 平台.allMenu.的统一顺序 <9 current entry documents>
+exit=1; exact superseded active phrases: 0
+Q002 command: rg -n -e 068 -e 明确调整 -e 同一有效 -e 暂禁 -e 平台当前祖先 <9 current entry documents>
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\tenant-menu-drag.md:3:行为合同：[SPEC-SUIYIN-ADMIN-068@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md)。提出环境佰智德三，提出人房昕；管理页PC。工程执行范围和交接以同包Handoff/Test Contract为准。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\tenant-menu-drag.md:16:平台提供默认完整结构；租户只保存明确调整过的同级列表顺序，以及跨组时被移动项的父级。一级顺序调整不冻结各组二级，组内重排不冻结其他项的父级。平台后续变化继续作用于未覆盖部分。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\tenant-menu-drag.md:20:平台当前祖先链的隐藏、删除及原有权限独立生效。把菜单从平台隐藏的父级移到别处不能解除隐藏；平台显示也不能新增本租户页面或解除本租户独立隐藏。可见导航由同一完整菜单树过滤得到，隐藏项仍留在库存。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\tenant-menu-drag.md:26:非法落点、原位、表外松手、Escape、失焦和pointercancel不保存、不记操作。只读或不可编辑项不能拖动；历史深层分支保留并禁用相关拖动。重复身份或路由保留原数据并说明配置冲突，当前原型暂禁整树拖动；安全导航仍沿用平台限制及既有租户覆盖。错误、加载、空态不造菜单。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\tenant-menu-drag.md:32:原型仅保存同浏览器同源的本地演示状态，不接真实后台、不承诺跨设备共享。生产实现需通过正式工程流程完成持久化、权限、并发与失败一致性，并以版本化Test Contract验收。068限定替代051的普通菜单手工排序和060的普通menu排除、平台无条件排序优先；051/060旧版本包作为不可变历史保留。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\CLAUDE.md:33:2. 同名菜单按稳定 route/identity 区分；菜单表与导航由同一有效完整树派生，隐藏库存独立保留。DR-095：数据展示新增项同次补齐适用租户菜单管理和已有平台定义。普通 menu 按 068@1.0.0 在全部 15 租户支持一级整组、二级组内/跨组拖动，六列顺序只读，编辑不再输入排序号；成功、撤销、刷新联动本租户侧栏。060@1.1.0 的平台拖动继续有效；平台提供默认顺序与归属，租户明确调整过的同级列表及被跨组移动项的父级按 068 优先，其余继续跟平台。平台当前祖先链隐藏/删除及原权限独立生效，不能通过跨组绕过。旧060版本包保持历史，不用于否定068的限定覆盖。原型15租户是验证清单，不是生产白名单。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\platform-menu-drag.md:3:平台拖动合同：[060@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/spec.md)；普通menu范围和平台/租户优先级以[068@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md)为当前规则。060已发布快照保留历史，其普通menu排除和平台无条件顺序覆盖已由068限定替代。提出环境佰智德三，提出人房昕；平台为 PC 管理页。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\platform-menu-drag.md:5:管理者面对长菜单列表时，无需逐条填写排序号：拖动一级携带全部二级，二级可组内重排或移入另一个一级，各租户侧栏按当前平台默认结构和自己的明确调整即时更新。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\platform-menu-drag.md:10:- 平台顺序、二级归属作为全部租户的默认结构；租户明确调整过的同级列表保留本租户顺序，仅被跨组移动项保留父级，其余继续跟平台。平台当前祖先链的隐藏与删除始终有效；即使租户已将菜单移出其平台父级，也不能绕过该父级隐藏。平台显示不解除租户独立隐藏，不扩充原有页面权限。名称相同但路由不同的项分别匹配。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\tenant-menu-drag.md:3:合同：[SPEC-SUIYIN-ADMIN-068@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md)。普通menu作用当前租户；平台allMenu仍通过默认结构和可见性规则影响全部租户。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\tenant-menu-drag.md:11:    Parent -->|是| Tree[同一有效完整菜单树]
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\tenant-menu-drag.md:14:    Tree --> Filter[平台当前祖先隐藏 删除 租户权限和显示过滤]
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\tenant-menu-drag.md:32:    Platform[平台后来改顺序 父级 显示或删除] --> Group{本租户明确调整过该同级列表}
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\tenant-menu-drag.md:39:    Local --> Gate[始终检查平台当前祖先链隐藏 删除及原权限]
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\tenant-menu-drag.md:44:刷新或后续数据修改清除会话撤销；单纯展开、滚动、打开后取消弹窗保留撤销。一级空组和隐藏项不从库存丢失，携页一级保留自身入口。异常重复身份/路由保留原数据并暂禁整树拖动，导航安全投影仍执行已有平台限制和租户覆盖；修复后恢复正常操作。所有保存都是静态原型本地行为，生产持久化和权限由正式工程流程实施。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\README.md:6:- [各租户菜单拖动与本租户导航联动](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=menu) · [产品说明](prd/tenant-menu-drag.md) · [交互流程](flowcharts/tenant-menu-drag.md) · [068交付包](docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/README.md)
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\README.md:32:当前全部 15 个租户的「系统管理 → 菜单管理」按 [068@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md) 支持一级整组、二级组内及跨组拖动；菜单表和侧栏共用同一有效结构，保存、撤销、刷新与同租户多窗联动。租户明确调过的同级列表保留自己的顺序，仅跨组的被移动项保留父级，其余继续跟随平台。平台当前祖先链的隐藏和删除、租户原有权限始终有效，隐藏项及空一级保留在完整库存。此合同替代普通菜单手工排序和平台对租户排序的无条件覆盖；060 的平台拖动交互继续有效，其已发布版本包作为不可变历史保存。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\README.md:44:| [060@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/README.md) | 平台菜单拖动、二级跨组与本地记忆继续适用；普通 menu 范围及平台与租户优先级由 068 明确覆盖 |
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\README.md:45:| [068@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/README.md) | 各租户 menu 拖动、同租户导航联动、局部顺序与父级优先、旧设置接续及异常回退 |
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\README.md:51:本地预览在仓根运行 `python -m http.server 8148 --bind 127.0.0.1`，再用 Google Chrome 打开 `http://127.0.0.1:8148/prototype/_shell.html?tenant=bzds&page=menu`。业务演示状态按租户和路由隔离；平台菜单提供同源浏览器内的默认顺序与归属，068 的本租户明确调整在对应同级列表和移动项上优先，平台隐藏和删除仍独立生效。验收使用隔离浏览器或独立 QA 存储。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\admin-live-reference.md:3:更新：2026-09-26。普通菜单与平台/租户优先级执行068@1.0.0，平台拖动继续060@1.1.0；预约记录图表按062@1.0.0。静态原型共15租户、765入口、85路由；其余合同为051@1.1.0、052@1.2.0、053@1.0.2、054@1.0.0、055@1.1.0、056@1.0.0、058@1.2.0，见[合同入口](../README.md)。以下流程均不写真实后台。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\admin-live-reference.md:63:    Scope -->|普通menu| Edit[按068拖动整组或二级跨组 编辑显示或权限 查看记录]
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\admin-live-reference.md:77:普通menu不再输入排序号，完整交互见[各租户菜单流程](tenant-menu-drag.md)。租户只冻结明确调整的同级顺序和被跨组移动项的父级；平台当前祖先链隐藏、删除及权限不能通过跨组绕过。平台父级级联阻止自身或后代形成循环；本地分配先展示差异和影响租户，再确认。删除指明对象与影响范围，取消不修改。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\design-spec.md:3:更新：2026-09-26。各租户菜单拖动及平台/租户优先级执行068@1.0.0；平台拖动继续执行060@1.1.0。预约图表执行062@1.0.0；基线为 051@1.1.0；销售变声统计执行 052@1.2.0，销售使用统计执行 053@1.0.2，全管理页对齐执行 054@1.0.0、055@1.1.0、056@1.0.0；AI费用、分类趋势与专属模型执行058@1.2.0。沿用已确认的使用/变声筛选及 055 R005 全管理表格冻结；[四页发布勘误](sdd/pixel-correction-20260920.md) 保留截图呈现与来源边界。本文替代旧主按钮一律青绿、通用列表和统一分页等推断；不改变各业务统计口径。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\design-spec.md:41:- 068@1.0.0：先由本租户完整库存和平台当前默认结构生成有效树，再覆盖租户明确调整的同级列表顺序及被跨组移动项的父级；菜单表与可见导航共用此树。一级排序不冻结二级组，组内排序不冻结未移动项的父级；新进入成员按平台有效顺序追加，缺失项不造节点。平台当前祖先链的隐藏、删除和租户原权限独立限制可见性，跨组不能绕过；平台显示不解除租户独立隐藏。目标父级失效时保留覆盖、提示并暂用默认归属，恢复有效后重新应用。切换租户新开对应本地页面，弹页受阻提供链接。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\design-spec.md:42:- DR-095 要求数据展示新增项同步菜单管理及已有平台定义；稳定身份、名称、路由、默认父级保持一致。普通 menu 的排序、归属、独立隐藏及权限只作用本租户；平台 allMenu 继续影响全部租户的默认部分，068 已明确调整的局部顺序与父级优先。平台060历史包中的普通menu排除和无条件覆盖不再作为当前规则。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\design-spec.md:56:普通菜单按 [068@1.0.0](sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md) 保留名称、超级权限、状态、顺序、空白弹性列、操作六列；“顺序”为完整同层库存的只读 1…N，收起或隐藏不重排编号。名称左侧复用平台手柄，一级携全部子项移动，二级支持组内和跨一级移动，直接落在一级上追加末尾。空一级保留；携页一级接收子项后仍保留自身页面入口。编辑蓝、删除红、记录灰，名称继续只读；编辑中的数值排序框替换为“由列表拖动调整”。保留树、开关、文本状态、固定右操作和空白，不增加通用筛选、分页、刷新或列设置。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\design-spec.md:58:普通与平台菜单复用落点插入线、目标文字、分支拖影、约6px启动阈值、600ms悬停展开、40px边缘滚动区和键盘/桌面触控交互；表头冻结与行操作保持可用。普通菜单成功提示“已保存，本租户导航已更新（本地原型）”，同租户已开窗口即时更新且保留仍可见业务页。排序、父级覆盖与记录作为同一成功状态保存，失败不传播；最近一次移动可撤销并恢复其覆盖，刷新、后续数据修改或外部相关修改使旧撤销失效。展开、滚动、打开后取消弹窗不使撤销失效。旧数字顺序沿原语义接续，不误当新版拖动意图。历史深层分支完整保留并禁用相关拖动；重复身份/路由异常保留原数据，当前实现暂禁整树拖动并明确冲突原因，安全导航仍执行平台限制及既有租户覆盖。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\platform-menu-drag.md:3:平台交互合同：[060@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/spec.md)。其普通menu排除及无条件平台排序覆盖由[068@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md)限定替代，已发布060快照只保留原批准历史。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\platform-menu-drag.md:16:    Local --> Nav[平台当前祖先隐藏和删除独立约束可见导航]
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\admin-live-reference.md:3:更新：2026-09-26。各租户菜单拖动与导航联动执行068@1.0.0，平台拖动继续按060@1.1.0；预约记录图表按062@1.0.0。本文件汇总已批准合同，不另立业务规则：051@1.1.0 为十五租户基线；052@1.2.0 为销售变声统计；053@1.0.2 为销售使用统计；054@1.0.0、055@1.1.0、056@1.0.0 为全管理页证据对齐；058@1.2.0 为AI费用、分类趋势与专属模型。版本化合同从 [README](../README.md) 进入；四页截图恢复和当前证据边界见 [2026-09-20 发布勘误](../docs/sdd/pixel-correction-20260920.md)。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\admin-live-reference.md:9:范围为十五租户：佰智德三、锦帛美学、萌爪、诚如风险管理事务所、厚全鸡蛋、柚子烘焙；瑞熙小刘、小温、小周；艺星成都、深圳、北京、广州、杭州、嘉兴。当前库存为 **765 个租户页面入口、85 种路由**。截图排除项、碎银私域和不可访问环境不纳入。各租户保留自己的可用入口、权限和独立显示配置；菜单表和侧栏按068共用有效完整树。平台allMenu提供默认顺序和归属，租户明确调过的同级列表及被移动项父级优先；平台当前祖先链隐藏/删除和既有权限始终约束可见导航。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\admin-live-reference.md:38:**DR-095**：今后「数据展示」新增二级菜单，同次必须增加对应租户菜单管理项和已有平台定义。稳定身份、名称、路由和默认父级一致；隐藏后仍在完整库存可恢复。普通menu按068的拖动顺序、归属、显示配置联动同租户侧栏，平台allMenu按060提供全部租户的默认规则；068的明确局部覆盖优先，平台隐藏/删除及已有页面和权限边界保持有效。
+Q003 command: rg -n -e 普通.*menu -e 普通菜单 -e 平台顺序 docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/spec.md docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\sdd\SPEC-SUIYIN-ADMIN-060\1.1.0\spec.md:26:- **明确不做**：不扩展拖动到普通 menu 或其他列表；不赋予租户原本没有的页面入口，不执行同步/复制批量操作，不修改真实后台。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\sdd\SPEC-SUIYIN-ADMIN-060\1.1.0\spec.md:60:普通 menu 页的拖动、其他表格、同步/复制/增量更新按钮规则、权限重构、批量拖动、任意层级树编辑、跨窗口拖放、发布与真实工程 Issue。Flutter / React / Go 等生产端实现不在本规格范围。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\sdd\SPEC-SUIYIN-ADMIN-060\1.1.0\spec.md:68:| Admin / 普通 menu 及其他表格 | 不增加拖动 | 原有合同 | 本租户配置仍独立保存 |
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\sdd\SPEC-SUIYIN-ADMIN-060\1.1.0\spec.md:88:1. 051 §7、§11 和现行设计规范保留手工数字排序。E001 要求改为拖动；本规格仅在 allMenu 范围以自动顺序替代人工输入，普通 menu 保留旧合同。此变化及具体呈现纳入 Q001。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\sdd\SPEC-SUIYIN-ADMIN-060\1.1.0\spec.md:142:- Given bzds/allMenu、普通 menu 页和另一租户的本地数据。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\sdd\SPEC-SUIYIN-ADMIN-060\1.1.0\spec.md:144:- Then 仅指定 ID 的菜单移动，名称、路由、显示/隐藏、权限和其他字段不变；所有租户侧栏按平台顺序及父级显示各自可用菜单，其他租户配置存储和业务数据不变，不执行批量按钮或真实后台写入。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\sdd\SPEC-SUIYIN-ADMIN-060\1.1.0\spec.md:236:只修改 bzds/allMenu 的共享本地配置和页面内操作记录；来源截图留在本机，不上传。所有租户侧栏读取该平台规则，普通 menu 的独立配置、其他页和其他租户业务存储保持原样。本地记忆只在同一浏览器配置及同源地址生效，不宣称跨设备同步。
+Classification: immutable versioned snapshots only; current README contract table and platform PRD/flow explicitly declare the 068 override. No old snapshot edited.
+Q004 command: rg -n -e 排序框 -e 旧原型 -e 历史 docs/verification/admin-live-reference.md prd/v1.1-modules-overview.md flowcharts/v1.1-sitemap.md
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\v1.1-modules-overview.md:1:# 管理后台 v1.1 概览（历史入口）
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\v1.1-modules-overview.md:3:本文件对应2026年5–8月旧原型阶段，当前主线已由 SPEC-SUIYIN-ADMIN-051@1.1.0 取代。旧全文保存在 [历史归档](../docs/history/before-admin-live-reference/prd--v1.1-modules-overview.md)，其中共用菜单、旧十六租户、同页 iframe 重载、微信绿/白头和默认空样本不能用于当前 Shell。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\verification\admin-live-reference.md:26:| 当前入口盘点 | 752/752；620 个入口有表格，共 665 张 | 当前登记 Shell 入口，不包含未接入的历史独立页 |
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\verification\admin-live-reference.md:47:## 前次 2026-09-20 全管理页检查（历史基线）
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\verification\admin-live-reference.md:75:## 历史视觉证据与当轮边界
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\verification\admin-live-reference.md:79:当时另有菜单编辑、平台菜单、销售下拉、案例整页编辑及账号等代表截图。普通菜单排序框保留数值可读性，未照搬原站内部输入宽 0 的缺陷。历史 737 入口与当轮菜单、单文件检查只用于追溯，见 [2026-09-19 发布检查](release-check-20260919.json)，不能用来证明本次新增后的 752 入口发布状态。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\verification\admin-live-reference.md:90:8. 上一轮四页普通 HTTP、HTTP 单文件与 Chrome `file://` 离线入口运行检查 42/42 通过，无运行错误及外部请求，见 [单文件运行记录](pixel-correction-20260920/inline-runtime-report.json)。该历史自动检查覆盖四页，不替代全路由人工断网检查，也不证明实站像素一致。本轮新生成物的检查单独见 [本轮记录](filters-sticky-20260920.md)。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\verification\admin-live-reference.md:94:保留稳定演示客户/群身份及来源标识；员工/运营账号按已有角色处理。原始案例照片继续使用同尺寸中性 SVG，公开包不承诺包含真实客户照片。既有 [公开样本审计](public-data-audit.md) 为历史处理依据，本轮新增 AI 截图片段及专用来源需要纳入发布候选检查；不上传用户整张原始截图或浏览器原始捕获。
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\v1.1-sitemap.md:1:# 管理后台 v1.1 流程（历史入口）
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\v1.1-sitemap.md:3:本图属于旧原型，当前主线已由 SPEC-SUIYIN-ADMIN-051@1.1.0 取代。旧全文在 [历史归档](../docs/history/before-admin-live-reference/flowcharts--v1.1-sitemap.md)，不再作为当前租户切换、菜单分配或发送能力的依据。
+Classification: dated verification or explicit old-prototype archive redirects; not current interaction instructions.
+Current docs:
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\README.md
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\CLAUDE.md
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\docs\design-spec.md
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\admin-live-reference.md
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\platform-menu-drag.md
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\prd\tenant-menu-drag.md
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\admin-live-reference.md
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\platform-menu-drag.md
+E:\AI 项目\佰智德三\碎银原型\suiyin-admin\flowcharts\tenant-menu-drag.md

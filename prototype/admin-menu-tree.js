@@ -6,15 +6,17 @@ window.AdminMenu=(()=>{
  const arrow='<svg viewBox="0 0 1024 1024" aria-hidden="true"><path fill="currentColor" d="M340.864 149.312a30.59 30.59 0 0 0 0 42.752L652.736 512 340.864 831.872a30.59 30.59 0 0 0 0 42.752 29.12 29.12 0 0 0 41.728 0L714.24 534.336a32 32 0 0 0 0-44.672L382.592 149.376a29.12 29.12 0 0 0-41.728 0z"/></svg>';
  const get=(r,label)=>r.cells[A.getTable().headers.indexOf(label)]??r.extra?.[label]??'';
  const rowDepth=r=>r.tree?.depth??0;
- const sortable=platform&&A.tenant==='bzds';
+ const sortable=matches&&(!platform||A.tenant==='bzds');
  let resizeObservers=[];
  // View memory is independent of the saved menu model and tenant-isolated.
  const viewKey=(new URLSearchParams(location.search).get('qa')==='1'?'admin-qa-menu-view:v1:':'admin-menu-view:v1:')+A.tenant+':'+A.route;
  const contentKey=(new URLSearchParams(location.search).get('qa')==='1'?'admin-qa:v1:':'admin-content:v1:')+A.tenant+':'+A.route;
- let memoryMessage='';
+ let memoryMessage='',loadedStamp='',tenantWarnings=[],conflictIds=new Set();
+ const linkedScope=platform?'全租户':'本租户';
+ const stateStamp=()=>[contentKey,window.AdminPlatformMenu.key,A.navStorageKey(A.tenant)].map(key=>{try{return localStorage.getItem(key)||'';}catch{return '';}}).join('\u0000');
  function memoryHint(){
   const hint=node('span','menu-memory-hint');hint.setAttribute('role','status');
-  try{const saved=JSON.parse(localStorage.getItem(contentKey)||'null');const restored=saved?.tenant===A.tenant&&saved?.route===A.route&&saved?.history?.length;hint.textContent=memoryMessage||(restored?'已恢复本地设置 · 全租户导航联动':'修改后联动所有租户导航（本地原型）');hint.title=restored?'最近保存：'+saved.history[0].time+'；排序、层级与显示/隐藏应用于所有租户导航，刷新后保留。':'本地记忆按当前浏览器、访问地址和租户分别保存。';}catch{hint.textContent='浏览器本地存储不可用';hint.classList.add('save-error');}
+  try{const saved=JSON.parse(localStorage.getItem(contentKey)||'null');const restored=saved?.tenant===A.tenant&&saved?.route===A.route&&saved?.history?.length;hint.textContent=memoryMessage||tenantWarnings[0]||(restored?'已恢复本地设置 · '+linkedScope+'导航联动':'修改后联动'+(platform?'所有租户':'本租户')+'导航（本地原型）');hint.title=tenantWarnings.join('；')||(restored?'最近保存：'+saved.history[0].time+'；排序与归属应用于'+linkedScope+'导航，刷新后保留。':'本地记忆按当前浏览器、访问地址和租户分别保存。');}catch{hint.textContent='浏览器本地存储不可用';hint.classList.add('save-error');}
   return hint;
  }
  function reportMemory(message,error=false){memoryMessage=message;const hint=document.querySelector('.menu-memory-hint');if(hint){hint.textContent=message;hint.classList.toggle('save-error',error);}}
@@ -49,14 +51,16 @@ window.AdminMenu=(()=>{
   const start=list.findIndex(r=>r.id===id);if(start<0)return [];let end=start+1;while(end<list.length&&rowDepth(list[end])>rowDepth(list[start]))end++;return list.slice(start,end);
  }
  function moveDisabled(row){
+  if(!platform&&conflictIds.has(row.id))return '菜单配置存在重复身份或路由，请先整理配置';
   if(A.model.readOnly||A.model.editable===false||row.readOnly||row.disabled||row.editable===false||!row.actions?.includes('编辑'))return '当前菜单不可编辑';
   const map=structure(),rootId=rowDepth(row)===0?row.id:map.parents.get(row.id);
+  if(!platform&&branchOf(rootId).some(item=>conflictIds.has(item.id)))return '此分支存在菜单配置冲突，请先整理配置';
   if(rowDepth(row)>1||branchOf(rootId).some(r=>rowDepth(r)>1))return '此分支含三级菜单，请先通过编辑整理层级';
   return '';
  }
  function renumber(){
   const data=A.getTable(),map=structure(),orderIndex=data.headers.indexOf('排序');
-  data.rows.forEach((row,i)=>{row.tree??={depth:0};row.tree.parentId=map.parents.get(row.id);row.tree.hasChildren=!!data.rows[i+1]&&rowDepth(data.rows[i+1])>rowDepth(row);if(row.extra&&Object.hasOwn(row.extra,'parentId'))row.extra.parentId=row.tree.parentId;if(orderIndex>=0)row.cells[orderIndex]=String(map.positions.get(row.id));if(row.extra&&Object.hasOwn(row.extra,'排序'))row.extra['排序']=String(map.positions.get(row.id));});
+  data.rows.forEach((row,i)=>{row.tree??={depth:0};row.tree.parentId=map.parents.get(row.id);if(!platform)row.tree.parentKey=data.rows.find(parent=>parent.id===row.tree.parentId)?.tree?.key||null;row.tree.hasChildren=!!data.rows[i+1]&&rowDepth(data.rows[i+1])>rowDepth(row);if(row.extra&&Object.hasOwn(row.extra,'parentId'))row.extra.parentId=row.tree.parentId;if(orderIndex>=0)row.cells[orderIndex]=String(map.positions.get(row.id));if(row.extra&&Object.hasOwn(row.extra,'排序'))row.extra['排序']=String(map.positions.get(row.id));});
  }
  function visibleRows(){
   const stack=[];document.querySelectorAll('.menu-tree-table tbody tr[data-row-id]').forEach(tr=>{const row=rows().find(r=>r.id===tr.dataset.rowId);if(!row)return;while(stack.length&&rowDepth(stack.at(-1))>=rowDepth(row))stack.pop();tr.hidden=stack.some(r=>collapsed.has(r.id));const toggle=tr.querySelector('.menu-tree-toggle');if(toggle){const open=!collapsed.has(row.id);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',(open?'收起':'展开')+row.cells[0]);}stack.push(row);});
@@ -83,20 +87,24 @@ window.AdminMenu=(()=>{
  }
  function rollbackModel(snapshot){const model=A.model;Object.keys(model).forEach(k=>delete model[k]);Object.assign(model,snapshot);}
  function savedMove(id,target){
+  if(!platform&&refreshExternal())return false;
   const before=structuredClone(A.model),oldRows=structuredClone(rows()),oldMap=structure(),source=rows().find(r=>r.id===id);if(!source||!applyMove(id,target))return false;
+  if(!platform)A.model.menuLayout=window.AdminTenantMenu.captureMove(oldRows,rows(),before.menuLayout,id);
   const map=structure(),oldParent=oldMap.parents.get(id),newParent=map.parents.get(id),label=p=>p?nameOf(p):'一级菜单';
   audit(source,'位置',label(oldParent)+' / 第'+oldMap.positions.get(id)+'项',label(newParent)+' / 第'+map.positions.get(id)+'项');
   committing=true;let success;try{success=A.persist('移动菜单',source.cells[0],{strict:true});}finally{committing=false;}
   if(!success){rollbackModel(before);reportMemory('保存失败，原设置已保留',true);A.toast('未能保存，菜单顺序已恢复，请重试');return false;}
-  undoMove={rows:oldRows,expected:JSON.stringify(rows()),id};if(newParent)collapsed.delete(newParent);reportMemory('已保存到本地 · 全租户导航联动');A.toast('菜单顺序已保存到本地');return true;
+  undoMove={rows:oldRows,layout:structuredClone(before.menuLayout),expected:moveSignature(),id};loadedStamp=stateStamp();if(newParent)collapsed.delete(newParent);reportMemory('已保存到本地 · '+linkedScope+'导航联动');notifyNav();A.toast(platform?'菜单顺序已保存到本地':'已保存，本租户导航已更新（本地原型）');return true;
  }
+ function moveSignature(){return JSON.stringify(rows().map(row=>[row.id,rowDepth(row),row.cells]));}
  function undoLastMove(){
-  if(!undoMove||moving)return;if(undoMove.expected!==JSON.stringify(rows())){undoMove=null;render();return;}
+  if(!platform&&refreshExternal())return;if(!undoMove||moving)return;if(undoMove.expected!==moveSignature()){undoMove=null;render();return;}
   const before=structuredClone(A.model),entry=undoMove,source=rows().find(r=>r.id===entry.id),map=structure();A.getTable().rows=structuredClone(entry.rows);renumber();const restored=structure();
+  if(!platform){if(entry.layout===undefined)delete A.model.menuLayout;else A.model.menuLayout=structuredClone(entry.layout);}
   audit(source,'位置',(map.parents.get(entry.id)?nameOf(map.parents.get(entry.id)):'一级菜单')+' / 第'+map.positions.get(entry.id)+'项',(restored.parents.get(entry.id)?nameOf(restored.parents.get(entry.id)):'一级菜单')+' / 第'+restored.positions.get(entry.id)+'项','UNDO');
   committing=true;let success;try{success=A.persist('撤销移动',source.cells[0],{strict:true});}finally{committing=false;}
   if(!success){rollbackModel(before);reportMemory('保存失败，原设置已保留',true);A.toast('未能保存，菜单顺序已恢复，请重试');return;}
-  undoMove=null;reportMemory('已保存到本地 · 全租户导航联动');if(restored.parents.get(entry.id))collapsed.delete(restored.parents.get(entry.id));render();focusHandle(entry.id);A.toast('已撤销上次移动 · 已保存到本地');
+  undoMove=null;loadedStamp=stateStamp();reportMemory('已保存到本地 · '+linkedScope+'导航联动');if(restored.parents.get(entry.id))collapsed.delete(restored.parents.get(entry.id));render();notifyNav();focusHandle(entry.id);A.toast('已撤销上次移动 · 已保存到本地');
  }
  function focusHandle(id){const handle=rowElement(id)?.querySelector('.menu-drag-handle');handle?.focus({preventScroll:true});handle?.scrollIntoView({block:'nearest',inline:'nearest'});}
  function announce(message){const live=document.getElementById('menu-move-status');if(live&&live.textContent!==message)live.textContent=message;}
@@ -139,6 +147,7 @@ window.AdminMenu=(()=>{
   if(!m.keyboard)m.raf=requestAnimationFrame(dragFrame);else{m.ghost.classList.add('keyboard');m.ghost.style.cssText='right:18px;top:8px';}repaintTarget();
  }
  function beginMove(row,handle,event,keyboard=false){
+  if(!platform&&refreshExternal())return;
   if(moving||moveDisabled(row)||A.$('dialog').open)return;const map=structure(),siblings=map.groups.get(map.parents.get(row.id))||[],next=siblings[siblings.indexOf(row)+1];
   const wrap=document.querySelector('.menu-table-wrap');moving={source:row,handle,wrap,keyboard,active:false,x:event?.clientX||0,y:event?.clientY||0,startX:event?.clientX||0,startY:event?.clientY||0,pointerId:event?.pointerId,collapsed:new Set(collapsed),ids:new Set(branchOf(row.id).map(r=>r.id)),origin:targetFor(map.parents.get(row.id),next?.id||null),target:null};
   if(keyboard)activateMove();else{event.preventDefault();handle.focus({preventScroll:true});handle.setPointerCapture(event.pointerId);}
@@ -169,7 +178,7 @@ window.AdminMenu=(()=>{
   document.addEventListener('pointerup',e=>{if(moving&&!moving.keyboard&&e.pointerId===moving.pointerId){if(moving.active)setPointerTarget();finishMove();}});
   document.addEventListener('pointercancel',()=>finishMove(true));document.addEventListener('keydown',e=>{if(moving&&e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();finishMove(true);}else if(moving?.keyboard&&e.target!==moving.handle)keyboardMove(e,moving.source,moving.handle);},true);
   document.addEventListener('click',e=>{if(moving?.active){e.preventDefault();e.stopImmediatePropagation();}},true);
-  document.addEventListener('admin-model-changed',()=>{if(!committing){undoMove=null;document.querySelector('.menu-undo-move')?.remove();}});
+  document.addEventListener('admin-model-changed',()=>{if(!platform)loadedStamp=stateStamp();if(!committing){undoMove=null;document.querySelector('.menu-undo-move')?.remove();}});
   window.addEventListener('blur',()=>finishMove(true));window.addEventListener('pagehide',()=>finishMove(true));window.addEventListener('resize',()=>finishMove(true));document.addEventListener('visibilitychange',()=>{if(document.hidden)finishMove(true);});
   if(window.frameElement?.parentElement)new MutationObserver(()=>{if(window.frameElement.parentElement.hidden)finishMove(true);}).observe(window.frameElement.parentElement,{attributes:true,attributeFilter:['hidden']});
  }
@@ -189,12 +198,20 @@ window.AdminMenu=(()=>{
  }
  function setValue(row,field,value){const i=A.getTable().headers.indexOf(field);const old=i>=0?row.cells[i]:row.extra?.[field]||'';audit(row,field,old,value);if(i>=0)row.cells[i]=value;(row.extra??={})[field]=value;}
  function notifyNav(){if(!platform)parent.postMessage({type:'admin-navigation-updated',tenant:A.tenant},location.origin);}
+ function refreshExternal(){
+  if(platform||!A.model||!loadedStamp||loadedStamp===stateStamp())return false;
+  loadedStamp=stateStamp();finishMove(true);undoMove=null;
+  if(A.$('dialog').open)A.closeDialog();
+  const latest=window.AdminTenantMenu.read(A.tenant);if(latest)rollbackModel(latest);
+  memoryMessage='菜单设置已更新，请按最新列表重新调整';render();A.toast(memoryMessage);return true;
+ }
+ if(matches&&!platform)window.addEventListener('storage',event=>{if(event.key===null||[contentKey,window.AdminPlatformMenu.key,A.navStorageKey(A.tenant)].includes(event.key))queueMicrotask(refreshExternal);});
  function updateNavigation(row,values){
   if(platform)return;
-  const t=A.tenantInfo,all=t.menu.flatMap(g=>[g,...(g.children||[])]),item=all.find(i=>(i.route||i.id)===row.tree?.key);
-  if(!item)return;
-  const saved=override()||{},key=item.route||item.id;saved.enabled??=window.AdminMenuState.defaultEnabled(t);saved.display??={};saved.order??={};saved.superPermission??={};
-  if(values['菜单状态']!==undefined){saved.display[key]=values['菜单状态'];const routes=(item.children||[item]).map(c=>c.route);saved.enabled=values['菜单状态']==='隐藏'?saved.enabled.filter(r=>!routes.includes(r)):[...new Set([...saved.enabled,...routes.filter(r=>{const child=all.find(c=>c.route===r);return saved.display[r]!=='隐藏'&&(saved.display[r]!==undefined||child?.display!=='隐藏');})])];}
+  const t=A.tenantInfo,all=t.menu.flatMap(g=>[g,...(g.children||[])]),key=row.tree?.key;
+  if(!key)return;
+  const saved=override()||{};saved.enabled??=window.AdminMenuState.defaultEnabled(t);saved.display??={};saved.order??={};saved.superPermission??={};
+  if(values['菜单状态']!==undefined){saved.display[key]=values['菜单状态'];const keys=new Set(branchOf(row.id).map(r=>r.tree?.key));keys.add(key);const routes=all.filter(item=>item.route&&keys.has(item.route)).map(item=>item.route);saved.enabled=values['菜单状态']==='隐藏'?saved.enabled.filter(r=>!routes.includes(r)):[...new Set([...saved.enabled,...routes.filter(r=>{const child=all.find(c=>c.route===r);return saved.display[r]!=='隐藏'&&(saved.display[r]!==undefined||child?.display!=='隐藏');})])];}
   if(values['排序']!==undefined)saved.order[key]=Number(values['排序']);
   if(values['超级权限']!==undefined)saved.superPermission[key]=values['超级权限']==='是';
   localStorage.setItem(A.navStorageKey(A.tenant),JSON.stringify(saved));
@@ -206,11 +223,14 @@ window.AdminMenu=(()=>{
  function syncOverride(){
   if(platform)return;const saved=override();if(!saved)return;
   for(const row of A.getTable().rows){const key=row.tree?.key;if(!key)continue;
-   for(const [label,map]of [['菜单状态',saved.display],['排序',saved.order],['超级权限',saved.superPermission]])if(map?.[key]!==undefined){const i=A.getTable().headers.indexOf(label);row.cells[i]=label==='超级权限'?(map[key]?'是':'否'):String(map[key]);}
+   for(const [label,map]of [['菜单状态',saved.display],['超级权限',saved.superPermission]])if(map?.[key]!==undefined){const i=A.getTable().headers.indexOf(label);row.cells[i]=label==='超级权限'?(map[key]?'是':'否'):String(map[key]);}
   }
  }
  function render(){
-  if(!matches)return false;loadView();resizeObservers.forEach(o=>o.disconnect());resizeObservers=[];syncOverride();document.body.classList.add('menu-content');if(sortable)document.body.classList.add('menu-sortable');
+  if(!platform&&matches&&refreshExternal())return true;
+  if(!matches)return false;loadView();resizeObservers.forEach(o=>o.disconnect());resizeObservers=[];syncOverride();
+  if(!platform){const resolved=window.AdminTenantMenu.resolve(A.tenantInfo,A.model,override());A.getTable().rows=resolved.rows;tenantWarnings=resolved.warnings;conflictIds=new Set(resolved.conflictIds);loadedStamp=stateStamp();}
+  document.body.classList.add('menu-content');if(sortable)document.body.classList.add('menu-sortable');
   const root=node('section','menu-page'+(platform?' platform-menu-page':'')),head=node('header','menu-page-header'),title=node('h1','',platform?'平台菜单管理':'菜单管理'),actions=node('div','menu-header-actions');head.append(title,actions);
   (platform?['新增','同步菜单','复制菜单','增量更新菜单','批量删减菜单','全部记录']:['全部记录']).forEach(label=>actions.append(button(label,()=>label==='全部记录'?logs():label==='新增'?edit():A.action(label),label==='新增'?'primary':'')));
   const wrap=node('div','menu-table-wrap'),table=node('table','menu-tree-table'),colgroup=node('colgroup'),thead=node('thead'),headrow=node('tr'),tbody=node('tbody'),data=A.getTable();table.setAttribute('aria-label',platform?'平台菜单树':'租户菜单树');
@@ -254,7 +274,7 @@ window.AdminMenu=(()=>{
   if(row)row=rows().find(item=>item.id===row.id); // A failed transaction may have replaced the model's row objects.
   rememberView();
   const form=node('form','form-grid menu-edit-form'),inputs={};let parentValue;
-  if(!platform){['菜单名称','菜单状态','超级权限','排序'].forEach(label=>inputs[label]=field(form,label,get(row,label),{required:label==='菜单名称',disabled:label==='菜单名称',radio:label==='菜单状态'?['显示','隐藏']:null}));}
+  if(!platform){['菜单名称','菜单状态','超级权限'].forEach(label=>inputs[label]=field(form,label,get(row,label),{required:label==='菜单名称',disabled:label==='菜单名称',radio:label==='菜单状态'?['显示','隐藏']:null}));const holder=node('label','field');holder.append(node('span','','顺序'),node('span','menu-order-note','由列表拖动调整'));form.append(holder);}
   else{
    ['菜单名称','平台菜单名称','唯一标识','菜单状态','菜单路由','菜单图标','父级菜单','排序','备注信息','菜单类型'].forEach(label=>{
     if(sortable&&label==='排序'){const holder=node('label','field');holder.append(node('span','','顺序'),node('span','menu-order-note',row?'由列表拖动调整':'自动追加到所属菜单末尾'));form.append(holder);return;}
@@ -275,7 +295,7 @@ window.AdminMenu=(()=>{
    updateNavigation(target,values);if(!row&&!platform)A.getTable().rows.push(target);if(sortable)renumber();
    const saved=A.persist('编辑菜单',values['菜单名称'],{strict:platform});
    if(platform&&!saved){rollbackModel(before);reportMemory('保存失败，原设置已保留',true);A.toast('未能保存，原设置已保留，请重试');return;}
-   reportMemory('已保存到本地 · 全租户导航联动');A.closeDialog();render();notifyNav();A.toast('修改成功 · 已保存到本地');
+   reportMemory('已保存到本地 · '+linkedScope+'导航联动');A.closeDialog();render();notifyNav();A.toast('修改成功 · 已保存到本地');
   };
   const profile=window.AdminLiveUI.profiles[A.route];profile.edit={...profile.edit,title:row?'修改菜单':'新增菜单',width:platform?800:Math.max(500,(window.frameElement?parent.innerWidth:innerWidth)*.5),columns:platform?2:3,labelWidth:140};
   present(row?'修改菜单':'新增菜单',form,[{label:'确 定',cls:'primary',run:save},{label:'取 消',run:A.closeDialog}]);form.onsubmit=e=>{e.preventDefault();save();};

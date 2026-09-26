@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "route": "uploadCustomerList",
+  "checks": [
+    "historical depth retained",
+    "no undefined route",
+    "ancestors revealed",
+    "page opened"
+  ],
+  "errors": []
+}

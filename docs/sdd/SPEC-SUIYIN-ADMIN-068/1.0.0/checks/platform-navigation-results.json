@@ -1,0 +1,62 @@
+{
+  "at": "2026-09-26T10:35:41.667Z",
+  "url": "http://127.0.0.1:8148/prototype/_shell.html?tenant=bzds&page=allMenu",
+  "browser": "153.0.8010.54",
+  "tenants": [
+    "yestar-sz",
+    "jbfs",
+    "mengzhua",
+    "bzds",
+    "crrm",
+    "hqjd",
+    "ykjl",
+    "ruixi-kh-xiaowen",
+    "rxxz",
+    "yestar",
+    "yestar-bj",
+    "yestar-gz",
+    "yestar-hz",
+    "yestar-jx",
+    "yzhb"
+  ],
+  "isolatedContext": true,
+  "results": [
+    {
+      "name": "R009: root reorder propagates live to all 15 open tenant sidebars",
+      "status": "PASS"
+    },
+    {
+      "name": "R009: undo restores root order in other windows without document reload",
+      "status": "PASS"
+    },
+    {
+      "name": "R003/R009: child reparent reaches every eligible tenant and preserves page routes",
+      "status": "PASS"
+    },
+    {
+      "name": "R007: same-name platform routes do not hide another tenant variant",
+      "status": "PASS"
+    },
+    {
+      "name": "R009: hide/show root affects its current children across all 15 tenants",
+      "status": "PASS"
+    },
+    {
+      "name": "R009: failed platform save keeps every sidebar at the last saved state",
+      "status": "PASS"
+    },
+    {
+      "name": "R009: reload and newly opened tenant use the saved cross-parent structure",
+      "status": "PASS"
+    },
+    {
+      "name": "R007: tenant-specific hidden setting remains effective under platform show",
+      "status": "PASS"
+    },
+    {
+      "name": "R009: existing version 1.0 saved configuration is adopted on first load",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}
