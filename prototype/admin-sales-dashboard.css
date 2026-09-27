@@ -14,3 +14,160 @@
 .source-sales-filter-note{min-height:140px;display:flex;align-items:center;justify-content:center;color:#909399}
 .source-sales-dashboard [hidden]{display:none!important}
 @media(max-width:800px){.source-sales-grid{grid-template-columns:1fr}}
+/* Current live layout: two chart columns, 350px chart areas, explicit missing-point states. */
+.admin-content .source-sales-dashboard{height:100vh;overflow-y:scroll;padding:0;scrollbar-width:thin}
+.admin-content .source-sales-dashboard>.page-head{position:fixed;left:4px;bottom:2px;margin:0;z-index:7;background:#fffffff0;padding:0}
+.admin-content .source-sales-dashboard>.page-head>div{display:none}
+.admin-content .source-sales-dashboard>.page-head>button{font-size:11px;padding:2px 4px;min-height:20px}
+.admin-content .source-sales-dashboard>.filter-panel{min-height:120px;padding:8px 16px;gap:0 32px}
+.admin-content .source-sales-dashboard>.filter-panel>.field{padding:10px 0;height:52px}
+.admin-content .source-sales-dashboard>.filter-panel>.filter-actions{width:100%;height:52px;padding:10px 0;gap:12px}
+.admin-content .source-sales-results{height:calc(100vh - 120px);overflow:auto;padding:18px 8px 8px;scrollbar-width:thin;display:flex;flex-direction:column;align-items:stretch}
+.admin-content .source-sales-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:16px;flex:none;width:calc(100% - 1.2px)}
+.admin-content .source-sales-card{padding:15.8px;border:.8px solid #dedbdb;border-radius:0;margin:0;overflow:hidden;background:white}
+.admin-content .source-sales-card>header{min-height:25.6px;line-height:25.6px}
+.admin-content .source-sales-card .section-title{font-weight:600;line-height:25.6px;font-size:16px;color:#303133;display:flex;gap:8px;align-items:center}
+.source-stat-info{display:inline-flex;justify-content:center;align-items:center;border-radius:50%;width:13px;height:13px;flex:none;background:#303133;color:white;font-family:Georgia,serif;font-size:11px;font-style:italic;line-height:13px}
+.admin-content .source-sales-value{margin:4px 0 0;font-size:28px;font-weight:700;line-height:44.8px}
+.admin-content .source-sales-card header :is(select,.live-select){width:100px;min-width:100px;height:32px}
+.admin-content .source-sales-chart{height:350px;border:0;margin:0;flex:none}
+.admin-content .source-ranking-viewport{height:425px;overflow:auto;position:relative;border-bottom:.8px solid #ebeef5}
+.admin-content .source-sales-ranking{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse}
+.admin-content .source-sales-ranking th,.admin-content .source-sales-ranking td{padding:8px 12px;line-height:23px;height:39.8px;color:#606266;font-size:14px;vertical-align:middle}
+.admin-content .source-sales-ranking th{color:#909399;font-weight:600;position:sticky;top:0;background:white;text-align:left}
+.admin-content .source-sales-ranking th:first-child{width:60px!important}
+.admin-content .source-sales-ranking th:last-child{width:150px!important;text-align:right!important}
+.admin-content .source-sales-ranking th:nth-child(2){width:auto!important}
+.admin-content .source-sales-ranking td:last-child{text-align:right!important}
+.admin-content .source-sales-card[data-metric$="金额"] .source-sales-ranking th:last-child{width:110px!important}
+.admin-content .source-sales-ranking .source-sales-empty{height:384px}
+.admin-content .source-sales-dashboard .dashboard-source{order:2;flex:none;margin:12px 0;color:#909399;font-size:11px}
+.admin-content .source-ranking-dashboard>.filter-panel{height:68px;min-height:68px}
+.admin-content .source-ranking-dashboard>.source-sales-results{height:calc(100vh - 68px)}
+.admin-content .source-ranking-card>header{height:32px;margin-bottom:16px}
+.admin-content .source-sales-card:not(.source-ranking-card)>.source-ranking-viewport{margin-top:4px}
+.source-ranking-empty{height:385px;display:grid;place-items:center;color:#909399;font-size:14px}
+.source-legacy-layout{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:18px;align-items:start}
+.source-conversion-metrics{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;margin-top:16px;font-size:12px;color:#606266}
+.source-conversion-metrics>div{min-height:70px}
+.admin-content .source-conversion-card .source-sales-chart{margin-top:8px}
+.admin-content .source-legacy-dashboard .source-sales-results{width:calc(100% + 6.8px)}
+.admin-content .source-legacy-dashboard{overflow-x:hidden}
+.admin-content .source-legacy-dashboard .source-legacy-layout{grid-template-columns:calc((100% - 18px)*2/3 - 2px) minmax(0,1fr)}
+.admin-content .source-legacy-dashboard .source-sales-grid{width:100%}
+.admin-content .source-legacy-dashboard .source-sales-grid>.source-sales-card:nth-child(9)>header{height:51.2px}
+.admin-content .source-legacy-dashboard .source-ranking-viewport{overflow-y:hidden}
+.admin-content .source-legacy-dashboard .source-sales-ranking{min-width:410px}
+.admin-content .source-legacy-dashboard .source-sales-grid>.source-sales-card:nth-child(even) .source-sales-ranking{min-width:370px}
+.admin-content .source-legacy-dashboard .source-sales-ranking th:nth-child(2){width:200px!important}
+.admin-content .source-legacy-dashboard .source-sales-grid>.source-sales-card:nth-child(even) .source-sales-ranking th:last-child{width:110px!important}
+.admin-content .source-legacy-dashboard .source-conversion-card .source-sales-chart{margin-top:42px}
+@media(max-width:850px){.source-legacy-layout{grid-template-columns:1fr}.admin-content .source-sales-grid{grid-template-columns:1fr}}
+.admin-content .source-legacy-dashboard .source-filter-range{width:350px!important}
+.admin-content .source-legacy-dashboard .field[data-source-label="自然日"]>span{display:none}
+.admin-content .source-legacy-dashboard .field[data-source-label="自然日"] .live-select{width:100px}
+.admin-content .source-legacy-dashboard .field[data-source-label="销售"] .live-select{width:200px}
+.admin-content .source-legacy-dashboard .field[data-source-label="来源"] .live-select{width:218px}
+.admin-content .source-work-account{height:100vh;overflow-y:scroll;padding:12px 12.6px 16px 12px;display:block;scrollbar-width:thin}
+.source-work-account>.card{margin:0}
+.source-work-account .work-account-header{position:relative;border:.8px solid #ebeef5;border-radius:4px;padding:8px 16px 4px;min-height:129.6px}
+.work-account-header h1{font-size:18px;font-weight:400;line-height:28.8px;margin:0}
+.work-account-header p{font-size:13px;line-height:20.8px;color:#909399;margin:4px 0 0}
+.work-account-header .work-refresh{position:absolute;right:16px;top:24.8px;width:73.6px}
+.work-account-filters{display:flex;align-items:center;gap:32px;margin-top:14px;min-height:42px;flex-wrap:wrap}
+.work-account-filters :is(label,.work-date-field){display:flex;align-items:center;gap:12px;font-size:14px;color:#606266;white-space:nowrap}
+.work-date-field .source-single-date{width:220px;height:32px}
+.work-date-field .source-single-date input{font-size:14px;color:#606266;border:0}
+.work-account-filters :is(input,.live-select){height:32px;min-height:32px}
+.work-account-filters .work-date-field{gap:12px}
+.work-account-filters .work-date-field>input{width:220px}
+.work-quick-days{display:flex;margin-right:-4px}
+.work-quick-days button{width:59.6px;border-radius:0;margin-right:-.8px}
+.work-quick-days button:first-child{border-radius:4px 0 0 4px}
+.work-quick-days button:last-child{border-radius:0 4px 4px 0}
+.work-department-field .live-select{width:240px}
+.work-filter-actions{display:flex;gap:12px}
+.work-filter-actions button:first-child{width:73.6px}
+.work-filter-actions button:last-child{width:59.6px}
+.work-snapshot-note{height:40px;margin:12px 0;padding:9px 16px;background:#f0f9eb;color:#67c23a;border-radius:4px;line-height:22px;font-size:13px}
+.admin-content .work-account-summary{height:117.6px;padding:16px;border:.8px solid #ebeef5;border-radius:4px;margin:0 0 12px}
+.work-summary-heading{display:flex;gap:16px;align-items:center;line-height:22px;font-size:13px;color:#909399}
+.work-summary-heading strong{color:#303133;font-size:14px;font-weight:500}
+.work-summary-chips{display:flex;gap:10px;margin-top:18px}
+.work-summary-chip{border:0;border-radius:4px;background:#fafafa;padding:7px 12px;font-size:12px;color:#606266;display:flex;gap:10px;align-items:center;min-height:44px;flex:1}
+.work-summary-chip:last-child{background:#effaf8}
+.work-summary-chip strong{font-size:16px;color:#303133}
+.work-summary-chip small{font-size:11px;color:#909399}
+.admin-content .work-account-table-card{padding:7.8px;border:.8px solid #ebeef5;border-radius:4px;margin:0}
+.work-account-table-wrap{overflow:auto;max-height:calc(100vh - 360px);scrollbar-width:thin;border:0}
+.work-account-table-wrap table{border-collapse:separate;border-spacing:0;table-layout:fixed;width:1454px;min-width:100%;font-size:14px}
+.work-account-table-wrap th,.work-account-table-wrap td{border-right:.8px solid #ebeef5;border-bottom:.8px solid #ebeef5;padding:8px 12px;line-height:23px;height:40px;font-weight:400;white-space:nowrap;color:#606266;background:white}
+.work-account-table-wrap th{font-weight:600;color:#909399;position:sticky;top:0;z-index:2;text-align:left}
+.work-account-table-wrap th[colspan],.work-account-table-wrap tr:nth-child(2) th{text-align:center}
+.work-account-table-wrap thead tr:nth-child(2) th{top:40px}
+.work-account-table-wrap td:nth-child(n+4):nth-child(-n+11){text-align:center}
+.work-account-table-wrap tr:nth-child(even) td{background:#fafafa}
+.work-account-table-wrap tr>*:last-child{position:sticky;right:0;border-left:.8px solid #ebeef5;z-index:3}
+.work-account-table-wrap thead tr:nth-child(2)>*:last-child{position:sticky;right:auto;border-left:0;z-index:2}
+.work-data-status{display:inline-block;font-size:12px;padding:0 4px;line-height:22px;margin-right:4px;background:#f0f9eb;color:#67c23a;border:.8px solid #e1f3d8;border-radius:4px}
+.work-account-table-wrap .work-no-data{height:240px;text-align:center;color:#909399}
+.source-work-account>.page-head{position:fixed;left:4px;bottom:2px;margin:0;z-index:7;background:#fffffff0;padding:0}
+.source-work-account>.page-head>div{display:none}
+.source-work-account>.page-head>button{font-size:11px;padding:2px 4px;min-height:20px}
+/* Existing script/group statistics retain their local filters and 055 table behavior. */
+.admin-content .source-compact-stats{height:100vh;display:flex;flex-direction:column;padding:0;overflow:hidden;gap:0}
+.admin-content .source-compact-stats>.filter-panel{flex:none;min-height:108.2px;padding:8px 16px;gap:0 32px;align-content:flex-start;align-items:center}
+.admin-content .source-compact-stats>.filter-panel>.field{height:46.1px;padding:6px 0;flex:none}
+.admin-content .source-compact-stats>.filter-panel>.compact-stat-date{width:593.4px;height:44px;gap:8px}
+.source-compact-stats .compact-stat-date .source-filter-range{width:350px!important;flex:none}
+.admin-content .source-compact-stats .compact-stat-date .quick-dates{order:-1;width:235.4px;display:flex;gap:0;padding:0;margin:0}
+.admin-content .source-compact-stats .compact-stat-date .quick-dates button{height:32px;min-height:32px;width:25%;padding:0;border-radius:0;margin-left:-.8px}
+.admin-content .source-compact-stats .compact-stat-date .quick-dates button:first-child{margin-left:0;border-radius:4px 0 0 4px}
+.admin-content .source-compact-stats .compact-stat-date .quick-dates button:last-child{border-radius:0 4px 4px 0}
+.admin-content .source-compact-stats .filter-panel>.field[data-source-label="维度"]{width:212px}
+.admin-content .source-compact-stats .radio-group{display:flex;gap:0;height:32px}
+.admin-content .source-compact-stats .radio-group label{position:relative;display:flex;align-items:center;justify-content:center;border:1px solid #dcdfe6;padding:0 14px;line-height:30px;font-size:14px;white-space:nowrap;margin-left:-1px;color:#606266;background:white}
+.admin-content .source-compact-stats .radio-group label:first-child{border-radius:4px 0 0 4px}
+.admin-content .source-compact-stats .radio-group label:last-child{border-radius:0 4px 4px 0}
+.admin-content .source-compact-stats .radio-group label:has(input:checked){background:#409eff;border-color:#409eff;color:white;z-index:1}
+.admin-content .source-compact-stats .radio-group input{position:absolute;opacity:0;width:1px;height:1px;overflow:hidden}
+.admin-content .source-compact-stats .filter-panel>.field[data-source-label="部门"]{width:220px}
+.admin-content .source-compact-stats .field[data-source-label="部门"]>.live-select{width:180px}
+.admin-content .source-compact-stats .field[data-source-label="销售"] input{width:200px}
+.admin-content .source-compact-stats .filter-actions{height:44px;padding:6px 0;gap:12px}
+.admin-content .source-compact-stats .filter-actions button.primary{width:73.6px;gap:0}
+.admin-content .source-compact-stats .filter-actions button:nth-child(2){width:59.6px;padding:0}
+.admin-content .source-compact-stats .compact-stats-help{border:0;background:transparent;padding:0;width:75.6px;font-weight:400;color:#606266;gap:0}
+.admin-content .source-compact-stats .compact-stats-help .button-icon{margin:0}
+.admin-content .source-compact-stats>section.card{flex:1;min-height:0;display:flex;flex-direction:column;margin:12px 12px 0}
+.admin-content .source-compact-stats>section.card>.toolbar{display:none}
+.admin-content .source-compact-stats #results{display:flex;flex-direction:column;flex:1;min-height:0;padding-bottom:0}
+.admin-content .source-compact-stats #results>.table-wrap{flex:1;min-height:0;max-height:none!important;scrollbar-width:thin;border:0}
+.admin-content .source-compact-stats .table-wrap table{table-layout:fixed;min-width:0}
+.admin-content .source-compact-stats .table-wrap th,.admin-content .source-compact-stats .table-wrap td{border-right:0;padding:8px 12px;line-height:22.4px;min-width:0!important;font-size:14px;height:40.4px}
+.admin-content .source-compact-stats .table-wrap th{height:39.8px;font-weight:600}
+.admin-content .source-compact-stats .table-wrap .actions-cell{position:sticky;right:0;background:white;box-shadow:-3px 0 7px #0000000b}
+.admin-content .source-compact-stats .table-wrap th.actions-cell{z-index:3}
+.admin-content .source-group-invite .table-wrap:has(col:nth-child(11)) .actions-cell{right:-10px}
+.admin-content .source-compact-stats .table-wrap td:nth-child(4){color:#00af9c}
+.admin-content .source-compact-stats #results>.pager{height:64px;min-height:64px;flex:none;padding:8px 0;white-space:nowrap}
+.compact-department-tag{display:inline-block;color:#409eff;background:#ecf5ff;border:.8px solid #d9ecff;border-radius:4px;padding:0 5px;font-size:12px;line-height:18px}
+.compact-rate-cell>span{display:inline-block;vertical-align:middle;font-size:12px;white-space:nowrap}
+.compact-rate-track{width:90px;height:6px;border-radius:5px;background:#f0f2f5;overflow:hidden;margin-right:8px}
+.compact-rate-track>i{height:100%;display:block;background:#409eff}
+.admin-content .source-group-invite>.filter-panel{min-height:118.1px;gap:18px 32px}
+.admin-content .source-group-invite>.filter-panel>.field{height:34.1px;padding:0}
+.admin-content .source-group-invite>.filter-panel>.compact-stat-date{height:32px}
+.admin-content .source-group-invite>.filter-panel>.field[data-source-label="维度"]{height:32px}
+.admin-content .source-group-invite .filter-panel>.field[data-source-label="维度"]{width:198px}
+.admin-content .source-group-invite .filter-panel>.compact-stat-groups{width:263.2px;height:32px;gap:8px}
+.admin-content .source-group-invite .compact-stat-groups>span:first-child{padding:0}
+.admin-content .source-group-invite .compact-stat-groups>.compact-stat-group{font-size:12px;line-height:18px;padding:0 7px;border:.8px solid #d9ecdf;border-radius:12px;color:#529b70;background:#f2fbf5}
+.admin-content .source-group-invite .compact-stat-groups>.compact-stat-group:last-child{color:#489eac;background:#f0fafb;border-color:#d9edef}
+.admin-content .source-group-invite .field[data-source-label="搜索"] input{width:220px}
+.admin-content .source-group-invite .filter-actions{height:32px;padding:0}
+.admin-content .source-group-invite>section.card{margin-top:10px}
+.admin-content .source-group-invite #results>.pager{height:52px;min-height:52px}
+.admin-content .source-group-invite .table-wrap td{height:55.2px}
+.admin-content .source-group-invite .compact-rate-cell{white-space:nowrap}
+.admin-content .source-script-usage>.filter-panel>.field[data-source-label="维度"]{height:44px}

@@ -1,0 +1,12 @@
+{
+  "tenants": 15,
+  "pages": 771,
+  "rows": 11307,
+  "checkedIdentityCells": 2456,
+  "checkedSecrets": 36,
+  "failures": [],
+  "date": "2026-09-27",
+  "command": "node prototype/sanitize-public-data.mjs --check",
+  "result": "passed",
+  "containsPrivateInputs": false
+}

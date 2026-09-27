@@ -1,0 +1,902 @@
+{
+  "checkedAt": "2026-09-27T06:29:01.209Z",
+  "browser": "153.0.8010.54",
+  "status": "passed",
+  "sha256": "e97077857c6ec44a0a4bcc35f6d3514a26e346ea9789c9519a266adaec2580c6",
+  "bytes": 10281976,
+  "http": {
+    "checks": 105,
+    "passed": 105,
+    "failed": [],
+    "results": [
+      {
+        "name": "yestar-sz 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-sz 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "yestar-sz 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "jbfs 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "jbfs 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "jbfs 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "mengzhua 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "mengzhua 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "mengzhua 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "bzds 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "bzds 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "2px",
+            "navLine": "56px",
+            "tabLine": "22.4px"
+          },
+          "inline": {
+            "brandSpacing": "2px",
+            "navLine": "56px",
+            "tabLine": "22.4px"
+          }
+        }
+      },
+      {
+        "name": "bzds 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "crrm 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "crrm 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "crrm 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "hqjd 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "hqjd 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "hqjd 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "ykjl 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "ykjl 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "ykjl 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "ruixi-kh-xiaowen 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "ruixi-kh-xiaowen 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "ruixi-kh-xiaowen 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "rxxz 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "rxxz 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "rxxz 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "yestar 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-bj 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-bj 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "yestar-bj 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-gz 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-gz 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "yestar-gz 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-hz 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-hz 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "yestar-hz 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-jx 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-jx 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "normal",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "yestar-jx 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yzhb 单文件菜单与目录版一致",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yzhb 壳字号字距行高与目录版一致",
+        "passed": true,
+        "detail": {
+          "directory": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          },
+          "inline": {
+            "brandSpacing": "2px",
+            "navLine": "normal",
+            "tabLine": "normal"
+          }
+        }
+      },
+      {
+        "name": "yzhb 资源完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "内嵌菜单编辑弹窗打开",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "内嵌弹窗关闭",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "内嵌页签切换有内容",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "帐号页下拉及表格样本",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "聊天页保留深圳采集空态",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "聊天页显式切换内嵌演示样本",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "子页仅使用内嵌资源",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "bzds recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "crrm recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "hqjd recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "jbfs recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "mengzhua recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "ruixi-kh-xiaowen recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar goodNewsRecords 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar goodNewsSettings 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-bj recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-gz goodNewsRecords 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-gz goodNewsSettings 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-gz recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-hz goodNewsRecords 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-hz goodNewsSettings 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-hz recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-jx goodNewsRecords 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-jx goodNewsSettings 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-jx recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-sz goodNewsRecords 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-sz goodNewsSettings 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-sz recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "ykjl recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yzhb recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "rxxz recordingAdmin 已采主体完整内嵌",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-sz asrLexicon 专用布局及内嵌数据",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "yestar-hz aiChatQuality 专用布局及内嵌数据",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "bzds auditDict 专用布局及内嵌数据",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "bzds labelMenu 专用布局及内嵌数据",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "bzds esIndex 专用布局及内嵌数据",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "rxxz asrLexicon 专用布局及内嵌数据",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "rxxz aiChatQuality 专用布局及内嵌数据",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "recordingAdmin srcdoc 弹层展开覆盖完整壳",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "recordingAdmin 弹层根背景透明",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "recordingAdmin 弹层关闭恢复原 iframe",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "recordingAdmin 弹层无外部资源",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "goodNewsRecords srcdoc 弹层展开覆盖完整壳",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "goodNewsRecords 弹层根背景透明",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "goodNewsRecords 弹层关闭恢复原 iframe",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "goodNewsRecords 弹层无外部资源",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "深圳备注保留尚未运行状态",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "remark-demand-mappings srcdoc 弹层展开覆盖完整壳",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "remark-demand-mappings 弹层根背景透明",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "remark-demand-mappings 弹层关闭恢复原 iframe",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "remark-demand-mappings 弹层无外部资源",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "068 单文件键盘拖动改变同组顺序",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "068 单文件撤销恢复顺序与业务字段",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "058 AI 费用保留页面与演示口径",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "058 范围日期校验仍生效",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "058 重置恢复有效状态",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "壳 未知 fetch 明确拒绝",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "子页 未知 fetch 明确拒绝",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "新增回归完成后无资源请求",
+        "passed": true,
+        "detail": ""
+      }
+    ]
+  },
+  "fileChecks": [
+    {
+      "name": "file recordingAdmin srcdoc 与透明背景",
+      "passed": true,
+      "detail": {
+        "htmlBackground": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgba(0, 0, 0, 0)",
+        "drawer": {
+          "x": 780,
+          "y": 0,
+          "width": 880,
+          "height": 1200
+        },
+        "headingPadding": "54px 28px 20px",
+        "audio": 0,
+        "srcdoc": true,
+        "origin": "null",
+        "inlineOrigin": "null"
+      }
+    },
+    {
+      "name": "file recording 无伪造媒体",
+      "passed": true
+    },
+    {
+      "name": "file recording heading 未被通用 CSS 覆盖",
+      "passed": true
+    },
+    {
+      "name": "file recording AI 页签有内容",
+      "passed": true
+    },
+    {
+      "name": "file recordingAdmin 关闭恢复 iframe",
+      "passed": true
+    },
+    {
+      "name": "file goodNewsRecords srcdoc 与透明背景",
+      "passed": true,
+      "detail": {
+        "htmlBackground": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgba(0, 0, 0, 0)",
+        "drawer": {
+          "x": 520,
+          "y": 180,
+          "width": 620,
+          "height": 524
+        },
+        "headingPadding": "16px 20px",
+        "audio": 0,
+        "srcdoc": true,
+        "origin": "null",
+        "inlineOrigin": "null"
+      }
+    },
+    {
+      "name": "file goodNewsRecords 关闭恢复 iframe",
+      "passed": true
+    },
+    {
+      "name": "file remark-demand-mappings srcdoc 与透明背景",
+      "passed": true,
+      "detail": {
+        "htmlBackground": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgba(0, 0, 0, 0)",
+        "drawer": {
+          "x": 1020,
+          "y": 0,
+          "width": 640,
+          "height": 1200
+        },
+        "headingPadding": null,
+        "audio": 0,
+        "srcdoc": true,
+        "origin": "null",
+        "inlineOrigin": "null"
+      }
+    },
+    {
+      "name": "file remark-demand-mappings 关闭恢复 iframe",
+      "passed": true
+    },
+    {
+      "name": "file yestar-sz goodNewsSettings 内嵌加载",
+      "passed": true
+    },
+    {
+      "name": "file settings 图片已内嵌",
+      "passed": true
+    },
+    {
+      "name": "file rxxz recordingAdmin 内嵌加载",
+      "passed": true
+    },
+    {
+      "name": "file rxxz asrLexicon 内嵌加载",
+      "passed": true
+    },
+    {
+      "name": "file rxxz aiChatQuality 内嵌加载",
+      "passed": true
+    },
+    {
+      "name": "file yestar-sz aiCostStats 内嵌加载",
+      "passed": true
+    },
+    {
+      "name": "file 068 真实键盘移动",
+      "passed": true
+    },
+    {
+      "name": "file 068 撤销",
+      "passed": true
+    },
+    {
+      "name": "file shell 未知请求拒绝",
+      "passed": true
+    },
+    {
+      "name": "file srcdoc 未知请求拒绝",
+      "passed": true
+    },
+    {
+      "name": "file 运行资源请求为零",
+      "passed": true
+    },
+    {
+      "name": "无脚本异常",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "无外部访问",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "fileDetail": [
+    {
+      "tenant": "bzds",
+      "route": "recordingAdmin",
+      "info": {
+        "htmlBackground": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgba(0, 0, 0, 0)",
+        "drawer": {
+          "x": 780,
+          "y": 0,
+          "width": 880,
+          "height": 1200
+        },
+        "headingPadding": "54px 28px 20px",
+        "audio": 0,
+        "srcdoc": true,
+        "origin": "null",
+        "inlineOrigin": "null"
+      }
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "goodNewsRecords",
+      "info": {
+        "htmlBackground": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgba(0, 0, 0, 0)",
+        "drawer": {
+          "x": 520,
+          "y": 180,
+          "width": 620,
+          "height": 524
+        },
+        "headingPadding": "16px 20px",
+        "audio": 0,
+        "srcdoc": true,
+        "origin": "null",
+        "inlineOrigin": "null"
+      }
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "remark-demand-mappings",
+      "info": {
+        "htmlBackground": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgba(0, 0, 0, 0)",
+        "drawer": {
+          "x": 1020,
+          "y": 0,
+          "width": 640,
+          "height": 1200
+        },
+        "headingPadding": null,
+        "audio": 0,
+        "srcdoc": true,
+        "origin": "null",
+        "inlineOrigin": "null"
+      }
+    }
+  ],
+  "errors": [],
+  "external": []
+}

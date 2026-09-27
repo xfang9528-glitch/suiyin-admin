@@ -130,7 +130,7 @@ window.AdminAppointmentChart = (() => {
   function prepareFilters() {
     panel = A.filterPanel();
     panel.classList.add('appt-filters');
-    const creator = panel.querySelector('[data-filter="创建人 ID"]');
+    const creator = panel.querySelector('[data-filter="创建人 ID"],[data-filter="创建人"]');
     if (creator) { creator.dataset.filter=fields.creator; creator.setAttribute('aria-label',fields.creator); creator.placeholder='输入姓名或 ID 搜索'; creator.closest('.field').querySelector(':scope > span').textContent=fields.creator; }
     for (const [prop,label] of Object.entries(fields)) {
       const input = [...panel.querySelectorAll('[data-filter]')].find(i=>i.dataset.filter===label);

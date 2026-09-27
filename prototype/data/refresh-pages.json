@@ -1,0 +1,2404 @@
+{
+  "revision": "2026-09-27-refresh-v1",
+  "dataPolicy": "Tenant-isolated synthetic identities and content; source geometry and empty states retained. No real audio, transcript, image URL or personal identity.",
+  "tenants": {
+    "bzds": {
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:05:09.366Z",
+        "evidenceFile": "bzds--recordingAdmin--2026-09-27T03-05-09-366Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1534,
+          "width": 1486
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          264,
+          156,
+          180,
+          100,
+          216,
+          110,
+          140
+        ],
+        "emptyText": "",
+        "rows": [
+          {
+            "id": "bzds-recordingAdmin-demo-1",
+            "name": "rec_1790230000000_01.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-24 15:10:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-2",
+            "name": "rec_1790229627461_02.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-23 15:11:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-3",
+            "name": "rec_1790229254922_03.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-22 15:12:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-4",
+            "name": "rec_1790228882383_04.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-21 15:13:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-5",
+            "name": "rec_1790228509844_05.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-20 15:14:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-6",
+            "name": "rec_1790228137305_06.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-19 15:15:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-7",
+            "name": "rec_1790227764766_07.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-18 15:16:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-8",
+            "name": "rec_1790227392227_08.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-17 15:17:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-9",
+            "name": "rec_1790227019688_09.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-16 15:18:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-10",
+            "name": "rec_1790226647149_10.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-15 15:19:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-11",
+            "name": "rec_1790226274610_11.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-14 15:20:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-12",
+            "name": "rec_1790225902071_12.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-13 15:21:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-13",
+            "name": "rec_1790225529532_13.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-12 15:22:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-14",
+            "name": "rec_1790225156993_14.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-11 15:23:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-15",
+            "name": "rec_1790224784454_15.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-10 15:24:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-16",
+            "name": "rec_1790224411915_16.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-09 15:25:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-17",
+            "name": "rec_1790224039376_17.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-08 15:26:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-18",
+            "name": "rec_1790223666837_18.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-07 15:27:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-19",
+            "name": "rec_1790223294298_19.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-06 15:28:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-20",
+            "name": "rec_1790222921759_20.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-05 15:29:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-21",
+            "name": "rec_1790222549220_21.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-04 15:30:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-22",
+            "name": "rec_1790222176681_22.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-24 15:31:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-23",
+            "name": "rec_1790221804142_23.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-23 15:32:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-24",
+            "name": "rec_1790221431603_24.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-22 15:33:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-25",
+            "name": "rec_1790221059064_25.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-21 15:34:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-26",
+            "name": "rec_1790220686525_26.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-20 15:35:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-27",
+            "name": "rec_1790220313986_27.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-19 15:36:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-28",
+            "name": "rec_1790219941447_28.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-18 15:37:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-29",
+            "name": "rec_1790219568908_29.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-17 15:38:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-30",
+            "name": "rec_1790219196369_30.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-16 15:39:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-31",
+            "name": "rec_1790218823830_31.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-15 15:40:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-32",
+            "name": "rec_1790218451291_32.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-14 15:41:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-33",
+            "name": "rec_1790218078752_33.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-13 15:42:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-34",
+            "name": "rec_1790217706213_34.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-12 15:43:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-35",
+            "name": "rec_1790217333674_35.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-11 15:44:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-36",
+            "name": "rec_1790216961135_36.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-10 15:45:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-37",
+            "name": "rec_1790216588596_37.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-09 15:46:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-38",
+            "name": "rec_1790216216057_38.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-08 15:47:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-39",
+            "name": "rec_1790215843518_39.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-07 15:48:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-40",
+            "name": "rec_1790215470979_40.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-06 15:49:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-41",
+            "name": "rec_1790215098440_41.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-05 15:10:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-42",
+            "name": "rec_1790214725901_42.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-04 15:11:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-43",
+            "name": "rec_1790214353362_43.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-24 15:12:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-44",
+            "name": "rec_1790213980823_44.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-23 15:13:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-45",
+            "name": "rec_1790213608284_45.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-22 15:14:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-46",
+            "name": "rec_1790213235745_46.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-21 15:15:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-47",
+            "name": "rec_1790212863206_47.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-20 15:16:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-48",
+            "name": "rec_1790212490667_48.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-19 15:17:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-49",
+            "name": "rec_1790212118128_49.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-18 15:18:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-50",
+            "name": "rec_1790211745589_50.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-17 15:19:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-51",
+            "name": "rec_1790211373050_51.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-16 15:20:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-52",
+            "name": "rec_1790211000511_52.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-15 15:21:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-53",
+            "name": "rec_1790210627972_53.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-14 15:22:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-54",
+            "name": "rec_1790210255433_54.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-13 15:23:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-55",
+            "name": "rec_1790209882894_55.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-12 15:24:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-56",
+            "name": "rec_1790209510355_56.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-11 15:25:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-57",
+            "name": "rec_1790209137816_57.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-10 15:26:55",
+            "deleted": false
+          },
+          {
+            "id": "bzds-recordingAdmin-demo-58",
+            "name": "rec_1790208765277_58.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-09 15:27:55",
+            "deleted": false
+          }
+        ],
+        "sourceCount": 58
+      }
+    },
+    "crrm": {
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:10:20.171Z",
+        "evidenceFile": "crrm--recordingAdmin--2026-09-27T03-10-20-171Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1534,
+          "width": 1486
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          264,
+          156,
+          180,
+          100,
+          216,
+          110,
+          140
+        ],
+        "emptyText": "暂无符合条件的录音",
+        "rows": [],
+        "sourceCount": 0
+      }
+    },
+    "hqjd": {
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:10:21.885Z",
+        "evidenceFile": "hqjd--recordingAdmin--2026-09-27T03-10-21-885Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1534,
+          "width": 1486
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          264,
+          156,
+          180,
+          100,
+          216,
+          110,
+          140
+        ],
+        "emptyText": "暂无符合条件的录音",
+        "rows": [],
+        "sourceCount": 0
+      }
+    },
+    "jbfs": {
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:09:57.786Z",
+        "evidenceFile": "jbfs--recordingAdmin--2026-09-27T03-09-57-786Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1534,
+          "width": 1486
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          264,
+          156,
+          180,
+          100,
+          216,
+          110,
+          140
+        ],
+        "emptyText": "",
+        "rows": [
+          {
+            "id": "jbfs-recordingAdmin-demo-1",
+            "name": "rec_1790230000000_01.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-24 15:10:55",
+            "deleted": false
+          },
+          {
+            "id": "jbfs-recordingAdmin-demo-2",
+            "name": "rec_1790229627461_02.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-23 15:11:55",
+            "deleted": false
+          },
+          {
+            "id": "jbfs-recordingAdmin-demo-3",
+            "name": "rec_1790229254922_03.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-22 15:12:55",
+            "deleted": false
+          },
+          {
+            "id": "jbfs-recordingAdmin-demo-4",
+            "name": "rec_1790228882383_04.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-21 15:13:55",
+            "deleted": false
+          },
+          {
+            "id": "jbfs-recordingAdmin-demo-5",
+            "name": "rec_1790228509844_05.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-20 15:14:55",
+            "deleted": false
+          },
+          {
+            "id": "jbfs-recordingAdmin-demo-6",
+            "name": "rec_1790228137305_06.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-19 15:15:55",
+            "deleted": false
+          },
+          {
+            "id": "jbfs-recordingAdmin-demo-7",
+            "name": "rec_1790227764766_07.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-18 15:16:55",
+            "deleted": false
+          }
+        ],
+        "sourceCount": 7
+      }
+    },
+    "mengzhua": {
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:08:50.354Z",
+        "evidenceFile": "mengzhua--recordingAdmin--2026-09-27T03-08-50-354Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1534,
+          "width": 1486
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          264,
+          156,
+          180,
+          100,
+          216,
+          110,
+          140
+        ],
+        "emptyText": "",
+        "rows": [
+          {
+            "id": "mengzhua-recordingAdmin-demo-1",
+            "name": "rec_1790230000000_01.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-24 15:10:55",
+            "deleted": false
+          }
+        ],
+        "sourceCount": 1
+      }
+    },
+    "ruixi-kh-xiaowen": {
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:10:28.418Z",
+        "evidenceFile": "ruixi-kh-xiaowen--recordingAdmin--2026-09-27T03-10-28-418Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1534,
+          "width": 1486
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          264,
+          156,
+          180,
+          100,
+          216,
+          110,
+          140
+        ],
+        "emptyText": "",
+        "rows": [
+          {
+            "id": "ruixi-kh-xiaowen-recordingAdmin-demo-1",
+            "name": "rec_1790230000000_01.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-24 15:10:55",
+            "deleted": false
+          }
+        ],
+        "sourceCount": 1
+      }
+    },
+    "yestar": {
+      "goodNewsRecords": {
+        "label": "喜报记录",
+        "capturedAt": "2026-09-27T03:11:51.560Z",
+        "evidenceFile": "yestar--goodNewsRecords--2026-09-27T03-11-51-560Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [
+          "喜报类型",
+          "成交项目",
+          "成交时间",
+          "派单平台",
+          "成交金额（元）",
+          "客户电话",
+          "医生",
+          "创建时间",
+          "操作"
+        ],
+        "columnWidths": [
+          120,
+          446,
+          180,
+          334,
+          160,
+          160,
+          140,
+          180,
+          150
+        ],
+        "emptyText": "",
+        "rows": [
+          {
+            "id": "yestar-goodNewsRecords-demo-1",
+            "type": "非医生喜报",
+            "project": "皮肤管理",
+            "dealTime": "2026-09-25 00:00:00",
+            "platform": "线上咨询",
+            "amount": 8989,
+            "phone": "138****1000",
+            "doctor": "",
+            "assignedAt": "",
+            "createdAt": "2026-09-25 18:37:27"
+          }
+        ],
+        "sourceCount": 1
+      },
+      "goodNewsSettings": {
+        "label": "喜报设置",
+        "capturedAt": "2026-09-27T03:11:49.675Z",
+        "evidenceFile": "yestar--goodNewsSettings--2026-09-27T03-11-49-675Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [],
+        "columnWidths": [],
+        "emptyText": "",
+        "rows": [],
+        "settings": [
+          {
+            "kind": "doctor",
+            "title": "医生喜报",
+            "top": 800,
+            "color": "#FFFFFF",
+            "background": "",
+            "titleImage": ""
+          },
+          {
+            "kind": "other",
+            "title": "非医生喜报",
+            "top": 950,
+            "color": "#EBB893",
+            "background": "demo-background",
+            "titleImage": "demo-title"
+          }
+        ]
+      },
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:08:45.759Z",
+        "evidenceFile": "yestar--recordingAdmin--2026-09-27T03-08-45-759Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          495,
+          292,
+          337,
+          100,
+          404,
+          110,
+          140
+        ],
+        "emptyText": "",
+        "rows": [
+          {
+            "id": "yestar-recordingAdmin-demo-1",
+            "name": "rec_1790230000000_01.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-24 15:10:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-2",
+            "name": "rec_1790229627461_02.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-23 15:11:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-3",
+            "name": "rec_1790229254922_03.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-22 15:12:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-4",
+            "name": "rec_1790228882383_04.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-21 15:13:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-5",
+            "name": "rec_1790228509844_05.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-20 15:14:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-6",
+            "name": "rec_1790228137305_06.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-19 15:15:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-7",
+            "name": "rec_1790227764766_07.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-18 15:16:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-8",
+            "name": "rec_1790227392227_08.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-17 15:17:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-9",
+            "name": "rec_1790227019688_09.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-16 15:18:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-10",
+            "name": "rec_1790226647149_10.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-15 15:19:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-11",
+            "name": "rec_1790226274610_11.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-14 15:20:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-12",
+            "name": "rec_1790225902071_12.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-13 15:21:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-13",
+            "name": "rec_1790225529532_13.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-12 15:22:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-14",
+            "name": "rec_1790225156993_14.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-11 15:23:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-15",
+            "name": "rec_1790224784454_15.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-10 15:24:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-16",
+            "name": "rec_1790224411915_16.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-09 15:25:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-17",
+            "name": "rec_1790224039376_17.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-08 15:26:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-18",
+            "name": "rec_1790223666837_18.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-07 15:27:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-19",
+            "name": "rec_1790223294298_19.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-06 15:28:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-20",
+            "name": "rec_1790222921759_20.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-05 15:29:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-21",
+            "name": "rec_1790222549220_21.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-04 15:30:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-22",
+            "name": "rec_1790222176681_22.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-24 15:31:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-23",
+            "name": "rec_1790221804142_23.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-23 15:32:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-24",
+            "name": "rec_1790221431603_24.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-22 15:33:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-recordingAdmin-demo-25",
+            "name": "rec_1790221059064_25.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-21 15:34:55",
+            "deleted": false
+          }
+        ],
+        "sourceCount": 25
+      }
+    },
+    "yestar-bj": {
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:10:34.331Z",
+        "evidenceFile": "yestar-bj--recordingAdmin--2026-09-27T03-10-34-331Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1534,
+          "width": 1486
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          264,
+          156,
+          180,
+          100,
+          216,
+          110,
+          140
+        ],
+        "emptyText": "暂无符合条件的录音",
+        "rows": [],
+        "sourceCount": 0
+      }
+    },
+    "yestar-gz": {
+      "goodNewsRecords": {
+        "label": "喜报记录",
+        "capturedAt": "2026-09-27T03:11:43.648Z",
+        "evidenceFile": "yestar-gz--goodNewsRecords--2026-09-27T03-11-43-648Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [
+          "喜报类型",
+          "成交项目",
+          "成交时间",
+          "派单平台",
+          "成交金额（元）",
+          "客户电话",
+          "医生",
+          "创建时间",
+          "操作"
+        ],
+        "columnWidths": [
+          120,
+          446,
+          180,
+          334,
+          160,
+          160,
+          140,
+          180,
+          150
+        ],
+        "emptyText": "暂无数据",
+        "rows": [],
+        "sourceCount": 0
+      },
+      "goodNewsSettings": {
+        "label": "喜报设置",
+        "capturedAt": "2026-09-27T03:11:41.594Z",
+        "evidenceFile": "yestar-gz--goodNewsSettings--2026-09-27T03-11-41-594Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [],
+        "columnWidths": [],
+        "emptyText": "",
+        "rows": [],
+        "settings": [
+          {
+            "kind": "doctor",
+            "title": "医生喜报",
+            "top": 800,
+            "color": "#FFFFFF",
+            "background": "",
+            "titleImage": ""
+          },
+          {
+            "kind": "other",
+            "title": "非医生喜报",
+            "top": 800,
+            "color": "#FFFFFF",
+            "background": "",
+            "titleImage": ""
+          }
+        ]
+      },
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:08:17.810Z",
+        "evidenceFile": "yestar-gz--recordingAdmin--2026-09-27T03-08-17-810Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          495,
+          292,
+          337,
+          100,
+          404,
+          110,
+          140
+        ],
+        "emptyText": "",
+        "rows": [
+          {
+            "id": "yestar-gz-recordingAdmin-demo-1",
+            "name": "rec_1790230000000_01.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-24 15:10:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-gz-recordingAdmin-demo-2",
+            "name": "rec_1790229627461_02.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-23 15:11:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-gz-recordingAdmin-demo-3",
+            "name": "rec_1790229254922_03.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-22 15:12:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-gz-recordingAdmin-demo-4",
+            "name": "rec_1790228882383_04.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-21 15:13:55",
+            "deleted": false
+          }
+        ],
+        "sourceCount": 4
+      }
+    },
+    "yestar-hz": {
+      "goodNewsRecords": {
+        "label": "喜报记录",
+        "capturedAt": "2026-09-27T03:10:59.806Z",
+        "evidenceFile": "yestar-hz--goodNewsRecords--2026-09-27T03-10-59-806Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [
+          "喜报类型",
+          "成交项目",
+          "成交时间",
+          "派单平台",
+          "成交金额（元）",
+          "客户电话",
+          "医生",
+          "创建时间",
+          "操作"
+        ],
+        "columnWidths": [
+          120,
+          446,
+          180,
+          334,
+          160,
+          160,
+          140,
+          180,
+          150
+        ],
+        "emptyText": "暂无数据",
+        "rows": [],
+        "sourceCount": 0
+      },
+      "goodNewsSettings": {
+        "label": "喜报设置",
+        "capturedAt": "2026-09-27T03:10:57.886Z",
+        "evidenceFile": "yestar-hz--goodNewsSettings--2026-09-27T03-10-57-886Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [],
+        "columnWidths": [],
+        "emptyText": "",
+        "rows": [],
+        "settings": [
+          {
+            "kind": "doctor",
+            "title": "医生喜报",
+            "top": 800,
+            "color": "#FFFFFF",
+            "background": "",
+            "titleImage": ""
+          },
+          {
+            "kind": "other",
+            "title": "非医生喜报",
+            "top": 800,
+            "color": "#FFFFFF",
+            "background": "",
+            "titleImage": ""
+          }
+        ]
+      },
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:08:21.622Z",
+        "evidenceFile": "yestar-hz--recordingAdmin--2026-09-27T03-08-21-622Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          495,
+          292,
+          337,
+          100,
+          404,
+          110,
+          140
+        ],
+        "emptyText": "",
+        "rows": [
+          {
+            "id": "yestar-hz-recordingAdmin-demo-1",
+            "name": "rec_1790230000000_01.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-24 15:10:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-hz-recordingAdmin-demo-2",
+            "name": "rec_1790229627461_02.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-23 15:11:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-hz-recordingAdmin-demo-3",
+            "name": "rec_1790229254922_03.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-22 15:12:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-hz-recordingAdmin-demo-4",
+            "name": "rec_1790228882383_04.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-21 15:13:55",
+            "deleted": false
+          }
+        ],
+        "sourceCount": 4
+      }
+    },
+    "yestar-jx": {
+      "goodNewsRecords": {
+        "label": "喜报记录",
+        "capturedAt": "2026-09-27T03:10:55.475Z",
+        "evidenceFile": "yestar-jx--goodNewsRecords--2026-09-27T03-10-55-475Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [
+          "喜报类型",
+          "成交项目",
+          "成交时间",
+          "派单平台",
+          "成交金额（元）",
+          "客户电话",
+          "医生",
+          "创建时间",
+          "操作"
+        ],
+        "columnWidths": [
+          120,
+          446,
+          180,
+          334,
+          160,
+          160,
+          140,
+          180,
+          150
+        ],
+        "emptyText": "",
+        "rows": [
+          {
+            "id": "yestar-jx-goodNewsRecords-demo-1",
+            "type": "非医生喜报",
+            "project": "皮肤管理",
+            "dealTime": "2026-09-25 00:00:00",
+            "platform": "线上咨询",
+            "amount": 8989,
+            "phone": "138****1000",
+            "doctor": "",
+            "assignedAt": "",
+            "createdAt": "2026-09-25 18:37:27"
+          },
+          {
+            "id": "yestar-jx-goodNewsRecords-demo-2",
+            "type": "非医生喜报",
+            "project": "轮廓项目",
+            "dealTime": "2026-09-25 00:00:00",
+            "platform": "预约平台",
+            "amount": 89898,
+            "phone": "138****1001",
+            "doctor": "",
+            "assignedAt": "",
+            "createdAt": "2026-09-25 17:37:27"
+          }
+        ],
+        "sourceCount": 2
+      },
+      "goodNewsSettings": {
+        "label": "喜报设置",
+        "capturedAt": "2026-09-27T03:10:53.414Z",
+        "evidenceFile": "yestar-jx--goodNewsSettings--2026-09-27T03-10-53-414Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [],
+        "columnWidths": [],
+        "emptyText": "",
+        "rows": [],
+        "settings": [
+          {
+            "kind": "doctor",
+            "title": "医生喜报",
+            "top": 800,
+            "color": "#FFFFFF",
+            "background": "",
+            "titleImage": ""
+          },
+          {
+            "kind": "other",
+            "title": "非医生喜报",
+            "top": 1200,
+            "color": "#EBB893",
+            "background": "demo-background",
+            "titleImage": "demo-title"
+          }
+        ]
+      },
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:08:17.768Z",
+        "evidenceFile": "yestar-jx--recordingAdmin--2026-09-27T03-08-17-768Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          495,
+          292,
+          337,
+          100,
+          404,
+          110,
+          140
+        ],
+        "emptyText": "暂无符合条件的录音",
+        "rows": [],
+        "sourceCount": 0
+      }
+    },
+    "yestar-sz": {
+      "goodNewsRecords": {
+        "label": "喜报记录",
+        "capturedAt": "2026-09-27T03:05:52.049Z",
+        "evidenceFile": "yestar-sz--goodNewsRecords--2026-09-27T03-05-52-049Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [
+          "喜报类型",
+          "成交项目",
+          "成交时间",
+          "派单平台",
+          "成交金额（元）",
+          "客户电话",
+          "医生",
+          "创建时间",
+          "操作"
+        ],
+        "columnWidths": [
+          120,
+          446,
+          180,
+          334,
+          160,
+          160,
+          140,
+          180,
+          150
+        ],
+        "emptyText": "",
+        "rows": [
+          {
+            "id": "yestar-sz-goodNewsRecords-demo-1",
+            "type": "非医生喜报",
+            "project": "皮肤管理",
+            "dealTime": "2026-09-25 00:00:00",
+            "platform": "线上咨询",
+            "amount": 8989,
+            "phone": "138****1000",
+            "doctor": "",
+            "assignedAt": "",
+            "createdAt": "2026-09-25 18:37:27"
+          },
+          {
+            "id": "yestar-sz-goodNewsRecords-demo-2",
+            "type": "非医生喜报",
+            "project": "轮廓项目",
+            "dealTime": "2026-09-25 00:00:00",
+            "platform": "预约平台",
+            "amount": 89898,
+            "phone": "138****1001",
+            "doctor": "",
+            "assignedAt": "",
+            "createdAt": "2026-09-25 17:37:27"
+          },
+          {
+            "id": "yestar-sz-goodNewsRecords-demo-3",
+            "type": "非医生喜报",
+            "project": "面部护理",
+            "dealTime": "2026-09-25 00:00:00",
+            "platform": "视频渠道",
+            "amount": 8888,
+            "phone": "138****1002",
+            "doctor": "",
+            "assignedAt": "",
+            "createdAt": "2026-09-25 16:37:27"
+          },
+          {
+            "id": "yestar-sz-goodNewsRecords-demo-4",
+            "type": "非医生喜报",
+            "project": "皮肤管理",
+            "dealTime": "2026-09-25 00:00:00",
+            "platform": "线上咨询",
+            "amount": 989,
+            "phone": "138****1003",
+            "doctor": "",
+            "assignedAt": "",
+            "createdAt": "2026-09-25 15:37:27"
+          },
+          {
+            "id": "yestar-sz-goodNewsRecords-demo-5",
+            "type": "非医生喜报",
+            "project": "轮廓项目",
+            "dealTime": "2026-09-25 00:00:00",
+            "platform": "预约平台",
+            "amount": 2490,
+            "phone": "138****1004",
+            "doctor": "",
+            "assignedAt": "",
+            "createdAt": "2026-09-25 14:37:27"
+          },
+          {
+            "id": "yestar-sz-goodNewsRecords-demo-6",
+            "type": "非医生喜报",
+            "project": "面部护理",
+            "dealTime": "2026-09-25 00:00:00",
+            "platform": "视频渠道",
+            "amount": 1999,
+            "phone": "138****1005",
+            "doctor": "",
+            "assignedAt": "",
+            "createdAt": "2026-09-25 13:37:27"
+          }
+        ],
+        "sourceCount": 6
+      },
+      "goodNewsSettings": {
+        "label": "喜报设置",
+        "capturedAt": "2026-09-27T03:05:09.770Z",
+        "evidenceFile": "yestar-sz--goodNewsSettings--2026-09-27T03-05-09-770Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [],
+        "columnWidths": [],
+        "emptyText": "",
+        "rows": [],
+        "settings": [
+          {
+            "kind": "doctor",
+            "title": "医生喜报",
+            "top": 800,
+            "color": "#FFFFFF",
+            "background": "demo-background",
+            "titleImage": "demo-title"
+          },
+          {
+            "kind": "other",
+            "title": "非医生喜报",
+            "top": 1000,
+            "color": "#EBB893",
+            "background": "demo-background",
+            "titleImage": "demo-title"
+          }
+        ]
+      },
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:08:45.535Z",
+        "evidenceFile": "yestar-sz--recordingAdmin--2026-09-27T03-08-45-535Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 2198
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          495,
+          292,
+          337,
+          100,
+          404,
+          110,
+          140
+        ],
+        "emptyText": "",
+        "rows": [
+          {
+            "id": "yestar-sz-recordingAdmin-demo-1",
+            "name": "rec_1790230000000_01.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-24 15:10:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-2",
+            "name": "rec_1790229627461_02.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-23 15:11:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-3",
+            "name": "rec_1790229254922_03.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-22 15:12:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-4",
+            "name": "rec_1790228882383_04.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-21 15:13:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-5",
+            "name": "rec_1790228509844_05.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-20 15:14:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-6",
+            "name": "rec_1790228137305_06.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-19 15:15:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-7",
+            "name": "rec_1790227764766_07.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-18 15:16:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-8",
+            "name": "rec_1790227392227_08.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-17 15:17:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-9",
+            "name": "rec_1790227019688_09.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-16 15:18:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-10",
+            "name": "rec_1790226647149_10.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-15 15:19:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-11",
+            "name": "rec_1790226274610_11.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-14 15:20:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-12",
+            "name": "rec_1790225902071_12.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-13 15:21:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-13",
+            "name": "rec_1790225529532_13.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-12 15:22:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-14",
+            "name": "rec_1790225156993_14.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-11 15:23:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-15",
+            "name": "rec_1790224784454_15.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-10 15:24:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-16",
+            "name": "rec_1790224411915_16.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-09 15:25:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-17",
+            "name": "rec_1790224039376_17.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-08 15:26:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-18",
+            "name": "rec_1790223666837_18.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-07 15:27:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-19",
+            "name": "rec_1790223294298_19.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-06 15:28:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-20",
+            "name": "rec_1790222921759_20.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-05 15:29:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-21",
+            "name": "rec_1790222549220_21.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-04 15:30:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-22",
+            "name": "rec_1790222176681_22.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-24 15:31:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-23",
+            "name": "rec_1790221804142_23.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-23 15:32:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-24",
+            "name": "rec_1790221431603_24.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-22 15:33:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-25",
+            "name": "rec_1790221059064_25.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-21 15:34:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-26",
+            "name": "rec_1790220686525_26.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-20 15:35:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-27",
+            "name": "rec_1790220313986_27.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-19 15:36:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-28",
+            "name": "rec_1790219941447_28.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-18 15:37:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-29",
+            "name": "rec_1790219568908_29.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-17 15:38:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-30",
+            "name": "rec_1790219196369_30.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-16 15:39:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-31",
+            "name": "rec_1790218823830_31.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-15 15:40:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-32",
+            "name": "rec_1790218451291_32.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-14 15:41:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-33",
+            "name": "rec_1790218078752_33.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-13 15:42:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-34",
+            "name": "rec_1790217706213_34.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-12 15:43:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-35",
+            "name": "rec_1790217333674_35.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-11 15:44:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-36",
+            "name": "rec_1790216961135_36.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-10 15:45:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-37",
+            "name": "rec_1790216588596_37.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-09 15:46:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-38",
+            "name": "rec_1790216216057_38.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-08 15:47:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-39",
+            "name": "rec_1790215843518_39.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-07 15:48:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-40",
+            "name": "rec_1790215470979_40.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-06 15:49:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-41",
+            "name": "rec_1790215098440_41.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-05 15:10:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-42",
+            "name": "rec_1790214725901_42.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-04 15:11:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-43",
+            "name": "rec_1790214353362_43.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-24 15:12:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-44",
+            "name": "rec_1790213980823_44.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-23 15:13:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-45",
+            "name": "rec_1790213608284_45.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-22 15:14:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-46",
+            "name": "rec_1790213235745_46.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-21 15:15:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-47",
+            "name": "rec_1790212863206_47.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-20 15:16:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-48",
+            "name": "rec_1790212490667_48.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-19 15:17:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-49",
+            "name": "rec_1790212118128_49.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-18 15:18:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-50",
+            "name": "rec_1790211745589_50.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-17 15:19:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-51",
+            "name": "rec_1790211373050_51.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-16 15:20:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-52",
+            "name": "rec_1790211000511_52.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-15 15:21:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-53",
+            "name": "rec_1790210627972_53.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-14 15:22:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-54",
+            "name": "rec_1790210255433_54.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-13 15:23:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-55",
+            "name": "rec_1790209882894_55.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-12 15:24:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-56",
+            "name": "rec_1790209510355_56.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-11 15:25:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-57",
+            "name": "rec_1790209137816_57.m4a",
+            "uploader": "顾问甲",
+            "customer": "林女士",
+            "duration": "3:20",
+            "uploadedAt": "2026-09-10 15:26:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-58",
+            "name": "rec_1790208765277_58.m4a",
+            "uploader": "顾问甲",
+            "customer": "来访客户三",
+            "duration": "0:48",
+            "uploadedAt": "2026-09-09 15:27:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-59",
+            "name": "rec_1790208392738_59.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客星野",
+            "duration": "2:16",
+            "uploadedAt": "2026-09-08 15:28:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-60",
+            "name": "rec_1790208020199_60.m4a",
+            "uploader": "顾问乙",
+            "customer": "会员林先生",
+            "duration": "1:25",
+            "uploadedAt": "2026-09-07 15:29:55",
+            "deleted": false
+          },
+          {
+            "id": "yestar-sz-recordingAdmin-demo-61",
+            "name": "rec_1790207647660_61.m4a",
+            "uploader": "顾问甲",
+            "customer": "访客青禾",
+            "duration": "1:11",
+            "uploadedAt": "2026-09-06 15:30:55",
+            "deleted": false
+          }
+        ],
+        "sourceCount": 61
+      }
+    },
+    "ykjl": {
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:09:41.008Z",
+        "evidenceFile": "ykjl--recordingAdmin--2026-09-27T03-09-41-008Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1534,
+          "width": 1486
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          264,
+          156,
+          180,
+          100,
+          216,
+          110,
+          140
+        ],
+        "emptyText": "暂无符合条件的录音",
+        "rows": [],
+        "sourceCount": 0
+      }
+    },
+    "yzhb": {
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T03:10:39.607Z",
+        "evidenceFile": "yzhb--recordingAdmin--2026-09-27T03-10-39-607Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1534,
+          "width": 1486
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          264,
+          156,
+          180,
+          100,
+          216,
+          110,
+          140
+        ],
+        "emptyText": "暂无符合条件的录音",
+        "rows": [],
+        "sourceCount": 0
+      }
+    },
+    "rxxz": {
+      "recordingAdmin": {
+        "label": "录音管理",
+        "capturedAt": "2026-09-27T05:13:11.459Z",
+        "evidenceFile": "rxxz--recordingAdmin--2026-09-27T05-13-11-459Z.json",
+        "viewport": {
+          "dpr": 1.25,
+          "height": 1590,
+          "width": 1484
+        },
+        "headers": [
+          "录音名称",
+          "上传人",
+          "关联客户",
+          "时长",
+          "上传时间",
+          "删除状态",
+          "操作"
+        ],
+        "columnWidths": [
+          265,
+          155,
+          179,
+          100,
+          215,
+          110,
+          140
+        ],
+        "emptyText": "暂无符合条件的录音",
+        "rows": [],
+        "sourceCount": 0
+      }
+    }
+  }
+}

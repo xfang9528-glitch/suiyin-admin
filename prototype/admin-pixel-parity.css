@@ -9,6 +9,6 @@ body.admin-content{min-height:100vh;background:#fff}
 .admin-shell .pages,
 .admin-shell .frame-wrap,
 .admin-shell .page-frame{background:#fff}
-/* The captured Shenzhen recruitment screen has a 10px right workspace inset. */
-.admin-shell #panel-newAddedRecords .page-frame[src*="tenant=yestar-sz&"]{width:calc(100% + 10px)}
+/* The current Shenzhen recruitment capture uses the full workspace width, 2026-09-27. */
+.admin-shell #panel-newAddedRecords .page-frame[src*="tenant=yestar-sz&"]{width:100%}
 .admin-shell:has(.page-frame[src*="tenant=yestar-sz&"]) .brand h1{letter-spacing:2px}

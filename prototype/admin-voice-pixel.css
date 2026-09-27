@@ -12,3 +12,26 @@ html:has(.voice-stats-page)::-webkit-scrollbar-thumb{background:#888;border-radi
 .admin-content .voice-stats-page .usage-date-control:focus-within{border-color:var(--usage-primary)}
 /* Clear the previous range-only input sizing when the shared single-day mode is active. */
 .admin-content .voice-stats-page .usage-date-control:not(.is-range) input{width:calc(100% - 30px);padding:0 8px;text-align:start}
+/* 2026-09-27 captured shell inset and two-row filters. Counting still follows 052. */
+html:has(.voice-stats-page){overflow-y:auto;scrollbar-gutter:auto}
+.admin-content .voice-stats-page{padding:14px 20px;min-height:100vh;display:flex;flex-direction:column}
+.admin-content .voice-filters{flex-wrap:wrap;min-width:0;gap:0 16px;flex:none;min-height:120px}
+.admin-content .voice-filters .filter-actions{flex-basis:100%;height:52px;padding:10px 0}
+.admin-content .voice-filters .usage-department-field>.live-select{width:220px}
+.admin-content .voice-filters .voice-sales-field>input{width:180px;height:32px}
+.admin-content .voice-note{min-height:40px;padding:7px 16px;border:.8px solid #ebeef5;border-bottom:0;flex:none;gap:16px}
+.admin-content .voice-note button{padding:0;min-height:24px}
+.admin-content .voice-results{flex:1;display:flex;flex-direction:column;border:.8px solid #ebeef5;border-top:0;min-height:0}
+.admin-content .voice-table-wrap{max-height:none;min-height:0;border:0;flex:1}
+.admin-content .voice-table-wrap th,.admin-content .voice-table-wrap td{border-right:0}
+.admin-content .voice-table-wrap table{min-width:660px}
+.admin-content .voice-empty-table table{height:100%;min-height:800px}
+.admin-content .voice-empty-table thead{height:40px}
+.admin-content .voice-empty-table th:first-child{width:72px}
+.admin-content .voice-empty-table th:nth-child(2),.admin-content .voice-empty-table th:nth-child(3){width:31.25%}
+.admin-content .voice-empty-table td{height:calc(100vh - 240px);padding:0;text-align:center}
+.admin-content .voice-empty-table .empty svg{display:none}
+.admin-content .voice-empty-table .empty{padding:0;color:#909399}
+.admin-content .voice-empty-table .empty strong{color:#606266;font-size:14px}
+.admin-content .voice-empty-table .empty p{font-size:14px;margin-top:16px}
+.admin-content .voice-source{font-size:11px;margin:0;position:fixed;bottom:0;left:20px;z-index:6;background:#fffffff0;padding:2px 4px}

@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-09-27T06:35:59.790Z",
+  "status": "PASS",
+  "checks": [
+    {
+      "validator": "validate-spec.mjs",
+      "target": "spec.md",
+      "status": "PASS",
+      "output": "[PASS] docs\\sdd\\SPEC-SUIYIN-ADMIN-REFRESH-001\\0.2.0\\spec.md\nstatus: implemented\nrules: 10, acceptance: 10, open questions: 0\ndependencies: SPEC-SUIYIN-ADMIN-054@1.0.0, SPEC-SUIYIN-ADMIN-055@1.1.0, SPEC-SUIYIN-ADMIN-058@1.2.0, SPEC-SUIYIN-ADMIN-068@1.0.0\n结构校验通过；批准记录完整。\n"
+    },
+    {
+      "validator": "validate-plan-boundary.mjs",
+      "target": "plan.md",
+      "status": "PASS",
+      "output": "[PASS] docs\\sdd\\SPEC-SUIYIN-ADMIN-REFRESH-001\\0.2.0\\plan.md\nsource: SPEC-SUIYIN-ADMIN-REFRESH-001@0.2.0\nartifact_class: static-html\n运行边界校验通过。\n"
+    },
+    {
+      "validator": "validate-source-convergence.mjs",
+      "target": "source-convergence.md",
+      "status": "PASS",
+      "output": "[PASS] Source Convergence\nledger: CONVERGENCE-SUIYIN-ADMIN-REFRESH-001\nspec: SPEC-SUIYIN-ADMIN-REFRESH-001@0.2.0\nsources: 6, searches: 4\n来源收敛账本结构与完成态证据通过。\n"
+    },
+    {
+      "validator": "validate-remote-sdd-package.mjs",
+      "target": "versioned package",
+      "status": "PASS",
+      "output": "[PASS] Remote SDD package\nspec: SPEC-SUIYIN-ADMIN-REFRESH-001@0.2.0\npackages: 1\nfiles: 11\n远端 SDD 交付包完整，镜像内容一致。\n"
+    }
+  ],
+  "dependencyClosure": {
+    "count": 9,
+    "status": "PASS"
+  },
+  "dataPolicy": "Only local validator output and exact dependency metadata; no private capture content"
+}

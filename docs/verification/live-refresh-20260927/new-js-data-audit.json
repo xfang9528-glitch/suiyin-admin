@@ -1,0 +1,96 @@
+{
+  "date": "2026-09-27",
+  "scope": "new data JS literals plus dedicated module embedded fixtures",
+  "result": "passed within stated scope",
+  "files": [
+    {
+      "file": "prototype/data/current-list-layout.js",
+      "sha256": "7206356bcccff57b4abe1753600a253bb4032214623d27a4bfe0c5957cecc897",
+      "description": "410个租户/路由的尺寸、列宽、标签、按钮、表头与分页几何；无行数据或输入默认值。",
+      "stringFieldsInspected": 25756,
+      "identityOrRawMediaFields": 0,
+      "sourceUrlsWithQueryOrHash": 0
+    },
+    {
+      "file": "prototype/data/remark-current.js",
+      "sha256": "98f13c9e71eeac1e81fdc32e488eddb171ee320f79ccdcc8690e10872061233c",
+      "description": "6租户业务需求词、分组、开关和历史任务聚合元数据；没有客户/聊天/录音字段。",
+      "stringFieldsInspected": 393,
+      "identityOrRawMediaFields": 0,
+      "sourceUrlsWithQueryOrHash": 0
+    },
+    {
+      "file": "prototype/data/platform-label-current.js",
+      "sha256": "d8f670bc499263b102387e17e567ecb1a746d025d3a05eea3e0aa3a40a16533b",
+      "description": "36行平台标签配置树；只有业务名称、标识、状态与父子层级。",
+      "stringFieldsInspected": 324,
+      "identityOrRawMediaFields": 0,
+      "sourceUrlsWithQueryOrHash": 0
+    },
+    {
+      "file": "prototype/admin-quality-source.js",
+      "sha256": "e5a5f4fcce773520f21e53372fb49aca0458964288f4a6140037e9431863d32d",
+      "sensitivePatternFindings": {
+        "phone": 0,
+        "jwt": 0,
+        "providerKey": 0,
+        "privateKey": 0,
+        "mediaUrl": 0
+      },
+      "contentReview": "module owner confirmed synthetic personal/review/transcript content; business vocabulary and dated aggregate metrics retained; no source audio or chat text"
+    },
+    {
+      "file": "prototype/admin-asr-source.js",
+      "sha256": "de2fac0e7ae1fd3a96991dd3cf73a4d911f207498e60b9f2c010a0889a6a76f8",
+      "sensitivePatternFindings": {
+        "phone": 0,
+        "jwt": 0,
+        "providerKey": 0,
+        "privateKey": 0,
+        "mediaUrl": 0
+      },
+      "contentReview": "module owner confirmed synthetic personal/review/transcript content; business vocabulary and dated aggregate metrics retained; no source audio or chat text"
+    },
+    {
+      "file": "prototype/admin-platform-source.js",
+      "sha256": "699837a5b63ad1012403ce659e3dc07578130f47f7192f0d919f8b1547004938",
+      "sensitivePatternFindings": {
+        "phone": 0,
+        "jwt": 0,
+        "providerKey": 0,
+        "privateKey": 0,
+        "mediaUrl": 0
+      },
+      "contentReview": "module owner confirmed synthetic personal/review/transcript content; business vocabulary and dated aggregate metrics retained; no source audio or chat text"
+    },
+    {
+      "file": "prototype/admin-refresh-pages.js",
+      "sha256": "34fcfc55ca2fd6ad8fd0c4eca97bf6c859a6ba9410affaf0b5d75cfde183e762",
+      "sensitivePatternFindings": {
+        "phone": 0,
+        "jwt": 0,
+        "providerKey": 0,
+        "privateKey": 0,
+        "mediaUrl": 0
+      },
+      "contentReview": "module owner confirmed synthetic personal/review/transcript content; business vocabulary and dated aggregate metrics retained; no source audio or chat text"
+    },
+    {
+      "file": "prototype/data/refresh-pages.json",
+      "sha256": "48d41fcf85ff3f4664b6422f262df4dee0e588208c6a3352e94c6223e9958590",
+      "sensitivePatternFindings": {
+        "phone": 0,
+        "jwt": 0,
+        "providerKey": 0,
+        "privateKey": 0,
+        "mediaUrl": 0
+      },
+      "contentReview": "module owner confirmed synthetic personal/review/transcript content; business vocabulary and dated aggregate metrics retained; no source audio or chat text"
+    }
+  ],
+  "limitations": [
+    "Pattern scans alone do not prove arbitrary prose contains no identity",
+    "Business staff/configuration terms and aggregate values follow existing publication policy",
+    "No live source was reopened for this audit"
+  ]
+}

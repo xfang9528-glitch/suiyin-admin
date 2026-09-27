@@ -13,7 +13,8 @@ window.AdminNewAddedRecords = (() => {
     const {node, button} = A;
     const root = node('div', 'page newadded-page');
     root.dataset.snapshotDate = source.defaultDate;
-    root.title = '艺星深圳拉新记录 · 本地留存的页面快照';
+    root.title = '当前租户拉新记录 · 本地留存的页面快照';
+    if(source.currentLayout)root.classList.add('newadded-current');
     const form = node('form', 'newadded-filters');
     form.noValidate = true;
     const fields = node('div', 'newadded-filter-fields');
@@ -72,6 +73,7 @@ window.AdminNewAddedRecords = (() => {
     const total = node('span', 'newadded-total', '共 0 条');
     pager.append(A.searchableSelect(pageSize, '每页条数'), prev, current, next, total);
     root.append(form, results, pager); A.$('app').replaceChildren(root);
+    if(source.currentLayout){const base=[200,180,140,260,170,100,180],resize=()=>{const width=Math.max(1230,Math.round(wrap.clientWidth)),sizes=base.map(n=>Math.floor(n*width/1230));sizes[0]=width-sizes.slice(1).reduce((a,b)=>a+b,0);[...colgroup.children].forEach((c,i)=>c.style.setProperty('width',sizes[i]+'px','important'));table.style.width=width+'px';table.style.setProperty('min-width','1230px','important')};new ResizeObserver(resize).observe(wrap);resize();}
     window.AdminFilterCalendars?.enhance(form);
     let submitted;
     function queryValue() { return {start: start.value.trim(), end: end.value.trim(), account: account.value, repeated: repeated.value, friend: friend.value}; }

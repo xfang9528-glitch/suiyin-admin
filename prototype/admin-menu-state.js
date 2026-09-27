@@ -1,5 +1,52 @@
 /* Shared local menu visibility. Full inventory stays separate from visible navigation. */
 'use strict';
+/* Refresh only captured defaults; browser-local edits remain a separate layer. */
+window.AdminMenuRefresh=(()=>{
+ const clone=value=>structuredClone(value),same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+ function accepts(source,saved){return ['menu','allMenu'].includes(source?.route)&&source.menuRefresh?.previousRows&&saved?.tenant===source.tenant&&saved?.route===source.route&&saved.dataRevision!==source.dataRevision&&Array.isArray(saved.tables?.[0]?.rows);}
+ function index(rows){const map=new Map(),groups=new Map(),stack=[];for(const [position,row]of rows.entries()){const depth=Number(row.tree?.depth)||0;while(stack.length&&stack.at(-1).depth>=depth)stack.pop();const parent=stack.at(-1)?.row.id||'',entry={row,parent,depth,position};map.set(row.id,entry);if(!groups.has(parent))groups.set(parent,[]);groups.get(parent).push(row.id);stack.push(entry);}return {map,groups};}
+ function merge(source,saved){
+  if(!accepts(source,saved))return clone(saved?.dataRevision===source?.dataRevision?saved:source);
+  const before=index(source.menuRefresh.previousRows),current=index(source.tables[0].rows),local=index(saved.tables[0].rows),nodes=new Map();
+  const headers=source.tables[0].headers,oldHeaders=source.menuRefresh.previousHeaders||headers,localHeaders=saved.tables[0].headers;
+  for(const [id,next]of current.map){
+   const prior=before.map.get(id),edit=local.map.get(id);
+   // Missing old rows represent a local deletion. Newly captured rows have no old id.
+   if(prior&&!edit)continue;
+   let row=clone(next.row),parent=next.parent;
+   if(edit){
+    row={...clone(edit.row),...row};
+    row.cells=headers.map((label,column)=>{const oldColumn=oldHeaders.indexOf(label),localColumn=localHeaders.indexOf(label),previous=prior?.row.cells[oldColumn];let value=edit.row.cells[localColumn];if(source.route==='menu'&&label==='菜单名称'&&edit.row.tree?.menuResolved&&edit.row.tree.menuRenderedLabel===value)value=edit.row.tree.menuLocalLabel??previous;return localColumn>=0&&(!prior||!same(value,previous))?value:next.row.cells[column];});
+    if(edit.row.extra)row.extra=clone(edit.row.extra);
+    // Resolved tenant rows include platform-derived parents, which are not tenant decisions.
+    if(prior&&!edit.row.tree?.menuResolved&&(edit.parent!==prior.parent||edit.depth!==prior.depth)){parent=edit.parent;row.tree={...row.tree,...clone(edit.row.tree)};}
+    else if(edit.row.tree?.menuResolved){row.tree={...row.tree,menuResolved:true,menuOriginParentKey:next.row.tree?.parentKey||null,menuOriginDepth:next.depth,menuLocalLabel:row.cells[0],menuRenderedLabel:row.cells[0]};}
+   }
+   nodes.set(id,{row,parent,index:next.position});
+  }
+  // Local-only additions keep their identity and fields; retired captured defaults do not reappear.
+  for(const [id,entry]of local.map)if(!current.map.has(id)&&!before.map.has(id))nodes.set(id,{row:clone(entry.row),parent:entry.parent,index:current.map.size+entry.position});
+  let removed;do{removed=false;for(const [id,node]of nodes)if(node.parent&&!nodes.has(node.parent)&&!before.map.has(id)&&!local.map.has(id)){nodes.delete(id);removed=true;}}while(removed);
+  const groups=new Map();for(const [id,node]of nodes){if(!groups.has(node.parent))groups.set(node.parent,[]);groups.get(node.parent).push(id);}
+  for(const [parent,ids]of groups){
+   ids.sort((a,b)=>nodes.get(a).index-nodes.get(b).index);
+   const was=before.groups.get(parent)||[],edited=local.groups.get(parent)||[],common=new Set(was.filter(id=>edited.includes(id)&&nodes.has(id)));
+   const oldOrder=was.filter(id=>common.has(id)),localOrder=edited.filter(id=>common.has(id));
+   if(same(oldOrder,localOrder))continue;
+   const ordered=edited.filter(id=>ids.includes(id));
+   for(const id of ids.filter(id=>!ordered.includes(id))){const sourceOrder=current.groups.get(parent)||[],at=sourceOrder.indexOf(id),after=sourceOrder.slice(at+1).find(candidate=>ordered.includes(candidate));if(after)ordered.splice(ordered.indexOf(after),0,id);else ordered.push(id);}
+   groups.set(parent,ordered);
+  }
+  const rows=[],visited=new Set();function emit(parent,depth){for(const id of groups.get(parent)||[]){if(visited.has(id))continue;visited.add(id);const node=nodes.get(id),row=node.row;row.tree={...row.tree,depth,parentId:parent,hasChildren:!!groups.get(id)?.length};if(source.route==='menu')row.tree.parentKey=parent?(nodes.get(parent)?.row.tree?.key||null):null;rows.push(row);emit(id,depth+1);}}
+  emit('',0);
+  // Keep orphaned local rows for repair rather than promoting their old children into navigation.
+  for(const [id,node]of nodes)if(!visited.has(id))rows.push(node.row);
+  const result={...clone(saved),...clone(source),tables:[{...clone(source.tables[0]),rows},...clone(source.tables.slice(1))],previousSampleRevision:saved.dataRevision,menuRefreshApplied:source.dataRevision};
+  for(const field of ['history','auditRecords','menuLayout','config'])if(Object.hasOwn(saved,field))result[field]=clone(saved[field]);
+  return result;
+ }
+ return {accepts,merge};
+})();
 window.AdminMenuState={
  defaultEnabled(tenant){return tenant.menu.filter(g=>g.display!=='隐藏').flatMap(g=>g.children?g.children.filter(c=>c.display!=='隐藏').map(c=>c.route):[g.route]);},
  migrate(tenant,override){
@@ -57,12 +104,34 @@ window.AdminMenuState={
  };
 })();
 
+/* Newly captured pages join old default selections without reviving an explicitly hidden branch. */
+(()=>{
+ const state=window.AdminMenuState,previous=state.migrate;
+ state.migrate=function(tenant,override){
+  const saved=previous.call(this,tenant,override),migration='live-menu-refresh-20260927';
+  if(!tenant.menuRefreshAddedRoutes||saved.appliedMigrations?.[migration])return saved;
+  const next=structuredClone(saved),oldEnabled=override?.enabled,oldRoutes=new Set(tenant.menuRefreshPreviousRoutes||[]),added=new Set(tenant.menuRefreshAddedRoutes);
+  if(Array.isArray(oldEnabled)){
+   const previousDefaults=tenant.menuRefreshPreviousDefaults||[];
+   const untouched=oldEnabled.length===previousDefaults.length&&previousDefaults.every(route=>oldEnabled.includes(route));
+   if(untouched&&!Object.keys(override.display||{}).length)next.enabled=this.defaultEnabled(tenant);
+   else for(const group of tenant.menu){
+    const children=group.children||[group],parentShown=(next.display?.[group.route||group.id]??group.display)!=='隐藏';
+    const newBranch=children.every(child=>!oldRoutes.has(child.route));
+    const siblingShown=children.some(child=>oldRoutes.has(child.route)&&next.enabled.includes(child.route)&&(next.display?.[child.route]??child.display)!=='隐藏');
+    for(const child of children)if(added.has(child.route)&&!next.enabled.includes(child.route)&&parentShown&&(next.display?.[child.route]??child.display)!=='隐藏'&&(newBranch||siblingShown))next.enabled.push(child.route);
+   }
+  }
+  next.appliedMigrations={...next.appliedMigrations,[migration]:true};next.menuDataRevision=tenant.menuDataRevision;return next;
+ };
+})();
+
 /* SPEC-SUIYIN-ADMIN-060@1.1.0: one local platform definition, all tenant sidebars.
  * Project only existing tenant routes; never copy another tenant's page inventory. */
 window.AdminPlatformMenu=(()=>{
  const qa=new URLSearchParams(location.search).get('qa')==='1';
  const key=(qa?'admin-qa:v1:':'admin-content:v1:')+'bzds:allMenu';
- let baseline,pending;
+ let baseline,baselineModel,pending;
  function tree(model){
   const table=model?.tables?.[0];if(!Array.isArray(table?.rows)||!Array.isArray(table.headers))return null;
   const column=label=>table.headers.indexOf(label),routeColumn=column('菜单路由'),statusColumn=column('菜单状态');
@@ -77,10 +146,10 @@ window.AdminPlatformMenu=(()=>{
   return {nodes,byRoute};
  }
  async function load(){
-  if(!pending)pending=fetch('data/content/bzds.json').then(r=>{if(!r.ok)throw Error('平台菜单配置读取失败');return r.json();}).then(data=>{baseline=tree(data.allMenu);if(!baseline)throw Error('平台菜单配置无效');});
+  if(!pending)pending=fetch('data/content/bzds.json').then(r=>{if(!r.ok)throw Error('平台菜单配置读取失败');return r.json();}).then(data=>{baselineModel=data.allMenu;baseline=tree(data.allMenu);if(!baseline)throw Error('平台菜单配置无效');});
   return pending;
  }
- function read(){try{const saved=JSON.parse(localStorage.getItem(key)||'null');return saved?.tenant==='bzds'&&saved?.route==='allMenu'?tree(saved):null;}catch{return null;}}
+ function read(){try{let saved=JSON.parse(localStorage.getItem(key)||'null');if(window.AdminMenuRefresh.accepts(baselineModel,saved)){saved=window.AdminMenuRefresh.merge(baselineModel,saved);try{localStorage.setItem(key,JSON.stringify(saved));}catch{}}return saved?.tenant==='bzds'&&saved?.route==='allMenu'?tree(saved):null;}catch{return null;}}
  function project(tenant,visible,override={}){
   const current=read();if(!baseline||!current)return visible;
   const templates=new Map(),groupIds=new Map();
@@ -151,6 +220,7 @@ window.AdminTenantMenu=(()=>{
  }
  function read(id){
   let saved;try{saved=JSON.parse(localStorage.getItem(key(id))||'null');}catch{}
+  if(window.AdminMenuRefresh.accepts(sources.get(id),saved)){saved=window.AdminMenuRefresh.merge(sources.get(id),saved);try{localStorage.setItem(key(id),JSON.stringify(saved));}catch{}}
   return saved?.tenant===id&&saved?.route==='menu'&&Array.isArray(saved.tables?.[0]?.rows)?saved:clone(sources.get(id)||null);
  }
  function structure(rows){
@@ -182,9 +252,9 @@ window.AdminTenantMenu=(()=>{
   const original=sources.get(tenant.id)||model,baseTable=original.tables[0],base=structure(baseTable.rows),input=structure(table.rows),layout=model.menuLayout;
   const override=window.AdminMenuState.migrate(tenant,navOverride),enabled=new Set(override.enabled||[]);
   const indices={name:table.headers.indexOf('菜单名称'),display:table.headers.indexOf('菜单状态'),super:table.headers.indexOf('超级权限'),order:table.headers.indexOf('排序')};
-  const nav=new Map(),routeKeys=new Map(),navParents=new Map();
+  const nav=new Map(),routeKeys=new Map(),navParents=new Map(),navOrder=new Map();
   function collect(items,parent=''){
-   for(const item of items){const id=item.route||item.id;nav.set(id,item);navParents.set(id,parent);if(item.route){if(!routeKeys.has(item.route))routeKeys.set(item.route,[]);routeKeys.get(item.route).push(id);}if(item.children)collect(item.children,id);}
+   for(const item of items){const id=item.route||item.id;navOrder.set(id,navOrder.size);nav.set(id,item);navParents.set(id,parent);if(item.route){if(!routeKeys.has(item.route))routeKeys.set(item.route,[]);routeKeys.get(item.route).push(id);}if(item.children)collect(item.children,id);}
   }
   collect(tenant.menu);
   const ambiguous=new Set(input.duplicates),rowIds=new Map();
@@ -296,15 +366,16 @@ window.AdminTenantMenu=(()=>{
   }
   emit('',0);
   const shown=node=>node.platformAllowed&&(node.row.cells[indices.display]??node.item?.display)!=='隐藏';
+  function navChildren(parent){const list=groups.get(parent)||[];if(platform||layout?.orders?.[parent||'$root']||list.some(node=>override.order?.[node.key]!==undefined))return list;return [...list].sort((a,b)=>(navOrder.get(a.key)??a.index)-(navOrder.get(b.key)??b.index));}
   function navigation(node){
    if(!shown(node))return null;
-   const children=(groups.get(node.key)||[]).map(navigation).filter(Boolean),item=node.item;
+   const children=navChildren(node.key).map(navigation).filter(Boolean),item=node.item;
    const own=item?.route&&enabled.has(item.route)?{...item,label:node.row.cells[indices.name],display:node.row.cells[indices.display],superPermission:node.row.cells[indices.super]==='是'}:null;
    if(!children.length)return own;
    if(own)children.unshift(own);
    const group={...(item||{}),id:item?.id||node.key,label:node.row.cells[indices.name],children};delete group.route;return group;
   }
-  const visible=(groups.get('')||[]).map(navigation).filter(Boolean);
+  const visible=navChildren('').map(navigation).filter(Boolean);
   return {rows,visible,warnings:[...new Set(warnings)],conflicts,conflictIds};
  }
  return {key,load,read,resolve,captureMove};

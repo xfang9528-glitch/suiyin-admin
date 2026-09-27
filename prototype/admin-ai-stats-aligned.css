@@ -1,4 +1,38 @@
 /* Measured against the user's 2026-09-20 Shenzhen AI statistics screenshot. */
+.admin-content .ai-label-reference-page{padding:0!important;color:#606266;font-size:14px;height:100vh;overflow:hidden;background:#fff}
+.ai-label-reference-page .ai-label-scroll{height:calc(100vh - 66px);overflow-y:auto;overflow-x:hidden}.ai-label-reference-page .ai-label-scroll::-webkit-scrollbar{width:10px}.ai-label-reference-page .ai-label-scroll::-webkit-scrollbar-track{background:#f1f1f1}.ai-label-reference-page .ai-label-scroll::-webkit-scrollbar-thumb{background:#909399;border:2px solid #f1f1f1;border-radius:6px}
+.ai-label-detail-structure table{width:100%;border-collapse:collapse;table-layout:fixed}.ai-label-detail-structure th{height:40px;padding:8px 12px;text-align:left;font-weight:400;color:#909399;border-bottom:1px solid #ebeef5}.ai-label-detail-structure td{padding:40px 16px;text-align:center}.ai-label-detail-structure .form-note{margin:0;background:none}
+.ai-label-reference-page .source-filters{position:relative;border:0;border-radius:0;background:#f7f8fa;padding:8px 16px 26px;margin:0;height:66px;min-height:66px;display:flex;flex-wrap:nowrap;align-items:flex-start;gap:32px;overflow-x:auto}
+.ai-label-reference-page .filter-error{position:absolute;left:16px;top:42px;margin:0;padding:0;font-size:12px;line-height:20px}
+.ai-label-reference-page .source-filters .field{display:flex;flex-direction:row;align-items:center;margin:0;padding:0!important;height:32px;gap:12px;flex:none}
+.ai-label-reference-page .source-filters .source-range-field{gap:8px}
+.ai-label-reference-page .quick-dates{order:-1;display:flex;gap:0;margin:0;padding:0!important;height:32px}
+.ai-label-reference-page .quick-dates button{height:32px;width:59.6px;min-width:0;padding:0;margin-left:-1px;border-width:.8px;border-radius:0;font:500 14px Arial,sans-serif;white-space:nowrap;box-sizing:border-box;flex:none}
+.ai-label-reference-page .quick-dates button:first-child{border-radius:4px 0 0 4px;margin-left:0}
+.ai-label-reference-page .quick-dates button:last-child{border-radius:0 4px 4px 0}
+.ai-label-reference-page .quick-dates button.selected{background:#00c4af;border-color:#00c4af;color:#fff}
+.ai-label-reference-page .source-filter-range{width:350px!important;height:32px}
+.ai-label-reference-page .source-filters .live-select{width:280px}
+.ai-label-reference-page .source-filters .filter-actions{gap:12px;margin:0;padding:0!important;height:32px;display:flex;flex:none}
+.ai-label-reference-page .source-filters .filter-actions button{padding:0 15px;font:500 14px Arial,sans-serif;gap:0}
+.ai-label-reference-page .source-filters .filter-actions button[type=submit]{width:73.6px;min-width:0;padding:0;background:#00c4af;border-color:#00c4af}.ai-label-reference-page .source-filters .filter-actions button[type=button]{width:59.6px;min-width:0;padding:0}
+.ai-label-reference-page .source-filters .ai-label-account>span{width:42px;font-size:14px}
+.ai-label-reference-page .source-filters button,.ai-label-reference-page .live-select-trigger{min-height:32px;height:32px}
+.ai-label-reference-page .ai-label-heading{display:flex;align-items:center;gap:10px;margin:16px 20px 12px;line-height:25.6px}
+.ai-label-reference-page .ai-label-heading strong{color:#1a1a1a;font-size:16px;font-weight:600}
+.ai-label-reference-page .ai-label-heading>span{color:#8a96a3;font-size:13px;line-height:20.8px}
+.ai-label-reference-page .ai-label-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 20px}
+.ai-label-reference-page .ai-label-card{border:1px solid #ebeef5;border-radius:8px;padding:20px 24px;height:131.2px;min-height:131.2px;box-sizing:border-box}
+.ai-label-reference-page .ai-label-title{color:#8a96a3;font-size:13px;line-height:20.8px}
+.ai-label-reference-page .ai-label-count{display:flex;align-items:baseline;gap:8px;margin-top:4px;line-height:41.6px;color:#8a96a3}
+.ai-label-reference-page .ai-label-count strong{font-size:32px;font-weight:700;line-height:41.6px;color:#00c4af}.ai-label-reference-page .ai-label-count strong.warning{color:#e6a23c}
+.ai-label-reference-page .ai-label-note{font-size:12px;line-height:19.2px;color:#c0c4cc;margin-top:4px}
+.ai-label-reference-page .ai-label-empty{margin:20px 20px 0;padding:40px 0;color:#909399;display:flex;flex-direction:column;align-items:center;gap:20px}.ai-label-reference-page .ai-label-empty img{display:block;width:160px;height:auto;margin:0}.ai-label-reference-page .ai-label-empty p{font-size:14px;font-weight:400;line-height:22.4px;margin:0;padding:0}
+.ai-label-reference-page .ai-label-empty[hidden],.ai-label-reference-page .ai-label-distributions[hidden],.ai-label-reference-page .ai-label-cards[hidden]{display:none}
+.ai-label-reference-page .ai-label-distributions{margin:0 20px 20px}.ai-label-reference-page .ai-label-section-heading{display:flex;align-items:center;gap:10px;margin:20px 0 12px;font-size:13px;line-height:24px}.ai-label-reference-page .ai-label-section-heading strong{font-size:14px;color:#303133}.ai-label-reference-page .ai-label-section-heading>span{color:#909399}
+.ai-label-reference-page .ai-label-panel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.ai-label-reference-page .ai-label-panel{border:1px solid #ebeef5;border-radius:8px;overflow:hidden}.ai-label-reference-page .ai-label-panel h3{margin:0;padding:14px 16px;border-bottom:1px solid #ebeef5;font-size:14px;line-height:22.4px;font-weight:600;color:#1a1a1a}.ai-label-reference-page .ai-label-distribution-rows{padding:4px 16px 8px}
+.ai-label-reference-page .ai-label-distribution-row{display:grid;grid-template-columns:22px 80px 36px minmax(0,1fr) 44px 35.5px;align-items:center;gap:10px;padding:10px 0;line-height:13px;border-bottom:1px solid #f0f2f5;font-size:13px;color:#1a1a1a}.ai-label-reference-page .ai-label-rank{display:inline-flex;width:22px;height:22px;align-items:center;justify-content:center;border-radius:4px;color:#8a96a3;font-size:12px;font-weight:600}.ai-label-reference-page .ai-label-rank.rank-1{color:#fff;background:#f56c6c}.ai-label-reference-page .ai-label-rank.rank-2{color:#fff;background:#e6a23c}.ai-label-reference-page .ai-label-rank.rank-3{color:#fff;background:#67c23a}.ai-label-reference-page .ai-label-dot{width:10px;height:10px;border-radius:50%;margin:0 6px;background:#c0c4cc}.ai-label-reference-page .ai-label-distribution-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ai-label-reference-page .ai-label-distribution-count{text-align:right;color:#4a5564}.ai-label-reference-page .ai-label-percent{text-align:right;color:#8a96a3;font-size:12px;line-height:12px}.ai-label-reference-page .ai-label-track{height:8px;background:#f0f2f5;border-radius:4px;overflow:hidden}.ai-label-reference-page .ai-label-fill{height:100%;border-radius:4px;background:#00c4af}.admin-content .ai-label-reference-page .ai-label-detail{border:0;padding:0!important;background:transparent;color:#00c4af;font-family:inherit;font-weight:400;font-size:12px;line-height:12px;white-space:nowrap;min-height:0;height:12px;min-width:0}
+.ai-label-reference-page .ai-label-distribution-row:last-child{border-bottom:0}.ai-label-reference-page .ai-label-count>span{font-size:14px;line-height:18.2px}
 .admin-content .ai-parity-page{padding:0!important;min-height:100vh;background:#fff;color:#4a5564;font-size:12px;font-family:var(--live-font,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif)}
 html:has(.ai-parity-page){scrollbar-width:none}
 html:has(.ai-parity-page)::-webkit-scrollbar{width:0}
@@ -37,7 +71,7 @@ html:has(.ai-parity-page)::-webkit-scrollbar{width:0}
 .admin-content .ai-validation{margin:6px 16px;color:#f56c6c;font-size:12px}
 .admin-content .ai-result-surface{margin:0;background:#f5f7fa;padding:12px 16px 0;min-height:calc(100vh - 72px)}
 .admin-content .ai-table-scroll{width:100%;overflow:auto;background:#fff;border:1px solid #ebeef5}
-.admin-content .ai-table{border-collapse:collapse;width:100%;min-width:1210px;table-layout:fixed;font-size:12px;color:#4a5564;background:#fff}
+.admin-content .ai-table{border-collapse:collapse;width:100%;min-width:1200px;table-layout:fixed;font-size:12px;color:#4a5564;background:#fff}
 .admin-content .ai-table th,.admin-content .ai-table td{padding:8px 12px;border:0;border-bottom:1px solid #ebeef5;text-align:left;line-height:24px;height:41.8px;font-size:12px;font-weight:400;vertical-align:middle;overflow-wrap:normal;white-space:normal}
 .admin-content .ai-table td{font-size:13px}
 .admin-content .ai-table th{height:40px;padding-top:7px;padding-bottom:7px;color:#4a5564;background:#fafbfc;position:relative;font-weight:500;white-space:nowrap}
@@ -61,6 +95,9 @@ html:has(.ai-parity-page)::-webkit-scrollbar{width:0}
 .ai-table th[aria-sort=descending] .down{border-top-color:#409eff}
 .ai-table th[aria-sort]{cursor:pointer}
 .admin-content .ai-table td.ai-empty{text-align:center;height:80px;color:#909399}
+.admin-content .ai-parity-page{height:100vh;overflow:hidden}
+.admin-content .ai-table-scroll{height:calc(100vh - 80px)}
+.admin-content .ai-parity-page .ai-snapshot-note{position:fixed;bottom:0;left:16px;margin:0;background:#fffffff0;font-size:11px;z-index:4}
 .ai-state{background:#fff;text-align:center;min-height:180px;padding:48px 20px;color:#909399;line-height:24px;border:1px solid #ebeef5}
 .ai-state button{display:block;margin:10px auto 0}
 .ai-state-note{font-size:12px;margin:8px 0 0;color:#909399}

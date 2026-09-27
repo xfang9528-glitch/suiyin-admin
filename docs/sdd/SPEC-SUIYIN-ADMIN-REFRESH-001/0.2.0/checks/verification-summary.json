@@ -1,0 +1,83 @@
+{
+  "generatedAt": "2026-09-27T06:35:58.537Z",
+  "dataPolicy": "Aggregate assertions and local artifact hashes only; no screenshots, DOM, identities, account or proxy configuration",
+  "approvedContractSha256": "583354e109f16f46757119e84646bbe8cd82346793ec5de03681701c70009384",
+  "approvedRulesSha256": "8845c0e083dd2703b6da321aed022ff3e9d0f413b313b45b3a22089d507b2534",
+  "approvedAcceptanceSha256": "123a5fac023d777952e009355c3cdc1a1bc324f7e5b3bfda5bcacdeaa2dd8979",
+  "approval": {
+    "by": "房总",
+    "date": "2026-09-27",
+    "decision": "通过，按此实施",
+    "publication": "完整推送"
+  },
+  "summaries": [
+    {
+      "sourceArtifact": "new-pages-check.json",
+      "sha256": "51eb81b6408a42593e47a711e4080a657945be7060ed17ba89129a8e61c003e3",
+      "status": "passed",
+      "checks": 8,
+      "pageCount": 25,
+      "errors": 0
+    },
+    {
+      "sourceArtifact": "new-pages-shell-check.json",
+      "sha256": "4d25f0e01802447e69b90ee57f9c6036c2fc40e26006beba7f67312b4b15adc5",
+      "status": "passed",
+      "errors": 0
+    },
+    {
+      "sourceArtifact": "checks/menu-refresh-migration-results.json",
+      "sha256": "a11acba2460c4ea0dbeea32c5d4be76d65d11dbd65592c90b6638d4c7fc17f10",
+      "status": "PASS",
+      "checks": 7
+    },
+    {
+      "sourceArtifact": "checks/new-page-navigation-status.json",
+      "sha256": "a757d99494ec07b02df77feb076dd709a5595d098e4f77e6203804a4d0a1e046",
+      "status": "PASS",
+      "pageCount": 25
+    },
+    {
+      "sourceArtifact": "checks/current-list-all-tenants-results.json",
+      "sha256": "461c638b39cc22c7f4924ed066c7911b270fb68be59ad4f4ff6756c346499edf",
+      "status": "PASS",
+      "summary": {
+        "pages": 410,
+        "measured": 395,
+        "special": 15,
+        "unmatched": 0,
+        "geometryOutliers": 0,
+        "errors": 0
+      }
+    },
+    {
+      "sourceArtifact": "checks/existing-structure-fixes-results.json",
+      "sha256": "2638f67cfabf1de1a1b32ef51e35cbfc1fcbb6349a0a754fbfe17fd8bb8f41bd",
+      "status": "PASS",
+      "checks": 36,
+      "errors": 0
+    },
+    {
+      "sourceArtifact": "checks/ai-label-distributions-results.json",
+      "sha256": "b2115f78f6b4558eef0808c40acd145ed68877db5120cf884871283976f964d1",
+      "status": "PASS",
+      "errors": 0
+    }
+  ],
+  "externalVerification": {
+    "inline": {
+      "reportPath": "docs/verification/live-refresh-20260927/inline-verification-report.md",
+      "reportSha256": "bc6e6570b32f6015e6c7e70881737bfae9403af52bed47b53acc4fb7e7f67d0a",
+      "resultsPath": "docs/verification/live-refresh-20260927/inline-current-checks.json",
+      "resultsSha256": "2a884525e023f57b4b58ec5e4150b82a0a7ca86a933bf4844fa23190c57b9719",
+      "artifact": "prototype/_shell_inline.html",
+      "artifactSha256": "e97077857c6ec44a0a4bcc35f6d3514a26e346ea9789c9519a266adaec2580c6",
+      "bytes": 10281976,
+      "status": "PASS",
+      "httpPassed": 105,
+      "filePassed": 22,
+      "errors": 0,
+      "externalRequests": 0
+    }
+  }
+}

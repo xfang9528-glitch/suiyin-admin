@@ -1,0 +1,277 @@
+{
+  "generatedAt": "2026-09-27T06:35:58.922Z",
+  "dataPolicy": "Public documentation search and hashes only; no private captures or local configuration",
+  "documents": [
+    {
+      "path": "README.md",
+      "sha256": "fd530555cb3573d6dde8f9ff4b64d02b43893370d2fd550e04080be40aefe8ce"
+    },
+    {
+      "path": "prd/admin-live-reference.md",
+      "sha256": "661318a2cfad6da8a431e7b524a028420ea538ccc9c3a0a4f5e03777de2766bc"
+    },
+    {
+      "path": "flowcharts/admin-live-reference.md",
+      "sha256": "01c6bb9bacec012e664b241882c0d36d5e154937871e968b6bb8900396ae03d2"
+    },
+    {
+      "path": "docs/design-spec.md",
+      "sha256": "ed5b0af10891c0ecd3bd7546b8811195c9618c9f95903e5d833af49c750df47a"
+    },
+    {
+      "path": "docs/verification/admin-live-reference.md",
+      "sha256": "792091207106a8543e676ea88d4ec40c6d4e9cc3d81c33a11e2a6a53d5f893d9"
+    },
+    {
+      "path": "prd/v1.1-modules-overview.md",
+      "sha256": "b745893c57ba511f0ceafc98e76899a35e03c785b1feac36991cb63d2544446e"
+    },
+    {
+      "path": "flowcharts/v1.1-sitemap.md",
+      "sha256": "3818af6492c1ba22907a1c320d63ed13b283b08e88fa7b5cd28b5c94b95bf64f"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "401add45d20cbe0eb4c98bab89271645ae3d676bccefffff4f2c55e06d769efb"
+    },
+    {
+      "path": "prd/friend-list.md",
+      "sha256": "e8a52666c56eda1d26790b4428a66c5930ef98573ac17261fa55452d79238bbb"
+    },
+    {
+      "path": "flowcharts/friend-list.md",
+      "sha256": "79ba5d3b746bf56d5f5cfaf622e2ca2b1913374cc607a792217d6dbcbeff3060"
+    },
+    {
+      "path": "docs/verification/public-data-audit.md",
+      "sha256": "d85690592c5134409702fc738a253879f48a5f2df28692a723362803ca587eb7"
+    },
+    {
+      "path": "docs/verification/live-refresh-20260927/README.md",
+      "sha256": "1a49638f34c8c9fc9569b2fa0b48ea9279358973273acb8444a12c50d0757a2e"
+    },
+    {
+      "path": "docs/verification/live-refresh-20260927/public-data-audit.md",
+      "sha256": "1c7fcb43ae024d074bcafa99cfa3bfbe181d6760843bfb455512d41a3f9d98d8"
+    }
+  ],
+  "searches": [
+    {
+      "id": "Q001",
+      "patterns": [
+        "765",
+        "752",
+        "85 种",
+        "85种",
+        "737"
+      ],
+      "scope": [
+        "README.md",
+        "prd/admin-live-reference.md",
+        "flowcharts/admin-live-reference.md",
+        "docs/design-spec.md",
+        "docs/verification/admin-live-reference.md",
+        "prd/v1.1-modules-overview.md",
+        "flowcharts/v1.1-sitemap.md",
+        "CLAUDE.md",
+        "prd/friend-list.md",
+        "flowcharts/friend-list.md",
+        "docs/verification/public-data-audit.md",
+        "docs/verification/live-refresh-20260927/README.md",
+        "docs/verification/live-refresh-20260927/public-data-audit.md"
+      ],
+      "method": "rg -n -e 765 -e 752 -e 85 种 -e 85种 -e 737 README.md prd/admin-live-reference.md flowcharts/admin-live-reference.md docs/design-spec.md docs/verification/admin-live-reference.md prd/v1.1-modules-overview.md flowcharts/v1.1-sitemap.md CLAUDE.md prd/friend-list.md flowcharts/friend-list.md docs/verification/public-data-audit.md docs/verification/live-refresh-20260927/README.md docs/verification/live-refresh-20260927/public-data-audit.md",
+      "matches": [
+        "docs/verification/live-refresh-20260927/public-data-audit.md:3:使用既有 `prototype/sanitize-public-data.mjs --check` 对最终数据候选检查，结果为0失败。脚本不包含737/752等旧页面数强制门槛，当前计数由实际数据读取。机器结果见[public-data-audit.json](public-data-audit.json)。",
+        "docs/verification/public-data-audit.md:14:3. 737 页 `.text` 不再保存原始整页采集文本：表格页从脱敏后的表头与单元格重建；话术页使用 8 个明确演示分类保持非空操作；其他非表格页只保留页面标题。",
+        "docs/verification/public-data-audit.md:23:| 租户 / 页面 / 表格行数 | 15 / 737 / 11245，处理前后保持一致 |",
+        "docs/verification/public-data-audit.md:33:| 导航校验 | 15 租户、737 入口、103 条点击证据，sourceTreeParity / scopeExclusions 全通过 |",
+        "docs/verification/public-data-audit.md:34:| 内容校验 | 737 页、83 路由、11245 行，来源对账 / 图表计算 / 隔离 / 语法 / 静态边界全通过 |",
+        "CLAUDE.md:40:9. 本轮15租户导航与741个可见源页已采，395个通用列表、15租户好友及专用页面按记录范围验证；当前结果见[公开摘要](docs/verification/live-refresh-20260927/README.md)。752入口等旧数字只作历史。未采图表点和展开状态仍未知，不用本地检查或发布成功宣称全部状态像素一致。",
+        "docs/verification/admin-live-reference.md:43:[2026-09-20像素纠偏](pixel-correction-20260920.md)、[筛选与冻结](filters-sticky-20260920.md)、[旧公开审计](public-data-audit.md)及旧版本化SDD均作为历史保留。737/752/765入口及83/84/85路由是对应历史库存，不能描述本轮当前状态；旧“无法在线复核”“瑞熙小周待登录”“艺星账号全部禁用”的缺口已由本轮具体证据替代。",
+        "prd/admin-live-reference.md:69:上一版全入口来源矩阵为 183 本租户采样、321 参考样本、237 合成演示、11 未采集，这是四页纠偏前的基线统计。本轮专用页面按各自新来源加载，不能把旧矩阵当作新的有效数据来源分布。原始内容采集另有 283/752 入口，其中 29 处为加载中、73 处确认空态；原始采集数量与可供公开运行的来源数量不是同一统计。",
+        "docs/design-spec.md:118:2026-09-27真实DOM/截图与本地Google Chrome采用同CSS视口及DPR。395个通用列表指定几何检查、15租户好友及专用统计的测量均在记录范围内通过，容差1 CSS px。字体栅格、业务行内容和未采展开不以全图像素相同验收；已批准的055冻结、菜单拖动和预约图表继续保留。详见[当前验收](verification/admin-live-reference.md)和[公开聚合摘要](verification/live-refresh-20260927/README.md)。752入口/665表格等数字仅在[2026-09-20历史记录](verification/filters-sticky-20260920.md)适用。",
+        "flowcharts/admin-live-reference.md:227:2026-09-27已采15租户导航及741个可见源页。395个通用列表、好友、统计和专用模块分别按同视口及DPR进行指定几何/交互检查，见[公开聚合摘要](../docs/verification/live-refresh-20260927/README.md)。未观察的展开状态、图表点和筛选区间仍有边界，不能用结构或发布回执宣称741页所有状态逐像素一致。752入口等2026-09-20数字仅作历史。"
+      ],
+      "exitCode": 0
+    },
+    {
+      "id": "Q002",
+      "patterns": [
+        "v2026091804",
+        "页签与内容间距 15",
+        "连接及访问授权未完成",
+        "待登录",
+        "未授权完整推送"
+      ],
+      "scope": [
+        "README.md",
+        "prd/admin-live-reference.md",
+        "flowcharts/admin-live-reference.md",
+        "docs/design-spec.md",
+        "docs/verification/admin-live-reference.md",
+        "prd/v1.1-modules-overview.md",
+        "flowcharts/v1.1-sitemap.md",
+        "CLAUDE.md",
+        "prd/friend-list.md",
+        "flowcharts/friend-list.md",
+        "docs/verification/public-data-audit.md",
+        "docs/verification/live-refresh-20260927/README.md",
+        "docs/verification/live-refresh-20260927/public-data-audit.md"
+      ],
+      "method": "rg -n -e v2026091804 -e 页签与内容间距 15 -e 连接及访问授权未完成 -e 待登录 -e 未授权完整推送 README.md prd/admin-live-reference.md flowcharts/admin-live-reference.md docs/design-spec.md docs/verification/admin-live-reference.md prd/v1.1-modules-overview.md flowcharts/v1.1-sitemap.md CLAUDE.md prd/friend-list.md flowcharts/friend-list.md docs/verification/public-data-audit.md docs/verification/live-refresh-20260927/README.md docs/verification/live-refresh-20260927/public-data-audit.md",
+      "matches": [
+        "docs/verification/admin-live-reference.md:43:[2026-09-20像素纠偏](pixel-correction-20260920.md)、[筛选与冻结](filters-sticky-20260920.md)、[旧公开审计](public-data-audit.md)及旧版本化SDD均作为历史保留。737/752/765入口及83/84/85路由是对应历史库存，不能描述本轮当前状态；旧“无法在线复核”“瑞熙小周待登录”“艺星账号全部禁用”的缺口已由本轮具体证据替代。",
+        "docs/design-spec.md:38:- 内容距侧栏右缘 20px，页签高 40px，页签与内容间距 15px。文档根、工作区与内容 iframe 的空余背景统一为白色，避免短页下方露出灰底。窄窗保留侧栏收起、遮罩、焦点和页签关闭重开。"
+      ],
+      "exitCode": 0
+    },
+    {
+      "id": "Q003",
+      "patterns": [
+        "REFRESH-001",
+        "recordingAdmin",
+        "goodNewsSettings",
+        "goodNewsRecords",
+        "741",
+        "783",
+        "796"
+      ],
+      "scope": [
+        "README.md",
+        "prd/admin-live-reference.md",
+        "flowcharts/admin-live-reference.md",
+        "docs/design-spec.md",
+        "docs/verification/admin-live-reference.md",
+        "prd/v1.1-modules-overview.md",
+        "flowcharts/v1.1-sitemap.md",
+        "CLAUDE.md",
+        "prd/friend-list.md",
+        "flowcharts/friend-list.md",
+        "docs/verification/public-data-audit.md",
+        "docs/verification/live-refresh-20260927/README.md",
+        "docs/verification/live-refresh-20260927/public-data-audit.md"
+      ],
+      "method": "rg -n -e REFRESH-001 -e recordingAdmin -e goodNewsSettings -e goodNewsRecords -e 741 -e 783 -e 796 README.md prd/admin-live-reference.md flowcharts/admin-live-reference.md docs/design-spec.md docs/verification/admin-live-reference.md prd/v1.1-modules-overview.md flowcharts/v1.1-sitemap.md CLAUDE.md prd/friend-list.md flowcharts/friend-list.md docs/verification/public-data-audit.md docs/verification/live-refresh-20260927/README.md docs/verification/live-refresh-20260927/public-data-audit.md",
+      "matches": [
+        "README.md:3:这是十五租户的静态管理后台原型，用于对照真实页面、评审操作和统计规则。2026-09-27 当前登记 **15 个租户、796 个租户×页面入口、88 种路由**。其中783个入口属于本轮源环境采集队列，741个可见页面已有有效DOM和截图，42个保持源隐藏状态；另13个为既有批准的AI费用原型扩展。采集覆盖不等于全部页面、全部状态逐像素一致。",
+        "README.md:7:- [好友列表](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=customerManagement) · [录音管理](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=rxxz&page=recordingAdmin) · [喜报设置](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-hz&page=goodNewsSettings)",
+        "README.md:9:- [本轮交付合同](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md) · [公开验证摘要](docs/verification/live-refresh-20260927/README.md) · [公开样本审计](docs/verification/live-refresh-20260927/public-data-audit.md)",
+        "README.md:29:| [REFRESH-001@0.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md) | 录音与喜报三新页面、对应入口迁移、本地演示及证据边界；既有页面继续各自原合同 |",
+        "docs/verification/live-refresh-20260927/README.md:3:本目录仅保存可以公开的聚合结论，不含源截图、客户行、DOM原文、浏览器会话、代理设置或本机账号路径。运行类型为`static-html`；正式合同为[REFRESH-001@0.2.0](../../sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)。",
+        "docs/verification/live-refresh-20260927/README.md:5:- 登记范围：15租户、796入口、88路由。",
+        "docs/verification/live-refresh-20260927/README.md:6:- 来源覆盖：783个源队列入口，741个可见页有效采集、42个源隐藏；13个已批准原型扩展不冒充源页面。",
+        "flowcharts/friend-list.md:3:更新：2026-09-27。当前路由为 `customerManagement` 与 `yxCustomerList`，按租户来源分别实现；旧独立页流程已 [归档](../docs/history/before-admin-wide-alignment/README.md)。好友流程继续依051@1.1.0、055@1.1.0、056@1.0.0；REFRESH-001@0.2.0只承接录音/喜报三新页及对应入口迁移，不能用于证明好友未采集展开已完成。",
+        "CLAUDE.md:3:2026-09-27新增录音/喜报三页及对应入口迁移由[REFRESH-001@0.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)承接；当前基线为 SPEC-SUIYIN-ADMIN-051@1.1.0；本轮销售变声统计 052@1.2.0、使用统计纠偏 053@1.0.2、全页对齐 054@1.0.0、055@1.1.0、056@1.0.0 分别拥有自己的行为范围；AI费用、分类趋势与专属模型执行 058@1.2.0。预约记录总量、每日柱形与期间累计折线执行062@1.0.0；仅现有四个入口，保留默认列表及全量筛选，源样本与合成演示分离。先读 README.md、docs/design-spec.md 和相应版本化 SDD。050 仅在未被后续合同替代的导航范围内适用。当前筛选与表头冻结见 [验收记录](docs/verification/filters-sticky-20260920.md)；上一轮四页截图纠偏与证据边界见 [发布勘误](docs/sdd/pixel-correction-20260920.md) 和 [实测记录](docs/verification/pixel-correction-20260920.md)。",
+        "CLAUDE.md:32:1. 15租户、796页面入口、88路由为当前登记范围；783个源队列入口中741可见已采、42保持隐藏，另13个为批准AI费用扩展；不从平台目录或 PC ENV_ORDER 增加环境。",
+        "CLAUDE.md:40:9. 本轮15租户导航与741个可见源页已采，395个通用列表、15租户好友及专用页面按记录范围验证；当前结果见[公开摘要](docs/verification/live-refresh-20260927/README.md)。752入口等旧数字只作历史。未采图表点和展开状态仍未知，不用本地检查或发布成功宣称全部状态像素一致。",
+        "prd/friend-list.md:3:更新：2026-09-27。当前 Shell 使用 `customerManagement` 与 `yxCustomerList`，按各租户真实菜单选取路由。好友行为和界面对齐继续依 051@1.1.0、055@1.1.0、056@1.0.0，见 [主 PRD](admin-live-reference.md)；REFRESH-001@0.2.0只承接本轮录音/喜报三新页及对应入口迁移。旧 `/friend/list`、`friend_list_v1.0.html` 和 PC 筛选移植文档已转为 [历史记录](../docs/history/before-admin-wide-alignment/README.md)，不作为当前 Shell 的完整展开规范。",
+        "docs/verification/admin-live-reference.md:3:更新：2026-09-27。当前合同为[REFRESH-001@0.2.0](../sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)，既有052/053统计、055冻结、060/068菜单及062图表合同继续有效。这里记录静态原型的本地事实；发布是否完成以release.json、提交/tag及部署回执为准。",
+        "docs/verification/admin-live-reference.md:7:15租户、796个登记入口、88路由。783个入口属于源采集队列：741可见页已有有效DOM和截图，42按来源保持隐藏；另13个为批准的AI费用原型扩展。瑞熙小周45页已补齐，不再以早期停留登录页判定为未登录。有效证据使用同一轮最新完整状态；旧加载中或空白截图不计入完成数。",
+        "docs/verification/admin-live-reference.md:9:这三个数量口径彼此不同：796是登记库存；741是已采可见源页；771是通用内容JSON中的页面，另25个录音/喜报由独立数据模块承接。不得把任一数字当作所有交互状态的视觉验收数。",
+        "docs/verification/admin-live-reference.md:35:- 没有宣称741页所有状态逐像素100%相同；只证明记录中实际测量的区域、尺寸和操作。",
+        "docs/design-spec.md:3:更新：2026-09-27。本轮录音/喜报三新页、对应入口迁移及本地演示边界执行[REFRESH-001@0.2.0](sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)。各租户菜单拖动及平台/租户优先级执行068@1.0.0；平台拖动继续执行060@1.1.0。预约图表执行062@1.0.0；基线为 051@1.1.0；销售变声统计执行 052@1.2.0，销售使用统计执行 053@1.0.2，全管理页对齐执行 054@1.0.0、055@1.1.0、056@1.0.0；AI费用、分类趋势与专属模型执行058@1.2.0。沿用已确认的使用/变声筛选及 055 R005 全管理表格冻结；[四页发布勘误](sdd/pixel-correction-20260920.md) 保留截图呈现与来源边界。本文替代旧主按钮一律青绿、通用列表和统一分页等推断；不改变各业务统计口径。",
+        "docs/design-spec.md:7:当前登记15租户、796个页面入口、88种路由；源队列783个入口中741可见页已采、42保持源隐藏。AI费用统计覆盖已有 AI 管理父级的 13 个租户。2026-09-18 保存的 UI 资料覆盖 61 种路由、19 种编辑弹窗、2 种整页编辑；65 个菜单名称、64 个按钮名称拥有 SVG 映射，这些数量不是唯一图形数，也不表示所有租户已采集。",
+        "prd/admin-live-reference.md:3:更新：2026-09-27。新增录音/喜报三页、对应入口迁移及本地演示边界执行 [REFRESH-001@0.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)；既有页面刷新继续原合同。各租户菜单拖动与导航联动执行068@1.0.0，平台拖动继续按060@1.1.0；预约记录图表按062@1.0.0。本文件汇总已批准合同，不另立业务规则：051@1.1.0 为十五租户基线；052@1.2.0 为销售变声统计；053@1.0.2 为销售使用统计；054@1.0.0、055@1.1.0、056@1.0.0 为全管理页证据对齐；058@1.2.0 为AI费用、分类趋势与专属模型。版本化合同从 [README](../README.md) 进入；四页截图恢复的历史边界见 [2026-09-20 发布勘误](../docs/sdd/pixel-correction-20260920.md)。",
+        "prd/admin-live-reference.md:9:范围为十五租户：佰智德三、锦帛美学、萌爪、诚如风险管理事务所、厚全鸡蛋、柚子烘焙；瑞熙小刘、小温、小周；艺星成都、深圳、北京、广州、杭州、嘉兴。当前库存为 **796 个租户页面入口、88 种路由**。其中783个为源环境队列，741个可见页有有效DOM与截图，42个按源隐藏；另13个为既有AI费用原型扩展。截图排除项、碎银私域和不可访问环境不新增纳入。各租户保留自己的可用入口、权限和独立显示配置；菜单表和侧栏按068共用有效完整树。平台allMenu提供默认顺序和归属，租户明确调过的同级列表及被移动项父级优先；平台当前祖先链隐藏/删除和既有权限始终约束可见导航。",
+        "prd/admin-live-reference.md:81:数据、DOM、交互、视觉和远端发布分别记录结论。本轮15租户的当前导航及741个可见源页采集完成；395个通用列表实际几何检查、15租户好友、54个专用主体与统计尾差分别验证。几何容差1 CSS px，不把采集完成或本地结构通过解释为全部状态像素一致。当前数据与限制见 [2026-09-27公开摘要](../docs/verification/live-refresh-20260927/README.md)；[2026-09-20冻结记录](../docs/verification/filters-sticky-20260920.md)只证明当时范围。",
+        "flowcharts/admin-live-reference.md:3:更新：2026-09-27。录音/喜报三新页、对应入口迁移与本地演示边界执行 [REFRESH-001@0.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)，既有页面刷新继续原合同。普通菜单与平台/租户优先级执行068@1.0.0，平台拖动继续060@1.1.0；预约记录图表按062@1.0.0。静态原型共15租户、796入口、88路由；其余合同为051@1.1.0、052@1.2.0、053@1.0.2、054@1.0.0、055@1.1.0、056@1.0.0、058@1.2.0，见[合同入口](../README.md)。以下流程均不写真实后台。",
+        "flowcharts/admin-live-reference.md:218:    DOM[本轮741可见源页DOM与截图 42入口源隐藏] --> Structure[证明加载和指定结构]",
+        "flowcharts/admin-live-reference.md:227:2026-09-27已采15租户导航及741个可见源页。395个通用列表、好友、统计和专用模块分别按同视口及DPR进行指定几何/交互检查，见[公开聚合摘要](../docs/verification/live-refresh-20260927/README.md)。未观察的展开状态、图表点和筛选区间仍有边界，不能用结构或发布回执宣称741页所有状态逐像素一致。752入口等2026-09-20数字仅作历史。"
+      ],
+      "exitCode": 0
+    },
+    {
+      "id": "Q004",
+      "patterns": [
+        "054",
+        "055",
+        "058",
+        "062",
+        "068",
+        "历史"
+      ],
+      "scope": [
+        "README.md",
+        "prd/admin-live-reference.md",
+        "flowcharts/admin-live-reference.md",
+        "docs/design-spec.md",
+        "docs/verification/admin-live-reference.md",
+        "prd/v1.1-modules-overview.md",
+        "flowcharts/v1.1-sitemap.md",
+        "CLAUDE.md",
+        "prd/friend-list.md",
+        "flowcharts/friend-list.md",
+        "docs/verification/public-data-audit.md",
+        "docs/verification/live-refresh-20260927/README.md",
+        "docs/verification/live-refresh-20260927/public-data-audit.md"
+      ],
+      "method": "rg -n -e 054 -e 055 -e 058 -e 062 -e 068 -e 历史 README.md prd/admin-live-reference.md flowcharts/admin-live-reference.md docs/design-spec.md docs/verification/admin-live-reference.md prd/v1.1-modules-overview.md flowcharts/v1.1-sitemap.md CLAUDE.md prd/friend-list.md flowcharts/friend-list.md docs/verification/public-data-audit.md docs/verification/live-refresh-20260927/README.md docs/verification/live-refresh-20260927/public-data-audit.md",
+      "matches": [
+        "docs/verification/live-refresh-20260927/README.md:28:这些本地证据不替代远端提交、tag、离线生成物和部署验收；最终状态以[release.json](../../../release.json)及发布回执为准。机器聚合见[summary.json](summary.json)，原始测量和真实截图不在公开仓。历史证据入口见[当前验收记录](../admin-live-reference.md)。",
+        "README.md:33:| [054@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-054/1.0.0/README.md)、[055@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-055/1.1.0/README.md)、[056@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-056/1.0.0/README.md) | 页面证据、筛选与表头冻结、领域结构 |",
+        "README.md:34:| [060@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/README.md)、[068@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/README.md) | 平台默认结构、各租户菜单拖动、局部覆盖与同租户导航联动 |",
+        "README.md:35:| [062@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/README.md) | 四个既有预约入口的列表/总量/柱线组合图 |",
+        "README.md:36:| [058@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/README.md) | 13租户AI费用、82天固定合成样本、分类趋势与模型 |",
+        "README.md:48:当前候选的提交、tag、单文件验收和远端部署以 [release.json](release.json) 与实际发布回执为准；上述链接不单独证明本轮已部署。旧 [2026-09-20纠偏](docs/verification/pixel-correction-20260920.md)、[冻结验收](docs/verification/filters-sticky-20260920.md) 和版本化SDD仅证明各自当时范围。旧主题及好友独立页见 [历史入口](docs/history/before-admin-live-reference/README.md)，不作为当前Shell实现指令。",
+        "flowcharts/friend-list.md:3:更新：2026-09-27。当前路由为 `customerManagement` 与 `yxCustomerList`，按租户来源分别实现；旧独立页流程已 [归档](../docs/history/before-admin-wide-alignment/README.md)。好友流程继续依051@1.1.0、055@1.1.0、056@1.0.0；REFRESH-001@0.2.0只承接录音/喜报三新页及对应入口迁移，不能用于证明好友未采集展开已完成。",
+        "docs/verification/public-data-audit.md:3:> 历史审计：以下结论仅适用于2026-09-19候选。2026-09-27当前结果见[公开样本发布审计](live-refresh-20260927/public-data-audit.md)；导航来源URL查询参数已另行清理，不再沿用旧“整文件字节一致”结论。",
+        "prd/friend-list.md:3:更新：2026-09-27。当前 Shell 使用 `customerManagement` 与 `yxCustomerList`，按各租户真实菜单选取路由。好友行为和界面对齐继续依 051@1.1.0、055@1.1.0、056@1.0.0，见 [主 PRD](admin-live-reference.md)；REFRESH-001@0.2.0只承接本轮录音/喜报三新页及对应入口迁移。旧 `/friend/list`、`friend_list_v1.0.html` 和 PC 筛选移植文档已转为 [历史记录](../docs/history/before-admin-wide-alignment/README.md)，不作为当前 Shell 的完整展开规范。",
+        "CLAUDE.md:3:2026-09-27新增录音/喜报三页及对应入口迁移由[REFRESH-001@0.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)承接；当前基线为 SPEC-SUIYIN-ADMIN-051@1.1.0；本轮销售变声统计 052@1.2.0、使用统计纠偏 053@1.0.2、全页对齐 054@1.0.0、055@1.1.0、056@1.0.0 分别拥有自己的行为范围；AI费用、分类趋势与专属模型执行 058@1.2.0。预约记录总量、每日柱形与期间累计折线执行062@1.0.0；仅现有四个入口，保留默认列表及全量筛选，源样本与合成演示分离。先读 README.md、docs/design-spec.md 和相应版本化 SDD。050 仅在未被后续合同替代的导航范围内适用。当前筛选与表头冻结见 [验收记录](docs/verification/filters-sticky-20260920.md)；上一轮四页截图纠偏与证据边界见 [发布勘误](docs/sdd/pixel-correction-20260920.md) 和 [实测记录](docs/verification/pixel-correction-20260920.md)。",
+        "CLAUDE.md:33:2. 同名菜单按稳定 route/identity 区分；菜单表与导航由同一有效完整树派生，隐藏库存独立保留。DR-095：数据展示新增项同次补齐适用租户菜单管理和已有平台定义。普通 menu 按 068@1.0.0 在全部 15 租户支持一级整组、二级组内/跨组拖动，六列顺序只读，编辑不再输入排序号；成功、撤销、刷新联动本租户侧栏。060@1.1.0 的平台拖动继续有效；平台提供默认顺序与归属，租户明确调整过的同级列表及被跨组移动项的父级按 068 优先，其余继续跟平台。平台当前祖先链隐藏/删除及原权限独立生效，不能通过跨组绕过。旧060版本包保持历史，不用于否定068的限定覆盖。原型15租户是验证清单，不是生产白名单。",
+        "CLAUDE.md:40:9. 本轮15租户导航与741个可见源页已采，395个通用列表、15租户好友及专用页面按记录范围验证；当前结果见[公开摘要](docs/verification/live-refresh-20260927/README.md)。752入口等旧数字只作历史。未采图表点和展开状态仍未知，不用本地检查或发布成功宣称全部状态像素一致。",
+        "CLAUDE.md:43:11. AI费用统计按 058@1.2.0：13 个已有 AI 父级的租户追加同一 aiCostStats；jbfs/hqjd不新增父级。四列为分析项目、专属模型、分析次数、费用；固定 2026-07-01 至 09-20 共 82 天。类别只影响趋势，表格保持五类；金额未知不为零，业务次数不等于模型请求或辅助消息数。模型使用记录快照；10份reference配置标演示，不编版本或独占训练能力。工程执行只回链058 Handoff，不复用052的Issue授权和范围。",
+        "CLAUDE.md:45:旧主题、菜单及好友独立页已归档，只解释历史。当前指令以本文件、设计规范和对应精确版本合同为准。",
+        "flowcharts/v1.1-sitemap.md:1:# 管理后台 v1.1 流程（历史入口）",
+        "flowcharts/v1.1-sitemap.md:3:本图属于旧原型，当前主线已由 SPEC-SUIYIN-ADMIN-051@1.1.0 取代。旧全文在 [历史归档](../docs/history/before-admin-live-reference/flowcharts--v1.1-sitemap.md)，不再作为当前租户切换、菜单分配或发送能力的依据。",
+        "flowcharts/admin-live-reference.md:3:更新：2026-09-27。录音/喜报三新页、对应入口迁移与本地演示边界执行 [REFRESH-001@0.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)，既有页面刷新继续原合同。普通菜单与平台/租户优先级执行068@1.0.0，平台拖动继续060@1.1.0；预约记录图表按062@1.0.0。静态原型共15租户、796入口、88路由；其余合同为051@1.1.0、052@1.2.0、053@1.0.2、054@1.0.0、055@1.1.0、056@1.0.0、058@1.2.0，见[合同入口](../README.md)。以下流程均不写真实后台。",
+        "flowcharts/admin-live-reference.md:29:原始快照中的加载中不能判成确认空态。新窗口被浏览器阻止时提供目标链接。参考内容不授权跨租户借入实体选项；销售使用统计和 AI辅助统计没有参考租户数据回退。四页旧默认视图保留为历史，见 [2026-09-20发布勘误](../docs/sdd/pixel-correction-20260920.md)。",
+        "flowcharts/admin-live-reference.md:63:    Scope -->|普通menu| Edit[按068拖动整组或二级跨组 编辑显示或权限 查看记录]",
+        "flowcharts/admin-live-reference.md:161:本轮拉新确认空态按7租户各自已采日期和条件保存；09-18/09-20的深圳证据仅作历史，其他日期和筛选不推断。消息占比深圳数据窗口仍为 09-12 至 18，不把参考截图 09-14 至 20 的总量混入。AI 22 行为截图完整可见部分，部门拆分缺采不能归给首部门。详见 [AI 流程](ai-assisted-message-stats.md)。",
+        "flowcharts/admin-live-reference.md:165:「AI管理 → AI费用统计」仅复用13个已有父级，菜单隐藏与本地直链门禁一致。提交日期后，图表、五类四列表格及合计共用82天固定样本；指标与类别仅重绘趋势，模型来自查询记录快照。未知费用、部分值和缺日期各自表达，不补成零或完整实线。完整查询、计数费用与模型链路见 [费用交互流程](ai-cost-stats.md)，业务合同为 [058@1.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/spec.md)。",
+        "flowcharts/admin-live-reference.md:227:2026-09-27已采15租户导航及741个可见源页。395个通用列表、好友、统计和专用模块分别按同视口及DPR进行指定几何/交互检查，见[公开聚合摘要](../docs/verification/live-refresh-20260927/README.md)。未观察的展开状态、图表点和筛选区间仍有边界，不能用结构或发布回执宣称741页所有状态逐像素一致。752入口等2026-09-20数字仅作历史。",
+        "prd/v1.1-modules-overview.md:1:# 管理后台 v1.1 概览（历史入口）",
+        "prd/v1.1-modules-overview.md:3:本文件对应2026年5–8月旧原型阶段，当前主线已由 SPEC-SUIYIN-ADMIN-051@1.1.0 取代。旧全文保存在 [历史归档](../docs/history/before-admin-live-reference/prd--v1.1-modules-overview.md)，其中共用菜单、旧十六租户、同页 iframe 重载、微信绿/白头和默认空样本不能用于当前 Shell。",
+        "docs/design-spec.md:3:更新：2026-09-27。本轮录音/喜报三新页、对应入口迁移及本地演示边界执行[REFRESH-001@0.2.0](sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)。各租户菜单拖动及平台/租户优先级执行068@1.0.0；平台拖动继续执行060@1.1.0。预约图表执行062@1.0.0；基线为 051@1.1.0；销售变声统计执行 052@1.2.0，销售使用统计执行 053@1.0.2，全管理页对齐执行 054@1.0.0、055@1.1.0、056@1.0.0；AI费用、分类趋势与专属模型执行058@1.2.0。沿用已确认的使用/变声筛选及 055 R005 全管理表格冻结；[四页发布勘误](sdd/pixel-correction-20260920.md) 保留截图呈现与来源边界。本文替代旧主按钮一律青绿、通用列表和统一分页等推断；不改变各业务统计口径。",
+        "docs/design-spec.md:23:| 主要正文/表格 | #606266；AI 专用表格 #4a5564 |",
+        "docs/design-spec.md:41:- 068@1.0.0：先由本租户完整库存和平台当前默认结构生成有效树，再覆盖租户明确调整的同级列表顺序及被跨组移动项的父级；菜单表与可见导航共用此树。一级排序不冻结二级组，组内排序不冻结未移动项的父级；新进入成员按平台有效顺序追加，缺失项不造节点。平台当前祖先链的隐藏、删除和租户原权限独立限制可见性，跨组不能绕过；平台显示不解除租户独立隐藏。目标父级失效时保留覆盖、提示并暂用默认归属，恢复有效后重新应用。切换租户新开对应本地页面，弹页受阻提供链接。",
+        "docs/design-spec.md:42:- DR-095 要求数据展示新增项同步菜单管理及已有平台定义；稳定身份、名称、路由、默认父级保持一致。普通 menu 的排序、归属、独立隐藏及权限只作用本租户；平台 allMenu 继续影响全部租户的默认部分，068 已明确调整的局部顺序与父级优先。平台060历史包中的普通menu排除和无条件覆盖不再作为当前规则。",
+        "docs/design-spec.md:44:普通菜单专用树在历史同租户、1480×1540 CSS 像素视口下已测得：",
+        "docs/design-spec.md:56:普通菜单按 [068@1.0.0](sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md) 保留名称、超级权限、状态、顺序、空白弹性列、操作六列；“顺序”为完整同层库存的只读 1…N，收起或隐藏不重排编号。名称左侧复用平台手柄，一级携全部子项移动，二级支持组内和跨一级移动，直接落在一级上追加末尾。空一级保留；携页一级接收子项后仍保留自身页面入口。编辑蓝、删除红、记录灰，名称继续只读；编辑中的数值排序框替换为“由列表拖动调整”。保留树、开关、文本状态、固定右操作和空白，不增加通用筛选、分页、刷新或列设置。",
+        "docs/design-spec.md:58:普通与平台菜单复用落点插入线、目标文字、分支拖影、约6px启动阈值、600ms悬停展开、40px边缘滚动区和键盘/桌面触控交互；表头冻结与行操作保持可用。普通菜单成功提示“已保存，本租户导航已更新（本地原型）”，同租户已开窗口即时更新且保留仍可见业务页。排序、父级覆盖与记录作为同一成功状态保存，失败不传播；最近一次移动可撤销并恢复其覆盖，刷新、后续数据修改或外部相关修改使旧撤销失效。展开、滚动、打开后取消弹窗不使撤销失效。旧数字顺序沿原语义接续，不误当新版拖动意图。历史深层分支完整保留并禁用相关拖动；重复身份/路由异常保留原数据，当前实现暂禁整树拖动并明确冲突原因，安全导航仍执行平台限制及既有租户覆盖。",
+        "docs/design-spec.md:74:列宽、对齐、是否可排序依对应采样 profile；数值按来源对齐，不一律居中。空字符串与空白弹性列保留为空，不补破折号或详情链接。批量按钮在未选择时禁用。只在来源存在时显示分页、刷新、列设置、查询和选择，不向普通统计页插入推算的汇总卡。预约记录依据房总明确要求和 [062@1.0.0](sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/spec.md) 增加一个预约总量及柱线组合图，这是本页显式例外，不推广到其他统计页。",
+        "docs/design-spec.md:80:销售变声统计保留与使用统计共享的分段、日历、快捷日、部门与搜索/重置/导出，并补回本轮已见的销售姓名筛选，1486px源视口下为两行120px筛选区。历史同结构筛选截图字节一致仅适用于2026-09-20版本，不能作为本轮新增姓名框后的整区相同声明。业务列仍是序号、销售、部门、变声使用次数，保留次数排序、20 条默认分页及全筛选导出；使用统计的消息/好友列及无分页结构不迁入变声页。",
+        "docs/design-spec.md:86:执行 [058@1.2.0](sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/spec.md)。日期复用单日/范围、共用日历、今天/昨天/前天、搜索与重置，不迁入部门或导出。筛选和已应用日期分离，查询后图表、四列表格与合计来自同一结果。当前日期继续上海今天；样本固定2026-07-01至2026-09-20共82天，不随刷新滚动。",
+        "docs/design-spec.md:88:表格列为分析项目、专属模型、分析次数、费用（元）；五类顺序固定，数值右对齐、合计在tfoot，完整表头沿用共享冻结。当前局部实现表格最小宽760px，窄窗横向滚动；正文14px/23px，单元格内边距14px 18px；不改变其他表格。模型品牌名为14px/600、#008f83，用途以辅助色说明，参考模型使用“演示配置”标记。多个记录模型并列，模型缺失不借当前配置补成历史。",
+        "docs/design-spec.md:92:模型名沿用深圳星瞳/星鉴/星程/星语和其他来源的碎银·用途命名，画像与上下文可共用一个模型；无版本不造版本。10份参考配置只作为演示配置，不声称真实历史调用、自研基座、租户独占或定向训练。金额未知、真实零、小于0.01元、项目归类不完整与缺日期分别表达；客户费用不混入供应商成本。详见 [费用产品说明](../prd/ai-cost-stats.md)。",
+        "docs/design-spec.md:96:- **拉新记录**：本轮7租户各自已采确认空态；32px控件，具体字段和列宽按本租户来源。深圳历史日期260px、微信号240px、重复添加/好友状态各120px仅用于对应布局。查询、重置、绿色描边导出位于第二行。七列表格充满余下视口，白色空态和右下分页保留。列宽按当前实测结果，不复用销售使用表；好友弹层与触发器对齐。微信号及重复添加仅展示已采选项，不能补猜。",
+        "docs/design-spec.md:100:以上专用值须与对应来源日期和视口一同使用；2026-09-27的有效几何与尾差结论以[本轮公开摘要](verification/live-refresh-20260927/README.md)为准，不把历史数值套到新租户或宽度。",
+        "docs/design-spec.md:118:2026-09-27真实DOM/截图与本地Google Chrome采用同CSS视口及DPR。395个通用列表指定几何检查、15租户好友及专用统计的测量均在记录范围内通过，容差1 CSS px。字体栅格、业务行内容和未采展开不以全图像素相同验收；已批准的055冻结、菜单拖动和预约图表继续保留。详见[当前验收](verification/admin-live-reference.md)和[公开聚合摘要](verification/live-refresh-20260927/README.md)。752入口/665表格等数字仅在[2026-09-20历史记录](verification/filters-sticky-20260920.md)适用。",
+        "prd/admin-live-reference.md:3:更新：2026-09-27。新增录音/喜报三页、对应入口迁移及本地演示边界执行 [REFRESH-001@0.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)；既有页面刷新继续原合同。各租户菜单拖动与导航联动执行068@1.0.0，平台拖动继续按060@1.1.0；预约记录图表按062@1.0.0。本文件汇总已批准合同，不另立业务规则：051@1.1.0 为十五租户基线；052@1.2.0 为销售变声统计；053@1.0.2 为销售使用统计；054@1.0.0、055@1.1.0、056@1.0.0 为全管理页证据对齐；058@1.2.0 为AI费用、分类趋势与专属模型。版本化合同从 [README](../README.md) 进入；四页截图恢复的历史边界见 [2026-09-20 发布勘误](../docs/sdd/pixel-correction-20260920.md)。",
+        "prd/admin-live-reference.md:9:范围为十五租户：佰智德三、锦帛美学、萌爪、诚如风险管理事务所、厚全鸡蛋、柚子烘焙；瑞熙小刘、小温、小周；艺星成都、深圳、北京、广州、杭州、嘉兴。当前库存为 **796 个租户页面入口、88 种路由**。其中783个为源环境队列，741个可见页有有效DOM与截图，42个按源隐藏；另13个为既有AI费用原型扩展。截图排除项、碎银私域和不可访问环境不新增纳入。各租户保留自己的可用入口、权限和独立显示配置；菜单表和侧栏按068共用有效完整树。平台allMenu提供默认顺序和归属，租户明确调过的同级列表及被移动项父级优先；平台当前祖先链隐藏/删除和既有权限始终约束可见导航。",
+        "prd/admin-live-reference.md:22:| AI费用统计 | 13个已有AI管理父级的租户；单日/范围、分类趋势、82天样本与专属模型四列表格 | 客户费用、业务次数和模型请求分开；未知不当零，配置不冒充历史调用 |",
+        "prd/admin-live-reference.md:36:- 以首次成功自然日、发起销售稳定身份及当时部门归属汇总，多工作账号归同一销售；不按显示名合并，不因转组改写历史。",
+        "prd/admin-live-reference.md:39:**DR-095**：今后「数据展示」新增二级菜单，同次必须增加对应租户菜单管理项和已有平台定义。稳定身份、名称、路由和默认父级一致；隐藏后仍在完整库存可恢复。普通menu按068的拖动顺序、归属、显示配置联动同租户侧栏，平台allMenu按060提供全部租户的默认规则；068的明确局部覆盖优先，平台隐藏/删除及已有页面和权限边界保持有效。",
+        "prd/admin-live-reference.md:53:行为合同为 [058@1.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/spec.md)。从「AI管理 → AI费用统计」查看标签、画像、上下文、沟通进度和辅助回复的次数、模型与费用，日期只按单日/范围；分类仅作用于上方趋势图。固定82天合成样本及未知/缺日期/参考模型边界见 [费用产品说明](ai-cost-stats.md) 和 [交互流程](../flowcharts/ai-cost-stats.md)。锦帛美学、厚全鸡蛋不新增缺失的AI父级。原AI辅助消息统计仍按009，只表示消息来源构成。",
+        "prd/admin-live-reference.md:57:合同为 [055@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-055/1.1.0/spec.md) 的 R005。当前 Shell 中实际渲染的普通列表、专用统计、菜单树、页面内小表和弹窗表格，向下滚动时均保留列标题，便于继续辨认每个数值的含义。冻结位置属于当前表格的可见滚动区域；表格滚出后表头一同退出，不覆盖后续内容或弹窗动作。",
+        "prd/admin-live-reference.md:63:拉新记录按本轮7个租户各自采集保留当日确认空态、筛选与列结构；未知日期或条件不沿用0结果。日期前后顺序、未知区间、重置和导出边界分别验证；已知空态允许导出表头，未采条件禁用导出。09-18/09-20仅深圳的旧证据保留为历史，不再作为本轮唯一覆盖范围。",
+        "prd/admin-live-reference.md:87:AI费用统计另按058工程交付合同承接管理页实现，提出环境佰智德三、提出人房昕、负责人陈宣宇；不复用销售变声Issue或未确认计费口径。实际工程Issue与测试状态见 [058 Handoff](../docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/issue-handoff.md)。",
+        "docs/verification/admin-live-reference.md:3:更新：2026-09-27。当前合同为[REFRESH-001@0.2.0](../sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)，既有052/053统计、055冻结、060/068菜单及062图表合同继续有效。这里记录静态原型的本地事实；发布是否完成以release.json、提交/tag及部署回执为准。",
+        "docs/verification/admin-live-reference.md:31:厚全商品榜内表保留410/370px最小宽度及横向滚动；成都群邀请按11列分配宽度；瑞熙小周销售仪表盘独立保留本租户结构，未知数值为“—”，商品明细为尚未采集。未知销售使用统计仍显示六列表头与说明，不生成合计。052首次成功计次、053日期/部门、055冻结、062预约图表、060/068拖动与本地覆盖不因源视觉差异被删除。",
+        "docs/verification/admin-live-reference.md:41:## 历史证据",
+        "docs/verification/admin-live-reference.md:43:[2026-09-20像素纠偏](pixel-correction-20260920.md)、[筛选与冻结](filters-sticky-20260920.md)、[旧公开审计](public-data-audit.md)及旧版本化SDD均作为历史保留。737/752/765入口及83/84/85路由是对应历史库存，不能描述本轮当前状态；旧“无法在线复核”“瑞熙小周待登录”“艺星账号全部禁用”的缺口已由本轮具体证据替代。"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "retainedCurrentMatches": [
+    {
+      "term": "页签与内容间距 15px",
+      "resolution": "retained-current",
+      "evidence": "prototype/admin-live-ui.css .admin-shell .pages padding-top:15px; current Shell retains this approved spacing"
+    }
+  ],
+  "activeConflicts": [],
+  "missingCurrentMarker": [],
+  "ready": true
+}

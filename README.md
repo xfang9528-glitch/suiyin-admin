@@ -1,61 +1,50 @@
 # 碎银管理后台 HTML 原型
 
-这是十五租户的静态管理后台原型，用于对照真实页面、评审操作和统计规则。当前范围为 **15 个租户、765 个租户页面入口、85 种路由**。数据包含本租户脱敏采样、标明来源的参考样本和合成演示；不是实时后台，所有修改只影响本地原型。
+这是十五租户的静态管理后台原型，用于对照真实页面、评审操作和统计规则。2026-09-27 当前登记 **15 个租户、796 个租户×页面入口、88 种路由**。其中783个入口属于本轮源环境采集队列，741个可见页面已有有效DOM和截图，42个保持源隐藏状态；另13个为既有批准的AI费用原型扩展。采集覆盖不等于全部页面、全部状态逐像素一致。
 
-- [预约记录组合图](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=appointmentRecords&appointmentDemo=1&appointmentView=chart)（完整合成演示） · [产品说明](prd/appointment-chart.md) · [交互流程](flowcharts/appointment-chart.md) · [062交付包](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/README.md)
-- [各租户菜单拖动与本租户导航联动](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=menu) · [产品说明](prd/tenant-menu-drag.md) · [交互流程](flowcharts/tenant-menu-drag.md) · [068交付包](docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/README.md)
-- [平台菜单拖动与全租户导航联动](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=allMenu) · [产品说明](prd/platform-menu-drag.md) · [交互流程](flowcharts/platform-menu-drag.md) · [060交付包](docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/README.md)
-- [在线管理页](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=wechatStatus)
-- [AI费用统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=aiCostStats) · [费用产品说明](prd/ai-cost-stats.md) · [费用交互流程](flowcharts/ai-cost-stats.md)
-- [销售变声统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=salesVoiceStats) · [销售使用统计](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=salesMessageUsage) · [菜单管理](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=menu)
-- [离线单文件](prototype/_shell_inline.html)：由当前主线生成，包含所需静态数据和资源。本次 [068离线验收](docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/checks/inline-068-evidence.md) 8/8通过，覆盖深圳、佰智德三普通菜单及平台菜单，0脚本错误、0外部依赖请求。历史[筛选与冻结运行记录](docs/verification/filters-sticky-20260920/inline-runtime-report.json)、[曲线修复](docs/sdd/appointment-curve-correction-20260921.md)、[062](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/verification.md)与[058](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/verification.md)只证明各自当时范围；本次未扩大为全站人工断网或实站像素验收。
-- [产品说明](prd/admin-live-reference.md) · [交互流程](flowcharts/admin-live-reference.md) · [设计规范](docs/design-spec.md) · [验收与已知边界](docs/verification/admin-live-reference.md)
+本轮按各租户当前来源刷新左侧导航、完整菜单库存、品牌、图标和客户端版本，并校准好友、通用列表、统计及专用页面。新增录音管理、喜报设置和喜报记录共25个租户×页面。数据包含本租户脱敏采样、明确标识的参考样本和合成演示；不是实时后台，所有修改只影响本地原型。
 
-上一轮新增「AI管理 → AI费用统计」，覆盖已有 AI 管理父级的 13 个租户。单日/范围查询五类分析的次数、客户费用、专属模型和分类趋势；2026-07-01 至 2026-09-20 共 82 天均为固定合成样本。未知费用、缺日期和参考模型配置明确说明，不作为真实扣费或历史调用证据。行为合同为 [058@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/README.md)，远端发布和工程状态以交付回执为准。
+- [好友列表](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=customerManagement) · [录音管理](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=rxxz&page=recordingAdmin) · [喜报设置](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-hz&page=goodNewsSettings)
+- [当前产品说明](prd/admin-live-reference.md) · [交互流程](flowcharts/admin-live-reference.md) · [设计规范](docs/design-spec.md)
+- [本轮交付合同](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md) · [公开验证摘要](docs/verification/live-refresh-20260927/README.md) · [公开样本审计](docs/verification/live-refresh-20260927/public-data-audit.md)
+- [验收与已知边界](docs/verification/admin-live-reference.md) · [离线单文件](prototype/_shell_inline.html)
 
-既有已交付范围：所有租户新增「数据展示 → 销售变声统计」，同步对应菜单管理和已有平台菜单定义。按独立变声任务首次成功生成计次，失败、试听及同任务重试不重复计，消息发送成功与否不影响该次数。筛选与销售使用统计完整一致：统计时间、单日/范围、日期日历、今天/昨天/前天、部门、搜索/重置/导出，保留各自日期和数据来源。
+## 本轮实际验证
 
-销售使用统计使用专用分组表，保留销售、部门、小计与全表合计，不强加分页或汇总卡。4 个租户具有本租户采集，其他 11 个明确显示未采集；不借用其他租户的销售或部门补数。
-
-上一轮 `v2026092002-admin-pixel-alignment`：依据用户提供的四张深圳实站对照图，修正销售使用统计、拉新记录、消息占比、AI 辅助统计及共享白色内容背景；使用/变声主操作为青绿，AI 搜索为绿色。四页的专用结构和数据边界见 [发布勘误](docs/sdd/pixel-correction-20260920.md) 与 [截图纠偏记录](docs/verification/pixel-correction-20260920.md)。
-
-上一轮发布 `v2026092003-admin-voice-filters-sticky`：销售变声筛选和销售使用统计共用同一控件结构及交互；所有管理表格在所属滚动区域内冻结表头，包括普通列表、专用统计、菜单树表和弹窗表格。横向滚动时列对齐，表格退出可见区后表头随之退出。见 [筛选与冻结验收记录](docs/verification/filters-sticky-20260920.md)。
-
-当前保留 15 租户、85 路由、765 入口，其中 AI费用统计新增 13 个入口；另外 2 个租户不新增 AI 管理父级。深圳拉新记录恢复已确认空态；AI辅助统计仅展示本租户截图中完整可见的 22 行部分样本，不再借用其他租户。使用统计与消息占比保留各自注明日期的旧快照，不用截图柱高或其他日期补数。
-
-其他管理页继续按各自证据保留菜单树、聊天、配置、销售仪表盘和好友结构。来源说明区分本租户采样、参考样本、演示与未采集；参考样本机制不适用于使用统计与 AI辅助统计的数据回退。
-
-本次累计曲线视觉修复已获用户确认：逐日保留圆点、零值日水平延续、虚线不断开；见[修复说明](docs/sdd/appointment-curve-correction-20260921.md)。原有062@1.0.0行为合同继续有效。
-
-预约记录保留列表并增加总量与柱线组合图，覆盖深圳、广州、杭州、嘉兴的既有入口，统计所有已应用筛选结果。原样本与完整演示明确分开；工程提出环境深圳艺星、提出人李愉，负责人陈宣宇。
-
-当前全部 15 个租户的「系统管理 → 菜单管理」按 [068@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md) 支持一级整组、二级组内及跨组拖动；菜单表和侧栏共用同一有效结构，保存、撤销、刷新与同租户多窗联动。租户明确调过的同级列表保留自己的顺序，仅跨组的被移动项保留父级，其余继续跟随平台。平台当前祖先链的隐藏和删除、租户原有权限始终有效，隐藏项及空一级保留在完整库存。此合同替代普通菜单手工排序和平台对租户排序的无条件覆盖；060 的平台拖动交互继续有效，其已发布版本包作为不可变历史保存。
-
-068正式管理端实现由 [Issue #432](https://github.com/PetWebOrg/suiyin-admin/issues/432) 承接，负责人房昕（xfang9528-glitch），提出人房昕、提出环境佰智德三、平台PC，状态待开发。工程覆盖全部适用系统租户；已关闭的平台#408仅为交互参考，不代表068的租户覆盖、联动与撤销能力已经实现。
-
-当前合同如下，051 为基线，后续合同仅替代各自范围内的旧实现：
-
-| 合同 | 内容 |
+| 范围 | 结果 |
 |---|---|
+| 当前导航与完整库存 | 15租户；保留源隐藏项、平台限制和本地改名/隐藏/拖动覆盖；7项设置迁移检查通过 |
+| 普通及艺星好友 | 15租户，381项几何、161项交互/控件检查通过 |
+| 通用列表 | 410份布局配置中395页实际测量通过，15页由专用渲染器承接；覆盖64种路由＋表头组合 |
+| 录音、喜报、质检、词库与平台专用主体 | 54个租户×页面通过；专用弹层12项交叉检查通过 |
+| 备注需求词库及拉新 | 65项本地检查通过；需求组、警示空态、日期与导出边界按本租户保留 |
+| 专用统计及主列表尾差 | 初轮107项、最终补充81项几何通过；后者包括厚全商品榜、成都拉群、瑞熙小周统计、销售管理及全部账号状态 |
+
+同源视口与DPR对照采用1 CSS px几何容差；395个通用列表的表格起点纵向最大偏差0.006px、横向0px、宽度最大偏差0.409px。记录中的JS错误与外部请求均为0。上述分组可能覆盖相同页面，不相加作为独立页面数；截图行内容、头像、实时总量及未采曲线不纳入全图像素相等声明。
+
+## 保留的行为合同
+
+| 合同 | 当前职责 |
+|---|---|
+| [REFRESH-001@0.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md) | 录音与喜报三新页面、对应入口迁移、本地演示及证据边界；既有页面继续各自原合同 |
 | [051@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/README.md) | 十五租户、Shell、领域页面及公开样本基线 |
-| [052@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-052/1.2.0/README.md) | 全租户销售变声统计及 DR-095 菜单同步 |
-| [053@1.0.2](docs/sdd/SPEC-SUIYIN-ADMIN-053/1.0.2/README.md) | 销售使用统计结构与租户隔离 |
-| [054@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-054/1.0.0/README.md) | 全管理页证据矩阵与对齐路线 |
-| [055@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-055/1.1.0/README.md) | 共享筛选、控件与来源；所有管理表格表头冻结 |
-| [056@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-056/1.0.0/README.md) | 聊天、配置及仪表盘结构 |
-| [060@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/README.md) | 平台菜单拖动、二级跨组与本地记忆继续适用；普通 menu 范围及平台与租户优先级由 068 明确覆盖 |
-| [068@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/README.md) | 各租户 menu 拖动、同租户导航联动、局部顺序与父级优先、旧设置接续及异常回退 |
-| [062@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/README.md) | 预约列表/图表、每日预约柱形及期间累计折线、全量筛选与来源边界 |
-| [058@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/README.md) | AI费用、分类趋势、82天演示样本与专属模型 |
+| [052@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-052/1.2.0/README.md) | 变声独立任务首次成功计次；失败、试听、重复回调不重复计 |
+| [053@1.0.2](docs/sdd/SPEC-SUIYIN-ADMIN-053/1.0.2/README.md) | 销售使用统计分组、日期、部门、小计/合计及租户隔离 |
+| [054@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-054/1.0.0/README.md)、[055@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-055/1.1.0/README.md)、[056@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-056/1.0.0/README.md) | 页面证据、筛选与表头冻结、领域结构 |
+| [060@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/README.md)、[068@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/README.md) | 平台默认结构、各租户菜单拖动、局部覆盖与同租户导航联动 |
+| [062@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-062/1.0.0/README.md) | 四个既有预约入口的列表/总量/柱线组合图 |
+| [058@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/README.md) | 13租户AI费用、82天固定合成样本、分类趋势与模型 |
 
-上一轮本地 Chrome 检查覆盖 752 个入口、665 张表格及 333 个实际滚动场景，冻结失败和脚本错误均为 0；筛选专项 8/8、冻结专项 22 项断言及独立复核 9/9 通过。同日期、同视口下两页单日及范围筛选截图分别字节一致。这些检查证明本地筛选一致性与表头行为；上一轮四页截图的边缘、排序图标和实站滚动细节仍待继续迭代，不代表全部页面已逐像素验收。
+菜单表与导航共用有效完整树。平台提供默认顺序和归属，租户明确调整的同级列表及被移动项父级优先；平台当前祖先链隐藏、删除和原权限始终生效。本轮刷新不把旧快照中的默认位置误判为用户明确拖动，也不删除已批准的拖动、预约图表和统计扩展。
 
-本地预览在仓根运行 `python -m http.server 8148 --bind 127.0.0.1`，再用 Google Chrome 打开 `http://127.0.0.1:8148/prototype/_shell.html?tenant=bzds&page=menu`。业务演示状态按租户和路由隔离；平台菜单提供同源浏览器内的默认顺序与归属，068 的本租户明确调整在对应同级列表和移动项上优先，平台隐藏和删除仍独立生效。验收使用隔离浏览器或独立 QA 存储。
+变声页补回本轮已见的销售姓名筛选，仍按稳定销售身份计次，姓名相同不合并。销售使用统计只读取本租户专用快照；未知日期或未采集时保留表头与说明，不补0或借其他租户总量。工作账号样本汇总不冒充跨账号去重人数。
 
-发布版本以 [release.json](release.json)、远端提交和交付回执为准；文档中的候选状态不代表已上传。历史独立页面及其文件仍用于追溯，[旧主题与导航](docs/history/before-admin-live-reference/README.md)、[旧好友页](docs/history/before-admin-wide-alignment/README.md) 均不作为当前 Shell 的实现指令。原型发布不等于生产端上线。既有销售变声工程 Issue 已创建：[管理页销售变声统计 #401](https://github.com/PetWebOrg/suiyin-admin/issues/401)，负责人陈宣宇（cxy-chenxuanyu），提出环境深圳艺星、提出人 ZHONG、平台 PC。工程范围覆盖生产租户注册表中全部适用租户；15 个租户只是本原型覆盖清单，不是生产白名单。交付映射见 [052 工程交付合同](docs/sdd/SPEC-SUIYIN-ADMIN-052/1.2.0/issue-handoff.md)。全管理页冻结随本次原型发布，不因此扩大该工程 Issue 到全管理页改造；不更新开发进度表。
+## 预览与发布边界
 
-AI费用统计工程执行以 [058 Handoff](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/issue-handoff.md) 和 [Test Contract](docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/test-contract.md) 为入口；提出环境佰智德三、提出人房昕，负责人陈宣宇。真实 Issue 编号及交付状态由实际建单回执登记，不复用销售变声 #401。
+在仓根运行 `python -m http.server 8148 --bind 127.0.0.1`，用Google Chrome打开 `http://127.0.0.1:8148/prototype/_shell.html?tenant=bzds&page=customerManagement`。业务演示状态按租户与路由隔离；验收使用隔离浏览器或独立QA存储。单文件由生成器产出，不手工编辑。
 
-AI费用统计工程Issue已建立：[#402](https://github.com/PetWebOrg/suiyin-admin/issues/402)，陈宣宇（cxy-chenxuanyu），提出人房昕、环境佰智德三、平台PC。原型发布标签 `v2026092004-admin-ai-cost-stats`；实现与生产验收待正式工程流程。
+真实后台只读；不接真实认证、发送、录音上传、共享数据库或生产写接口。原始客户截图、DOM捕获、连接配置和本机诊断资料不放入公开包。未采曲线点、其他筛选区间和未查看详情继续明确为未知或未采集。
 
-预约图表工程Issue已建立：[#404](https://github.com/PetWebOrg/suiyin-admin/issues/404)，负责人陈宣宇（cxy-chenxuanyu），提出环境深圳艺星、提出人李愉、平台PC。交付标签 v2026092101-admin-appointment-chart；原型已实现，生产实现待正式工程流程。
+当前候选的提交、tag、单文件验收和远端部署以 [release.json](release.json) 与实际发布回执为准；上述链接不单独证明本轮已部署。旧 [2026-09-20纠偏](docs/verification/pixel-correction-20260920.md)、[冻结验收](docs/verification/filters-sticky-20260920.md) 和版本化SDD仅证明各自当时范围。旧主题及好友独立页见 [历史入口](docs/history/before-admin-live-reference/README.md)，不作为当前Shell实现指令。
+
+原型发布不等于生产上线。本轮没有新增工程Issue；既有工程执行分别由销售变声[#401](https://github.com/PetWebOrg/suiyin-admin/issues/401)、AI费用[#402](https://github.com/PetWebOrg/suiyin-admin/issues/402)、预约图表[#404](https://github.com/PetWebOrg/suiyin-admin/issues/404)、租户菜单[#432](https://github.com/PetWebOrg/suiyin-admin/issues/432)及各自精确合同承接，状态以远端Issue为准。15租户是原型验证清单，不是生产白名单；不更新开发进度表。

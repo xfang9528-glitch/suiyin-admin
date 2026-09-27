@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-27",
+  "artifactClass": "static-html",
+  "scope": "public aggregate evidence only",
+  "inventory": {
+    "tenants": 15,
+    "tenantRouteEntries": 796,
+    "distinctRoutes": 88,
+    "genericContentPages": 771,
+    "dedicatedNewPages": 25
+  },
+  "sourceCoverage": {
+    "queuedTenantRoutes": 783,
+    "visibleCaptured": 741,
+    "sourceHidden": 42,
+    "approvedPrototypeOnly": 13,
+    "allStatesPixelEquivalent": false
+  },
+  "verification": {
+    "navigationMigrationCases": 7,
+    "genericLayouts": 410,
+    "genericPagesMeasured": 395,
+    "dedicatedLayoutsExcluded": 15,
+    "genericRouteHeaderTypes": 64,
+    "genericTableDeltaMaxCssPx": {
+      "x": 0,
+      "y": 0.006,
+      "width": 0.409
+    },
+    "customer": {
+      "tenantPages": 15,
+      "geometry": 381,
+      "interactions": 161
+    },
+    "statsBaseline": {
+      "tenantPages": 9,
+      "geometry": 107,
+      "interactions": 38
+    },
+    "supplement": {
+      "geometry": 81,
+      "interactions": 9
+    },
+    "dedicatedSubjects": 54,
+    "dedicatedOverlayChecks": 12,
+    "remarkAndRecruitmentChecks": 65,
+    "geometryToleranceCssPx": 1,
+    "recordedJsErrors": 0,
+    "recordedExternalRequests": 0
+  },
+  "limitations": [
+    "Independent demo rows and avatars are excluded from raster equality",
+    "Unknown chart points, dates and unobserved states remain unknown",
+    "Test groups overlap and must not be summed as unique pages",
+    "Local checks do not establish remote deployment or production completion"
+  ],
+  "privateEvidenceIncluded": false,
+  "publicationStatus": "determined by release.json and remote receipt"
+}

@@ -1,6 +1,6 @@
 # 好友管理流程
 
-更新：2026-09-20。当前路由为 `customerManagement` 与 `yxCustomerList`，按租户来源分别实现；旧独立页流程已 [归档](../docs/history/before-admin-wide-alignment/README.md)。本图依 051@1.1.0、055/056@1.0.0，不能用于证明未采集展开已完成。
+更新：2026-09-27。当前路由为 `customerManagement` 与 `yxCustomerList`，按租户来源分别实现；旧独立页流程已 [归档](../docs/history/before-admin-wide-alignment/README.md)。好友流程继续依051@1.1.0、055@1.1.0、056@1.0.0；REFRESH-001@0.2.0只承接录音/喜报三新页及对应入口迁移，不能用于证明好友未采集展开已完成。
 
 ```mermaid
 flowchart TD
@@ -12,7 +12,9 @@ flowchart TD
     Category --> Pending[展开状态未采集 明确说明]
     Yestar --> Expand[点击高级筛选展开]
     Expand --> Pending
-    Yestar --> Account[所在账号占位 禁用并说明缺选项证据]
+    Yestar --> Account[所在账号仅本租户本地样本]
+    Ordinary --> Account
+    Account --> Draft
     Ordinary --> Draft[修改已采集筛选草稿]
     Yestar --> Draft
     Draft --> Search[按对应搜索或执行筛选提交]

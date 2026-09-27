@@ -1,0 +1,77 @@
+{
+  "policy": "Reuse existing immutable exact-version packages; add only missing 042 safe text spec, no historic reports or attachments",
+  "dependencies": [
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-054",
+      "version": "1.0.0",
+      "direct": true,
+      "repositoryPath": "docs/sdd/SPEC-SUIYIN-ADMIN-054/1.0.0/spec.md",
+      "url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026092701-admin-live-refresh/docs/sdd/SPEC-SUIYIN-ADMIN-054/1.0.0/spec.md",
+      "sha256": "916135f36630eab2126c4d8ff98ad7f398e6a22ef83f0f8594a6ede36ca90f9d"
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-055",
+      "version": "1.1.0",
+      "direct": true,
+      "repositoryPath": "docs/sdd/SPEC-SUIYIN-ADMIN-055/1.1.0/spec.md",
+      "url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026092701-admin-live-refresh/docs/sdd/SPEC-SUIYIN-ADMIN-055/1.1.0/spec.md",
+      "sha256": "8a18f135b4dc5044a040b38f3a6866bb9ac3349f9bf704f30e3f177fb863a927"
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-058",
+      "version": "1.2.0",
+      "direct": true,
+      "repositoryPath": "docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/spec.md",
+      "url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026092701-admin-live-refresh/docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/spec.md",
+      "sha256": "3740813dc44a9e68189c29669b04e1aa74694385fff4991edd199dc8b12a35d1"
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-068",
+      "version": "1.0.0",
+      "direct": true,
+      "repositoryPath": "docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md",
+      "url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026092701-admin-live-refresh/docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md",
+      "sha256": "b800692c2702609a14f604381a9a730d27a5ff06412e2e912eec23c0bf3ced05"
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-051",
+      "version": "1.1.0",
+      "direct": false,
+      "repositoryPath": "docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md",
+      "url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026092701-admin-live-refresh/docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md",
+      "sha256": "fdea0faf0173367f3fe8f5dbbd5dcf1843f0059c94ae3f8ae189f6ad478a4517"
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-053",
+      "version": "1.0.2",
+      "direct": false,
+      "repositoryPath": "docs/sdd/SPEC-SUIYIN-ADMIN-053/1.0.2/spec.md",
+      "url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026092701-admin-live-refresh/docs/sdd/SPEC-SUIYIN-ADMIN-053/1.0.2/spec.md",
+      "sha256": "50348abf18158e9c4e6bb40d6532732c6f0b18d9d97153f46435fd6647ae05c7"
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-060",
+      "version": "1.1.0",
+      "direct": false,
+      "repositoryPath": "docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/spec.md",
+      "url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026092701-admin-live-refresh/docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/spec.md",
+      "sha256": "558a91158c43596ba4f2f083be3e2b83082ca6586c7179e64e842ccedf17c891"
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-009",
+      "version": "1.0.0",
+      "direct": false,
+      "repositoryPath": "docs/sdd/dependencies/SPEC-SUIYIN-ADMIN-009/1.0.0/spec.md",
+      "url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026092701-admin-live-refresh/docs/sdd/dependencies/SPEC-SUIYIN-ADMIN-009/1.0.0/spec.md",
+      "sha256": "b4ec774e9a2c98bff41bce8e916b63c2c00f444b75c488116385df6995b66105"
+    },
+    {
+      "spec_id": "SPEC-SUIYIN-ADMIN-042",
+      "version": "1.0.0",
+      "direct": false,
+      "repositoryPath": "docs/sdd/dependencies/SPEC-SUIYIN-ADMIN-042/1.0.0/spec.md",
+      "url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026092701-admin-live-refresh/docs/sdd/dependencies/SPEC-SUIYIN-ADMIN-042/1.0.0/spec.md",
+      "sha256": "a51c8bc76a93f587b932643dde756aad3d031f245351942e12c2ab0c47a17488"
+    }
+  ]
+}

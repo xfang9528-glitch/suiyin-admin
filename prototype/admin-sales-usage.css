@@ -74,3 +74,6 @@ html:has(.usage-page)::-webkit-scrollbar-thumb{background:#888;border-radius:4px
 .usage-status{text-align:center;min-height:180px;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#909399;border:0;gap:12px}
 .usage-status p{margin:0}.usage-status-note{font-size:12px}
 .usage-source{font-size:12px;color:#909399;padding:8px 16px;margin:0}
+/* Current 1486px source keeps the complete results card inside the shell. */
+.usage-results{min-width:0;margin:18px 10.8px 0 8px;padding:15.8px}
+.admin-content .usage-table{min-width:0}

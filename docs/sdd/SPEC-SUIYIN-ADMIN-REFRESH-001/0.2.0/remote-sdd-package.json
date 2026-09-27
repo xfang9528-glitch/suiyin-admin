@@ -1,0 +1,22 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-REFRESH-001",
+  "spec_version": "0.2.0",
+  "artifact_class": "static-html",
+  "engineering_handoff": false,
+  "engineering_handoff_status": "not-requested",
+  "issue_url": null,
+  "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026092701-admin-live-refresh/docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0",
+  "release_tag": "v2026092701-admin-live-refresh",
+  "files": [
+    "README.md",
+    "spec.md",
+    "plan.md",
+    "tasks.md",
+    "source-convergence.md",
+    "source-search.json",
+    "verification.md",
+    "dependencies.json",
+    "checks/verification-summary.json",
+    "checks/validation-results.json"
+  ]
+}

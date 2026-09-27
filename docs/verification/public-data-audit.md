@@ -1,5 +1,7 @@
 # 公开样本处理审计
 
+> 历史审计：以下结论仅适用于2026-09-19候选。2026-09-27当前结果见[公开样本发布审计](live-refresh-20260927/public-data-audit.md)；导航来源URL查询参数已另行清理，不再沿用旧“整文件字节一致”结论。
+
 - 日期：2026-09-19
 - 范围：`suiyin-admin/prototype/data/**`、案例示意图片及可重复执行的 `prototype/sanitize-public-data.mjs`
 - 依据：本次完整推送授权；SPEC-SUIYIN-ADMIN-051 的本地 Mock / 联系信息脱敏边界；工作区 Constitution Article X 的公开仓数据边界。

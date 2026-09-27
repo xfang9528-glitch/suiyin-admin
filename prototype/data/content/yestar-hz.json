@@ -2621,8 +2621,8 @@
             ]
           },
           {
-            "label": "创建人 ID",
-            "text": "创建人 ID",
+            "label": "创建人",
+            "text": "创建人",
             "controls": [
               {
                 "type": "text",
@@ -16494,29 +16494,29 @@
     "label": "智能分析",
     "source": "https://yestar-hz.wecarepet.com/admin/aiLabelStats",
     "sampleTenant": "yestar-hz",
-    "schemaSource": "https://mengzhua.wecarepet.com/admin/aiLabelStats",
-    "capturedAt": "2026-09-18T13:23:22.532Z",
-    "state": "mock",
-    "dataRevision": "2026-09-18-filled-v4-public-demo-identities-v1",
+    "schemaSource": "https://yestar-hz.wecarepet.com/admin/aiLabelStats",
+    "capturedAt": "2026-09-27T04:21:02.387Z",
+    "state": "captured",
+    "dataRevision": "2026-09-27-ai-label-distributions-v1-public-demo-identities-v1",
     "forms": [
       {
         "fields": [
           {
             "label": "",
-            "text": "",
+            "text": "今天\n昨天\n本周\n本月\n至",
             "controls": [
               {
                 "type": "text",
                 "tag": "INPUT",
                 "placeholder": "开始日期",
-                "value": "2026-09-18",
+                "value": "2026-09-27",
                 "disabled": false
               },
               {
                 "type": "text",
                 "tag": "INPUT",
                 "placeholder": "结束日期",
-                "value": "2026-09-18",
+                "value": "2026-09-27",
                 "disabled": false
               }
             ]
@@ -16546,98 +16546,7 @@
         "value": ""
       }
     ],
-    "tables": [
-      {
-        "headers": [
-          "工作账号",
-          "标签分析",
-          "客户画像分析",
-          "分析总量"
-        ],
-        "rows": [
-          {
-            "id": "analysis-0",
-            "cells": [
-              "傅益芳-主号",
-              "28",
-              "12",
-              "40"
-            ],
-            "actions": []
-          },
-          {
-            "id": "analysis-1",
-            "cells": [
-              "傅香香",
-              "33",
-              "15",
-              "48"
-            ],
-            "actions": []
-          },
-          {
-            "id": "analysis-2",
-            "cells": [
-              "全莹莹",
-              "38",
-              "18",
-              "56"
-            ],
-            "actions": []
-          },
-          {
-            "id": "analysis-3",
-            "cells": [
-              "刘卫-信息流",
-              "43",
-              "21",
-              "64"
-            ],
-            "actions": []
-          },
-          {
-            "id": "analysis-4",
-            "cells": [
-              "刘培-大号",
-              "48",
-              "24",
-              "72"
-            ],
-            "actions": []
-          },
-          {
-            "id": "analysis-5",
-            "cells": [
-              "刘明章",
-              "53",
-              "27",
-              "80"
-            ],
-            "actions": []
-          },
-          {
-            "id": "analysis-6",
-            "cells": [
-              "可欣（楠楠号）",
-              "58",
-              "30",
-              "88"
-            ],
-            "actions": []
-          },
-          {
-            "id": "analysis-7",
-            "cells": [
-              "叶佳琪-小号",
-              "63",
-              "33",
-              "96"
-            ],
-            "actions": []
-          }
-        ]
-      }
-    ],
+    "tables": [],
     "buttons": [
       "今天",
       "昨天",
@@ -16648,10 +16557,520 @@
     ],
     "tabs": [],
     "pagination": "",
-    "text": "智能分析\n工作账号\t标签分析\t客户画像分析\t分析总量\n傅益芳-主号\t28\t12\t40\n傅香香\t33\t15\t48\n全莹莹\t38\t18\t56\n刘卫-信息流\t43\t21\t64\n刘培-大号\t48\t24\t72\n刘明章\t53\t27\t80\n可欣（楠楠号）\t58\t30\t88\n叶佳琪-小号\t63\t33\t96",
+    "text": "智能分析",
     "canvas": 0,
     "expandedForms": {},
-    "publicDataPolicy": "public-demo-identities-v1"
+    "publicDataPolicy": "public-demo-identities-v1",
+    "sampleSource": "https://yestar-hz.wecarepet.com/admin/aiLabelStats",
+    "layout": "ai-label-stats-captured",
+    "analysisSnapshot": {
+      "date": "2026-09-27",
+      "total": 589,
+      "labels": 296,
+      "profiles": 293,
+      "evidence": "yestar-hz--aiLabelStats--2026-09-27T04-21-02-387Z.json",
+      "scope": "current tenant, captured date, all accounts",
+      "sections": [
+        {
+          "title": "需求识别",
+          "description": "AI 从聊天里提取出的客户意向",
+          "panels": [
+            {
+              "title": "第一需求分布",
+              "ranked": true,
+              "rows": [
+                {
+                  "label": "微整填充",
+                  "count": 82,
+                  "percentage": 27.7
+                },
+                {
+                  "label": "鼻部整形",
+                  "count": 62,
+                  "percentage": 20.9
+                },
+                {
+                  "label": "紧肤提升",
+                  "count": 35,
+                  "percentage": 11.8
+                },
+                {
+                  "label": "眼部整形",
+                  "count": 31,
+                  "percentage": 10.5
+                },
+                {
+                  "label": "肌肉塑形",
+                  "count": 17,
+                  "percentage": 5.7
+                },
+                {
+                  "label": "胸部整形",
+                  "count": 16,
+                  "percentage": 5.4
+                },
+                {
+                  "label": "面部其他整形",
+                  "count": 8,
+                  "percentage": 2.7
+                },
+                {
+                  "label": "嫩肤保养",
+                  "count": 7,
+                  "percentage": 2.4
+                },
+                {
+                  "label": "吸脂整形",
+                  "count": 5,
+                  "percentage": 1.7
+                },
+                {
+                  "label": "微整抗衰",
+                  "count": 4,
+                  "percentage": 1.4
+                },
+                {
+                  "label": "微整除皱",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "祛痘除印",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "祛斑淡斑",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "皮肤其他",
+                  "count": 1,
+                  "percentage": 0.3
+                }
+              ]
+            },
+            {
+              "title": "第二需求分布",
+              "ranked": true,
+              "rows": [
+                {
+                  "label": "微整填充",
+                  "count": 40,
+                  "percentage": 13.5
+                },
+                {
+                  "label": "紧肤提升",
+                  "count": 16,
+                  "percentage": 5.4
+                },
+                {
+                  "label": "肌肉塑形",
+                  "count": 14,
+                  "percentage": 4.7
+                },
+                {
+                  "label": "眼部整形",
+                  "count": 12,
+                  "percentage": 4.1
+                },
+                {
+                  "label": "鼻部整形",
+                  "count": 7,
+                  "percentage": 2.4
+                },
+                {
+                  "label": "嫩肤保养",
+                  "count": 6,
+                  "percentage": 2
+                },
+                {
+                  "label": "面部其他整形",
+                  "count": 4,
+                  "percentage": 1.4
+                },
+                {
+                  "label": "吸脂整形",
+                  "count": 3,
+                  "percentage": 1
+                },
+                {
+                  "label": "脂肪填充",
+                  "count": 3,
+                  "percentage": 1
+                },
+                {
+                  "label": "祛斑淡斑",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "微整除皱",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "手术其他",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "皮肤其他",
+                  "count": 1,
+                  "percentage": 0.3
+                }
+              ]
+            },
+            {
+              "title": "用户等级分布",
+              "ranked": false,
+              "rows": [
+                {
+                  "label": "A级",
+                  "count": 215,
+                  "percentage": 72.6,
+                  "color": "#f56c6c"
+                },
+                {
+                  "label": "B级",
+                  "count": 67,
+                  "percentage": 22.6,
+                  "color": "#e6a23c"
+                },
+                {
+                  "label": "内部",
+                  "count": 9,
+                  "percentage": 3,
+                  "color": "#c0c4cc"
+                },
+                {
+                  "label": "C级",
+                  "count": 3,
+                  "percentage": 1,
+                  "color": "#409eff"
+                },
+                {
+                  "label": "外联",
+                  "count": 2,
+                  "percentage": 0.7,
+                  "color": "#c0c4cc"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "信息抓取",
+          "description": "AI 从聊天里识别并补全到客户档案的字段分布",
+          "panels": [
+            {
+              "title": "医美史分布",
+              "ranked": true,
+              "rows": [
+                {
+                  "label": "注射",
+                  "count": 60,
+                  "percentage": 20.3
+                },
+                {
+                  "label": "手术",
+                  "count": 41,
+                  "percentage": 13.9
+                },
+                {
+                  "label": "皮肤",
+                  "count": 12,
+                  "percentage": 4.1
+                },
+                {
+                  "label": "抗衰",
+                  "count": 10,
+                  "percentage": 3.4
+                }
+              ]
+            },
+            {
+              "title": "省市区分布",
+              "ranked": true,
+              "rows": [
+                {
+                  "label": "浙江省杭州市",
+                  "count": 42,
+                  "percentage": 14.2
+                },
+                {
+                  "label": "浙江省杭州市上城区",
+                  "count": 35,
+                  "percentage": 11.8
+                },
+                {
+                  "label": "浙江省杭州市萧山区",
+                  "count": 13,
+                  "percentage": 4.4
+                },
+                {
+                  "label": "上海市",
+                  "count": 10,
+                  "percentage": 3.4
+                },
+                {
+                  "label": "江苏省南京市",
+                  "count": 8,
+                  "percentage": 2.7
+                },
+                {
+                  "label": "浙江省绍兴市",
+                  "count": 7,
+                  "percentage": 2.4
+                },
+                {
+                  "label": "浙江省杭州市滨江区",
+                  "count": 7,
+                  "percentage": 2.4
+                },
+                {
+                  "label": "浙江省杭州市拱墅区",
+                  "count": 6,
+                  "percentage": 2
+                },
+                {
+                  "label": "浙江省杭州市西湖区",
+                  "count": 5,
+                  "percentage": 1.7
+                },
+                {
+                  "label": "浙江省杭州市余杭区",
+                  "count": 5,
+                  "percentage": 1.7
+                },
+                {
+                  "label": "浙江省金华市义乌市",
+                  "count": 5,
+                  "percentage": 1.7
+                },
+                {
+                  "label": "浙江省宁波市",
+                  "count": 5,
+                  "percentage": 1.7
+                },
+                {
+                  "label": "浙江省湖州市",
+                  "count": 5,
+                  "percentage": 1.7
+                },
+                {
+                  "label": "浙江省杭州市临平区",
+                  "count": 4,
+                  "percentage": 1.4
+                },
+                {
+                  "label": "浙江省温州市",
+                  "count": 4,
+                  "percentage": 1.4
+                },
+                {
+                  "label": "安徽省合肥市",
+                  "count": 3,
+                  "percentage": 1
+                },
+                {
+                  "label": "浙江省嘉兴市",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "浙江省湖州市德清县",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "浙江省杭州市富阳区",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "浙江省嘉兴市海宁市",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "安徽省",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "浙江省台州市",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "江苏省苏州市",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "浙江省丽水市",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "广东省深圳市",
+                  "count": 2,
+                  "percentage": 0.7
+                },
+                {
+                  "label": "浙江省金华市东阳市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "浙江省衢州市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "浙江省金华市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "四川省成都市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "云南省昆明市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "浙江省绍兴市柯桥区",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "浙江省舟山市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "浙江省杭州市临安区",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "吉林省吉林市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "贵州省贵阳市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "浙江省湖州市吴兴区",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "新疆维吾尔自治区乌鲁木齐市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "浙江省杭州市建德市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "安徽省宣城市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "江西省",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "辽宁省",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "浙江省杭州市桐庐县",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "江苏省南通市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "北京市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "浙江省杭州市钱塘区",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "江苏省泰州市",
+                  "count": 1,
+                  "percentage": 0.3
+                },
+                {
+                  "label": "福建省福州市",
+                  "count": 1,
+                  "percentage": 0.3
+                }
+              ]
+            },
+            {
+              "title": "客户画像分析统计",
+              "ranked": false,
+              "rows": [
+                {
+                  "label": "A级",
+                  "count": 212,
+                  "percentage": 72.4,
+                  "color": "#f56c6c"
+                },
+                {
+                  "label": "B级",
+                  "count": 67,
+                  "percentage": 22.9,
+                  "color": "#e6a23c"
+                },
+                {
+                  "label": "内部",
+                  "count": 9,
+                  "percentage": 3.1,
+                  "color": "#c0c4cc"
+                },
+                {
+                  "label": "C级",
+                  "count": 3,
+                  "percentage": 1,
+                  "color": "#409eff"
+                },
+                {
+                  "label": "外联",
+                  "count": 2,
+                  "percentage": 0.7,
+                  "color": "#c0c4cc"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   },
   "wechatStatus": {
     "tenant": "yestar-hz",
@@ -20246,9 +20665,9 @@
     "sampleTenant": "yestar-hz",
     "sampleSource": "https://yestar-hz.wecarepet.com/admin/menu",
     "schemaSource": "https://yestar-hz.wecarepet.com/admin/menu",
-    "capturedAt": "2026-09-18T15:08:28.998Z",
+    "capturedAt": "2026-09-27T03:04:28.676Z",
     "state": "captured",
-    "dataRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1",
+    "dataRevision": "2026-09-27-live-menu-refresh-staging-v1-public-demo-identities-v1",
     "forms": [],
     "inputs": [],
     "tables": [
@@ -20268,9 +20687,9 @@
               "销售管理",
               "否",
               "显示",
-              "14",
+              "9375",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20281,7 +20700,8 @@
               "depth": 0,
               "hasChildren": false,
               "key": "salesManage",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -20290,9 +20710,9 @@
               "专家管理",
               "否",
               "隐藏",
-              "13",
+              "8750",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20303,7 +20723,8 @@
               "depth": 0,
               "hasChildren": true,
               "key": "group-1",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -20314,7 +20735,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20325,7 +20746,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "expertList",
-              "parentKey": "group-1"
+              "parentKey": "group-1",
+              "parentId": "0-1"
             }
           },
           {
@@ -20334,9 +20756,9 @@
               "医生管理",
               "否",
               "显示",
-              "12",
+              "8125",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20347,7 +20769,8 @@
               "depth": 0,
               "hasChildren": true,
               "key": "group-2",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -20358,7 +20781,7 @@
               "显示",
               "5",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20369,7 +20792,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "medicalDoctors",
-              "parentKey": "group-2"
+              "parentKey": "group-2",
+              "parentId": "0-3"
             }
           },
           {
@@ -20380,7 +20804,7 @@
               "显示",
               "4",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20391,7 +20815,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "medicalDepartments",
-              "parentKey": "group-2"
+              "parentKey": "group-2",
+              "parentId": "0-3"
             }
           },
           {
@@ -20402,7 +20827,7 @@
               "显示",
               "3",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20413,7 +20838,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "medicalLocations",
-              "parentKey": "group-2"
+              "parentKey": "group-2",
+              "parentId": "0-3"
             }
           },
           {
@@ -20424,7 +20850,7 @@
               "显示",
               "2",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20435,7 +20861,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "appointmentSettings",
-              "parentKey": "group-2"
+              "parentKey": "group-2",
+              "parentId": "0-3"
             }
           },
           {
@@ -20446,7 +20873,7 @@
               "显示",
               "1",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20457,7 +20884,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "appointmentRecords",
-              "parentKey": "group-2"
+              "parentKey": "group-2",
+              "parentId": "0-3"
             }
           },
           {
@@ -20468,7 +20896,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20479,8 +20907,59 @@
               "depth": 1,
               "hasChildren": false,
               "key": "medicalProjects",
-              "parentKey": "group-2"
+              "parentKey": "group-2",
+              "parentId": "0-3"
             }
+          },
+          {
+            "id": "live-20260927-goodNewsSettings",
+            "cells": [
+              "喜报设置",
+              "否",
+              "显示",
+              "0",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "goodNewsSettings",
+              "parentKey": "group-2",
+              "parentId": "0-3"
+            },
+            "new": true,
+            "approvalStatus": "approved"
+          },
+          {
+            "id": "live-20260927-goodNewsRecords",
+            "cells": [
+              "喜报记录",
+              "否",
+              "显示",
+              "-1",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "goodNewsRecords",
+              "parentKey": "group-2",
+              "parentId": "0-3"
+            },
+            "new": true,
+            "approvalStatus": "approved"
           },
           {
             "id": "0-10",
@@ -20488,9 +20967,9 @@
               "好友管理",
               "否",
               "显示",
-              "11",
+              "7500",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20501,7 +20980,8 @@
               "depth": 0,
               "hasChildren": true,
               "key": "group-3",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -20512,7 +20992,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20523,7 +21003,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "yxCustomerList",
-              "parentKey": "group-3"
+              "parentKey": "group-3",
+              "parentId": "0-10"
             }
           },
           {
@@ -20534,7 +21015,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20545,7 +21026,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "customerGroupList",
-              "parentKey": "group-3"
+              "parentKey": "group-3",
+              "parentId": "0-10"
             }
           },
           {
@@ -20556,7 +21038,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20567,7 +21049,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "uploadCustomerList",
-              "parentKey": "group-3"
+              "parentKey": "group-3",
+              "parentId": "0-10"
             }
           },
           {
@@ -20578,7 +21061,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20589,7 +21072,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "approvalList",
-              "parentKey": "group-3"
+              "parentKey": "group-3",
+              "parentId": "0-10"
             }
           },
           {
@@ -20600,7 +21084,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20611,7 +21095,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "customerTags",
-              "parentKey": "group-3"
+              "parentKey": "group-3",
+              "parentId": "0-10"
             }
           },
           {
@@ -20620,9 +21105,9 @@
               "话术管理",
               "否",
               "显示",
-              "10",
+              "6875",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20633,7 +21118,123 @@
               "depth": 0,
               "hasChildren": false,
               "key": "languageManage",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
+            }
+          },
+          {
+            "id": "0-64",
+            "cells": [
+              "案例库管理",
+              "否",
+              "显示",
+              "6250",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 0,
+              "hasChildren": true,
+              "key": "group-14",
+              "parentKey": null,
+              "parentId": ""
+            }
+          },
+          {
+            "id": "0-65",
+            "cells": [
+              "医生管理",
+              "否",
+              "显示",
+              "0",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "caseLibraryDoctors",
+              "parentKey": "group-14",
+              "parentId": "0-64"
+            }
+          },
+          {
+            "id": "0-66",
+            "cells": [
+              "案例管理",
+              "否",
+              "显示",
+              "0",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "caseLibraryEntries",
+              "parentKey": "group-14",
+              "parentId": "0-64"
+            }
+          },
+          {
+            "id": "0-67",
+            "cells": [
+              "案例小程序",
+              "否",
+              "显示",
+              "0",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "caseLibraryMiniPrograms",
+              "parentKey": "group-14",
+              "parentId": "0-64"
+            }
+          },
+          {
+            "id": "0-68",
+            "cells": [
+              "分享记录",
+              "否",
+              "显示",
+              "0",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "caseLibrarySubjectShares",
+              "parentKey": "group-14",
+              "parentId": "0-64"
             }
           },
           {
@@ -20642,9 +21243,9 @@
               "商品管理",
               "否",
               "隐藏",
-              "9",
+              "5625",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20655,7 +21256,8 @@
               "depth": 0,
               "hasChildren": false,
               "key": "products",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -20664,9 +21266,9 @@
               "群发管理",
               "否",
               "显示",
-              "8",
+              "5000",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20677,7 +21279,8 @@
               "depth": 0,
               "hasChildren": false,
               "key": "massMessageListYx",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -20686,9 +21289,9 @@
               "PYQ管理",
               "否",
               "显示",
-              "7",
+              "4375",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20699,7 +21302,8 @@
               "depth": 0,
               "hasChildren": false,
               "key": "friendCircle",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -20708,9 +21312,9 @@
               "分佣管理",
               "否",
               "隐藏",
-              "6",
+              "3750",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20721,7 +21325,8 @@
               "depth": 0,
               "hasChildren": true,
               "key": "group-8",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -20732,7 +21337,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20743,7 +21348,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "rewardListNew",
-              "parentKey": "group-8"
+              "parentKey": "group-8",
+              "parentId": "0-20"
             }
           },
           {
@@ -20754,7 +21360,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20765,7 +21371,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "rewardTotalNew",
-              "parentKey": "group-8"
+              "parentKey": "group-8",
+              "parentId": "0-20"
             }
           },
           {
@@ -20776,7 +21383,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20787,7 +21394,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "topUpList",
-              "parentKey": "group-8"
+              "parentKey": "group-8",
+              "parentId": "0-20"
             }
           },
           {
@@ -20798,7 +21406,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20809,7 +21417,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "sahPrepaymentList",
-              "parentKey": "group-8"
+              "parentKey": "group-8",
+              "parentId": "0-20"
             }
           },
           {
@@ -20820,7 +21429,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20831,7 +21440,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "sahIncomeConfirm",
-              "parentKey": "group-8"
+              "parentKey": "group-8",
+              "parentId": "0-20"
             }
           },
           {
@@ -20840,9 +21450,9 @@
               "数据展示",
               "否",
               "显示",
-              "5",
+              "3125",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20853,7 +21463,8 @@
               "depth": 0,
               "hasChildren": true,
               "key": "group-9",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -20864,7 +21475,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20875,7 +21486,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "newAddedRecords",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
             }
           },
           {
@@ -20886,7 +21498,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20897,7 +21509,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "salesStatsNew",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
             }
           },
           {
@@ -20908,7 +21521,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20919,7 +21532,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "revisitStats",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
             }
           },
           {
@@ -20927,10 +21541,10 @@
             "cells": [
               "销售排名",
               "否",
-              "显示",
+              "隐藏",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20941,7 +21555,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "salesRakingStats",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
             }
           },
           {
@@ -20952,7 +21567,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20963,7 +21578,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "dutyRecord",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
             }
           },
           {
@@ -20974,7 +21590,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -20985,7 +21601,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "messageStats",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
             }
           },
           {
@@ -20996,7 +21613,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21007,7 +21624,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "dataViewLog",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
             }
           },
           {
@@ -21018,7 +21636,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21029,7 +21647,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "retentionStats",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
             }
           },
           {
@@ -21040,7 +21659,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21051,7 +21670,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "massMessageStats",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
             }
           },
           {
@@ -21062,7 +21682,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21073,7 +21693,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "friendCircleStats",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
             }
           },
           {
@@ -21084,7 +21705,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21095,7 +21716,77 @@
               "depth": 1,
               "hasChildren": false,
               "key": "salesMessageUsage",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
+            }
+          },
+          {
+            "id": "0-38",
+            "cells": [
+              "群邀请提及率",
+              "否",
+              "显示",
+              "0",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "groupInviteStats",
+              "parentKey": "group-9",
+              "parentId": "0-26"
+            }
+          },
+          {
+            "id": "0-39",
+            "cells": [
+              "话术统计",
+              "否",
+              "显示",
+              "0",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "scriptUsageStats",
+              "parentKey": "group-9",
+              "parentId": "0-26"
+            }
+          },
+          {
+            "id": "0-40",
+            "cells": [
+              "AI辅助统计",
+              "否",
+              "显示",
+              "0",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "aiAssistStats",
+              "parentKey": "group-9",
+              "parentId": "0-26"
             }
           },
           {
@@ -21117,19 +21808,20 @@
               "depth": 1,
               "hasChildren": false,
               "key": "salesVoiceStats",
-              "parentKey": "group-9"
+              "parentKey": "group-9",
+              "parentId": "0-26"
             },
             "source": "SPEC-SUIYIN-ADMIN-052@1.0.0"
           },
           {
-            "id": "0-38",
+            "id": "live-20260927-recordingAdmin",
             "cells": [
-              "群邀请提及率",
+              "录音管理",
               "否",
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21139,53 +21831,12 @@
             "tree": {
               "depth": 1,
               "hasChildren": false,
-              "key": "groupInviteStats",
-              "parentKey": "group-9"
-            }
-          },
-          {
-            "id": "0-39",
-            "cells": [
-              "话术统计",
-              "否",
-              "显示",
-              "0",
-              "",
-              "编辑 删除 记录"
-            ],
-            "actions": [
-              "编辑",
-              "删除",
-              "记录"
-            ],
-            "tree": {
-              "depth": 1,
-              "hasChildren": false,
-              "key": "scriptUsageStats",
-              "parentKey": "group-9"
-            }
-          },
-          {
-            "id": "0-40",
-            "cells": [
-              "AI辅助统计",
-              "否",
-              "显示",
-              "0",
-              "",
-              "编辑 删除 记录"
-            ],
-            "actions": [
-              "编辑",
-              "删除",
-              "记录"
-            ],
-            "tree": {
-              "depth": 1,
-              "hasChildren": false,
-              "key": "aiAssistStats",
-              "parentKey": "group-9"
-            }
+              "key": "recordingAdmin",
+              "parentKey": "group-9",
+              "parentId": "0-26"
+            },
+            "new": true,
+            "approvalStatus": "approved"
           },
           {
             "id": "0-41",
@@ -21193,9 +21844,9 @@
               "聊天管理",
               "否",
               "显示",
-              "4",
+              "2500",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21206,7 +21857,8 @@
               "depth": 0,
               "hasChildren": true,
               "key": "group-10",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -21217,7 +21869,7 @@
               "显示",
               "2",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21228,7 +21880,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "allChat",
-              "parentKey": "group-10"
+              "parentKey": "group-10",
+              "parentId": "0-41"
             }
           },
           {
@@ -21239,7 +21892,7 @@
               "显示",
               "1",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21250,7 +21903,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "salesReceptionQuery",
-              "parentKey": "group-10"
+              "parentKey": "group-10",
+              "parentId": "0-41"
             }
           },
           {
@@ -21261,7 +21915,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21272,7 +21926,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "allocationRecord",
-              "parentKey": "group-10"
+              "parentKey": "group-10",
+              "parentId": "0-41"
             }
           },
           {
@@ -21283,7 +21938,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21294,7 +21949,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "sensitiveWords",
-              "parentKey": "group-10"
+              "parentKey": "group-10",
+              "parentId": "0-41"
             }
           },
           {
@@ -21305,7 +21961,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21316,7 +21972,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "sensitiveWordsCustomer",
-              "parentKey": "group-10"
+              "parentKey": "group-10",
+              "parentId": "0-41"
             }
           },
           {
@@ -21327,7 +21984,7 @@
               "显示",
               "-1",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21338,7 +21995,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "aiLabelStats",
-              "parentKey": "group-10"
+              "parentKey": "group-10",
+              "parentId": "0-41"
             }
           },
           {
@@ -21349,7 +22007,7 @@
               "显示",
               "-2",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21360,7 +22018,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "remark-demand-mappings",
-              "parentKey": "group-10"
+              "parentKey": "group-10",
+              "parentId": "0-41"
             }
           },
           {
@@ -21369,9 +22028,9 @@
               "微信管理",
               "否",
               "显示",
-              "3",
+              "1875",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21382,7 +22041,8 @@
               "depth": 0,
               "hasChildren": true,
               "key": "group-11",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -21393,7 +22053,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21404,7 +22064,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "wechatStatus",
-              "parentKey": "group-11"
+              "parentKey": "group-11",
+              "parentId": "0-49"
             }
           },
           {
@@ -21415,7 +22076,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21426,7 +22087,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "wechatLaxin",
-              "parentKey": "group-11"
+              "parentKey": "group-11",
+              "parentId": "0-49"
             }
           },
           {
@@ -21437,7 +22099,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21448,7 +22110,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "acceptFriendConfig",
-              "parentKey": "group-11"
+              "parentKey": "group-11",
+              "parentId": "0-49"
             }
           },
           {
@@ -21457,9 +22120,9 @@
               "AI 管理",
               "否",
               "显示",
-              "2",
+              "1250",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21470,7 +22133,8 @@
               "depth": 0,
               "hasChildren": true,
               "key": "group-12",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -21481,7 +22145,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21492,7 +22156,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "promptTemplate",
-              "parentKey": "group-12"
+              "parentKey": "group-12",
+              "parentId": "0-53"
             }
           },
           {
@@ -21503,7 +22168,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21514,7 +22179,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "aiEntModelConfig",
-              "parentKey": "group-12"
+              "parentKey": "group-12",
+              "parentId": "0-53"
             }
           },
           {
@@ -21525,7 +22191,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21536,7 +22202,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "asrLexicon",
-              "parentKey": "group-12"
+              "parentKey": "group-12",
+              "parentId": "0-53"
             }
           },
           {
@@ -21547,7 +22214,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21558,7 +22225,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "aiChatQuality",
-              "parentKey": "group-12"
+              "parentKey": "group-12",
+              "parentId": "0-53"
             }
           },
           {
@@ -21580,9 +22248,11 @@
               "depth": 1,
               "hasChildren": false,
               "key": "aiCostStats",
-              "parentKey": "group-12"
+              "parentKey": "group-12",
+              "parentId": "0-53"
             },
-            "source": "SPEC-SUIYIN-ADMIN-058@1.0.0"
+            "source": "SPEC-SUIYIN-ADMIN-058@1.0.0",
+            "prototypeOnly": true
           },
           {
             "id": "0-58",
@@ -21590,9 +22260,9 @@
               "系统管理",
               "否",
               "显示",
-              "1",
+              "625",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21603,7 +22273,8 @@
               "depth": 0,
               "hasChildren": true,
               "key": "group-13",
-              "parentKey": null
+              "parentKey": null,
+              "parentId": ""
             }
           },
           {
@@ -21614,7 +22285,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21625,7 +22296,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "role",
-              "parentKey": "group-13"
+              "parentKey": "group-13",
+              "parentId": "0-58"
             }
           },
           {
@@ -21636,7 +22308,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21647,7 +22319,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "menu",
-              "parentKey": "group-13"
+              "parentKey": "group-13",
+              "parentId": "0-58"
             }
           },
           {
@@ -21658,7 +22331,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21669,7 +22342,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "labels",
-              "parentKey": "group-13"
+              "parentKey": "group-13",
+              "parentId": "0-58"
             }
           },
           {
@@ -21680,7 +22354,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21691,7 +22365,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "setting",
-              "parentKey": "group-13"
+              "parentKey": "group-13",
+              "parentId": "0-58"
             }
           },
           {
@@ -21702,7 +22377,7 @@
               "显示",
               "0",
               "",
-              "编辑 删除 记录"
+              "编辑\n 删除\n 记录"
             ],
             "actions": [
               "编辑",
@@ -21713,117 +22388,8 @@
               "depth": 1,
               "hasChildren": false,
               "key": "labelsManage",
-              "parentKey": "group-13"
-            }
-          },
-          {
-            "id": "0-64",
-            "cells": [
-              "案例库管理",
-              "否",
-              "显示",
-              "0",
-              "",
-              "编辑 删除 记录"
-            ],
-            "actions": [
-              "编辑",
-              "删除",
-              "记录"
-            ],
-            "tree": {
-              "depth": 0,
-              "hasChildren": true,
-              "key": "group-14",
-              "parentKey": null
-            }
-          },
-          {
-            "id": "0-65",
-            "cells": [
-              "医生管理",
-              "否",
-              "显示",
-              "0",
-              "",
-              "编辑 删除 记录"
-            ],
-            "actions": [
-              "编辑",
-              "删除",
-              "记录"
-            ],
-            "tree": {
-              "depth": 1,
-              "hasChildren": false,
-              "key": "caseLibraryDoctors",
-              "parentKey": "group-14"
-            }
-          },
-          {
-            "id": "0-66",
-            "cells": [
-              "案例管理",
-              "否",
-              "显示",
-              "0",
-              "",
-              "编辑 删除 记录"
-            ],
-            "actions": [
-              "编辑",
-              "删除",
-              "记录"
-            ],
-            "tree": {
-              "depth": 1,
-              "hasChildren": false,
-              "key": "caseLibraryEntries",
-              "parentKey": "group-14"
-            }
-          },
-          {
-            "id": "0-67",
-            "cells": [
-              "案例小程序",
-              "否",
-              "显示",
-              "0",
-              "",
-              "编辑 删除 记录"
-            ],
-            "actions": [
-              "编辑",
-              "删除",
-              "记录"
-            ],
-            "tree": {
-              "depth": 1,
-              "hasChildren": false,
-              "key": "caseLibraryMiniPrograms",
-              "parentKey": "group-14"
-            }
-          },
-          {
-            "id": "0-68",
-            "cells": [
-              "分享记录",
-              "否",
-              "显示",
-              "0",
-              "",
-              "编辑 删除 记录"
-            ],
-            "actions": [
-              "编辑",
-              "删除",
-              "记录"
-            ],
-            "tree": {
-              "depth": 1,
-              "hasChildren": false,
-              "key": "caseLibrarySubjectShares",
-              "parentKey": "group-14"
+              "parentKey": "group-13",
+              "parentId": "0-58"
             }
           }
         ]
@@ -21833,7 +22399,7 @@
       "全部记录"
     ],
     "tabs": [],
-    "text": "菜单管理\n菜单名称\t超级权限\t菜单状态\t排序\t\t操作\n销售管理\t否\t显示\t14\t\t编辑 删除 记录\n专家管理\t否\t隐藏\t13\t\t编辑 删除 记录\n专家信息\t否\t显示\t0\t\t编辑 删除 记录\n医生管理\t否\t显示\t12\t\t编辑 删除 记录\n医生列表\t否\t显示\t5\t\t编辑 删除 记录\n科室管理\t否\t显示\t4\t\t编辑 删除 记录\n院区管理\t否\t显示\t3\t\t编辑 删除 记录\n预约设置\t否\t显示\t2\t\t编辑 删除 记录\n预约记录\t否\t显示\t1\t\t编辑 删除 记录\n项目管理\t否\t显示\t0\t\t编辑 删除 记录\n好友管理\t否\t显示\t11\t\t编辑 删除 记录\n好友列表\t否\t显示\t0\t\t编辑 删除 记录\n群列表\t否\t显示\t0\t\t编辑 删除 记录\n添加好友\t否\t显示\t0\t\t编辑 删除 记录\n删退审核\t否\t显示\t0\t\t编辑 删除 记录\n好友标签\t否\t显示\t0\t\t编辑 删除 记录\n话术管理\t否\t显示\t10\t\t编辑 删除 记录\n商品管理\t否\t隐藏\t9\t\t编辑 删除 记录\n群发管理\t否\t显示\t8\t\t编辑 删除 记录\nPYQ管理\t否\t显示\t7\t\t编辑 删除 记录\n分佣管理\t否\t隐藏\t6\t\t编辑 删除 记录\n分佣明细\t否\t显示\t0\t\t编辑 删除 记录\n分佣合计\t否\t显示\t0\t\t编辑 删除 记录\n充值确认\t否\t显示\t0\t\t编辑 删除 记录\n预付确认\t否\t显示\t0\t\t编辑 删除 记录\n收入确认\t否\t显示\t0\t\t编辑 删除 记录\n数据展示\t否\t显示\t5\t\t编辑 删除 记录\n拉新记录\t否\t显示\t0\t\t编辑 删除 记录\n销售统计\t否\t显示\t0\t\t编辑 删除 记录\n回访统计\t否\t显示\t0\t\t编辑 删除 记录\n销售排名\t否\t显示\t0\t\t编辑 删除 记录\n上班记录\t否\t显示\t0\t\t编辑 删除 记录\n消息占比统计\t否\t显示\t0\t\t编辑 删除 记录\n数据查看日志\t否\t显示\t0\t\t编辑 删除 记录\n留存统计\t否\t显示\t0\t\t编辑 删除 记录\n群发统计\t否\t显示\t0\t\t编辑 删除 记录\n朋友圈统计\t否\t显示\t0\t\t编辑 删除 记录\n销售使用统计\t否\t显示\t0\t\t编辑 删除 记录\n销售变声统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群邀请提及率\t否\t显示\t0\t\t编辑 删除 记录\n话术统计\t否\t显示\t0\t\t编辑 删除 记录\nAI辅助统计\t否\t显示\t0\t\t编辑 删除 记录\n聊天管理\t否\t显示\t4\t\t编辑 删除 记录\n全部聊天\t否\t显示\t2\t\t编辑 删除 记录\n销售接待查询\t否\t显示\t1\t\t编辑 删除 记录\n分配记录\t否\t显示\t0\t\t编辑 删除 记录\n销售词控\t否\t显示\t0\t\t编辑 删除 记录\n客户词控\t否\t显示\t0\t\t编辑 删除 记录\n智能分析\t否\t显示\t-1\t\t编辑 删除 记录\n备注需求词库\t否\t显示\t-2\t\t编辑 删除 记录\n微信管理\t否\t显示\t3\t\t编辑 删除 记录\n帐号状态\t否\t显示\t0\t\t编辑 删除 记录\n拉新文案\t否\t显示\t0\t\t编辑 删除 记录\n通友管理\t否\t显示\t0\t\t编辑 删除 记录\nAI 管理\t否\t显示\t2\t\t编辑 删除 记录\nAI提示词库\t否\t显示\t0\t\t编辑 删除 记录\nAI模型管理\t否\t显示\t0\t\t编辑 删除 记录\n语音纠错词库\t否\t显示\t0\t\t编辑 删除 记录\n沟通进度分析\t否\t显示\t0\t\t编辑 删除 记录\nAI费用统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n系统管理\t否\t显示\t1\t\t编辑 删除 记录\n角色管理\t否\t显示\t0\t\t编辑 删除 记录\n菜单管理\t否\t显示\t0\t\t编辑 删除 记录\n标签模板管理\t否\t显示\t0\t\t编辑 删除 记录\n系统设置\t否\t显示\t0\t\t编辑 删除 记录\n标签管理\t否\t显示\t0\t\t编辑 删除 记录\n案例库管理\t否\t显示\t0\t\t编辑 删除 记录\n医生管理\t否\t显示\t0\t\t编辑 删除 记录\n案例管理\t否\t显示\t0\t\t编辑 删除 记录\n案例小程序\t否\t显示\t0\t\t编辑 删除 记录\n分享记录\t否\t显示\t0\t\t编辑 删除 记录",
+    "text": "菜单管理\n菜单名称\t超级权限\t菜单状态\t排序\t\t操作\n销售管理\t否\t显示\t9375\t\t编辑\n 删除\n 记录\n专家管理\t否\t隐藏\t8750\t\t编辑\n 删除\n 记录\n专家信息\t否\t显示\t0\t\t编辑\n 删除\n 记录\n医生管理\t否\t显示\t8125\t\t编辑\n 删除\n 记录\n医生列表\t否\t显示\t5\t\t编辑\n 删除\n 记录\n科室管理\t否\t显示\t4\t\t编辑\n 删除\n 记录\n院区管理\t否\t显示\t3\t\t编辑\n 删除\n 记录\n预约设置\t否\t显示\t2\t\t编辑\n 删除\n 记录\n预约记录\t否\t显示\t1\t\t编辑\n 删除\n 记录\n项目管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n喜报设置\t否\t显示\t0\t\t编辑\n 删除\n 记录\n喜报记录\t否\t显示\t-1\t\t编辑\n 删除\n 记录\n好友管理\t否\t显示\t7500\t\t编辑\n 删除\n 记录\n好友列表\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群列表\t否\t显示\t0\t\t编辑\n 删除\n 记录\n添加好友\t否\t显示\t0\t\t编辑\n 删除\n 记录\n删退审核\t否\t显示\t0\t\t编辑\n 删除\n 记录\n好友标签\t否\t显示\t0\t\t编辑\n 删除\n 记录\n话术管理\t否\t显示\t6875\t\t编辑\n 删除\n 记录\n案例库管理\t否\t显示\t6250\t\t编辑\n 删除\n 记录\n医生管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n案例管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n案例小程序\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分享记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n商品管理\t否\t隐藏\t5625\t\t编辑\n 删除\n 记录\n群发管理\t否\t显示\t5000\t\t编辑\n 删除\n 记录\nPYQ管理\t否\t显示\t4375\t\t编辑\n 删除\n 记录\n分佣管理\t否\t隐藏\t3750\t\t编辑\n 删除\n 记录\n分佣明细\t否\t显示\t0\t\t编辑\n 删除\n 记录\n分佣合计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n充值确认\t否\t显示\t0\t\t编辑\n 删除\n 记录\n预付确认\t否\t显示\t0\t\t编辑\n 删除\n 记录\n收入确认\t否\t显示\t0\t\t编辑\n 删除\n 记录\n数据展示\t否\t显示\t3125\t\t编辑\n 删除\n 记录\n拉新记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n回访统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售排名\t否\t隐藏\t0\t\t编辑\n 删除\n 记录\n上班记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n消息占比统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n数据查看日志\t否\t显示\t0\t\t编辑\n 删除\n 记录\n留存统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群发统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n朋友圈统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售使用统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n群邀请提及率\t否\t显示\t0\t\t编辑\n 删除\n 记录\n话术统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI辅助统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售变声统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n录音管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n聊天管理\t否\t显示\t2500\t\t编辑\n 删除\n 记录\n全部聊天\t否\t显示\t2\t\t编辑\n 删除\n 记录\n销售接待查询\t否\t显示\t1\t\t编辑\n 删除\n 记录\n分配记录\t否\t显示\t0\t\t编辑\n 删除\n 记录\n销售词控\t否\t显示\t0\t\t编辑\n 删除\n 记录\n客户词控\t否\t显示\t0\t\t编辑\n 删除\n 记录\n智能分析\t否\t显示\t-1\t\t编辑\n 删除\n 记录\n备注需求词库\t否\t显示\t-2\t\t编辑\n 删除\n 记录\n微信管理\t否\t显示\t1875\t\t编辑\n 删除\n 记录\n帐号状态\t否\t显示\t0\t\t编辑\n 删除\n 记录\n拉新文案\t否\t显示\t0\t\t编辑\n 删除\n 记录\n通友管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI 管理\t否\t显示\t1250\t\t编辑\n 删除\n 记录\nAI提示词库\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI模型管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n语音纠错词库\t否\t显示\t0\t\t编辑\n 删除\n 记录\n沟通进度分析\t否\t显示\t0\t\t编辑\n 删除\n 记录\nAI费用统计\t否\t显示\t0\t\t编辑\n 删除\n 记录\n系统管理\t否\t显示\t625\t\t编辑\n 删除\n 记录\n角色管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n菜单管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n标签模板管理\t否\t显示\t0\t\t编辑\n 删除\n 记录\n系统设置\t否\t显示\t0\t\t编辑\n 删除\n 记录\n标签管理\t否\t显示\t0\t\t编辑\n 删除\n 记录",
     "expandedForms": {},
     "layout": "menu-tree",
     "publicDataPolicy": "public-demo-identities-v1",
@@ -21843,7 +22409,1591 @@
         "spec": "SPEC-SUIYIN-ADMIN-052@1.0.0",
         "source": "approved-static-prototype"
       }
-    ]
+    ],
+    "liveRefreshEvidence": {
+      "source": "read-only-authenticated-browser",
+      "sourceUrl": "https://yestar-hz.wecarepet.com/admin/menu",
+      "capturedAt": "2026-09-27T03:04:28.676Z",
+      "staging": false
+    },
+    "menuRefresh": {
+      "previousRevision": "2026-09-20-menu-ai-cost-stats-v1-public-demo-identities-v1",
+      "previousHeaders": [
+        "菜单名称",
+        "超级权限",
+        "菜单状态",
+        "排序",
+        "",
+        "操作"
+      ],
+      "previousRows": [
+        {
+          "id": "0-0",
+          "cells": [
+            "销售管理",
+            "否",
+            "显示",
+            "14",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": false,
+            "key": "salesManage",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-1",
+          "cells": [
+            "专家管理",
+            "否",
+            "隐藏",
+            "13",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": true,
+            "key": "group-1",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-2",
+          "cells": [
+            "专家信息",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "expertList",
+            "parentKey": "group-1"
+          }
+        },
+        {
+          "id": "0-3",
+          "cells": [
+            "医生管理",
+            "否",
+            "显示",
+            "12",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": true,
+            "key": "group-2",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-4",
+          "cells": [
+            "医生列表",
+            "否",
+            "显示",
+            "5",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "medicalDoctors",
+            "parentKey": "group-2"
+          }
+        },
+        {
+          "id": "0-5",
+          "cells": [
+            "科室管理",
+            "否",
+            "显示",
+            "4",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "medicalDepartments",
+            "parentKey": "group-2"
+          }
+        },
+        {
+          "id": "0-6",
+          "cells": [
+            "院区管理",
+            "否",
+            "显示",
+            "3",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "medicalLocations",
+            "parentKey": "group-2"
+          }
+        },
+        {
+          "id": "0-7",
+          "cells": [
+            "预约设置",
+            "否",
+            "显示",
+            "2",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "appointmentSettings",
+            "parentKey": "group-2"
+          }
+        },
+        {
+          "id": "0-8",
+          "cells": [
+            "预约记录",
+            "否",
+            "显示",
+            "1",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "appointmentRecords",
+            "parentKey": "group-2"
+          }
+        },
+        {
+          "id": "0-9",
+          "cells": [
+            "项目管理",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "medicalProjects",
+            "parentKey": "group-2"
+          }
+        },
+        {
+          "id": "0-10",
+          "cells": [
+            "好友管理",
+            "否",
+            "显示",
+            "11",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": true,
+            "key": "group-3",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-11",
+          "cells": [
+            "好友列表",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "yxCustomerList",
+            "parentKey": "group-3"
+          }
+        },
+        {
+          "id": "0-12",
+          "cells": [
+            "群列表",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "customerGroupList",
+            "parentKey": "group-3"
+          }
+        },
+        {
+          "id": "0-13",
+          "cells": [
+            "添加好友",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "uploadCustomerList",
+            "parentKey": "group-3"
+          }
+        },
+        {
+          "id": "0-14",
+          "cells": [
+            "删退审核",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "approvalList",
+            "parentKey": "group-3"
+          }
+        },
+        {
+          "id": "0-15",
+          "cells": [
+            "好友标签",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "customerTags",
+            "parentKey": "group-3"
+          }
+        },
+        {
+          "id": "0-16",
+          "cells": [
+            "话术管理",
+            "否",
+            "显示",
+            "10",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": false,
+            "key": "languageManage",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-17",
+          "cells": [
+            "商品管理",
+            "否",
+            "隐藏",
+            "9",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": false,
+            "key": "products",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-18",
+          "cells": [
+            "群发管理",
+            "否",
+            "显示",
+            "8",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": false,
+            "key": "massMessageListYx",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-19",
+          "cells": [
+            "PYQ管理",
+            "否",
+            "显示",
+            "7",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": false,
+            "key": "friendCircle",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-20",
+          "cells": [
+            "分佣管理",
+            "否",
+            "隐藏",
+            "6",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": true,
+            "key": "group-8",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-21",
+          "cells": [
+            "分佣明细",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "rewardListNew",
+            "parentKey": "group-8"
+          }
+        },
+        {
+          "id": "0-22",
+          "cells": [
+            "分佣合计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "rewardTotalNew",
+            "parentKey": "group-8"
+          }
+        },
+        {
+          "id": "0-23",
+          "cells": [
+            "充值确认",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "topUpList",
+            "parentKey": "group-8"
+          }
+        },
+        {
+          "id": "0-24",
+          "cells": [
+            "预付确认",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "sahPrepaymentList",
+            "parentKey": "group-8"
+          }
+        },
+        {
+          "id": "0-25",
+          "cells": [
+            "收入确认",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "sahIncomeConfirm",
+            "parentKey": "group-8"
+          }
+        },
+        {
+          "id": "0-26",
+          "cells": [
+            "数据展示",
+            "否",
+            "显示",
+            "5",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": true,
+            "key": "group-9",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-27",
+          "cells": [
+            "拉新记录",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "newAddedRecords",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-28",
+          "cells": [
+            "销售统计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "salesStatsNew",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-29",
+          "cells": [
+            "回访统计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "revisitStats",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-30",
+          "cells": [
+            "销售排名",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "salesRakingStats",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-31",
+          "cells": [
+            "上班记录",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "dutyRecord",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-32",
+          "cells": [
+            "消息占比统计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "messageStats",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-33",
+          "cells": [
+            "数据查看日志",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "dataViewLog",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-34",
+          "cells": [
+            "留存统计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "retentionStats",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-35",
+          "cells": [
+            "群发统计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "massMessageStats",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-36",
+          "cells": [
+            "朋友圈统计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "friendCircleStats",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-37",
+          "cells": [
+            "销售使用统计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "salesMessageUsage",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-salesVoiceStats",
+          "cells": [
+            "销售变声统计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑\n 删除\n 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "salesVoiceStats",
+            "parentKey": "group-9"
+          },
+          "source": "SPEC-SUIYIN-ADMIN-052@1.0.0"
+        },
+        {
+          "id": "0-38",
+          "cells": [
+            "群邀请提及率",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "groupInviteStats",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-39",
+          "cells": [
+            "话术统计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "scriptUsageStats",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-40",
+          "cells": [
+            "AI辅助统计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "aiAssistStats",
+            "parentKey": "group-9"
+          }
+        },
+        {
+          "id": "0-41",
+          "cells": [
+            "聊天管理",
+            "否",
+            "显示",
+            "4",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": true,
+            "key": "group-10",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-42",
+          "cells": [
+            "全部聊天",
+            "否",
+            "显示",
+            "2",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "allChat",
+            "parentKey": "group-10"
+          }
+        },
+        {
+          "id": "0-43",
+          "cells": [
+            "销售接待查询",
+            "否",
+            "显示",
+            "1",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "salesReceptionQuery",
+            "parentKey": "group-10"
+          }
+        },
+        {
+          "id": "0-44",
+          "cells": [
+            "分配记录",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "allocationRecord",
+            "parentKey": "group-10"
+          }
+        },
+        {
+          "id": "0-45",
+          "cells": [
+            "销售词控",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "sensitiveWords",
+            "parentKey": "group-10"
+          }
+        },
+        {
+          "id": "0-46",
+          "cells": [
+            "客户词控",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "sensitiveWordsCustomer",
+            "parentKey": "group-10"
+          }
+        },
+        {
+          "id": "0-47",
+          "cells": [
+            "智能分析",
+            "否",
+            "显示",
+            "-1",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "aiLabelStats",
+            "parentKey": "group-10"
+          }
+        },
+        {
+          "id": "0-48",
+          "cells": [
+            "备注需求词库",
+            "否",
+            "显示",
+            "-2",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "remark-demand-mappings",
+            "parentKey": "group-10"
+          }
+        },
+        {
+          "id": "0-49",
+          "cells": [
+            "微信管理",
+            "否",
+            "显示",
+            "3",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": true,
+            "key": "group-11",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-50",
+          "cells": [
+            "帐号状态",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "wechatStatus",
+            "parentKey": "group-11"
+          }
+        },
+        {
+          "id": "0-51",
+          "cells": [
+            "拉新文案",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "wechatLaxin",
+            "parentKey": "group-11"
+          }
+        },
+        {
+          "id": "0-52",
+          "cells": [
+            "通友管理",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "acceptFriendConfig",
+            "parentKey": "group-11"
+          }
+        },
+        {
+          "id": "0-53",
+          "cells": [
+            "AI 管理",
+            "否",
+            "显示",
+            "2",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": true,
+            "key": "group-12",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-54",
+          "cells": [
+            "AI提示词库",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "promptTemplate",
+            "parentKey": "group-12"
+          }
+        },
+        {
+          "id": "0-55",
+          "cells": [
+            "AI模型管理",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "aiEntModelConfig",
+            "parentKey": "group-12"
+          }
+        },
+        {
+          "id": "0-56",
+          "cells": [
+            "语音纠错词库",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "asrLexicon",
+            "parentKey": "group-12"
+          }
+        },
+        {
+          "id": "0-57",
+          "cells": [
+            "沟通进度分析",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "aiChatQuality",
+            "parentKey": "group-12"
+          }
+        },
+        {
+          "id": "0-aiCostStats",
+          "cells": [
+            "AI费用统计",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑\n 删除\n 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "aiCostStats",
+            "parentKey": "group-12"
+          },
+          "source": "SPEC-SUIYIN-ADMIN-058@1.0.0"
+        },
+        {
+          "id": "0-58",
+          "cells": [
+            "系统管理",
+            "否",
+            "显示",
+            "1",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": true,
+            "key": "group-13",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-59",
+          "cells": [
+            "角色管理",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "role",
+            "parentKey": "group-13"
+          }
+        },
+        {
+          "id": "0-60",
+          "cells": [
+            "菜单管理",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "menu",
+            "parentKey": "group-13"
+          }
+        },
+        {
+          "id": "0-61",
+          "cells": [
+            "标签模板管理",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "labels",
+            "parentKey": "group-13"
+          }
+        },
+        {
+          "id": "0-62",
+          "cells": [
+            "系统设置",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "setting",
+            "parentKey": "group-13"
+          }
+        },
+        {
+          "id": "0-63",
+          "cells": [
+            "标签管理",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "labelsManage",
+            "parentKey": "group-13"
+          }
+        },
+        {
+          "id": "0-64",
+          "cells": [
+            "案例库管理",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 0,
+            "hasChildren": true,
+            "key": "group-14",
+            "parentKey": null
+          }
+        },
+        {
+          "id": "0-65",
+          "cells": [
+            "医生管理",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "caseLibraryDoctors",
+            "parentKey": "group-14"
+          }
+        },
+        {
+          "id": "0-66",
+          "cells": [
+            "案例管理",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "caseLibraryEntries",
+            "parentKey": "group-14"
+          }
+        },
+        {
+          "id": "0-67",
+          "cells": [
+            "案例小程序",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "caseLibraryMiniPrograms",
+            "parentKey": "group-14"
+          }
+        },
+        {
+          "id": "0-68",
+          "cells": [
+            "分享记录",
+            "否",
+            "显示",
+            "0",
+            "",
+            "编辑 删除 记录"
+          ],
+          "actions": [
+            "编辑",
+            "删除",
+            "记录"
+          ],
+          "tree": {
+            "depth": 1,
+            "hasChildren": false,
+            "key": "caseLibrarySubjectShares",
+            "parentKey": "group-14"
+          }
+        }
+      ],
+      "revision": "2026-09-27-live-menu-refresh-staging-v1"
+    }
   },
   "labels": {
     "tenant": "yestar-hz",
@@ -22637,60 +24787,74 @@
     "label": "案例管理",
     "source": "https://yestar-hz.wecarepet.com/admin/caseLibraryEntries",
     "sampleTenant": "yestar-hz",
-    "sampleSource": "https://yestar-hz.wecarepet.com/admin/caseLibraryEntries",
+    "sampleSource": "local-synthetic:yestar-hz",
     "schemaSource": "https://yestar-hz.wecarepet.com/admin/caseLibraryEntries",
-    "capturedAt": "2026-09-18T08:57:04.070Z",
-    "state": "captured",
-    "dataRevision": "2026-09-18-filled-v4-public-demo-identities-v1",
+    "capturedAt": "2026-09-27T04:15:28.112Z",
+    "state": "mock",
+    "dataRevision": "2026-09-27-caseLibraryEntries-tenant-schema-v3-public-demo-identities-v1",
     "forms": [
       {
         "fields": [
           {
-            "controls": [
-              {
-                "disabled": false,
-                "placeholder": null,
-                "tag": "INPUT",
-                "text": "",
-                "type": "text",
-                "value": ""
-              }
-            ],
             "label": "医生",
-            "text": "医生\n搜索医生姓名或编码"
-          },
-          {
+            "text": "医生",
             "controls": [
               {
-                "disabled": false,
-                "placeholder": "案例标题",
                 "tag": "INPUT",
-                "text": "",
-                "type": "text",
-                "value": ""
-              }
-            ],
-            "label": "标题",
-            "text": "标题"
-          },
-          {
-            "controls": [
-              {
-                "disabled": false,
+                "type": "select",
                 "placeholder": null,
-                "tag": "INPUT",
-                "text": "",
-                "type": "text",
-                "value": ""
+                "value": "",
+                "disabled": false,
+                "checked": false
               }
-            ],
-            "label": "状态",
-            "text": "状态\n请选择"
+            ]
           },
           {
-            "controls": [],
+            "label": "标题",
+            "text": "标题",
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "text",
+                "placeholder": "案例标题",
+                "value": "",
+                "disabled": false,
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "分类",
+            "text": "分类",
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "select",
+                "placeholder": null,
+                "value": "",
+                "disabled": false,
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "状态",
+            "text": "状态",
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "select",
+                "placeholder": null,
+                "value": "",
+                "disabled": false,
+                "checked": false
+              }
+            ]
+          },
+          {
             "label": "",
-            "text": "查询\n重置"
+            "text": "查询\n重置",
+            "controls": []
           }
         ]
       }
@@ -22725,6 +24889,7 @@
       {
         "headers": [
           "所属医生",
+          "分类",
           "案例标题",
           "状态",
           "排序",
@@ -22734,20 +24899,424 @@
         ],
         "rows": [
           {
-            "id": "0-0",
+            "id": "yestar-hz-caseLibraryEntries-demo-1",
             "cells": [
-              "何医生（E201）",
-              "眼部双眼皮",
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
               "已发布",
               "1",
               "",
-              "2026-09-11 13:50:19",
+              "2026-09-25 10:00:00",
               "编辑\n删除"
             ],
             "actions": [
               "编辑",
               "删除"
-            ]
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-2",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "2",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-3",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "3",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-4",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "4",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-5",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "5",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-6",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "6",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-7",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "7",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-8",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "8",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-9",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "9",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-10",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "10",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-11",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "11",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-12",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "12",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-13",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "13",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-14",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "14",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-15",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "15",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-16",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "16",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-17",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "17",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-18",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "18",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-19",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "19",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibraryEntries-demo-20",
+            "cells": [
+              "演示医生（E-DEMO）",
+              "演示分类",
+              "演示案例",
+              "已发布",
+              "20",
+              "",
+              "2026-09-25 10:00:00",
+              "编辑\n删除"
+            ],
+            "actions": [
+              "编辑",
+              "删除"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
           }
         ]
       }
@@ -22758,11 +25327,48 @@
       "新增案例"
     ],
     "tabs": [],
-    "pagination": "共 1 条\n20条/页\n1",
-    "text": "案例管理\n所属医生\t案例标题\t状态\t排序\t封面\t更新时间\t操作\n何医生（E201）\t眼部双眼皮\t已发布\t1\t\t2026-09-11 13:50:19\t编辑\n删除",
+    "pagination": "共 960 条\n20条/页\n1\n2\n3\n4\n5\n6\n48",
+    "text": "案例管理\n所属医生\t分类\t案例标题\t状态\t排序\t封面\t更新时间\t操作\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t1\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t2\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t3\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t4\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t5\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t6\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t7\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t8\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t9\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t10\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t11\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t12\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t13\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t14\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t15\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t16\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t17\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t18\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t19\t\t2026-09-25 10:00:00\t编辑\n删除\n演示医生（E-DEMO）\t演示分类\t演示案例\t已发布\t20\t\t2026-09-25 10:00:00\t编辑\n删除",
     "canvas": 0,
     "expandedForms": {},
-    "publicDataPolicy": "public-demo-identities-v1"
+    "publicDataPolicy": "public-demo-identities-v1",
+    "referenceColumns": [
+      {
+        "label": "所属医生",
+        "width": 362
+      },
+      {
+        "label": "分类",
+        "width": 288
+      },
+      {
+        "label": "案例标题",
+        "width": 431
+      },
+      {
+        "label": "状态",
+        "width": 100
+      },
+      {
+        "label": "排序",
+        "width": 80
+      },
+      {
+        "label": "封面",
+        "width": 100
+      },
+      {
+        "label": "更新时间",
+        "width": 407
+      },
+      {
+        "label": "操作",
+        "width": 150
+      }
+    ],
+    "sourceObservedTotal": 960,
+    "samplePolicy": "Independent synthetic rows for the current tenant, limited to 20; live capture is used for schema and geometry. Source total is evidence, not the local sample count.",
+    "structureEvidence": "yestar-hz--caseLibraryEntries--2026-09-27T04-15-28-112Z.json"
   },
   "caseLibraryMiniPrograms": {
     "tenant": "yestar-hz",
@@ -23086,51 +25692,513 @@
     "label": "分享记录",
     "source": "https://yestar-hz.wecarepet.com/admin/caseLibrarySubjectShares?page=1&pageSize=20",
     "sampleTenant": "yestar-hz",
-    "sampleSource": "https://yestar-hz.wecarepet.com/admin/caseLibrarySubjectShares?page=1&pageSize=20",
+    "sampleSource": "local-synthetic:yestar-hz",
     "schemaSource": "https://yestar-hz.wecarepet.com/admin/caseLibrarySubjectShares?page=1&pageSize=20",
-    "capturedAt": "2026-09-18T08:50:22.127Z",
+    "capturedAt": "2026-09-27T04:48:43.201Z",
     "state": "mock",
-    "dataRevision": "2026-09-18-filled-v4-public-demo-identities-v1",
+    "dataRevision": "2026-09-27-caseLibrarySubjectShares-tenant-schema-v3-public-demo-identities-v1",
     "forms": [],
     "inputs": [],
     "tables": [
       {
         "headers": [
-          "分享标题",
-          "主题",
-          "分享人",
-          "访问次数",
-          "分享时间",
-          "状态",
-          "操作"
+          "医生",
+          "分享销售",
+          "分享目标",
+          "案例小程序",
+          "目标客户",
+          "发送人设号",
+          "生成时间",
+          "首次浏览状态"
         ],
         "rows": [
           {
-            "id": "share-0",
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-1",
             "cells": [
-              "何医生（E201）",
-              "案例介绍",
-              "王钦霖",
-              "8",
-              "2026-09-18 10:30:00",
-              "有效",
-              "预览\n详情"
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 1",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
             ],
             "actions": [
-              "预览",
-              "详情"
-            ]
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-2",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 2",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-3",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 3",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-4",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 4",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-5",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 5",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-6",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 6",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-7",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 7",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-8",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 8",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-9",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 9",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-10",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 10",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-11",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 11",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-12",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 12",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-13",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 13",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-14",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 14",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-15",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 15",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-16",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 16",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-17",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 17",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-18",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 18",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-19",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 19",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
+          },
+          {
+            "id": "yestar-hz-caseLibrarySubjectShares-demo-20",
+            "cells": [
+              "杭州艺星演示医生",
+              "杭州艺星演示销售",
+              "医生页",
+              "杭州艺星案例小程序",
+              "杭州艺星演示客户 20",
+              "演示人设",
+              "2026-09-27 09:00:00",
+              "未浏览"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "extra": {
+              "sampleKind": "tenant-isolated-synthetic",
+              "tenant": "yestar-hz"
+            }
           }
         ]
       }
     ],
     "buttons": [],
     "tabs": [],
-    "pagination": "",
-    "text": "分享记录\n分享标题\t主题\t分享人\t访问次数\t分享时间\t状态\t操作\n何医生（E201）\t案例介绍\t王钦霖\t8\t2026-09-18 10:30:00\t有效\t预览\n详情",
+    "pagination": "共 41 条\n20条/页\n1\n2\n3",
+    "text": "分享记录\n医生\t分享销售\t分享目标\t案例小程序\t目标客户\t发送人设号\t生成时间\t首次浏览状态\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 1\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 2\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 3\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 4\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 5\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 6\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 7\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 8\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 9\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 10\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 11\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 12\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 13\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 14\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 15\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 16\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 17\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 18\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 19\t演示人设\t2026-09-27 09:00:00\t未浏览\n杭州艺星演示医生\t杭州艺星演示销售\t医生页\t杭州艺星案例小程序\t杭州艺星演示客户 20\t演示人设\t2026-09-27 09:00:00\t未浏览",
     "canvas": 0,
     "expandedForms": {},
-    "publicDataPolicy": "public-demo-identities-v1"
+    "publicDataPolicy": "public-demo-identities-v1",
+    "referenceColumns": [
+      {
+        "label": "医生",
+        "width": 140
+      },
+      {
+        "label": "分享销售",
+        "width": 253
+      },
+      {
+        "label": "分享目标",
+        "width": 366
+      },
+      {
+        "label": "案例小程序",
+        "width": 249
+      },
+      {
+        "label": "目标客户",
+        "width": 249
+      },
+      {
+        "label": "发送人设号",
+        "width": 249
+      },
+      {
+        "label": "生成时间",
+        "width": 172
+      },
+      {
+        "label": "首次浏览状态",
+        "width": 240
+      }
+    ],
+    "sourceObservedTotal": 41,
+    "samplePolicy": "Independent synthetic rows for the current tenant, limited to 20; live capture is used for schema and geometry. Source total is evidence, not the local sample count.",
+    "structureEvidence": "yestar-hz--caseLibrarySubjectShares--2026-09-27T04-48-43-201Z.json"
   },
   "aiCostStats": {
     "tenant": "yestar-hz",

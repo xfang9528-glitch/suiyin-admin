@@ -30,7 +30,7 @@ window.AdminVoiceStats = (() => {
     }
     const inCoverage = query.end >= data.coverage.start && query.start <= data.coverage.end;
     if (!inCoverage) return [];
-    const rows = data.sales.filter(s => (!query.department || s.departmentId === query.department) && s.authorized !== false)
+    const rows = data.sales.filter(s => (!query.department || s.departmentId === query.department) && (!query.sales || s.name.toLocaleLowerCase().includes(query.sales.trim().toLocaleLowerCase())) && s.authorized !== false)
       .map(s => ({...s, count:0}));
     const rowMap = new Map(rows.map(r => [r.salesId+'\u0000'+r.departmentId, r]));
     for (const event of first.values()) {
@@ -90,7 +90,7 @@ window.AdminVoiceStats = (() => {
       root.append(denied); return true;
     }
     const today = day();let data = fixture(A.tenant,today);
-    let submitted = {start:today, end:today, department:''};
+    let submitted = {start:today, end:today, department:'',sales:''};
     let rows = aggregate(data,submitted), page=1, size=20, direction='none', mode='single', busy=false, failed=false;
     let failNext = qa && q.get('voiceState') === 'error';
     const emptyDemo = qa && q.get('voiceState') === 'empty';
@@ -106,6 +106,7 @@ window.AdminVoiceStats = (() => {
     const quick=node('div','quick-dates');['今天','昨天','前天'].forEach((text,i)=>{const b=button(text,()=>{calendar?.close();start.value=end.value=offsetDay(day(),-i);markQuick();submit();});b.dataset.offset=String(-i);quick.append(b);});
     dates.append(modes,dateBox,quick);dateField.append(dates);form.append(dateField);
     const depLabel=node('label','field usage-department-field'),dep=node('select');dep.setAttribute('aria-label','部门');dep.append(new Option('选择部门',''));data.departments.forEach(d=>dep.append(new Option(d.name,d.id)));depLabel.append(node('span','','部门'),A.searchableSelect(dep,'部门'));form.append(depLabel);
+    const salesLabel=node('label','field voice-sales-field'),sales=node('input');sales.type='text';sales.placeholder='输入销售姓名';sales.setAttribute('aria-label','销售姓名');salesLabel.append(node('span','','销售'),sales);form.append(salesLabel);
     const actions=node('div','filter-actions'),search=button('搜索',()=>{},'primary'),reset=button('重置',resetAll),exportButton=button('导出',exportAll);search.type='submit';search.onclick=null;reset.querySelector('.button-icon')?.remove();actions.append(search,reset,exportButton);form.append(actions);
     const error=node('p','filter-error');error.id='usage-date-error';error.hidden=true;error.setAttribute('role','alert');form.append(error);form.onsubmit=e=>{e.preventDefault();submit();};
     const note=node('div','voice-note');
@@ -114,7 +115,7 @@ window.AdminVoiceStats = (() => {
     const result=node('section','voice-results');result.setAttribute('aria-label','销售变声统计结果');
     const source=node('p','voice-source','合成演示数据 · 示例日期 '+data.coverage.start+' 至 '+data.coverage.end+' · '+A.tenantInfo.name);
     root.append(form,note,result,source);
-    function draft(){return {start:start.value.trim(),end:mode==='single'?start.value.trim():end.value.trim(),department:dep.value};}
+    function draft(){return {start:start.value.trim(),end:mode==='single'?start.value.trim():end.value.trim(),department:dep.value,sales:sales.value.trim()};}
     function markQuick(){quick.querySelectorAll('button').forEach(b=>{const selected=start.value===end.value&&start.value===offsetDay(day(),Number(b.dataset.offset));b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',String(selected));});}
     const calendar=window.AdminUsageDatePicker?.attach({host:dateBox,start,end,getMode:()=>mode,onChange:()=>{if(mode==='single')end.value=start.value;markQuick();}});
     start.addEventListener('input',()=>{if(mode==='single')end.value=start.value;markQuick();});end.addEventListener('input',markQuick);
@@ -129,10 +130,10 @@ window.AdminVoiceStats = (() => {
         problem.append(node('strong','','加载失败，请重试'),node('p','','未更新统计结果，请重试本次查询。'),button('重试',()=>run(submitted)));
         result.append(problem);exportButton.disabled=true;return;
       }
-      if(!rows.length){result.dataset.state=busy?'loading':'empty';result.append(A.empty('暂无数据','所选条件没有演示记录，请调整日期或部门。'));exportButton.disabled=true;return;}
+      if(!rows.length){result.dataset.state=busy?'loading':'empty';const wrap=node('div','table-wrap voice-table-wrap voice-empty-table'),table=node('table'),head=node('thead'),tr=node('tr'),body=node('tbody'),row=node('tr'),cell=node('td');['#','销售','部门','变声使用次数'].forEach((title,i)=>tr.append(node('th',i===3?'num voice-number':'',title)));head.append(tr);cell.colSpan=4;cell.append(A.empty('当前筛选范围内暂无变声记录','请调整日期、部门或销售后查询。'));row.append(cell);body.append(row);table.append(head,body);wrap.append(table);result.append(wrap);exportButton.disabled=true;return;}
       exportButton.disabled=busy;
       const ordered=sorted(), wrap=node('div','table-wrap voice-table-wrap'), table=node('table'), cap=node('caption','sr-only','销售变声统计'), head=node('thead'), tr=node('tr'), body=node('tbody');
-      const cols=node('colgroup');['72px','28%','30%',''].forEach(w=>{const c=node('col');if(w)c.style.width=w;cols.append(c);});
+      const cols=node('colgroup');['72px','','',''].forEach(w=>{const c=node('col');if(w)c.style.width=w;cols.append(c);});
       ['#','销售','部门','变声使用次数'].forEach((title,i)=>{
         const th=node('th',i===3?'num voice-number':'',title);th.scope='col';
         if(i===3){th.setAttribute('aria-sort',direction);th.tabIndex=busy?-1:0;th.dataset.sort='count';if(direction!=='none')th.append(document.createTextNode(direction==='ascending'?' ↑':' ↓'));const toggle=()=>{if(busy)return;direction=direction==='ascending'?'descending':'ascending';page=1;draw();result.querySelector('[data-sort]')?.focus();};th.onclick=toggle;th.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}};}
@@ -159,7 +160,7 @@ window.AdminVoiceStats = (() => {
       finally {setBusy(false);draw();}
     }
     function submit(){if(busy)return;const value=draft(),message=validate(value);error.hidden=!message;error.textContent=message;start.setAttribute('aria-invalid',String(!!message));end.setAttribute('aria-invalid',String(!!message));if(message)return;calendar?.close();markQuick();run(value);}
-    function resetAll(){if(busy)return;calendar?.close();mode='single';start.value=end.value=day();dep.value='';dep.dispatchEvent(new Event('change',{bubbles:true}));direction='none';error.hidden=true;start.removeAttribute('aria-invalid');end.removeAttribute('aria-invalid');syncMode();run(draft());}
+    function resetAll(){if(busy)return;calendar?.close();mode='single';start.value=end.value=day();dep.value='';sales.value='';dep.dispatchEvent(new Event('change',{bubbles:true}));direction='none';error.hidden=true;start.removeAttribute('aria-invalid');end.removeAttribute('aria-invalid');syncMode();run(draft());}
     function exportAll(){if(busy||failed||!rows.length)return;const blob=new Blob([csv(sorted())],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),link=node('a');link.href=url;link.download=A.tenant+'-销售变声统计-'+submitted.start+'_'+submitted.end+'.csv';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);A.toast('已导出全部 '+rows.length+' 条筛选结果（合成演示数据）');}
     syncMode();draw();if(failNext||emptyDemo)run(submitted);
     return true;
