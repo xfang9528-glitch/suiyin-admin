@@ -1,0 +1,158 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.3.0",
+  "verifiedAt": "2026-09-28T04:05:13.274Z",
+  "artifactClass": "static-html",
+  "source": {
+    "path": "prototype/admin-revisit-rules-model.js",
+    "sha256": "e5f01e95983b3288735eb31e3eed9a908114365e1e946b13e126b084ce24aac7"
+  },
+  "status": "PASS",
+  "passed": 36,
+  "total": 36,
+  "results": [
+    {
+      "name": "12个独立基准包含旧5项、成为A/B/C/D级、到店/购买/划扣",
+      "status": "PASS"
+    },
+    {
+      "name": "旧21项选中与26项排除身份/类型原样保留，不把新基准混进筛选维度",
+      "status": "PASS"
+    },
+    {
+      "name": "旧v2规则不需要新字段仍可校验，旧5日期只读取对应dates",
+      "status": "PASS"
+    },
+    {
+      "name": "旧日期缺失或非法为unknown，不从其他日期或当前等级猜测",
+      "status": "PASS"
+    },
+    {
+      "name": "visit首次/最近一次按发生时间选，输入无序且未来事件不参与",
+      "status": "PASS"
+    },
+    {
+      "name": "visit独立于其他事件，不能以购买/划扣/到店互相填值",
+      "status": "PASS"
+    },
+    {
+      "name": "visit已知空历史和仅未来历史为none，缺失/null/非法为unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "visit日期记录按北京时间当天，时间戳按北京时间跨日",
+      "status": "PASS"
+    },
+    {
+      "name": "visit运行瞬间可计入，晚1毫秒不计入，日期记录只从当日零点起生效",
+      "status": "PASS"
+    },
+    {
+      "name": "purchase首次/最近一次按发生时间选，输入无序且未来事件不参与",
+      "status": "PASS"
+    },
+    {
+      "name": "purchase独立于其他事件，不能以购买/划扣/到店互相填值",
+      "status": "PASS"
+    },
+    {
+      "name": "purchase已知空历史和仅未来历史为none，缺失/null/非法为unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "purchase日期记录按北京时间当天，时间戳按北京时间跨日",
+      "status": "PASS"
+    },
+    {
+      "name": "purchase运行瞬间可计入，晚1毫秒不计入，日期记录只从当日零点起生效",
+      "status": "PASS"
+    },
+    {
+      "name": "redemption首次/最近一次按发生时间选，输入无序且未来事件不参与",
+      "status": "PASS"
+    },
+    {
+      "name": "redemption独立于其他事件，不能以购买/划扣/到店互相填值",
+      "status": "PASS"
+    },
+    {
+      "name": "redemption已知空历史和仅未来历史为none，缺失/null/非法为unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "redemption日期记录按北京时间当天，时间戳按北京时间跨日",
+      "status": "PASS"
+    },
+    {
+      "name": "redemption运行瞬间可计入，晚1毫秒不计入，日期记录只从当日零点起生效",
+      "status": "PASS"
+    },
+    {
+      "name": "成为A级人工/AI分别使用自身变更历史，可接受首次从null进入",
+      "status": "PASS"
+    },
+    {
+      "name": "成为B级人工/AI分别使用自身变更历史，可接受首次从null进入",
+      "status": "PASS"
+    },
+    {
+      "name": "成为C级人工/AI分别使用自身变更历史，可接受首次从null进入",
+      "status": "PASS"
+    },
+    {
+      "name": "成为D级人工/AI分别使用自身变更历史，可接受首次从null进入",
+      "status": "PASS"
+    },
+    {
+      "name": "当前等级有值也不能推算成为日期，所选来源历史缺失不借用另一来源",
+      "status": "PASS"
+    },
+    {
+      "name": "同值等级评定不重置基准，重复事件不重置，无序多次进入取最后一次",
+      "status": "PASS"
+    },
+    {
+      "name": "grade不受event首次/最近一次参数影响，总取最近真正进入目标等级",
+      "status": "PASS"
+    },
+    {
+      "name": "等级事件空/仅未来/仅同值为none，缺失或非法时间/变更值为unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "等级日期、UTC跨日及运行瞬间使用北京时间，晚1毫秒不提前触发",
+      "status": "PASS"
+    },
+    {
+      "name": "标签区分人工/AI和首次/最近一次且非法基准配置不能保存",
+      "status": "PASS"
+    },
+    {
+      "name": "resolver纯读取，不改变规则、好友历史或事件顺序",
+      "status": "PASS"
+    },
+    {
+      "name": "六租户基准目录与事件副本独立，变更不传播给同店或其他店",
+      "status": "PASS"
+    },
+    {
+      "name": "六租户新基准试算沿用共享账号权限、同一天节点和真实resolver日期",
+      "status": "PASS"
+    },
+    {
+      "name": "成为D级后又变A仍按原D进入事件到期，显式当前等级条件才限制候选",
+      "status": "PASS"
+    },
+    {
+      "name": "混合有效和坏历史保持unknown，不丢掉坏行后冒称可靠首次/最近进入",
+      "status": "PASS"
+    },
+    {
+      "name": "新等级缺少gradeSource或新事件缺少anchorOccurrence均不能保存",
+      "status": "PASS"
+    },
+    {
+      "name": "旧默认添加规则人数及节点分布不被新增历史改变",
+      "status": "PASS"
+    }
+  ]
+}

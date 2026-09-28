@@ -1,0 +1,80 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.3.0",
+  "artifactClass": "static-html",
+  "results": [
+    {
+      "name": "六租户原位12项、预约稳定ID、21/26维度、等级新选默认人工及保存互不串",
+      "status": "PASS"
+    },
+    {
+      "name": "新控件按类型显示，等级/事件内切换保留合法选择，回日期清掉无关字段",
+      "status": "PASS"
+    },
+    {
+      "name": "等级摘要/试算可辨来源，保存刷新保留；复制节点不改共同基准及其他共享设置",
+      "status": "PASS"
+    },
+    {
+      "name": "新基准草稿取消不保存；到店/购买/划扣次数分别保存刷新并进入摘要试算",
+      "status": "PASS"
+    },
+    {
+      "name": "旧五日期v2规则无需新字段，读取/取消不迁写，原ID/节点/设置兼容保存",
+      "status": "PASS"
+    },
+    {
+      "name": "坏枚举或缺失来源/次数保留原数据并阻止保存，明确重新选择后才能修复",
+      "status": "PASS"
+    },
+    {
+      "name": "写入失败保留新基准草稿，不改已保存规则；取消恢复原共同配置",
+      "status": "PASS"
+    },
+    {
+      "name": "原下拉展开及1120窄窗的小控件可操作，无横向溢出，规则说明包含事件边界",
+      "status": "PASS"
+    },
+    {
+      "name": "无浏览器脚本异常及外部请求",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "anchor-grade-ai-editor.png",
+      "scope": "content iframe; synthetic accounts/rules only"
+    },
+    {
+      "path": "anchor-grade-ai-trial.png",
+      "scope": "content iframe; synthetic accounts/rules only"
+    },
+    {
+      "path": "anchor-dropdown-options.png",
+      "scope": "content iframe; synthetic accounts/rules only"
+    },
+    {
+      "path": "anchor-grade-narrow.png",
+      "scope": "content iframe; synthetic accounts/rules only"
+    }
+  ],
+  "sources": [
+    {
+      "path": "prototype/admin-revisit-rules-model.js",
+      "sha256": "e5f01e95983b3288735eb31e3eed9a908114365e1e946b13e126b084ce24aac7"
+    },
+    {
+      "path": "prototype/admin-revisit-rules.js",
+      "sha256": "5a45e9e3e82fdb81ee36586674bdcf90feee9766d94a24490a2b031c7ba4e910"
+    },
+    {
+      "path": "prototype/admin-revisit-rules.css",
+      "sha256": "cf6a132a0d7d71ed1ac64e7bb5922993cc4550f37a03a375460423116571f5ad"
+    }
+  ],
+  "status": "PASS",
+  "verifiedAt": "2026-09-28T04:08:01.805Z",
+  "passed": 9,
+  "total": 9,
+  "errors": [],
+  "externalRequests": 0
+}

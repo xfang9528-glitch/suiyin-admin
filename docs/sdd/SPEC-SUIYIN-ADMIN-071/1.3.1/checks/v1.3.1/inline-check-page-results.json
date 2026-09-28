@@ -1,0 +1,16 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.3.1",
+  "verifiedAt": "2026-09-28T05:45:17.546Z",
+  "mode": "HTTP comparison harness; separate from true file:// test",
+  "file": "prototype/_inline-check.html",
+  "sha256": "87265b32238e0809adabbb7054f72bf138f963242780e90c6585b01a4c1130e5",
+  "checks": 155,
+  "passed": 155,
+  "failed": [],
+  "revisit": {
+    "total": 50,
+    "passed": 50,
+    "failed": []
+  },
+  "scriptErrors": []
+}

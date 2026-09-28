@@ -95,6 +95,8 @@
       [
         ['规则每天重新选人', '保存的是账号范围与筛选条件。每天到设定时刻，按当日条件判断谁应回访；每日筛选时间不是消息发送时间。'],
         ['两种时间分开设置', '“添加后第 3 天”决定今天选谁；“每天 01:00”决定何时筛选。示例以添加当天为第 0 天，按北京时间的自然日计算。'],
+        ['成为某个等级', '先选择人工或AI等级来源。演示按截至筛选时最近一次进入所选等级的时间起算；重复评定为同一级不会重置时间，之后变为其他等级也不自动排除。如需限制当前等级，请另加等级筛选条件。'],
+        ['到店、购买与划扣', '各自按已发生的同类历史选择首次或最近一次，再计算回访节点。筛选时刻之后的事件不提前使用；历史缺失或无法读取时显示无法判断，不拿当前等级、其他日期或其他事件猜测。'],
         ['选中与排除', '选中条件需全部满足，同一维度内多个选项满足任一即可；排除条件命中任一就排除。账号范围本身也是选中条件，可以只选账号再设置排除。'],
         ['近期消息的演示口径', '近 2 天按运行时刻向前 48 小时演示；计入成功的普通、群发及手机同步消息，系统或失败消息不计。实际上线口径仍待确认。'],
         ['账号群组与账号', '群组和单独账号取并集；勾选群组即覆盖该组所有演示账号。如只需部分账号，先取消群组，再选择账号。长期群组成员变化的业务口径另行确认。'],
@@ -163,10 +165,51 @@
       const purpose = input('text', draft.purpose, '回访目的', value => { draft.purpose = value; updateSummary(); }); purpose.maxLength = 200; purpose.placeholder = '例如：了解新加好友需求，建立初次联系';
       grid.append(field('规则名称', name, '', true), field('回访目的', purpose)); base.body.append(grid);
       const shared = el('div', 'rr-shared-timing');
-      const anchors = M.fields.filter(item => item.type === 'date' && item.include).map(item => ({ value: item.id, label: item.label }));
-      const anchor = select(anchors, draft.anchor, '回访基准日期', value => { draft.anchor = value; updateSummary(); updateNodeTabs(); });
+      const anchors = M.anchors.flatMap(item => item.type === 'event'
+        ? [{ value: item.id + ':first', label: '首次' + item.label, anchor: item.id, occurrence: 'first' }, { value: item.id + ':latest', label: '最近一次' + item.label, anchor: item.id, occurrence: 'latest' }]
+        : [{ value: item.id, label: item.label, anchor: item.id }]);
+      // Keep saved event/occurrence pairs intact; only the displayed choice is combined.
+      const selectedAnchor = M.anchors.find(item => item.id === draft.anchor);
+      const selectedValue = selectedAnchor?.type === 'event' ? draft.anchor + ':' + draft.anchorOccurrence : draft.anchor;
+      const knownAnchor = anchors.some(item => item.value === selectedValue);
+      if (!knownAnchor) anchors.unshift({ value: '', label: '请选择有效的回访基准' });
+      const anchorDetails = el('div', 'rr-anchor-settings');
+      function renderAnchorSettings() {
+        anchorDetails.replaceChildren();
+        const type = M.anchors.find(item => item.id === draft.anchor)?.type;
+        const isGrade = type === 'grade';
+        anchorDetails.hidden = !isGrade;
+        shared.classList.toggle('rr-has-anchor-settings', isGrade);
+        if (!isGrade) return;
+        const property = 'gradeSource';
+        const title = '等级来源';
+        const choices = [{ value: 'manual', label: '人工等级' }, { value: 'ai', label: 'AI等级' }];
+        const valid = choices.some(item => item.value === draft[property]);
+        if (!valid) choices.unshift({ value: '', label: '请选择有效的等级来源' });
+        const choose = select(choices, valid ? draft[property] : '', title, value => { if (value) { draft[property] = value; updateSummary(); } });
+        choose.required = true; if (!valid) choose.options[0].disabled = true;
+        anchorDetails.append(field(title, choose, '', true));
+      }
+      const anchor = select(anchors, knownAnchor ? selectedValue : '', '回访基准日期', value => {
+        const choice = anchors.find(item => item.value === value);
+        if (!choice?.anchor) return;
+        const previousType = M.anchors.find(item => item.id === draft.anchor)?.type;
+        draft.anchor = choice.anchor;
+        const type = M.anchors.find(item => item.id === choice.anchor)?.type;
+        if (type === 'grade') {
+          if (previousType !== 'grade') draft.gradeSource = 'manual';
+          delete draft.anchorOccurrence;
+        } else if (type === 'event') {
+          draft.anchorOccurrence = choice.occurrence;
+          delete draft.gradeSource;
+        } else { delete draft.gradeSource; delete draft.anchorOccurrence; }
+        renderAnchorSettings(); updateSummary(); updateNodeTabs();
+      });
+      anchor.required = true; if (!knownAnchor) anchor.options[0].disabled = true;
+      const anchorControls = el('div', 'rr-anchor-controls');
+      anchorControls.append(field('回访基准', anchor, '', true), anchorDetails);
       const time = input('time', draft.runAt, '每天筛选时间', value => { draft.runAt = value; updateSummary(); }); time.required = true; time.className = 'rr-time-input';
-      shared.append(field('回访基准', anchor, '', true), field('每天筛选时间', time, '', true), el('p', 'rr-muted', '基准当天为第 0 天 · 北京时间')); base.body.append(shared);
+      shared.append(anchorControls, field('每天筛选时间', time, '', true), el('p', 'rr-muted', '基准当天为第 0 天 · 北京时间')); renderAnchorSettings(); base.body.append(shared);
       const scope = el('details', 'rr-scope-fold'); scope.open = !draft.scope.groupIds.length && !draft.scope.accountIds.length; scopeSummary = el('summary'); scopeContent = el('div', 'rr-scope-expanded'); scope.append(scopeSummary, scopeContent); base.body.append(scope); form.append(base.node); renderScope();
       const nodes = section('回访节点', '同一规则内分别到期、分别筛选；可复制条件，再独立调整。', '02'); nodes.node.classList.add('rr-nodes-section');
       nodeTabs = el('div', 'rr-node-tabs'); nodeTabs.setAttribute('role', 'tablist'); nodeTabs.setAttribute('aria-label', '回访时间节点'); nodeHost = el('div', 'rr-node-editor'); nodes.body.append(nodeTabs, nodeHost); form.append(nodes.node);
@@ -303,6 +346,7 @@
         let result; try { result = M.evaluate(rule, date.value); } catch (_) { results.append(el('p', 'rr-error-text', '示例数据暂时无法判断，请检查日期与配置。')); return; }
         if (result.errors?.length) { results.append(el('p', 'rr-error-text', '本次试算未完成，请检查以下配置：')); result.errors.forEach(error => results.append(el('p', 'rr-error-text', error))); return; }
         results.append(el('p', 'rr-trial-at', '试算基准：' + result.date + ' ' + rule.runAt + '（北京时间）'));
+        results.append(el('p', 'rr-trial-at', '回访基准：' + M.anchorLabel(rule)));
         const metrics = el('div', 'rr-trial-metrics'); [['范围内', result.counts.scope, ''], ['应回访', result.counts.included, 'good'], ['已排除', result.counts.excluded, ''], ['未入选', result.rows.filter(row => row.status === 'not-matched').length, ''], ['无法判断', result.counts.unknown, 'warn']].forEach(([title, count, cls]) => { const box = el('div', cls); box.append(el('span', '', title), el('strong', '', String(count))); metrics.append(box); }); results.append(metrics);
         const wrap = el('div', 'rr-trial-table'); const table = el('table'); const head = el('tr'); ['示例好友', '所属账号', '到期节点', '结果', '判断原因'].forEach(title => head.append(el('th', '', title))); const thead = el('thead'); thead.append(head); table.append(thead); const tbody = el('tbody');
         const labels = { included: '应回访', excluded: '已排除', 'not-matched': '未入选', unknown: '无法判断' };

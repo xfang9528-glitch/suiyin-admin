@@ -1,0 +1,69 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.3.1",
+  "artifactClass": "static-html",
+  "scope": "dropdown-to-existing-model-pair integration only",
+  "results": [
+    {
+      "name": "六艺星均显示15项，六事件标签直接可选，无泛化事件或第二事件下拉",
+      "status": "PASS"
+    },
+    {
+      "name": "六事件选项逐一保存刷新，仍写原anchor与anchorOccurrence配对，不改节点/范围/时刻",
+      "status": "PASS"
+    },
+    {
+      "name": "既有六种pair正确回显，打开与修改后取消均不迁写原v2内容",
+      "status": "PASS"
+    },
+    {
+      "name": "缺失或非法次数不默选，原数据保留并阻止保存；复合选项可显式修复",
+      "status": "PASS"
+    },
+    {
+      "name": "等级仍支持人工/AI并可保存，切事件删等级来源且回日期无额外参数",
+      "status": "PASS"
+    },
+    {
+      "name": "干净下拉上下两屏与1120窄窗，无第二事件控件或横向溢出",
+      "status": "PASS"
+    },
+    {
+      "name": "无脚本异常或外部请求",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "event-options-top.png",
+      "scope": "content iframe; synthetic local QA draft; no style/DOM masking"
+    },
+    {
+      "path": "event-options-bottom.png",
+      "scope": "content iframe; synthetic local QA draft; no style/DOM masking"
+    },
+    {
+      "path": "event-options-narrow.png",
+      "scope": "content iframe; synthetic local QA draft; no style/DOM masking"
+    }
+  ],
+  "sources": [
+    {
+      "path": "prototype/admin-revisit-rules-model.js",
+      "sha256": "e5f01e95983b3288735eb31e3eed9a908114365e1e946b13e126b084ce24aac7"
+    },
+    {
+      "path": "prototype/admin-revisit-rules.js",
+      "sha256": "d82845e1c6306d5b02d744c93f030b1f04336e7a7b01f89846323373f4abba94"
+    },
+    {
+      "path": "prototype/admin-revisit-rules.css",
+      "sha256": "cf6a132a0d7d71ed1ac64e7bb5922993cc4550f37a03a375460423116571f5ad"
+    }
+  ],
+  "status": "PASS",
+  "verifiedAt": "2026-09-28T05:35:35.891Z",
+  "passed": 7,
+  "total": 7,
+  "errors": [],
+  "externalRequests": 0
+}

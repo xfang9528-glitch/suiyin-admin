@@ -1,0 +1,205 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.3.0",
+  "verifiedAt": "2026-09-28T04:03:32.883Z",
+  "inheritedCaseVersion": "1.1.0",
+  "coverage": "深圳既有25个模型场景在1.3.0候选实现上的兼容回归",
+  "model": "prototype/admin-revisit-rules-model.js",
+  "modelSha256": "e5f01e95983b3288735eb31e3eed9a908114365e1e946b13e126b084ce24aac7",
+  "status": "PASS",
+  "passed": 25,
+  "failed": 0,
+  "results": [
+    {
+      "name": "新种子只有一条规则，含独立第3/5/7天节点",
+      "requirements": [
+        "R004",
+        "R015"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "完整群发维度与共同日期基准保留",
+      "requirements": [
+        "R002",
+        "R004"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "同好友只有当日到期节点，3天/空档/5天/7天依次命中",
+      "requirements": [
+        "AC-R004-01"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "同一运行日按每位好友日期分别命中3/5/7天，行身份不重复",
+      "requirements": [
+        "R004",
+        "R011"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "第0天合法且不能选中运行时点之后才添加的好友",
+      "requirements": [
+        "R004",
+        "R008"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "来源节点复制只覆盖条件，目标身份/时间/说明及共同设置不变",
+      "requirements": [
+        "AC-R015-01",
+        "AC-R015-02"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "复制条件双向独立，修改节点不联动来源或共同账号",
+      "requirements": [
+        "AC-R015-01"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "新增节点无预猜日期且生成不同身份",
+      "requirements": [
+        "R008",
+        "R015"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "空节点、缺失/非法/重复天数和重复身份均阻止保存",
+      "requirements": [
+        "AC-R015-03",
+        "R008"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "节点仅需到期，零额外条件或合法零命中仍可保存",
+      "requirements": [
+        "AC-R008-01"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "节点附加选中AND与同字段多值OR",
+      "requirements": [
+        "AC-R003-01"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "节点排除取OR，未知消息不会当作无联系",
+      "requirements": [
+        "AC-R003-01",
+        "AC-R010-01"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "双方消息保持AND，单向不误排除",
+      "requirements": [
+        "R003",
+        "R005"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "48小时包含边界，超一分钟不命中，未来消息不计",
+      "requirements": [
+        "R005",
+        "Q002"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "系统/失败消息不排除，成功群发与手机消息计入",
+      "requirements": [
+        "R005",
+        "Q003"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "近期消息仅跳过本次节点，不取消后节点或重算锚点",
+      "requirements": [
+        "AC-R005-01",
+        "INV004"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "共同账号范围先约束，节点账号条件只能收窄",
+      "requirements": [
+        "AC-R009-01",
+        "INV002"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "权限收缩立即移出动态群组，显式失效账号阻止保存",
+      "requirements": [
+        "AC-R010-01",
+        "R009"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "销售权限按当前账号过滤，同名跨账号不旁路",
+      "requirements": [
+        "AC-R014-01"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "共同日期基准切换改变到期判断，添加日期仍是原值",
+      "requirements": [
+        "R004"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "缺失基准是unknown，无到期节点是not-matched，两者不可混为0",
+      "requirements": [
+        "R004",
+        "R010"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "附加日期限制与节点到期AND，不能绕过或替换节点日期",
+      "requirements": [
+        "R004"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "修改其他节点筛选不影响当前好友的当日节点结果",
+      "requirements": [
+        "R004",
+        "R015"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "空筛选不参与，非法日期仍阻止保存",
+      "requirements": [
+        "R003",
+        "R008"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "共同运行时间跨日，恰好到点选择下一次，不补跑",
+      "requirements": [
+        "AC-R006-01"
+      ],
+      "status": "PASS"
+    }
+  ]
+}

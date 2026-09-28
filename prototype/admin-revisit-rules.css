@@ -1,6 +1,7 @@
 /* Isolated styles for the static revisit rule configuration page. */
 .rr-root{padding:20px 22px 28px;color:#334155;background:#f6f8fa;min-height:100vh;font-size:13px}
 .rr-root *, .rr-modal *{box-sizing:border-box}.rr-root button,.rr-root input,.rr-root select{font-family:inherit;font-size:13px}
+.rr-anchor-controls{display:grid;gap:10px;min-width:0}.rr-anchor-settings[hidden]{display:none}.rr-shared-timing.rr-has-anchor-settings{align-items:start}@media(min-width:1051px){.rr-shared-timing.rr-has-anchor-settings>p{padding-top:25px}}
 .rr-root input:not([type=checkbox]),.rr-root select,.rr-modal input:not([type=checkbox]){height:34px;border:1px solid #dce3e9;border-radius:4px;padding:6px 10px;background:#fff;color:#334155;min-width:0;max-width:100%}
 .rr-root input::placeholder,.rr-modal input::placeholder{color:#a5aeb9}.rr-root input[type=checkbox],.rr-modal input[type=checkbox]{accent-color:#07b75d;width:14px;height:14px;margin:0;flex:0 0 auto}
 .rr-root button{border-radius:4px}.rr-root button:focus-visible,.rr-root summary:focus-visible,.rr-root input:focus-visible,.rr-root select:focus-visible{outline:2px solid #00a994;outline-offset:2px}

@@ -1,4 +1,4 @@
-/* SPEC-SUIYIN-ADMIN-071@1.2.0: deterministic local demonstration only.
+/* SPEC-SUIYIN-ADMIN-071@1.3.0: deterministic local demonstration only.
  * All groups, people and events below are synthetic. No API or scheduler is used.
  * Demo defaults: Asia/Shanghai, added day = 0, message lookback = rolling hours.
  */
@@ -73,6 +73,30 @@
   });
   var byId = Object.create(null);
   fields.forEach(function (f) { byId[f.id] = f; });
+  // The time basis is independent of the unchanged 21/26 condition dimensions.
+  var anchors = [
+    { id: 'consulted', label: '末次咨询日期', type: 'date' },
+    { id: 'added', label: '添加日期', type: 'date' },
+    { id: 'filed', label: '建档日期', type: 'date' },
+    { id: 'appointment', label: '预约日期', type: 'date' },
+    { id: 'revisited', label: '末次回访日期', type: 'date' },
+    { id: 'grade-A', label: '成为 A 级', type: 'grade', grade: 'A级' },
+    { id: 'grade-B', label: '成为 B 级', type: 'grade', grade: 'B级' },
+    { id: 'grade-C', label: '成为 C 级', type: 'grade', grade: 'C级' },
+    { id: 'grade-D', label: '成为 D 级', type: 'grade', grade: 'D级' },
+    { id: 'visit', label: '到店', type: 'event' },
+    { id: 'purchase', label: '购买', type: 'event' },
+    { id: 'redemption', label: '划扣', type: 'event' }
+  ];
+  var anchorsById = Object.create(null);
+  anchors.forEach(function (anchor) { anchorsById[anchor.id] = anchor; });
+  function anchorLabel(rule) {
+    var anchor = rule && anchorsById[rule.anchor];
+    if (!anchor) return '待选择回访基准';
+    if (anchor.type === 'grade') return (rule.gradeSource === 'manual' ? '人工等级' : rule.gradeSource === 'ai' ? 'AI 等级' : '待选择等级来源') + ' · 最近一次' + anchor.label;
+    if (anchor.type === 'event') return (rule.anchorOccurrence === 'first' ? '首次' : rule.anchorOccurrence === 'latest' ? '最近一次' : '待选择事件取值 · ') + anchor.label;
+    return anchor.label;
+  }
   function clone(value) { return JSON.parse(JSON.stringify(value)); }
   function allAccounts() { return groups.reduce(function (list, g) { return list.concat(g.accounts); }, []); }
   function accountName(id) { var a = allAccounts().find(function (item) { return item.id === id; }); return a ? a.name : '失效账号（' + id + '）'; }
@@ -123,6 +147,40 @@
     var result = Date.parse(value + 'T00:00:00Z');
     return isFinite(result) && new Date(result).toISOString().slice(0, 10) === value ? result : NaN;
   }
+  function eventTimestamp(value) {
+    if (typeof value !== 'string') return NaN;
+    if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return dateNumber(value) - OFFSET;
+    var parts = /^(\d{4}-\d{2}-\d{2})T([01]\d|2[0-3]):([0-5]\d):([0-5]\d)(?:\.\d{1,3})?(Z|[+-](?:[01]\d|2[0-3]):[0-5]\d)$/.exec(value);
+    return parts && isFinite(dateNumber(parts[1])) ? Date.parse(value) : NaN;
+  }
+  function resolveAnchor(rule, f, at) {
+    var anchor = rule && anchorsById[rule.anchor], label = anchorLabel(rule);
+    function unknown(reason) { return { status: 'unknown', label: label, reason: reason }; }
+    if (!anchor || !f) return unknown('回访基准数据无法读取');
+    if (anchor.type === 'date') {
+      var date = f.dates && f.dates[anchor.id];
+      return isFinite(dateNumber(date)) ? { status: 'known', label: label, date: date } : unknown(label + '数据缺失，无法判断到期节点');
+    }
+    if (!isFinite(at) || typeof at !== 'number') return unknown('运行时点无效，无法判断事件');
+    if (anchor.type === 'grade' && ['manual', 'ai'].indexOf(rule.gradeSource) < 0) return unknown('请选择有效的等级来源');
+    if (anchor.type === 'event' && ['first', 'latest'].indexOf(rule.anchorOccurrence) < 0) return unknown('请选择有效的事件取值');
+    var key = anchor.type === 'grade' ? (rule.gradeSource === 'manual' ? 'gradeManual' : 'gradeAI') : anchor.id;
+    var history = f.events && f.events[key];
+    if (!Array.isArray(history)) return unknown(label + '历史缺失，无法判断到期节点');
+    var invalid = false, eligible = [];
+    history.forEach(function (event) {
+      var stamp = event && eventTimestamp(event.at);
+      if (!event || !isFinite(stamp)) { invalid = true; return; }
+      if (anchor.type === 'grade' && ((event.from !== null && ['A级', 'B级', 'C级', 'D级'].indexOf(event.from) < 0) || ['A级', 'B级', 'C级', 'D级'].indexOf(event.to) < 0)) { invalid = true; return; }
+      if (stamp > at) return;
+      if (anchor.type === 'grade' && (event.to !== anchor.grade || event.from === event.to)) return;
+      eligible.push(stamp);
+    });
+    if (invalid) return unknown(label + '历史存在无效记录，无法判断到期节点');
+    if (!eligible.length) return { status: 'none', label: label, reason: '截至筛选时点尚未发生' + label + '，未命中时间节点' };
+    var stamp = anchor.type === 'event' && rule.anchorOccurrence === 'first' ? Math.min.apply(null, eligible) : Math.max.apply(null, eligible);
+    return { status: 'known', label: label, date: new Date(stamp + OFFSET).toISOString().slice(0, 10) };
+  }
   function validTime(value) { return typeof value === 'string' && /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(value); }
   function whole(value, minimum) { return value !== '' && value != null && /^\d+$/.test(String(value)) && Number(value) >= minimum && Number(value) <= 36500; }
   function isEmptyCondition(c) {
@@ -141,7 +199,10 @@
     var errors = [];
     if (typeof rule.name !== 'string' || !rule.name.trim()) errors.push('请填写规则名称');
     if (!validTime(rule.runAt)) errors.push('请填写有效的每日筛选时间');
-    if (!byId[rule.anchor] || byId[rule.anchor].type !== 'date') errors.push('请选择有效的回访基准日期');
+    var anchor = anchorsById[rule.anchor];
+    if (!anchor) errors.push('请选择有效的回访基准日期');
+    else if (anchor.type === 'grade' && ['manual', 'ai'].indexOf(rule.gradeSource) < 0) errors.push('请选择有效的等级来源');
+    else if (anchor.type === 'event' && ['first', 'latest'].indexOf(rule.anchorOccurrence) < 0) errors.push('请选择有效的事件取值（首次或最近一次）');
     var scope = rule.scope;
     if (!scope || !Array.isArray(scope.groupIds) || !Array.isArray(scope.accountIds)) {
       errors.push('账号范围格式有误，请重新选择');
@@ -220,7 +281,7 @@
     parts = parts.concat((scope.accountIds || []).map(accountName));
     return {
       scope: parts.length ? parts.join('、') : '待选择账号范围',
-      anchor: byId[rule.anchor] && byId[rule.anchor].type === 'date' ? byId[rule.anchor].label + '为基准（当天第0天）' : '待选择回访基准',
+      anchor: anchorsById[rule.anchor] ? anchorLabel(rule) + '为基准（当天第0天）' : '待选择回访基准',
       nodes: Array.isArray(rule.nodes) && rule.nodes.length ? rule.nodes.slice().sort(function (a, b) { return Number(a.day) - Number(b.day); }).map(function (node) { return whole(node.day, 0) ? '第' + Number(node.day) + '天' : '待填写时间节点'; }).join('、') + ' · 共' + rule.nodes.length + '个节点' : '尚未配置时间节点',
       schedule: '每天 ' + (rule.runAt || '待设置') + '（北京时间）筛选；' + (rule.enabled ? '已启用，仅本地演示' : '未启用')
     };
@@ -241,7 +302,7 @@
         region: ['广东省', '深圳市', '南山区'], developer: '演示开发人甲', manager: '演示经理甲', membership: '普通',
         improvement: ['皮肤'], traits: ['高意向'], equipment: ['热玛吉'], doctor: '演示医生甲', style: ['自然'] },
       dates: { added: added, consulted: '2026-09-21', filed: '2026-09-01', appointment: '2026-09-30', revisited: '2026-09-20' },
-      messages: [], commonGroups: { accountId: accountId, count: 0 }
+      messages: [], commonGroups: { accountId: accountId, count: 0 }, events: null
     };
     overrides = overrides || {};
     Object.keys(overrides).forEach(function (key) {
@@ -277,6 +338,23 @@
     friend('demo-f16', '示例好友甲', 'douyin-01', '2026-09-24', { values: { aiGrade: 'A级' } }),
     friend('demo-f17', '权限边界样本', 'revoked-account', '2026-09-24')
   ];
+  // Explicit synthetic histories, created separately inside each tenant model.
+  // They do not claim that CRM or grade-transition APIs are connected.
+  function historyDates(dates) { return dates.map(function (at) { return { at: at }; }); }
+  function gradeEvent(at, from, to) { return { at: at, from: from, to: to }; }
+  fixtures[0].events = {
+    visit: historyDates(['2026-09-20T14:00:00+08:00', '2026-09-24T11:00:00+08:00', '2026-09-30T11:00:00+08:00']),
+    purchase: historyDates(['2026-09-20T15:00:00+08:00', '2026-09-24T12:00:00+08:00']),
+    redemption: historyDates(['2026-09-22T14:00:00+08:00', '2026-09-24T13:00:00+08:00']),
+    gradeManual: [gradeEvent('2026-09-24T10:00:00+08:00', 'C级', 'A级'), gradeEvent('2026-09-26T10:00:00+08:00', 'A级', 'A级')],
+    gradeAI: [gradeEvent('2026-09-22T10:00:00+08:00', null, 'A级'), gradeEvent('2026-09-24T10:00:00+08:00', 'A级', 'B级')]
+  };
+  fixtures[1].events = { gradeManual: [gradeEvent('2026-09-24T10:00:00+08:00', 'C级', 'B级')], visit: historyDates(['2026-09-27T01:00:00+08:00', '2026-09-27T12:00:00+08:00']) };
+  fixtures[2].events = { gradeManual: [gradeEvent('2026-09-24T10:00:00+08:00', 'C级', 'D级'), gradeEvent('2026-09-25T10:00:00+08:00', 'D级', 'A级')] };
+  fixtures[5].events = { visit: [], purchase: [], redemption: [], gradeManual: [], gradeAI: [] };
+  fixtures[8].events = { gradeManual: [gradeEvent('2026-09-24T10:00:00+08:00', 'D级', 'C级')], gradeAI: [gradeEvent('2026-09-24T11:00:00+08:00', 'D级', 'C级')] };
+  fixtures[9].events = { visit: [{ at: 'invalid' }], purchase: null, redemption: [{ at: '2026-02-30' }], gradeManual: [{ at: 'unknown', from: 'C级', to: 'A级' }] };
+  fixtures[15].events = { gradeAI: [gradeEvent('2026-09-24T09:00:00+08:00', 'B级', 'A级')], visit: historyDates(['2026-09-24']) };
   function threeAnd(list) { return list.indexOf(false) >= 0 ? false : list.indexOf(null) >= 0 ? null : true; }
   function threeOr(list) { return list.indexOf(true) >= 0 ? true : list.indexOf(null) >= 0 ? null : false; }
   function messageHit(f, direction, days, at) {
@@ -342,24 +420,33 @@
     }).forEach(function (f) {
       var row = { friend: { id: f.id, name: f.name, accountId: f.accountId }, nodeId: null, nodeDay: null, status: 'not-matched', reasons: [] };
       result.counts.scope += 1;
-      var anchorDate = dateNumber(f.dates && f.dates[rule.anchor]);
+      var resolved = resolveAnchor(rule, f, at);
+      if (resolved.status !== 'known') {
+        row.status = resolved.status === 'unknown' ? 'unknown' : 'not-matched';
+        row.reasons = [resolved.reason];
+        if (row.status === 'unknown') result.counts.unknown += 1;
+        result.rows.push(row);
+        return;
+      }
+      var anchorDate = dateNumber(resolved.date);
       if (!isFinite(anchorDate)) {
         row.status = 'unknown';
-        row.reasons = [byId[rule.anchor].label + '数据缺失，无法判断到期节点'];
+        row.reasons = [resolved.label + '数据缺失，无法判断到期节点'];
         result.counts.unknown += 1;
         result.rows.push(row);
         return;
       }
       var daysSinceAnchor = (dateNumber(date) - anchorDate) / DAY;
       var node = rule.nodes.find(function (candidate) { return Number(candidate.day) === daysSinceAnchor; });
+      var eventDetail = anchorsById[rule.anchor].type === 'date' ? '' : '（' + resolved.date + '）';
       if (!node) {
-        row.reasons = [daysSinceAnchor < 0 ? '尚未到' + byId[rule.anchor].label + '，未命中时间节点' : '距' + byId[rule.anchor].label + '第' + daysSinceAnchor + '天，今天没有到期节点'];
+        row.reasons = [daysSinceAnchor < 0 ? '尚未到' + resolved.label + eventDetail + '，未命中时间节点' : '距' + resolved.label + eventDetail + '第' + daysSinceAnchor + '天，今天没有到期节点'];
         result.rows.push(row);
         return;
       }
       row.nodeId = node.id;
       row.nodeDay = String(node.day);
-      var triggerReason = (rule.anchor === 'added' ? '添加好友后' : byId[rule.anchor].label + '后') + '第' + Number(node.day) + '天节点到期';
+      var triggerReason = (rule.anchor === 'added' ? '添加好友后' : resolved.label + eventDetail + '后') + '第' + Number(node.day) + '天节点到期';
       var includes = activeConditions(node.include).map(function (c) { return { condition: c, hit: matches(f, c, date, at) }; });
       var selection = threeAnd(includes.map(function (entry) { return entry.hit; }));
       if (selection === false) {
@@ -416,7 +503,7 @@
   }
   return {
     tenantId: tenantId, tenantLabel: profile.city + '艺星',
-    fields: fields, groups: groups, permissions: permissions,
+    fields: fields, anchors: anchors, anchorLabel: anchorLabel, resolveAnchor: resolveAnchor, groups: groups, permissions: permissions,
     emptyRule: emptyRule, emptyNode: emptyNode, seedRules: seedRules, copyNodeConditions: copyNodeConditions, validate: validate,
     summary: summary, nodeSummary: nodeSummary, evaluate: evaluate, evaluateNode: evaluateNode, nextRun: nextRun, visibleForSales: visibleForSales,
     resolveAccountIds: scopeIds, describeCondition: describe, accountName: accountName,
