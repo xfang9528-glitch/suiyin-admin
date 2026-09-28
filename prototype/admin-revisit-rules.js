@@ -9,15 +9,17 @@
   const check = (text, checked, change, disabled = false) => { const label = el('label', 'rr-check'); const node = el('input'); node.type = 'checkbox'; node.checked = checked; node.disabled = disabled; node.onchange = () => change(node.checked); label.append(node, el('span', '', text)); return label; };
 
   function mount(tenant, route) {
-    if (tenant !== 'yestar-sz' || route !== 'revisitRules') return false;
+    if (route !== 'revisitRules') return false;
+    const registry = window.RevisitRuleModel;
+    if (!registry?.supportedTenants?.some(item => item.id === tenant)) return false;
     const app = document.getElementById('app');
-    const M = window.RevisitRuleModel;
+    const M = registry.forTenant(tenant);
     app.classList.add('rr-root');
     document.body.classList.add('rr-page-active');
     app.setAttribute('aria-busy', 'false');
     document.body.dataset.contentReady = 'true';
-    document.title = '回访规则 · 深圳艺星';
     if (!M) { app.replaceChildren(el('div', 'rr-error', '回访规则未能载入，请刷新后重试。')); return true; }
+    document.title = '回访规则 · ' + M.tenantLabel;
 
     const prefix = new URLSearchParams(location.search).get('qa') === '1' ? 'admin-qa-' : '';
     const key = prefix + 'admin-revisit-rules:v2:' + tenant;
@@ -99,7 +101,7 @@
         ['一条规则，多个节点', '名称、目的、账号范围、回访基准和每日时间共用；第 3、5、7 天等节点分别设置选中与排除。节点只在各自到期时判断，不要求先完成上一节点。'],
         ['复制节点条件', '在目标节点选择来源节点，只替换选中与排除，不改变目标的第几天、说明或共享设置；确认后也只进入草稿。后续改动互不联动，保存整条规则才生效。'],
         ['销售可见范围', '筛出的好友只对有其所属账号接待权限的销售可见。规则本身不授予权限；多人都有权限时均可见，执行和完成状态另行设计。'],
-        ['本地演示', '本页仅使用合成账号与好友，并保存到当前浏览器。不连接真实客户、不运行定时任务，也不发送消息。示例试算中的人数不代表真实业务人数。']
+        ['本地演示', '本页仅使用当前租户的合成账号、人员、地区选项与好友，通用医美选项用于演示，不代表门店实际标签库。规则按租户分别保存在当前浏览器；切换租户不会复制规则。不连接真实客户、不运行定时任务，也不发送消息。示例人数不代表真实业务人数。']
       ].forEach(([title, text]) => { content.append(el('h3', '', title), el('p', '', text)); });
       dialog('回访规则说明', content);
     }

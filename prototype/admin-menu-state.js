@@ -129,12 +129,12 @@ window.AdminMenuState={
  };
 })();
 
-/* SPEC-SUIYIN-ADMIN-071@1.1.0: add Shenzhen's local rule page without reviving hidden menus. */
+/* SPEC-SUIYIN-ADMIN-071@1.2.0: add the existing Yestar tenants without reviving hidden menus. */
 (()=>{
  const state=window.AdminMenuState,previous=state.migrate;
  state.migrate=function(tenant,override){
   const saved=previous.call(this,tenant,override),migration='revisit-rules-v1',route='revisitRules';
-  if(tenant.id!=='yestar-sz'||saved.appliedMigrations?.[migration])return saved;
+  if(!['yestar-sz','yestar','yestar-bj','yestar-gz','yestar-hz','yestar-jx'].includes(tenant.id)||saved.appliedMigrations?.[migration])return saved;
   const parent=tenant.menu.find(group=>group.children?.some(child=>child.route===route));
   if(!parent)return saved;
   const next=structuredClone(saved),child=parent.children.find(item=>item.route===route);

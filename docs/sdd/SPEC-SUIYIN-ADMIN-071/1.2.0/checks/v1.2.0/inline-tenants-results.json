@@ -1,0 +1,90 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.2.0",
+  "file": "prototype/_shell_inline.html",
+  "artifactClass": "static-html",
+  "httpBlocked": true,
+  "sourceHashes": {
+    "prototype/admin-revisit-rules-model.js": "540b398aa6701b8b106ba3630a68f3585a13735aff67945f1592cc2290deb56e",
+    "prototype/admin-revisit-rules.js": "23baa60f577fc8eb085ef118b818b718ae5ae4dbac2425aeb568617d26fb25de",
+    "prototype/admin-menu-state.js": "c506ba404ade3952878f01f46ff7f3ec0b9736282e571cdbc146b6479f7f4138",
+    "prototype/data/navigation-snapshot.json": "14d77341c5ae0aedb3b190d102cf2c91e22f6fe0b7dc2496ad657c0ef81cf55d",
+    "prototype/data/content/yestar-sz.json": "b1b21b58cb5a7dbcf1475509ec05ab075787194ae1dd2743d89a57bee587e9e3",
+    "prototype/data/content/yestar.json": "8f3e54a0d8acc93cc6bb328b9b1c474e5d1ce20bd78c55eb2368c1485efe4463",
+    "prototype/data/content/yestar-bj.json": "0436dbe3477d16ad8c923fedce562e3630f2524aaf3aa6a615be89a5d84ae142",
+    "prototype/data/content/yestar-gz.json": "62c67e16ece92e9f66f32d37dbc074421b29abb90829e1cce1611fdfde901d80",
+    "prototype/data/content/yestar-hz.json": "585b12838948b1345f670653a59e72adc4f27be9c58bd2579d36a95251c8703b",
+    "prototype/data/content/yestar-jx.json": "13d8b3e9a991da841a4c47a8f6787a6eba05d4a04f3fc2a8e11f4aec51be2e85"
+  },
+  "results": [
+    {
+      "name": "单文件内嵌当前模型/界面函数、六租户合成数据及菜单，与产品源文件一致",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz：file入口与21/26维度、独立保存、启停和刷新",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar：file入口与21/26维度、独立保存、启停和刷新",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj：file入口与21/26维度、独立保存、启停和刷新",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz：file入口与21/26维度、独立保存、启停和刷新",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz：file入口与21/26维度、独立保存、启停和刷新",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx：file入口与21/26维度、独立保存、启停和刷新",
+      "status": "PASS"
+    },
+    {
+      "name": "file同一context回看六租户，规则互不覆盖且QA不修改普通模式存储",
+      "status": "PASS"
+    },
+    {
+      "name": "file普通模式修改只影响自身，不覆盖任何QA或其他租户规则",
+      "status": "PASS"
+    },
+    {
+      "name": "file六租户旧回访统计仍为独立路由；非艺星无新入口且强制内容路由拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "file内嵌菜单登记六店一致，德三平台定义只一份",
+      "status": "PASS"
+    },
+    {
+      "name": "file没有外部资源请求或脚本异常，验收期间源文件未变化",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "inline-yestar-editor.png",
+      "tenant": "yestar",
+      "scope": "content iframe; synthetic data only"
+    },
+    {
+      "path": "inline-yestar-jx-list.png",
+      "tenant": "yestar-jx",
+      "scope": "content iframe; synthetic data only"
+    }
+  ],
+  "deniedDirectRoutes": 10,
+  "status": "PASS",
+  "verifiedAt": "2026-09-28T03:20:36.075Z",
+  "browser": "153.0.8010.54",
+  "bytes": 10534771,
+  "sha256": "85f3f91f4a6e61d9f742299cab3f85d72fce5a93824a56353264dce5eae40775",
+  "passed": 12,
+  "total": 12,
+  "errors": [],
+  "externalRequests": []
+}

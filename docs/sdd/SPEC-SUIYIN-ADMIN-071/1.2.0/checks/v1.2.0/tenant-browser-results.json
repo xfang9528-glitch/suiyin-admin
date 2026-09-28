@@ -1,0 +1,139 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.2.0",
+  "artifactClass": "static-html",
+  "scenario": "same-origin fresh Chrome context; six isolated synthetic tenants",
+  "results": [
+    {
+      "name": "六租户导航/菜单表入口一致，其他租户导航不新增回访入口",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz：shell入口、21/26维度、当地账号/人员选项、保存启停与其他租户隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar：shell入口、21/26维度、当地账号/人员选项、保存启停与其他租户隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj：shell入口、21/26维度、当地账号/人员选项、保存启停与其他租户隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz：shell入口、21/26维度、当地账号/人员选项、保存启停与其他租户隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz：shell入口、21/26维度、当地账号/人员选项、保存启停与其他租户隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx：shell入口、21/26维度、当地账号/人员选项、保存启停与其他租户隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "同一浏览器回看六租户，各自保存内容保留且普通模式六份对照不变",
+      "status": "PASS"
+    },
+    {
+      "name": "普通模式修改不影响QA，实际企业切换新页签保留回访入口并显示目标租户规则",
+      "status": "PASS"
+    },
+    {
+      "name": "非艺星和未知租户直接内容路由不挂载规则，也不写入回访存储",
+      "status": "PASS"
+    },
+    {
+      "name": "深圳既有v2稳定ID/启用/附加条件保存保留，取消草稿不修改旧数据",
+      "status": "PASS"
+    },
+    {
+      "name": "深圳v1仅显式导入；其他租户不读旧规则，附加日期/等级/排除/范围保留",
+      "status": "PASS"
+    },
+    {
+      "name": "跨租户账号写入候选规则不能保存，原数据与其他租户不变",
+      "status": "PASS"
+    },
+    {
+      "name": "1120宽成都编辑页无页面横向溢出，保存入口可达",
+      "status": "PASS"
+    },
+    {
+      "name": "无浏览器脚本异常与外部网络请求",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    {
+      "tenant": "yestar-sz",
+      "path": "tenant-yestar-sz-list.png",
+      "scope": "content iframe; synthetic rule and people only"
+    },
+    {
+      "tenant": "yestar",
+      "path": "tenant-yestar-editor.png",
+      "scope": "content iframe; synthetic rule and people only"
+    },
+    {
+      "tenant": "yestar",
+      "path": "tenant-yestar-list.png",
+      "scope": "content iframe; synthetic rule and people only"
+    },
+    {
+      "tenant": "yestar-bj",
+      "path": "tenant-yestar-bj-list.png",
+      "scope": "content iframe; synthetic rule and people only"
+    },
+    {
+      "tenant": "yestar-gz",
+      "path": "tenant-yestar-gz-list.png",
+      "scope": "content iframe; synthetic rule and people only"
+    },
+    {
+      "tenant": "yestar-hz",
+      "path": "tenant-yestar-hz-list.png",
+      "scope": "content iframe; synthetic rule and people only"
+    },
+    {
+      "tenant": "yestar-jx",
+      "path": "tenant-yestar-jx-editor.png",
+      "scope": "content iframe; synthetic rule and people only"
+    },
+    {
+      "tenant": "yestar-jx",
+      "path": "tenant-yestar-jx-list.png",
+      "scope": "content iframe; synthetic rule and people only"
+    },
+    {
+      "tenant": "yestar",
+      "path": "tenant-yestar-narrow.png",
+      "scope": "content iframe at viewport width 1120"
+    }
+  ],
+  "sources": [
+    {
+      "path": "prototype/admin-revisit-rules-model.js",
+      "sha256": "540b398aa6701b8b106ba3630a68f3585a13735aff67945f1592cc2290deb56e"
+    },
+    {
+      "path": "prototype/admin-revisit-rules.js",
+      "sha256": "23baa60f577fc8eb085ef118b818b718ae5ae4dbac2425aeb568617d26fb25de"
+    },
+    {
+      "path": "prototype/admin-menu-state.js",
+      "sha256": "c506ba404ade3952878f01f46ff7f3ec0b9736282e571cdbc146b6479f7f4138"
+    },
+    {
+      "path": "prototype/data/navigation-snapshot.json",
+      "sha256": "14d77341c5ae0aedb3b190d102cf2c91e22f6fe0b7dc2496ad657c0ef81cf55d"
+    }
+  ],
+  "deniedTenantCount": 10,
+  "status": "PASS",
+  "verifiedAt": "2026-09-28T03:09:33.922Z",
+  "passed": 15,
+  "total": 15,
+  "pageErrors": [],
+  "externalRequests": 0
+}

@@ -1,0 +1,297 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.2.0",
+  "at": "2026-09-28T03:07:49.997Z",
+  "runtime": "v24.14.0",
+  "mode": "read-only source audit and Node VM; synthetic in-memory edits",
+  "baselineRef": "afcf240333b5a1923c58bbdaaa1dab177850eb92",
+  "baselineMeaning": "Published HEAD used in the original audit; frozen for later reproduction",
+  "schemaAndScopeChecks": 14,
+  "migrationChecks": 52,
+  "passed": 66,
+  "status": "PASS",
+  "audits": [
+    {
+      "name": "navigation schema and only five scoped additive changes",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz visibility migration preserves hide/order/labels and is idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar visibility migration preserves hide/order/labels and is idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj visibility migration preserves hide/order/labels and is idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz visibility migration preserves hide/order/labels and is idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz visibility migration preserves hide/order/labels and is idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx visibility migration preserves hide/order/labels and is idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "all nine non-Yestar tenants retain no route or enabled migration",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar menu schema, exact HEAD baseline, text and unrelated content preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj menu schema, exact HEAD baseline, text and unrelated content preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz menu schema, exact HEAD baseline, text and unrelated content preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz menu schema, exact HEAD baseline, text and unrelated content preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx menu schema, exact HEAD baseline, text and unrelated content preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "Shenzhen and platform source byte-equivalent to HEAD",
+      "status": "PASS"
+    }
+  ],
+  "migrations": [
+    {
+      "name": "yestar-sz: deleted preceding-refresh row stays deleted",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: preceding-refresh row reorder survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: local rename survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: local hidden state survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: explicit cross-parent move survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: older pre-refresh state still receives added defaults",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: migration is idempotent and does not mutate source snapshots",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar: deleted preceding-refresh row stays deleted",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar: preceding-refresh row reorder survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar: local rename survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar: local hidden state survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar: explicit cross-parent move survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar: older pre-refresh state still receives added defaults",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar: migration is idempotent and does not mutate source snapshots",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj: deleted preceding-refresh row stays deleted",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj: preceding-refresh row reorder survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj: local rename survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj: local hidden state survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj: explicit cross-parent move survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj: older pre-refresh state still receives added defaults",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj: migration is idempotent and does not mutate source snapshots",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz: deleted preceding-refresh row stays deleted",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz: preceding-refresh row reorder survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz: local rename survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz: local hidden state survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz: explicit cross-parent move survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz: older pre-refresh state still receives added defaults",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz: migration is idempotent and does not mutate source snapshots",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz: deleted preceding-refresh row stays deleted",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz: preceding-refresh row reorder survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz: local rename survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz: local hidden state survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz: explicit cross-parent move survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz: older pre-refresh state still receives added defaults",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz: migration is idempotent and does not mutate source snapshots",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx: deleted preceding-refresh row stays deleted",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx: preceding-refresh row reorder survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx: local rename survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx: local hidden state survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx: explicit cross-parent move survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx: older pre-refresh state still receives added defaults",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx: migration is idempotent and does not mutate source snapshots",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: deleted preceding-refresh row stays deleted",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: preceding-refresh row reorder survives",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: local rename survives",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: local hidden state survives",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: explicit cross-parent move survives",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: older pre-refresh state still receives added defaults",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: migration is idempotent and does not mutate source snapshots",
+      "status": "PASS"
+    },
+    {
+      "name": "Shenzhen new route joins visible old defaults without changing rename/order",
+      "status": "PASS"
+    },
+    {
+      "name": "hidden parent, hidden route and fully disabled branch remain hidden",
+      "status": "PASS"
+    },
+    {
+      "name": "other nine non-Yestar tenant inventories do not acquire revisitRules",
+      "status": "PASS"
+    }
+  ],
+  "inventory": {
+    "tenants": 15,
+    "entries": 802,
+    "uniqueRoutes": 89
+  },
+  "sourceSha256": {
+    "prototype/data/navigation-snapshot.json": "14d77341c5ae0aedb3b190d102cf2c91e22f6fe0b7dc2496ad657c0ef81cf55d",
+    "prototype/admin-menu-state.js": "c506ba404ade3952878f01f46ff7f3ec0b9736282e571cdbc146b6479f7f4138",
+    "prototype/data/content/yestar.json": "8f3e54a0d8acc93cc6bb328b9b1c474e5d1ce20bd78c55eb2368c1485efe4463",
+    "prototype/data/content/yestar-bj.json": "0436dbe3477d16ad8c923fedce562e3630f2524aaf3aa6a615be89a5d84ae142",
+    "prototype/data/content/yestar-gz.json": "62c67e16ece92e9f66f32d37dbc074421b29abb90829e1cce1611fdfde901d80",
+    "prototype/data/content/yestar-hz.json": "585b12838948b1345f670653a59e72adc4f27be9c58bd2579d36a95251c8703b",
+    "prototype/data/content/yestar-jx.json": "13d8b3e9a991da841a4c47a8f6787a6eba05d4a04f3fc2a8e11f4aec51be2e85",
+    "prototype/data/content/yestar-sz.json": "b1b21b58cb5a7dbcf1475509ec05ab075787194ae1dd2743d89a57bee587e9e3",
+    "prototype/data/content/bzds.json": "94c16555e79aa001ed08429aecf96845610ccea40af64bca55f2698a25273051",
+    "check-dependency:../menu-migration-071.cjs": "de42f1ca8314524c5bf1d5f78e5d4ecd5e452f209e9890e6134ea9028310f2bd"
+  }
+}

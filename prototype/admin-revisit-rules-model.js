@@ -1,10 +1,25 @@
-/* SPEC-SUIYIN-ADMIN-071@1.1.0: deterministic local demonstration only.
+/* SPEC-SUIYIN-ADMIN-071@1.2.0: deterministic local demonstration only.
  * All groups, people and events below are synthetic. No API or scheduler is used.
  * Demo defaults: Asia/Shanghai, added day = 0, message lookback = rolling hours.
  */
 (function (root) {
   'use strict';
 
+  // These are synthetic tenant profiles, not captured work-account directories.
+  var tenantProfiles = {
+    'yestar-sz': { city: '深圳', regions: [['广东省', '深圳市', '南山区'], ['广东省', '深圳市', '福田区']] },
+    'yestar': { city: '成都', regions: [['四川省', '成都市', '锦江区'], ['四川省', '成都市', '武侯区'], ['四川省', '成都市', '青羊区']] },
+    'yestar-bj': { city: '北京', regions: [['北京市', '市辖区', '朝阳区'], ['北京市', '市辖区', '海淀区'], ['北京市', '市辖区', '东城区']] },
+    'yestar-gz': { city: '广州', regions: [['广东省', '广州市', '天河区'], ['广东省', '广州市', '越秀区'], ['广东省', '广州市', '海珠区']] },
+    'yestar-hz': { city: '杭州', regions: [['浙江省', '杭州市', '上城区'], ['浙江省', '杭州市', '拱墅区'], ['浙江省', '杭州市', '西湖区']] },
+    'yestar-jx': { city: '嘉兴', regions: [['浙江省', '嘉兴市', '南湖区'], ['浙江省', '嘉兴市', '秀洲区']] }
+  };
+  function createModel(tenantId) {
+  if (!Object.prototype.hasOwnProperty.call(tenantProfiles, tenantId)) return null;
+  var profile = tenantProfiles[tenantId];
+  var legacyShenzhen = tenantId === 'yestar-sz';
+  function identity(id) { return legacyShenzhen ? id : tenantId + ':' + id; }
+  function person(value) { return legacyShenzhen ? value : profile.city + value; }
   var DAY = 86400000;
   var OFFSET = 8 * 3600000;
   var groups = [
@@ -14,6 +29,10 @@
     { id: 'ecommerce', name: '电商', accounts: [{ id: 'ecommerce-01', name: '演示电商01' }, { id: 'ecommerce-02', name: '演示电商02' }] },
     { id: 'agency', name: '代运营', accounts: [{ id: 'agency-01', name: '演示代运营01' }, { id: 'agency-02', name: '演示代运营02' }] }
   ];
+  if (!legacyShenzhen) groups.forEach(function (group) {
+    group.id = identity(group.id);
+    group.accounts.forEach(function (account) { account.id = identity(account.id); account.name = person(account.name); });
+  });
   var permissions = { managementAccountIds: groups.reduce(function (list, g) { return list.concat(g.accounts.map(function (a) { return a.id; })); }, []) };
   function field(id, label, type, options, excludeOnly) {
     return { id: id, label: label, type: type, options: options || [], include: !excludeOnly, exclude: true };
@@ -46,6 +65,12 @@
     field('newDays', '新加好友', 'days', [], true),
     field('commonGroup', '和工作号同在至少一个群', 'enum', ['是'], true)
   ];
+  if (!legacyShenzhen) fields.forEach(function (item) {
+    if (item.id === 'region') item.options = Array.from(new Set(profile.regions.reduce(function (list, parts) {
+      return list.concat(parts.map(function (_, index) { return parts.slice(0, index + 1).join(' / '); }));
+    }, [])));
+    if (['developer', 'manager', 'doctor'].indexOf(item.id) >= 0) item.options = item.options.map(person);
+  });
   var byId = Object.create(null);
   fields.forEach(function (f) { byId[f.id] = f; });
   function clone(value) { return JSON.parse(JSON.stringify(value)); }
@@ -72,10 +97,10 @@
   }
   function seedRules() {
     var rule = emptyRule();
-    rule.id = 'demo-added-followup';
+    rule.id = identity('demo-added-followup');
     rule.name = '添加好友后回访';
     rule.purpose = '按添加时间持续了解需求，近期已有联系时跳过';
-    rule.scope = { groupIds: ['media'], accountIds: ['douyin-01'] };
+    rule.scope = { groupIds: [identity('media')], accountIds: [identity('douyin-01')] };
     rule.nodes = [3, 5, 7].map(function (days) {
       var node = emptyNode();
       node.id = 'day-' + days;
@@ -223,6 +248,12 @@
       if (key === 'values' || key === 'dates') Object.assign(item[key], overrides[key]);
       else item[key] = overrides[key];
     });
+    if (!legacyShenzhen) {
+      item.id = identity(item.id); item.name = profile.city + ' · ' + item.name; item.accountId = identity(item.accountId);
+      if (item.commonGroups) item.commonGroups.accountId = identity(item.commonGroups.accountId);
+      ['developer', 'manager', 'doctor'].forEach(function (key) { if (item.values[key] != null) item.values[key] = person(item.values[key]); });
+      if (item.values.region != null) item.values.region = profile.regions[item.values.region.at(-1) === '福田区' ? 1 : item.values.region.at(-1) === '岳麓区' ? profile.regions.length - 1 : 0].slice();
+    }
     return item;
   }
   // Explicit fixtures make each outcome traceable; no id-modulo or random results.
@@ -383,11 +414,19 @@
       return row && row.status === 'included' && row.friend && allowed.indexOf(row.friend.accountId) >= 0 && directory.indexOf(row.friend.accountId) >= 0;
     }).map(clone);
   }
-  root.RevisitRuleModel = {
+  return {
+    tenantId: tenantId, tenantLabel: profile.city + '艺星',
     fields: fields, groups: groups, permissions: permissions,
     emptyRule: emptyRule, emptyNode: emptyNode, seedRules: seedRules, copyNodeConditions: copyNodeConditions, validate: validate,
     summary: summary, nodeSummary: nodeSummary, evaluate: evaluate, evaluateNode: evaluateNode, nextRun: nextRun, visibleForSales: visibleForSales,
     resolveAccountIds: scopeIds, describeCondition: describe, accountName: accountName,
     fixtureDate: '2026-09-27', getFixtures: function () { return clone(fixtures); }
   };
+  }
+  // Keep Shenzhen's published IDs and model API for existing v1/v2 browser data.
+  root.RevisitRuleModel = createModel('yestar-sz');
+  root.RevisitRuleModel.forTenant = createModel;
+  root.RevisitRuleModel.supportedTenants = Object.keys(tenantProfiles).map(function (id) {
+    return { id: id, name: tenantProfiles[id].city + '艺星', city: tenantProfiles[id].city };
+  });
 }(typeof window !== 'undefined' ? window : globalThis));
