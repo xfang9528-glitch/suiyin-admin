@@ -1,0 +1,719 @@
+{
+  "errors": [],
+  "externalRequests": 0,
+  "list": "回访规则\n本地演示\n\n按账号群组配置规则，每天筛选当日应回访的好友。\n\n规则说明\n＋ 新建规则\n全部状态\n已启用\n未启用\n全部状态\n重置\n一条规则可包含多个节点，节点条件独立设置\n规则名称\t账号范围\t回访节点\t每天筛选\t状态\t操作\n\n添加好友后回访\n\n按添加时间持续了解需求，近期已有联系时跳过\n\n\t\n\n自媒体全部账号、演示抖音01\n\n3 个账号\n\t\n\n添加日期为基准（当天第0天）\n\n第 3 天\n第 5 天\n第 7 天\n3 个节点 · 分别设置选中与排除\t\n01:00\n北京时间\n\t未启用\t编辑启用试算\n共 1 条规则 · 已启用 0 条\n筛选结果按工作账号接待权限进入销售回访列表。\n恢复示例",
+  "editor": "编辑回访规则\n本地演示\n\n账号与运行设置共用；各时间节点分别配置选中和排除条件。\n\n规则说明\n返回列表\n01\n规则设置\n\n以下设置对这条规则内的所有时间节点生效。\n\n规则名称\n回访目的\n回访基准\n末次咨询日期\n添加日期\n建档日期\n未次预约日期\n末次回访日期\n添加日期\n每天筛选时间\n\n基准当天为第 0 天 · 北京时间\n\n账号范围\n自媒体全部账号、演示抖音01\n选择账号 ⌄\n02\n回访节点\n\n同一规则内分别到期、分别筛选；可复制条件，再独立调整。\n\n第 3 天\n2 条条件\n第 5 天\n2 条条件\n第 7 天\n3 条条件\n＋ 新增节点\n第 3 天的回访条件\n\n仅编辑当前节点，其他节点条件保持不变。\n\n复制其他节点条件\n移除节点\n回访时间点\n基准后第\n天\n节点说明\n且\n选中条件\n\n节点到期后，以下附加条件也需全部满足（且）。\n\n没有额外选中条件，按共享账号范围和当前节点到期时间筛选。\n＋ 添加选中条件（21 个维度）\n所在账号\n等级\n等级(AI)\n第一需求(AI)\n有电话\n状态\n末次咨询日期\n添加日期\n第二需求(AI)\n地区\n建档日期\n开发人\n客服经理\n会员等级\n未次预约日期\n建议改善\n用户特征\n推荐设备/材料\n推荐医生\n喜好风格\n末次回访日期\n＋ 添加选中条件（21 个维度）\n第几天已在节点设置；日期筛选为附加限制\n或\n排除条件\n\n节点到期后，以下任一条件命中（或）即排除。\n\n当\n我方发过消息\n近\n天内\n×\n或\n对方发过消息\n近\n天内\n×\n＋ 添加排除条件（26 个维度）\n所在账号\n等级\n等级(AI)\n第一需求(AI)\n有电话\n状态\n末次咨询日期\n添加日期\n第二需求(AI)\n地区\n建档日期\n开发人\n客服经理\n会员等级\n未次预约日期\n建议改善\n用户特征\n推荐设备/材料\n推荐医生\n喜好风格\n末次回访日期\n对方发过消息\n我方发过消息\n双方发过消息\n新加好友\n和工作号同在至少一个群\n＋ 添加排除条件（26 个维度）\n规则摘要\n\n保存前核对选人范围与时间。\n\n添加好友后回访\n\n按添加时间持续了解需求，近期已有联系时跳过\n\n共享账号范围\n\n自媒体全部账号、演示抖音01\n\n共同回访基准\n\n添加日期为基准（当天第0天）\n\n每天筛选\n\n01:00 · 北京时间\n\n3 个回访节点\n第 3 天\n\n了解近期需求，已有联系时跳过\n\n任一命中即排除：近2天内我方发过消息（滚动48小时）；近2天内对方发过消息（滚动48小时）\n第 5 天\n\n了解近期需求，已有联系时跳过\n\n任一命中即排除：近2天内我方发过消息（滚动48小时）；近2天内对方发过消息（滚动48小时）\n第 7 天\n\n继续了解意向，异常好友暂不联系\n\n任一命中即排除：近2天内我方发过消息（滚动48小时）；近2天内对方发过消息（滚动48小时）；状态为异常\n保存后未启用\n\n保存后，在规则列表中单独启用。\n\n销售仅能看到其有接待权限账号下的应回访好友。\n\n所有节点一起保存，保存后再单独启用\n取消\n查看示例试算\n保存整条规则",
+  "controls": [
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "规则说明",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "返回列表",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "规则名称",
+      "nodeId": null,
+      "value": "添加好友后回访"
+    },
+    {
+      "tag": "INPUT",
+      "label": "回访目的",
+      "nodeId": null,
+      "value": "按添加时间持续了解需求，近期已有联系时跳过"
+    },
+    {
+      "tag": "SELECT",
+      "label": "回访基准日期",
+      "nodeId": null,
+      "value": "added"
+    },
+    {
+      "tag": "BUTTON",
+      "label": "回访基准日期",
+      "text": "添加日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": "清空回访基准日期",
+      "text": "×",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "搜索回访基准日期选项",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "末次咨询日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "添加日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "建档日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "未次预约日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "末次回访日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "每天筛选时间",
+      "nodeId": null,
+      "value": "01:00"
+    },
+    {
+      "tag": "DETAILS",
+      "label": null,
+      "nodeId": null
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "清空",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "选择整个自媒体群组",
+      "nodeId": null,
+      "value": "on"
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "自媒体（2）",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "选择整个抖音IP群组",
+      "nodeId": null,
+      "value": "on"
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "抖音IP（2）",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "选择整个小红书群组",
+      "nodeId": null,
+      "value": "on"
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "小红书（2）",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "选择整个电商群组",
+      "nodeId": null,
+      "value": "on"
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "电商（2）",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "选择整个代运营群组",
+      "nodeId": null,
+      "value": "on"
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "代运营（2）",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "搜索当前群组账号",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": null,
+      "nodeId": null,
+      "value": "on"
+    },
+    {
+      "tag": "INPUT",
+      "label": null,
+      "nodeId": null,
+      "value": "on"
+    },
+    {
+      "tag": "INPUT",
+      "label": null,
+      "nodeId": null,
+      "value": "on"
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "第 3 天2 条条件",
+      "nodeId": "day-3",
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "第 5 天2 条条件",
+      "nodeId": "day-5",
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "第 7 天3 条条件",
+      "nodeId": "day-7",
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "＋ 新增节点",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "复制其他节点条件",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "移除节点",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "节点天数",
+      "nodeId": null,
+      "value": "3"
+    },
+    {
+      "tag": "INPUT",
+      "label": "节点说明",
+      "nodeId": null,
+      "value": "了解近期需求，已有联系时跳过"
+    },
+    {
+      "tag": "SELECT",
+      "label": "添加选中条件",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": "添加选中条件",
+      "text": "＋ 添加选中条件（21 个维度）",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": "清空添加选中条件",
+      "text": "×",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "搜索添加选中条件选项",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "＋ 添加选中条件（21 个维度）",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "所在账号",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "等级",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "等级(AI)",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "第一需求(AI)",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "有电话",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "状态",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "末次咨询日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "添加日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "第二需求(AI)",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "地区",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "建档日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "开发人",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "客服经理",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "会员等级",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "未次预约日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "建议改善",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "用户特征",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "推荐设备/材料",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "推荐医生",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "喜好风格",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "末次回访日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "我方发过消息近几天",
+      "nodeId": null,
+      "value": "2"
+    },
+    {
+      "tag": "BUTTON",
+      "label": "移除我方发过消息条件",
+      "text": "×",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "对方发过消息近几天",
+      "nodeId": null,
+      "value": "2"
+    },
+    {
+      "tag": "BUTTON",
+      "label": "移除对方发过消息条件",
+      "text": "×",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "SELECT",
+      "label": "添加排除条件",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": "添加排除条件",
+      "text": "＋ 添加排除条件（26 个维度）",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": "清空添加排除条件",
+      "text": "×",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "INPUT",
+      "label": "搜索添加排除条件选项",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "＋ 添加排除条件（26 个维度）",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "所在账号",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "等级",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "等级(AI)",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "第一需求(AI)",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "有电话",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "状态",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "末次咨询日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "添加日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "第二需求(AI)",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "地区",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "建档日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "开发人",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "客服经理",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "会员等级",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "未次预约日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "建议改善",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "用户特征",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "推荐设备/材料",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "推荐医生",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "喜好风格",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "末次回访日期",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "对方发过消息",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "我方发过消息",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "双方发过消息",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "新加好友",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "和工作号同在至少一个群",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "第 3 天",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "第 5 天",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "第 7 天",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "取消",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "查看示例试算",
+      "nodeId": null,
+      "value": ""
+    },
+    {
+      "tag": "BUTTON",
+      "label": null,
+      "text": "保存整条规则",
+      "nodeId": null,
+      "value": ""
+    }
+  ]
+}

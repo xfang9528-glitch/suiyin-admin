@@ -1,0 +1,83 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.1.0",
+  "at": "2026-09-28T02:30:22.059Z",
+  "runtime": "v24.14.0",
+  "mode": "read-only Node VM; synthetic in-memory edits",
+  "passed": 17,
+  "results": [
+    {
+      "name": "yestar-sz: deleted preceding-refresh row stays deleted",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: preceding-refresh row reorder survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: local rename survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: local hidden state survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: explicit cross-parent move survives",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: older pre-refresh state still receives added defaults",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: migration is idempotent and does not mutate source snapshots",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: deleted preceding-refresh row stays deleted",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: preceding-refresh row reorder survives",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: local rename survives",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: local hidden state survives",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: explicit cross-parent move survives",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: older pre-refresh state still receives added defaults",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: migration is idempotent and does not mutate source snapshots",
+      "status": "PASS"
+    },
+    {
+      "name": "Shenzhen new route joins visible old defaults without changing rename/order",
+      "status": "PASS"
+    },
+    {
+      "name": "hidden parent, hidden route and fully disabled branch remain hidden",
+      "status": "PASS"
+    },
+    {
+      "name": "other fourteen tenant inventories do not acquire revisitRules",
+      "status": "PASS"
+    }
+  ],
+  "sourceSha256": {
+    "prototype/admin-menu-state.js": "e4405117d608ad81dc958f09c9c293666391dd4ff3430603ea634ed88de4f0f6",
+    "prototype/data/content/yestar-sz.json": "b1b21b58cb5a7dbcf1475509ec05ab075787194ae1dd2743d89a57bee587e9e3",
+    "prototype/data/content/bzds.json": "94c16555e79aa001ed08429aecf96845610ccea40af64bca55f2698a25273051",
+    "prototype/data/navigation-snapshot.json": "d42d27a278170a557e063d95ff60ff675dd2443f20dd0436bc603c1d06aae596"
+  }
+}

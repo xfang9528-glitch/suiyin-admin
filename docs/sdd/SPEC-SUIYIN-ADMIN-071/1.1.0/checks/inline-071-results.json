@@ -1,0 +1,36 @@
+{
+  "verifiedAt": "2026-09-28T02:28:34.074Z",
+  "browser": "153.0.8010.54",
+  "file": "prototype/_shell_inline.html",
+  "sha256": "9a0fbeeb002b22e6c7b9e552d85db2730e209d6221a230d571c80ccf62e1bdd3",
+  "bytes": 10443661,
+  "httpBlocked": true,
+  "results": [
+    {
+      "name": "离线菜单进入单条规则与三节点合并试算",
+      "status": "PASS"
+    },
+    {
+      "name": "离线节点复制仅替换筛选、独立编辑与整条保存",
+      "status": "PASS"
+    },
+    {
+      "name": "离线整体启停与刷新恢复",
+      "status": "PASS"
+    },
+    {
+      "name": "离线重复节点阻断与取消恢复",
+      "status": "PASS"
+    },
+    {
+      "name": "菜单管理与德三平台登记一致，其他租户没有回访规则入口",
+      "status": "PASS"
+    },
+    {
+      "name": "单文件没有外部请求或脚本错误",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

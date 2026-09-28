@@ -1161,6 +1161,25 @@
                 "inventoryIndex": 53,
                 "routeClickVerified": false
               }
+            },
+            {
+              "id": "revisitRules",
+              "route": "revisitRules",
+              "label": "回访规则",
+              "platformId": "platform-revisitRules",
+              "platformLabel": "回访规则",
+              "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" class=\"menu-icon\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M16 3v4M8 3v4M3 11h18m-13 5 2 2 4-4\"/></g></svg>",
+              "contentStatus": "mock",
+              "routeEvidence": "approved-static-prototype",
+              "display": "显示",
+              "sort": 0,
+              "superPermission": false,
+              "prototypeOnly": true,
+              "liveEvidence": {
+                "source": "approved-static-prototype",
+                "spec": "SPEC-SUIYIN-ADMIN-071@1.1.0",
+                "liveObserved": false
+              }
             }
           ]
         },
@@ -2001,7 +2020,7 @@
       "navigationCapturedAt": "2026-09-27T03:02:19.160Z",
       "clientVersion": "v2026092601",
       "clientVersionEvidence": "2026-09-27 authenticated current tenant download link",
-      "menuDataRevision": "2026-09-27-live-menu-refresh-staging-v1",
+      "menuDataRevision": "2026-09-27-live-menu-refresh-staging-v1-revisit-rules-v1",
       "refreshStatus": "current-reference",
       "orderEvidence": {
         "navigation": "current-left-navigation-dom",

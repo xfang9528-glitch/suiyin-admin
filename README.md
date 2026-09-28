@@ -1,15 +1,24 @@
 # 碎银管理后台 HTML 原型
 
-这是十五租户的静态管理后台原型，用于对照真实页面、评审操作和统计规则。2026-09-27 当前登记 **15 个租户、796 个租户×页面入口、88 种路由**。其中783个入口属于本轮源环境采集队列，741个可见页面已有有效DOM和截图，42个保持源隐藏状态；另13个为既有批准的AI费用原型扩展。采集覆盖不等于全部页面、全部状态逐像素一致。
+这是十五租户的静态管理后台原型，用于对照真实页面、评审操作和统计规则。2026-09-28 按当前导航登记 **15 个租户、797 个租户×页面入口、89 种路由**。其中783个入口属于2026-09-27源环境采集队列，741个可见页面已有有效DOM和截图，42个保持源隐藏状态；另有13个既有AI费用原型扩展，以及1个深圳回访规则合成原型入口。新增回访规则不计入实站采集页数；采集覆盖不等于全部页面、全部状态逐像素一致。
 
-本轮按各租户当前来源刷新左侧导航、完整菜单库存、品牌、图标和客户端版本，并校准好友、通用列表、统计及专用页面。新增录音管理、喜报设置和喜报记录共25个租户×页面。数据包含本租户脱敏采样、明确标识的参考样本和合成演示；不是实时后台，所有修改只影响本地原型。
+2026-09-27已按各租户当前来源刷新左侧导航、完整菜单库存、品牌、图标和客户端版本，并校准好友、通用列表、统计及专用页面，新增录音管理、喜报设置和喜报记录共25个租户×页面。本次增加深圳回访规则，见下方071合同。数据包含本租户脱敏采样、明确标识的参考样本和合成演示；不是实时后台，所有修改只影响本地原型。
 
 - [好友列表](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=customerManagement) · [录音管理](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=rxxz&page=recordingAdmin) · [喜报设置](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-hz&page=goodNewsSettings)
+- [深圳回访规则](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=revisitRules) · [071@1.1.0交付合同](docs/sdd/SPEC-SUIYIN-ADMIN-071/1.1.0/README.md)
 - [当前产品说明](prd/admin-live-reference.md) · [交互流程](flowcharts/admin-live-reference.md) · [设计规范](docs/design-spec.md)
-- [本轮交付合同](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md) · [公开验证摘要](docs/verification/live-refresh-20260927/README.md) · [公开样本审计](docs/verification/live-refresh-20260927/public-data-audit.md)
+- [2026-09-27刷新合同](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md) · [公开验证摘要](docs/verification/live-refresh-20260927/README.md) · [公开样本审计](docs/verification/live-refresh-20260927/public-data-audit.md)
 - [验收与已知边界](docs/verification/admin-live-reference.md) · [离线单文件](prototype/_shell_inline.html)
 
-## 本轮实际验证
+## 深圳回访规则
+
+按 [071@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-071/1.1.0/README.md)，入口保留在深圳「聊天管理 → 回访规则」。一条“添加好友后回访”规则包含第3、5、7天等节点，名称、目的、账号群组/账号、回访基准和每日筛选时间共用；节点独立配置选中与排除，继承群发21项选中、26项排除维度。节点条件可复制，但目标天数、说明和共享设置不变；后续各自独立，保存整条规则才生效。
+
+账号群组表示渠道归属；应回访好友仅对具有其所属账号接待权限的销售可见。当前仅交付管理页和权限行为合同，PC真实名单、真实定时筛选、自动发送及执行质检均未实施。示例试算使用固定合成数据，已排除、未入选和无法判断分别显示。规则只在当前浏览器保存；新版v2与旧版v1分开，旧规则只读保留，可明确开始新版示例或逐条导入未启用草稿，不自动猜测合并。
+
+本次未新增群发规则页面，未移动到群发菜单，未扩展回访规则至其他租户。1.0.0将时间节点拆成顶层规则的模型已由1.1.0替代，仅保留为历史。
+
+## 2026-09-27刷新实际验证
 
 | 范围 | 结果 |
 |---|---|
@@ -26,6 +35,7 @@
 
 | 合同 | 当前职责 |
 |---|---|
+| [071@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-071/1.1.0/README.md) | 深圳回访规则；共享设置与独立时间节点、节点条件复制、账号接待权限合同及本地存储边界 |
 | [REFRESH-001@0.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md) | 录音与喜报三新页面、对应入口迁移、本地演示及证据边界；既有页面继续各自原合同 |
 | [051@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/README.md) | 十五租户、Shell、领域页面及公开样本基线 |
 | [052@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-052/1.2.0/README.md) | 变声独立任务首次成功计次；失败、试听、重复回调不重复计 |

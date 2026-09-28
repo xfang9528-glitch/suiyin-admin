@@ -7,8 +7,11 @@ window.AdminMenuRefresh=(()=>{
  function index(rows){const map=new Map(),groups=new Map(),stack=[];for(const [position,row]of rows.entries()){const depth=Number(row.tree?.depth)||0;while(stack.length&&stack.at(-1).depth>=depth)stack.pop();const parent=stack.at(-1)?.row.id||'',entry={row,parent,depth,position};map.set(row.id,entry);if(!groups.has(parent))groups.set(parent,[]);groups.get(parent).push(row.id);stack.push(entry);}return {map,groups};}
  function merge(source,saved){
   if(!accepts(source,saved))return clone(saved?.dataRevision===source?.dataRevision?saved:source);
-  const before=index(source.menuRefresh.previousRows),current=index(source.tables[0].rows),local=index(saved.tables[0].rows),nodes=new Map();
-  const headers=source.tables[0].headers,oldHeaders=source.menuRefresh.previousHeaders||headers,localHeaders=saved.tables[0].headers;
+  // Compare local edits with the defaults from their own revision when a later
+  // additive page follows a capture refresh; retain the older migration fallback.
+  const revision=source.menuRefresh.baselines?.[saved.dataRevision];
+  const before=index(revision?.rows||source.menuRefresh.previousRows),current=index(source.tables[0].rows),local=index(saved.tables[0].rows),nodes=new Map();
+  const headers=source.tables[0].headers,oldHeaders=revision?.headers||source.menuRefresh.previousHeaders||headers,localHeaders=saved.tables[0].headers;
   for(const [id,next]of current.map){
    const prior=before.map.get(id),edit=local.map.get(id);
    // Missing old rows represent a local deletion. Newly captured rows have no old id.
@@ -123,6 +126,26 @@ window.AdminMenuState={
    }
   }
   next.appliedMigrations={...next.appliedMigrations,[migration]:true};next.menuDataRevision=tenant.menuDataRevision;return next;
+ };
+})();
+
+/* SPEC-SUIYIN-ADMIN-071@1.1.0: add Shenzhen's local rule page without reviving hidden menus. */
+(()=>{
+ const state=window.AdminMenuState,previous=state.migrate;
+ state.migrate=function(tenant,override){
+  const saved=previous.call(this,tenant,override),migration='revisit-rules-v1',route='revisitRules';
+  if(tenant.id!=='yestar-sz'||saved.appliedMigrations?.[migration])return saved;
+  const parent=tenant.menu.find(group=>group.children?.some(child=>child.route===route));
+  if(!parent)return saved;
+  const next=structuredClone(saved),child=parent.children.find(item=>item.route===route);
+  const parentShown=(next.display?.[parent.route||parent.id]??parent.display)!=='隐藏';
+  const childShown=(next.display?.[route]??child.display)!=='隐藏';
+  const hadEnabled=Array.isArray(override?.enabled);
+  const siblingShown=parent.children.some(item=>item.route!==route&&next.enabled.includes(item.route)&&(next.display?.[item.route]??item.display)!=='隐藏');
+  if(!next.enabled.includes(route)&&parentShown&&childShown&&(!hadEnabled||siblingShown))next.enabled.push(route);
+  next.appliedMigrations={...next.appliedMigrations,[migration]:true};
+  next.menuDataRevision=tenant.menuDataRevision;
+  return next;
  };
 })();
 
