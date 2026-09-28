@@ -1,0 +1,106 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.3.1",
+  "file": "prototype/_shell_inline.html",
+  "artifactClass": "static-html",
+  "transport": "file:",
+  "httpBlocked": true,
+  "sourceHashes": {
+    "prototype/admin-revisit-rules-model.js": "e5f01e95983b3288735eb31e3eed9a908114365e1e946b13e126b084ce24aac7",
+    "prototype/admin-revisit-rules.js": "d82845e1c6306d5b02d744c93f030b1f04336e7a7b01f89846323373f4abba94",
+    "prototype/admin-revisit-rules.css": "cf6a132a0d7d71ed1ac64e7bb5922993cc4550f37a03a375460423116571f5ad",
+    "prototype/admin-menu-state.js": "c506ba404ade3952878f01f46ff7f3ec0b9736282e571cdbc146b6479f7f4138",
+    "prototype/data/navigation-snapshot.json": "14d77341c5ae0aedb3b190d102cf2c91e22f6fe0b7dc2496ad657c0ef81cf55d",
+    "prototype/data/content/yestar-sz.json": "b1b21b58cb5a7dbcf1475509ec05ab075787194ae1dd2743d89a57bee587e9e3",
+    "prototype/data/content/yestar.json": "8f3e54a0d8acc93cc6bb328b9b1c474e5d1ce20bd78c55eb2368c1485efe4463",
+    "prototype/data/content/yestar-bj.json": "0436dbe3477d16ad8c923fedce562e3630f2524aaf3aa6a615be89a5d84ae142",
+    "prototype/data/content/yestar-gz.json": "62c67e16ece92e9f66f32d37dbc074421b29abb90829e1cce1611fdfde901d80",
+    "prototype/data/content/yestar-hz.json": "585b12838948b1345f670653a59e72adc4f27be9c58bd2579d36a95251c8703b",
+    "prototype/data/content/yestar-jx.json": "13d8b3e9a991da841a4c47a8f6787a6eba05d4a04f3fc2a8e11f4aec51be2e85"
+  },
+  "results": [
+    {
+      "name": "file内嵌当前模型/界面、六租户数据和菜单与产品源码一致，无外链资源",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz：15项与21/26维度，事件及人工/AI等级保存刷新、启停和隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar：15项与21/26维度，事件及人工/AI等级保存刷新、启停和隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj：15项与21/26维度，事件及人工/AI等级保存刷新、启停和隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz：15项与21/26维度，事件及人工/AI等级保存刷新、启停和隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz：15项与21/26维度，事件及人工/AI等级保存刷新、启停和隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx：15项与21/26维度，事件及人工/AI等级保存刷新、启停和隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "file同一context六租户互不覆盖，QA存储与普通存储严格隔离",
+      "status": "PASS"
+    },
+    {
+      "name": "file旧六种事件pair原样回显，打开和修改后取消不迁写",
+      "status": "PASS"
+    },
+    {
+      "name": "file缺失/无效次数不默选，阻止保存；显式选项可修复并刷新",
+      "status": "PASS"
+    },
+    {
+      "name": "file直接下拉上下截图及1120窄窗，无多余事件控件或横向溢出",
+      "status": "PASS"
+    },
+    {
+      "name": "file六店旧统计保持独立，非艺星无新入口且直接内容路由拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "file没有外部请求或脚本异常，执行期间源码字节未变化",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "inline-grade-ai.png",
+      "tenant": "yestar-jx",
+      "scope": "content iframe; synthetic QA fixtures; natural controls"
+    },
+    {
+      "path": "inline-event-options-top.png",
+      "tenant": "yestar-sz",
+      "scope": "content iframe; synthetic QA fixtures; natural controls"
+    },
+    {
+      "path": "inline-event-options-bottom.png",
+      "tenant": "yestar-sz",
+      "scope": "content iframe; synthetic QA fixtures; natural controls"
+    },
+    {
+      "path": "inline-event-options-narrow.png",
+      "tenant": "yestar-sz",
+      "scope": "content iframe; synthetic QA fixtures; natural controls"
+    }
+  ],
+  "deniedDirectRoutes": 10,
+  "status": "PASS",
+  "verifiedAt": "2026-09-28T05:48:31.700Z",
+  "browser": "153.0.8010.54",
+  "bytes": 10545234,
+  "sha256": "d61e8c5006c2c238b98868b75966ab13c68c6ceb4de108af195a4eccde402f87",
+  "passed": 13,
+  "total": 13,
+  "errors": [],
+  "externalRequests": []
+}

@@ -1,0 +1,134 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.3.1",
+  "executedAt": "2026-09-28T05:52:05.522Z",
+  "scope": "Canonical contract, versioned check texts and history only; no private research or MCP source read",
+  "scannedFiles": 48,
+  "findings": [
+    {
+      "file": "spec.md",
+      "line": 473,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "source-convergence.md",
+      "line": 26,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "source-convergence.md",
+      "line": 27,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "source-convergence.md",
+      "line": 28,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "source-convergence.md",
+      "line": 29,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "source-convergence.md",
+      "line": 30,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.0.0/plan.md",
+      "line": 48,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.0.0/spec.snapshot.md",
+      "line": 356,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.1.0/plan.md",
+      "line": 50,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.1.0/source-convergence.md",
+      "line": 26,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.1.0/source-convergence.md",
+      "line": 27,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.1.0/source-convergence.md",
+      "line": 28,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.1.0/source-convergence.md",
+      "line": 29,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.1.0/source-convergence.md",
+      "line": 30,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.1.0/spec.snapshot.md",
+      "line": 378,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.2.0/plan.md",
+      "line": 50,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.2.0/source-convergence.md",
+      "line": 26,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.2.0/source-convergence.md",
+      "line": 27,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.2.0/source-convergence.md",
+      "line": 28,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.2.0/source-convergence.md",
+      "line": 29,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.2.0/source-convergence.md",
+      "line": 30,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.2.0/spec.snapshot.md",
+      "line": 399,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.3.0/plan.md",
+      "line": 46,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.3.0/spec.snapshot.md",
+      "line": 465,
+      "category": "local-machine-path"
+    },
+    {
+      "file": "history/1.3.1-preview/spec.snapshot.md",
+      "line": 471,
+      "category": "local-machine-path"
+    }
+  ],
+  "policy": "Normalize public copies only; preserve canonical/history bytes; no raw research, delivery receipts, credentials or notification identifiers in package"
+}

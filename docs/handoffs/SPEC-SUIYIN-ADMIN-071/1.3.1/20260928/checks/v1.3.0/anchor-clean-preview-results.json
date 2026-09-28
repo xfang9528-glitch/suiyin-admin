@@ -1,0 +1,27 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.3.0",
+  "verifiedAt": "2026-09-28T04:12:13.761Z",
+  "scope": "fresh disposable Chrome context, QA draft only; no save",
+  "anchorOptions": [
+    "末次咨询日期",
+    "添加日期",
+    "建档日期",
+    "预约日期",
+    "末次回访日期",
+    "成为 A 级",
+    "成为 B 级",
+    "成为 C 级",
+    "成为 D 级",
+    "到店",
+    "购买",
+    "划扣"
+  ],
+  "screenshots": [
+    "anchor-grade-ai-editor.png",
+    "anchor-dropdown-options.png",
+    "anchor-dropdown-new-options.png",
+    "anchor-grade-narrow.png"
+  ],
+  "dropdown": "existing scroll behavior retained; top and bottom states jointly show all 12 choices",
+  "toast": "waited for natural hidden state; no DOM masking or CSS injection"
+}

@@ -1,0 +1,556 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.3.1",
+  "executedAt": "2026-09-28T05:52:05.469Z",
+  "method": "Read-only rg searches, JSON inventory and SHA-256; no chat or MCP data read",
+  "searches": [
+    {
+      "id": "Q001",
+      "patterns": [
+        "checkedChannels",
+        "checkedAccounts",
+        "bcFpUpdateChannelText"
+      ],
+      "files": [
+        "PC/prototype/prototype_v1.0.html",
+        "PC/prototype/yestar-friend-picker.js"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46856:  checkedChannels: new Set(),",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46857:  checkedAccounts: new Set(),",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46878:    var checked = bcFpChannelState.checkedChannels.has(ch) ? ' checked' : '';",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46896:  if (checked) bcFpChannelState.checkedChannels.add(ch);",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46897:  else bcFpChannelState.checkedChannels.delete(ch);",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46899:  bcFpUpdateChannelText();",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46927:      var checked = bcFpChannelState.checkedAccounts.has(acc) ? ' checked' : '';",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46944:  var allSelected = visible.every(function(a) { return bcFpChannelState.checkedAccounts.has(a); });",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46957:  var allSelected = visible.every(function(a) { return bcFpChannelState.checkedAccounts.has(a); });",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46958:  if (allSelected) visible.forEach(function(a) { bcFpChannelState.checkedAccounts.delete(a); });",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46959:  else visible.forEach(function(a) { bcFpChannelState.checkedAccounts.add(a); });",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46961:  bcFpUpdateChannelText();",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46973:      if (checked) bcFpChannelState.checkedAccounts.add(visible[i]);",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46974:      else bcFpChannelState.checkedAccounts.delete(visible[i]);",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46978:    if (checked) bcFpChannelState.checkedAccounts.add(acc);",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46979:    else bcFpChannelState.checkedAccounts.delete(acc);",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46983:  bcFpUpdateChannelText();",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46986:function bcFpUpdateChannelText() {",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46988:  if (bcFpChannelState.checkedChannels.size) parts.push(Array.from(bcFpChannelState.checkedChannels).join(', '));",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46989:  if (bcFpChannelState.checkedAccounts.size) parts.push('人设号 ' + bcFpChannelState.checkedAccounts.size + ' 个');",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46997:    checkedChannels: new Set(),",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:46998:    checkedAccounts: new Set(),",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47004:  bcFpUpdateChannelText();",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47077:var bcFpExChannelState = { checkedChannels: new Set(), checkedAccounts: new Set(), activeChannel: '', searchQuery: '', visibleAccounts: [], lastClickedAcc: '' };",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47087:    var checked = bcFpExChannelState.checkedChannels.has(ch) ? ' checked' : '';",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47099:  if (checked) bcFpExChannelState.checkedChannels.add(ch); else bcFpExChannelState.checkedChannels.delete(ch);",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47123:      var checked = bcFpExChannelState.checkedAccounts.has(acc) ? ' checked' : '';",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47136:  var allSelected = visible.every(function(a) { return bcFpExChannelState.checkedAccounts.has(a); });",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47143:  var allSelected = visible.every(function(a) { return bcFpExChannelState.checkedAccounts.has(a); });",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47144:  if (allSelected) visible.forEach(function(a) { bcFpExChannelState.checkedAccounts.delete(a); });",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47145:  else visible.forEach(function(a) { bcFpExChannelState.checkedAccounts.add(a); });",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47156:    for (var i = lo; i <= hi; i++) { if (checked) bcFpExChannelState.checkedAccounts.add(visible[i]); else bcFpExChannelState.checkedAccounts.delete(visible[i]); }",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47159:    if (checked) bcFpExChannelState.checkedAccounts.add(acc); else bcFpExChannelState.checkedAccounts.delete(acc);",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47167:  if (bcFpExChannelState.checkedChannels.size) parts.push(Array.from(bcFpExChannelState.checkedChannels).join(', '));",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47168:  if (bcFpExChannelState.checkedAccounts.size) parts.push('人设号 ' + bcFpExChannelState.checkedAccounts.size + ' 个');",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/prototype_v1.0.html:47173:  bcFpExChannelState = { checkedChannels: new Set(), checkedAccounts: new Set(), activeChannel: '', searchQuery: '', visibleAccounts: [], lastClickedAcc: '' };",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/yestar-friend-picker.js:111:    channel.checkedChannels.clear(); channel.checkedAccounts.clear(); channel.activeChannel=''; channel.searchQuery='';",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/yestar-friend-picker.js:125:    return { list, channels:[...channel.checkedChannels], accounts:[...channel.checkedAccounts], region:[region.province,region.city,region.district], common:ex&&commonSelected() };",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/yestar-friend-picker.js:239:  function controls(){return ['bc-fp-filters','bc-fp-ex-filters'].map(id=>({id,items:[...$(id).querySelectorAll('.bc-fp-filter-item')].map(item=>({values:[...item.querySelectorAll('.bc-fp-sel-opt.selected')].map(e=>e.dataset.val),dates:[...item.querySelectorAll('.bc-fp-date-trigger')].map(e=>e.dataset.value||''),days:item.querySelector('.bc-fp-ex-days')?.value||''})),channel:clone({... (id==='bc-fp-filters'?bcFpChannelState:bcFpExChannelState),checkedChannels:[...(id==='bc-fp-filters'?bcFpChannelState:bcFpExChannelState).checkedChannels],checkedAccounts:[...(id==='bc-fp-filters'?bcFpChannelState:bcFpExChannelState).checkedAccounts]}),region:clone(id==='bc-fp-filters'?bcFpRegionState:bcFpExRegionState),common:commonSelected()}));}",
+        "https://github.com/xfang9528-glitch/suiyin-pc-chat/tree/master/prototype/yestar-friend-picker.js:240:  function restoreControls(data){(data||[]).forEach(group=>{const root=$(group.id);[...root.querySelectorAll('.bc-fp-filter-item')].forEach((item,i)=>{const saved=group.items[i];if(!saved)return;item.querySelectorAll('.bc-fp-sel-opt').forEach(e=>e.classList.toggle('selected',saved.values.includes(e.dataset.val)));const t=item.querySelector('.bc-fp-sel-text');if(t&&saved.values.length){t.textContent=saved.values.join('、');t.classList.remove('placeholder');}item.querySelectorAll('.bc-fp-date-trigger').forEach((e,j)=>{if(saved.dates[j]){e.dataset.value=saved.dates[j];e.textContent=saved.dates[j];e.classList.add('has-value');}});if(item.querySelector('.bc-fp-ex-days'))item.querySelector('.bc-fp-ex-days').value=saved.days;});const ex=group.id==='bc-fp-ex-filters';Object.assign(ex?bcFpExChannelState:bcFpChannelState,group.channel,{checkedChannels:new Set(group.channel.checkedChannels),checkedAccounts:new Set(group.channel.checkedAccounts)});Object.assign(ex?bcFpExRegionState:bcFpRegionState,group.region);setCommonSelected(group.common);});if(typeof bcFpUpdateChannelText==='function')bcFpUpdateChannelText();if(typeof bcFpUpdateRegionText==='function')bcFpUpdateRegionText();if(typeof bcFpExUpdateChannelText==='function')bcFpExUpdateChannelText();if(typeof bcFpExUpdateRegionText==='function')bcFpExUpdateRegionText();}"
+      ]
+    },
+    {
+      "id": "Q002",
+      "patterns": [
+        "账号级联",
+        "确定.*取消"
+      ],
+      "files": [
+        "YPC/annex/design-spec-v1.0.md"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "764:- 账号级联层挂到 `body`，层级 `z-index:9200`；好友筛选遮罩挂到 `body`，层级 `z-index:9300`；均高于朋友圈发布窗，好友筛选高于账号级联，系统 Toast 仍最高。",
+        "835:| 底部 | 已选数量 + 确定/取消按钮 |",
+        "1898:确定后：splice 删除 → 关 slide-panel → 复位 `padding-bottom` → renderSidebar → toast「已取消预约（已同步 PDM）」。",
+        "2506:| 时间 / R003、R004 | 生成时间／预约时间切换；今日／本周／本月／全部／自定义，本月生成时间默认。上海自然日、周一开始；自定义非法禁用确定，取消不改条件；无预约日期排除并提示，日期有时段空显示时段未填。 |",
+        "2969:| Delete Modal | 宽 388px、圆角 24px、`role=alertdialog`，标题「删除分类」，正文固定为 `确定删除「分类名」？分类下的所有内容也会一并删除。`；按钮顺序取消 → 删除，删除文字 / 主动作使用 `#fa5151`。提交期间所有控件 disabled，同一次确认最多执行一次 |"
+      ]
+    },
+    {
+      "id": "Q003",
+      "patterns": [
+        "relative-day",
+        "function evaluate",
+        "daysSinceAnchor"
+      ],
+      "files": [
+        "ADMIN/prototype/admin-revisit-rules-model.js"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "193:    if (['relative-day', 'within-days', 'on'].indexOf(c.op) >= 0) return c.value === '' || c.value == null;",
+        "250:          if (c.op === 'relative-day' || c.op === 'within-days') {",
+        "251:            if (!whole(c.value, c.op === 'relative-day' ? 0 : 1)) errors.push(label + '请输入有效的整数天数');",
+        "270:    if (c.op === 'relative-day') return (f.id === 'added' ? '添加好友后的第' : f.label + '为回访日前第') + (c.value === '' ? '待填' : c.value) + '天';",
+        "386:      if (c.op === 'relative-day') return age === Number(c.value);",
+        "408:  function evaluate(rule, date) {",
+        "439:      var daysSinceAnchor = (dateNumber(date) - anchorDate) / DAY;",
+        "440:      var node = rule.nodes.find(function (candidate) { return Number(candidate.day) === daysSinceAnchor; });",
+        "443:        row.reasons = [daysSinceAnchor < 0 ? '尚未到' + resolved.label + eventDetail + '，未命中时间节点' : '距' + resolved.label + eventDetail + '第' + daysSinceAnchor + '天，今天没有到期节点'];",
+        "482:  function evaluateNode(rule, nodeId, date) {"
+      ]
+    },
+    {
+      "id": "Q004",
+      "patterns": [
+        "threeAnd",
+        "threeOr",
+        "both"
+      ],
+      "files": [
+        "ADMIN/prototype/admin-revisit-rules-model.js",
+        "PC/prototype/yestar-friend-picker.js"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026092803-admin-revisit-anchors/prototype/admin-revisit-rules-model.js:64:    field('both', '双方发过消息', 'days', [], true),",
+        "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026092803-admin-revisit-anchors/prototype/admin-revisit-rules-model.js:358:  function threeAnd(list) { return list.indexOf(false) >= 0 ? false : list.indexOf(null) >= 0 ? null : true; }",
+        "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026092803-admin-revisit-anchors/prototype/admin-revisit-rules-model.js:359:  function threeOr(list) { return list.indexOf(true) >= 0 ? true : list.indexOf(null) >= 0 ? null : false; }",
+        "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026092803-admin-revisit-anchors/prototype/admin-revisit-rules-model.js:377:      if (c.field === 'both') return threeAnd([messageHit(f, 'inbound', Number(c.value), at), messageHit(f, 'outbound', Number(c.value), at)]);",
+        "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026092803-admin-revisit-anchors/prototype/admin-revisit-rules-model.js:451:      var selection = threeAnd(includes.map(function (entry) { return entry.hit; }));",
+        "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026092803-admin-revisit-anchors/prototype/admin-revisit-rules-model.js:461:        var exclusion = threeOr(exclusions.map(function (entry) { return entry.hit; }));"
+      ]
+    },
+    {
+      "id": "Q005",
+      "patterns": [
+        "请先勾选至少一位好友",
+        "请至少选择一位好友"
+      ],
+      "files": [
+        "PC/prototype/yestar-friend-picker.js"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "245:  wrap('bcFpGoStep',function(n){if(bcFpState.step===1&&Number(n)>1&&bcFpBaseCount()===0){showToast('请先勾选至少一位好友');return;}return original.bcFpGoStep(n);});",
+        "246:  wrap('bcConfirmFriendPicker',function(){syncExcluded();if((bcFpState.step===1&&bcFpBaseCount()===0)||bcFpFinalCount()<=0){showToast('请至少选择一位好友');return;}confirmed=capture();return original.bcConfirmFriendPicker();});"
+      ]
+    },
+    {
+      "id": "Q007",
+      "patterns": [
+        "均匀分布 -7 ~ \\+30"
+      ],
+      "files": [
+        "PC/annex/design-spec-v1.0.md"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "2712:| `date` | 均匀分布 -7 ~ +30 天 + 5/23 / 5/30 各 1100 条触发 999+ |"
+      ]
+    },
+    {
+      "id": "Q009",
+      "patterns": [
+        "v1:",
+        "v2:",
+        "function legacyDraft"
+      ],
+      "files": [
+        "ADMIN/prototype/admin-revisit-rules.js"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "25:    const key = prefix + 'admin-revisit-rules:v2:' + tenant;",
+        "26:    const legacyKey = prefix + 'admin-revisit-rules:v1:' + tenant;",
+        "69:    function legacyDraft(source) {"
+      ]
+    },
+    {
+      "id": "Q013",
+      "patterns": [
+        "baselines",
+        "previousRows",
+        "dataRevision"
+      ],
+      "files": [
+        "ADMIN/prototype/admin-menu-state.js"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "6: function accepts(source,saved){return ['menu','allMenu'].includes(source?.route)&&source.menuRefresh?.previousRows&&saved?.tenant===source.tenant&&saved?.route===source.route&&saved.dataRevision!==source.dataRevision&&Array.isArray(saved.tables?.[0]?.rows);}",
+        "9:  if(!accepts(source,saved))return clone(saved?.dataRevision===source?.dataRevision?saved:source);",
+        "12:  const revision=source.menuRefresh.baselines?.[saved.dataRevision];",
+        "13:  const before=index(revision?.rows||source.menuRefresh.previousRows),current=index(source.tables[0].rows),local=index(saved.tables[0].rows),nodes=new Map();",
+        "47:  const result={...clone(saved),...clone(source),tables:[{...clone(source.tables[0]),rows},...clone(source.tables.slice(1))],previousSampleRevision:saved.dataRevision,menuRefreshApplied:source.dataRevision};"
+      ]
+    },
+    {
+      "id": "Q014",
+      "patterns": [
+        "createModel",
+        "tenantProfiles",
+        "function identity",
+        "forTenant"
+      ],
+      "files": [
+        "ADMIN/prototype/admin-revisit-rules-model.js"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "9:  var tenantProfiles = {",
+        "17:  function createModel(tenantId) {",
+        "18:  if (!Object.prototype.hasOwnProperty.call(tenantProfiles, tenantId)) return null;",
+        "19:  var profile = tenantProfiles[tenantId];",
+        "21:  function identity(id) { return legacyShenzhen ? id : tenantId + ':' + id; }",
+        "514:  root.RevisitRuleModel = createModel('yestar-sz');",
+        "515:  root.RevisitRuleModel.forTenant = createModel;",
+        "516:  root.RevisitRuleModel.supportedTenants = Object.keys(tenantProfiles).map(function (id) {",
+        "517:    return { id: id, name: tenantProfiles[id].city + '艺星', city: tenantProfiles[id].city };"
+      ]
+    },
+    {
+      "id": "Q017",
+      "patterns": [
+        "var anchors",
+        "appointment",
+        "grade-A",
+        "grade-B",
+        "grade-C",
+        "grade-D",
+        "type: .event."
+      ],
+      "files": [
+        "ADMIN/prototype/admin-revisit-rules-model.js"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "55:    field('appointment', '未次预约日期', 'date'),",
+        "77:  var anchors = [",
+        "81:    { id: 'appointment', label: '预约日期', type: 'date' },",
+        "83:    { id: 'grade-A', label: '成为 A 级', type: 'grade', grade: 'A级' },",
+        "84:    { id: 'grade-B', label: '成为 B 级', type: 'grade', grade: 'B级' },",
+        "85:    { id: 'grade-C', label: '成为 C 级', type: 'grade', grade: 'C级' },",
+        "86:    { id: 'grade-D', label: '成为 D 级', type: 'grade', grade: 'D级' },",
+        "87:    { id: 'visit', label: '到店', type: 'event' },",
+        "88:    { id: 'purchase', label: '购买', type: 'event' },",
+        "89:    { id: 'redemption', label: '划扣', type: 'event' }",
+        "91:  var anchorsById = Object.create(null);",
+        "304:      dates: { added: added, consulted: '2026-09-21', filed: '2026-09-01', appointment: '2026-09-30', revisited: '2026-09-20' },"
+      ]
+    },
+    {
+      "id": "Q018",
+      "patterns": [
+        "flatMap",
+        "anchorOccurrence",
+        "selectedValue",
+        "gradeSource",
+        "事件取值"
+      ],
+      "files": [
+        "ADMIN/prototype/admin-revisit-rules.js"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "27:    const accounts = M.groups.flatMap(group => group.accounts.map(account => ({ ...account, groupId: group.id })));",
+        "39:    const idsInScope = rule => [...new Set([...(rule.scope.accountIds || []), ...M.groups.filter(group => rule.scope.groupIds.includes(group.id)).flatMap(group => group.accounts.map(account => account.id))])];",
+        "168:      const anchors = M.anchors.flatMap(item => item.type === 'event'",
+        "173:      const selectedValue = selectedAnchor?.type === 'event' ? draft.anchor + ':' + draft.anchorOccurrence : draft.anchor;",
+        "174:      const knownAnchor = anchors.some(item => item.value === selectedValue);",
+        "184:        const property = 'gradeSource';",
+        "193:      const anchor = select(anchors, knownAnchor ? selectedValue : '', '回访基准日期', value => {",
+        "200:          if (previousType !== 'grade') draft.gradeSource = 'manual';",
+        "201:          delete draft.anchorOccurrence;",
+        "203:          draft.anchorOccurrence = choice.occurrence;",
+        "204:          delete draft.gradeSource;",
+        "205:        } else { delete draft.gradeSource; delete draft.anchorOccurrence; }"
+      ]
+    },
+    {
+      "id": "Q019",
+      "patterns": [
+        "function resolveAnchor",
+        "eventTimestamp",
+        "stamp > at",
+        "event.from === event.to",
+        "if \\(invalid\\)",
+        "!eligible.length",
+        "fixtures\\[0\\]\\.events"
+      ],
+      "files": [
+        "ADMIN/prototype/admin-revisit-rules-model.js"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "150:  function eventTimestamp(value) {",
+        "156:  function resolveAnchor(rule, f, at) {",
+        "172:      var stamp = event && eventTimestamp(event.at);",
+        "175:      if (stamp > at) return;",
+        "176:      if (anchor.type === 'grade' && (event.to !== anchor.grade || event.from === event.to)) return;",
+        "179:    if (invalid) return unknown(label + '历史存在无效记录，无法判断到期节点');",
+        "180:    if (!eligible.length) return { status: 'none', label: label, reason: '截至筛选时点尚未发生' + label + '，未命中时间节点' };",
+        "345:  fixtures[0].events = {",
+        "367:      if (timestamp < at - days * DAY || timestamp > at) return false;"
+      ]
+    },
+    {
+      "id": "Q020",
+      "patterns": [
+        "划扣",
+        "独立收款",
+        "完整历史",
+        "真实导入合同"
+      ],
+      "files": [
+        "SPEC/../../specs/049-yestar-pc-crm-record-tags/spec.md"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "21:- **用户问题**：非成都艺星不能用集团 CRM API 自动获取客户历史；单一到店状态看不出客户来了几次、买了多少、最近何时划扣，也不能作为后续分析的完整事实。",
+        "22:- **完成后变化**：CRM 表格在后台导入并匹配既有手动录入卡号后，PC 客户资料只读显示“到店记录、购买记录、核销记录”，点击分别查看历史日期或日期、项目、金额。购买次数按独立收款计，同一收款多个项目只计一次。到店与核销摘要日期统一 YY.MM.DD；核销外层显示最新日期及独立核销次数 `YY.MM.DD（N）`，仅移除金额；金额和既有合计保留在气泡内。",
+        "33:- 场景：后台导入集团 CRM 表格，通过既有手动录入的卡号匹配客户；PC 展示到店、收款、划扣记录结果，不提供标签或明细手工录入。",
+        "38:同为“到店”的客户可能只来过一次，也可能多次复诊；“成交”不说明买了什么、收了几笔钱、哪些项目已经划扣。销售需要回到 CRM 逐项核对，分析也缺少可追溯的历史。",
+        "42:客户资料直接给出最近到店日期和到店次数、收款总金额和独立收款次数、最近核销日期与独立核销次数；核销总金额和合计保留在气泡内，点击即可查看本次可用范围内的明细，不离开当前客户。",
+        "60:- 保留到店记录、独立收款与项目行、划扣记录及可追溯范围，不把聚合值当作唯一数据。",
+        "88:| E002 | USER | 同日追问答复“按独立收款笔数，同一收款的多个项目只算一次” | 购买次数按独立收款而非项目行数 | confirmed |",
+        "163:- Given 已确认完整历史的有效到店记录为 2026-05-12、2026-07-08、2026-09-16，共三次独立到店。",
+        "169:- Given 本批只含最近三条到店，客户实际已有八次，且完整历史未提供。",
+        "173:#### AC-R005-01 — 独立收款计次",
+        "175:- Given 已确认完整历史的两笔有效收款：P001 为 2026-09-10 共￥8,800、含项目甲￥5,800和项目乙￥3,000；P002 为 2026-07-08 共￥4,000、含项目丙￥4,000。",
+        "179:#### AC-R006-01 — 核销标签及划扣明细",
+        "181:- Given 后台导入的完整有效 CRM 划扣历史含 W001：2026-09-15 项目甲￥2,900及 W002：2026-08-01 项目乙￥1,500，两条独立记录。",
+        "195:- Then 重复已识别记录只计一次；购买摘要及核销气泡的总额/次数需完整历史或可信累计汇总。部分历史时购买摘要显示“待核对”，核销外层保留合法最新日期及可信次数，N 未知时显示次数待核对；气泡展示明确标注的已导入小计或待核对；不能把缺失金额当零或继续显示完整总额。到店序号按 AC-R004-02 处理。",
+        "241:| R004 | USER：到店显示最新日期 `YY.MM.DD（N）`，N 为到店序号，气泡保留各次日期；已采纳提案（E011）：N 仅由完整历史或可信累计序号确定，部分历史缺序号显示次数待核对 | MUST | E001、E010、E012 | 非成都 | AC-R004-01、AC-R004-02 |",
+        "242:| R005 | 购买显示 `￥千分位金额（N）`，N 按独立收款笔数，多项目一笔只计一次；气泡显示日期/项目/金额 | MUST | E001、E002 | 非成都 | AC-R005-01 |",
+        "243:| R006 | 核销外层为最新划扣日期与独立核销次数 `YY.MM.DD（N）`，不显示金额；N 未知显示次数待核对。气泡保留日期/项目/金额、独立次数与合计，部分历史标已导入小计或待核对；后台导入结果只读 | MUST | E001、E010、E012、E013、E014 | 非成都 | AC-R006-01、AC-R006-02 |",
+        "246:| R009 | 已采纳提案（E011/E012/E013）：购买摘要及核销气泡内总额/次数须完整历史或可信累计汇总；重复记录去重、注明覆盖期，部分历史或金额不清时待核对；导入及退款合同按 Q004 单独冻结 | MUST | E002、E010 | 非成都 | AC-R009-01 |",
+        "266:| 购买 N | 独立收款笔数 | 本规格 | E002 | 已明确 |",
+        "268:| 核销金额与次数 | 外层日期加独立次数，不带金额；气泡保留合计与次数，部分历史标已导入小计，外层 N 未知显示次数待核对 | 本规格 | E012、E013、E014、R006 | 已明确；真实导入合同延期 |",
+        "324:| 独立收款身份、日期、总金额 | CRM 表格对应 mock | 是 | 不生成可信总额 | P001 / 2026-09-10 / 8800 | 交易数据 |",
+        "326:| 划扣身份、日期、项目、金额 | CRM 表格对应 mock | 是 | 不伪造 | W001 / 2026-09-15 / 项目甲 / 2900 | 客户历史 |",
+        "329:已采纳提案（E011）：到店 N 需由已确认完整历史去重累计，或由 CRM 明确提供可信累计序号；部分历史缺序号时显示最新日期和“次数待核对”，不能使用本批条数冒充第几次到店。同日可以多次到店，不按日期擅自去重。购买 N 已明确独立收款；总额/次数需完整历史或可信累计汇总，否则摘要“待核对”，明细中可标“已导入小计”。金额按独立有效收款总额求和，项目行不能重复累计收款总额。核销外层显示最新日期与可信独立核销次数，未知次数明确待核对；金额不外露。气泡内按独立核销记录身份去重，金额求完整有效范围之和，次数为独立记录数。部分历史气泡标为已导入小计，无法可靠汇总时在气泡提示待核对，不用小计冒充总额。退款、冲正、作废、分期和缺身份文件口径集中见 Q004。",
+        "379:- **优先自动化的验收**：将来可验证租户排除、独立收款计次与金额、摘要日期、隔离；本轮做 SPEC/Plan 结构检查和适量本地规则验证，不新增生产测试体系。",
+        "395:| Q001 | 购买 N 按收款笔数还是订单数？ | 独立收款笔数，同笔多个项目只计一次 | R005 | 否 | closed：房总已明确确认 |",
+        "398:| Q004 | 汇总与真实表格合同 | 原型使用完整有效虚构历史；部分历史无可靠累计时标待核对，金额整数不补 .00、有分两位；真实记录 ID、全量/增量、重传、退款/作废及后台导入合同延期 | R003/R004/R008/R009 | 否 | closed：E011 批准先做展示，真实导入合同 deferred，实施后台前另审 |",
+        "420:| 0.1.0 | 2026-09-17 | Codex | 首稿，记录三标签、成都排除、卡号表格来源；根据用户回答冻结独立收款计次；列出旧状态冲突和补充提案 | 房总要求先记 DR 并迭代 PC 到店状态 |",
+        "421:| 1.0.0 | 2026-09-17 | Codex | 房总批准静态展示实施；明确全部标签后台导入、PC 无手工标签/明细录入或上传；关闭 Q002–Q004 并延期真实导入合同 | 用户确认主要结果展示且其他先做出来 |"
+      ]
+    },
+    {
+      "id": "Q021",
+      "patterns": [
+        "E029",
+        "完整推送",
+        "来源收敛"
+      ],
+      "files": [
+        "SPEC/spec.md",
+        "SPEC/plan.md",
+        "SPEC/tasks.md"
+      ],
+      "exitCode": 0,
+      "matches": [
+        "tasks.md:5:> Status: implemented; 7/7 focused Chrome checks PASS; preview opened; static-html; E029 publication in progress",
+        "tasks.md:13:E029明确授权完整推送，以下交付任务按真实证据逐项完成；不进入生产仓，不创建工程Issue，不更新进度表。",
+        "tasks.md:15:- [ ] T006 同步现行PRD/流程图/设计规范/README及来源收敛；原位置替代冲突。",
+        "plan.md:15:E028为用户明确纠正和具体实施授权。1.3.0合同已保存history/1.3.0/，原位交互已完成，E029另行授权当前1.3.1完整推送；不重复要求批准。",
+        "plan.md:31:唯一产品改动：原型仓prototype/admin-revisit-rules.js，六艺星revisitRules共用。业务不改菜单或其他页面；完整推送另同步README、PRD、流程图、设计规范、验证说明、_inline-check.html和生成_shell_inline.html、版本化SDD及release.json。基准选项ID在UI中使用visit:first等复合值；存储依旧写anchor=visit、anchorOccurrence=first。",
+        "plan.md:59:E029已授权完整推送。沿用原型仓master，补齐当前文档与Source Convergence，生成并验证真实file://单文件和综合自检，公开数据审计通过后冻结docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1及release.json，再commit/push master及独立tag。通过GH CLI回读分支/tag/SDD正文及发布清单，确认ahead=0，检查对应提交的Cloudflare部署；最后只向SCRUM发送交付通知并回读。未要求工程交付，不建Issue/Handoff/Test Contract，不更新进度表，不改生产仓。",
+        "spec.md:24:- **本次范围**：依据E023–E028在现有“回访基准”下拉补齐选项：保留原5个日期及稳定ID，将原appointment基准标签明确为“预约日期”，新增成为A/B/C/D级及首次到店、最近一次到店、首次购买、最近一次购买、首次划扣、最近一次划扣，共15项。三类事件的次数直接包含在独立选项中，等级可选人工或AI；沿用六艺星、一规则多节点、21/26筛选及当前布局。事件基准计算、摘要、保存恢复与旧规则兼容随本轮静态原型实施；E029另行授权本版完整推送，PC名单仍另期。",
+        "spec.md:26:- **需要房总拍板**：E023直接要求补选项，E024/E025明确事件次数与等级来源，E026截图限定只补现有下拉，E027补充预约日期；这些范围已获批准，无需重复确认；E029进一步明确完整推送。等级按最近一次进入目标等级以及新选等级初值人工是明示的本地演示口径；生产口径另核。",
+        "spec.md:73:- 既有群发本体修改、真实生产发布、Issue创建及开发进度表；非艺星入口扩展、布局重做、新页面及菜单调整。本轮1.3.1静态原型现由E029明确授权完整推送：同步PRD/流程图/设计规范、inline和版本化远端SDD，原型仓commit/push/tag并核验部署和SCRUM回执。E022仍仅属于历史1.2.0，不作为本轮授权。",
+        "spec.md:112:| E020 | USER | 房总2026-09-28明确要求“完整推送” | 授权1.1.0静态原型文档、单文件、版本化SDD及原型仓交付；不授权生产实现或自动建Issue | 历史交付授权；不作为1.2.0新发布授权 |",
+        "spec.md:114:| E022 | USER | 房总2026-09-28在六艺星本地补齐与验证后再次明确“完整推送” | 单独授权1.2.0现行文档同步、单文件、来源收敛、版本化SDD与原型仓发布闭环；不改变业务行为或版本 | authorized；本次授权独立于E020，远端/部署/通知须实际回执 |",
+        "spec.md:124:| E029 | USER | 房总在15项基准原型及本地验证后明确“完整推送” | 授权1.3.1静态原型文档、单文件、来源收敛、版本化SDD、原型仓master/tag、部署核验及SCRUM交付通知 | authorized；不授权生产实现、Issue或进度表；以真实远端回执确认完成 |",
+        "spec.md:145:- 1.1.0和1.2.0完整推送分别由E020/E022授权，都是既有交付证据。本轮1.3.1依据E023–E028调整基准，不延用旧发布授权。旧发布包、来源收敛及历史记录不回写，本轮不生成新inline或远端包。",
+        "spec.md:479:- 发布边界：E020/E022分别属于已完成1.1.0/1.2.0交付，E023–E028的日常实施已完成，E029另行授权本版完整推送。应同步完整文档/inline/版本化远端SDD并在原型仓commit/push/tag，核验远端/Cloudflare和SCRUM交付回执，不以本地验证冒充发布完成。",
+        "spec.md:495:工程交付准备状态：not-requested。本轮1.3.1进入E029批准的静态原型完整推送，不生成Handoff/Test Contract，不创建Issue。既有1.2.0完整推送与其测试保持历史事实，新基准实施与验证另记；生产实现和生产事件来源仍须正式工程流程。",
+        "spec.md:533:**审核备注**：E028明确授权1.3.1将首次/最近一次拆成六个直接基准选项；不需重复确认。此前房总本轮直接要求补回访基准（E023），随后明确到店/购买/划扣可选首次或最近一次（E024）、等级可选人工或AI（E025），最后截图限定只补现有下拉、不重做布局（E026），随后要求预约日期（E027），以原appointment明确显示承接、ID和日期语义保持。该具体范围批准1.3.0静态实施与预览，不需重复确认。等级最近进入和初值按Q008标为本地演示口径；六tenant、21/26维度、原5日期和深圳兼容保持。随后E029明确授权完整推送1.3.1，未改变已批准行为；1.2.0及更旧远端包不回写，当前来源收敛与验证按实际本版证据更新。",
+        "spec.md:546:| 1.1.0（交付记录） | 2026-09-28 | Codex | 修正已实施状态，记录E019菜单最终决定与E020完整推送授权，建立来源收敛账本 | 仅同步实施与交付事实，不改变已批准行为、R/AC或版本 |",
+        "spec.md:548:| 1.2.0（交付记录） | 2026-09-28 | Codex | 记录六艺星本地验证完成及E022重新授权完整推送，更新来源收敛与交付任务 | 只更新实施/交付阶段，不改变版本、R/AC或已批准行为；远端回执另记 |",
+        "spec.md:554:| 1.3.1（交付记录） | 2026-09-28 | Codex | 记录E029完整推送授权，按当前15项基准同步交付文档、来源收敛、inline与版本化SDD | 只更新发布阶段，不改变已批准R/AC；完成以真实回执为准 |"
+      ]
+    }
+  ],
+  "inventory": {
+    "tenants": 15,
+    "entries": 802,
+    "routes": 89,
+    "revisitRules": [
+      {
+        "tenant": "yestar-sz",
+        "route": "revisitRules",
+        "prototypeOnly": true,
+        "contentStatus": "mock"
+      },
+      {
+        "tenant": "yestar",
+        "route": "revisitRules",
+        "prototypeOnly": true,
+        "contentStatus": "mock"
+      },
+      {
+        "tenant": "yestar-bj",
+        "route": "revisitRules",
+        "prototypeOnly": true,
+        "contentStatus": "mock"
+      },
+      {
+        "tenant": "yestar-gz",
+        "route": "revisitRules",
+        "prototypeOnly": true,
+        "contentStatus": "mock"
+      },
+      {
+        "tenant": "yestar-hz",
+        "route": "revisitRules",
+        "prototypeOnly": true,
+        "contentStatus": "mock"
+      },
+      {
+        "tenant": "yestar-jx",
+        "route": "revisitRules",
+        "prototypeOnly": true,
+        "contentStatus": "mock"
+      }
+    ]
+  },
+  "sourceStatus": [
+    {
+      "tenant": "yestar-sz",
+      "pages": [
+        {
+          "route": "yxCustomerList",
+          "state": "captured",
+          "sampleTenant": "yestar-sz"
+        },
+        {
+          "route": "massMessageListYx",
+          "state": "captured",
+          "sampleTenant": "yestar-sz"
+        },
+        {
+          "route": "wechatStatus",
+          "state": "captured",
+          "sampleTenant": "yestar-sz"
+        }
+      ]
+    },
+    {
+      "tenant": "yestar",
+      "pages": [
+        {
+          "route": "yxCustomerList",
+          "state": "captured",
+          "sampleTenant": "yestar"
+        },
+        {
+          "route": "massMessageListYx",
+          "state": "reference",
+          "sampleTenant": "yestar-sz"
+        },
+        {
+          "route": "wechatStatus",
+          "state": "captured",
+          "sampleTenant": "yestar"
+        }
+      ]
+    },
+    {
+      "tenant": "yestar-bj",
+      "pages": [
+        {
+          "route": "yxCustomerList",
+          "state": "captured",
+          "sampleTenant": "yestar-bj"
+        },
+        {
+          "route": "massMessageListYx",
+          "state": "reference",
+          "sampleTenant": "yestar-sz"
+        },
+        {
+          "route": "wechatStatus",
+          "state": "captured",
+          "sampleTenant": "yestar-bj"
+        }
+      ]
+    },
+    {
+      "tenant": "yestar-gz",
+      "pages": [
+        {
+          "route": "yxCustomerList",
+          "state": "reference",
+          "sampleTenant": "yestar"
+        },
+        {
+          "route": "massMessageListYx",
+          "state": "reference",
+          "sampleTenant": "yestar-sz"
+        },
+        {
+          "route": "wechatStatus",
+          "state": "captured",
+          "sampleTenant": "yestar-gz"
+        }
+      ]
+    },
+    {
+      "tenant": "yestar-hz",
+      "pages": [
+        {
+          "route": "yxCustomerList",
+          "state": "reference",
+          "sampleTenant": "yestar"
+        },
+        {
+          "route": "massMessageListYx",
+          "state": "reference",
+          "sampleTenant": "yestar-sz"
+        },
+        {
+          "route": "wechatStatus",
+          "state": "captured",
+          "sampleTenant": "yestar-hz"
+        }
+      ]
+    },
+    {
+      "tenant": "yestar-jx",
+      "pages": [
+        {
+          "route": "yxCustomerList",
+          "state": "reference",
+          "sampleTenant": "yestar"
+        },
+        {
+          "route": "massMessageListYx",
+          "state": "reference",
+          "sampleTenant": "yestar-sz"
+        },
+        {
+          "route": "wechatStatus",
+          "state": "captured",
+          "sampleTenant": "yestar-jx"
+        }
+      ]
+    }
+  ],
+  "hashes": {
+    "prototype/admin-revisit-rules-model.js": "e5f01e95983b3288735eb31e3eed9a908114365e1e946b13e126b084ce24aac7",
+    "prototype/admin-revisit-rules.js": "d82845e1c6306d5b02d744c93f030b1f04336e7a7b01f89846323373f4abba94",
+    "prototype/admin-revisit-rules.css": "cf6a132a0d7d71ed1ac64e7bb5922993cc4550f37a03a375460423116571f5ad"
+  },
+  "snapshots": [
+    {
+      "file": "history/1.2.0/source-convergence.md",
+      "sha256": "5ee24686210cb0f5e25c6d40877157c55fa1fb76a499f8f087c41653aaaabd97"
+    },
+    {
+      "file": "history/1.2.0/verification.md",
+      "sha256": "a23c4436914e0b66923d7f7bb965f3689308b8a52f4c3d8bcd86be97fd0f4663"
+    }
+  ]
+}

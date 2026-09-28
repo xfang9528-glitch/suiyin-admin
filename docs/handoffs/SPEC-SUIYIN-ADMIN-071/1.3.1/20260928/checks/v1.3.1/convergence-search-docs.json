@@ -1,0 +1,81 @@
+{
+  "spec": "SPEC-SUIYIN-ADMIN-071@1.3.1",
+  "executedAt": "2026-09-28T05:52:05.387Z",
+  "scope": "ADMIN current Markdown excluding immutable docs/sdd and docs/history",
+  "patterns": [
+    "071@1[.][0123][.]0",
+    "SPEC-SUIYIN-ADMIN-071/1[.][0123][.]0",
+    "12项",
+    "12 项",
+    "只有5",
+    "仅5",
+    "仅.*深圳.*回访",
+    "回访.*仅.*深圳",
+    "事件取值",
+    "1[.]3[.]1",
+    "15项",
+    "15 项"
+  ],
+  "matches": [
+    ".\\README.md:8:- 回访规则：[深圳](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=revisitRules) · [成都](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar&page=revisitRules) · [北京](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-bj&page=revisitRules) · [广州](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-gz&page=revisitRules) · [杭州](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-hz&page=revisitRules) · [嘉兴](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-jx&page=revisitRules) · [071@1.3.1交付合同](docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)",
+    ".\\README.md:15:按 [071@1.3.1](docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)，六个现有艺星租户各自提供「聊天管理 → 回访规则」；普通菜单同步本租户入口，德三平台菜单复用唯一对应定义，不向非艺星新增。一条“添加好友后回访”规则包含第3、5、7天等节点，名称、目的、账号群组/账号、回访基准和每日筛选时间共用；节点独立配置选中与排除，继承群发21项选中、26项排除维度。节点条件可复制，但目标天数、说明和共享设置不变；后续各自独立，保存整条规则才生效。回访基准在原下拉中直接选择15项：5个日期（含预约日期）、成为A/B/C/D级，以及首次/最近一次到店、购买、划扣6个独立选项；等级另选人工或AI，事件无需再选一次取值方式。",
+    ".\\README.md:17:账号群组表示渠道归属；应回访好友仅对具有其所属账号接待权限的销售可见。当前仅交付管理页和权限行为合同，PC真实名单、真实定时筛选、自动发送及执行质检均未实施。示例试算使用本租户独立的固定合成数据，已排除、未入选和无法判断分别显示；新增五店不借用深圳账号、人员或好友充当该店事实。规则只在当前浏览器按租户保存；深圳既有稳定ID、用户规则和菜单调整保留，新版v2与旧版v1分开，旧规则只读保留，可明确开始新版示例或逐条导入未启用草稿，不自动猜测合并。",
+    ".\\README.md:30:| 录音、喜报、质检、词库与平台专用主体 | 54个租户×页面通过；专用弹层12项交叉检查通过 |",
+    ".\\README.md:40:| [071@1.3.1](docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md) | 六个现有艺星租户回访规则；共享设置与独立时间节点、节点条件复制、15个回访基准、账号接待权限合同、独立合成数据与存储、旧配置兼容 |",
+    ".\\flowcharts\\admin-live-reference.md:3:更新：2026-09-28。六个现有艺星租户回访规则执行 [071@1.3.1](../docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)。2026-09-27录音/喜报三新页、对应入口迁移与本地演示边界继续执行 [REFRESH-001@0.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)，既有页面刷新继续原合同。普通菜单与平台/租户优先级执行068@1.0.0，平台拖动继续060@1.1.0；预约记录图表按062@1.0.0。当前静态原型共15租户、802入口、89路由；783个源队列入口与741可见已采/42隐藏口径不变，另13个AI费用及6个艺星回访规则属于原型扩展。其余合同为051@1.1.0、052@1.2.0、053@1.0.2、054@1.0.0、055@1.1.0、056@1.0.0、058@1.2.0，见[合同入口](../README.md)。以下流程均不写真实后台。",
+    ".\\flowcharts\\admin-live-reference.md:33:适用于深圳、成都、北京、广州、杭州、嘉兴六个现有艺星租户各自的「聊天管理 → 回访规则」（`revisitRules`）。六租户普通菜单同步本租户入口，德三平台菜单复用唯一对应定义；非艺星不新增。一条规则包含多个节点，复用21项选中和26项排除维度；1.0.0逐个节点拆顶层规则的流程已由071@1.1.0替代，1.3.1继承该业务行为。此前撤回的是移到群发、增加群发规则和全部系统租户扩展，六艺星补齐已有明确授权，本次不改菜单，仅将回访基准扩为15个直接选项。",
+    ".\\flowcharts\\admin-live-reference.md:49:    Edit --> Anchor{在原下拉直接选择15项基准}",
+    ".\\flowcharts\\admin-live-reference.md:52:    Anchor -->|首次或最近一次到店购买划扣| Event[次数已在选项中明确 无二级事件取值]",
+    ".\\CLAUDE.md:3:2026-09-28回访规则执行[071@1.3.1](docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)：深圳、成都、北京、广州、杭州、嘉兴六个现有艺星租户各自提供「聊天管理 → 回访规则」，`revisitRules`为合成原型扩展。原基准下拉现有15个直接选项：5日期、4个成为A/B/C/D级和6个首次/最近一次到店/购买/划扣；事件不再使用二级“事件取值”控件，等级仍另选人工/AI。共享规则设置与多个独立时间节点是当前模型；1.0.0“每节点一条顶层规则”的方案已被替代。用户此前撤回的移动到群发、增加群发规则和向全部系统租户扩展仍不实施；六艺星补齐授权继续有效，本次只补基准，非艺星不加入口。",
+    ".\\CLAUDE.md:48:12. 回访071@1.3.1：整条规则共用名称/目的、账号群组与账号、回访基准、每日时间和启停；节点只设非重复的第N天、说明及独立21项选中/26项排除。选中AND、排除OR；节点到期与附加日期约束共同满足，不依赖上一节点完成。复制只替换目标节点条件，目标时间/身份/说明和共享设置不变；有旧条件明确确认替换，保存整条才生效。不得恢复顶层逐节点规则或整套复制入口。至少一个节点、失败与取消守卫保留。",
+    ".\\CLAUDE.md:54:15. 回访基准15项由5日期、4等级、6个明确事件选项组成，首次/最近一次在原下拉直接选。等级人工/AI独立，以截至运行时最近真正进入目标等级为基准；from等于to不重置，当前后来变级不隐式增加等级筛选。历史缺失/坏值unknown，完整空历史或截至时点无已发生事件not-matched；未来事件不提前使用，同日按北京时间第0天。所有历史仅为合成演示；购买发生不等于按商品筛选，Q005延期。",
+    ".\\prd\\admin-live-reference.md:3:更新：2026-09-28。六个现有艺星租户回访规则执行 [071@1.3.1](../docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)。2026-09-27录音/喜报三页、对应入口迁移及本地演示边界继续执行 [REFRESH-001@0.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)；既有页面刷新继续原合同。各租户菜单拖动与导航联动执行068@1.0.0，平台拖动继续按060@1.1.0；预约记录图表按062@1.0.0。本文件汇总已批准合同，不另立业务规则：051@1.1.0 为十五租户基线；052@1.2.0 为销售变声统计；053@1.0.2 为销售使用统计；054@1.0.0、055@1.1.0、056@1.0.0 为全管理页证据对齐；058@1.2.0 为AI费用、分类趋势与专属模型。版本化合同从 [README](../README.md) 进入；四页截图恢复的历史边界见 [2026-09-20 发布勘误](../docs/sdd/pixel-correction-20260920.md)。",
+    ".\\prd\\admin-live-reference.md:21:| 销售统计仪表盘 | 12 项指标、4 张排行榜、相应图表区域与快照日期 | 8 处图表缺逐点数据，只显示未采集提示；其他日期或实体无样本不编数 |",
+    ".\\prd\\admin-live-reference.md:24:| 回访规则 | 六个现有艺星各自聊天管理下，一条规则共用范围与时间设置，内部多个节点独立配置21项选中、26项排除及条件复制，共同回访基准含15个直接选项 | 071@1.3.1合成原型；按tenant隔离账号、规则与存储，保留深圳兼容；非艺星不新增，不接PC真实名单、调度或发送 |",
+    ".\\prd\\admin-live-reference.md:31:行为合同：[071@1.3.1](../docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)，对应R001–R019。管理者先配置每天应找哪些好友，再确定每日筛选时间，减少重复组合相同条件。深圳、成都、北京、广州、杭州、嘉兴六个现有艺星租户各自提供「聊天管理 → 回访规则」（`revisitRules`）；不同渠道可分别配置规则。此前撤回的全系统租户扩展、移到群发及新增群发规则仍不实施；六艺星范围由后续明确授权；本次只在这些现有入口补齐基准。",
+    ".\\prd\\admin-live-reference.md:50:回访基准独立于下方21/26筛选维度，在现有下拉直接选择15项，不重排页面：",
+    ".\\prd\\admin-live-reference.md:56:| 业务事件（6项） | 首次到店、最近一次到店、首次购买、最近一次购买、首次划扣、最近一次划扣；每项直接明确次数，不另设事件取值控件 |",
+    ".\\docs\\design-spec.md:3:更新：2026-09-28。六个现有艺星租户回访规则执行[071@1.3.1](sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)，属于用户批准的新设计。2026-09-27录音/喜报三新页、对应入口迁移及本地演示边界继续执行[REFRESH-001@0.2.0](sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)。各租户菜单拖动及平台/租户优先级执行068@1.0.0；平台拖动继续执行060@1.1.0。预约图表执行062@1.0.0；基线为 051@1.1.0；销售变声统计执行 052@1.2.0，销售使用统计执行 053@1.0.2，全管理页对齐执行 054@1.0.0、055@1.1.0、056@1.0.0；AI费用、分类趋势与专属模型执行058@1.2.0。沿用已确认的使用/变声筛选及 055 R005 全管理表格冻结；[四页发布勘误](sdd/pixel-correction-20260920.md) 保留截图呈现与来源边界。本文替代旧主按钮一律青绿、通用列表和统一分页等推断；不改变各业务统计口径。",
+    ".\\docs\\design-spec.md:87:执行[071@1.3.1](sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)。`revisitRules`登记深圳、成都、北京、广州、杭州、嘉兴六个现有艺星各自的「聊天管理」，各自 `menu` 同步一次入口，德三 `allMenu` 复用唯一平台定义，非艺星不新增。六店分别使用明确标识的独立合成账号、人员、地区与好友，缺本租户来源时不借深圳实体；深圳原样本和稳定ID兼容。既有群发、回访统计保持各自范围；此前撤回的全系统租户扩展不影响已批准六艺星范围；本次只补现有基准下拉。1.0.0把第3/5/7天画成三条顶层规则及整套复制入口的设计已经替代，不能从旧截图或本地v1状态恢复为现行布局。",
+    ".\\docs\\design-spec.md:91:回访基准保留当前位置、宽度与现有编辑结构，在同一下拉直接列15项：末次咨询日期、添加日期、建档日期、预约日期、末次回访日期；成为A/B/C/D级；首次到店、最近一次到店、首次购买、最近一次购买、首次划扣、最近一次划扣。等级选择后仅显示人工/AI小控件，初值人工；六个事件选项自身已明确次数，不再显示“事件取值”下拉。21/26条件选择器保持原目录，不能混入新事件基准。",
+    ".\\docs\\SESSION-HANDOFF-2026-04-12.md:22:| 布局 | 顶部 Header + 左侧 15 项一级菜单 + Chrome 式多 Tab + 主内容区（iframe） |",
+    ".\\docs\\SESSION-HANDOFF-2026-04-12.md:45:- ✅ 15 项一级菜单 / 19 项子菜单 / 11 个 🚧 待补徽章",
+    ".\\docs\\verification\\admin-live-reference.md:3:更新：2026-09-28。六个现有艺星回访规则按[071@1.3.1](../sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)验收；2026-09-27源页面刷新保留[REFRESH-001@0.2.0](../sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)的当轮证据，既有052/053统计、055冻结、060/068菜单及062图表合同继续有效。这里记录静态原型的本地事实；发布是否完成以release.json、提交/tag及部署回执为准。",
+    ".\\docs\\verification\\admin-live-reference.md:11:## 071@1.3.1回访基准验收",
+    ".\\docs\\verification\\admin-live-reference.md:13:六艺星的原基准下拉提供15项：5日期（含预约）、4个成为A/B/C/D级、6个首次/最近一次到店/购买/划扣。等级仍选人工/AI；事件不再二次选择取值。该调整不增租户、菜单或21/26筛选字段，计算仅使用本租户合成历史。",
+    ".\\docs\\verification\\admin-live-reference.md:15:已记录7项1.3.1 Chrome交互检查通过，脚本异常和外部请求均为0，见当前[071版本包](../sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)中checks/v1.3.1/event-option-ui-results.json。覆盖15项原位选项、六类事件配对与保存恢复、等级人工/AI、旧规则兼容及非法配置不静默修复；具体覆盖以该结果为准。模型语义沿用1.3.0，彼时36项基准模型、25项深圳兼容、18项租户模型及9项交互分别保留原版本，不把旧交互结果冒充本版15项选项验收。",
+    ".\\docs\\verification\\admin-live-reference.md:19:本版完整推送阶段另执行真正file://离线检查13/13，覆盖六tenant事件和人工/AI保存刷新、启停/隔离、旧配对/非法配置与非艺星限制，0外部请求/0脚本异常。HTTP综合检查155/155，其中回访50/50；两种运行方式分开记录，见当前版本包checks/v1.3.1。model-evidence-binding.json将既有79模型结果与当前源码SHA绑定，不冒称重新执行。",
+    ".\\docs\\verification\\admin-live-reference.md:21:## 071@1.2.0六艺星菜单验收（历史基线）",
+    ".\\docs\\verification\\admin-live-reference.md:23:六艺星各自“聊天管理 → 回访规则”及普通菜单各一个入口，德三平台菜单复用唯一对应定义；其余九租户不新增。按tenant隔离合成账号、规则、示例结果与v1/v2本地存储，深圳原API、稳定ID、既有规则及菜单用户调整保持兼容。该轮入口及隔离合同见[071@1.2.0](../sdd/SPEC-SUIYIN-ADMIN-071/1.2.0/README.md)。",
+    ".\\docs\\verification\\admin-live-reference.md:39:| 录音/喜报/质检/词库/平台专用页 | 54个租户×页面通过；另12项弹层交叉检查通过 |",
+    ".\\docs\\verification\\admin-live-reference.md:64:[2026-09-20像素纠偏](pixel-correction-20260920.md)、[筛选与冻结](filters-sticky-20260920.md)、[旧公开审计](public-data-audit.md)及旧版本化SDD均作为历史保留。737/752/765入口及83/84/85路由是对应历史库存；796入口/88路由属于2026-09-27源页面刷新，797入口/89路由属于071@1.1.0深圳交付，均不能描述当前802入口。旧“无法在线复核”“瑞熙小周待登录”“艺星账号全部禁用”的缺口已由2026-09-27具体证据替代。",
+    ".\\docs\\verification\\live-refresh-20260927\\README.md:19:| 专用主体及弹层 | 54租户×页面与12项弹层交叉检查通过 |"
+  ],
+  "interpretation": "Current contract links are 1.3.1. Prior 071 links describe explicitly historical models/menu evidence. 12-item matches belong to unrelated statistics/popover checks; event-value mentions document removed second selector.",
+  "currentDocs": [
+    {
+      "file": "README.md",
+      "sha256": "8ada2bb8a64d9124d4b830f4ee9eb135f7438fca60bb0545c264c277fef3d04d"
+    },
+    {
+      "file": "CLAUDE.md",
+      "sha256": "3aae1ef2a2459f9cb79479e144fa83d94e59131915a664a911e89f94690f7a5d"
+    },
+    {
+      "file": "prd/admin-live-reference.md",
+      "sha256": "56f288c4af9387d9da78d2f540e15e0e860fee171213b5e8b0b1da63ce84f4c6"
+    },
+    {
+      "file": "flowcharts/admin-live-reference.md",
+      "sha256": "95c92937d13f743ed375337916927ca593fd136adec47ed2e363900b4e0ca3b2"
+    },
+    {
+      "file": "docs/design-spec.md",
+      "sha256": "16c2cafde411d75bf1adb31831190ac77cc2743976406ce3cfcd062e0120f877"
+    },
+    {
+      "file": "docs/verification/admin-live-reference.md",
+      "sha256": "b49788f1d72524c421a95588809438d68e2cc83fdceff232d7216f43c2282713"
+    }
+  ]
+}
