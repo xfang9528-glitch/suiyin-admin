@@ -1,5 +1,7 @@
 # 碎银 Admin 原型维护入口
 
+2026-09-29话术管理使用[051@1.1.0本轮交付补充](docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/deliveries/20260929-language-parity/README.md)，继承R002–R006、R008–R010，不修改原SPEC或既有依赖。15租户分类树、默认未选分类状态、末级六列表格和分类/话术弹窗由专用模块承接；[本轮验收](docs/verification/language-parity-20260929/README.md)说明几何和交互覆盖，不能外推全部内容、全部状态逐像素一致。
+
 2026-09-28回访规则执行[071@1.3.1](docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)：深圳、成都、北京、广州、杭州、嘉兴六个现有艺星租户各自提供「聊天管理 → 回访规则」，`revisitRules`为合成原型扩展。原基准下拉现有15个直接选项：5日期、4个成为A/B/C/D级和6个首次/最近一次到店/购买/划扣；事件不再使用二级“事件取值”控件，等级仍另选人工/AI。共享规则设置与多个独立时间节点是当前模型；1.0.0“每节点一条顶层规则”的方案已被替代。用户此前撤回的移动到群发、增加群发规则和向全部系统租户扩展仍不实施；六艺星补齐授权继续有效，本次只补基准，非艺星不加入口。
 
 2026-09-27新增录音/喜报三页及对应入口迁移由[REFRESH-001@0.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)承接；当前基线为 SPEC-SUIYIN-ADMIN-051@1.1.0；本轮销售变声统计 052@1.2.0、使用统计纠偏 053@1.0.2、全页对齐 054@1.0.0、055@1.1.0、056@1.0.0 分别拥有自己的行为范围；AI费用、分类趋势与专属模型执行 058@1.2.0。预约记录总量、每日柱形与期间累计折线执行062@1.0.0；仅现有四个入口，保留默认列表及全量筛选，源样本与合成演示分离。先读 README.md、docs/design-spec.md 和相应版本化 SDD。050 仅在未被后续合同替代的导航范围内适用。当前筛选与表头冻结见 [验收记录](docs/verification/filters-sticky-20260920.md)；上一轮四页截图纠偏与证据边界见 [发布勘误](docs/sdd/pixel-correction-20260920.md) 和 [实测记录](docs/verification/pixel-correction-20260920.md)。
@@ -18,6 +20,7 @@
 - `admin-content.html/js/css`：内容入口、来源表单、筛选及列表基础。
 - `admin-domain-views.js`、`admin-expanded-flows.js`、`admin-extra-flows.js`、`admin-chat.js`、`admin-page-editors.js`：领域结构与本地交互。
 - `admin-menu-tree.js/css`：普通及平台菜单专用树表。
+- `admin-language-manage.js/css`、`data/language-manage.json`：十五租户话术管理专用树、列表与本地编辑；`admin-domain-views.js`的`languageManage`路由直接调用此模块。旧`scriptWorkspace`和通用`data/content/`中的话术文本仅留作历史兼容，不是本路由的渲染或数据入口。
 - `admin-sales-voice-stats.js/css`、`admin-sales-usage.js/css`：独立变声计数、使用统计分组和租户隔离。
 - `admin-ai-cost-stats.js/css`：AI费用统计、82天固定合成样本、模型快照及分类趋势；路由 aiCostStats。
 - `admin-revisit-rules-model.js`、`admin-revisit-rules.js/css`：按tenant创建独立回访模型、合成事件/条件计算与规则内节点编辑；基准目录独立于21/26筛选；`revisitRules`只匹配 `yestar-sz`、`yestar`、`yestar-bj`、`yestar-gz`、`yestar-hz`、`yestar-jx`，未知租户不回退深圳。
@@ -52,6 +55,8 @@
 14. 六艺星各自 `menu` 和侧栏均登记一次 `revisitRules`，成都/北京挂 `group-9`，深圳/广州/杭州/嘉兴挂 `group-10`；德三 `allMenu` 复用已有唯一平台定义，不重复插入，也不因此向非艺星开放。新增五店菜单迁移按缓存revision对应的已发布完整基线比较，保留更老fallback、删除、隐藏、改名与排序；沿用 `revisit-rules-v1` 迁移标记，深圳既有用户选择不重新激活。
 
 15. 回访基准15项由5日期、4等级、6个明确事件选项组成，首次/最近一次在原下拉直接选。等级人工/AI独立，以截至运行时最近真正进入目标等级为基准；from等于to不重置，当前后来变级不隐式增加等级筛选。历史缺失/坏值unknown，完整空历史或截至时点无已发生事件not-matched；未来事件不提前使用，同日按北京时间第0天。所有历史仅为合成演示；购买发生不等于按商品筛选，Q005延期。
+
+16. 话术使用2026-09-29本轮15租户数据，1246分类节点、42已采列表分类、155列表样本、48已采详情和16媒体占位。同名分类保留不同身份，搜索保留匹配祖先；不默认选首条。未采分类/正文/部门/销售/商品选项分别保留`not-captured`，不填其他租户内容或把缺失当空值事实。当前冻结树内`n0`等ID稳定；后续重新采集若改变节点顺序，必须处理身份迁移，不按新序号盲合并旧本地修改。`captureRevision`更新采用字段级本地覆盖，保存、取消、刷新和租户隔离继续校验。`sanitize-public-data.mjs --check`必须检查独立话术数据，不能将其再次替换为统一演示文本。
 
 旧主题、菜单及好友独立页已归档，只解释历史。当前指令以本文件、设计规范和对应精确版本合同为准。
 

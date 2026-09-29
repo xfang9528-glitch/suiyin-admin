@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-29T04:16:58.896Z",
+  "file": "prototype/data/language-manage.json",
+  "policy": "public-language-templates-v1",
+  "sha256": "275637ff836c0e2fe8d1cb4f43ac30da826102e75d953ae1363cb87edcfe6795",
+  "counts": {
+    "tenants": 15,
+    "categoryNodes": 1246,
+    "capturedCategoryLists": 42,
+    "notCapturedCategories": 1204,
+    "listRows": 155,
+    "capturedDetails": 48,
+    "textBlocks": 97,
+    "mediaPlaceholders": 16
+  },
+  "safety": {
+    "rawCaptureFilesPublished": false,
+    "rawDomPublished": false,
+    "sourceDatabaseIdentifiersPublished": false,
+    "mediaBinariesDownloaded": false,
+    "remoteMediaUrlsPublished": false,
+    "sourceUrlQueriesOrCredentialsPublished": false,
+    "phoneEmailCredentialScanFindings": 0
+  },
+  "sanitizerReplay": {
+    "isolatedCopy": true,
+    "repetitions": 2,
+    "languageBytesUnchanged": true,
+    "postReplayAuditFailures": 0
+  },
+  "limitations": [
+    "Pattern checks supplement the field review; they are not a guarantee against every possible sensitive value.",
+    "Tenant names, business category titles and public operational template wording remain intentional prototype content."
+  ]
+}

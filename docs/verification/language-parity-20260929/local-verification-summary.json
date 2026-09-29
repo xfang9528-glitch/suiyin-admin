@@ -1,0 +1,324 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-29T04:03:38.086Z",
+  "runtime": "static-html",
+  "behavior": {
+    "passed": 26,
+    "failed": 0,
+    "scriptErrors": 0,
+    "externalRequests": 0,
+    "cases": [
+      {
+        "name": "tenant/default/tree/jbfs",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/mengzhua",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/bzds",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/crrm",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/hqjd",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/ykjl",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/ruixi-kh-xiaowen",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/rxxz",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/yestar",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/yestar-bj",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/yestar-gz",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/yestar-hz",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/yestar-jx",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/yestar-sz",
+        "passed": true
+      },
+      {
+        "name": "tenant/default/tree/yzhb",
+        "passed": true
+      },
+      {
+        "name": "search/clear/no-results",
+        "passed": true
+      },
+      {
+        "name": "captured-empty-versus-not-captured",
+        "passed": true
+      },
+      {
+        "name": "edit-cancel/media-placeholder/no-write",
+        "passed": true
+      },
+      {
+        "name": "create/save/reload/tenant-isolation",
+        "passed": true
+      },
+      {
+        "name": "category/create/rename/hide-confirm/delete-confirm",
+        "passed": true
+      },
+      {
+        "name": "storage-failure/rollback/no-success",
+        "passed": true
+      },
+      {
+        "name": "create-in-not-captured-category/clear-unknown-state",
+        "passed": true
+      },
+      {
+        "name": "uncaptured-options/visible-disabled-hint",
+        "passed": true
+      },
+      {
+        "name": "unknown-category-scope/not-silently-defaulted",
+        "passed": true
+      },
+      {
+        "name": "capture-refresh/preserves-local-change-and-new-source-row",
+        "passed": true
+      },
+      {
+        "name": "no-script-errors-or-remote-media-requests",
+        "passed": true
+      }
+    ]
+  },
+  "geometry": {
+    "tenants": 15,
+    "within1CssPixel": 15,
+    "measurementsPerTenant": [
+      "content",
+      "category sidebar",
+      "search header",
+      "category tree",
+      "right panel"
+    ],
+    "tenantsMeasured": [
+      {
+        "tenant": "jbfs",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "mengzhua",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "bzds",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "crrm",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "hqjd",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "ykjl",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "ruixi-kh-xiaowen",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "rxxz",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "yestar",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "yestar-bj",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "yestar-gz",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "yestar-hz",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "yestar-jx",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      },
+      {
+        "tenant": "yestar-sz",
+        "viewport": {
+          "width": 1480,
+          "height": 900
+        },
+        "dpr": 1,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.2
+      },
+      {
+        "tenant": "yzhb",
+        "viewport": {
+          "width": 770,
+          "height": 580
+        },
+        "dpr": 1.25,
+        "within1CssPixel": true,
+        "maxAbsoluteDeltaCssPx": 0.4
+      }
+    ]
+  },
+  "manualReview": {
+    "tenants": [
+      "mengzhua",
+      "yestar-bj",
+      "jbfs"
+    ],
+    "covered": [
+      "default screen",
+      "search and tree hierarchy",
+      "Beijing duplicate roots",
+      "empty state",
+      "scrollbar shape and placement",
+      "narrow alert wrapping"
+    ],
+    "limitations": [
+      "Lists and details are sampled, not a complete copy of every category.",
+      "All primary measured rectangles were within 1 CSS px; exhaustive per-pixel image identity is not claimed.",
+      "Font rasterization and browser native scrollbar metrics may differ by subpixels."
+    ]
+  },
+  "shellRegression": [
+    {
+      "tenant": "jbfs",
+      "passed": true,
+      "sourceRoute": "languageManage",
+      "exitRoute": "salesManage",
+      "navigationWidth": 240,
+      "childWidth": 229,
+      "overflow": true,
+      "sourceScrollbarStyle": "thin",
+      "stylesRemovedOnExit": true
+    },
+    {
+      "tenant": "yestar-sz",
+      "passed": true,
+      "sourceRoute": "languageManage",
+      "exitRoute": "salesManage",
+      "navigationWidth": 240,
+      "childWidth": 239,
+      "overflow": false,
+      "sourceScrollbarStyle": "thin",
+      "stylesRemovedOnExit": true
+    }
+  ]
+}

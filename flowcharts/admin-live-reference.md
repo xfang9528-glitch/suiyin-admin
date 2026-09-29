@@ -1,5 +1,7 @@
 # 管理后台交互流程
 
+2026-09-29话术树、末级列表和本地编辑按[话术管理流程](language-manage.md)更新；继承051@1.1.0，不修改其他领域合同。
+
 更新：2026-09-28。六个现有艺星租户回访规则执行 [071@1.3.1](../docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)。2026-09-27录音/喜报三新页、对应入口迁移与本地演示边界继续执行 [REFRESH-001@0.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)，既有页面刷新继续原合同。普通菜单与平台/租户优先级执行068@1.0.0，平台拖动继续060@1.1.0；预约记录图表按062@1.0.0。当前静态原型共15租户、802入口、89路由；783个源队列入口与741可见已采/42隐藏口径不变，另13个AI费用及6个艺星回访规则属于原型扩展。其余合同为051@1.1.0、052@1.2.0、053@1.0.2、054@1.0.0、055@1.1.0、056@1.0.0、058@1.2.0，见[合同入口](../README.md)。以下流程均不写真实后台。
 
 ## 入口、租户与证据
@@ -245,7 +247,12 @@ flowchart TD
     Friends --> Accounts[本租户本地账号草稿 查询后筛选]
     Friends --> ExpandGap[未采完整展开或业务库存 明确提示]
     Route --> Scripts[话术搜索按按钮或Enter提交]
-    Scripts --> TreeGap[层级不明 不伪造原站树]
+    Scripts --> TenantTree[本租户已采分类树 保留父子与同名节点]
+    TenantTree --> LeafChoice{是否选择末级分类}
+    LeafChoice -->|否| PickLeaf[请选择无子分类的话术分类]
+    LeafChoice -->|是| CaptureState{该分类采集状态}
+    CaptureState -->|已采| ScriptList[本租户六列表格与本地编辑]
+    CaptureState -->|未采| ScriptGap[提示未采集 不当作零条]
 ```
 
 ## 录音与喜报

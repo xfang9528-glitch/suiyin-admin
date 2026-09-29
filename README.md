@@ -4,7 +4,10 @@
 
 2026-09-27已按各租户当前来源刷新左侧导航、完整菜单库存、品牌、图标和客户端版本，并校准好友、通用列表、统计及专用页面，新增录音管理、喜报设置和喜报记录共25个租户×页面。回访规则已覆盖深圳、成都、北京、广州、杭州、嘉兴六个现有艺星租户；本次在现有下拉补齐15个回访基准，见下方071合同。数据包含本租户脱敏采样、明确标识的参考样本和合成演示；不是实时后台，所有修改只影响本地原型。
 
+2026-09-29话术管理按15租户本轮来源重新对齐：保留各自1246个分类节点、真实父子关系、按钮状态和默认未选分类画面；已采42个已采列表分类、155条列表样本、48条话术详情，16项图片/视频采用占位符。分类、标题和安全模板正文尽量保留本租户内容；未采集的详情、范围和选项保持未知，不填统一话术。见[话术产品说明](prd/language-manage.md)、[051@1.1.0本轮交付补充](docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/deliveries/20260929-language-parity/README.md)与[验收范围](docs/verification/language-parity-20260929/README.md)。
+
 - [好友列表](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=customerManagement) · [录音管理](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=rxxz&page=recordingAdmin) · [喜报设置](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-hz&page=goodNewsSettings)
+- 话术管理：[深圳艺星](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=languageManage) · [佰智德三](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=languageManage) · [萌爪](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=mengzhua&page=languageManage) · [话术交互流程](flowcharts/language-manage.md)
 - 回访规则：[深圳](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=revisitRules) · [成都](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar&page=revisitRules) · [北京](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-bj&page=revisitRules) · [广州](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-gz&page=revisitRules) · [杭州](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-hz&page=revisitRules) · [嘉兴](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-jx&page=revisitRules) · [071@1.3.1交付合同](docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)
 - [当前产品说明](prd/admin-live-reference.md) · [交互流程](flowcharts/admin-live-reference.md) · [设计规范](docs/design-spec.md)
 - [2026-09-27刷新合同](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md) · [公开验证摘要](docs/verification/live-refresh-20260927/README.md) · [公开样本审计](docs/verification/live-refresh-20260927/public-data-audit.md)
@@ -39,7 +42,7 @@
 |---|---|
 | [071@1.3.1](docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md) | 六个现有艺星租户回访规则；共享设置与独立时间节点、节点条件复制、15个回访基准、账号接待权限合同、独立合成数据与存储、旧配置兼容 |
 | [REFRESH-001@0.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md) | 录音与喜报三新页面、对应入口迁移、本地演示及证据边界；既有页面继续各自原合同 |
-| [051@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/README.md) | 十五租户、Shell、领域页面及公开样本基线 |
+| [051@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/README.md)及[9月29日话术交付补充](docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/deliveries/20260929-language-parity/README.md) | 十五租户、Shell、领域页面及公开样本基线；话术树、末级列表、编辑表单与按租户采样，沿用既有R/AC |
 | [052@1.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-052/1.2.0/README.md) | 变声独立任务首次成功计次；失败、试听、重复回调不重复计 |
 | [053@1.0.2](docs/sdd/SPEC-SUIYIN-ADMIN-053/1.0.2/README.md) | 销售使用统计分组、日期、部门、小计/合计及租户隔离 |
 | [054@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-054/1.0.0/README.md)、[055@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-055/1.1.0/README.md)、[056@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-056/1.0.0/README.md) | 页面证据、筛选与表头冻结、领域结构 |
@@ -53,7 +56,7 @@
 
 ## 预览与发布边界
 
-在仓根运行 `python -m http.server 8148 --bind 127.0.0.1`，用Google Chrome打开 `http://127.0.0.1:8148/prototype/_shell.html?tenant=bzds&page=customerManagement`。业务演示状态按租户与路由隔离；验收使用隔离浏览器或独立QA存储。单文件由生成器产出，不手工编辑。
+在仓根运行 `python -m http.server 8148 --bind 127.0.0.1`，用Google Chrome打开 `http://127.0.0.1:8148/prototype/_shell.html?tenant=yestar-sz&page=languageManage`。业务演示状态按租户与路由隔离；验收使用隔离浏览器或独立QA存储。单文件由生成器产出，不手工编辑。
 
 真实后台只读；不接真实认证、发送、录音上传、共享数据库或生产写接口。原始客户截图、DOM捕获、连接配置和本机诊断资料不放入公开包。未采曲线点、其他筛选区间和未查看详情继续明确为未知或未采集。
 

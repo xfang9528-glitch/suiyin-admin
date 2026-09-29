@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-09-29T04:15:23.956Z",
+  "scope": "Existing complete inline checker plus current languageManage regression, HTTP, isolated QA browser",
+  "checks": 225,
+  "passed": 225,
+  "failed": [],
+  "errors": [],
+  "inlineSha256": "83df60f76adc73debc4771ff557d0a60efce97ecdab7cddd3610c7679130643b"
+}

@@ -19,6 +19,7 @@ const jsonFiles=walkFiles(dataDir).filter(f=>f.endsWith('.json')&&f!==navigation
 const navigation=JSON.parse(fs.readFileSync(navigationFile,'utf8'));
 const brandNames=new Set(navigation.tenants.flatMap(t=>[t.name,t.brand,t.id]).filter(Boolean));
 const docs=jsonFiles.map(file=>({file,data:JSON.parse(fs.readFileSync(file,'utf8'))}));
+const languageFile=path.join(dataDir,'language-manage.json'),languagePolicy='public-language-templates-v1';
 const profileFile=path.join(dataDir,'live-ui-reference.js');
 const profileText=fs.readFileSync(profileFile,'utf8');
 const profile=JSON.parse(profileText.slice(profileText.indexOf('window.AdminLiveUI=')+'window.AdminLiveUI='.length).replace(/;\s*$/,''));
@@ -80,6 +81,8 @@ function sanitizeFormTree(v,identityContext=false){
   return Object.fromEntries(Object.entries(v).map(([k,x])=>[k,safeFields.has(k)?x:sanitizeFormTree(x,identity&&!staff)]));
 }
 function makePageText(p){
+  // Legacy language page.text is not the structured language-manage.json source.
+  // That separate tenant-scoped capture is validated below and never retemplated.
   if(p.route==='languageManage')return [p.label,'演示话术分类','初次咨询','服务介绍','预约安排','到店指引','项目答疑','活动说明','复诊关怀','日常问候'].join('\n');
   return [p.label,...p.tables.flatMap(t=>[t.headers.join('\t'),...(t.rows||[]).map(r=>r.cells.join('\t'))])].join('\n');
 }
@@ -103,6 +106,35 @@ function transformPage(p){
 function count(){return {tenants:new Set(pages.map(({page:p})=>p.tenant)).size,pages:pages.length,rows:pages.reduce((n,{page:p})=>n+p.tables.reduce((m,t)=>m+t.rows.length,0),0)};}
 function audit(){
   const failures=[];let checkedIdentityCells=0,checkedSecrets=0;
+  const language=docs.find(d=>d.file===languageFile)?.data;
+  if(language){
+    const fail=issue=>failures.push({file:path.relative(repo,languageFile),issue});
+    if(language.schemaVersion!==1||language.publicDataPolicy!==languagePolicy)fail('language-policy-or-schema');
+    const forbidden=new Set(['key','parent','html','outerHTML','innerHTML','fields','buttons','svg','geometry','url','src','href','sourceKey','sourceId']);
+    const visit=(value,key='',inIcons=false)=>{
+      if(forbidden.has(key))fail('language-raw-source-field:'+key);
+      if(typeof value==='string'){
+        if(inIcons){if(/<(?:script|style|foreignObject|image|iframe)\b|\son[a-z]+\s*=|(?:javascript|data):/i.test(value)||/(?:xlink:)?href=["'](?!#)/i.test(value))fail('language-unsafe-svg');return;}
+        if(key==='sourceUrl'){try{const u=new URL(value);if(u.protocol!=='https:'||u.search||u.hash||u.username||u.password||!u.pathname.endsWith('/languageManage'))fail('language-source-url');}catch{fail('language-source-url');}return;}
+        if(/<\/?(?:html|div|span|input|textarea|svg|script)\b|\b[a-f0-9]{24}\b|\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b|(?<!\d)\d{16,19}[\dXx]?(?!\d)/i.test(value))fail('language-private-content');
+      }else if(Array.isArray(value))value.forEach(v=>visit(v,key,inIcons));
+      else if(value&&typeof value==='object')Object.entries(value).forEach(([k,v])=>visit(v,k,inIcons||k==='icons'));
+    };
+    visit(language);
+    for(const [tenantId,tenant]of Object.entries(language.tenants||{})){
+      if(tenantId!==tenant.tenant||!['captured','not-captured'].includes(tenant.status))fail('language-tenant-status');
+      const nodeIds=new Set((tenant.nodes||[]).map(n=>n.id));
+      for(const node of tenant.nodes||[])if(!/^n\d+$/.test(node.id)||node.parentId!==null&&!nodeIds.has(node.parentId))fail('language-node-identity');
+      for(const [nodeId,category]of Object.entries(tenant.categories||{})){
+        if(!nodeIds.has(nodeId)||!['captured','not-captured'].includes(category.status))fail('language-category-status');
+        if(category.status==='not-captured'&&(category.total!==null||category.rows?.length))fail('language-unknown-as-empty');
+        for(const row of category.rows||[]){
+          if(!['captured','not-captured'].includes(row.detailsStatus)||row.detailsStatus==='not-captured'&&row.contents?.length)fail('language-detail-status');
+          for(const content of row.contents||[]){if(!['文本','图片','视频'].includes(content.type))fail('language-content-type');if(content.type!=='文本'&&(content.placeholder!==true||content.text))fail('language-media-not-placeholder');}
+        }
+      }
+    }
+  }
   for(const {file,page:p}of pages){
     if(p.publicDataPolicy!==policy)failures.push({file:path.relative(repo,file),route:p.route,issue:'missing-public-policy'});
     if(p.text!==makePageText(p))failures.push({file:path.relative(repo,file),route:p.route,issue:'raw-text-not-rebuilt'});
@@ -125,7 +157,7 @@ else{
       const dest=path.join(backupDir,path.relative(base,file));fs.mkdirSync(path.dirname(dest),{recursive:true});if(!fs.existsSync(dest))fs.copyFileSync(file,dest);
     }
   }
-  for(const d of docs){d.data=/[\\/](?:forms|options)\.json$/.test(d.file)?sanitizeFormTree(d.data):Array.isArray(d.data)?sanitizeObject(d.data):Object.fromEntries(Object.entries(d.data).map(([key,p])=>[key,p?.route&&p?.tenant&&Array.isArray(p.tables)?transformPage(p):sanitizeObject(p,key)]));fs.writeFileSync(d.file,JSON.stringify(d.data,null,2)+'\n');}
+  for(const d of docs){if(d.file===languageFile){assert.equal(d.data.publicDataPolicy,languagePolicy,'Language samples must be built by the private capture sanitizer.');continue;}d.data=/[\\/](?:forms|options)\.json$/.test(d.file)?sanitizeFormTree(d.data):Array.isArray(d.data)?sanitizeObject(d.data):Object.fromEntries(Object.entries(d.data).map(([key,p])=>[key,p?.route&&p?.tenant&&Array.isArray(p.tables)?transformPage(p):sanitizeObject(p,key)]));fs.writeFileSync(d.file,JSON.stringify(d.data,null,2)+'\n');}
   const publicProfile=sanitizeObject(profile);
   for(const config of Object.values(publicProfile.profiles||{}))if(config.edit?.sampleImages)config.edit.sampleImages=config.edit.sampleImages.map(src=>src.replace(/(source-case-[12])\.jpg$/,'$1.svg'));
   fs.writeFileSync(profileFile,'/* Read-only UI reference; public sample identities are anonymized. */\nwindow.AdminLiveUI='+JSON.stringify(publicProfile)+';\n');

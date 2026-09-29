@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-29T04:15:38.612Z",
+  "runtime": "static-html",
+  "languageSha256": "275637ff836c0e2fe8d1cb4f43ac30da826102e75d953ae1363cb87edcfe6795",
+  "inlineSha256": "83df60f76adc73debc4771ff557d0a60efce97ecdab7cddd3610c7679130643b",
+  "checks": [
+    {
+      "name": "public-language-data/audit",
+      "passed": true,
+      "detail": {
+        "tenants": 15,
+        "nodes": 1246,
+        "rows": 155,
+        "capturedDetails": 48,
+        "mediaPlaceholders": 16,
+        "textBlocks": 97,
+        "notCapturedCategories": 1204,
+        "forbiddenFindings": 0
+      }
+    },
+    {
+      "name": "http-inline/all-15-tenants",
+      "passed": true,
+      "detail": {
+        "tenants": 15,
+        "qaPropagated": true,
+        "embeddedTreeParity": true
+      }
+    },
+    {
+      "name": "file-inline/all-15-tenants",
+      "passed": true,
+      "detail": {
+        "tenants": 15,
+        "qaPropagated": true,
+        "embeddedTreeParity": true
+      }
+    },
+    {
+      "name": "http-inline/storage-failure-rollback",
+      "passed": true,
+      "detail": {
+        "rolledBack": true,
+        "noFalseSuccess": true
+      }
+    },
+    {
+      "name": "file-inline/storage-failure-rollback",
+      "passed": true,
+      "detail": {
+        "rolledBack": true,
+        "noFalseSuccess": true
+      }
+    },
+    {
+      "name": "http-directory/script-category-record-dialog-and-close-restoration",
+      "passed": true,
+      "detail": {
+        "scriptCancel": true,
+        "recordClose": true,
+        "nativeBackdropClose": true,
+        "iframeRestored": true,
+        "languageStorageUnchanged": true
+      }
+    },
+    {
+      "name": "http-inline/script-category-record-dialog-and-close-restoration",
+      "passed": true,
+      "detail": {
+        "scriptCancel": true,
+        "recordClose": true,
+        "nativeBackdropClose": true,
+        "iframeRestored": true,
+        "languageStorageUnchanged": true
+      }
+    },
+    {
+      "name": "file-inline/script-category-record-dialog-and-close-restoration",
+      "passed": true,
+      "detail": {
+        "scriptCancel": true,
+        "recordClose": true,
+        "nativeBackdropClose": true,
+        "iframeRestored": true,
+        "languageStorageUnchanged": true
+      }
+    },
+    {
+      "name": "runtime/no-script-errors-or-external-requests",
+      "passed": true,
+      "detail": {
+        "scriptErrors": 0,
+        "externalRequests": 0
+      }
+    }
+  ],
+  "scriptErrors": [],
+  "externalRequestCount": 0,
+  "finishedAt": "2026-09-29T04:19:01.644Z",
+  "passed": 9,
+  "failed": 0
+}

@@ -1,0 +1,29 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-051",
+  "spec_version": "1.1.0",
+  "delivery_id": "20260929-language-parity",
+  "artifact_class": "static-html",
+  "engineering_handoff": false,
+  "issue_url": null,
+  "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/tree/v2026092901-admin-language-parity/docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/deliveries/20260929-language-parity",
+  "release_tag": "v2026092901-admin-language-parity",
+  "files": [
+    "spec.md",
+    "plan.md",
+    "tasks.md",
+    "source-convergence.md",
+    "README.md",
+    "remote-sdd-package.json"
+  ],
+  "file_sha256": {
+    "spec.md": "fdea0faf0173367f3fe8f5dbbd5dcf1843f0059c94ae3f8ae189f6ad478a4517",
+    "plan.md": "7584349f69a63cebf61e363db9c9bd55fbdbfb1cdb6815b92ca29d20d81e3358",
+    "tasks.md": "47ac144f8dc2bacd477c7aead43f850249dd3e94ae88e07c72e62928391e8e74",
+    "source-convergence.md": "1d21245d8007eb3b788d620ce793d916a4bb769783e6c77f0c130279d6632864",
+    "README.md": "97cf150e6be1e68403d12f888e949891c63e1b42d94a82e38d46eab914c8b28e"
+  },
+  "generated_at": "2026-09-29",
+  "remote_verification": "Publication must be confirmed by the release process after push; local validation is not a receipt.",
+  "baseline_spec_sha256": "fdea0faf0173367f3fe8f5dbbd5dcf1843f0059c94ae3f8ae189f6ad478a4517",
+  "verification_path": "docs/verification/language-parity-20260929/README.md"
+}
