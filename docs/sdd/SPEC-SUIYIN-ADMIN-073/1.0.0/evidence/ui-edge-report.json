@@ -1,0 +1,53 @@
+{
+  "testedAt": "2026-09-29T06:08:41.359Z",
+  "checks": [
+    {
+      "name": "disabled save visibly muted",
+      "pass": true
+    },
+    {
+      "name": "failed replacement preserves old source",
+      "pass": true
+    },
+    {
+      "name": "reselect updates same item once",
+      "pass": true
+    },
+    {
+      "name": "inflight work is dirty",
+      "pass": true
+    },
+    {
+      "name": "discard invalidates inflight batch",
+      "pass": true
+    },
+    {
+      "name": "escape continues editing and restores frame",
+      "pass": true
+    },
+    {
+      "name": "save failure keeps leave dialog and promise pending",
+      "pass": true
+    },
+    {
+      "name": "native unload guard requests warning",
+      "pass": true
+    },
+    {
+      "name": "deleted category rejects late processing result",
+      "pass": true
+    },
+    {
+      "name": "all removed shows configured empty",
+      "pass": true
+    },
+    {
+      "name": "saved empty does not seed defaults",
+      "pass": true
+    },
+    {
+      "name": "load error preserves stored value",
+      "pass": true
+    }
+  ]
+}

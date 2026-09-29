@@ -1,0 +1,92 @@
+{
+  "checks": [
+    {
+      "name": "initial categories and entries",
+      "pass": true
+    },
+    {
+      "name": "default static boundary visible",
+      "pass": true
+    },
+    {
+      "name": "1280 shell has no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "1280 guide page fits viewport",
+      "pass": true
+    },
+    {
+      "name": "stay keeps active guide and draft",
+      "pass": true
+    },
+    {
+      "name": "save and leave switches page",
+      "pass": true
+    },
+    {
+      "name": "saved flag cleared",
+      "pass": true
+    },
+    {
+      "name": "saved category survives refresh",
+      "pass": true
+    },
+    {
+      "name": "discard permits tab close",
+      "pass": true
+    },
+    {
+      "name": "closing guide leaves shell controls clickable",
+      "pass": true
+    },
+    {
+      "name": "discard does not persist",
+      "pass": true
+    },
+    {
+      "name": "different tenant does not inherit saved edit",
+      "pass": true
+    },
+    {
+      "name": "preview starts independent object",
+      "pass": true
+    },
+    {
+      "name": "preview close restores shell layer",
+      "pass": true
+    },
+    {
+      "name": "preview leaves configuration clean",
+      "pass": true
+    },
+    {
+      "name": "explicit empty configuration stays empty",
+      "pass": true
+    },
+    {
+      "name": "save failure retains draft",
+      "pass": true
+    },
+    {
+      "name": "save failure retains previous stored bytes",
+      "pass": true
+    },
+    {
+      "name": "save retry succeeds",
+      "pass": true
+    },
+    {
+      "name": "non-Yestar direct route reveals no images",
+      "pass": true
+    },
+    {
+      "name": "no browser exceptions or remote business requests",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "passed": 21,
+  "failed": 0
+}

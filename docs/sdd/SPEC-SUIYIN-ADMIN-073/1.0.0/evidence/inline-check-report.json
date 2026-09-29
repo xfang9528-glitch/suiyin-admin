@@ -1,0 +1,577 @@
+{
+  "scope": "073 standalone bundling and browser-local compatibility",
+  "checks": [
+    {
+      "name": "directory-http yestar-sz tools menu, QA context, and stable default references",
+      "pass": true,
+      "detail": {
+        "key": "admin-qa-guide-lines:v1:yestar-sz",
+        "qa": true,
+        "src": "assets/guide-lines/image4.png"
+      }
+    },
+    {
+      "name": "directory-http yestar-sz save is compact and tenant/QA isolated",
+      "pass": true,
+      "detail": {
+        "chars": 129693,
+        "name": "directory-http yestar-sz",
+        "count": 11,
+        "defaultSrc": "assets/guide-lines/image4.png",
+        "uploaded": true,
+        "normalKeys": []
+      }
+    },
+    {
+      "name": "directory-http yestar-sz refresh preserves saved category",
+      "pass": true
+    },
+    {
+      "name": "directory-http yestar-sz preview resolves defaults/uploads and covers shell",
+      "pass": true,
+      "detail": {
+        "objects": [
+          {
+            "loaded": true,
+            "embedded": false
+          },
+          {
+            "loaded": true,
+            "embedded": true
+          }
+        ],
+        "frameWidth": 1280,
+        "dialog": {
+          "x": 50,
+          "y": 16,
+          "width": 1180,
+          "height": 688,
+          "top": 16,
+          "right": 1230,
+          "bottom": 704,
+          "left": 50
+        },
+        "horizontalOverflow": false,
+        "keys": [
+          "admin-qa-guide-lines:v1:yestar-sz"
+        ]
+      }
+    },
+    {
+      "name": "directory-http yestar-sz closing restores frame and shadow",
+      "pass": true
+    },
+    {
+      "name": "directory-http yestar tools menu, QA context, and stable default references",
+      "pass": true,
+      "detail": {
+        "key": "admin-qa-guide-lines:v1:yestar",
+        "qa": true,
+        "src": "assets/guide-lines/image4.png"
+      }
+    },
+    {
+      "name": "directory-http yestar save is compact and tenant/QA isolated",
+      "pass": true,
+      "detail": {
+        "chars": 18834,
+        "name": "directory-http yestar",
+        "count": 10,
+        "defaultSrc": "assets/guide-lines/image4.png",
+        "uploaded": false,
+        "normalKeys": []
+      }
+    },
+    {
+      "name": "directory-http yestar refresh preserves saved category",
+      "pass": true
+    },
+    {
+      "name": "directory-http yestar preview resolves defaults/uploads and covers shell",
+      "pass": true,
+      "detail": {
+        "objects": [
+          {
+            "loaded": true,
+            "embedded": false
+          }
+        ],
+        "frameWidth": 1280,
+        "dialog": {
+          "x": 50,
+          "y": 16,
+          "width": 1180,
+          "height": 688,
+          "top": 16,
+          "right": 1230,
+          "bottom": 704,
+          "left": 50
+        },
+        "horizontalOverflow": false,
+        "keys": [
+          "admin-qa-guide-lines:v1:yestar-sz",
+          "admin-qa-guide-lines:v1:yestar"
+        ]
+      }
+    },
+    {
+      "name": "directory-http yestar closing restores frame and shadow",
+      "pass": true
+    },
+    {
+      "name": "directory-http yestar-bj tools menu, QA context, and stable default references",
+      "pass": true,
+      "detail": {
+        "key": "admin-qa-guide-lines:v1:yestar-bj",
+        "qa": true,
+        "src": "assets/guide-lines/image4.png"
+      }
+    },
+    {
+      "name": "directory-http yestar-bj save is compact and tenant/QA isolated",
+      "pass": true,
+      "detail": {
+        "chars": 18840,
+        "name": "directory-http yestar-bj",
+        "count": 10,
+        "defaultSrc": "assets/guide-lines/image4.png",
+        "uploaded": false,
+        "normalKeys": []
+      }
+    },
+    {
+      "name": "directory-http yestar-bj refresh preserves saved category",
+      "pass": true
+    },
+    {
+      "name": "directory-http yestar-bj preview resolves defaults/uploads and covers shell",
+      "pass": true,
+      "detail": {
+        "objects": [
+          {
+            "loaded": true,
+            "embedded": false
+          }
+        ],
+        "frameWidth": 1280,
+        "dialog": {
+          "x": 50,
+          "y": 16,
+          "width": 1180,
+          "height": 688,
+          "top": 16,
+          "right": 1230,
+          "bottom": 704,
+          "left": 50
+        },
+        "horizontalOverflow": false,
+        "keys": [
+          "admin-qa-guide-lines:v1:yestar-sz",
+          "admin-qa-guide-lines:v1:yestar",
+          "admin-qa-guide-lines:v1:yestar-bj"
+        ]
+      }
+    },
+    {
+      "name": "directory-http yestar-bj closing restores frame and shadow",
+      "pass": true
+    },
+    {
+      "name": "directory-http revisiting first tenant after three saves preserves its own configuration",
+      "pass": true
+    },
+    {
+      "name": "directory-http non-Yestar route/menu and model reject access",
+      "pass": true
+    },
+    {
+      "name": "inline-http yestar-sz tools menu, QA context, and stable default references",
+      "pass": true,
+      "detail": {
+        "key": "admin-qa-guide-lines:v1:yestar-sz",
+        "qa": true,
+        "src": "assets/guide-lines/image4.png"
+      }
+    },
+    {
+      "name": "inline-http yestar-sz save is compact and tenant/QA isolated",
+      "pass": true,
+      "detail": {
+        "chars": 129690,
+        "name": "inline-http yestar-sz",
+        "count": 11,
+        "defaultSrc": "assets/guide-lines/image4.png",
+        "uploaded": true,
+        "normalKeys": []
+      }
+    },
+    {
+      "name": "inline-http yestar-sz refresh preserves saved category",
+      "pass": true
+    },
+    {
+      "name": "inline-http yestar-sz preview resolves defaults/uploads and covers shell",
+      "pass": true,
+      "detail": {
+        "objects": [
+          {
+            "loaded": true,
+            "embedded": true
+          },
+          {
+            "loaded": true,
+            "embedded": true
+          }
+        ],
+        "frameWidth": 1280,
+        "dialog": {
+          "x": 50,
+          "y": 16,
+          "width": 1180,
+          "height": 688,
+          "top": 16,
+          "right": 1230,
+          "bottom": 704,
+          "left": 50
+        },
+        "horizontalOverflow": false,
+        "keys": [
+          "admin-qa-guide-lines:v1:yestar-sz"
+        ]
+      }
+    },
+    {
+      "name": "inline-http yestar-sz closing restores frame and shadow",
+      "pass": true
+    },
+    {
+      "name": "inline-http yestar tools menu, QA context, and stable default references",
+      "pass": true,
+      "detail": {
+        "key": "admin-qa-guide-lines:v1:yestar",
+        "qa": true,
+        "src": "assets/guide-lines/image4.png"
+      }
+    },
+    {
+      "name": "inline-http yestar save is compact and tenant/QA isolated",
+      "pass": true,
+      "detail": {
+        "chars": 18831,
+        "name": "inline-http yestar",
+        "count": 10,
+        "defaultSrc": "assets/guide-lines/image4.png",
+        "uploaded": false,
+        "normalKeys": []
+      }
+    },
+    {
+      "name": "inline-http yestar refresh preserves saved category",
+      "pass": true
+    },
+    {
+      "name": "inline-http yestar preview resolves defaults/uploads and covers shell",
+      "pass": true,
+      "detail": {
+        "objects": [
+          {
+            "loaded": true,
+            "embedded": true
+          }
+        ],
+        "frameWidth": 1280,
+        "dialog": {
+          "x": 50,
+          "y": 16,
+          "width": 1180,
+          "height": 688,
+          "top": 16,
+          "right": 1230,
+          "bottom": 704,
+          "left": 50
+        },
+        "horizontalOverflow": false,
+        "keys": [
+          "admin-qa-guide-lines:v1:yestar-sz",
+          "admin-qa-guide-lines:v1:yestar"
+        ]
+      }
+    },
+    {
+      "name": "inline-http yestar closing restores frame and shadow",
+      "pass": true
+    },
+    {
+      "name": "inline-http yestar-bj tools menu, QA context, and stable default references",
+      "pass": true,
+      "detail": {
+        "key": "admin-qa-guide-lines:v1:yestar-bj",
+        "qa": true,
+        "src": "assets/guide-lines/image4.png"
+      }
+    },
+    {
+      "name": "inline-http yestar-bj save is compact and tenant/QA isolated",
+      "pass": true,
+      "detail": {
+        "chars": 18837,
+        "name": "inline-http yestar-bj",
+        "count": 10,
+        "defaultSrc": "assets/guide-lines/image4.png",
+        "uploaded": false,
+        "normalKeys": []
+      }
+    },
+    {
+      "name": "inline-http yestar-bj refresh preserves saved category",
+      "pass": true
+    },
+    {
+      "name": "inline-http yestar-bj preview resolves defaults/uploads and covers shell",
+      "pass": true,
+      "detail": {
+        "objects": [
+          {
+            "loaded": true,
+            "embedded": true
+          }
+        ],
+        "frameWidth": 1280,
+        "dialog": {
+          "x": 50,
+          "y": 16,
+          "width": 1180,
+          "height": 688,
+          "top": 16,
+          "right": 1230,
+          "bottom": 704,
+          "left": 50
+        },
+        "horizontalOverflow": false,
+        "keys": [
+          "admin-qa-guide-lines:v1:yestar-sz",
+          "admin-qa-guide-lines:v1:yestar",
+          "admin-qa-guide-lines:v1:yestar-bj"
+        ]
+      }
+    },
+    {
+      "name": "inline-http yestar-bj closing restores frame and shadow",
+      "pass": true
+    },
+    {
+      "name": "inline-http revisiting first tenant after three saves preserves its own configuration",
+      "pass": true
+    },
+    {
+      "name": "inline-http non-Yestar route/menu and model reject access",
+      "pass": true
+    },
+    {
+      "name": "inline-http self-contained: no subresource network/file requests",
+      "pass": true,
+      "detail": {
+        "requests": 0
+      }
+    },
+    {
+      "name": "inline-file yestar-sz tools menu, QA context, and stable default references",
+      "pass": true,
+      "detail": {
+        "key": "admin-qa-guide-lines:v1:yestar-sz",
+        "qa": true,
+        "src": "assets/guide-lines/image4.png"
+      }
+    },
+    {
+      "name": "inline-file yestar-sz save is compact and tenant/QA isolated",
+      "pass": true,
+      "detail": {
+        "chars": 129690,
+        "name": "inline-file yestar-sz",
+        "count": 11,
+        "defaultSrc": "assets/guide-lines/image4.png",
+        "uploaded": true,
+        "normalKeys": []
+      }
+    },
+    {
+      "name": "inline-file yestar-sz refresh preserves saved category",
+      "pass": true
+    },
+    {
+      "name": "inline-file yestar-sz preview resolves defaults/uploads and covers shell",
+      "pass": true,
+      "detail": {
+        "objects": [
+          {
+            "loaded": true,
+            "embedded": true
+          },
+          {
+            "loaded": true,
+            "embedded": true
+          }
+        ],
+        "frameWidth": 1280,
+        "dialog": {
+          "x": 50,
+          "y": 16,
+          "width": 1180,
+          "height": 688,
+          "top": 16,
+          "right": 1230,
+          "bottom": 704,
+          "left": 50
+        },
+        "horizontalOverflow": false,
+        "keys": [
+          "admin-qa-guide-lines:v1:yestar-sz"
+        ]
+      }
+    },
+    {
+      "name": "inline-file yestar-sz closing restores frame and shadow",
+      "pass": true
+    },
+    {
+      "name": "inline-file yestar tools menu, QA context, and stable default references",
+      "pass": true,
+      "detail": {
+        "key": "admin-qa-guide-lines:v1:yestar",
+        "qa": true,
+        "src": "assets/guide-lines/image4.png"
+      }
+    },
+    {
+      "name": "inline-file yestar save is compact and tenant/QA isolated",
+      "pass": true,
+      "detail": {
+        "chars": 18831,
+        "name": "inline-file yestar",
+        "count": 10,
+        "defaultSrc": "assets/guide-lines/image4.png",
+        "uploaded": false,
+        "normalKeys": []
+      }
+    },
+    {
+      "name": "inline-file yestar refresh preserves saved category",
+      "pass": true
+    },
+    {
+      "name": "inline-file yestar preview resolves defaults/uploads and covers shell",
+      "pass": true,
+      "detail": {
+        "objects": [
+          {
+            "loaded": true,
+            "embedded": true
+          }
+        ],
+        "frameWidth": 1280,
+        "dialog": {
+          "x": 50,
+          "y": 16,
+          "width": 1180,
+          "height": 688,
+          "top": 16,
+          "right": 1230,
+          "bottom": 704,
+          "left": 50
+        },
+        "horizontalOverflow": false,
+        "keys": [
+          "admin-qa-guide-lines:v1:yestar-sz",
+          "admin-qa-guide-lines:v1:yestar"
+        ]
+      }
+    },
+    {
+      "name": "inline-file yestar closing restores frame and shadow",
+      "pass": true
+    },
+    {
+      "name": "inline-file yestar-bj tools menu, QA context, and stable default references",
+      "pass": true,
+      "detail": {
+        "key": "admin-qa-guide-lines:v1:yestar-bj",
+        "qa": true,
+        "src": "assets/guide-lines/image4.png"
+      }
+    },
+    {
+      "name": "inline-file yestar-bj save is compact and tenant/QA isolated",
+      "pass": true,
+      "detail": {
+        "chars": 18837,
+        "name": "inline-file yestar-bj",
+        "count": 10,
+        "defaultSrc": "assets/guide-lines/image4.png",
+        "uploaded": false,
+        "normalKeys": []
+      }
+    },
+    {
+      "name": "inline-file yestar-bj refresh preserves saved category",
+      "pass": true
+    },
+    {
+      "name": "inline-file yestar-bj preview resolves defaults/uploads and covers shell",
+      "pass": true,
+      "detail": {
+        "objects": [
+          {
+            "loaded": true,
+            "embedded": true
+          }
+        ],
+        "frameWidth": 1280,
+        "dialog": {
+          "x": 50,
+          "y": 16,
+          "width": 1180,
+          "height": 688,
+          "top": 16,
+          "right": 1230,
+          "bottom": 704,
+          "left": 50
+        },
+        "horizontalOverflow": false,
+        "keys": [
+          "admin-qa-guide-lines:v1:yestar-sz",
+          "admin-qa-guide-lines:v1:yestar",
+          "admin-qa-guide-lines:v1:yestar-bj"
+        ]
+      }
+    },
+    {
+      "name": "inline-file yestar-bj closing restores frame and shadow",
+      "pass": true
+    },
+    {
+      "name": "inline-file revisiting first tenant after three saves preserves its own configuration",
+      "pass": true
+    },
+    {
+      "name": "inline-file non-Yestar route/menu and model reject access",
+      "pass": true
+    },
+    {
+      "name": "inline-file self-contained: no subresource network/file requests",
+      "pass": true,
+      "detail": {
+        "requests": 0
+      }
+    },
+    {
+      "name": "No browser script errors in three runtime forms",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "inlineSha256": "1c64479476ad00713cf2e1928448a25b84f479b4d116f2b58a6cc96ea0346ef4",
+  "passed": 54,
+  "failed": 0
+}

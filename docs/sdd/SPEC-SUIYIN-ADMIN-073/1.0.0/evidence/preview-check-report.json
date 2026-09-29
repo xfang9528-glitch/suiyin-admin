@@ -1,0 +1,204 @@
+{
+  "scope": "SPEC-SUIYIN-ADMIN-073: static local PC preview only",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "checks": [
+    {
+      "name": "1280×720 full-shell preview without horizontal overflow",
+      "pass": true,
+      "detail": {
+        "rect": {
+          "x": 50,
+          "y": 16,
+          "width": 1180,
+          "height": 688,
+          "top": 16,
+          "right": 1230,
+          "bottom": 704,
+          "left": 50
+        },
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720,
+          "top": 0,
+          "right": 1280,
+          "bottom": 720,
+          "left": 0
+        }
+      }
+    },
+    {
+      "name": "Enabled categories retain source order and draft state; thumbnail cards hide management metadata",
+      "pass": true
+    },
+    {
+      "name": "Ready tool cards are pure thumbnails",
+      "pass": true
+    },
+    {
+      "name": "Insertion is centered with longest edge 35% of canvas maximum edge",
+      "pass": true,
+      "detail": {
+        "id": "preview-2",
+        "left": 50,
+        "top": 50,
+        "width": 27.114,
+        "height": 46.6667,
+        "transform": "translate(-50%, -50%) rotate(0rad)",
+        "z": "1"
+      }
+    },
+    {
+      "name": "Dragging one object leaves the other independent",
+      "pass": true,
+      "detail": [
+        {
+          "id": "preview-2",
+          "left": 50,
+          "top": 50,
+          "width": 27.114,
+          "height": 46.6667,
+          "transform": "translate(-50%, -50%) rotate(0rad)",
+          "z": "1"
+        },
+        {
+          "id": "preview-3",
+          "left": 63.2875,
+          "top": 57.874,
+          "width": 24.4378,
+          "height": 46.6667,
+          "transform": "translate(-50%, -50%) rotate(0rad)",
+          "z": "2"
+        }
+      ]
+    },
+    {
+      "name": "Corner scale preserves aspect ratio and opposite corner anchor",
+      "pass": true,
+      "detail": {
+        "anchorBefore": {
+          "x": 51.0686,
+          "y": 34.54065
+        },
+        "anchorAfter": {
+          "x": 51.0686,
+          "y": 34.54075
+        }
+      }
+    },
+    {
+      "name": "Rotation uses 15-degree Shift snapping and preserves other objects",
+      "pass": true,
+      "detail": {
+        "radians": 0.785398
+      }
+    },
+    {
+      "name": "Selected object can be deleted independently",
+      "pass": true
+    },
+    {
+      "name": "Undo restores deleted preview object",
+      "pass": true
+    },
+    {
+      "name": "Selecting an older object does not change stacking order",
+      "pass": true
+    },
+    {
+      "name": "Escape restores shell and invokes onClose once without configuration/storage writes",
+      "pass": true,
+      "detail": {
+        "frameClass": "page-frame",
+        "appStyle": "",
+        "bodyClass": "admin-content guide-lines-content",
+        "configurationUnchanged": true,
+        "storageUnchanged": true,
+        "closeCount": 1
+      }
+    },
+    {
+      "name": "Narrow 390×700 window retains usable insertion/canvas/close without horizontal overflow",
+      "pass": true,
+      "detail": {
+        "width": 390,
+        "overflow": false,
+        "rect": {
+          "x": 8,
+          "y": 8,
+          "width": 374,
+          "height": 684,
+          "top": 8,
+          "right": 382,
+          "bottom": 692,
+          "left": 8
+        },
+        "close": {
+          "x": 339,
+          "y": 26,
+          "width": 30,
+          "height": 30,
+          "top": 26,
+          "right": 369,
+          "bottom": 56,
+          "left": 339
+        },
+        "stage": {
+          "x": 21,
+          "y": 169.5,
+          "width": 348,
+          "height": 261,
+          "top": 169.5,
+          "right": 369,
+          "bottom": 430.5,
+          "left": 21
+        },
+        "count": 1
+      }
+    },
+    {
+      "name": "Scale clamps to 10%–500% of default size",
+      "pass": true,
+      "detail": {
+        "minimumFactor": 0.09999999999999999,
+        "maximumFactor": 5
+      }
+    },
+    {
+      "name": "Dragging outside leaves a recoverable visible portion of the object",
+      "pass": true,
+      "detail": {
+        "width": 32.0234375,
+        "height": 32.015625
+      }
+    },
+    {
+      "name": "All disabled/empty configuration has an explicit empty state",
+      "pass": true
+    },
+    {
+      "name": "Failed local thumbnail can retry and insert successfully",
+      "pass": true,
+      "detail": {
+        "attempts": 2
+      }
+    },
+    {
+      "name": "External media is rejected without remote requests",
+      "pass": true
+    },
+    {
+      "name": "No unhandled browser script errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "remoteRequests": [],
+  "passed": 18,
+  "failed": 0
+}

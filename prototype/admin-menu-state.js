@@ -1,5 +1,54 @@
 /* Shared local menu visibility. Full inventory stays separate from visible navigation. */
 'use strict';
+/* SPEC-SUIYIN-ADMIN-073: a folder replaces the old root slot; the page keeps its identity. */
+window.AdminToolsMenu=(()=>{
+ const version='tools-menu-v1',clone=value=>structuredClone(value);
+ const supports=tenant=>tenant?.capabilities?.guideLineManage===true;
+ function prepare(source,saved){
+  if(source?.toolsMenuMigration?.version!==version||saved?.toolsMenuMigration?.version===version)return null;
+  const config=source.toolsMenuMigration,table=source.tables[0],templates=new Map(table.rows.map(row=>[row.id,row]));
+  const revision=source.menuRefresh.baselines?.[saved.dataRevision];
+  const baseline={route:source.route,tables:[{headers:revision?.headers||source.menuRefresh.previousHeaders||table.headers,rows:revision?.rows||source.menuRefresh.previousRows}]};
+  function transform(model){
+   const next=clone(model),rows=next.tables[0].rows,language=rows.find(row=>row.id===config.languageRowId);
+   const folder=clone(templates.get(config.toolsRowId)),guide=templates.get(config.guideRowId),headers=next.tables[0].headers;
+   // The new folder has its own visibility. Old page hiding/permissions stay on the old page.
+   const orderIndex=headers.indexOf('排序');if(language&&orderIndex>=0)folder.cells[orderIndex]=language.cells[orderIndex];
+   let insertion=language?rows.indexOf(language):-1,descendants=[];
+   const oldDepth=Number(language?.tree?.depth)||0;
+   if(language){let end=insertion+1;while(end<rows.length&&(Number(rows[end].tree?.depth)||0)>oldDepth)end++;descendants=rows.slice(insertion+1,end);rows.splice(insertion,end-insertion);}
+   if(insertion<0||oldDepth>0){const baselineRows=baseline.tables[0].rows,start=baselineRows.findIndex(row=>row.id===config.languageRowId);const after=baselineRows.slice(start+1).find(row=>(Number(row.tree?.depth)||0)===0&&rows.some(item=>item.id===row.id&&(Number(item.tree?.depth)||0)===0));insertion=after?rows.findIndex(row=>row.id===after.id):rows.length;}
+   if(language){
+    // Existing children of the old page become children of the replacement folder.
+    for(const row of descendants){
+     row.tree={...row.tree,depth:(Number(row.tree.depth)||0)-oldDepth};
+     if(row.tree.parentId===language.id)row.tree.parentId=folder.id;
+     if(row.tree.parentKey==='languageManage')row.tree.parentKey='toolsManage';
+    }
+    language.tree={...language.tree,depth:1,parentId:folder.id,parentKey:source.route==='menu'?'toolsManage':null,hasChildren:false};
+    delete language.tree.menuOriginParentKey;delete language.tree.menuOriginDepth;
+    if(language.extra&&Object.hasOwn(language.extra,'parentId'))language.extra.parentId=folder.id;
+    if(orderIndex>=0)language.cells[orderIndex]='1';
+   }
+   rows.splice(insertion,0,folder,...(language?[language]:[]),...(guide&&!rows.some(row=>row.id===guide.id)?[clone(guide)]:[]),...descendants);
+   if(next.menuLayout){
+    const layout=next.menuLayout;
+    for(const [key,parent]of Object.entries(layout.parents||{}))if(parent==='languageManage')layout.parents[key]='toolsManage';
+    if(layout.parents)delete layout.parents.languageManage;
+    if(layout.orders){
+     for(const [parent,ids]of Object.entries(layout.orders))if(Array.isArray(ids))layout.orders[parent]=ids.map(id=>id==='languageManage'?'toolsManage':id);
+     const oldChildren=layout.orders.languageManage;delete layout.orders.languageManage;
+     if(oldChildren)layout.orders.toolsManage=['languageManage',...(guide?['guideLineManage']:[]),...oldChildren.filter(id=>id!=='toolsManage'&&id!=='guideLineManage')];
+    }
+   }
+   return next;
+  }
+  const effective=clone(source),prior=transform(baseline),local=transform(saved);
+  effective.menuRefresh.baselines={...effective.menuRefresh.baselines,[saved.dataRevision]:prior.tables[0]};
+  return {source:effective,saved:local};
+ }
+ return {version,supports,prepare};
+})();
 /* Refresh only captured defaults; browser-local edits remain a separate layer. */
 window.AdminMenuRefresh=(()=>{
  const clone=value=>structuredClone(value),same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
@@ -7,6 +56,7 @@ window.AdminMenuRefresh=(()=>{
  function index(rows){const map=new Map(),groups=new Map(),stack=[];for(const [position,row]of rows.entries()){const depth=Number(row.tree?.depth)||0;while(stack.length&&stack.at(-1).depth>=depth)stack.pop();const parent=stack.at(-1)?.row.id||'',entry={row,parent,depth,position};map.set(row.id,entry);if(!groups.has(parent))groups.set(parent,[]);groups.get(parent).push(row.id);stack.push(entry);}return {map,groups};}
  function merge(source,saved){
   if(!accepts(source,saved))return clone(saved?.dataRevision===source?.dataRevision?saved:source);
+  const toolsMigration=window.AdminToolsMenu.prepare(source,saved);if(toolsMigration){source=toolsMigration.source;saved=toolsMigration.saved;}
   // Compare local edits with the defaults from their own revision when a later
   // additive page follows a capture refresh; retain the older migration fallback.
   const revision=source.menuRefresh.baselines?.[saved.dataRevision];
@@ -145,6 +195,21 @@ window.AdminMenuState={
   if(!next.enabled.includes(route)&&parentShown&&childShown&&(!hadEnabled||siblingShown))next.enabled.push(route);
   next.appliedMigrations={...next.appliedMigrations,[migration]:true};
   next.menuDataRevision=tenant.menuDataRevision;
+  return next;
+ };
+})();
+
+/* Keep legacy navigation preferences attached to the stable page, and move its root order to the folder. */
+(()=>{
+ const state=window.AdminMenuState,previous=state.migrate;
+ state.migrate=function(tenant,override){
+  const saved=previous.call(this,tenant,override),migration=window.AdminToolsMenu.version;
+  if(tenant.toolsMenuMigration!==migration||saved.appliedMigrations?.[migration])return saved;
+  const next=structuredClone(saved);
+  if(next.order?.languageManage!==undefined){next.order.toolsManage=next.order.languageManage;delete next.order.languageManage;}
+  if(window.AdminToolsMenu.supports(tenant)&&next.display?.guideLineManage!=='隐藏'&&next.display?.toolsManage!=='隐藏'&&!next.enabled.includes('guideLineManage'))next.enabled.push('guideLineManage');
+  if(!window.AdminToolsMenu.supports(tenant))next.enabled=next.enabled.filter(route=>route!=='guideLineManage');
+  next.appliedMigrations={...next.appliedMigrations,[migration]:true};next.menuDataRevision=tenant.menuDataRevision;
   return next;
  };
 })();

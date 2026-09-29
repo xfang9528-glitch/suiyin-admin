@@ -1,0 +1,131 @@
+{
+  "results": [
+    {
+      "name": "yestar-sz language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "yestar-sz guide page ready",
+      "pass": true
+    },
+    {
+      "name": "jbfs language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "jbfs direct route denied",
+      "pass": true
+    },
+    {
+      "name": "mengzhua language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "mengzhua direct route denied",
+      "pass": true
+    },
+    {
+      "name": "bzds language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "bzds direct route denied",
+      "pass": true
+    },
+    {
+      "name": "crrm language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "crrm direct route denied",
+      "pass": true
+    },
+    {
+      "name": "hqjd language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "hqjd direct route denied",
+      "pass": true
+    },
+    {
+      "name": "ykjl language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "ykjl direct route denied",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "ruixi-kh-xiaowen direct route denied",
+      "pass": true
+    },
+    {
+      "name": "rxxz language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "rxxz direct route denied",
+      "pass": true
+    },
+    {
+      "name": "yestar language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "yestar guide page ready",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "yestar-bj guide page ready",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "yestar-gz guide page ready",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "yestar-hz guide page ready",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "yestar-jx guide page ready",
+      "pass": true
+    },
+    {
+      "name": "yzhb language + tools navigation",
+      "pass": true
+    },
+    {
+      "name": "yzhb direct route denied",
+      "pass": true
+    },
+    {
+      "name": "no script errors",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "passed": 31,
+  "failed": 0
+}

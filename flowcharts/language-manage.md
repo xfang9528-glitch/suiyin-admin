@@ -1,10 +1,12 @@
 # 话术管理流程
 
-更新：2026-09-29。继承[051@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md)，对应R002–R006、R008–R010。流程仅作用于当前浏览器的本地原型；数据范围见[产品说明](../prd/language-manage.md)。
+更新：2026-09-29。入口按[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)的R001–R003改为工具管理下二级话术，原路由与隐藏/权限、本地业务状态保持。页面继续继承[051@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md)的R002–R006、R008–R010。流程仅作用于当前浏览器的本地原型；数据范围见[产品说明](../prd/language-manage.md)。
 
 ```mermaid
 flowchart TD
-    Enter[进入当前租户话术管理] --> Load{加载本租户独立样本}
+    Enter[当前租户 工具管理下话术管理或旧直达链接] --> Permission{原话术隐藏和权限允许}
+    Permission -->|否| Denied[不显示业务页面 工具父级不扩大权限]
+    Permission -->|是| Load{同一languageManage加载本租户独立样本}
     Load -->|失败| Retry[显示失败原因 可重试]
     Retry --> Load
     Load -->|成功| Tree[分类树与默认未选分类空态]

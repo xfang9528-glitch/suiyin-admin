@@ -1,0 +1,12 @@
+{
+  "checks": [
+    {
+      "name": "pointer drag category",
+      "pass": true
+    },
+    {
+      "name": "pointer drag image",
+      "pass": true
+    }
+  ]
+}

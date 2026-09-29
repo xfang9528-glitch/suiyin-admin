@@ -1,0 +1,91 @@
+{
+  "passed": 20,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "repeated background events share one prompt",
+      "pass": true
+    },
+    {
+      "name": "continue keeps dirty iframe mounted",
+      "pass": true
+    },
+    {
+      "name": "later background event does not reopen cancelled prompt",
+      "pass": true
+    },
+    {
+      "name": "successful save resumes deferred menu removal",
+      "pass": true
+    },
+    {
+      "name": "latest menu event is not lost",
+      "pass": true
+    },
+    {
+      "name": "saved draft survived deferred removal",
+      "pass": true
+    },
+    {
+      "name": "scenario has no browser exceptions",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "discard allows external hide without writing draft",
+      "pass": true
+    },
+    {
+      "name": "normal refresh restores allowed entry without lost scheduling",
+      "pass": true
+    },
+    {
+      "name": "scenario has no browser exceptions",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "existing leave cancellation keeps queued refresh dormant",
+      "pass": true
+    },
+    {
+      "name": "explicit leave resumes queued menu refresh once",
+      "pass": true
+    },
+    {
+      "name": "scenario has no browser exceptions",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "close others keeps active dirty guide intact",
+      "pass": true
+    },
+    {
+      "name": "unrelated menu hide remains live with dirty guide",
+      "pass": true
+    },
+    {
+      "name": "scenario has no browser exceptions",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "closing dirty tab clears its detached dialog scrim",
+      "pass": true
+    },
+    {
+      "name": "remaining shell responds after dirty tab close",
+      "pass": true
+    },
+    {
+      "name": "menu refresh preserves surviving open dialog scrim",
+      "pass": true
+    },
+    {
+      "name": "scenario has no browser exceptions",
+      "pass": true,
+      "detail": []
+    }
+  ]
+}

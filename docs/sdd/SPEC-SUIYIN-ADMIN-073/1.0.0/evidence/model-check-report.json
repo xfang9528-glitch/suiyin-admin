@@ -1,0 +1,17 @@
+{
+  "passed": 11,
+  "checks": [
+    "six explicit eligible tenants",
+    "initial valid source and item count",
+    "initial clones are tenant independent",
+    "saved edit is reloaded",
+    "failed write preserves prior bytes and draft",
+    "explicit empty does not resurrect defaults",
+    "wrong tenant write rejected",
+    "non-Yestar has no guide config",
+    "duplicate category rejected",
+    "remote image reference rejected",
+    "corrupt storage not silently reset"
+  ],
+  "localOnly": true
+}

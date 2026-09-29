@@ -1,8 +1,8 @@
 # 管理后台交互流程
 
-2026-09-29话术树、末级列表和本地编辑按[话术管理流程](language-manage.md)更新；继承051@1.1.0，不修改其他领域合同。
+更新：2026-09-29。工具父级、话术入口迁移和艺星辅助线管理按[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)。话术树、末级列表和本地编辑继续[话术管理流程](language-manage.md)与051@1.1.0；导航迁移不重置原业务状态。
 
-更新：2026-09-28。六个现有艺星租户回访规则执行 [071@1.3.1](../docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)。2026-09-27录音/喜报三新页、对应入口迁移与本地演示边界继续执行 [REFRESH-001@0.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)，既有页面刷新继续原合同。普通菜单与平台/租户优先级执行068@1.0.0，平台拖动继续060@1.1.0；预约记录图表按062@1.0.0。当前静态原型共15租户、802入口、89路由；783个源队列入口与741可见已采/42隐藏口径不变，另13个AI费用及6个艺星回访规则属于原型扩展。其余合同为051@1.1.0、052@1.2.0、053@1.0.2、054@1.0.0、055@1.1.0、056@1.0.0、058@1.2.0，见[合同入口](../README.md)。以下流程均不写真实后台。
+其他领域：六个现有艺星租户回访规则执行 [071@1.3.1](../docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)。2026-09-27录音/喜报三新页、对应入口迁移与本地演示边界继续执行 [REFRESH-001@0.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)，既有页面刷新继续原合同。普通菜单与平台/租户优先级执行068@1.0.0，平台拖动继续060@1.1.0；预约记录图表按062@1.0.0。当前静态原型共15租户、808入口、90路由；783个源队列入口与741可见已采/42隐藏口径不变，另13个AI费用、6个艺星回访规则及6个辅助线管理属于原型扩展。工具管理父级不计业务路由。其余合同为051@1.1.0、052@1.2.0、053@1.0.2、054@1.0.0、055@1.1.0、056@1.0.0、058@1.2.0，见[合同入口](../README.md)。以下流程均不写真实后台。
 
 ## 入口、租户与证据
 
@@ -11,7 +11,14 @@ flowchart TD
     Start[打开 Shell 或生成的单文件] --> Tenant{登记租户且页面可见}
     Tenant -->|否| Denied[提示选择租户或无查看权限]
     Tenant -->|是| Config[平台默认完整树叠加租户明确覆盖 再过滤隐藏和权限]
-    Config --> Route[按稳定路由打开领域页面]
+    Config --> Tools[原话术位置迁为工具父级 保留其他菜单覆盖]
+    Tools --> Language[二级话术管理 保留原route状态隐藏和权限]
+    Tools --> Eligible{当前租户开放艺星辅助线能力}
+    Eligible -->|是| Guides[二级辅助线管理 本租户配置]
+    Eligible -->|否| NoGuides[不挂载辅助线入口或数据]
+    Config --> Route[按稳定路由打开其他领域页面]
+    Language --> Route
+    Guides --> Route
     Route --> Load{静态样本读取}
     Load -->|失败| Retry[说明错误并提供重试]
     Retry --> Route
@@ -24,11 +31,72 @@ flowchart TD
     Reference --> Page
     Mock --> Page
     Missing --> Page
-    Page --> Switch[切换租户 新开对应本地页面]
+    Page --> Switch[切换租户前先处理辅助线未保存草稿或队列]
     Switch --> Config
 ```
 
 原始快照中的加载中不能判成确认空态。新窗口被浏览器阻止时提供目标链接。参考内容不授权跨租户借入实体选项；销售使用统计和 AI辅助统计没有参考租户数据回退。四页旧默认视图保留为历史，见 [2026-09-20发布勘误](../docs/sdd/pixel-correction-20260920.md)。
+
+## 辅助线配置、图片处理与退出
+
+本节为073批准的新页面，范围为全部艺星；当前六艺星是验收样例。每个租户一套，默认与专属来源均可编辑，初始样本来自本地030目录，不声明完成本店生产迁移。
+
+```mermaid
+flowchart TD
+    Entry[工具管理 辅助线管理或直达链接] --> Eligible{艺星能力与页面可见性有效}
+    Eligible -->|否| Denied[不给业务配置或素材数据]
+    Eligible -->|是| Read{读取本租户已存配置}
+    Read -->|不存在| Initial[加载明确标注的本地初始样例]
+    Read -->|合法且为空| Empty[已配置为空 不恢复默认]
+    Read -->|合法非空| Draft[复制为页面草稿]
+    Read -->|损坏或读取失败| Error[保留原值 显示错误与重试]
+    Error --> Read
+    Initial --> Draft
+    Empty --> Draft
+    Draft --> Edit[分类图片增删改 排序 启停]
+    Edit --> Delete{删除分类或图片}
+    Delete -->|取消| Draft
+    Delete -->|确认| Remove[只移除当前分类或条目 废弃对应处理任务]
+    Remove --> Draft
+    Edit --> Queue[批量选择透明PNG]
+    Queue --> Check{逐项格式大小和解码校验}
+    Check -->|失败| Failed[显示原因 重试 重选或移除]
+    Failed -->|重试或重选| Check
+    Failed -->|移除| Draft
+    Check -->|通过| Process[逐项处理 绑定租户与条目身份]
+    Process -->|已取消或上下文失效| Ignore[丢弃迟到结果]
+    Process -->|失败| Failed
+    Process -->|成功| Apply[追加末尾或替换当前条目 保留身份和顺序]
+    Apply --> Draft
+    Draft --> Preview[独立副本预览 仅启用分类 草稿标未保存]
+    Preview --> PC[纯缩略图 插入拖动缩放旋转删除撤销]
+    PC -->|关闭或Escape| Draft
+```
+
+```mermaid
+flowchart TD
+    Draft[页面草稿或未解决图片队列] --> Save[保存更改]
+    Save --> Valid{字段有效 且没有处理中或失败项}
+    Valid -->|否| Keep[保留草稿 提示修复或移除失败项]
+    Valid -->|是| Writing[保存中 禁用重复提交]
+    Writing -->|失败| Keep
+    Writing -->|成功| Saved[本租户本地已保存 未同步真实PC]
+    Draft --> Leave{应用内切页关页签或切租户}
+    Leave --> Continue[继续编辑 草稿与队列保留]
+    Leave --> Discard[放弃更改 恢复已存版本并废弃处理任务]
+    Leave --> SaveLeave[保存并离开]
+    SaveLeave --> Valid
+    Saved --> Requested{是否已有离开请求}
+    Requested -->|是| Exit[允许已请求的离开]
+    Requested -->|否| Stay[留在当前配置页]
+    Discard --> Exit
+    Draft --> Browser[浏览器刷新或关闭]
+    Browser --> Native[仅浏览器原生离开提示]
+    Native -->|留下| Continue
+    Native -->|确认离开| Reopen[重开仅恢复已存配置]
+```
+
+字段与未解决队列校验失败、保存失败均不放行“保存并离开”；普通保存成功留在当前页，只有已有离开请求才执行退出。未初始化、已配置为空、全部停用和错误状态分别显示。PC预览不回写配置；跨分类复用同一个PNG不合并条目身份。
 
 ## 回访规则与时间节点
 
@@ -246,7 +314,8 @@ flowchart TD
     Route --> Friends[好友页恢复已采集入口和独立搜索]
     Friends --> Accounts[本租户本地账号草稿 查询后筛选]
     Friends --> ExpandGap[未采完整展开或业务库存 明确提示]
-    Route --> Scripts[话术搜索按按钮或Enter提交]
+    Route --> ToolsEntry[工具管理下选择话术管理]
+    ToolsEntry --> Scripts[同一languageManage 搜索按按钮或Enter提交]
     Scripts --> TenantTree[本租户已采分类树 保留父子与同名节点]
     TenantTree --> LeafChoice{是否选择末级分类}
     LeafChoice -->|否| PickLeaf[请选择无子分类的话术分类]

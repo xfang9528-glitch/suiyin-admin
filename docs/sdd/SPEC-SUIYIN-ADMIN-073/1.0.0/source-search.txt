@@ -1,0 +1,231 @@
+073 SOURCE SEARCH
+checked: 2026-09-29
+repository: suiyin-admin
+Q001 OLD ACTIVE CLAIMS
+command: rg -n -e 当前导航登记15租户、802 -e 共15租户、802入口、89路由 -e 当前导航库存为 \*\*802 -e 15 个租户、802 个租户 -e 本轮没有新增工程Issue README.md CLAUDE.md prd/admin-live-reference.md prd/language-manage.md prd/tenant-menu-drag.md prd/platform-menu-drag.md flowcharts/admin-live-reference.md flowcharts/language-manage.md docs/design-spec.md
+exit=1
+(no matches)
+
+
+Q002 NAVIGATION MIGRATION
+command: rg -n -e 一级.*话术 -e 工具管理 -e languageManage -e 隐藏 README.md CLAUDE.md prd/admin-live-reference.md prd/language-manage.md prd/tenant-menu-drag.md prd/platform-menu-drag.md flowcharts/admin-live-reference.md flowcharts/language-manage.md docs/design-spec.md
+exit=0
+prd/platform-menu-drag.md:5:管理者面对长菜单列表时，无需逐条填写排序号：拖动一级携带全部二级，二级可组内重排或移入另一个一级，各租户侧栏按当前平台默认结构和自己的明确调整即时更新。2026-09-29的[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)将原一级话术位置迁为「工具管理 → 话术管理」，并登记唯一的艺星辅助线定义；这是指定入口迁移，保留其他合法顺序/归属、原话术隐藏与权限。平台登记辅助线不等于非艺星获得业务入口。
+prd/platform-menu-drag.md:10:- 平台顺序、二级归属作为全部租户的默认结构；租户明确调整过的同级列表保留本租户顺序，仅被跨组移动项保留父级，其余继续跟平台。平台当前祖先链的隐藏与删除始终有效；即使租户已将菜单移出其平台父级，也不能绕过该父级隐藏。平台显示不解除租户独立隐藏，不扩充原有页面权限。名称相同但路由不同的项分别匹配。
+prd/platform-menu-drag.md:12:- 原型使用当前浏览器同源本地记忆；已有旧排序/隐藏设置直接接续。生产实施需由服务端保存并保证跨会话/全租户读取，不能把 localStorage 当作最终存储。
+docs/design-spec.md:9:当前导航登记15租户、808个页面入口、90种路由；源队列783个入口中741可见页已采、42保持源隐藏。原型扩展包含13个已有AI管理父级租户的AI费用统计、6个现有艺星回访规则和6个辅助线管理，均不计入实站采集；工具管理是结构父级，不计业务路由。2026-09-18 保存的 UI 资料覆盖 61 种路由、19 种编辑弹窗、2 种整页编辑；65 个菜单名称、64 个按钮名称拥有 SVG 映射，这些数量不是唯一图形数，也不表示所有租户已采集。
+docs/design-spec.md:15:2026-09-29话术页从「工具管理 → 话术管理」进入，继续使用同一`languageManage`及`admin-language-manage.js/css`与`data/language-manage.json`，按15租户本轮来源保留树与按钮状态。原一级入口由工具父级承接，不并列重复话术，也不恢复原先隐藏项。当前结构不再使用通用话术文本、去重平铺列表或默认首条编辑器。行为见[话术产品说明](../prd/language-manage.md)，证据见[本轮验收](verification/language-parity-20260929/README.md)。
+docs/design-spec.md:22:| 显示状态 | 普通眼睛与隐藏划线眼睛使用来源SVG；隐藏眼睛#e6a23c，名称浅灰；不以同一图标冒充两种状态 |
+docs/design-spec.md:24:| 末级列表 | 排序、标题、创建时间、最新编辑、隐藏、操作六列；表头39px、数据行最小49px；保持原表格滚动与表头冻结 |
+docs/design-spec.md:30:## 工具管理与辅助线管理
+docs/design-spec.md:32:全部租户在原一级话术位置展示工具父级，话术为二级；艺星能力有效的租户另有辅助线二级。侧栏、普通菜单、平台定义、旧链接及页签恢复按073的同一稳定身份迁移，其他菜单布局和合法自定义归属不变；父级没有可见子项时不制造空入口。平台定义仅用于登记，不能授予非艺星业务访问。
+docs/design-spec.md:82:- 068@1.0.0：先由本租户完整库存和平台当前默认结构生成有效树，再覆盖租户明确调整的同级列表顺序及被跨组移动项的父级；菜单表与可见导航共用此树。一级排序不冻结二级组，组内排序不冻结未移动项的父级；新进入成员按平台有效顺序追加，缺失项不造节点。平台当前祖先链的隐藏、删除和租户原权限独立限制可见性，跨组不能绕过；平台显示不解除租户独立隐藏。目标父级失效时保留覆盖、提示并暂用默认归属，恢复有效后重新应用。切换租户新开对应本地页面，弹页受阻提供链接。
+docs/design-spec.md:83:- DR-095 要求数据展示新增项同步菜单管理及已有平台定义；稳定身份、名称、路由、默认父级保持一致。普通 menu 的排序、归属、独立隐藏及权限只作用本租户；平台 allMenu 继续影响全部租户的默认部分，068 已明确调整的局部顺序与父级优先。平台060历史包中的普通menu排除和无条件覆盖不再作为当前规则。
+docs/design-spec.md:97:普通菜单按 [068@1.0.0](sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md) 保留名称、超级权限、状态、顺序、空白弹性列、操作六列；“顺序”为完整同层库存的只读 1…N，收起或隐藏不重排编号。名称左侧复用平台手柄，一级携全部子项移动，二级支持组内和跨一级移动，直接落在一级上追加末尾。空一级保留；携页一级接收子项后仍保留自身页面入口。编辑蓝、删除红、记录灰，名称继续只读；编辑中的数值排序框替换为“由列表拖动调整”。保留树、开关、文本状态、固定右操作和空白，不增加通用筛选、分页、刷新或列设置。
+docs/design-spec.md:139:保存到当前tenant的v2键，QA另用独立前缀；切换租户不能串读账号、规则或试算结果。深圳原API、稳定ID和v1/v2键及内容保持兼容，其他五店不读取深圳存储初始化。原5日期无需新参数且ID不变，appointment仅在基准显示为预约日期，原筛选拼写保留。合法旧事件配对回显为6个直接选项，打开或取消不写存储；非法/缺失次数显示“请选择有效的回访基准”并要求显式修复，不默认成首次或最近一次。v1只读保留并经明确选择开始新版或逐条导入草稿；唯一日期relative-day才可转出基准与单节点，附加条件保留，歧义说明原因。损坏或存储失败先报错与重试，不静默替换或先报成功；新增菜单按缓存revision对应的已发布基线迁移，保留本地删除、隐藏、改名与排序，不重激活深圳既有迁移。销售接待权限交集仅是后续PC合同，规则不授予权限；本页不接真实权限、客户数据、定时任务、发送、共享存储或PC名单实现。
+flowcharts/admin-live-reference.md:5:其他领域：六个现有艺星租户回访规则执行 [071@1.3.1](../docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)。2026-09-27录音/喜报三新页、对应入口迁移与本地演示边界继续执行 [REFRESH-001@0.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)，既有页面刷新继续原合同。普通菜单与平台/租户优先级执行068@1.0.0，平台拖动继续060@1.1.0；预约记录图表按062@1.0.0。当前静态原型共15租户、808入口、90路由；783个源队列入口与741可见已采/42隐藏口径不变，另13个AI费用、6个艺星回访规则及6个辅助线管理属于原型扩展。工具管理父级不计业务路由。其余合同为051@1.1.0、052@1.2.0、053@1.0.2、054@1.0.0、055@1.1.0、056@1.0.0、058@1.2.0，见[合同入口](../README.md)。以下流程均不写真实后台。
+flowcharts/admin-live-reference.md:13:    Tenant -->|是| Config[平台默认完整树叠加租户明确覆盖 再过滤隐藏和权限]
+flowcharts/admin-live-reference.md:15:    Tools --> Language[二级话术管理 保留原route状态隐藏和权限]
+flowcharts/admin-live-reference.md:46:    Entry[工具管理 辅助线管理或直达链接] --> Eligible{艺星能力与页面可见性有效}
+flowcharts/admin-live-reference.md:203:    PlatformSave --> Resolve[平台默认结构加租户局部覆盖 平台隐藏删除独立生效]
+flowcharts/admin-live-reference.md:211:    Tree --> Hidden[隐藏项仍留库存 可恢复]
+flowcharts/admin-live-reference.md:214:普通menu不再输入排序号，完整交互见[各租户菜单流程](tenant-menu-drag.md)。租户只冻结明确调整的同级顺序和被跨组移动项的父级；平台当前祖先链隐藏、删除及权限不能通过跨组绕过。平台父级级联阻止自身或后代形成循环；本地分配先展示差异和影响租户，再确认。删除指明对象与影响范围，取消不修改。
+flowcharts/admin-live-reference.md:287:    Observed -->|否| Missing[说明缺少样本 隐藏分页并禁用导出]
+flowcharts/admin-live-reference.md:302:「AI管理 → AI费用统计」仅复用13个已有父级，菜单隐藏与本地直链门禁一致。提交日期后，图表、五类四列表格及合计共用82天固定样本；指标与类别仅重绘趋势，模型来自查询记录快照。未知费用、部分值和缺日期各自表达，不补成零或完整实线。完整查询、计数费用与模型链路见 [费用交互流程](ai-cost-stats.md)，业务合同为 [058@1.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-058/1.2.0/spec.md)。
+flowcharts/admin-live-reference.md:315:    Route --> ToolsEntry[工具管理下选择话术管理]
+flowcharts/admin-live-reference.md:316:    ToolsEntry --> Scripts[同一languageManage 搜索按按钮或Enter提交]
+flowcharts/admin-live-reference.md:361:    DOM[本轮741可见源页DOM与截图 42入口源隐藏] --> Structure[证明加载和指定结构]
+flowcharts/language-manage.md:3:更新：2026-09-29。入口按[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)的R001–R003改为工具管理下二级话术，原路由与隐藏/权限、本地业务状态保持。页面继续继承[051@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md)的R002–R006、R008–R010。流程仅作用于当前浏览器的本地原型；数据范围见[产品说明](../prd/language-manage.md)。
+flowcharts/language-manage.md:7:    Enter[当前租户 工具管理下话术管理或旧直达链接] --> Permission{原话术隐藏和权限允许}
+flowcharts/language-manage.md:9:    Permission -->|是| Load{同一languageManage加载本租户独立样本}
+flowcharts/language-manage.md:40:    Capability -->|隐藏或显示| Local
+flowcharts/language-manage.md:48:分类显示状态来自本轮图标采样，未在真实后台点击隐藏/删除/保存；图中操作均为本地反馈。部门、销售和商品候选项按本租户已采范围提供，未采字段不转换成“全部”或其他租户选项。新增本地内容与源样本分开，媒体仅占位。
+prd/language-manage.md:3:更新：2026-09-29。现有15租户均从「工具管理 → 话术管理」进入同一`languageManage`路由；导航层级按[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)的R001–R003迁移，原链接、页签、本地话术数据、隐藏和权限保持。页面行为继续继承[051@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md)的R002–R006、R008–R010，[交付补充](../docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/deliveries/20260929-language-parity/README.md)保留话术纠偏的证据边界。
+prd/language-manage.md:5:管理者从工具管理进入话术管理后，应看到对应租户实际分类结构、按钮、末级列表和已采编辑内容，能够在本地检查新增、编辑、隐藏、排序与取消。分类不再被压平为同一组演示标题，也不再进入页面就自动编辑首条话术。原一级话术只保留为历史导航结构，不再并列显示第二个入口；工具父级不能让原先隐藏的话术重新出现。
+prd/language-manage.md:9:左侧为320px分类区，顶部搜索按按钮或Enter提交，匹配结果保留祖先路径。分类按已采父子关系和顺序展示，保留同名不同身份的节点；北京的两个同名“话术”根不得去重。展开、收起、选择与分类操作按各节点状态显示。萌爪已采隐藏分类保留橙色划线眼睛；来源状态来自图标观察，真实后台未执行隐藏或取消隐藏。
+prd/language-manage.md:11:默认不选分类；选父级时右侧仍显示“请选择无子分类的话术分类”。选中末级分类才显示对应面包屑、添加/记录操作及排序、标题、创建时间、最新编辑、隐藏、操作六列。已采空分类显示空列表；未采分类说明尚未采集，不把它当作真实零条。来源总量与公开样本条数分开，分页不制造缺失记录。
+prd/language-manage.md:15:编辑草稿与已存数据分离，取消或Escape关闭不保存；必填失败保留草稿。保存、隐藏、排序、删除确认与操作记录均发生在当前浏览器。未采详情打开后明确提示，不能把说明项或未知类型转换成话术正文。部门、销售、商品候选项仅取该租户实际已采选项；未知保持空列表及未采状态，不借用其他租户。
+prd/language-manage.md:35:从[深圳话术页](../prototype/_shell.html?tenant=yestar-sz&page=languageManage)、[佰智德三](../prototype/_shell.html?tenant=bzds&page=languageManage)或[萌爪](../prototype/_shell.html?tenant=mengzhua&page=languageManage)进入。首屏不选择末级分类，再检查本租户有样本的末级列表与编辑取消。所有状态均为静态原型；没有真实发送、后台配置变更、共享持久化或生产上线。
+prd/tenant-menu-drag.md:16:平台提供默认完整结构；租户只保存明确调整过的同级列表顺序，以及跨组时被移动项的父级。一级顺序调整不冻结各组二级，组内重排不冻结其他项的父级。平台后续变化继续作用于未覆盖部分。2026-09-29的[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)只将原一级话术位置迁为「工具管理 → 话术管理」，保留原话术隐藏/权限及其他菜单的合法覆盖；艺星另有辅助线子项，工具父级按可见子项显示，不因迁移复活隐藏话术或扩大租户能力。
+prd/tenant-menu-drag.md:20:平台当前祖先链的隐藏、删除及原有权限独立生效。把菜单从平台隐藏的父级移到别处不能解除隐藏；平台显示也不能新增本租户页面或解除本租户独立隐藏。可见导航由同一完整菜单树过滤得到，隐藏项仍留在库存。
+prd/tenant-menu-drag.md:28:旧版数字排序、隐藏和权限设置接续为初始有效状态，不自动当作新拖动意图。外部菜单变更到达时取消未提交拖动、清理旧撤销并载入最新结构，避免用旧快照覆盖新设置。
+CLAUDE.md:3:2026-09-29工具管理及辅助线执行[073@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/README.md)：全部租户原一级话术位置迁为工具父级及二级话术；艺星能力登记有效的租户另有辅助线管理，每租户一套可编辑配置。话术页面继续[051@1.1.0交付补充](docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/deliveries/20260929-language-parity/README.md)的R002–R006、R008–R010，原路由、隐藏、权限和状态保持；15租户分类树、六列列表和弹窗由专用模块承接。[话术验收](docs/verification/language-parity-20260929/README.md)仅证明记录内几何，不外推全部状态逐像素一致。073新页面不冒充实站采样。
+CLAUDE.md:23:- `admin-language-manage.js/css`、`data/language-manage.json`：十五租户话术管理专用树、列表与本地编辑；`admin-domain-views.js`的`languageManage`路由直接调用此模块。旧`scriptWorkspace`和通用`data/content/`中的话术文本仅留作历史兼容，不是本路由的渲染或数据入口。
+CLAUDE.md:39:1. 2026-09-29当前导航登记15租户、808页面入口、90路由；783个源队列入口中741可见已采、42保持隐藏，另有13个AI费用、6个现有艺星回访规则及6个辅助线管理原型入口；工具管理仅为结构父级，不计业务route。不从平台目录或PC注册表新增环境，辅助线按显式艺星能力登记开放；平台定义不授予非艺星业务权限。796/88及802/89分别只对应09-27、09-28历史基线。
+CLAUDE.md:40:2. 同名菜单按稳定 route/identity 区分；菜单表与导航由同一有效完整树派生，隐藏库存独立保留。DR-095：数据展示新增项同次补齐适用租户菜单管理和已有平台定义。普通 menu 按 068@1.0.0 在全部 15 租户支持一级整组、二级组内/跨组拖动，六列顺序只读，编辑不再输入排序号；成功、撤销、刷新联动本租户侧栏。060@1.1.0 的平台拖动继续有效；平台提供默认顺序与归属，租户明确调整过的同级列表及被跨组移动项的父级按 068 优先，其余继续跟平台。平台当前祖先链隐藏/删除及原权限独立生效，不能通过跨组绕过。旧060版本包保持历史，不用于否定068的限定覆盖。原型15租户是验证清单，不是生产白名单。
+CLAUDE.md:56:14. 六艺星各自 `menu` 和侧栏均登记一次 `revisitRules`，成都/北京挂 `group-9`，深圳/广州/杭州/嘉兴挂 `group-10`；德三 `allMenu` 复用已有唯一平台定义，不重复插入，也不因此向非艺星开放。新增五店菜单迁移按缓存revision对应的已发布完整基线比较，保留更老fallback、删除、隐藏、改名与排序；沿用 `revisit-rules-v1` 迁移标记，深圳既有用户选择不重新激活。
+CLAUDE.md:62:17. 073的工具/话术是指定入口迁移：原位置变工具父级，话术保留原route、业务状态键、隐藏和权限；工具按可见子项出现。平台、menu与侧栏同一有效树，其他合法菜单调整不被重置。辅助线只对艺星显式能力有效，当前六店是验收清单，不是生产白名单；非艺星直达不可读取配置。
+README.md:3:这是十五租户的静态管理后台原型，用于对照真实页面、评审操作和统计规则。2026-09-29 按当前导航登记 **15 个租户、808 个租户×页面入口、90 种路由**。其中783个入口属于2026-09-27源环境采集队列，741个可见页面已有有效DOM和截图，42个保持源隐藏状态；另有13个既有AI费用原型扩展、6个艺星回访规则及6个艺星辅助线管理入口。工具管理是结构父级，不计业务路由；新增原型不计入实站采集页数，采集覆盖不等于全部页面、全部状态逐像素一致。
+README.md:5:本轮[073@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/README.md)把全部租户原一级话术的位置改为「工具管理 → 话术管理」，保留原路由、隐藏/权限和本地话术状态；所有艺星另有「辅助线管理」，自行维护分类、透明PNG、顺序与启停，显式保存草稿并预览PC效果。现有默认和门店来源均可编辑，每个租户一套独立配置。初始16类129条123文件来自本地PC原型，明确为演示来源，不证明各店最新生产清单已经迁移。
+README.md:12:- 工具管理 → 话术管理：[深圳艺星](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=languageManage) · [佰智德三](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=languageManage) · [萌爪](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=mengzhua&page=languageManage) · [话术交互流程](flowcharts/language-manage.md)
+README.md:13:- 工具管理 → 辅助线管理：[深圳艺星](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=guideLineManage) · [北京艺星](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-bj&page=guideLineManage) · [073交付合同](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/README.md)
+README.md:33:| 当前导航与完整库存 | 15租户；保留源隐藏项、平台限制和本地改名/隐藏/拖动覆盖；7项设置迁移检查通过 |
+README.md:46:| [073@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/README.md) | 全部租户工具父级及话术入口迁移；全部艺星辅助线分类/图片自助维护、租户隔离草稿、异常重试、离开守卫与PC效果预览；限定替代旧一级话术和固定库在Admin中的范围 |
+README.md:57:菜单表与导航共用有效完整树。平台提供默认顺序和归属，租户明确调整的同级列表及被移动项父级优先；平台当前祖先链隐藏、删除和原权限始终生效。073只迁移指定工具/话术层级，其他合法覆盖保留，隐藏话术不复活；平台登记辅助线不授予非艺星业务权限。旧快照中的默认位置不当作用户明确拖动，也不删除已批准的拖动、预约图表和统计扩展。
+README.md:63:在仓根运行 `python -m http.server 8148 --bind 127.0.0.1`，用Google Chrome打开 `http://127.0.0.1:8148/prototype/_shell.html?tenant=yestar-sz&page=guideLineManage`，也可从工具管理进入话术。业务演示状态按租户与路由隔离；辅助线未解决队列和草稿均受离开保护，已保存为空不恢复默认。验收使用隔离浏览器或独立QA存储。单文件由生成器产出，不手工编辑。
+prd/admin-live-reference.md:3:更新：2026-09-29。工具管理及艺星辅助线自助管理执行[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)。全部租户的导航入口改为「工具管理 → 话术管理」，艺星另有「辅助线管理」；话术页面的领域结构、真实样本和本地交互仍继承051@1.1.0，见[话术管理](language-manage.md)及[交付补充](../docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/deliveries/20260929-language-parity/README.md)。下列其他领域沿用各自版本。
+prd/admin-live-reference.md:11:范围为十五租户：佰智德三、锦帛美学、萌爪、诚如风险管理事务所、厚全鸡蛋、柚子烘焙；瑞熙小刘、小温、小周；艺星成都、深圳、北京、广州、杭州、嘉兴。当前导航库存为 **808 个租户页面入口、90 种路由**。其中783个为源环境队列，741个可见页有有效DOM与截图，42个按源隐藏；另有13个既有AI费用原型扩展、6个现有艺星回访规则及6个艺星辅助线管理入口，扩展项不计入实站采集。「工具管理」是结构父级，不新增业务页面路由。截图排除项、碎银私域和不可访问环境不新增纳入。各租户保留自己的可用入口、权限和独立显示配置；菜单表和侧栏按068共用有效完整树。平台allMenu提供默认顺序和归属，租户明确调过的同级列表及被移动项父级优先；073仅迁移工具/话术的指定层级，保留其他合法调整；平台当前祖先链隐藏/删除和既有权限始终约束可见导航。
+prd/admin-live-reference.md:18:| 普通和平台菜单 | 都支持一级整组、二级组内/跨组拖动、只读同层顺序和最近移动撤销；普通六列、平台九列；见[租户菜单](tenant-menu-drag.md)和[平台菜单](platform-menu-drag.md) | 普通配置仅作用本租户；平台影响未覆盖默认结构并独立限制隐藏/删除；库存与权限隔离，无通用搜索/分页 |
+prd/admin-live-reference.md:20:| 工具管理 → 话术管理 | 全部租户原位置由工具父级承接，二级话术保留原route；本租户已采分类树、默认空态、末级六列表格与编辑继续原行为 | 15租户1246节点；42个已采列表分类155条列表样本、48详情；原隐藏、权限和本地状态保持，未采不当作空；见[专页说明](language-manage.md) |
+prd/admin-live-reference.md:21:| 工具管理 → 辅助线管理 | 全部艺星租户独立维护分类、透明PNG、顺序和启停；批量处理、显式保存草稿及PC效果预览 | 073批准的新设计；当前六艺星验收。初始16类129条123文件是本地演示来源，不是本店最新生产迁移；非艺星直达不给数据 |
+prd/admin-live-reference.md:33:## 工具管理与艺星辅助线
+prd/admin-live-reference.md:37:全部租户把原一级话术的位置替换为「工具管理」，话术成为其二级，`languageManage`链接、页签恢复、状态键和原有内容保持兼容。普通菜单、平台定义和侧栏使用相同结构；工具父级按可见子项展示，原话术隐藏与权限继续有效。迁移不重复添加话术，也不把工具统一追加到菜单末尾。平台可登记辅助线定义，但定义存在不向佰智德三等非艺星租户开放业务数据。
+prd/admin-live-reference.md:70:六租户普通菜单 `menu` 各登记一次同一路由，德三 `allMenu` 复用唯一平台定义；平台定义存在不代表其他租户获得入口。新增五店按各自已发布菜单revision基线迁移，保留本地删除、隐藏、改名与排序；深圳既有菜单状态不重新激活。
+prd/admin-live-reference.md:123:**DR-095**：今后「数据展示」新增二级菜单，同次必须增加对应租户菜单管理项和已有平台定义。稳定身份、名称、路由和默认父级一致；隐藏后仍在完整库存可恢复。普通menu按068的拖动顺序、归属、显示配置联动同租户侧栏，平台allMenu按060提供全部租户的默认规则；068的明确局部覆盖优先，平台隐藏/删除及已有页面和权限边界保持有效。
+
+
+Q003 HISTORICAL SCOPE / CURRENT REPLACEMENT
+command: rg -n -e 跨租户通用 -e 全部可编辑 -e 五城 -e 123 -e 129 -e 后台.*素材 prototype-sdd/specs/073-admin-tools-guide-lines/evidence.md prd/admin-live-reference.md docs/design-spec.md prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md
+exit=0
+docs/design-spec.md:48:初始16类129条123文件只记录本地030素材来源；真实门店最新独立清单尚未验证。透明PNG每张10MiB是原型示例上限，非生产额度承诺。030的固定库数量、PPT来源和旧五城仅约束其原PC交付；073保留分类、纯缩略图与透明对象操作语义，同时允许每个艺星租户形成自己的可编辑配置。全部保存反馈明确当前浏览器本地，不宣称真实上传或PC同步完成。
+prd/admin-live-reference.md:21:| 工具管理 → 辅助线管理 | 全部艺星租户独立维护分类、透明PNG、顺序和启停；批量处理、显式保存草稿及PC效果预览 | 073批准的新设计；当前六艺星验收。初始16类129条123文件是本地演示来源，不是本店最新生产迁移；非艺星直达不给数据 |
+prd/admin-live-reference.md:35:行为合同：[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)，对应R001–R011。客户在后台自行维护PC图片编辑需要的辅助线，减少每次增加或替换素材都等待工程师改包的依赖；当前交付只验证本地管理与预览，不表示真实PC已经同步。
+prd/admin-live-reference.md:39:辅助线以艺星身份及显式能力登记开放，每个后台租户一套配置。当前验收覆盖深圳、成都、北京、广州、杭州、嘉兴六艺星；九个非艺星无业务入口，直接地址也不能取得配置。六店是当前样例，不是生产白名单。来源标签只说明素材出处，系统默认与门店专属分类、图片均可在所属租户增删改。
+prd/admin-live-reference.md:53:当前初始演示取自030本地共享目录，16类、129条、123个唯一PNG按租户独立初始化。尚未取得各店最新生产清单时，明确标注演示；数量不是配置不变量，用户增删改后允许不同。030既有PC版本的固定目录、原PPT来源和五城样例保留为当时交付合同，073仅继承其分类、纯缩略图与对象交互，不把旧范围排除套到新增Admin管理。原型不提供跨租户复制、恢复默认、真实上传、数据库迁移或跨端同步。
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:25:- **本次范围**：在碎银 PC 多租户原型的全部艺星门店和独立艺星 PC 原型中，为图片编辑器与截图编辑器增加同一套 16 类、129 个可选条目的医美 PNG 工具库及对象级变换交互。
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:28:- **素材资产结论（仅内部追溯）**：附件共 19 页；第 1、14 页为封面，第 19 页为空白；第 2–13、15–18 页形成 16 个工具分类。分类页共有 130 个图片摆放实例，页内重复去重后为 129 个目录条目，对应 123 个唯一透明 PNG；这些来源与数量不再作为用户界面文案。
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:53:| O002 | 16 个分类保持既有业务顺序，界面只显示分类名称；129 个内部目录条目对应 123 个唯一透明 PNG，来源页与数量只用于数据校验 | 资产清单、可见文案与内部计数校验 |
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:71:- 两套原型本地化保存相同的 123 个唯一 PNG，并按 16 个页分类提供 129 个菜单条目。
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:107:| E003 | USER | 对 E002 的逐页只读检查 | 19 页中 16 页为工具分类；130 个摆放实例、123 个唯一工具 PNG，全部具有透明像素；页 1 / 14 为封面，页 19 为空白 | confirmed-extraction |
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:109:| E005 | PROTO | 多租户 `prototype/tenant.js` 的五城注册、`baseOf`、`get()` / `getRaw()` 与 `data-tenant` 显隐 | `data-tenant="yestar"` 可覆盖五个现有艺星城市并排除非艺星；原始租户键仍独立 | confirmed-current |
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:136:`SPEC-YESTAR-PC-029@1.0.0` 只提供相邻的五城范围证据，其主题是预约卡片，不作为本需求行为依赖，避免无关升版使本规格 stale。
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:151:- Then 五城艺星与独立艺星均显示「医美工具」；非艺星不显示按钮、空白占位、弹层或医美素材状态。
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:163:- Then 用户界面只显示「全面部」至「男士 U 区下颌缘」等 16 个分类名称；标题、分类项、状态区、空态和无障碍标签均不出现「PPT」「页 / 本页」「来源页码」或工具总数 / 分类数量。每张具体工具卡的可视区域只显示缩略图，不显示工具名称、「工具 01」类编号或宽高尺寸。内部仍按既有来源顺序保存 `sourceSlide`、页内去重与跨页复用入口，目录条目数 129 仅用于校验，不作为用户文案。
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:248:- When 逐项比对 16 个分类、129 个入口、123 个唯一 PNG、素材哈希与主交互回归。
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:269:| R015 | 两仓 MUST 使用字节一致的 123 个本地唯一 PNG 与同一 129 条页级目录；缺失、漂移、外网依赖或非艺星泄漏均不得验收 | MUST | E002、E003、E008 | 无 | AC-R015-01 |
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:318:| **合计** | — | **16 类** | — | **129** | **分类内计数 129；全局去重后 123** | 跨页重复保留各页入口 |
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:371:| 标题补充说明 | 不显示 | 用户不需要知道素材来自 PPT，也不需要看到工具总数 | 按 PPT 页分类 · 129 个工具 |
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:373:| 分类数量 | 不显示 | 数量只用于内部校验，不干扰选择 | 10 / 本页 10 个工具 / 共 129 个工具 |
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:417:| Base 规则 | 多租户艺星五城 | 独立艺星 PC | 非艺星 PC | 租户 Override |
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:420:| R002–R005 目录 | 同一 16 类 / 129 条目 | 同一目录 | 不加载 | 无 |
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:433:- **本地素材目录**：两仓各自的 `prototype/assets/yestar-medical-tools/`；123 个唯一 PNG 字节一致，页分类通过目录清单引用。
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:436:- **必须模拟的状态**：五城 / 非艺星显隐、两编辑器目录、16 分类、loading / empty / error / overflow、单 / 多对象、拖动、缩放上下限、自由旋转 / 15° 吸附、重叠命中、删除、撤销、失败重试、取消、输出、切上下文。
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:437:- **关键 mock 数据**：PPT 中 123 个唯一透明 PNG；至少选择一个高分辨率全脸合成图、一个小尺寸局部图、一个跨页复用图和口周页内重复图验证目录去重。
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:477:| Q001 | 分类如何体现“PPT 按页分类”，重复 PNG 怎么处理？ | 显示「页码 + 标题」；同页同文件只显示一次，跨页复用仍在每个来源页出现；最终 16 类、129 个条目、123 个唯一 PNG | R003、目录数量与来源追踪 | 否 | closed — 房总 2026-08-29「按推荐做」 |
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:508:| 1.1.0 | 2026-08-31 | Codex | implemented：用户界面只显示分类名称，移除 PPT、来源页码和工具数量文案；具体工具卡改为无可见名称、编号或尺寸的纯缩略图，固定为 `94px` 高；条目超出可视区时在缩略图区纵向滚动；内部来源字段、顺序、129 条目录与 123 个 PNG 不变；已在多租户图片编辑与独立艺星截图编辑中完成 Chrome 验证 | 房总针对两张当前原型截图提出迭代、回复「按这个做」，并追加要求具体工具卡去掉文案与尺寸 |
+prototype-sdd/specs/030-yestar-pc-medical-aesthetic-image-tools/spec.md:510:| 0.1.0 | 2026-08-28 | Codex | 初稿：定义艺星专用入口、PPT 16 页分类、123 个透明 PNG、129 个页级条目、可变换医美对象、撤销与输出边界 | 房总要求在全部艺星 PC 租户和独立艺星原型的图片 / 截图编辑中增加医美专用辅助划线工具 |
+prototype-sdd/specs/073-admin-tools-guide-lines/evidence.md:7:- 正确的原型需求为 [xfang9528-glitch/suiyin-admin#2](https://github.com/xfang9528-glitch/suiyin-admin/issues/2)：本轮读取时OPEN，标题「新增原型页：医美划线工具配置（企业运营在后台自建分类、上传图片）」；读取时无评论。其早期跨租户通用范围及未决覆盖方案已由073@1.0.0的R003/R004和本节用户决策限定替代；旧提案只用于追溯，不作为当前实施范围。
+prototype-sdd/specs/073-admin-tools-guide-lines/evidence.md:8:- 关联用户故事为 [PetWebOrg/flutter-suiyin#7584](https://github.com/PetWebOrg/flutter-suiyin/issues/7584)：明确默认内容保留、企业自助分类/图片、上传失败与配置切换隔离。2026-09-29 工程评论记录原型和后端契约依赖。其跨租户通用表述与旧未决初始化方案在本次Admin工作中由073@1.0.0替代；保留旧工程来源，不据此声称生产已迁移或授权实施Flutter。
+prototype-sdd/specs/073-admin-tools-guide-lines/evidence.md:21:- [SPEC-YESTAR-PC-030@1.1.0](../030-yestar-pc-medical-aesthetic-image-tools/spec.md)：implemented；原PC版本保持不可变。073继承其图片/截图透明PNG对象操作与纯缩略图语义；030的后台管理/自定义上传排除、固定PPT来源与123文件/129条目录不约束073的Admin自助配置。旧五城是当时PC样例，当前Admin含北京的六艺星也不是生产白名单。
+prototype-sdd/specs/073-admin-tools-guide-lines/evidence.md:25:- 本轮只读比对：两仓 `catalog.json`、`catalog.js` 以及123个PNG字节一致。
+prototype-sdd/specs/073-admin-tools-guide-lines/evidence.md:47:共16类、129个目录条目、123个唯一文件。分类有稳定`categoryId`；条目有稳定`toolId`和`src`。跨分类复用图片不能按文件名全局去重而删掉分类入口。替换一个租户某一条目时不能就地改共享图片文件而影响其他引用。
+prototype-sdd/specs/073-admin-tools-guide-lines/evidence.md:49:本地PC当前只有成都、深圳、广州、杭州、嘉兴五个艺星注册；按`base:yestar`继承。Admin当前另有北京，需纳入本轮六店验收。旧五城和当前六店均是样例清单，不能限制用户“所有艺星租户”的规则。
+
+
+Q004 CURRENT ENTRY
+command: rg -n -e 808 -e 90 -e 073 -e 442 -e build996 README.md CLAUDE.md prd/admin-live-reference.md prd/language-manage.md prd/tenant-menu-drag.md prd/platform-menu-drag.md flowcharts/admin-live-reference.md flowcharts/language-manage.md docs/design-spec.md
+exit=0
+flowcharts/language-manage.md:3:更新：2026-09-29。入口按[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)的R001–R003改为工具管理下二级话术，原路由与隐藏/权限、本地业务状态保持。页面继续继承[051@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md)的R002–R006、R008–R010。流程仅作用于当前浏览器的本地原型；数据范围见[产品说明](../prd/language-manage.md)。
+docs/design-spec.md:3:更新：2026-09-29。工具父级、二级话术及艺星辅助线管理执行[073@1.0.0](sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)。辅助线是批准的新设计；话术页面的组件、几何和样本仍沿用051@1.1.0及下方“话术管理”，不因入口迁移改变。其他领域继续下列独立合同。
+docs/design-spec.md:9:当前导航登记15租户、808个页面入口、90种路由；源队列783个入口中741可见页已采、42保持源隐藏。原型扩展包含13个已有AI管理父级租户的AI费用统计、6个现有艺星回访规则和6个辅助线管理，均不计入实站采集；工具管理是结构父级，不计业务路由。2026-09-18 保存的 UI 资料覆盖 61 种路由、19 种编辑弹窗、2 种整页编辑；65 个菜单名称、64 个按钮名称拥有 SVG 映射，这些数量不是唯一图形数，也不表示所有租户已采集。
+docs/design-spec.md:19:| 内容布局 | 左分类区320px；右列表距分隔线20px。1480×900 CSS视口通常从x260/y125进入；锦帛索引警示随宽度自然换行：宽屏40px正文＋10px下边距，窄屏64px正文＋10px下边距、主体y199；不固定警示高度 |
+docs/design-spec.md:32:全部租户在原一级话术位置展示工具父级，话术为二级；艺星能力有效的租户另有辅助线二级。侧栏、普通菜单、平台定义、旧链接及页签恢复按073的同一稳定身份迁移，其他菜单布局和合法自定义归属不变；父级没有可见子项时不制造空入口。平台定义仅用于登记，不能授予非艺星业务访问。
+docs/design-spec.md:34:辅助线专用模块为`admin-guide-lines.js/css`、`admin-guide-lines-model.js`及`admin-guide-lines-preview.js/css`，不复用话术树的320px实采几何。页面是073批准的新设计，不宣称与某个线上辅助线管理页逐像素一致。
+docs/design-spec.md:48:初始16类129条123文件只记录本地030素材来源；真实门店最新独立清单尚未验证。透明PNG每张10MiB是原型示例上限，非生产额度承诺。030的固定库数量、PPT来源和旧五城仅约束其原PC交付；073保留分类、纯缩略图与透明对象操作语义，同时允许每个艺星租户形成自己的可编辑配置。全部保存反馈明确当前浏览器本地，不宣称真实上传或PC同步完成。
+docs/design-spec.md:59:| 新增辅助线 guideLineManage 主操作 | #07c160，073批准的新设计；禁用保存使用浅绿并降低不透明度，不能看起来仍可提交 |
+docs/design-spec.md:66:| 辅助/表头 | #909399 |
+docs/design-spec.md:147:趋势位于表格上方，指标和类别控件32px高，默认次数/全部已列项目；类别只影响图表。完整折线及实心点#00b6a3，部分已知使用#c69035空心孤立点，缺日期/未知/未启用无调用保留日期位置并断线；颜色之外保留图例和文字状态。单日仅一个点；提示支持鼠标与键盘，包含日期、类别、值或未知和单类模型。主操作继承费用页局部#00c4af，不把此颜色推广到其他页面。
+flowcharts/admin-live-reference.md:3:更新：2026-09-29。工具父级、话术入口迁移和艺星辅助线管理按[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)。话术树、末级列表和本地编辑继续[话术管理流程](language-manage.md)与051@1.1.0；导航迁移不重置原业务状态。
+flowcharts/admin-live-reference.md:5:其他领域：六个现有艺星租户回访规则执行 [071@1.3.1](../docs/sdd/SPEC-SUIYIN-ADMIN-071/1.3.1/README.md)。2026-09-27录音/喜报三新页、对应入口迁移与本地演示边界继续执行 [REFRESH-001@0.2.0](../docs/sdd/SPEC-SUIYIN-ADMIN-REFRESH-001/0.2.0/README.md)，既有页面刷新继续原合同。普通菜单与平台/租户优先级执行068@1.0.0，平台拖动继续060@1.1.0；预约记录图表按062@1.0.0。当前静态原型共15租户、808入口、90路由；783个源队列入口与741可见已采/42隐藏口径不变，另13个AI费用、6个艺星回访规则及6个辅助线管理属于原型扩展。工具管理父级不计业务路由。其余合同为051@1.1.0、052@1.2.0、053@1.0.2、054@1.0.0、055@1.1.0、056@1.0.0、058@1.2.0，见[合同入口](../README.md)。以下流程均不写真实后台。
+flowcharts/admin-live-reference.md:42:本节为073批准的新页面，范围为全部艺星；当前六艺星是验收样例。每个租户一套，默认与专属来源均可编辑，初始样本来自本地030目录，不声明完成本店生产迁移。
+prd/platform-menu-drag.md:5:管理者面对长菜单列表时，无需逐条填写排序号：拖动一级携带全部二级，二级可组内重排或移入另一个一级，各租户侧栏按当前平台默认结构和自己的明确调整即时更新。2026-09-29的[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)将原一级话术位置迁为「工具管理 → 话术管理」，并登记唯一的艺星辅助线定义；这是指定入口迁移，保留其他合法顺序/归属、原话术隐藏与权限。平台登记辅助线不等于非艺星获得业务入口。
+CLAUDE.md:3:2026-09-29工具管理及辅助线执行[073@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/README.md)：全部租户原一级话术位置迁为工具父级及二级话术；艺星能力登记有效的租户另有辅助线管理，每租户一套可编辑配置。话术页面继续[051@1.1.0交付补充](docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/deliveries/20260929-language-parity/README.md)的R002–R006、R008–R010，原路由、隐藏、权限和状态保持；15租户分类树、六列列表和弹窗由专用模块承接。[话术验收](docs/verification/language-parity-20260929/README.md)仅证明记录内几何，不外推全部状态逐像素一致。073新页面不冒充实站采样。
+CLAUDE.md:24:- `admin-guide-lines-model.js`、`admin-guide-lines.js/css`、`admin-guide-lines-preview.js/css`、`data/guide-lines.js`、`assets/guide-lines/`：073辅助线租户模型、管理草稿与逐项处理、PC效果预览及轻量本地素材；`guideLineManage`由内容入口专用分支挂载，Shell等待其离开确认。
+CLAUDE.md:39:1. 2026-09-29当前导航登记15租户、808页面入口、90路由；783个源队列入口中741可见已采、42保持隐藏，另有13个AI费用、6个现有艺星回访规则及6个辅助线管理原型入口；工具管理仅为结构父级，不计业务route。不从平台目录或PC注册表新增环境，辅助线按显式艺星能力登记开放；平台定义不授予非艺星业务权限。796/88及802/89分别只对应09-27、09-28历史基线。
+CLAUDE.md:62:17. 073的工具/话术是指定入口迁移：原位置变工具父级，话术保留原route、业务状态键、隐藏和权限；工具按可见子项出现。平台、menu与侧栏同一有效树，其他合法菜单调整不被重置。辅助线只对艺星显式能力有效，当前六店是验收清单，不是生产白名单；非艺星直达不可读取配置。
+CLAUDE.md:64:18. 辅助线默认/门店来源均可编辑，每租户一套；16类129条123PNG仅为030本地初始演示，不能写成已核对各店最新生产清单或用户修改后的固定数量。分类图片CRUD/排序/启停先改草稿；透明PNG逐项处理，失败可重试/重选/移除，处理中及失败队列也算dirty。替换保身份和顺序，删除/放弃/旧租户迟到结果失效；清空保存不复活默认。保存失败保草稿与旧配置；应用内离开必须等待保存/放弃/继续，原生刷新关闭只触发浏览器提示。PC预览深复制当前草稿，只展示启用分类与纯缩略图，不回写配置、不宣称真实PC同步。工程Issue已创建为[#442](https://github.com/PetWebOrg/suiyin-admin/issues/442)，负责人王梓先（`build996`），提出环境佰智德三、提出人房昕，`status:todo`；执行以[073交接合同](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/issue-handoff.md)为准，不把本地原型检查当作生产验收。
+CLAUDE.md:66:旧主题、菜单及好友独立页已归档，只解释历史。030原PC已发布快照保持不变，固定目录/来源和旧五城不约束073的Admin自助配置。当前指令以本文件、设计规范和对应精确版本合同为准。
+README.md:3:这是十五租户的静态管理后台原型，用于对照真实页面、评审操作和统计规则。2026-09-29 按当前导航登记 **15 个租户、808 个租户×页面入口、90 种路由**。其中783个入口属于2026-09-27源环境采集队列，741个可见页面已有有效DOM和截图，42个保持源隐藏状态；另有13个既有AI费用原型扩展、6个艺星回访规则及6个艺星辅助线管理入口。工具管理是结构父级，不计业务路由；新增原型不计入实站采集页数，采集覆盖不等于全部页面、全部状态逐像素一致。
+README.md:5:本轮[073@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/README.md)把全部租户原一级话术的位置改为「工具管理 → 话术管理」，保留原路由、隐藏/权限和本地话术状态；所有艺星另有「辅助线管理」，自行维护分类、透明PNG、顺序与启停，显式保存草稿并预览PC效果。现有默认和门店来源均可编辑，每个租户一套独立配置。初始16类129条123文件来自本地PC原型，明确为演示来源，不证明各店最新生产清单已经迁移。
+README.md:13:- 工具管理 → 辅助线管理：[深圳艺星](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-sz&page=guideLineManage) · [北京艺星](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=yestar-bj&page=guideLineManage) · [073交付合同](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/README.md)
+README.md:46:| [073@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/README.md) | 全部租户工具父级及话术入口迁移；全部艺星辅助线分类/图片自助维护、租户隔离草稿、异常重试、离开守卫与PC效果预览；限定替代旧一级话术和固定库在Admin中的范围 |
+README.md:57:菜单表与导航共用有效完整树。平台提供默认顺序和归属，租户明确调整的同级列表及被移动项父级优先；平台当前祖先链隐藏、删除和原权限始终生效。073只迁移指定工具/话术层级，其他合法覆盖保留，隐藏话术不复活；平台登记辅助线不授予非艺星业务权限。旧快照中的默认位置不当作用户明确拖动，也不删除已批准的拖动、预约图表和统计扩展。
+README.md:67:本轮交付标签为 `v2026092902-admin-tools-guide-lines`，实际提交、单文件验收、tag推送和远端部署以 [release.json](release.json) 与发布回执为准；文档链接不单独证明已经部署。旧 [2026-09-20纠偏](docs/verification/pixel-correction-20260920.md)、[冻结验收](docs/verification/filters-sticky-20260920.md) 和版本化SDD仅证明各自当时范围。旧主题及好友独立页见 [历史入口](docs/history/before-admin-live-reference/README.md)，不作为当前Shell实现指令。
+README.md:69:原型发布不等于生产上线。本次Admin工程Issue已创建为[#442](https://github.com/PetWebOrg/suiyin-admin/issues/442)，负责人王梓先（`build996`），提出环境佰智德三、提出人房昕，当前为`status:todo`；执行以[073交接合同](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/issue-handoff.md)与[Test Contract](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/test-contract.md)为准。既有销售变声[#401](https://github.com/PetWebOrg/suiyin-admin/issues/401)、AI费用[#402](https://github.com/PetWebOrg/suiyin-admin/issues/402)、预约图表[#404](https://github.com/PetWebOrg/suiyin-admin/issues/404)、租户菜单[#432](https://github.com/PetWebOrg/suiyin-admin/issues/432)仍由各自精确合同承接。15租户是原型验证清单，不是生产白名单；不更新开发进度表。
+prd/tenant-menu-drag.md:16:平台提供默认完整结构；租户只保存明确调整过的同级列表顺序，以及跨组时被移动项的父级。一级顺序调整不冻结各组二级，组内重排不冻结其他项的父级。平台后续变化继续作用于未覆盖部分。2026-09-29的[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)只将原一级话术位置迁为「工具管理 → 话术管理」，保留原话术隐藏/权限及其他菜单的合法覆盖；艺星另有辅助线子项，工具父级按可见子项显示，不因迁移复活隐藏话术或扩大租户能力。
+prd/language-manage.md:3:更新：2026-09-29。现有15租户均从「工具管理 → 话术管理」进入同一`languageManage`路由；导航层级按[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)的R001–R003迁移，原链接、页签、本地话术数据、隐藏和权限保持。页面行为继续继承[051@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/spec.md)的R002–R006、R008–R010，[交付补充](../docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/deliveries/20260929-language-parity/README.md)保留话术纠偏的证据边界。
+prd/admin-live-reference.md:3:更新：2026-09-29。工具管理及艺星辅助线自助管理执行[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)。全部租户的导航入口改为「工具管理 → 话术管理」，艺星另有「辅助线管理」；话术页面的领域结构、真实样本和本地交互仍继承051@1.1.0，见[话术管理](language-manage.md)及[交付补充](../docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/deliveries/20260929-language-parity/README.md)。下列其他领域沿用各自版本。
+prd/admin-live-reference.md:11:范围为十五租户：佰智德三、锦帛美学、萌爪、诚如风险管理事务所、厚全鸡蛋、柚子烘焙；瑞熙小刘、小温、小周；艺星成都、深圳、北京、广州、杭州、嘉兴。当前导航库存为 **808 个租户页面入口、90 种路由**。其中783个为源环境队列，741个可见页有有效DOM与截图，42个按源隐藏；另有13个既有AI费用原型扩展、6个现有艺星回访规则及6个艺星辅助线管理入口，扩展项不计入实站采集。「工具管理」是结构父级，不新增业务页面路由。截图排除项、碎银私域和不可访问环境不新增纳入。各租户保留自己的可用入口、权限和独立显示配置；菜单表和侧栏按068共用有效完整树。平台allMenu提供默认顺序和归属，租户明确调过的同级列表及被移动项父级优先；073仅迁移工具/话术的指定层级，保留其他合法调整；平台当前祖先链隐藏/删除和既有权限始终约束可见导航。
+prd/admin-live-reference.md:21:| 工具管理 → 辅助线管理 | 全部艺星租户独立维护分类、透明PNG、顺序和启停；批量处理、显式保存草稿及PC效果预览 | 073批准的新设计；当前六艺星验收。初始16类129条123文件是本地演示来源，不是本店最新生产迁移；非艺星直达不给数据 |
+prd/admin-live-reference.md:35:行为合同：[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)，对应R001–R011。客户在后台自行维护PC图片编辑需要的辅助线，减少每次增加或替换素材都等待工程师改包的依赖；当前交付只验证本地管理与预览，不表示真实PC已经同步。
+prd/admin-live-reference.md:53:当前初始演示取自030本地共享目录，16类、129条、123个唯一PNG按租户独立初始化。尚未取得各店最新生产清单时，明确标注演示；数量不是配置不变量，用户增删改后允许不同。030既有PC版本的固定目录、原PPT来源和五城样例保留为当时交付合同，073仅继承其分类、纯缩略图与对象交互，不把旧范围排除套到新增Admin管理。原型不提供跨租户复制、恢复默认、真实上传、数据库迁移或跨端同步。
+prd/admin-live-reference.md:55:本地预览：[深圳辅助线管理](../prototype/_shell.html?tenant=yestar-sz&page=guideLineManage)。工程实现以073版本化[Handoff](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/issue-handoff.md)和[Test Contract](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/test-contract.md)为准；本地功能通过与生产完成分别验收。
+
+
+Q005 NAVIGATION INVENTORY
+method: recursively count nonempty route on current navigation-snapshot tenant menu nodes; structural parent excluded
+{
+  "tenants": 15,
+  "tenantRoutes": 808,
+  "routes": 90,
+  "guideLineTenants": [
+    "yestar-sz",
+    "yestar",
+    "yestar-bj",
+    "yestar-gz",
+    "yestar-hz",
+    "yestar-jx"
+  ]
+}
+
+Q006 IMMUTABLE TRACKED PACKAGES
+command: git diff --name-only -- docs/sdd docs/history
+exit=0
+(no tracked changes)
+
+
+Q007 SAVE / FAILURE / CAPABILITY
+command: rg -n -e 保存失败 -e 草稿 -e 迟到 -e 清空 -e 真实PC -e 真实 PC README.md CLAUDE.md prd/admin-live-reference.md prd/language-manage.md prd/tenant-menu-drag.md prd/platform-menu-drag.md flowcharts/admin-live-reference.md flowcharts/language-manage.md docs/design-spec.md
+exit=0
+docs/design-spec.md:39:| 顶部操作 | 预览PC效果、保存更改持续可见；未改动保存浅绿禁用，草稿明确标未保存，保存中阻止重复提交，失败显示原因并保留草稿 |
+docs/design-spec.md:42:| 排序 | 分类和图片均可拖动；键盘聚焦拖柄后Alt＋上下键调整，图片卡另有上/下移按钮；有效移动先进入草稿 |
+docs/design-spec.md:44:| 编辑与离开弹窗 | 复用Admin弹窗与焦点恢复，提升到完整Shell覆盖层，宽度约520px且受视口限制。Escape取消；应用内离开三选项，保存失败不关闭；原生刷新/关闭只触发浏览器提示 |
+docs/design-spec.md:45:| PC效果预览 | 独立弹层读取草稿副本，只显示启用分类、同顺序及纯缩略图；未保存说明可见。透明PNG可插入、拖动、四角等比缩放、旋转、删除和撤销，关闭不改后台配置 |
+docs/design-spec.md:46:| 空态与错误 | 未配置的初始演示、已保存为空、全部停用、分类无图、图片加载失败、配置读取失败分别表达；错误有重试，已清空不自动恢复默认 |
+docs/design-spec.md:109:实体下拉按当前租户和页面上下文取值；不从参考表格或别的租户借入销售、部门、账号、门店。枚举与业务实体分开。保留搜索、清空、禁用项、回填、Escape 和溢出行为，缺少选项时说明未采集。
+docs/design-spec.md:111:日期为可输入文本与共用静态日历，单日一个月，区间两个月。起止作为整体控件布局，手工输入可校验；首次范围选择不自动提交查询，Escape 或外部点击取消未完成选择，重置清除旧弹层。销售使用与销售变声统计完整共用单日/范围分段、日期输入和弹层。单日一个输入，范围两个输入；范围切回单日取开始日并归并起止。模式或输入只修改草稿；快捷日立即查询且保留模式，重置回单日今天并提交。两页日期初值分别来自本租户快照日与合成事件运行日，不能为视觉一致改写来源。
+docs/design-spec.md:133:共享设置下方展示按天数排列的节点页签和“新增节点”，每个节点设第N天、说明及两组条件。选中21项、排除26项入口完整保留，与[产品字段清单](../prd/admin-live-reference.md#艺星回访规则)一致；节点到期时间只有一处填写，日期类筛选标为附加限制。选中全部满足、排除任一命中，长条件换行；复选选项可搜索，多值在字段内取任一。节点至少保留一个，天数非负且不可重复；新增不猜测天数，移除确认仅作用草稿。
+docs/design-spec.md:139:保存到当前tenant的v2键，QA另用独立前缀；切换租户不能串读账号、规则或试算结果。深圳原API、稳定ID和v1/v2键及内容保持兼容，其他五店不读取深圳存储初始化。原5日期无需新参数且ID不变，appointment仅在基准显示为预约日期，原筛选拼写保留。合法旧事件配对回显为6个直接选项，打开或取消不写存储；非法/缺失次数显示“请选择有效的回访基准”并要求显式修复，不默认成首次或最近一次。v1只读保留并经明确选择开始新版或逐条导入草稿；唯一日期relative-day才可转出基准与单节点，附加条件保留，歧义说明原因。损坏或存储失败先报错与重试，不静默替换或先报成功；新增菜单按缓存revision对应的已发布基线迁移，保留本地删除、隐藏、改名与排序，不重激活深圳既有迁移。销售接待权限交集仅是后续PC合同，规则不授予权限；本页不接真实权限、客户数据、定时任务、发送、共享存储或PC名单实现。
+flowcharts/language-manage.md:13:    Tree --> Search[输入搜索草稿 按搜索或Enter提交]
+flowcharts/language-manage.md:25:    Form --> Draft[编辑本地草稿]
+flowcharts/language-manage.md:37:    Capability -->|添加或编辑| Category[分类草稿 已有未知范围保持未知]
+flowcharts/admin-live-reference.md:34:    Page --> Switch[切换租户前先处理辅助线未保存草稿或队列]
+flowcharts/admin-live-reference.md:51:    Read -->|合法非空| Draft[复制为页面草稿]
+flowcharts/admin-live-reference.md:67:    Process -->|已取消或上下文失效| Ignore[丢弃迟到结果]
+flowcharts/admin-live-reference.md:71:    Draft --> Preview[独立副本预览 仅启用分类 草稿标未保存]
+flowcharts/admin-live-reference.md:78:    Draft[页面草稿或未解决图片队列] --> Save[保存更改]
+flowcharts/admin-live-reference.md:80:    Valid -->|否| Keep[保留草稿 提示修复或移除失败项]
+flowcharts/admin-live-reference.md:83:    Writing -->|成功| Saved[本租户本地已保存 未同步真实PC]
+flowcharts/admin-live-reference.md:85:    Leave --> Continue[继续编辑 草稿与队列保留]
+flowcharts/admin-live-reference.md:97:字段与未解决队列校验失败、保存失败均不放行“保存并离开”；普通保存成功留在当前页，只有已有离开请求才执行退出。未初始化、已配置为空、全部停用和错误状态分别显示。PC预览不回写配置；跨分类复用同一个PNG不合并条目身份。
+flowcharts/admin-live-reference.md:112:    Legacy -->|唯一明确日期第N天 可无损导入| Import[转为一个节点的未启用草稿 保留其他筛选]
+flowcharts/admin-live-reference.md:115:    List --> Edit[整条草稿 共用名称目的 范围 基准 每日时间]
+flowcharts/admin-live-reference.md:132:    Save -->|非法或重复天数| Fix[提示具体问题 保留草稿]
+flowcharts/admin-live-reference.md:134:    Save -->|写入失败| Retry[已存规则不变 草稿可重试]
+flowcharts/admin-live-reference.md:172:    Page[按来源显示字段 控件和动作] --> Draft[修改筛选草稿]
+flowcharts/admin-live-reference.md:223:    Form --> Draft[模式及输入只修改草稿]
+flowcharts/admin-live-reference.md:313:    Friends --> Accounts[本租户本地账号草稿 查询后筛选]
+flowcharts/admin-live-reference.md:343:    Records[喜报记录 本地查询重置及分页] --> Create[打开新增草稿]
+prd/admin-live-reference.md:21:| 工具管理 → 辅助线管理 | 全部艺星租户独立维护分类、透明PNG、顺序和启停；批量处理、显式保存草稿及PC效果预览 | 073批准的新设计；当前六艺星验收。初始16类129条123文件是本地演示来源，不是本店最新生产迁移；非艺星直达不给数据 |
+prd/admin-live-reference.md:22:| 商品、朋友圈、群发 | 内容布局、搜索草稿、按搜索或 Enter 提交、草稿与预览 | 不真实发送；未采集编辑形态标本地演示 |
+prd/admin-live-reference.md:35:行为合同：[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)，对应R001–R011。客户在后台自行维护PC图片编辑需要的辅助线，减少每次增加或替换素材都等待工程师改包的依赖；当前交付只验证本地管理与预览，不表示真实PC已经同步。
+prd/admin-live-reference.md:45:| 逐项处理 | 每张不超过10MiB的原型示例上限；逐项显示校验、处理、成功、失败，可重试、重新选择或取消/移除；格式、超限、解码与模拟失败给可读原因。重试不重复追加，旧租户或已移除操作的迟到结果失效 |
+prd/admin-live-reference.md:46:| 页面草稿 | 所有操作先改草稿，明确点击保存才替换本租户本地配置；处理中或未解决的失败项阻止保存。保存中禁用重复提交，失败保留草稿和旧配置 |
+prd/admin-live-reference.md:47:| 清空与异常 | 首次未配置、已保存为空、全部停用、图片加载失败、配置读取失败分别表达；主动删除全部内容并保存后不恢复默认；损坏数据保持原值并提供重试 |
+prd/admin-live-reference.md:49:应用内切页、关闭业务页签、关闭其他页签或切租户时，有草稿或未解决的图片队列就提示「保存并离开 / 放弃更改 / 继续编辑」。保存失败留在当前页；放弃恢复已存配置并使未完成任务失效；继续编辑保留原草稿与队列。浏览器刷新/关闭只使用允许的原生离开提示，不承诺自定义三按钮，也不自动保存草稿。
+prd/admin-live-reference.md:51:「预览PC效果」读取当前草稿的独立副本，只展示启用分类及相同顺序，未保存内容明确标注。PC卡片保留业务分类名和纯缩略图，不显示后台管理名称、来源页或尺寸。透明图可以作为独立对象插入、拖动、等比缩放、旋转、删除与撤销；预览关闭不保存配置，也不改动真实PC客户端。
+prd/admin-live-reference.md:106:所有变更先进入草稿，取消保持已存规则不变，保存失败保留草稿供重试；成功保存整条规则后生效，已启用规则从下一次计划时点使用新配置，不补跑。0人可保存；失效范围、缺失数据及读取失败不能降格为0。试算以固定合成样本显示到期节点、应回访、已排除、未入选和无法判断及理由。
+prd/admin-live-reference.md:108:本地v2按 `admin-revisit-rules:v2:<tenant>` 保存规则与节点结构；QA使用独立前缀，切换租户不串读账号或规则。深圳原API、稳定ID、v1/v2键与原有用户规则保持兼容，新增租户不从深圳存储初始化；原5日期规则不要求新增来源/次数字段。合法旧事件配置按anchor与anchorOccurrence配对回显成首次/最近一次直接选项；缺失或非法次数显示待修复，必须显式选择有效基准，不能自动猜值。打开/取消不迁写，新选择保存后刷新、摘要和试算保持一致。各自旧v1独立规则只读保留。发现旧数据时由使用者明确开始新版示例或逐条导入未启用草稿；只有唯一明确的日期“第N天”条件可无损转为基准与节点，其余筛选保留，歧义时说明原因，不自动合并。损坏数据不得静默覆盖。
+prd/admin-live-reference.md:117:- 本轮补回来源已见的销售姓名框；姓名按本地包含匹配筛选，重名销售仍按稳定身份区分。模式和日期、部门、姓名编辑只改草稿，搜索才提交；快捷日按 Asia/Shanghai 运行当日计算，立即查询并保留当前模式。重置回单日、今天、全部授权部门及默认排序并立即查询。非法日期不覆盖旧结果，日历 Escape 或外部点击取消不提交。
+prd/admin-live-reference.md:131:日期保留原页单日/范围分段按钮，变声页完整复用其控件与操作；两页各自的来源和默认日期仍独立。搜索和选中快捷日期使用截图采样的 #00c4af，部门显示蓝色标签，表格只保留横向边线。初始日期明确为本租户快照日；今天快捷项取上海当前日期；输入为草稿，搜索后才生效。当前只有冻结单日快照，包含未采集日的区间也不能外推汇总。
+prd/admin-live-reference.md:163:日期非法不覆盖旧结果；日历 Escape 或外部点击取消未完成选择，重置关闭旧弹层。下拉保留搜索、清空、禁用、键盘和溢出状态。无数据、加载失败、无权限、未采集及缺所选日期样本不得共用一种含义。
+prd/language-manage.md:15:编辑草稿与已存数据分离，取消或Escape关闭不保存；必填失败保留草稿。保存、隐藏、排序、删除确认与操作记录均发生在当前浏览器。未采详情打开后明确提示，不能把说明项或未知类型转换成话术正文。部门、销售、商品候选项仅取该租户实际已采选项；未知保持空列表及未采状态，不借用其他租户。
+README.md:5:本轮[073@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/README.md)把全部租户原一级话术的位置改为「工具管理 → 话术管理」，保留原路由、隐藏/权限和本地话术状态；所有艺星另有「辅助线管理」，自行维护分类、透明PNG、顺序与启停，显式保存草稿并预览PC效果。现有默认和门店来源均可编辑，每个租户一套独立配置。初始16类129条123文件来自本地PC原型，明确为演示来源，不证明各店最新生产清单已经迁移。
+README.md:23:账号群组表示渠道归属；应回访好友仅对具有其所属账号接待权限的销售可见。当前仅交付管理页和权限行为合同，PC真实名单、真实定时筛选、自动发送及执行质检均未实施。示例试算使用本租户独立的固定合成数据，已排除、未入选和无法判断分别显示；新增五店不借用深圳账号、人员或好友充当该店事实。规则只在当前浏览器按租户保存；深圳既有稳定ID、用户规则和菜单调整保留，新版v2与旧版v1分开，旧规则只读保留，可明确开始新版示例或逐条导入未启用草稿，不自动猜测合并。
+README.md:46:| [073@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/README.md) | 全部租户工具父级及话术入口迁移；全部艺星辅助线分类/图片自助维护、租户隔离草稿、异常重试、离开守卫与PC效果预览；限定替代旧一级话术和固定库在Admin中的范围 |
+README.md:63:在仓根运行 `python -m http.server 8148 --bind 127.0.0.1`，用Google Chrome打开 `http://127.0.0.1:8148/prototype/_shell.html?tenant=yestar-sz&page=guideLineManage`，也可从工具管理进入话术。业务演示状态按租户与路由隔离；辅助线未解决队列和草稿均受离开保护，已保存为空不恢复默认。验收使用隔离浏览器或独立QA存储。单文件由生成器产出，不手工编辑。
+CLAUDE.md:24:- `admin-guide-lines-model.js`、`admin-guide-lines.js/css`、`admin-guide-lines-preview.js/css`、`data/guide-lines.js`、`assets/guide-lines/`：073辅助线租户模型、管理草稿与逐项处理、PC效果预览及轻量本地素材；`guideLineManage`由内容入口专用分支挂载，Shell等待其离开确认。
+CLAUDE.md:28:- `admin-stats-date-picker.js/css`、`admin-filter-calendars.js/css`：日期输入、选择、草稿和取消。
+CLAUDE.md:44:6. 变声首次成功独立任务计 1，失败/试听/同任务重试不重复计。其日期与部门继续复用使用统计的单日/范围、日历、快捷日和搜索/重置/导出，本轮追加源已见销售姓名框；模式和输入为草稿，快捷日立即查询并保留当前模式，重置回单日今天。两页保留各自来源，不用样本日替换运行日。使用统计无分页，销售组排序不拆散小计，CSV 不重复计合计；变声保留次数分页与全筛选导出。
+CLAUDE.md:54:13. 原5日期anchor ID与计算保持，appointment基准显示“预约日期”，21/26条件的源拼写“未次预约日期”保留；不改成预约创建时间。旧事件的anchor与anchorOccurrence合法配对映射到6个直接选项，打开/取消不迁写；次数缺失或非法显示“请选择有效的回访基准”，必须显式修复，不默改首次或最近一次。回访存储使用 `admin-revisit-rules:v2:<tenant>`，六艺星的账号、人员、地区、好友、规则与状态均按tenant隔离，不把其他租户或深圳的实体作为缺省值。新增五店使用独立合成示例并明确标识；深圳既有模型API、稳定ID及原存储键和值保持兼容。`qa=1`使用独立 `admin-qa-` 前缀；旧v1键只读保留，不静默清除或自动合并。逐条导入只有唯一明确的日期relative-day条件才能转为基准与单节点，其余条件保留，先成为未启用草稿；不明确时说明原因。保存失败不改变已存规则，损坏数据先重试或明确恢复。销售结果按当前账号接待权限可见是合同，不代表PC名单界面、真实调度、共享持久化或发送已经实施。
+CLAUDE.md:64:18. 辅助线默认/门店来源均可编辑，每租户一套；16类129条123PNG仅为030本地初始演示，不能写成已核对各店最新生产清单或用户修改后的固定数量。分类图片CRUD/排序/启停先改草稿；透明PNG逐项处理，失败可重试/重选/移除，处理中及失败队列也算dirty。替换保身份和顺序，删除/放弃/旧租户迟到结果失效；清空保存不复活默认。保存失败保草稿与旧配置；应用内离开必须等待保存/放弃/继续，原生刷新关闭只触发浏览器提示。PC预览深复制当前草稿，只展示启用分类与纯缩略图，不回写配置、不宣称真实PC同步。工程Issue已创建为[#442](https://github.com/PetWebOrg/suiyin-admin/issues/442)，负责人王梓先（`build996`），提出环境佰智德三、提出人房昕，`status:todo`；执行以[073交接合同](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/issue-handoff.md)为准，不把本地原型检查当作生产验收。

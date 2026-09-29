@@ -1,0 +1,57 @@
+/* SPEC-SUIYIN-ADMIN-073: isolated PC preview. No management page selectors. */
+html.aglp-frame-open,body.aglp-frame-open{background:transparent!important}
+dialog.aglp-dialog, .admin-content dialog.aglp-dialog{box-sizing:border-box;position:fixed;inset:16px;margin:auto!important;width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100vh - 32px));max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);padding:0;border:1px solid #ddd;border-radius:8px;overflow:hidden;background:#fff;color:#333;box-shadow:0 16px 48px #0003;font:14px/1.5 var(--live-font,"Segoe UI","Microsoft YaHei",sans-serif)}
+dialog.aglp-dialog[open]{display:flex;flex-direction:column}
+.aglp-dialog::backdrop{background:#0008}
+.aglp-dialog *{box-sizing:border-box}
+.aglp-dialog [hidden]{display:none!important}
+.aglp-dialog .aglp-head{display:flex;align-items:center;gap:12px;flex:none;height:68px;min-height:68px;padding:12px 18px;border-bottom:1px solid #e8e8e8}
+.aglp-dialog .aglp-heading{min-width:0}
+.aglp-dialog .aglp-heading h2{margin:0;font-size:17px;font-weight:600;line-height:24px;color:#333}
+.aglp-dialog .aglp-subtitle{margin:2px 0 0;color:#909399;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.aglp-dialog .aglp-draft{margin-left:auto;padding:3px 9px;flex:none;color:#a46d0b;background:#fff8e7;border-radius:4px;font-size:12px}
+.aglp-dialog .aglp-button{display:inline-flex;justify-content:center;align-items:center;flex:none;gap:6px;height:30px;padding:0 12px;border:1px solid #dedede;border-radius:4px;background:#fff;color:#555;cursor:pointer;font:inherit;font-size:12px;line-height:1.35;white-space:nowrap}
+.aglp-dialog .aglp-button:hover:not(:disabled){background:#f5f5f5;border-color:#bbb}
+.aglp-dialog .aglp-button:focus-visible,.aglp-stage:focus-visible,.aglp-object:focus-visible{outline:2px solid #07c160;outline-offset:2px}
+.aglp-dialog .aglp-button:disabled{color:#bbb;cursor:not-allowed;background:#fafafa}
+.aglp-dialog .aglp-close{margin-left:auto;width:30px;height:30px;padding:0;border:0;font-size:24px;color:#888}
+.aglp-dialog .aglp-draft+.aglp-close{margin-left:0}
+.aglp-toolbar{display:flex;align-items:center;gap:8px;flex:none;min-height:48px;padding:8px 14px;border-bottom:1px solid #e8e8e8;background:#fafafa}
+.aglp-instruction{flex:1;min-width:0;font-size:12px;color:#888}
+.aglp-body{display:grid;grid-template-columns:362px minmax(0,1fr);min-height:0;flex:1;overflow:hidden}
+.aglp-library{display:grid;grid-template-columns:142px minmax(0,1fr);min-width:0;min-height:0;border-right:1px solid #e5e5e5;background:#fff}
+.aglp-categories{min-height:0;overflow-x:hidden;overflow-y:auto;padding:10px 7px;background:#f7f8f8;scrollbar-width:thin}
+.aglp-dialog .aglp-category{display:block;width:100%;height:auto;min-height:36px;margin:0 0 3px;padding:8px;text-align:left;font-size:12px;line-height:1.4;white-space:normal;overflow-wrap:anywhere;border:0;background:transparent;color:#555}
+.aglp-dialog .aglp-category[aria-selected=true]{background:#e8f7ee;color:#078f49;font-weight:500}
+.aglp-tools{min-width:0;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.aglp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:94px;align-content:start;gap:8px;min-width:0;min-height:0;overflow-x:hidden;overflow-y:auto;padding:10px;scrollbar-width:thin}
+.aglp-dialog .aglp-card{display:block;width:100%;height:94px;min-width:0;padding:0;border:1px solid #e6e6e6;border-radius:5px;overflow:hidden;background:#34373a;white-space:normal}
+.aglp-dialog .aglp-card:hover:not(:disabled),.aglp-dialog .aglp-card:focus-visible{border-color:#07c160;box-shadow:0 0 0 2px #07c1601f;outline:none;background:#34373a}
+.aglp-thumb{position:relative;display:flex;justify-content:center;align-items:center;height:92px;overflow:hidden;background:#34373a}
+.aglp-thumb img{display:block;max-width:92%;max-height:86%;object-fit:contain}
+.aglp-card-state{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;padding:8px;text-align:center;font-size:11px;line-height:1.5;color:#ccc;background:#34373a}
+.aglp-card[data-state=ready] .aglp-card-state{display:none}
+.aglp-card[data-state=loading] .aglp-thumb img,.aglp-card[data-state=error] .aglp-thumb img{visibility:hidden}
+.aglp-card[data-state=error] .aglp-card-state{color:#bf4c47;background:#fff0ef}
+.aglp-card[data-state=loading]{cursor:wait}
+.aglp-empty{grid-column:1/-1;grid-row:auto;min-width:0;padding:30px 8px;color:#999;font-size:13px;text-align:center;line-height:1.8}
+.aglp-canvas-well{display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;padding:12px;overflow:hidden;background:#e9edf0}
+.aglp-stage{position:relative;flex:none;overflow:hidden;background:#4e5963;box-shadow:0 1px 8px #37495818;touch-action:none;user-select:none}
+.aglp-neutral-base{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none}
+.aglp-objects{position:absolute;inset:0}
+.aglp-object{position:absolute;cursor:move;touch-action:none;user-select:none;transform-origin:center;outline:none}
+.aglp-object img{display:block;width:100%;height:100%;pointer-events:none;user-select:none;object-fit:fill}
+.aglp-selection{position:absolute;z-index:1000;border:1.5px dashed #07c160;box-shadow:0 0 1px #fff;transform-origin:center;pointer-events:none}
+.aglp-dialog .aglp-handle{position:absolute;width:24px;height:24px;padding:0;border:0;border-radius:50%;background:transparent;pointer-events:auto;touch-action:none;transform:translate(-50%,-50%)}
+.aglp-dialog .aglp-handle:after{content:"";width:11px;height:11px;background:#fff;border:2px solid #07c160;border-radius:50%;box-shadow:0 0 1px #fff}
+.aglp-dialog .aglp-handle:hover:not(:disabled){border:0;background:#07c1601c}
+.aglp-tl{left:0;top:0;cursor:nwse-resize}.aglp-tr{left:100%;top:0;cursor:nesw-resize}.aglp-br{left:100%;top:100%;cursor:nwse-resize}.aglp-bl{left:0;top:100%;cursor:nesw-resize}
+.aglp-rotate-stem{position:absolute;left:50%;top:-25px;width:1.5px;height:25px;background:#07c160}
+.aglp-dialog .aglp-rotate{position:absolute;left:50%;top:-30px;transform:translate(-50%,-50%);width:25px;height:25px;padding:0;border:2px solid #07c160;border-radius:50%;background:#fff;color:#078f49;font-size:17px;line-height:1;cursor:grab;touch-action:none;pointer-events:auto}
+.aglp-dialog .aglp-object-delete{position:absolute;left:calc(100% + 22px);top:0;transform:translate(-50%,-50%);width:23px;height:23px;padding:0;border:2px solid #fff;border-radius:50%;background:#e74c3c;color:#fff;font-size:18px;line-height:1;pointer-events:auto}
+.aglp-dialog .aglp-object-delete:hover:not(:disabled){background:#d63a2b;border-color:#fff}
+.aglp-dialog .aglp-foot{display:flex;align-items:center;gap:16px;justify-content:space-between;flex:none;min-height:38px;padding:8px 14px;border-top:1px solid #e8e8e8;background:#fafafa;color:#888;font-size:11px;line-height:1.4}
+.aglp-status{min-width:0}.aglp-status.is-error{color:#c45656}.aglp-foot-note{flex:none;color:#999}
+@media(max-width:1000px){.aglp-body{grid-template-columns:290px minmax(0,1fr)}.aglp-library{grid-template-columns:116px minmax(0,1fr)}.aglp-grid{gap:7px;padding:8px}.aglp-instruction{max-width:65%}}
+@media(max-width:700px){dialog.aglp-dialog,.admin-content dialog.aglp-dialog{inset:8px;width:calc(100vw - 16px);height:calc(100vh - 16px);max-width:calc(100vw - 16px);max-height:calc(100vh - 16px)}.aglp-dialog .aglp-head{height:auto;min-height:60px;padding:10px 12px;flex-wrap:wrap;gap:6px 10px}.aglp-dialog .aglp-heading{flex:1}.aglp-dialog .aglp-draft{order:3;width:100%;margin:0;padding:3px 6px}.aglp-dialog .aglp-close{order:2}.aglp-body{grid-template-columns:210px minmax(0,1fr)}.aglp-library{grid-template-columns:90px minmax(0,1fr)}.aglp-grid{grid-template-columns:minmax(0,1fr)}.aglp-dialog .aglp-category{font-size:11px;padding:7px 6px}.aglp-toolbar{padding:6px 10px}.aglp-instruction{font-size:11px}.aglp-foot-note{display:none}.aglp-dialog .aglp-foot{padding:7px 10px}}
+@media(max-width:460px){.aglp-body{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(170px,1fr) 205px}.aglp-canvas-well{grid-row:1}.aglp-library{grid-row:2;grid-template-columns:108px minmax(0,1fr);border-top:1px solid #e5e5e5;border-right:0}.aglp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.aglp-toolbar{gap:5px}.aglp-instruction{max-width:none;font-size:10px}.aglp-dialog .aglp-button{padding-left:9px;padding-right:9px}.aglp-dialog .aglp-handle,.aglp-dialog .aglp-rotate,.aglp-dialog .aglp-object-delete{padding:0}}

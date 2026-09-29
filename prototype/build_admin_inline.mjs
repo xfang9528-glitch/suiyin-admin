@@ -9,6 +9,9 @@ const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const files=(dir)=>fs.readdirSync(path.join(root,dir),{withFileTypes:true}).flatMap(d=>d.isDirectory()?files(dir+'/'+d.name):[dir+'/'+d.name]);
 const types={'.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.svg':'image/svg+xml'};
 const assets=Object.fromEntries(files('assets').map(p=>[p,'data:'+(types[path.extname(p)]||'application/octet-stream')+';base64,'+fs.readFileSync(path.join(root,p)).toString('base64')]));
+// Editable guide-line configurations retain compact, stable asset references in storage.
+// Resolve bundled defaults at render time so saving another tenant never copies the image library.
+const runtimeAssets=Object.fromEntries(Object.entries(assets).filter(([p])=>p.startsWith('assets/guide-lines/')));
 const embedAssets=text=>Object.entries(assets).reduce((out,[p,data])=>out.split(p).join(data),text);
 // srcdoc replaces src in the standalone shell; retain the same query context for frame CSS.
 const inlineFrameSelectors=css=>css.replace(/\.page-frame\[src(?=[~|^$*]?=|\])/g,'.page-frame[data-inline-src').replace(/(\.page-frame:is\()([^)]*)(\))/g,(_,start,selectors,end)=>start+selectors.replace(/\[src(?=[~|^$*]?=|\])/g,'[data-inline-src')+end);
@@ -27,7 +30,7 @@ function inlinePage(file){
  // Page-local parity rules need the same srcdoc selector adaptation as linked stylesheets.
  html=html.replace(/(<style\b[^>]*>)([\s\S]*?)(<\/style>)/gi,(_,start,css,end)=>start+inlineFrameSelectors(css)+end);
  html=html.replace(/<script\s+src=["']([^"']+)["'][^>]*>\s*<\/script>/gi,(_,p)=>{
-  let code=embedAssets(read(p));
+  let code=p==='data/guide-lines.js'?read(p):embedAssets(read(p));
   included.scripts.add(p);
   // about:srcdoc has an opaque location.origin; use the inherited parent origin for messages.
   const origin="(window.__ADMIN_INLINE_ORIGIN__||location.origin)";
@@ -48,7 +51,7 @@ function inlinePage(file){
 const child=inlinePage('admin-content.html');
 // Chrome serializes a file document's location.origin as file://, but its message origin is null.
 // Normalize this once so offline parent/child messages use * as target and compare the same origin.
-const bootstrap=`window.__ADMIN_INLINE_ORIGIN__=location.protocol==='file:'?'null':location.origin;window.__ADMIN_INLINE_DATA__=${serial(data)};window.fetch=${offlineFetch.toString()};window.__ADMIN_INLINE_FRAME__=function(params){const code='window.__ADMIN_INLINE_PARAMS__='+JSON.stringify(params)+';window.__ADMIN_INLINE_ORIGIN__=parent.__ADMIN_INLINE_ORIGIN__;window.__ADMIN_INLINE_DATA__=parent.__ADMIN_INLINE_DATA__;window.fetch=parent.fetch.bind(parent);';return ${serial(child)}.replace('<head>','<head><script>'+code+'<'+ '/script>');};`;
+const bootstrap=`window.__ADMIN_INLINE_ORIGIN__=location.protocol==='file:'?'null':location.origin;window.__ADMIN_INLINE_DATA__=${serial(data)};window.__ADMIN_INLINE_ASSETS__=${serial(runtimeAssets)};window.fetch=${offlineFetch.toString()};window.__ADMIN_INLINE_FRAME__=function(params){const code='window.__ADMIN_INLINE_PARAMS__='+JSON.stringify(params)+';window.__ADMIN_INLINE_ORIGIN__=parent.__ADMIN_INLINE_ORIGIN__;window.__ADMIN_INLINE_DATA__=parent.__ADMIN_INLINE_DATA__;window.__ADMIN_INLINE_ASSETS__=parent.__ADMIN_INLINE_ASSETS__;window.fetch=parent.fetch.bind(parent);';return ${serial(child)}.replace('<head>','<head><script>'+code+'<'+ '/script>');};`;
 let output=inlinePage('_shell.html');
 // Install data before any shell scripts; all original scripts retain their order at body end.
 output=output.replace('<body class="admin-shell">','<body class="admin-shell"><script>'+bootstrap+'<'+ '/script>');

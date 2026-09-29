@@ -1,0 +1,69 @@
+{
+  "checks": [
+    {
+      "name": "cross page continue retains draft",
+      "pass": true
+    },
+    {
+      "name": "close tab continue retains draft",
+      "pass": true
+    },
+    {
+      "name": "browser refresh uses native guard",
+      "pass": true,
+      "detail": "beforeunload"
+    },
+    {
+      "name": "browser refresh cancel retains draft",
+      "pass": true
+    },
+    {
+      "name": "model isolation empty and failed write invariants",
+      "pass": true,
+      "detail": {
+        "sourceImmutable": true,
+        "tenantIsolation": true,
+        "siblingIsolation": true,
+        "failed": true,
+        "oldValueRetained": true,
+        "emptySave": true,
+        "emptyReload": true
+      }
+    },
+    {
+      "name": "external menu hide must not silently remove dirty frame",
+      "pass": true,
+      "detail": {
+        "wasDirty": true,
+        "frameRemoved": false,
+        "leaveDialog": true
+      }
+    },
+    {
+      "name": "bzds direct route denies model and content",
+      "pass": true,
+      "detail": {
+        "cards": 0,
+        "denied": true
+      }
+    },
+    {
+      "name": "mengzhua direct route denies model and content",
+      "pass": true,
+      "detail": {
+        "cards": 0,
+        "denied": true
+      }
+    },
+    {
+      "name": "jbfs direct route denies model and content",
+      "pass": true,
+      "detail": {
+        "cards": 0,
+        "denied": true
+      }
+    }
+  ],
+  "passed": 9,
+  "failed": 0
+}

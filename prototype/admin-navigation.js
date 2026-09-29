@@ -57,3 +57,52 @@ new MutationObserver(syncSidebar).observe(document.body,{attributes:true,attribu
 $('userTrigger').onclick=toggleUser;$('tenantSearch').oninput=renderTenants;$('collapse').onclick=()=>{const small=matchMedia('(max-width:760px)').matches;document.body.classList.toggle(small?'nav-mobile-open':'nav-collapsed');$('collapse').setAttribute('aria-expanded',String(small?document.body.classList.contains('nav-mobile-open'):!document.body.classList.contains('nav-collapsed')));};$('scrim').onclick=()=>document.body.classList.remove('nav-mobile-open');$('closeOthers').onclick=()=>{if(!active)return;tabs.filter(r=>r!==active).forEach(r=>$('panel-'+r)?.remove());tabs=[active];save();renderTabs();};document.addEventListener('click',e=>{if(!$('userPanel').contains(e.target)&&!$('userTrigger').contains(e.target))closeUser();});document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('userPanel').hidden){closeUser();$('userTrigger').focus();}document.body.classList.remove('nav-mobile-open');}});init();
 
 const sourceHeaderIcons=window.AdminLiveUI?.headerIcons||[];if(sourceHeaderIcons[0])$('collapse').innerHTML=sourceHeaderIcons[0];if(sourceHeaderIcons[1])document.querySelector('.chevron').innerHTML=sourceHeaderIcons.at(-1);window.addEventListener('message',e=>{if(e.origin===location.origin&&e.data?.type==='admin-dialog-state')document.body.classList.toggle('has-dialog',e.data.open);});$('dialogScrim').onclick=()=>document.querySelector('.frame-wrap:not([hidden]) iframe')?.contentWindow.postMessage({type:'admin-dialog-close'},location.origin);
+
+
+/* SPEC-SUIYIN-ADMIN-073: preserve guide drafts before shell navigation. */
+(()=>{
+ let pending=false,executing=false,deferredRefresh=false;
+ const declinedRefreshPages=new WeakSet();
+ const currentFrames=()=>[document.querySelector('.frame-wrap:not([hidden]) iframe')].filter(Boolean);
+ function syncDialogScrim(){
+  const open=currentFrames().some(frame=>{try{return !!frame.contentDocument?.querySelector('dialog[open]');}catch{return false;}});
+  document.body.classList.toggle('has-dialog',open);
+ }
+ function perform(action){const previous=executing;executing=true;try{return action();}finally{executing=previous;syncDialogScrim();}}
+ function resumeRefresh(){if(deferredRefresh){deferredRefresh=false;scheduleNavigation();}}
+ function guard(action,frames=currentFrames(),refresh=false){
+  if(executing)return action();
+  if(pending){if(refresh)deferredRefresh=true;return;}
+  const pages=frames.flatMap(frame=>{try{const page=frame.contentWindow?.AdminGuideLinesPage;return page?.isDirty?.()?[page]:[];}catch{return [];}});
+  // A cancelled background refresh waits for a save or an explicit leave attempt.
+  // Repeated menu/storage events must not reopen the same confirmation immediately.
+  if(refresh&&pages.some(page=>declinedRefreshPages.has(page))){deferredRefresh=true;return false;}
+  if(!pages.length){if(refresh)deferredRefresh=false;const result=perform(action);if(!refresh)resumeRefresh();return result;}
+  pending=true;
+  return (async()=>{let accepted=false;try{
+   for(const page of pages)if(!await page.requestLeave()){
+    if(refresh||deferredRefresh){deferredRefresh=true;pages.forEach(page=>declinedRefreshPages.add(page));}
+    return false;
+   }
+   accepted=true;pages.forEach(page=>declinedRefreshPages.delete(page));if(refresh)deferredRefresh=false;
+   return perform(action);
+  }finally{pending=false;if(accepted)resumeRefresh();}})();
+ }
+ const open=openPage,close=closePage,switchTo=switchTenant,refresh=refreshNavigation;
+ openPage=function(route,options){if(route===active)return open(route,options);return guard(()=>open(route,options));};
+ closePage=function(route){return guard(()=>close(route),[document.querySelector('#panel-'+route+' iframe')].filter(Boolean));};
+ switchTenant=function(target){return guard(()=>switchTo(target));};
+ const oldCloseOthers=$('closeOthers').onclick;
+ $('closeOthers').onclick=function(){const frames=[...document.querySelectorAll('.frame-wrap iframe')].filter(frame=>frame.closest('.frame-wrap').id!=='panel-'+active);return guard(()=>oldCloseOthers(),frames);};
+ refreshNavigation=function(){
+  navRefresh=0;if(!tenant)return;
+  const override=window.AdminMenuState.read(sourceTenant,navStorageKey(tenant.id));
+  const nextMenu=window.AdminTenantMenu.resolve(sourceTenant,window.AdminTenantMenu.read(tenant.id),override).visible;
+  const visible=new Set(menuLeaves(nextMenu).map(item=>item.route));
+  const removing=tabs.filter(route=>!visible.has(route)).map(route=>document.querySelector('#panel-'+route+' iframe')).filter(Boolean);
+  return guard(()=>refresh(),removing,true);
+ };
+ // An iframe's successful local save emits storage in the shell document. Resume a
+ // deferred menu refresh only after the draft has become clean; failed saves do not.
+ window.addEventListener('storage',e=>{const key=(params.get('qa')==='1'?'admin-qa-guide-lines:v1:':'admin-guide-lines:v1:')+tenant?.id;if(deferredRefresh&&e.key===key)scheduleNavigation();});
+})();

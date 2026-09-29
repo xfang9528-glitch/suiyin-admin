@@ -1,0 +1,94 @@
+{
+  "testedAt": "2026-09-29T06:05:58.509Z",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "checks": [
+    {
+      "name": "16 categories / 129 images",
+      "pass": true
+    },
+    {
+      "name": "no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "required category name",
+      "pass": true
+    },
+    {
+      "name": "duplicate category rejected",
+      "pass": true
+    },
+    {
+      "name": "add category marks dirty",
+      "pass": true
+    },
+    {
+      "name": "mixed queue 1 success / 2 failures",
+      "pass": true
+    },
+    {
+      "name": "queue blocks save",
+      "pass": true
+    },
+    {
+      "name": "retry adds exactly once",
+      "pass": true
+    },
+    {
+      "name": "saved and clean",
+      "pass": true
+    },
+    {
+      "name": "continue editing leaves dirty",
+      "pass": true
+    },
+    {
+      "name": "discard restores saved",
+      "pass": true
+    },
+    {
+      "name": "late cancelled result does not return",
+      "pass": true
+    },
+    {
+      "name": "save failure keeps draft and old saved",
+      "pass": true
+    },
+    {
+      "name": "save and leave resolves true",
+      "pass": true
+    },
+    {
+      "name": "replacement preserves identity order and name",
+      "pass": true
+    },
+    {
+      "name": "rename only current image",
+      "pass": true
+    },
+    {
+      "name": "keyboard category reorder",
+      "pass": true
+    },
+    {
+      "name": "keyboard image reorder",
+      "pass": true
+    },
+    {
+      "name": "category delete cancel preserves items",
+      "pass": true
+    },
+    {
+      "name": "category delete only current category",
+      "pass": true
+    },
+    {
+      "name": "no browser errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}
