@@ -1,0 +1,483 @@
+{
+  "at": "2026-09-30T08:13:28.122Z",
+  "browser": "153.0.8010.54",
+  "scope": "L0 menu permission header label",
+  "tenantCount": 17,
+  "checks": 52,
+  "passed": 52,
+  "errors": [],
+  "results": [
+    {
+      "mode": "source-http",
+      "tenant": "yestar-sz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "jbfs",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "mengzhua",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "bzds",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "crrm",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "hqjd",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "ykjl",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "ruixi-kh-xiaowen",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "rxxz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "yestar",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "yestar-bj",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "yestar-gz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "yestar-hz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "yestar-jx",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "yzhb",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "huamei-xian",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "source-http",
+      "tenant": "aoli-xian",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "yestar-sz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "jbfs",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "mengzhua",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "bzds",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "crrm",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "hqjd",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "ykjl",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "ruixi-kh-xiaowen",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "rxxz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "yestar",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "yestar-bj",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "yestar-gz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "yestar-hz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "yestar-jx",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "yzhb",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "huamei-xian",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http",
+      "tenant": "aoli-xian",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "yestar-sz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "jbfs",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "mengzhua",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "bzds",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "crrm",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "hqjd",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "ykjl",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "ruixi-kh-xiaowen",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "rxxz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "yestar",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "yestar-bj",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "yestar-gz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "yestar-hz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "yestar-jx",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "yzhb",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "huamei-xian",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-file",
+      "tenant": "aoli-xian",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "textWidth": 112,
+      "lines": 1
+    },
+    {
+      "mode": "inline-http-1280",
+      "tenant": "yestar-sz",
+      "passed": true,
+      "label": "仅超级管理员可见",
+      "width": 180,
+      "lines": 1
+    }
+  ],
+  "existingInlineCheck": {
+    "checks": 301,
+    "passed": 301,
+    "failed": []
+  }
+}

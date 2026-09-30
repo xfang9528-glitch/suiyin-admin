@@ -2,6 +2,8 @@
 
 合同：[SPEC-SUIYIN-ADMIN-068@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md)。普通menu作用当前租户；平台allMenu仍通过默认结构和可见性规则影响全部租户。状态由[076@1.0.1](../docs/sdd/SPEC-SUIYIN-ADMIN-076/1.0.1/spec.md)改为表内显示/隐藏胶囊，成功、同值、失败与范围见[状态流程](admin-account-menu-status.md#菜单状态直接保存)。
 
+2026-09-30，当前17租户的普通menu统一显示「菜单名称、仅超级管理员可见、菜单状态、顺序、空白弹性列、操作」六列；原「超级权限」表头改为「仅超级管理员可见」，该列宽150px改为180px以保持单行。展示文案和列宽调整不改变内部「超级权限」字段、既有权限开关与导航过滤；本地配置继续按租户隔离。
+
 ```mermaid
 flowchart TD
     Load[加载本租户完整库存 旧配置 平台当前树] --> Base[生成平台默认结构 含隐藏库存]
@@ -10,7 +12,7 @@ flowchart TD
     Parent -->|否| Fallback[保留覆盖并提示 暂用当前默认父级]
     Parent -->|是| Tree[同一有效完整菜单树]
     Fallback --> Tree
-    Tree --> Table[六列菜单表 同层顺序只读]
+    Tree --> Table[六列菜单表 仅超级管理员可见列180px 同层顺序只读]
     Tree --> Filter[平台当前祖先隐藏 删除 租户权限和显示过滤]
     Filter --> Nav[本租户可见导航]
     Table --> Drag[手柄拖动 一级整组 二级组内或跨组]

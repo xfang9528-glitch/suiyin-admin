@@ -1,5 +1,7 @@
 # 碎银 Admin 原型维护入口
 
+2026-09-30表头表达调整：所有17租户的普通菜单管理第二列显示「仅超级管理员可见」，宽180px。`admin-menu-tree.js`只映射表头展示，内部「超级权限」字段继续索引、保存和导航投影；本轮是L0，不新建行为合同。见[菜单说明](prd/tenant-menu-drag.md)与[验收](docs/verification/menu-label-20260930/README.md)。
+
 更新：2026-09-30。[076@1.0.1](docs/sdd/SPEC-SUIYIN-ADMIN-076/1.0.1/README.md)登记画美/傲丽两西安租户、全部租户「碎银账号」名称、八租户时间入口移除与菜单状态胶囊；[077@1.0.1](docs/sdd/SPEC-SUIYIN-ADMIN-077/1.0.1/README.md)定义八租户咨询称谓及线上咨询、现场咨询、科室助理三类岗位。两新租户只有独立最小框架，真实账号/业务仍待采集，不扩散艺星回访及辅助线能力。见[产品说明](prd/admin-account-menu-status.md)与[流程](flowcharts/admin-account-menu-status.md)。
 
 2026-09-29工具管理及辅助线执行[073@1.0.0](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/README.md)：当时15租户原一级话术位置迁为工具父级及二级话术；艺星能力登记有效的租户另有辅助线管理，每租户一套可编辑配置。话术页面继续[051@1.1.0交付补充](docs/sdd/SPEC-SUIYIN-ADMIN-051/1.1.0/deliveries/20260929-language-parity/README.md)的R002–R006、R008–R010，原路由、隐藏、权限和状态保持；15租户分类树、六列列表和弹窗由专用模块承接。[话术验收](docs/verification/language-parity-20260929/README.md)仅证明记录内几何，不外推全部状态逐像素一致。073新页面不冒充实站采样。

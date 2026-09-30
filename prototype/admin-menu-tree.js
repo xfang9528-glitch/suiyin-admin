@@ -285,8 +285,8 @@ window.AdminMenu=(()=>{
    if(A.source.captureStatus==='not-captured'||A.source.state==='not-captured')head.append(node('p','menu-source-note',A.source.captureNote||'原型菜单骨架 · 真实菜单待采集'));
   (platform?['新增','同步菜单','复制菜单','增量更新菜单','批量删减菜单','全部记录']:['全部记录']).forEach(label=>actions.append(button(label,()=>label==='全部记录'?logs():label==='新增'?edit():A.action(label),label==='新增'?'primary':'')));
   const wrap=node('div','menu-table-wrap'),table=node('table','menu-tree-table'),colgroup=node('colgroup'),thead=node('thead'),headrow=node('tr'),tbody=node('tbody'),data=A.getTable();table.setAttribute('aria-label',platform?'平台菜单树':'租户菜单树');
-   const widths=platform?[200,200,150,240,120,100,100,80,150]:[200,150,150,150,0,150];
-  data.headers.forEach((h,i)=>{const col=node('col');if(widths[i])col.style.width=widths[i]+'px';colgroup.append(col);const th=node('th','',sortable&&h==='排序'?'顺序':h);if(h==='操作')th.className='menu-actions-head';if(!h)th.className='menu-flex-space';headrow.append(th);});thead.append(headrow);table.append(colgroup,thead,tbody);if(platform)table.style.minWidth=widths.reduce((a,b)=>a+b,0)+'px';
+   const widths=platform?[200,200,150,240,120,100,100,80,150]:[200,180,150,150,0,150];
+  data.headers.forEach((h,i)=>{const col=node('col');if(widths[i])col.style.width=widths[i]+'px';colgroup.append(col);const th=node('th','',h==='超级权限'?'仅超级管理员可见':sortable&&h==='排序'?'顺序':h);if(h==='操作')th.className='menu-actions-head';if(!h)th.className='menu-flex-space';headrow.append(th);});thead.append(headrow);table.append(colgroup,thead,tbody);if(platform)table.style.minWidth=widths.reduce((a,b)=>a+b,0)+'px';
   const stack=[],sequence=sortable?structure().positions:null;
   data.rows.forEach((row,index)=>{
    const depth=rowDepth(row);while(stack.length&&stack.at(-1).depth>=depth)stack.pop();const isHidden=stack.some(s=>collapsed.has(s.id));const children=row.tree?.hasChildren??(data.rows[index+1]&&rowDepth(data.rows[index+1])>depth);if(children)stack.push({id:row.id,depth});
