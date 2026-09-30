@@ -1,0 +1,101 @@
+{
+  "results": [
+    {
+      "name": "yestar-sz labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "jbfs labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "mengzhua labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "crrm labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "hqjd labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "ykjl labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "ruixi-kh-xiaowen labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "rxxz labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "yzhb labels + role isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "huamei-xian pending + approved roles",
+      "status": "PASS"
+    },
+    {
+      "name": "aoli-xian pending + approved roles",
+      "status": "PASS"
+    },
+    {
+      "name": "old cache no implicit write; user name untouched; multi-role preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "save + refresh preserves all selected roles",
+      "status": "PASS"
+    },
+    {
+      "name": "failed save rolls back model, keeps draft, retry succeeds",
+      "status": "PASS"
+    },
+    {
+      "name": "role directory keeps independent roles",
+      "status": "PASS"
+    },
+    {
+      "name": "failed role deletion retains original model, no false success",
+      "status": "PASS"
+    },
+    {
+      "name": "saved role directory updates account choices; custom role text intact",
+      "status": "PASS"
+    },
+    {
+      "name": "no script errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

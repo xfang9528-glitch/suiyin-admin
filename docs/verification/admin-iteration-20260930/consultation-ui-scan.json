@@ -1,0 +1,860 @@
+{
+  "results": [
+    {
+      "tenant": "yestar-sz",
+      "route": "uploadCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "salesManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "customerGroupList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "yxCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "topUpList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "sahPrepaymentList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "sahIncomeConfirm",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "languageManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "salesStatsNew",
+      "ready": "true",
+      "remaining": [
+        {
+          "text": "商品销售人数",
+          "tag": "H2",
+          "cls": "section-title"
+        },
+        {
+          "text": "商品销售人数 · 人数",
+          "tag": "BUTTON",
+          "attr": true
+        }
+      ]
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "salesRakingStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "revisitStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "dutyRecord",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "dataViewLog",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "salesMessageUsage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "salesVoiceStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "groupInviteStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "scriptUsageStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "aiAssistStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "salesReceptionQuery",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "sensitiveWords",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "role",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "salesManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "yxCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "customerGroupList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-sz",
+      "route": "menu",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "uploadCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "languageManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "sahPrepaymentList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "topUpList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "sahIncomeConfirm",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "salesStatsNew",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "revisitStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "salesRakingStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "dutyRecord",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "dataViewLog",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "salesMessageUsage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "salesVoiceStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "groupInviteStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "sensitiveWords",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "salesReceptionQuery",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "aiAssistStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "scriptUsageStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "role",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "salesManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "yxCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar",
+      "route": "menu",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "customerGroupList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "uploadCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "languageManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "topUpList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "sahIncomeConfirm",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "sahPrepaymentList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "salesStatsNew",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "revisitStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "salesRakingStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "dutyRecord",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "dataViewLog",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "salesMessageUsage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "groupInviteStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "salesVoiceStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "scriptUsageStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "aiAssistStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "salesReceptionQuery",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "sensitiveWords",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "role",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-bj",
+      "route": "menu",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "salesManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "customerGroupList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "yxCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "uploadCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "sahPrepaymentList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "languageManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "topUpList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "sahIncomeConfirm",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "salesStatsNew",
+      "ready": "true",
+      "remaining": [
+        {
+          "text": "商品销售人数",
+          "tag": "H2",
+          "cls": "section-title"
+        },
+        {
+          "text": "商品销售人数 · 人数",
+          "tag": "BUTTON",
+          "attr": true
+        }
+      ]
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "revisitStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "dutyRecord",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "salesRakingStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "dataViewLog",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "salesMessageUsage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "groupInviteStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "salesVoiceStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "scriptUsageStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "salesReceptionQuery",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "sensitiveWords",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "aiAssistStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "role",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "salesManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "customerGroupList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "yxCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-gz",
+      "route": "menu",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "uploadCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "languageManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "sahPrepaymentList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "topUpList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "sahIncomeConfirm",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "salesStatsNew",
+      "ready": "true",
+      "remaining": [
+        {
+          "text": "商品销售人数",
+          "tag": "H2",
+          "cls": "section-title"
+        },
+        {
+          "text": "商品销售人数 · 人数",
+          "tag": "BUTTON",
+          "attr": true
+        }
+      ]
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "revisitStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "salesRakingStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "dutyRecord",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "dataViewLog",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "salesMessageUsage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "salesVoiceStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "groupInviteStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "scriptUsageStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "aiAssistStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "sensitiveWords",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "salesReceptionQuery",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "role",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "caseLibrarySubjectShares",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-hz",
+      "route": "menu",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "salesManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "yxCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "customerGroupList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "uploadCustomerList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "topUpList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "sahPrepaymentList",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "languageManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "sahIncomeConfirm",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "salesStatsNew",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "revisitStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "dutyRecord",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "salesRakingStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "dataViewLog",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "salesMessageUsage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "salesVoiceStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "groupInviteStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "salesReceptionQuery",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "scriptUsageStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "sensitiveWords",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "aiAssistStats",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "role",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "huamei-xian",
+      "route": "salesManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "yestar-jx",
+      "route": "menu",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "huamei-xian",
+      "route": "menu",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "aoli-xian",
+      "route": "salesManage",
+      "ready": "true",
+      "remaining": []
+    },
+    {
+      "tenant": "aoli-xian",
+      "route": "menu",
+      "ready": "true",
+      "remaining": []
+    }
+  ],
+  "errors": []
+}

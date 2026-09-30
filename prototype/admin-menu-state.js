@@ -120,7 +120,7 @@ window.AdminMenuState={
  },
  read(tenant,storageKey){
   let saved;try{saved=JSON.parse(localStorage.getItem(storageKey)||'null');}catch{}
-  const migrated=this.migrate(tenant,saved);
+  const migrated=window.AdminAccountProfile.normalizeOverride(this.migrate(tenant,saved));
   if(JSON.stringify(migrated)!==JSON.stringify(saved)){try{localStorage.setItem(storageKey,JSON.stringify(migrated));}catch{}}
   return migrated;
  },
@@ -221,6 +221,7 @@ window.AdminPlatformMenu=(()=>{
  const key=(qa?'admin-qa:v1:':'admin-content:v1:')+'bzds:allMenu';
  let baseline,baselineModel,pending;
  function tree(model){
+  window.AdminAccountProfile.normalizePage(model);
   const table=model?.tables?.[0];if(!Array.isArray(table?.rows)||!Array.isArray(table.headers))return null;
   const column=label=>table.headers.indexOf(label),routeColumn=column('菜单路由'),statusColumn=column('菜单状态');
   if(routeColumn<0||statusColumn<0)return null;
@@ -303,11 +304,12 @@ window.AdminTenantMenu=(()=>{
  const key=id=>(qa?'admin-qa:v1:':'admin-content:v1:')+id+':menu';
  const clone=value=>structuredClone(value),identity=row=>String(row.tree?.key||row.id);
  async function load(id){
-  if(!pending.has(id))pending.set(id,fetch('data/content/'+encodeURIComponent(id)+'.json').then(r=>{if(!r.ok)throw Error('租户菜单配置读取失败');return r.json();}).then(data=>{if(!Array.isArray(data.menu?.tables?.[0]?.rows))throw Error('租户菜单配置无效');sources.set(id,clone(data.menu));return clone(data.menu);}).catch(error=>{pending.delete(id);throw error;}));
+  if(!pending.has(id))pending.set(id,fetch('data/content/'+encodeURIComponent(id)+'.json').then(r=>{if(!r.ok)throw Error('租户菜单配置读取失败');return r.json();}).then(data=>{if(!Array.isArray(data.menu?.tables?.[0]?.rows))throw Error('租户菜单配置无效');window.AdminAccountProfile.normalizePage(data.menu);sources.set(id,clone(data.menu));return clone(data.menu);}).catch(error=>{pending.delete(id);throw error;}));
   await pending.get(id);return clone(sources.get(id));
  }
  function read(id){
   let saved;try{saved=JSON.parse(localStorage.getItem(key(id))||'null');}catch{}
+  window.AdminAccountProfile.normalizePage(saved);
   if(window.AdminMenuRefresh.accepts(sources.get(id),saved)){saved=window.AdminMenuRefresh.merge(sources.get(id),saved);try{localStorage.setItem(key(id),JSON.stringify(saved));}catch{}}
   return saved?.tenant===id&&saved?.route==='menu'&&Array.isArray(saved.tables?.[0]?.rows)?saved:clone(sources.get(id)||null);
  }

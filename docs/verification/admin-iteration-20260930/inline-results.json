@@ -1,0 +1,1797 @@
+{
+  "at": "2026-09-30T07:24:02.024Z",
+  "browser": "153.0.8010.54",
+  "inlineSha256": "d41f537d341721252f09f4baf224dc3b1a0709230ba5293f94e93727bafd86e0",
+  "isolatedContexts": true,
+  "qaOnly": true,
+  "passed": 324,
+  "failed": 0,
+  "results": [
+    {
+      "name": "yestar-sz 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "yestar-sz 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "jbfs 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "jbfs 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "jbfs 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mengzhua 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mengzhua 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "mengzhua 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "2px",
+          "navLine": "56px",
+          "tabLine": "22.4px"
+        },
+        "inline": {
+          "brandSpacing": "2px",
+          "navLine": "56px",
+          "tabLine": "22.4px"
+        }
+      }
+    },
+    {
+      "name": "bzds 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "crrm 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "crrm 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "crrm 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "hqjd 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "hqjd 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "hqjd 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ykjl 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ykjl 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "ykjl 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ruixi-kh-xiaowen 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ruixi-kh-xiaowen 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "ruixi-kh-xiaowen 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rxxz 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rxxz 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "rxxz 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "yestar 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-bj 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-bj 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "yestar-bj 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-gz 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-gz 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "yestar-gz 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-hz 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-hz 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "yestar-hz 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-jx 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-jx 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "yestar-jx 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yzhb 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yzhb 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "2px",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "yzhb 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "huamei-xian 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "huamei-xian 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "huamei-xian 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "aoli-xian 单文件菜单与目录版一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "aoli-xian 壳字号字距行高与目录版一致",
+      "passed": true,
+      "detail": {
+        "directory": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        },
+        "inline": {
+          "brandSpacing": "normal",
+          "navLine": "normal",
+          "tabLine": "normal"
+        }
+      }
+    },
+    {
+      "name": "aoli-xian 资源完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-sz 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-sz 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-sz srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-sz 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-sz 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-sz 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 jbfs 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 jbfs 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 jbfs srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 mengzhua 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 mengzhua 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 mengzhua srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 mengzhua 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 mengzhua 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 mengzhua 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 bzds 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 bzds 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 bzds srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 bzds 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 bzds 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 bzds 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 crrm 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 crrm 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 crrm srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 crrm 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 crrm 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 crrm 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 hqjd 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 hqjd 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 hqjd srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 hqjd 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 hqjd 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 hqjd 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ykjl 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ykjl 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ykjl srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ykjl 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ykjl 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ykjl 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ruixi-kh-xiaowen 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ruixi-kh-xiaowen 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ruixi-kh-xiaowen srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ruixi-kh-xiaowen 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ruixi-kh-xiaowen 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 ruixi-kh-xiaowen 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 rxxz 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 rxxz 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 rxxz srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 rxxz 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 rxxz 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 rxxz 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-bj 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-bj 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-bj srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-gz 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-gz 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-gz srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-gz 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-gz 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-gz 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-hz 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-hz 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-hz srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-hz 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-hz 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-hz 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-jx 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-jx 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-jx srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-jx 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-jx 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yestar-jx 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yzhb 可见入口有独立数据登记",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yzhb 本租户分类树完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yzhb srcdoc租户与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yzhb 分类列表使用本租户样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yzhb 内嵌详情编辑器",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 yzhb 取消后清除壳遮罩",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 huamei-xian salesManage 保留独立待采来源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 huamei-xian salesManage 待采数据不伪造",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 huamei-xian salesManage 仅内嵌资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 huamei-xian setting 保留独立待采来源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 huamei-xian setting 待采数据不伪造",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 huamei-xian setting 仅内嵌资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 huamei-xian menu 保留独立待采来源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 huamei-xian menu 待采数据不伪造",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 huamei-xian menu 仅内嵌资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 aoli-xian salesManage 保留独立待采来源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 aoli-xian salesManage 待采数据不伪造",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 aoli-xian salesManage 仅内嵌资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 aoli-xian setting 保留独立待采来源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 aoli-xian setting 待采数据不伪造",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 aoli-xian setting 仅内嵌资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 aoli-xian menu 保留独立待采来源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 aoli-xian menu 待采数据不伪造",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "076 aoli-xian menu 仅内嵌资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "话术 主壳遮罩消息关闭srcdoc弹窗",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "内嵌菜单编辑弹窗打开",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "内嵌弹窗关闭",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "内嵌页签切换有内容",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "帐号页下拉及表格样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "聊天页保留深圳采集空态",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "聊天页显式切换内嵌演示样本",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "子页仅使用内嵌资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "crrm recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "hqjd recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "jbfs recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mengzhua recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ruixi-kh-xiaowen recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar goodNewsRecords 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar goodNewsSettings 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-bj recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-gz goodNewsRecords 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-gz goodNewsSettings 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-gz recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-hz goodNewsRecords 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-hz goodNewsSettings 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-hz recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-jx goodNewsRecords 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-jx goodNewsSettings 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-jx recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz goodNewsRecords 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz goodNewsSettings 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ykjl recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yzhb recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rxxz recordingAdmin 已采主体完整内嵌",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-sz asrLexicon 专用布局及内嵌数据",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "yestar-hz aiChatQuality 专用布局及内嵌数据",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds auditDict 专用布局及内嵌数据",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds labelMenu 专用布局及内嵌数据",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bzds esIndex 专用布局及内嵌数据",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rxxz asrLexicon 专用布局及内嵌数据",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rxxz aiChatQuality 专用布局及内嵌数据",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "recordingAdmin srcdoc 弹层展开覆盖完整壳",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "recordingAdmin 弹层根背景透明",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "recordingAdmin 弹层关闭恢复原 iframe",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "recordingAdmin 弹层无外部资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "goodNewsRecords srcdoc 弹层展开覆盖完整壳",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "goodNewsRecords 弹层根背景透明",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "goodNewsRecords 弹层关闭恢复原 iframe",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "goodNewsRecords 弹层无外部资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "深圳备注保留尚未运行状态",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "remark-demand-mappings srcdoc 弹层展开覆盖完整壳",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "remark-demand-mappings 弹层根背景透明",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "remark-demand-mappings 弹层关闭恢复原 iframe",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "remark-demand-mappings 弹层无外部资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "068 单文件键盘拖动改变同组顺序",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "068 单文件撤销恢复顺序与业务字段",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "058 AI 费用保留页面与演示口径",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "058 范围日期校验仍生效",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "058 重置恢复有效状态",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-sz 回访入口及本租户模型",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-sz 完整21/26筛选维度",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-sz 基准下拉15项及六个直接事件选项",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-sz 等级来源仍可选人工或AI",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-sz 直接选择首次购买，无第二事件选择",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-sz 保存与启用及稳定事件配对",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-sz 暂停",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar 回访入口及本租户模型",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar 完整21/26筛选维度",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar 基准下拉15项及六个直接事件选项",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar 等级来源仍可选人工或AI",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar 直接选择首次购买，无第二事件选择",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar 保存与启用及稳定事件配对",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar 暂停",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-bj 回访入口及本租户模型",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-bj 完整21/26筛选维度",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-bj 基准下拉15项及六个直接事件选项",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-bj 等级来源仍可选人工或AI",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-bj 直接选择首次购买，无第二事件选择",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-bj 保存与启用及稳定事件配对",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-bj 暂停",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-gz 回访入口及本租户模型",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-gz 完整21/26筛选维度",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-gz 基准下拉15项及六个直接事件选项",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-gz 等级来源仍可选人工或AI",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-gz 直接选择首次购买，无第二事件选择",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-gz 保存与启用及稳定事件配对",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-gz 暂停",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-hz 回访入口及本租户模型",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-hz 完整21/26筛选维度",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-hz 基准下拉15项及六个直接事件选项",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-hz 等级来源仍可选人工或AI",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-hz 直接选择首次购买，无第二事件选择",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-hz 保存与启用及稳定事件配对",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-hz 暂停",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-jx 回访入口及本租户模型",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-jx 完整21/26筛选维度",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-jx 基准下拉15项及六个直接事件选项",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-jx 等级来源仍可选人工或AI",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-jx 直接选择首次购买，无第二事件选择",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-jx 保存与启用及稳定事件配对",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-jx 暂停",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-sz 刷新与租户隔离",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar 刷新与租户隔离",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-bj 刷新与租户隔离",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-gz 刷新与租户隔离",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-hz 刷新与租户隔离",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 yestar-jx 刷新与租户隔离",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 原回访统计保持独立",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "071 非艺星无回访入口，平台只登记一次",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-sz 工具管理入口与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-sz 内嵌素材和稳定引用",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-sz 分类保存且不重复存默认素材",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-sz PC预览图片可见且无外部资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-sz 关闭预览恢复壳且配置不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar 工具管理入口与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar 内嵌素材和稳定引用",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar 分类保存且不重复存默认素材",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar PC预览图片可见且无外部资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar 关闭预览恢复壳且配置不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-bj 工具管理入口与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-bj 内嵌素材和稳定引用",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-bj 分类保存且不重复存默认素材",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-bj PC预览图片可见且无外部资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-bj 关闭预览恢复壳且配置不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-gz 工具管理入口与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-gz 内嵌素材和稳定引用",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-gz 分类保存且不重复存默认素材",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-gz PC预览图片可见且无外部资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-gz 关闭预览恢复壳且配置不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-hz 工具管理入口与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-hz 内嵌素材和稳定引用",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-hz 分类保存且不重复存默认素材",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-hz PC预览图片可见且无外部资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-hz 关闭预览恢复壳且配置不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-jx 工具管理入口与QA参数",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-jx 内嵌素材和稳定引用",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-jx 分类保存且不重复存默认素材",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-jx PC预览图片可见且无外部资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-jx 关闭预览恢复壳且配置不变",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-sz 刷新后保持本租户分类",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar 刷新后保持本租户分类",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-bj 刷新后保持本租户分类",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-gz 刷新后保持本租户分类",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-hz 刷新后保持本租户分类",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 yestar-jx 刷新后保持本租户分类",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "073 非艺星无辅助线入口且模型拒绝访问",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "壳 未知 fetch 明确拒绝",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "子页 未知 fetch 明确拒绝",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "新增回归完成后无资源请求",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http yestar-sz consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "http yestar consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "http yestar-bj consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "http yestar-gz consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "http yestar-hz consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "http yestar-jx consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "http huamei-xian consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "http aoli-xian consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "http non-target BZDS retains sales terminology",
+      "passed": true
+    },
+    {
+      "name": "http yestar-sz/menu capsule save/reload/navigation/rollback offline",
+      "passed": true
+    },
+    {
+      "name": "http bzds/allMenu capsule save/reload/navigation/rollback offline",
+      "passed": true
+    },
+    {
+      "name": "file yestar-sz consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "file yestar consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "file yestar-bj consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "file yestar-gz consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "file yestar-hz consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "file yestar-jx consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "file huamei-xian consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "file aoli-xian consultation labels, three roles and offline data",
+      "passed": true
+    },
+    {
+      "name": "file non-target BZDS retains sales terminology",
+      "passed": true
+    },
+    {
+      "name": "file yestar-sz/menu capsule save/reload/navigation/rollback offline",
+      "passed": true
+    },
+    {
+      "name": "file bzds/allMenu capsule save/reload/navigation/rollback offline",
+      "passed": true
+    },
+    {
+      "name": "zero script errors and external requests",
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": []
+}

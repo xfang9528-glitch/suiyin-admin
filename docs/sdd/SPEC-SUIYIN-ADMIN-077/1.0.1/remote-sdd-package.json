@@ -1,0 +1,26 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-077",
+  "spec_version": "1.0.1",
+  "artifact_class": "static-html",
+  "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026093001-admin-accounts-menu/docs/sdd/SPEC-SUIYIN-ADMIN-077/1.0.1/README.md",
+  "tag": "v2026093001-admin-accounts-menu",
+  "engineering_handoff": false,
+  "files": [
+    "spec.md",
+    "plan.md",
+    "tasks.md",
+    "source-convergence.md",
+    "source-search-evidence.md",
+    "verification.md",
+    "README.md"
+  ],
+  "sha256": {
+    "spec.md": "25c06dbd961ec3bd2a8dccab2f3da92dc9b5f74548aba075f1426d9018ffacf4",
+    "plan.md": "29f5dec69a44af08492489062ce6d42aadf282c846fdef3d887f7b05ea7bdc56",
+    "tasks.md": "1d35d9cd818abcf186a8c48bf821e9a2de0e8d706fc8509eb2ca82fa706641ba",
+    "source-convergence.md": "7a868511936be342efa372a24f118582eaf2e51c55f31bc0274fd5aaf8e5c5a5",
+    "source-search-evidence.md": "f0807431d328269e88c848fa2487d88aa48ed02c710add1c62e143cf6cbb290f",
+    "verification.md": "b61d55d7ccef10f8969e8854031011028304fea7cd4c954dc10c047364ecbde7",
+    "README.md": "3bfacc4f5a38321a507b452863f33be492e6b220cbb319a0ac7d8135385732d0"
+  }
+}

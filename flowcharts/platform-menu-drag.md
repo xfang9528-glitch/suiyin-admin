@@ -1,10 +1,10 @@
 # 平台菜单拖动与全租户导航流程
 
-平台交互合同：[060@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/spec.md)。其普通menu排除及无条件平台排序覆盖由[068@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md)限定替代，已发布060快照只保留原批准历史。
+平台交互合同：[060@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-060/1.1.0/spec.md)。其普通menu排除及无条件平台排序覆盖由[068@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md)限定替代，已发布060快照只保留原批准历史。状态交互由[076@1.0.1](../docs/sdd/SPEC-SUIYIN-ADMIN-076/1.0.1/spec.md)替换为表内显示/隐藏胶囊，沿用同一平台范围；见[状态流程](admin-account-menu-status.md#菜单状态直接保存)。
 
 ~~~mermaid
 flowchart TD
-    Load[加载平台完整树和已保存设置] --> Action[拖动一级整组或二级 编辑显示状态]
+    Load[加载平台完整树和已保存设置] --> Action[拖动一级整组或二级]
     Action --> Target{位置和层级合法且有变化}
     Target -->|取消或无变化| Keep[保留原结构 不新增记录]
     Target -->|有效| Save[保存结构 顺序与记录]

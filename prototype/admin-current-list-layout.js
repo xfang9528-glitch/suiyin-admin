@@ -2,7 +2,7 @@
    The controls themselves retain their original handlers, state and local persistence. */
 (()=>{'use strict';
  const q=new URLSearchParams(location.search),tenant=q.get('tenant'),route=q.get('route'),p=window.AdminCurrentListLayout?.[tenant+'/'+route];if(!p)return;
- const norm=s=>String(s||'').replace(/选择所有行|选择当前页/g,'').replace(/\s+/g,'').trim();
+ const norm=s=>window.Admin.uiText(String(s||'')).replace(/选择所有行|选择当前页/g,'').replace(/\s+/g,'').trim();
  const px=n=>n+'px';let pending=false;
  function apply(){pending=false;const root=document.querySelector('#app>.table-page');if(!root)return;
   const table=root.querySelector('.table-wrap table'),panel=root.querySelector(':scope>.filter-panel'),toolbar=root.querySelector('.source-toolbar');if(!table||!panel||!toolbar)return;

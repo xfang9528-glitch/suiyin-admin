@@ -1,0 +1,38 @@
+const {chromium}=require('C:/Users/georg/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('fs'),assert=require('node:assert/strict'),path=require('path');
+const root='E:/AI 项目/佰智德三/碎银原型/suiyin-admin',base='http://127.0.0.1:5200/prototype/';
+const ids=['yestar-sz','yestar','yestar-bj','yestar-gz','yestar-hz','yestar-jx','huamei-xian','aoli-xian'];
+const tenants=JSON.parse(fs.readFileSync(root+'/prototype/data/navigation-snapshot.json','utf8')).tenants;
+const results=[],errors=[];let browser,page;
+const pass=name=>{results.push({name,status:'PASS'});console.log('PASS '+name)};
+async function open(id,route='salesManage'){await page.goto(base+'admin-content.html?tenant='+id+'&route='+route+'&qa=1');await page.locator('body[data-content-ready="true"]').waitFor();return page;}
+async function editFirst(){await page.evaluate(()=>Admin.edit(Admin.getTable().rows[0]));await page.locator('#dialog[open]').waitFor();}
+async function save(){await page.locator('#dialogFooter button').filter({hasText:/确\s*定/}).click();}
+(async()=>{browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});page=await browser.newPage({viewport:{width:1480,height:900}});page.setDefaultTimeout(12000);page.on('pageerror',e=>errors.push(e.message));try{
+ for(const t of tenants){await open(t.id);const target=ids.includes(t.id),pending=t.id==='huamei-xian'||t.id==='aoli-xian';
+  assert.equal(await page.evaluate(()=>Admin.source.label),'碎银账号');
+  if(pending){assert.match(await page.locator('#app').innerText(),/线上咨询[\s\S]*现场咨询[\s\S]*科室助理/);assert.match(await page.locator('#app').innerText(),/待采集/);assert.equal(await page.evaluate(()=>Admin.getTable().rows.length),0);pass(t.id+' pending + approved roles');continue;}
+  assert.ok((await page.locator('th').allTextContents()).includes(target?'咨询姓名':'销售姓名'));
+  await editFirst();assert.match(await page.locator('#dialogTitle').innerText(),target?/咨询/:/销售/);
+  const labels=await page.locator('#dialogBody .field>span').allTextContents();assert.ok(labels.includes(target?'咨询名称':'销售名称'));assert.ok(labels.includes(target?'咨询手机号':'销售手机号'));
+  const choices=await page.evaluate(()=>Admin.optionsFor('权限角色','edit'));if(target){for(const role of ['线上咨询','现场咨询','科室助理'])assert.ok(choices.includes(role));assert.ok(!choices.includes('销售'));}
+  await page.locator('#dialogFooter button').filter({hasText:/取\s*消/}).click();pass(t.id+' labels + role isolation');
+ }
+ await open('yestar-sz');
+ // Old cache: opening/cancelling must not migrate persistent bytes, and free text stays intact.
+ const seeded=await page.evaluate(()=>{const m=structuredClone(Admin.model),r=m.tables[0].rows[0],h=m.tables[0].headers;r.cells[h.indexOf('权限角色')]='销售';r.cells[h.indexOf('销售姓名')]='销售研究员';r.extra={...r.extra,'权限角色':['销售','管理员'],'销售名称':'销售研究员'};m.history=[{action:'原配置',object:'保留',time:'2026-09-29'}];const raw=JSON.stringify(m);localStorage.setItem('admin-qa:v1:yestar-sz:salesManage',raw);return raw;});
+ await open('yestar-sz');assert.equal(await page.evaluate(()=>localStorage.getItem('admin-qa:v1:yestar-sz:salesManage')),seeded);await editFirst();assert.equal(await page.locator('input[data-field="销售名称"]').inputValue(),'销售研究员');assert.deepEqual(await page.locator('[data-field="权限角色"] input:checked').evaluateAll(ns=>ns.map(n=>n.value)),['线上咨询','管理员']);await page.locator('#dialogFooter button').filter({hasText:/取\s*消/}).click();assert.equal(await page.evaluate(()=>localStorage.getItem('admin-qa:v1:yestar-sz:salesManage')),seeded);pass('old cache no implicit write; user name untouched; multi-role preserved');
+ await editFirst();await page.evaluate(()=>{const box=document.querySelector('[data-field="权限角色"]');box.querySelectorAll('input[type=checkbox]').forEach(i=>i.checked=['现场咨询','科室助理','管理员'].includes(i.value));box.dispatchEvent(new Event('change',{bubbles:true}));});await save();await page.locator('#dialog').waitFor({state:'hidden'});await open('yestar-sz');await editFirst();assert.deepEqual(new Set(await page.locator('[data-field="权限角色"] input:checked').evaluateAll(ns=>ns.map(n=>n.value))),new Set(['现场咨询','科室助理','管理员']));pass('save + refresh preserves all selected roles');
+ const before=await page.evaluate(()=>JSON.stringify(Admin.model));
+ await page.evaluate(()=>{const box=document.querySelector('[data-field="权限角色"]');box.querySelectorAll('input[type=checkbox]').forEach(i=>i.checked=i.value==='线上咨询');window.qaSet=Storage.prototype.setItem;Storage.prototype.setItem=function(key,value){if(key==='admin-qa:v1:yestar-sz:salesManage')throw new DOMException('quota','QuotaExceededError');return window.qaSet.call(this,key,value);};});await save();assert.equal(await page.locator('#dialog').evaluate(el=>el.open),true);assert.equal(await page.evaluate(()=>JSON.stringify(Admin.model)),before);assert.match(await page.locator('#toast').innerText(),/未能保存/);await page.evaluate(()=>Storage.prototype.setItem=window.qaSet);await save();await page.locator('#dialog').waitFor({state:'hidden'});pass('failed save rolls back model, keeps draft, retry succeeds');
+ await open('yestar-sz','role');const roleNames=await page.evaluate(()=>{const t=Admin.getTable(),i=t.headers.indexOf('角色名称');return t.rows.map(r=>r.cells[i]);});for(const role of ['线上咨询','现场咨询','科室助理','管理员','财务'])assert.ok(roleNames.includes(role));assert.ok(!roleNames.includes('销售'));pass('role directory keeps independent roles');
+ // Role directory writes and selection catalog must stay in sync without false success.
+ const originalRoles=await page.evaluate(()=>JSON.stringify(Admin.model));
+ await page.evaluate(()=>{window.qaSet=Storage.prototype.setItem;Storage.prototype.setItem=function(key,value){if(key==='admin-qa:v1:yestar-sz:role')throw new DOMException('quota','QuotaExceededError');return window.qaSet.call(this,key,value);};Admin.action('删除',Admin.getTable().rows.find(r=>r.cells[0]==='现场咨询'));});
+ await page.getByRole('button',{name:'确认删除',exact:true}).click();assert.equal(await page.evaluate(()=>JSON.stringify(Admin.model)),originalRoles);assert.match(await page.locator('#toast').innerText(),/未能删除/);assert.equal(await page.locator('#dialog').evaluate(el=>el.open),false);await page.evaluate(()=>Storage.prototype.setItem=window.qaSet);pass('failed role deletion retains original model, no false success');
+ await page.evaluate(()=>Admin.action('删除',Admin.getTable().rows.find(r=>r.cells[0]==='现场咨询')));await page.getByRole('button',{name:'确认删除',exact:true}).click();await page.getByRole('button',{name:'完成',exact:true}).click();
+ await open('yestar-sz','role');assert.equal(await page.evaluate(()=>Admin.getTable().rows.some(r=>r.cells[0]==='现场咨询')),false);
+ await page.evaluate(()=>{const t=Admin.getTable();t.rows.push({id:'local-qa-role',cells:t.headers.map(h=>h==='角色名称'?'销售研究支持':h==='超级管理员'||h==='系统角色'?'否':''),actions:['编辑','删除'],extra:{'角色名称':'销售研究支持','权限菜单':[]}});Admin.persist('新增','销售研究支持',{strict:true});});
+ await open('yestar-sz');const catalog=await page.evaluate(()=>Admin.optionsFor('权限角色','edit'));assert.ok(!catalog.includes('现场咨询'));assert.ok(catalog.includes('销售研究支持'));assert.ok(!catalog.includes('咨询研究支持'));pass('saved role directory updates account choices; custom role text intact');
+ assert.deepEqual(errors,[]);pass('no script errors');
+}catch(e){console.error(e.stack);results.push({name:'FAILED',status:'FAIL',error:e.stack});process.exitCode=1;await page.screenshot({path:path.join(__dirname,'failure.png')}).catch(()=>{});}finally{fs.writeFileSync(path.join(__dirname,'results.json'),JSON.stringify({results,errors},null,2));await browser.close();}})();

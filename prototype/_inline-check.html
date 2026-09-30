@@ -16,9 +16,13 @@ const menuBusinessState=A=>JSON.stringify(A.getTable().rows.map(r=>({id:r.id,par
 document.querySelector('#run').onclick=async()=>{document.querySelector('#run').disabled=true;results.length=0;try{
  delete report.dataset.complete;for(const key of Object.keys(localStorage))if(key.startsWith('admin-qa'))localStorage.removeItem(key);
  const nav=await fetch('data/navigation-snapshot.json').then(r=>r.json());
+ const hasRoute=(nodes,route)=>nodes.some(n=>n.route===route||hasRoute(n.children||[],route));
+ const languageData=await fetch('data/language-manage.json').then(r=>r.json());
  for(const tenant of nav.tenants){const ordinary=await load(tenant.id,'menu',false),baseline=metrics(ordinary),shellBaseline=shellMetrics(ordinary);const d=await load(tenant.id,'menu'),c=inner(d);check(tenant.id+' 单文件菜单与目录版一致',JSON.stringify(metrics(d))===JSON.stringify(baseline));check(tenant.id+' 壳字号字距行高与目录版一致',JSON.stringify(shellMetrics(d))===JSON.stringify(shellBaseline),{directory:shellBaseline,inline:shellMetrics(d)});check(tenant.id+' 资源完整内嵌',!d.querySelector('script[src],link[rel=stylesheet][href]')&&!c.querySelector('script[src],link[rel=stylesheet][href]')&&d.querySelector('iframe').hasAttribute('srcdoc')&&[...d.images,...c.images].every(i=>i.src.startsWith('data:')));}
  // 2026-09-29: captured language trees and local-only editor must survive srcdoc adaptation.
- for(const tenant of nav.tenants){
+ for(const tenant of nav.tenants.filter(t=>hasRoute(t.menu,'languageManage'))){
+  check('话术 '+tenant.id+' 可见入口有独立数据登记',!!languageData.tenants[tenant.id]);
+  if(!languageData.tenants[tenant.id])continue;
   const d=await load(tenant.id,'languageManage'),c=inner(d),snapshot=d.defaultView.__ADMIN_INLINE_DATA__['data/language-manage.json'].tenants[tenant.id],q=new URLSearchParams(c.defaultView.__ADMIN_INLINE_PARAMS__);
   const visible=snapshot.nodes.filter(n=>{let parent=snapshot.nodes.find(x=>x.id===n.parentId);while(parent){if(parent.expanded===false)return false;parent=snapshot.nodes.find(x=>x.id===parent.parentId);}return true;});
   check('话术 '+tenant.id+' 本租户分类树完整内嵌',c.querySelectorAll('.lm-tree-row').length===visible.length&&!!c.querySelector('.lm-empty')&&noResources(d));
@@ -26,10 +30,17 @@ document.querySelector('#run').onclick=async()=>{document.querySelector('#run').
   const sample=Object.entries(snapshot.categories).find(([,v])=>v.rows?.some(r=>r.detailsStatus==='captured'))||Object.entries(snapshot.categories).find(([,v])=>v.rows?.length);
   if(sample){const [categoryId,category]=sample,record=category.rows.find(r=>r.detailsStatus==='captured')||category.rows[0];c.querySelector('[data-node-id="'+categoryId+'"] .lm-tree-name').click();const tr=c.querySelector('[data-row-id="'+record.id+'"]');check('话术 '+tenant.id+' 分类列表使用本租户样本',!!tr&&tr.textContent.includes(record.title));button(tr,'编辑').click();check('话术 '+tenant.id+' 内嵌详情编辑器',c.querySelector('#dialog').open&&c.querySelector('.lm-script-grid input').value===record.title&&!!c.querySelector('.lm-content-table'));button(c,'取 消').click();await wait(()=>!activeFrame(d).classList.contains('menu-dialog-layer'));check('话术 '+tenant.id+' 取消后清除壳遮罩',!c.querySelector('#dialog').open&&!activeFrame(d).classList.contains('menu-dialog-layer'));}
  }
+ // New tenants have approved scaffolds only; verify the missing source stays explicit.
+ for(const tenant of ['huamei-xian','aoli-xian'])for(const route of ['salesManage','setting','menu']){
+  const d=await load(tenant,route),c=inner(d),source=d.defaultView.__ADMIN_INLINE_DATA__['data/content/'+tenant+'.json'][route],model=c.defaultView.Admin.model;
+  check('076 '+tenant+' '+route+' 保留独立待采来源',source.tenant===tenant&&source.captureStatus==='not-captured'&&source.prototypeOnly===true&&source.capturedAt===null&&!!source.captureNote&&c.querySelector('#app').textContent.includes('待采集'));
+  check('076 '+tenant+' '+route+' 待采数据不伪造',route==='menu'?source.state==='mock'&&source.tables.every(t=>t.rows.every(r=>r.tree?.key))&&!!c.querySelector('.menu-source-note'):source.state==='not-captured'&&source.tables.every(t=>t.rows.length===0)&&model.tables.every(t=>t.rows.length===0));
+  check('076 '+tenant+' '+route+' 仅内嵌资源',noResources(d));
+ }
  let d=await load('yestar-sz','languageManage'),c=inner(d);const languageNodes=d.defaultView.__ADMIN_INLINE_DATA__['data/language-manage.json'].tenants['yestar-sz'],languageCategory=Object.entries(languageNodes.categories).find(([,v])=>v.rows?.length);c.querySelector('[data-node-id="'+languageCategory[0]+'"] .lm-tree-name').click();button(c.querySelector('.lm-row-actions'),'编辑').click();await wait(()=>d.body.classList.contains('has-dialog'));d.querySelector('#dialogScrim').click();await wait(()=>!c.querySelector('#dialog').open&&!d.body.classList.contains('has-dialog'));check('话术 主壳遮罩消息关闭srcdoc弹窗',!activeFrame(d).classList.contains('menu-dialog-layer')&&!c.body.classList.contains('menu-modal-open'));
  d=await load('yestar-sz','menu');c=inner(d);const edit=[...c.querySelectorAll('tbody tr button')].find(b=>b.textContent.trim()==='编辑');edit.click();check('内嵌菜单编辑弹窗打开',c.querySelector('dialog').open&&c.querySelector('dialog input'));
  const cancel=[...c.querySelectorAll('dialog button')].find(b=>b.textContent.replace(/\s/g,'')==='取消');cancel.click();check('内嵌弹窗关闭',!c.querySelector('dialog').open);
- const sales=[...d.querySelectorAll('.nav-button')].find(b=>b.textContent.trim()==='销售管理');sales.click();await wait(()=>inner(d).body.dataset.contentReady==='true');c=inner(d);check('内嵌页签切换有内容',c.querySelectorAll('tbody tr').length>0&&d.querySelectorAll('[role=tab]').length>=2);
+ const sales=d.querySelector('.nav-button[data-route="salesManage"]');sales.click();await wait(()=>inner(d).body.dataset.contentReady==='true');c=inner(d);check('内嵌页签切换有内容',c.querySelectorAll('tbody tr').length>0&&d.querySelectorAll('[role=tab]').length>=2);
  d=await load('yestar-sz','wechatStatus');c=inner(d);check('帐号页下拉及表格样本',c.querySelectorAll('tbody tr').length>0&&[...c.querySelectorAll('select')].every(s=>s.options.length>1));
  d=await load('yestar-sz','allChat');c=inner(d);
  // Current AdminChat preserves Shenzhen's captured empty state; synthetic contacts require an explicit demo toggle.

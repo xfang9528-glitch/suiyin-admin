@@ -1,6 +1,7 @@
 /* AI statistics: source layout, isolated tenant snapshots, SPEC-009 formulas. */
 'use strict';
 window.AdminAiStatsAligned=(()=>{
+ const uiText=text=>window.Admin?.uiText?.(text)??text;
  const route='aiAssistStats';
  const day=()=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
  const offset=(d,n)=>new Date(Date.parse(d+'T12:00:00Z')+n*86400000).toISOString().slice(0,10);
@@ -27,9 +28,9 @@ window.AdminAiStatsAligned=(()=>{
   for(const [i,label]of[[start,'开始日期'],[end,'结束日期']]){i.type='text';i.placeholder=label;i.setAttribute('aria-label',label);i.maxLength=10;i.autocomplete='off';i.oninput=markQuick;}
   dates.append(calendarButton,start,node('span','','至'),end);
   const dimensionField=node('div','ai-filter-field'),segments=node('div','ai-segment ai-dimensions');dimensionField.append(node('span','','维度'),segments);
-  for(const [value,label]of[['account','按销售账号'],['dept','按部门']]){const b=button(label,()=>{dimension=value;markDimension();submit();});b.dataset.dimension=value;segments.append(b);}
+  for(const [value,label]of[['account',uiText('按销售账号')],['dept','按部门']]){const b=button(label,()=>{dimension=value;markDimension();submit();});b.dataset.dimension=value;segments.append(b);}
   const departmentField=node('label','ai-filter-field ai-department'),department=node('select');department.setAttribute('aria-label','部门');department.append(new Option('全部部门',''));departmentField.append(node('span','','部门'),A.searchableSelect(department,'部门'));
-  const keyword=node('input','ai-keyword');keyword.type='search';keyword.placeholder='销售账号 / 姓名';keyword.setAttribute('aria-label','销售账号 / 姓名');
+  const keyword=node('input','ai-keyword');keyword.type='search';keyword.placeholder=uiText('销售账号 / 姓名');keyword.setAttribute('aria-label',uiText('销售账号 / 姓名'));
   const search=button('搜索',()=>{},'ai-search'),reset=button('重置',resetAll,'ai-reset'),help=button('口径说明',explain,'ai-help');search.type='submit';search.onclick=null;search.prepend(node('span','ai-search-icon'));help.prepend(node('span','ai-info-icon','i'));
   form.append(quick,dates,dimensionField,departmentField,keyword,search,reset,help);form.onsubmit=e=>{e.preventDefault();submit();};
   const error=node('p','ai-validation');error.hidden=true;error.setAttribute('role','alert');
@@ -47,7 +48,7 @@ window.AdminAiStatsAligned=(()=>{
    const state=currentState();results.dataset.state=state;results.replaceChildren();source.hidden=true;
    if(state!=='ready'){const box=node('div','ai-state',stateMessage(state));if(state==='error')box.append(button('重试',load));results.append(box);if(state==='no-snapshot'||state==='department-not-captured'){const note=node('p','ai-state-note',state==='no-snapshot'?'本地保存的日期为 '+data.start+' 至 '+data.end+'。':'账号所属多个部门时，不能用账号汇总值推断各部门消息数。');box.append(note);}return;}
    const table=node('table','ai-table'),cols=node('colgroup');[60,196,150,118,118,118,129,172,139].forEach(width=>{const c=node('col');c.style.width=width+'px';cols.append(c);});table.append(cols);
-   const head=node('thead'),tr=node('tr'),labels=query.dimension==='dept'?['#','部门','账号数','AI直发','AI参考','手动文本','AI辅助合计','AI辅助率','成功消息总数']:['#','销售账号','所属部门','AI直发','AI参考','手动文本','AI辅助合计','AI辅助率','成功消息总数'];
+   const head=node('thead'),tr=node('tr'),labels=query.dimension==='dept'?['#','部门','账号数','AI直发','AI参考','手动文本','AI辅助合计','AI辅助率','成功消息总数']:['#',uiText('销售账号'),'所属部门','AI直发','AI参考','手动文本','AI辅助合计','AI辅助率','成功消息总数'];
    labels.forEach((label,index)=>{const th=node('th',index>=3?'ai-centered':'',label);th.scope='col';if(index>=3){const key=['direct','reference','manual','assisted','ratio','success'][index-3];th.dataset.sort=key;th.tabIndex=0;th.setAttribute('aria-sort',sort===key?(direction===1?'ascending':'descending'):'none');const arrows=node('span','ai-sort-arrows');arrows.append(node('i','up'),node('i','down'));th.append(arrows);const change=()=>{direction=sort===key?-direction:-1;sort=key;draw();};th.onclick=change;th.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();change();}};}tr.append(th);});head.append(tr);table.append(head);
    const value=(r,key)=>key==='assisted'?assisted(r):key==='ratio'?(ratio(r)??-1):r[key];
    const ordered=rows().sort((a,b)=>(value(a,sort)-value(b,sort))*direction||a.order-b.order),body=node('tbody');
@@ -60,7 +61,7 @@ window.AdminAiStatsAligned=(()=>{
   }
   function submit(){if(busy||!data)return;const next=readQuery();let message='';if(!valid(next.start)||!valid(next.end))message='请选择完整、有效的统计日期';else if(next.start>next.end)message='开始日期不能晚于结束日期';error.textContent=message;error.hidden=!message;start.setAttribute('aria-invalid',String(!!message));end.setAttribute('aria-invalid',String(!!message));if(message)return;calendar?.close();query=next;draw();}
   function resetAll(){if(!data||busy)return;dimension='account';keyword.value='';department.value='';department.dispatchEvent(new Event('change',{bubbles:true}));start.value=data.start||day().slice(0,8)+'01';end.value=data.end||day();sort='assisted';direction=-1;markDimension();markQuick();submit();}
-  function explain(){const box=node('div','ai-explanation');box.append(node('p','','AI辅助合计 = AI直发 + AI参考。'),node('p','','AI辅助率 = AI辅助合计 ÷（AI直发 + AI参考 + 手动文本）。分母为 0 时显示“—”。'),node('p','','仅统计发送成功并带来源标记的销售单聊文本。成功消息总数另列，不作为 AI 辅助率分母。'),node('p','','页面展示当前租户本地采样，未采集日期与部门维度不能当作零数据。'));A.showDialog('统计口径',box,[{label:'关闭',run:A.closeDialog}]);}
+  function explain(){const box=node('div','ai-explanation');box.append(node('p','','AI辅助合计 = AI直发 + AI参考。'),node('p','','AI辅助率 = AI辅助合计 ÷（AI直发 + AI参考 + 手动文本）。分母为 0 时显示“—”。'),node('p','',uiText('仅统计发送成功并带来源标记的销售单聊文本。成功消息总数另列，不作为 AI 辅助率分母。')),node('p','','页面展示当前租户本地采样，未采集日期与部门维度不能当作零数据。'));A.showDialog('统计口径',box,[{label:'关闭',run:A.closeDialog}]);}
   async function load(){setBusy(true);failed=false;draw();try{const response=await fetch('data/ai-stats/'+encodeURIComponent(A.tenant)+'.json');if(!response.ok)throw Error('snapshot');data=validateData(await response.json(),A.tenant);department.replaceChildren(new Option('全部部门',''));for(const name of [...new Set(data.rows.flatMap(r=>r.departments))])department.append(new Option(name,name));department.dispatchEvent(new Event('change',{bubbles:true}));start.value=data.start||day().slice(0,8)+'01';end.value=data.end||day();query=readQuery();}catch{failed=true;}finally{setBusy(false);markQuick();markDimension();draw();}}
   markDimension();load();return true;
  }

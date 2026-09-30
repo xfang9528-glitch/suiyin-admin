@@ -8,7 +8,7 @@ window.AdminChat={render(){
  const day=date=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(date);
  const sampleDay=day(new Date(A.source.capturedAt)),today=()=>day(new Date());
  const rows=(customers?.rows||[]).slice(0,30),h=customers?.headers||[];
- const contacts=rows.map((row,index)=>({id:row.id,name:row.cells[h.indexOf('微信昵称')]||row.cells[h.indexOf('好友名称')]||'演示客户 '+(index+1),sales:row.cells[h.indexOf('专属销售')]||salesNames[index%Math.max(1,salesNames.length)]||'演示销售',account:row.cells[h.indexOf('所在账号')]||accountNames[index%Math.max(1,accountNames.length)]||'演示工作账号',date:day(new Date(Date.parse(sampleDay+'T12:00:00+08:00')-(index%7)*86400000)),search:row.cells.join(' ')}));
+ const contacts=rows.map((row,index)=>({id:row.id,name:row.cells[h.indexOf('微信昵称')]||row.cells[h.indexOf('好友名称')]||'演示客户 '+(index+1),sales:row.cells[h.indexOf('专属销售')]||salesNames[index%Math.max(1,salesNames.length)]||A.uiText('演示销售'),account:row.cells[h.indexOf('所在账号')]||accountNames[index%Math.max(1,accountNames.length)]||'演示工作账号',date:day(new Date(Date.parse(sampleDay+'T12:00:00+08:00')-(index%7)*86400000)),search:row.cells.join(' ')}));
  const list=node('aside','chat-list'),pane=node('div','chat-pane'),title=node('div','chat-title'),messages=node('div','messages'),footer=node('div','compose'),panel=node('section','card'),split=node('div','chat-layout');
  footer.append(node('p','hint','只读查看 · 演示对话正文为合成内容。'));pane.append(title,messages,footer);split.append(list,pane);panel.append(split);
  let selected,demo=false;
@@ -24,10 +24,10 @@ window.AdminChat={render(){
   function draw(){emptyAll();list.prepend(searchBox);if(!demo){footer.hidden=true;return;}footer.hidden=false;const keyword=search.value.trim();list.append(node('div','chat-list-heading','本地演示会话'));showContacts(contacts.filter(contact=>contact.search.includes(keyword)||contact.name.includes(keyword)));}
   search.oninput=draw;root.append(panel);A.$('app').replaceChildren(root);draw();return;
  }
- const introduction=node('div','chat-introduction');introduction.append(node('p','','按销售或人设查看客户会话与具体对话'));root.append(introduction);
+ const introduction=node('div','chat-introduction');introduction.append(node('p','',A.uiText('按销售或人设查看客户会话与具体对话')));root.append(introduction);
  const form=node('form','card filter-panel');
  function multi(label,options){const group=node('div','field'),caption=node('span','',label+' · 多选'),wrap=node('details','multi-filter'),summary=node('summary','','全部'+label),box=node('div','multi-options');wrap.append(summary);options.forEach(value=>{const item=node('label','check-field'),control=node('input');control.type='checkbox';control.value=value;item.append(control,document.createTextNode(value));box.append(item);});box.onchange=()=>{const count=box.querySelectorAll('input:checked').length;summary.textContent=count?'已选 '+count+' 项':'全部'+label;};wrap.append(box);group.append(caption,wrap);form.append(group);return box;}
- const salesPicker=multi('销售',salesNames),accountPicker=multi('人设',accountNames),period=node('select');['不限时间','今天','本月','自定义日期'].forEach(value=>period.append(new Option(value,value)));period.setAttribute('aria-label','聊天时间');const timeLabel=node('label','field');timeLabel.append(node('span','','聊天时间'),period);form.append(timeLabel);
+ const salesPicker=multi(A.uiText('销售'),salesNames),accountPicker=multi('人设',accountNames),period=node('select');['不限时间','今天','本月','自定义日期'].forEach(value=>period.append(new Option(value,value)));period.setAttribute('aria-label','聊天时间');const timeLabel=node('label','field');timeLabel.append(node('span','','聊天时间'),period);form.append(timeLabel);
  const dates=node('div','date-range');dates.hidden=true;const from=node('input'),to=node('input');from.type=to.type='date';from.setAttribute('aria-label','聊天开始日期');to.setAttribute('aria-label','聊天结束日期');dates.append(from,document.createTextNode('至'),to);form.append(dates);period.onchange=()=>dates.hidden=period.value!=='自定义日期';
  function draw(initial=true){
   if(period.value==='自定义日期'&&from.value&&to.value&&from.value>to.value){A.toast('开始日期不能晚于结束日期');return;}
@@ -37,5 +37,5 @@ window.AdminChat={render(){
   if(initial){list.append(A.empty('选择筛选条件后，点击查询',''));return;}
   list.append(node('p','hint','本地演示 · '+matched.length+' 条'));showContacts(matched);
  }
- const actions=node('div','filter-actions');actions.append(button('重置',()=>{form.reset();dates.hidden=true;form.querySelectorAll('.multi-filter summary').forEach((summary,index)=>summary.textContent='全部'+(index?'人设':'销售'));draw(true);}),button('查询',()=>draw(false),'primary'));form.append(node('p','hint','未选择的筛选项覆盖权限范围内全部记录'),actions);form.onsubmit=event=>{event.preventDefault();draw(false);};root.append(form,panel);A.$('app').replaceChildren(root);draw(true);
+ const actions=node('div','filter-actions');actions.append(button('重置',()=>{form.reset();dates.hidden=true;form.querySelectorAll('.multi-filter summary').forEach((summary,index)=>summary.textContent='全部'+(index?'人设':A.uiText('销售')));draw(true);}),button('查询',()=>draw(false),'primary'));form.append(node('p','hint','未选择的筛选项覆盖权限范围内全部记录'),actions);form.onsubmit=event=>{event.preventDefault();draw(false);};root.append(form,panel);A.$('app').replaceChildren(root);draw(true);
 }};

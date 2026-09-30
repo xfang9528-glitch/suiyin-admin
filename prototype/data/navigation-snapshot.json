@@ -32902,6 +32902,160 @@
         "guideLineManage": false
       },
       "toolsMenuMigration": "tools-menu-v1"
+    },
+    {
+      "id": "huamei-xian",
+      "name": "画美医美-西安",
+      "brand": "画美医美-西安",
+      "domain": "huamei-xian.wecarepet.com",
+      "capturedAt": null,
+      "sourceUrl": "https://huamei-xian.wecarepet.com/admin/menu",
+      "identitySource": "user-provided-admin-url",
+      "captureStatus": "not-captured",
+      "captureNote": "本租户真实菜单与业务数据待采集。当前仅展示本轮批准的原型骨架，不代表线上完整菜单或已授权权限；账号及设置业务记录未采集，不等同于没有数据。",
+      "prototypeOnly": true,
+      "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+      "menuDataRevision": "2026-09-30-admin076-pending-capture-v1",
+      "capabilities": {},
+      "menu": [
+        {
+          "id": "salesManage",
+          "route": "salesManage",
+          "label": "碎银账号",
+          "platformLabel": "碎银账号",
+          "contentStatus": "not-captured",
+          "captureStatus": "not-captured",
+          "prototypeOnly": true,
+          "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+          "routeEvidence": "approved-static-prototype-skeleton",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "settingIndex": 0
+        },
+        {
+          "id": "systemManage",
+          "label": "系统管理",
+          "display": "显示",
+          "sort": 1,
+          "superPermission": false,
+          "settingIndex": 1,
+          "contentStatus": "not-captured",
+          "captureStatus": "not-captured",
+          "prototypeOnly": true,
+          "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+          "routeEvidence": "approved-static-prototype-skeleton",
+          "children": [
+            {
+              "id": "menu",
+              "route": "menu",
+              "label": "菜单管理",
+              "platformLabel": "菜单管理",
+              "contentStatus": "not-captured",
+              "captureStatus": "not-captured",
+              "prototypeOnly": true,
+              "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+              "routeEvidence": "approved-static-prototype-skeleton",
+              "display": "显示",
+              "sort": 2,
+              "superPermission": false,
+              "settingIndex": 2
+            },
+            {
+              "id": "setting",
+              "route": "setting",
+              "label": "系统设置",
+              "platformLabel": "系统设置",
+              "contentStatus": "not-captured",
+              "captureStatus": "not-captured",
+              "prototypeOnly": true,
+              "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+              "routeEvidence": "approved-static-prototype-skeleton",
+              "display": "显示",
+              "sort": 3,
+              "superPermission": false,
+              "settingIndex": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aoli-xian",
+      "name": "傲丽医美-西安",
+      "brand": "傲丽医美-西安",
+      "domain": "aoli-xian.wecarepet.com",
+      "capturedAt": null,
+      "sourceUrl": "https://aoli-xian.wecarepet.com/admin/salesManage",
+      "identitySource": "user-provided-admin-url",
+      "captureStatus": "not-captured",
+      "captureNote": "本租户真实菜单与业务数据待采集。当前仅展示本轮批准的原型骨架，不代表线上完整菜单或已授权权限；账号及设置业务记录未采集，不等同于没有数据。",
+      "prototypeOnly": true,
+      "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+      "menuDataRevision": "2026-09-30-admin076-pending-capture-v1",
+      "capabilities": {},
+      "menu": [
+        {
+          "id": "salesManage",
+          "route": "salesManage",
+          "label": "碎银账号",
+          "platformLabel": "碎银账号",
+          "contentStatus": "not-captured",
+          "captureStatus": "not-captured",
+          "prototypeOnly": true,
+          "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+          "routeEvidence": "approved-static-prototype-skeleton",
+          "display": "显示",
+          "sort": 0,
+          "superPermission": false,
+          "settingIndex": 0
+        },
+        {
+          "id": "systemManage",
+          "label": "系统管理",
+          "display": "显示",
+          "sort": 1,
+          "superPermission": false,
+          "settingIndex": 1,
+          "contentStatus": "not-captured",
+          "captureStatus": "not-captured",
+          "prototypeOnly": true,
+          "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+          "routeEvidence": "approved-static-prototype-skeleton",
+          "children": [
+            {
+              "id": "menu",
+              "route": "menu",
+              "label": "菜单管理",
+              "platformLabel": "菜单管理",
+              "contentStatus": "not-captured",
+              "captureStatus": "not-captured",
+              "prototypeOnly": true,
+              "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+              "routeEvidence": "approved-static-prototype-skeleton",
+              "display": "显示",
+              "sort": 2,
+              "superPermission": false,
+              "settingIndex": 2
+            },
+            {
+              "id": "setting",
+              "route": "setting",
+              "label": "系统设置",
+              "platformLabel": "系统设置",
+              "contentStatus": "not-captured",
+              "captureStatus": "not-captured",
+              "prototypeOnly": true,
+              "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+              "routeEvidence": "approved-static-prototype-skeleton",
+              "display": "显示",
+              "sort": 3,
+              "superPermission": false,
+              "settingIndex": 3
+            }
+          ]
+        }
+      ]
     }
   ],
   "menuDataRevision": "2026-09-27-live-menu-refresh-staging-v1-tools-menu-v1",

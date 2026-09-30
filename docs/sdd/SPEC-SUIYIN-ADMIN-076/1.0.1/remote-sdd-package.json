@@ -1,0 +1,40 @@
+{
+  "spec_id": "SPEC-SUIYIN-ADMIN-076",
+  "spec_version": "1.0.1",
+  "artifact_class": "static-html",
+  "canonical_url": "https://github.com/xfang9528-glitch/suiyin-admin/blob/v2026093001-admin-accounts-menu/docs/sdd/SPEC-SUIYIN-ADMIN-076/1.0.1/README.md",
+  "tag": "v2026093001-admin-accounts-menu",
+  "engineering_handoff": true,
+  "issue_url": "https://github.com/PetWebOrg/suiyin-admin/issues/448",
+  "issue_urls": [
+    "https://github.com/PetWebOrg/suiyin-admin/issues/448",
+    "https://github.com/PetWebOrg/suiyin-admin/issues/449"
+  ],
+  "assignee": "kitesky",
+  "files": [
+    "spec.md",
+    "plan.md",
+    "tasks.md",
+    "source-convergence.md",
+    "source-search-evidence.md",
+    "verification.md",
+    "issue-handoff.md",
+    "test-contract.md",
+    "issue-body-time.md",
+    "issue-body-menu.md",
+    "README.md"
+  ],
+  "sha256": {
+    "spec.md": "d64a122b3e5f47153a4452f977351d9f0d7a2ebdbc5d772c146fab30eb26a18b",
+    "plan.md": "66fdca250bb43a2c5d5b05f0763996cf446233c196c7c6c9943e5b80c4965337",
+    "tasks.md": "e7bac6a9b3f638c8effb25e70a4062b25e3548d34769fab6189f03011652053d",
+    "source-convergence.md": "02b225c39ecfbf4031f6b30524facc986b4fa172c0e073775df2266988829792",
+    "source-search-evidence.md": "25ae39fd830756106903664f3d02d1b1e148d18d1628cfdeece72e3f0f8adf7d",
+    "verification.md": "9ea84bc06c44fafb2c15cdd3744f7de879e561cc25a47fca0ca434e19661899f",
+    "issue-handoff.md": "c745eadd83922c4d2cbabf63d219bd7b2484efa33d544ed32e5a485e0b80635d",
+    "test-contract.md": "1ceb64c72b2f673176424f79f3f2b5362b081bab4a4ce4816556f76fef55cd67",
+    "issue-body-time.md": "853172bb89be1584e6ad861942dcf50f1caf829d155dcba9dc63f18b967f7292",
+    "issue-body-menu.md": "fbc6f676b011185cf972871126e7bd055d960c6e66ffae62528d564782144bea",
+    "README.md": "b9e34942a302f7369c90e7fdf4a75e7222547936140d7fecb2c18ae03c94f899"
+  }
+}

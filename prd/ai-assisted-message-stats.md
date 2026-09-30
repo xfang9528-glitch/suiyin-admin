@@ -1,5 +1,7 @@
 # AI 辅助消息使用统计产品说明
 
+2026-09-30术语适配：按[077@1.0.1](../docs/sdd/SPEC-SUIYIN-ADMIN-077/1.0.1/spec.md)，六艺星及画美/傲丽的系统人员称谓显示为咨询，其他租户仍为销售；下文共享业务定义与历史采集值不改。画美/傲丽仅有最小待采集框架，不据此新增本页权限、数据或菜单。
+
 更新：2026-09-20。业务统计合同仍为 [SPEC-SUIYIN-ADMIN-009@1.0.0](../docs/sdd/dependencies/SPEC-SUIYIN-ADMIN-009/1.0.0/spec.md)。当前 Shell 的页面、样本、筛选结构和领域纠偏分别执行 051@1.1.0、055@1.1.0、056@1.0.0；后者不改变 009 的业务定义。本轮按 [四页发布勘误](../docs/sdd/pixel-correction-20260920.md) 恢复同租户样本与截图结构。旧 `stats-ai-assist`、`stats_ai_assist_v1.0.html` 是独立页历史入口，当前路由为 `aiAssistStats`。
 
 表格滚动时按 [055@1.1.0](../docs/sdd/SPEC-SUIYIN-ADMIN-055/1.1.0/spec.md) 保持完整表头可见，横向与正文同列对齐，表格结束后退出；该变化不改变本页统计口径。

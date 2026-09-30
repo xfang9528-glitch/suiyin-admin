@@ -1,0 +1,221 @@
+{
+  "salesManage": {
+    "tenant": "aoli-xian",
+    "route": "salesManage",
+    "label": "碎银账号",
+    "source": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+    "sampleTenant": "aoli-xian",
+    "sampleSource": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+    "schemaSource": "approved-static-prototype-skeleton",
+    "capturedAt": null,
+    "state": "not-captured",
+    "captureStatus": "not-captured",
+    "captureNote": "本租户真实菜单与业务数据待采集。当前仅展示本轮批准的原型骨架，不代表线上完整菜单或已授权权限；账号及设置业务记录未采集，不等同于没有数据。",
+    "prototypeOnly": true,
+    "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+    "dataRevision": "2026-09-30-admin076-pending-capture-v1-public-demo-identities-v1",
+    "forms": [],
+    "inputs": [],
+    "tables": [
+      {
+        "headers": [
+          "销售姓名",
+          "手机号",
+          "权限角色",
+          "可聊天账号",
+          "声纹注册",
+          "操作"
+        ],
+        "rows": []
+      }
+    ],
+    "buttons": [],
+    "tabs": [],
+    "pagination": "",
+    "text": "碎银账号\n销售姓名\t手机号\t权限角色\t可聊天账号\t声纹注册\t操作",
+    "canvas": 0,
+    "expandedForms": {},
+    "publicDataPolicy": "public-demo-identities-v1"
+  },
+  "menu": {
+    "tenant": "aoli-xian",
+    "route": "menu",
+    "label": "菜单管理",
+    "source": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+    "sampleTenant": "aoli-xian",
+    "sampleSource": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+    "schemaSource": "approved-static-prototype-skeleton",
+    "capturedAt": null,
+    "state": "mock",
+    "captureStatus": "not-captured",
+    "captureNote": "本租户真实菜单与业务数据待采集。当前仅展示本轮批准的原型骨架，不代表线上完整菜单或已授权权限；账号及设置业务记录未采集，不等同于没有数据。",
+    "prototypeOnly": true,
+    "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+    "dataRevision": "2026-09-30-admin076-pending-capture-v1-public-demo-identities-v1",
+    "forms": [],
+    "inputs": [],
+    "tables": [
+      {
+        "headers": [
+          "菜单名称",
+          "超级权限",
+          "菜单状态",
+          "排序",
+          "",
+          "操作"
+        ],
+        "rows": [
+          {
+            "id": "aoli-xian-menu-salesManage",
+            "cells": [
+              "碎银账号",
+              "否",
+              "显示",
+              "1",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 0,
+              "hasChildren": false,
+              "key": "salesManage",
+              "parentKey": null,
+              "parentId": ""
+            },
+            "prototypeOnly": true,
+            "source": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+            "captureStatus": "not-captured"
+          },
+          {
+            "id": "aoli-xian-menu-systemManage",
+            "cells": [
+              "系统管理",
+              "否",
+              "显示",
+              "2",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 0,
+              "hasChildren": true,
+              "key": "systemManage",
+              "parentKey": null,
+              "parentId": ""
+            },
+            "prototypeOnly": true,
+            "source": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+            "captureStatus": "not-captured"
+          },
+          {
+            "id": "aoli-xian-menu-menu",
+            "cells": [
+              "菜单管理",
+              "否",
+              "显示",
+              "1",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "menu",
+              "parentKey": "systemManage",
+              "parentId": "aoli-xian-menu-systemManage"
+            },
+            "prototypeOnly": true,
+            "source": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+            "captureStatus": "not-captured"
+          },
+          {
+            "id": "aoli-xian-menu-setting",
+            "cells": [
+              "系统设置",
+              "否",
+              "显示",
+              "2",
+              "",
+              "编辑\n 删除\n 记录"
+            ],
+            "actions": [
+              "编辑",
+              "删除",
+              "记录"
+            ],
+            "tree": {
+              "depth": 1,
+              "hasChildren": false,
+              "key": "setting",
+              "parentKey": "systemManage",
+              "parentId": "aoli-xian-menu-systemManage"
+            },
+            "prototypeOnly": true,
+            "source": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+            "captureStatus": "not-captured"
+          }
+        ]
+      }
+    ],
+    "buttons": [
+      "全部记录"
+    ],
+    "tabs": [],
+    "pagination": "",
+    "text": "菜单管理\n菜单名称\t超级权限\t菜单状态\t排序\t\t操作\n碎银账号\t否\t显示\t1\t\t编辑\n 删除\n 记录\n系统管理\t否\t显示\t2\t\t编辑\n 删除\n 记录\n菜单管理\t否\t显示\t1\t\t编辑\n 删除\n 记录\n系统设置\t否\t显示\t2\t\t编辑\n 删除\n 记录",
+    "canvas": 0,
+    "expandedForms": {},
+    "publicDataPolicy": "public-demo-identities-v1",
+    "layout": "menu-tree",
+    "auditRecords": []
+  },
+  "setting": {
+    "tenant": "aoli-xian",
+    "route": "setting",
+    "label": "系统设置",
+    "source": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+    "sampleTenant": "aoli-xian",
+    "sampleSource": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+    "schemaSource": "approved-static-prototype-skeleton",
+    "capturedAt": null,
+    "state": "not-captured",
+    "captureStatus": "not-captured",
+    "captureNote": "本租户真实菜单与业务数据待采集。当前仅展示本轮批准的原型骨架，不代表线上完整菜单或已授权权限；账号及设置业务记录未采集，不等同于没有数据。",
+    "prototypeOnly": true,
+    "sourceSpec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+    "dataRevision": "2026-09-30-admin076-pending-capture-v1-public-demo-identities-v1",
+    "forms": [],
+    "inputs": [],
+    "tables": [
+      {
+        "headers": [
+          "设置项",
+          "操作"
+        ],
+        "rows": []
+      }
+    ],
+    "buttons": [],
+    "tabs": [],
+    "pagination": "",
+    "text": "系统设置\n设置项\t操作",
+    "canvas": 0,
+    "expandedForms": {},
+    "publicDataPolicy": "public-demo-identities-v1"
+  }
+}

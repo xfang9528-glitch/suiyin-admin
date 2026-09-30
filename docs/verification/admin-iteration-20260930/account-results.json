@@ -1,0 +1,246 @@
+{
+  "results": [
+    {
+      "name": "17 tenants: unique registered identities",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-sz: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "jbfs: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "jbfs: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "jbfs: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "mengzhua: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "mengzhua: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "mengzhua: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "bzds: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "crrm: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "crrm: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "crrm: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "hqjd: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "hqjd: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "hqjd: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "ykjl: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "ykjl: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "ykjl: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "ruixi-kh-xiaowen: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "ruixi-kh-xiaowen: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "ruixi-kh-xiaowen: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "rxxz: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "rxxz: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "rxxz: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-bj: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-gz: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-hz: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yestar-jx: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yzhb: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yzhb: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "yzhb: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "huamei-xian: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "huamei-xian: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "huamei-xian: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "aoli-xian: account label and duty-time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "aoli-xian: system-setting time scope",
+      "status": "PASS"
+    },
+    {
+      "name": "aoli-xian: menu name, capsule and isolated scope",
+      "status": "PASS"
+    },
+    {
+      "name": "platform definition: both account names",
+      "status": "PASS"
+    },
+    {
+      "name": "old cache: default name migrates without losing custom fields/history",
+      "status": "PASS"
+    },
+    {
+      "name": "old sales URL works with explicit custom name",
+      "status": "PASS"
+    },
+    {
+      "name": "removed duty value stays untouched while independent checkbox saves",
+      "status": "PASS"
+    },
+    {
+      "name": "unrelated duty records remain in the existing visible tenant",
+      "status": "PASS"
+    },
+    {
+      "name": "tenant switcher shows both new tenants once",
+      "status": "PASS"
+    },
+    {
+      "name": "new-tenant complete shell fits 1480 and 1280",
+      "status": "PASS"
+    },
+    {
+      "name": "zero script errors and external requests",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}

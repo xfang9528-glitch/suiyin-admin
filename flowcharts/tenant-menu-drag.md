@@ -1,6 +1,6 @@
 # 各租户菜单拖动与导航联动流程
 
-合同：[SPEC-SUIYIN-ADMIN-068@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md)。普通menu作用当前租户；平台allMenu仍通过默认结构和可见性规则影响全部租户。
+合同：[SPEC-SUIYIN-ADMIN-068@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-068/1.0.0/spec.md)。普通menu作用当前租户；平台allMenu仍通过默认结构和可见性规则影响全部租户。状态由[076@1.0.1](../docs/sdd/SPEC-SUIYIN-ADMIN-076/1.0.1/spec.md)改为表内显示/隐藏胶囊，成功、同值、失败与范围见[状态流程](admin-account-menu-status.md#菜单状态直接保存)。
 
 ```mermaid
 flowchart TD

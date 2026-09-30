@@ -1,0 +1,17 @@
+[
+  {
+    "tenant": "yestar-gz",
+    "test": "reference edit preserves own role and removes only deleted role",
+    "status": "PASS"
+  },
+  {
+    "tenant": "yestar-hz",
+    "test": "reference edit preserves own role and removes only deleted role",
+    "status": "PASS"
+  },
+  {
+    "tenant": "yestar-jx",
+    "test": "reference edit preserves own role and removes only deleted role",
+    "status": "PASS"
+  }
+]

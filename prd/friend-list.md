@@ -1,5 +1,7 @@
 # 好友管理产品说明
 
+2026-09-30术语适配：按[077@1.0.1](../docs/sdd/SPEC-SUIYIN-ADMIN-077/1.0.1/spec.md)，六艺星及画美/傲丽的系统人员称谓显示为咨询，其他租户仍为销售；下文共享业务定义与历史采集值不改。画美/傲丽仅有最小待采集框架，不据此新增本页权限、数据或菜单。
+
 更新：2026-09-27。当前 Shell 使用 `customerManagement` 与 `yxCustomerList`，按各租户真实菜单选取路由。好友行为和界面对齐继续依 051@1.1.0、055@1.1.0、056@1.0.0，见 [主 PRD](admin-live-reference.md)；REFRESH-001@0.2.0只承接本轮录音/喜报三新页及对应入口迁移。旧 `/friend/list`、`friend_list_v1.0.html` 和 PC 筛选移植文档已转为 [历史记录](../docs/history/before-admin-wide-alignment/README.md)，不作为当前 Shell 的完整展开规范。
 
 ## 用户结果

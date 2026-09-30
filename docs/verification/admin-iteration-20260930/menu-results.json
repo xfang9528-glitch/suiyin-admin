@@ -1,0 +1,83 @@
+{
+  "at": "2026-09-30T07:16:30.224Z",
+  "spec": "SPEC-SUIYIN-ADMIN-076@1.0.0",
+  "browser": "153.0.8010.54",
+  "isolatedContext": true,
+  "qaStorageOnly": true,
+  "verificationNotes": [
+    "祖先约束用例最初选取深圳默认隐藏的专家管理，恢复平台显示后仍不可见符合原租户规则；随后改为先验证可见的“数据展示→拉新记录”。只修正测试假设，未修改产品的专家菜单隐藏状态。"
+  ],
+  "results": [
+    {
+      "name": "AC-R005-02 selected status makes no storage, audit or history change",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R005-01 / R006-02 inline status records and survives reload",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R005-01 arrow and native keyboard activation preserve focus without drag",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R005-02 original edit dialog shares status and cancel keeps state",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R007-01 tenant content rejection restores model, audit, history and both keys",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R007-01 tenant nav rejection restores model, audit, history and both keys",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R006-02 tenant second window follows committed status",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R006-01 restoring parent retains independent child hidden choice",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R008-01 existing read-only capability disables both choices",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R007-01 platform rejection restores model and records",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R006-02 platform windows read latest model before reverse change",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R008-01 platform status capsule fits existing nine-column table",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R007-01 rejected status does not publish changed navigation to open shells",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R006-02 same-tenant shells update and hidden active business page falls back",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R006-01 tenant display cannot bypass platform hidden item and global scope",
+      "status": "PASS"
+    },
+    {
+      "name": "AC-R006-01 tenant child display cannot bypass platform hidden ancestor",
+      "status": "PASS"
+    },
+    {
+      "name": "R005-R008 browser scripts have no uncaught errors",
+      "status": "PASS"
+    }
+  ],
+  "pageErrors": [],
+  "passed": 17,
+  "failed": 0
+}

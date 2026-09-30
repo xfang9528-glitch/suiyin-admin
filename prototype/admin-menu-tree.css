@@ -37,3 +37,15 @@ html:has(.menu-modal-open){background:transparent}.menu-modal-open #app{backgrou
 .menu-sortable .menu-order-note{font-size:14px;line-height:32px;color:#909399}
 .menu-sortable .menu-memory-hint{margin-left:auto;font-size:12px;color:#008f80}.menu-sortable .menu-memory-hint.save-error{color:#c45656}
 @media(prefers-reduced-motion:reduce){.menu-sortable *{scroll-behavior:auto!important}}
+
+/* SPEC-SUIYIN-ADMIN-076: keep both menu status choices visible in the table. */
+.menu-status-control{display:inline-flex;align-items:center;gap:2px;max-width:100%;padding:2px;border:1px solid #dcdfe6;border-radius:18px;background:#f4f5f7;vertical-align:middle;white-space:nowrap}
+.admin-content .menu-status-option{display:inline-flex;align-items:center;justify-content:center;min-width:0;min-height:26px;height:26px;padding:0 9px;border:0;border-radius:14px;background:transparent;color:#606266;font-size:12px;line-height:20px;font-weight:400;white-space:nowrap}
+.admin-content .menu-status-option:hover:not(:disabled){background:#e8edf2;color:#409eff}
+.admin-content .menu-status-option[aria-checked=true]{background:#fff;color:#1677d2;font-weight:600;box-shadow:0 1px 3px #0002}
+.admin-content .menu-status-option[data-value="隐藏"][aria-checked=true]{color:#606266}
+.admin-content .menu-status-option:focus-visible{outline:2px solid #409eff;outline-offset:-2px}
+.admin-content .menu-status-option:disabled{cursor:not-allowed;opacity:.5}
+.menu-status-control[aria-busy=true]{opacity:.65}
+.menu-is-moving .menu-status-control{pointer-events:none}
+.menu-page-header .menu-source-note{flex-basis:100%;margin:0;font-size:12px;line-height:20px;color:#8a661f}

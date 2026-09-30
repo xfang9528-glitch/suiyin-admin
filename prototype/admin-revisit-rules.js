@@ -104,7 +104,7 @@
         ['复制节点条件', '在目标节点选择来源节点，只替换选中与排除，不改变目标的第几天、说明或共享设置；确认后也只进入草稿。后续改动互不联动，保存整条规则才生效。'],
         ['销售可见范围', '筛出的好友只对有其所属账号接待权限的销售可见。规则本身不授予权限；多人都有权限时均可见，执行和完成状态另行设计。'],
         ['本地演示', '本页仅使用当前租户的合成账号、人员、地区选项与好友，通用医美选项用于演示，不代表门店实际标签库。规则按租户分别保存在当前浏览器；切换租户不会复制规则。不连接真实客户、不运行定时任务，也不发送消息。示例人数不代表真实业务人数。']
-      ].forEach(([title, text]) => { content.append(el('h3', '', title), el('p', '', text)); });
+      ].forEach(([title, text]) => { content.append(el('h3', '', window.Admin.uiText(title)), el('p', '', window.Admin.uiText(text))); });
       dialog('回访规则说明', content);
     }
     function header(title, subtitle, actions) {
@@ -128,7 +128,7 @@
       const state = select([{ label: '全部状态', value: 'all' }, { label: '已启用', value: 'on' }, { label: '未启用', value: 'off' }], filterState, '规则状态', value => { filterState = value; renderRows(); });
       toolbar.append(search, state, btn('重置', () => { filterText = ''; filterState = 'all'; renderList(); }), el('span', 'rr-spacer'), el('span', 'rr-muted', '一条规则可包含多个节点，节点条件独立设置'));
       main = el('div', 'rr-list-results'); card.append(toolbar, main); app.append(card);
-      const foot = el('footer', 'rr-list-foot'); foot.append(el('span', 'rr-muted', '筛选结果按工作账号接待权限进入销售回访列表。')); if (legacyRules.length || legacyError) foot.append(btn('查看旧版规则', viewLegacy, 'rr-text-button')); foot.append(btn('恢复示例', restore, 'rr-text-button')); app.append(foot);
+      const foot = el('footer', 'rr-list-foot'); foot.append(el('span', 'rr-muted', window.Admin.uiText('筛选结果按工作账号接待权限进入销售回访列表。'))); if (legacyRules.length || legacyError) foot.append(btn('查看旧版规则', viewLegacy, 'rr-text-button')); foot.append(btn('恢复示例', restore, 'rr-text-button')); app.append(foot);
       renderRows();
     }
     function renderRows() {
@@ -319,7 +319,7 @@
       [['共享账号范围', summary.scope], ['共同回访基准', summary.anchor], ['每天筛选', draft.runAt ? draft.runAt + ' · 北京时间' : '请设置时间']].forEach(([title, value]) => { const item = el('div', 'rr-summary-item'); item.append(el('h3', '', title), el('p', '', value)); summaryPanel.append(item); });
       const overview = el('div', 'rr-summary-item rr-summary-nodes'); overview.append(el('h3', '', draft.nodes.length + ' 个回访节点'));
       sortedNodes(draft.nodes).forEach(node => { const summary = M.nodeSummary(node), row = el('div', 'rr-mini-node' + (node.id === selectedNodeId ? ' active' : '')); row.append(btn(nodeLabel(node), () => { selectedNodeId = node.id; renderNode(); updateSummary(); nodeHost.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }, 'rr-text-button'), el('p', '', node.note || summary.include), el('small', '', summary.exclude)); overview.append(row); }); summaryPanel.append(overview);
-      const note = el('div', 'rr-summary-note'); note.append(el('strong', '', draft.enabled && mode === 'edit' ? '保持已启用' : '保存后未启用'), el('p', '', draft.enabled && mode === 'edit' ? '本次修改从下次计划筛选生效。' : '保存后，在规则列表中单独启用。')); summaryPanel.append(note, el('p', 'rr-permission-note', '销售仅能看到其有接待权限账号下的应回访好友。'));
+      const note = el('div', 'rr-summary-note'); note.append(el('strong', '', draft.enabled && mode === 'edit' ? '保持已启用' : '保存后未启用'), el('p', '', draft.enabled && mode === 'edit' ? '本次修改从下次计划筛选生效。' : '保存后，在规则列表中单独启用。')); summaryPanel.append(note, el('p', 'rr-permission-note', window.Admin.uiText('销售仅能看到其有接待权限账号下的应回访好友。')));
     }
     function cancel() {
       const original = mode === 'edit' ? rules.find(rule => rule.id === draft.id) : null;
