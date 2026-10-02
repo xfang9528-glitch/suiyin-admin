@@ -1,0 +1,24 @@
+{
+  "verifiedAt": "2026-10-02T13:38:38.976Z",
+  "passed": [
+    "All 43 source rows have complete wx/qw coverage, exact category counts, original totals and all duplicate names in source order",
+    "Three-state environment sorting and original-order reset",
+    "Existing shared fixed-header mechanism remains at the same viewport position",
+    "All 118 proxy cards, keyboard tab switch and WeChat scroll restoration",
+    "Approved 3/3/0 + 5/0/5 = 8/3/5 example and repeated cxy2 entries",
+    "Confirmed empty environments display zero and no-account groups",
+    "Only wx/qw business categories render; evidence metadata does not add collection states or lose duplicate names",
+    "Source count mismatches preserve original totals and remain internal developer diagnostics",
+    "Missing, unsupported and misaligned account types are rejected before DOM replacement, never guessed or dropped",
+    "Long names fully wrap inside badges without clipping or document overflow at 760px",
+    "Existing tenant guard prevents the platform component rendering for a different tenant",
+    "No JavaScript errors or external requests"
+  ],
+  "errors": [],
+  "external": [],
+  "livePrototypeRowsVerified": 43,
+  "sourceCountDiagnostics": [],
+  "edgeCasesUseInMemoryFixtures": true,
+  "sourceFilesMutated": false,
+  "externalNetworkBlocked": true
+}

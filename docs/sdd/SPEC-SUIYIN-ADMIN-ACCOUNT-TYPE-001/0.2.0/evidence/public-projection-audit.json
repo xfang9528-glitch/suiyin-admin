@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-10-02T13:39:41.811Z",
+  "accountSlots": 1139,
+  "phoneRedactionCount": 13,
+  "redactionsByField": {
+    "accountNames": 13,
+    "proxyNames": 0,
+    "environmentNames": 0
+  },
+  "hashAlgorithm": "SHA-256 of canonical JSON.stringify data",
+  "sourceDataHash": "d4d13157f770bcf59192347f83012267ce7d89e18c1167e80295b353c55f7ef3",
+  "publicDataHash": "6dd3170cfce7c3072ff799aa870d3ffafa222e349b7961c440ff9ee747cab58a",
+  "countsAndTypeOrderPreserved": true,
+  "internalEvidenceMetadataExcluded": true,
+  "fullMobileNumberCount": 0
+}

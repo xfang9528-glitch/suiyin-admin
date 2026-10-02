@@ -1,5 +1,7 @@
 # 碎银 Admin 原型维护入口
 
+2026-10-02全部账号状态执行[ACCOUNT-TYPE-001@0.2.0](docs/sdd/SPEC-SUIYIN-ADMIN-ACCOUNT-TYPE-001/0.2.0/README.md)：佰智德三平台总览使用43个环境、1139个真实采集账号及118张代理卡片；统计和在线/掉线名单只按个微、企微分类，统计末行汇总，不存在第三分类。类型读取创建时已保存的属性，名称匹配仅用于静态采集构建，生产以稳定账号ID关联。公开数据中的13处手机号已遮罩；原始采集与私人诊断只留本地。见[产品说明](prd/all-account-status.md)、[流程](flowcharts/all-account-status.md)和[工程Issue #458](https://github.com/PetWebOrg/suiyin-admin/issues/458)，生产实现仍待正式工程流程。
+
 2026-09-30表头表达调整：所有17租户的普通菜单管理第二列显示「仅超级管理员可见」，宽180px。`admin-menu-tree.js`只映射表头展示，内部「超级权限」字段继续索引、保存和导航投影；本轮是L0，不新建行为合同。见[菜单说明](prd/tenant-menu-drag.md)与[验收](docs/verification/menu-label-20260930/README.md)。
 
 更新：2026-09-30。[076@1.0.1](docs/sdd/SPEC-SUIYIN-ADMIN-076/1.0.1/README.md)登记画美/傲丽两西安租户、全部租户「碎银账号」名称、八租户时间入口移除与菜单状态胶囊；[077@1.0.1](docs/sdd/SPEC-SUIYIN-ADMIN-077/1.0.1/README.md)定义八租户咨询称谓及线上咨询、现场咨询、科室助理三类岗位。两新租户只有独立最小框架，真实账号/业务仍待采集，不扩散艺星回访及辅助线能力。见[产品说明](prd/admin-account-menu-status.md)与[流程](flowcharts/admin-account-menu-status.md)。
@@ -23,6 +25,7 @@
 - `prototype/_shell.html`、`admin-navigation.js/css`、`admin-menu-state.js`：租户、导航、页签、菜单本地覆盖。
 - `admin-account-profile.js`：076默认账号名称与八租户时间字段能力；077八租户系统称谓与角色适配。按tenant和稳定route处理，保留字段键、自由文本、统计口径和其他角色，不全仓替换销售。
 - `admin-content.html/js/css`：内容入口、来源表单、筛选及列表基础。
+- `admin-all-account-status.js/css`、`data/all-account-status.js`：仅接管 `bzds/allWeChatStatus`，独立维护微信/代理页签、环境名称三态排序与滚动位置；显式个微/企微类型校验失败时保留已有正确内容，禁止回退通用演示名单。其他租户仍走原入口。
 - `admin-domain-views.js`、`admin-expanded-flows.js`、`admin-extra-flows.js`、`admin-chat.js`、`admin-page-editors.js`：领域结构与本地交互。
 - `admin-menu-tree.js/css`：普通及平台菜单专用树表。
 - `admin-language-manage.js/css`、`data/language-manage.json`：十五租户话术管理专用树、列表与本地编辑；`admin-domain-views.js`的`languageManage`路由直接调用此模块。旧`scriptWorkspace`和通用`data/content/`中的话术文本仅留作历史兼容，不是本路由的渲染或数据入口。

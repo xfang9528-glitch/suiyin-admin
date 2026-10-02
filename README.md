@@ -1,5 +1,7 @@
 # 碎银管理后台 HTML 原型
 
+2026-10-02：[全部账号状态](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=allWeChatStatus)已对齐真实总览结构，统计列固定为个微、企微、汇总，在线/掉线名单各按两类分组。账号类型使用创建时的既定类型，页面没有第三分类。当前静态样例为43环境、1,139账号和118代理卡，名称内手机号已掩码；本地原始采集不公开。见[产品说明](prd/all-account-status.md)、[交互流程](flowcharts/all-account-status.md)、[0.2.0版本合同](docs/sdd/SPEC-SUIYIN-ADMIN-ACCOUNT-TYPE-001/0.2.0/README.md)及[验收记录](docs/sdd/SPEC-SUIYIN-ADMIN-ACCOUNT-TYPE-001/0.2.0/verification.md)。工程待办为[Admin #458](https://github.com/PetWebOrg/suiyin-admin/issues/458)，负责人/提出人房昕，提出环境佰智德三；生产尚未实现。
+
 2026-09-30文案调整：全部17租户的「系统管理 → 菜单管理」第二列表头统一显示「仅超级管理员可见」，列宽为180px，保持单行。沿用已有菜单字段及权限合同；见[菜单产品说明](prd/tenant-menu-drag.md)、[交互流程](flowcharts/tenant-menu-drag.md)和[本次验收](docs/verification/menu-label-20260930/README.md)。
 
 这是十七租户的静态管理后台原型，用于对照真实页面、评审操作和统计规则。2026-09-30 按当前导航登记 **17 个租户、814 个租户×页面入口、90 种路由**。其中783个入口属于2026-09-27源环境采集队列，741个可见页面已有有效DOM和截图，42个保持源隐藏状态；另有13个既有AI费用、6个艺星回访规则、6个艺星辅助线管理和画美/傲丽各3个待采集原型入口。工具管理是结构父级，不计业务路由；新增原型不计入实站采集页数，采集覆盖不等于全部页面、全部状态逐像素一致。
@@ -70,7 +72,7 @@
 
 真实后台只读；不接真实认证、发送、录音上传、共享数据库或生产写接口。原始客户截图、DOM捕获、连接配置和本机诊断资料不放入公开包。未采曲线点、其他筛选区间和未查看详情继续明确为未知或未采集。
 
-本轮交付标签为 `v2026093002-admin-menu-permission-label`，实际提交、单文件验收、tag推送和远端部署以 [release.json](release.json) 与发布回执为准；文档链接不单独证明已经部署。旧 [2026-09-20纠偏](docs/verification/pixel-correction-20260920.md)、[冻结验收](docs/verification/filters-sticky-20260920.md) 和版本化SDD仅证明各自当时范围。旧主题及好友独立页见 [历史入口](docs/history/before-admin-live-reference/README.md)，不作为当前Shell实现指令。
+本轮交付标签为 `v2026100201-admin-account-type-status`，实际提交、单文件验收、tag推送和远端部署以 [release.json](release.json) 与发布回执为准；文档链接不单独证明已经部署。`v2026093002-admin-menu-permission-label`为上轮菜单文案标签。旧 [2026-09-20纠偏](docs/verification/pixel-correction-20260920.md)、[冻结验收](docs/verification/filters-sticky-20260920.md) 和版本化SDD仅证明各自当时范围。旧主题及好友独立页见 [历史入口](docs/history/before-admin-live-reference/README.md)，不作为当前Shell实现指令。
 
 原型发布不等于生产上线。073的既有Admin工程Issue为[#442](https://github.com/PetWebOrg/suiyin-admin/issues/442)，负责人王梓先（`build996`），提出环境佰智德三、提出人房昕，当前为`status:todo`；执行以[073交接合同](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/issue-handoff.md)与[Test Contract](docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/test-contract.md)为准。既有销售变声[#401](https://github.com/PetWebOrg/suiyin-admin/issues/401)、AI费用[#402](https://github.com/PetWebOrg/suiyin-admin/issues/402)、预约图表[#404](https://github.com/PetWebOrg/suiyin-admin/issues/404)、租户菜单[#432](https://github.com/PetWebOrg/suiyin-admin/issues/432)仍由各自精确合同承接。当前17租户是原型验证清单，不是生产白名单；本轮工程只交接时间入口移除与菜单状态胶囊，两新租户登记和077术语/角色不扩为工程任务。不更新开发进度表。
 

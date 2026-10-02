@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-10-02T13:38:46.853Z",
+  "isolatedFixturesOnly": true,
+  "sourceDataModified": false,
+  "passed": [
+    "Empty environments render both zero-valued types without requiring absent accountTypes arrays",
+    "Same-name wx/qw entries remain separate in both online and offline columns, with matching counts",
+    "Invalid count shapes, negative/fractional/string/nonfinite values and sparse arrays fail developer validation",
+    "Both long-list group headings stick immediately below the shared table header without overlap",
+    "Failed parent redraw keeps the valid DOM, scroll position and usable tab/sort snapshot instead of legacy data",
+    "Invalid initial fixture shows only the existing read-failure/retry UI; retry restores complete fixture with no legacy rows",
+    "Missing initial account-status data also stays in the dedicated route and never falls back to legacy rows",
+    "The existing non-bzds fallback remains unchanged"
+  ],
+  "sticky": [
+    {
+      "type": "wx",
+      "headerTop": 54,
+      "headerBottom": 94,
+      "groupTop": 94
+    },
+    {
+      "type": "qw",
+      "headerTop": 54,
+      "headerBottom": 94,
+      "groupTop": 94
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": []
+}

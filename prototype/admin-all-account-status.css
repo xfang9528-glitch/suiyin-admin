@@ -1,0 +1,69 @@
+/* Scope every rule to this captured route; other administration pages retain their layout. */
+.admin-content .account-status-live{height:100vh;display:flex;flex-direction:column;padding:0!important;gap:0;overflow:hidden;color:#606266;font-family:var(--live-font,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif);font-size:14px;background:#fff}
+.account-status-live .account-status-tabs{height:40px;min-height:40px;display:flex;align-items:flex-start;gap:40px;padding-top:0;border-bottom:2px solid #e4e7ed;position:relative;margin-bottom:14px}
+.admin-content .account-status-live .account-status-tab{height:40px;min-height:40px;padding:0!important;border:0;border-radius:0;background:transparent;position:relative;color:#303133;font-size:14px;line-height:40px;white-space:nowrap;font-weight:500}
+.admin-content .account-status-live .account-status-tab:hover{background:transparent;color:#409eff}
+.admin-content .account-status-live .account-status-tab.selected{color:#409eff}
+.account-status-live .account-status-tab.selected:after{position:absolute;content:"";left:0;right:0;bottom:0;height:2px;background:#409eff}
+.account-status-live .account-status-panel{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;margin:0;padding:0 0 1px;border:0;position:relative}
+.account-status-live .account-status-table-scroll{flex:1;min-height:0;overflow:auto;scrollbar-width:none;box-shadow:inset 0 0 0 1px #ebeef5}
+.account-status-live .account-status-table{width:100%;min-width:740px;border-spacing:0;border-collapse:separate;table-layout:fixed;font-size:14px;line-height:23px;color:#606266}
+.account-status-live .account-status-table col:first-child{width:160px!important}
+.account-status-live .account-status-table col:nth-child(2){width:210px!important}
+.account-status-live .account-status-table col:nth-child(n+3){width:calc((100% - 370px)/2)!important}
+.account-status-live .account-status-table th,.account-status-live .account-status-table td{border-bottom:1px solid #ebeef5;border-right:1px solid #ebeef5;padding:8px 0;text-align:left;font-weight:400;vertical-align:middle;background:#fff}
+.account-status-live .account-status-table th:last-child,.account-status-live .account-status-table td:last-child{border-right:0}
+.account-status-live .account-status-table th{position:relative;z-index:2;height:auto;color:#909399;white-space:nowrap}
+.account-status-live .account-status-table th:first-child{width:160px!important}
+.account-status-live .account-status-table th:nth-child(2){width:210px!important}
+.account-status-live .account-status-table th:nth-child(n+3){width:calc((100% - 370px)/2)!important}
+.account-status-live .account-status-table tbody tr:hover td{background:#f5f7fa}
+.account-status-live .account-status-cell{padding:0 12px;line-height:23px;overflow-wrap:break-word}
+.account-status-live .account-status-badges{display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.account-status-live .account-status-badge{height:24px;box-sizing:border-box;display:inline-flex;align-items:center;padding:0 9px;border:1px solid;border-radius:4px;font-size:12px;line-height:12px;white-space:nowrap;max-width:100%}
+.account-status-live .account-status-badge-total{color:#909399;background:#f4f4f5;border-color:#e9e9eb}
+.account-status-live .account-status-badge-online{color:#409eff;background:#ecf5ff;border-color:#d9ecff}
+.account-status-live .account-status-badge-offline{color:#f56c6c;background:#fef0f0;border-color:#fde2e2}
+.account-status-live .account-status-stat-grid{display:flex;flex-direction:column;gap:6px;font-size:12px;font-variant-numeric:tabular-nums}
+.account-status-live .account-status-stat-row{display:grid;grid-template-columns:48px repeat(3,minmax(0,1fr));align-items:center;gap:2px;line-height:24px}
+.account-status-live .account-status-stat-head{color:#909399;line-height:18px;margin-bottom:1px;text-align:center}
+.account-status-live .account-status-stat-head>:first-child{text-align:left}
+.account-status-live .account-status-stat-row .account-status-badge{justify-self:center;justify-content:center;min-width:30px;padding:0 4px;font-variant-numeric:tabular-nums}
+.account-status-live .account-status-stat-label{white-space:nowrap;color:#606266}
+.account-status-live .account-status-stat-summary{border-top:1px solid #ebeef5;padding-top:7px;margin-top:1px}
+.account-status-live .account-status-stat-summary .account-status-stat-label{font-weight:500;color:#303133}
+.account-status-live .account-status-account-groups{display:flex;flex-direction:column;gap:10px;padding-top:2px;padding-bottom:2px}
+.account-status-live .account-status-account-group{min-width:0}
+.account-status-live .account-status-group-heading{display:flex;align-items:center;gap:6px;margin-bottom:4px;color:#606266;font-size:12px;line-height:18px}
+.account-status-live .account-status-group-count{color:#909399;font-variant-numeric:tabular-nums}
+.account-status-live .account-status-name-badges{align-items:flex-start;min-width:0}
+.account-status-live .account-status-name-badges .account-status-badge{height:auto;min-height:24px;padding-top:3px;padding-bottom:3px;line-height:16px;white-space:normal;overflow-wrap:anywhere;word-break:normal}
+.account-status-live .account-status-empty-group{font-size:12px;line-height:20px;color:#b0b4bd}
+.account-status-live .account-status-group-heading{position:sticky;top:40px;z-index:1;background:#fff}
+.account-status-live .account-status-table tbody tr:hover .account-status-group-heading{background:#f5f7fa}
+.admin-content .account-status-live .account-status-sort{border:0;border-radius:0;background:transparent;min-height:0;height:23px;display:inline-flex;align-items:center;gap:5px;color:#909399;font-size:14px;line-height:23px;padding:0!important;font-weight:400}
+.admin-content .account-status-live .account-status-sort:hover{background:transparent;color:#909399}
+.account-status-live .account-status-sort-arrows{display:inline-flex;flex-direction:column;justify-content:center;gap:2px;width:12px;height:23px}
+.account-status-live .account-status-sort-up{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:5px solid #c0c4cc}
+.account-status-live .account-status-sort-down{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid #c0c4cc}
+.account-status-live .account-status-sort-up.active{border-bottom-color:#409eff}
+.account-status-live .account-status-sort-down.active{border-top-color:#409eff}
+.account-status-live .account-status-proxy-scroll{flex:1;min-height:0;overflow:auto;scrollbar-width:none}
+.account-status-live .account-status-proxy-grid{display:flex;flex-wrap:wrap;align-content:flex-start;align-items:flex-start;gap:20px;padding:0 0 20px}
+.account-status-live .account-status-proxy-card{width:300px;flex:0 0 300px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px;border:1px solid #e4e7ed;border-radius:4px;box-shadow:none;background:white;font-size:15px;line-height:24px;color:#303133;transition:box-shadow .3s}
+.account-status-live .account-status-proxy-card:hover{box-shadow:0 2px 12px 0 #0000001a}
+.account-status-live .account-status-proxy-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.account-status-live .account-status-proxy-counts{display:flex;align-items:center;gap:20px;flex:none}
+.account-status-live .account-status-proxy-count{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.account-status-live .account-status-dot{display:inline-block;flex:0 0 10px;width:10px;height:10px;border-radius:50%}
+.account-status-live .account-status-dot-online{background:green}
+.account-status-live .account-status-dot-offline{background:red}
+.account-status-live .account-status-table-scroll::-webkit-scrollbar,.account-status-live .account-status-proxy-scroll::-webkit-scrollbar{display:none}
+.account-status-live .account-status-scrollbar{position:absolute;right:2px;bottom:3px;width:6px;z-index:6;border-radius:4px}
+.account-status-live .account-status-scrollbar[hidden]{display:none}
+.account-status-live .account-status-scrollbar-thumb{width:6px;background:#90939980;border-radius:4px;cursor:default;touch-action:none}
+.account-status-live .account-status-scrollbar-thumb:hover{background:#909399b3}
+.account-status-live .account-status-panel:has(.account-status-table)::after{content:'';position:absolute;inset:0 0 1px;border:1px solid #ebeef5;pointer-events:none;z-index:5}
+.admin-content .account-status-live .account-status-sort{display:flex;font-family:inherit}
+.admin-content .account-status-live .account-status-tab{font-family:inherit}
+@media(max-width:340px){.account-status-live .account-status-proxy-card{width:100%;flex-basis:100%}}

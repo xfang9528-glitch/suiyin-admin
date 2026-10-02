@@ -1,0 +1,145 @@
+{
+  "verifiedAt": "2026-10-02T13:44:13.352Z",
+  "scope": "Only the allWeChatStatus page and its public local data",
+  "expected": {
+    "environments": 43,
+    "accounts": 1139,
+    "online": 799,
+    "offline": 340,
+    "wx": [
+      970,
+      748,
+      222
+    ],
+    "qw": [
+      169,
+      51,
+      118
+    ],
+    "proxyCards": 118
+  },
+  "artifactHashes": {
+    "inlineSha256": "a460fcb919bda7b95b2d57d7cff3217edf264a196920913a885305f07230150c",
+    "dataSha256": "1c7bed48063d4e002e6cc72fe43dbd338af18e0be940c0c0918cd7ac59227a04"
+  },
+  "passed": true,
+  "results": [
+    {
+      "entry": "http-shell",
+      "passed": true,
+      "environments": 43,
+      "accounts": 1139,
+      "aggregateCounts": [
+        1139,
+        799,
+        340
+      ],
+      "categoryCounts": {
+        "wx": [
+          970,
+          748,
+          222
+        ],
+        "qw": [
+          169,
+          51,
+          118
+        ]
+      },
+      "proxyCards": 118,
+      "verified": [
+        "all row totals and wx/qw lists including repeated names",
+        "no third business category",
+        "three sorting states and original-order reset",
+        "118 exact proxy cards",
+        "tab switch preserves sorted list and scroll",
+        "no legacy fallback",
+        "public masking and metadata boundary"
+      ],
+      "requestProtocols": {
+        "http": 93
+      },
+      "externalRequests": [],
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "entry": "http-inline",
+      "passed": true,
+      "environments": 43,
+      "accounts": 1139,
+      "aggregateCounts": [
+        1139,
+        799,
+        340
+      ],
+      "categoryCounts": {
+        "wx": [
+          970,
+          748,
+          222
+        ],
+        "qw": [
+          169,
+          51,
+          118
+        ]
+      },
+      "proxyCards": 118,
+      "verified": [
+        "all row totals and wx/qw lists including repeated names",
+        "no third business category",
+        "three sorting states and original-order reset",
+        "118 exact proxy cards",
+        "tab switch preserves sorted list and scroll",
+        "no legacy fallback",
+        "public masking and metadata boundary"
+      ],
+      "requestProtocols": {
+        "http": 1
+      },
+      "externalRequests": [],
+      "pageErrors": [],
+      "consoleErrors": []
+    },
+    {
+      "entry": "file-inline",
+      "passed": true,
+      "environments": 43,
+      "accounts": 1139,
+      "aggregateCounts": [
+        1139,
+        799,
+        340
+      ],
+      "categoryCounts": {
+        "wx": [
+          970,
+          748,
+          222
+        ],
+        "qw": [
+          169,
+          51,
+          118
+        ]
+      },
+      "proxyCards": 118,
+      "verified": [
+        "all row totals and wx/qw lists including repeated names",
+        "no third business category",
+        "three sorting states and original-order reset",
+        "118 exact proxy cards",
+        "tab switch preserves sorted list and scroll",
+        "no legacy fallback",
+        "public masking and metadata boundary"
+      ],
+      "requestProtocols": {
+        "file": 1
+      },
+      "externalRequests": [],
+      "pageErrors": [],
+      "consoleErrors": []
+    }
+  ]
+}

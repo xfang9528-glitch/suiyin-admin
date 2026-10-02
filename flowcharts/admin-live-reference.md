@@ -1,5 +1,7 @@
 # 管理后台交互流程
 
+更新：2026-10-02。`bzds / allWeChatStatus` 按[全部账号状态专用流程](all-account-status.md)展示个微、企微及汇总；没有第三分类。该路由读取失败不退回旧演示样本，其他领域继续下面的来源处理流程。
+
 更新：2026-09-30。账号名称、八租户时间入口、菜单胶囊和咨询岗位见[本轮流程](admin-account-menu-status.md)，执行076@1.0.1与077@1.0.1。下列跨租户流程中的销售称谓在指定八租户显示为咨询；稳定身份、计算口径和其他租户称谓保持。
 
 更新：2026-09-29。工具父级、话术入口迁移和艺星辅助线管理按[073@1.0.0](../docs/sdd/SPEC-SUIYIN-ADMIN-073/1.0.0/spec.md)。话术树、末级列表和本地编辑继续[话术管理流程](language-manage.md)与051@1.1.0；导航迁移不重置原业务状态。
@@ -21,7 +23,9 @@ flowchart TD
     Config --> Route[按稳定路由打开其他领域页面]
     Language --> Route
     Guides --> Route
-    Route --> Load{静态样本读取}
+    Route --> AccountRoute{bzds全部账号状态}
+    AccountRoute -->|是| AccountFlow[专用两类及汇总流程 失败不回退旧演示]
+    AccountRoute -->|否| Load{静态样本读取}
     Load -->|失败| Retry[说明错误并提供重试]
     Retry --> Route
     Load -->|成功| Source{样本性质}
