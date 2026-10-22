@@ -122,7 +122,7 @@ function onEdit(idx) {
   });
 }
 function onResetPwd(idx) {
-  if (confirm(`重置「${ROWS[idx].name}」的登录密码？新密码会通过短信发送到 ${ROWS[idx].phone.slice(0,3)}****${ROWS[idx].phone.slice(-4)}`)) toast('已重置');
+  if (confirm(`确认重置「${ROWS[idx].name}」的登录密码？\n重置后新密码为该账号手机号后 6 位，对方下次登录必须先修改密码；此操作会记录审计日志`)) toast('重置成功，对方下次登录需先修改密码');
 }
 function onDel(idx) {
   if (confirm(`确认删除销售「${ROWS[idx].name}」？该操作无法撤销，且会解除其名下客户的归属`)) { ROWS.splice(idx, 1); render(); toast('已删除'); }
