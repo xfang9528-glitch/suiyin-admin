@@ -49,3 +49,8 @@ html:has(.menu-modal-open){background:transparent}.menu-modal-open #app{backgrou
 .menu-status-control[aria-busy=true]{opacity:.65}
 .menu-is-moving .menu-status-control{pointer-events:none}
 .menu-page-header .menu-source-note{flex-basis:100%;margin:0;font-size:12px;line-height:20px;color:#8a661f}
+/* #4746 重置密码确认：复用删除确认框，文案两行，图标顶对齐 */
+.menu-delete-message.weak-pw-reset{height:auto;align-items:flex-start}
+.menu-delete-message.weak-pw-reset svg{flex:none}
+/* 确认框把内容帧铺满整个 Shell 时，列表左下角固定的来源标注会跟着跑到侧栏上，弹窗期间先隐藏（同 refresh-source 做法） */
+.admin-content.menu-modal-open .table-page>.page-head{display:none}

@@ -374,5 +374,5 @@ window.AdminMenu=(()=>{
   }
   present(title,body,[],row?'edit':'audit');if(row){const width=800;A.$('dialog').style.setProperty('--dialog-width',width+'px');A.$('dialog').style.setProperty('--dialog-left',Math.max(16,(innerWidth-width)/2)+'px');}
  }
- return {matches,render,edit,logs};
+ return {matches,render,edit,logs,present};
 })();

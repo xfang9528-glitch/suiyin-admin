@@ -1,0 +1,69 @@
+PASS 登录框 maxlength=20
+PASS 登录框占位符不再写 6-16 位
+PASS 忘记密码第 1 步可见 + 返回登录
+PASS 忘记密码第 2 步可见，新密码框 maxlength=20
+PASS 忘记密码第 3 步「重置成功」
+PASS 忘记密码「返回登录」回登录页
+PASS 无演示参数时登录进入 Shell
+PASS warn/weak 登录后直达强制改密第 2 步
+PASS warn/weak 原因文案
+PASS warn/weak 左上为「退出登录」、常驻提示
+PASS warn/security 登录后直达强制改密第 2 步
+PASS warn/security 原因文案
+PASS warn/security 左上为「退出登录」、常驻提示
+PASS warn/default 登录后直达强制改密第 2 步
+PASS warn/default 原因文案
+PASS warn/default 左上为「退出登录」、常驻提示
+PASS warn/unknown-x 登录后直达强制改密第 2 步
+PASS warn/unknown-x 原因文案
+PASS warn/unknown-x 左上为「退出登录」、常驻提示
+PASS enforced 登录后同样直达第 2 步
+PASS 退出登录回登录页且内存清空
+PASS 规则：密码只能包含英文字母、数字和英文符号，不能有空格
+PASS 规则：密码长度需为 8–20 位
+PASS 规则：密码需同时包含字母和数字
+PASS 规则：密码不能包含手机号
+PASS 规则：新密码不能与旧密码相同
+PASS 规则：两次输入的密码不一致
+PASS 改对后报错实时消失
+PASS 新密码框 maxlength=20
+PASS 提交成功进入第 3 步「修改成功」
+PASS 成功倒计时后进入系统
+PASS 40020 标在新密码框
+PASS 40020 只演示一次，再次提交成功
+PASS 40020-default 标在新密码框
+PASS 40020-default 只演示一次，再次提交成功
+PASS 40020-used 标在新密码框
+PASS 40020-used 只演示一次，再次提交成功
+PASS 401 回第 1 步旧密码框标红
+PASS 401 清掉内存旧密码
+PASS 第 1 步手机号只读遮罩
+PASS 第 1 步空旧密码提示
+PASS 输入旧密码回第 2 步、新密码草稿保留
+PASS 401 后重新提交成功
+PASS 428 打开即强制改密第 1 步
+PASS 428 输入的旧密码参与规则 5
+PASS 42900 按钮禁用 + 「请 n 秒后重试」
+PASS 42900 话术同步倒计时
+PASS 42900 结束后恢复「确认修改」且未自动重发
+PASS 50020 回登录页 + toast
+PASS neterr 回登录页 + toast
+PASS 5xx 回登录页 + toast
+PASS password_changed 登录页提示
+PASS 42910 lock-account
+PASS 42910 lock-ip
+PASS 42910 lock-gate
+PASS 无 qa=1 时 pwState 不生效
+PASS 重置密码弹 .menu-delete-dialog 确认框
+PASS 确认框定稿文案、无新密码输入框
+PASS 取消关闭弹窗
+PASS 确定后关闭并 #toast 回显
+PASS 回归：碎银账号「编辑」仍是表单弹窗
+PASS 回归：菜单管理「确认删除菜单?」不受影响
+PASS sales_v1.0 重置确认为定稿文案、不提短信
+PASS sales_v1.0 确定后 toast 回显
+
+64/64 passed; JS errors: 0
+
+notes (not counted):
+login_v1.0.html console: Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5200/favicon.ico
