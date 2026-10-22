@@ -1,5 +1,7 @@
 # 碎银管理后台 HTML 原型
 
+2026-10-22新增[弱口令强制改密](prd/weak-password.md)：登录需要改密时（提示期即强制）停在沿用「忘记密码」三步流程的改密页，6条强度规则按顺序只提示一条，40020/旧密码错误/42900/50020/网络错误及被踢、42910锁均可演示；碎银账号「重置密码」改为确认框（新密码为手机号后6位）；登录与改密框上限改为20位。演示入口 `login_v1.0.html?qa=1&pwState=…`，详见[WEAK-PASSWORD-4746@0.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-WEAK-PASSWORD-4746/0.1.0/spec.md)与[流程](flowcharts/weak-password.md)；前端单[Admin #557](https://github.com/PetWebOrg/suiyin-admin/issues/557)。
+
 2026-10-12新增[扫街轨迹](prd/street-trajectories.md)：所有医美租户可选人员与日期，在地图上10秒内回放全部有效行程。当前覆盖六艺星及画美/傲丽两个西安租户；无旧拉新入口的两店补必要数据展示父级。非医美不开放。详见[081@1.1.0](docs/sdd/SPEC-SUIYIN-ADMIN-081/1.1.0/README.md)与[流程](flowcharts/street-trajectories.md)。本地示意地图和合成数据不代表真实轨迹已接入。
 
 2026-10-02：[全部账号状态](https://suiyin-admin.pages.dev/prototype/_shell.html?tenant=bzds&page=allWeChatStatus)已对齐真实总览结构，统计列固定为个微、企微、汇总，在线/掉线名单各按两类分组。账号类型使用创建时的既定类型，页面没有第三分类。当前静态样例为43环境、1,139账号和118代理卡，名称内手机号已掩码；本地原始采集不公开。见[产品说明](prd/all-account-status.md)、[交互流程](flowcharts/all-account-status.md)、[0.2.0版本合同](docs/sdd/SPEC-SUIYIN-ADMIN-ACCOUNT-TYPE-001/0.2.0/README.md)及[验收记录](docs/sdd/SPEC-SUIYIN-ADMIN-ACCOUNT-TYPE-001/0.2.0/verification.md)。工程待办为[Admin #458](https://github.com/PetWebOrg/suiyin-admin/issues/458)，负责人/提出人房昕，提出环境佰智德三；生产尚未实现。
