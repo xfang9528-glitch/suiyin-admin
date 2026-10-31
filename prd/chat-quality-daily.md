@@ -1,3 +1,13 @@
+# 会话质检日报产品说明
+
+2026-10-30本轮已批准纠正：[上线样本调整Plan／AC](../docs/sdd/SPEC-SUIYIN-ADMIN-092/0.4.0/live-corrections-20261030.md)。真实日报必须明确失败和未分析原因、程序统计只读、原文北京时间和统计日定位；共享任务、费用与容量以实际证据验收，不以静态原型通过代替。
+
+2026-10-29工程候选以[092@0.4.0合同](../docs/sdd/SPEC-SUIYIN-ADMIN-092/0.4.0/spec.md)、[完整Plan／AC](../docs/sdd/SPEC-SUIYIN-ADMIN-092/0.4.0/plan.md)及[合成原型](../docs/sdd/SPEC-SUIYIN-ADMIN-092/0.4.0/prototype.html)为准，用户已授权实施，源正式合入待审。两日报对全部企业适用，按工作号每日单聊质检；复用AI Task及提示词库，只删除模板高级区；规则指标单独配置并按号日统计。详细数据合同及六条AC统一维护在Plan，避免重复。
+
+以下保留0.3.3历史产品说明，只有本次合同明确继续沿用的部分有效；其深圳本机范围、试跑发布高级区与旧独立runtime不用于新工程。
+
+---
+
 # 企微与个微会话质检日报
 
 行为真源：[SPEC-SUIYIN-ADMIN-092@0.3.3](../docs/sdd/SPEC-SUIYIN-ADMIN-092/0.3.3/spec.md)。2026-10-25用户最终确认“原型图OK了，完整推送”；本文件是已验收静态原型的产品说明，不引入第二套规则。远端交付状态以实际发布回执为准。
@@ -60,3 +70,11 @@
 已保存深圳分析来源为Codex、`apiExecuted=false`；API执行暂停，未执行／未验收的本地runtime不打入本次静态包。真实DeepSeek闭环、生产权限和持久化、每天调度、04:00启动／08:00前完成、费用与容量仍需独立运行和工程回执。此次完整推送只交付原型与安全文档，不建立工程Issue，不更新开发进度表，不公开私有数据。
 
 旧0.3.0／0.3.1／0.3.2文档、截图及[早期版式记录](../docs/verification/chat-quality-daily-20261025/report-layout.md)保留为历史；其中右上筛选与原文弹窗不再表示当前界面。当前来源关系见[收敛账本](../docs/sdd/SPEC-SUIYIN-ADMIN-092/0.3.3/source-convergence.md)，最终抽屉证据见[验收回执](../docs/verification/chat-quality-daily-20261025/chat-drawer.md)。
+
+
+2026-10-30后续已批准实施增补：[日报可靠性与运营操作调整](../docs/sdd/SPEC-SUIYIN-ADMIN-092/0.4.0/operator-corrections-20261030.md)。本轮详细Plan/AC和接口增量以此为准；历史合同仅按明确保留范围适用。
+
+
+### 2026-10-31 运营工作流已批准增补
+
+用户已确认[运营配置、两个日报页及状态收敛Plan／六条AC](../docs/sdd/SPEC-SUIYIN-ADMIN-092/0.4.0/operator-workflow-20261031.md)及随附可点击合成原型，进入实现；源仓正式审阅仍待审，部署、付费分析和恢复定时另行授权。沿0.4.0最小增补，不更换原型站Shell；当前补充中的普通手动准入与分析版本边界优先于旧文中相反说明。
